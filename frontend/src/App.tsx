@@ -4,10 +4,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ApolloClient from "apollo-boost";
 import * as React from "react";
 import { ApolloProvider } from "react-apollo";
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter, Link, Route } from "react-router-dom";
 
 import "./App.css";
-import Intro from "./Intro";
+import AuthButton from "./AuthButton";
+import Login from "./Login";
+import PrivateRoute from "./PrivateRoute";
+import Protected from "./Protected";
+import Public from "./Public";
 
 library.add(faMoneyBillAlt);
 
@@ -26,7 +30,20 @@ class App extends React.Component {
               <h1 className="App-title">Connect Now</h1>
               <h3>A Sample Application for Exploring Spotware's Open API v2</h3>
             </header>
-            <Route to="/" component={Intro} />
+            <div>
+              <AuthButton />
+              <ul>
+                <li>
+                  <Link to="/public">Public Page</Link>
+                </li>
+                <li>
+                  <Link to="/protected">Protected Page</Link>
+                </li>
+              </ul>
+              <Route path="/public" component={Public} />
+              <Route path="/login" component={Login} />
+              <PrivateRoute path="/protected" component={Protected} />
+            </div>
           </div>
         </BrowserRouter>
       </ApolloProvider>
