@@ -7,7 +7,7 @@ export const AuthButton = withRouter(({ history }) => {
   const signout = () => {
     fakeAuth.signout(() => history.push("/"));
   };
-  return fakeAuth.isAuthenticated ? (
+  return fakeAuth.isAuthenticated() ? (
     <p>
       Welcome! <button onClick={signout}>Sign out</button>
     </p>

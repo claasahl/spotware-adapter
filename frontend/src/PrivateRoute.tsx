@@ -5,7 +5,7 @@ import { fakeAuth } from "./fakeAuth";
 
 export const PrivateRoute = ({ component: Component, ...rest }: any) => {
   const bla = (props: any) =>
-    fakeAuth.isAuthenticated ? (
+    fakeAuth.isAuthenticated() ? (
       <Component {...props} />
     ) : (
       <Redirect

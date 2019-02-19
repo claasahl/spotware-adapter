@@ -1,23 +1,19 @@
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faMoneyBillAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import ApolloClient from "apollo-boost";
 import * as React from "react";
 import { ApolloProvider } from "react-apollo";
 import { BrowserRouter, Link, Route } from "react-router-dom";
 
 import "./App.css";
 import AuthButton from "./AuthButton";
+import { client } from "./client";
 import Login from "./Login";
 import PrivateRoute from "./PrivateRoute";
 import Protected from "./Protected";
 import Public from "./Public";
 
 library.add(faMoneyBillAlt);
-
-const client = new ApolloClient({
-  uri: "https://48p1r2roz4.sse.codesandbox.io"
-});
 
 class App extends React.Component {
   public render() {
