@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepare": "tsc",
     "build": "tsc",
-    "start": "ts-node src/server.ts"
+    "start": "ts-node src/server.ts",
+    "codegen": "gql-gen --config codegen.yml"
   },
   "keywords": [],
   "author": "",
@@ -18,7 +19,14 @@
     }
   },
   "devDependencies": {
+    "@types/aws-lambda": "^8.10.19",
     "@types/node": "^11.9.5",
+    "@types/ws": "^6.0.1",
+    "graphql-code-generator": "^0.17.0",
+    "graphql-codegen-add": "^0.17.0",
+    "graphql-codegen-typescript-common": "0.17.0",
+    "graphql-codegen-typescript-resolvers": "^0.17.0",
+    "graphql-codegen-typescript-server": "^0.17.0",
     "husky": "^1.3.1",
     "prettier": "^1.16.4",
     "pretty-quick": "^1.10.0",
@@ -26,6 +34,7 @@
     "typescript": "^3.3.3333"
   },
   "dependencies": {
+    "graphql-tag": "^2.10.1",
     "graphql-yoga": "^1.17.4"
   }
 }

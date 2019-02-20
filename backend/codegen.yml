@@ -1,0 +1,15 @@
+overwrite: true
+schema: "src/schema.graphql"
+documents: null
+generates:
+  src/generated/graphql-common.ts:
+    plugins:
+      - "typescript-common"
+  src/generated/graphql-server.ts:
+    plugins:
+      - add: import {Maybe} from "./graphql-common";
+      - "typescript-server"
+  src/generated/graphql-resolvers.ts:
+    plugins:
+      - add: import {Maybe} from "./graphql-common";
+      - "typescript-resolvers"
