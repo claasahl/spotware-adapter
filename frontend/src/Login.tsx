@@ -2,6 +2,7 @@ import * as React from "react";
 import { Redirect, RouteComponentProps } from "react-router-dom";
 
 import { fakeAuth } from "./fakeAuth";
+import { spotware } from "./spotware";
 
 interface IState {
   redirectToReferrer: boolean;
@@ -24,6 +25,7 @@ export class Login extends React.Component<RouteComponentProps, IState> {
       <div>
         <p>You must log in to view the page at {from.pathname}</p>
         <button onClick={this.login}>Log in</button>
+        <a href={spotware.auth()}>test</a>
       </div>
     );
   }

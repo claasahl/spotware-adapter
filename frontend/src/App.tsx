@@ -7,6 +7,7 @@ import { BrowserRouter, Link, Route } from "react-router-dom";
 
 import "./App.css";
 import AuthButton from "./AuthButton";
+import Callback from "./Callback";
 import { client } from "./client";
 import Login from "./Login";
 import PrivateRoute from "./PrivateRoute";
@@ -38,6 +39,7 @@ class App extends React.Component {
               </ul>
               <Route path="/public" component={Public} />
               <Route path="/login" component={Login} />
+              <Route path="/callback" component={Callback} />
               <PrivateRoute path="/protected" component={Protected} />
             </div>
           </div>
