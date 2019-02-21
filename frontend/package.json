@@ -8,6 +8,7 @@
     "@fortawesome/react-fontawesome": "^0.1.4",
     "@types/query-string": "^6.2.0",
     "apollo-boost": "^0.1.28",
+    "apollo-cache-persist": "^0.1.1",
     "graphql": "^14.1.1",
     "query-string": "^6.2.0",
     "react": "^16.8.3",
