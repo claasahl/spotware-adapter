@@ -1,5 +1,32 @@
-import { Maybe } from "./graphql-common";
+export type Maybe<T> = T | null;
+
+// ====================================================
+// Types
+// ====================================================
+
+export interface Query {
+  hello: string;
+}
+
+export interface Subscription {
+  somethingChanged?: Maybe<Result>;
+}
+
+export interface Result {
+  id?: Maybe<string>;
+}
+
+// ====================================================
+// Arguments
+// ====================================================
+
+export interface HelloQueryArgs {
+  name?: Maybe<string>;
+}
+
 import { GraphQLResolveInfo } from "graphql";
+
+import { IContext } from "../resolvers/Context";
 
 export type Resolver<Result, Parent = {}, TContext = {}, Args = {}> = (
   parent: Parent,
@@ -51,26 +78,53 @@ export type DirectiveResolverFn<TResult, TArgs = {}, TContext = {}> = (
 ) => TResult | Promise<TResult>;
 
 export namespace QueryResolvers {
-  export interface Resolvers<TContext = {}, TypeParent = {}> {
+  export interface Resolvers<TContext = IContext, TypeParent = {}> {
     hello?: HelloResolver<string, TypeParent, TContext>;
   }
 
-  export type HelloResolver<R = string, Parent = {}, TContext = {}> = Resolver<
-    R,
-    Parent,
-    TContext,
-    HelloArgs
-  >;
+  export type HelloResolver<
+    R = string,
+    Parent = {},
+    TContext = IContext
+  > = Resolver<R, Parent, TContext, HelloArgs>;
   export interface HelloArgs {
     name?: Maybe<string>;
   }
+}
+
+export namespace SubscriptionResolvers {
+  export interface Resolvers<TContext = IContext, TypeParent = {}> {
+    somethingChanged?: SomethingChangedResolver<
+      Maybe<Result>,
+      TypeParent,
+      TContext
+    >;
+  }
+
+  export type SomethingChangedResolver<
+    R = Maybe<Result>,
+    Parent = {},
+    TContext = IContext
+  > = SubscriptionResolver<R, Parent, TContext>;
+}
+
+export namespace ResultResolvers {
+  export interface Resolvers<TContext = IContext, TypeParent = Result> {
+    id?: IdResolver<Maybe<string>, TypeParent, TContext>;
+  }
+
+  export type IdResolver<
+    R = Maybe<string>,
+    Parent = Result,
+    TContext = IContext
+  > = Resolver<R, Parent, TContext>;
 }
 
 /** Directs the executor to skip this field or fragment when the `if` argument is true. */
 export type SkipDirectiveResolver<Result> = DirectiveResolverFn<
   Result,
   SkipDirectiveArgs,
-  {}
+  IContext
 >;
 export interface SkipDirectiveArgs {
   /** Skipped when true. */
@@ -81,7 +135,7 @@ export interface SkipDirectiveArgs {
 export type IncludeDirectiveResolver<Result> = DirectiveResolverFn<
   Result,
   IncludeDirectiveArgs,
-  {}
+  IContext
 >;
 export interface IncludeDirectiveArgs {
   /** Included when true. */
@@ -92,15 +146,17 @@ export interface IncludeDirectiveArgs {
 export type DeprecatedDirectiveResolver<Result> = DirectiveResolverFn<
   Result,
   DeprecatedDirectiveArgs,
-  {}
+  IContext
 >;
 export interface DeprecatedDirectiveArgs {
   /** Explains why this element was deprecated, usually also including a suggestion for how to access supported similar data. Formatted using the Markdown syntax (as specified by [CommonMark](https://commonmark.org/). */
   reason?: string;
 }
 
-export interface IResolvers<TContext = {}> {
+export interface IResolvers<TContext = IContext> {
   Query?: QueryResolvers.Resolvers<TContext>;
+  Subscription?: SubscriptionResolvers.Resolvers<TContext>;
+  Result?: ResultResolvers.Resolvers<TContext>;
 }
 
 export interface IDirectiveResolvers<Result> {
