@@ -2,10 +2,14 @@ type Query {
   hello(name: String): String!
 }
 
+type Mutation {
+  tokens(code: String!): String!
+}
+
 type Subscription {
   somethingChanged: Result
 }
 
 type Result {
-  id: String
+  id: String!
 }

@@ -8,12 +8,16 @@ export interface Query {
   hello: string;
 }
 
+export interface Mutation {
+  tokens: string;
+}
+
 export interface Subscription {
   somethingChanged?: Maybe<Result>;
 }
 
 export interface Result {
-  id?: Maybe<string>;
+  id: string;
 }
 
 // ====================================================
@@ -22,6 +26,9 @@ export interface Result {
 
 export interface HelloQueryArgs {
   name?: Maybe<string>;
+}
+export interface TokensMutationArgs {
+  code: string;
 }
 
 import { GraphQLResolveInfo } from "graphql";
@@ -92,6 +99,21 @@ export namespace QueryResolvers {
   }
 }
 
+export namespace MutationResolvers {
+  export interface Resolvers<TContext = IContext, TypeParent = {}> {
+    tokens?: TokensResolver<string, TypeParent, TContext>;
+  }
+
+  export type TokensResolver<
+    R = string,
+    Parent = {},
+    TContext = IContext
+  > = Resolver<R, Parent, TContext, TokensArgs>;
+  export interface TokensArgs {
+    code: string;
+  }
+}
+
 export namespace SubscriptionResolvers {
   export interface Resolvers<TContext = IContext, TypeParent = {}> {
     somethingChanged?: SomethingChangedResolver<
@@ -110,11 +132,11 @@ export namespace SubscriptionResolvers {
 
 export namespace ResultResolvers {
   export interface Resolvers<TContext = IContext, TypeParent = Result> {
-    id?: IdResolver<Maybe<string>, TypeParent, TContext>;
+    id?: IdResolver<string, TypeParent, TContext>;
   }
 
   export type IdResolver<
-    R = Maybe<string>,
+    R = string,
     Parent = Result,
     TContext = IContext
   > = Resolver<R, Parent, TContext>;
@@ -155,6 +177,7 @@ export interface DeprecatedDirectiveArgs {
 
 export interface IResolvers<TContext = IContext> {
   Query?: QueryResolvers.Resolvers<TContext>;
+  Mutation?: MutationResolvers.Resolvers<TContext>;
   Subscription?: SubscriptionResolvers.Resolvers<TContext>;
   Result?: ResultResolvers.Resolvers<TContext>;
 }
