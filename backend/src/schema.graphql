@@ -4,6 +4,7 @@ type Query {
 
 type Mutation {
   tokens(code: String!): String!
+  proto(code: String!): String!
 }
 
 type Subscription {

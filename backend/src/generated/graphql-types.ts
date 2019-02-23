@@ -10,6 +10,8 @@ export interface Query {
 
 export interface Mutation {
   tokens: string;
+
+  proto: string;
 }
 
 export interface Subscription {
@@ -28,6 +30,9 @@ export interface HelloQueryArgs {
   name?: Maybe<string>;
 }
 export interface TokensMutationArgs {
+  code: string;
+}
+export interface ProtoMutationArgs {
   code: string;
 }
 
@@ -102,6 +107,8 @@ export namespace QueryResolvers {
 export namespace MutationResolvers {
   export interface Resolvers<TContext = IContext, TypeParent = {}> {
     tokens?: TokensResolver<string, TypeParent, TContext>;
+
+    proto?: ProtoResolver<string, TypeParent, TContext>;
   }
 
   export type TokensResolver<
@@ -110,6 +117,15 @@ export namespace MutationResolvers {
     TContext = IContext
   > = Resolver<R, Parent, TContext, TokensArgs>;
   export interface TokensArgs {
+    code: string;
+  }
+
+  export type ProtoResolver<
+    R = string,
+    Parent = {},
+    TContext = IContext
+  > = Resolver<R, Parent, TContext, ProtoArgs>;
+  export interface ProtoArgs {
     code: string;
   }
 }
