@@ -1,7 +1,8 @@
 import { ApolloError } from "apollo-client";
 import gql from "graphql-tag";
 import * as React from "react";
-import { Mutation } from "react-apollo";
+
+import { client } from "../client";
 
 export const TOKENS = gql`
   mutation tokens($code: String!) {
@@ -19,17 +20,20 @@ export interface IProps {
   onError?: (error: ApolloError) => void;
 }
 
-export const tokens = (props: IProps) => (
-  <Mutation<ITokens>
-    mutation={TOKENS}
-    variables={{ $code: props.code }}
-    onCompleted={props.onCompleted}
-    onError={props.onError}
-  >
-    {() => {
-      // goal: trigger mutation on "render/mount"
-      return null;
-    }}
-  </Mutation>
-);
-export default tokens;
+export class Tokens extends React.Component<IProps> {
+  public componentDidMount() {
+    const { code, onError, onCompleted } = this.props;
+    client
+      .mutate<ITokens>({ mutation: TOKENS, variables: { code } })
+      .then(value => {
+        if (onCompleted && value.data) {
+          onCompleted(value.data);
+        }
+      })
+      .catch(onError);
+  }
+  public render() {
+    return null;
+  }
+}
+export default Tokens;
