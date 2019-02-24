@@ -34,6 +34,10 @@ export interface TokensMutationArgs {
 }
 export interface ProtoMutationArgs {
   code: string;
+
+  host: string;
+
+  port: number;
 }
 
 import { GraphQLResolveInfo } from "graphql";
@@ -127,6 +131,10 @@ export namespace MutationResolvers {
   > = Resolver<R, Parent, TContext, ProtoArgs>;
   export interface ProtoArgs {
     code: string;
+
+    host: string;
+
+    port: number;
   }
 }
 

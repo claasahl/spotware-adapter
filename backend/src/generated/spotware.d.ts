@@ -1,4 +1,128 @@
 import * as $protobuf from "protobufjs";
+/** Properties of an UndocumentedProtoError. */
+export interface IUndocumentedProtoError {
+  /** UndocumentedProtoError payloadType */
+  payloadType?: number | null;
+
+  /** UndocumentedProtoError error */
+  error: string;
+
+  /** UndocumentedProtoError errorCode */
+  errorCode: string;
+
+  /** UndocumentedProtoError description */
+  description: string;
+}
+
+/** Represents an UndocumentedProtoError. */
+export class UndocumentedProtoError implements IUndocumentedProtoError {
+  /**
+   * Constructs a new UndocumentedProtoError.
+   * @param [properties] Properties to set
+   */
+  constructor(properties?: IUndocumentedProtoError);
+
+  /** UndocumentedProtoError payloadType. */
+  public payloadType: number;
+
+  /** UndocumentedProtoError error. */
+  public error: string;
+
+  /** UndocumentedProtoError errorCode. */
+  public errorCode: string;
+
+  /** UndocumentedProtoError description. */
+  public description: string;
+
+  /**
+   * Creates a new UndocumentedProtoError instance using the specified properties.
+   * @param [properties] Properties to set
+   * @returns UndocumentedProtoError instance
+   */
+  public static create(
+    properties?: IUndocumentedProtoError
+  ): UndocumentedProtoError;
+
+  /**
+   * Encodes the specified UndocumentedProtoError message. Does not implicitly {@link UndocumentedProtoError.verify|verify} messages.
+   * @param message UndocumentedProtoError message or plain object to encode
+   * @param [writer] Writer to encode to
+   * @returns Writer
+   */
+  public static encode(
+    message: IUndocumentedProtoError,
+    writer?: $protobuf.Writer
+  ): $protobuf.Writer;
+
+  /**
+   * Encodes the specified UndocumentedProtoError message, length delimited. Does not implicitly {@link UndocumentedProtoError.verify|verify} messages.
+   * @param message UndocumentedProtoError message or plain object to encode
+   * @param [writer] Writer to encode to
+   * @returns Writer
+   */
+  public static encodeDelimited(
+    message: IUndocumentedProtoError,
+    writer?: $protobuf.Writer
+  ): $protobuf.Writer;
+
+  /**
+   * Decodes an UndocumentedProtoError message from the specified reader or buffer.
+   * @param reader Reader or buffer to decode from
+   * @param [length] Message length if known beforehand
+   * @returns UndocumentedProtoError
+   * @throws {Error} If the payload is not a reader or valid buffer
+   * @throws {$protobuf.util.ProtocolError} If required fields are missing
+   */
+  public static decode(
+    reader: $protobuf.Reader | Uint8Array,
+    length?: number
+  ): UndocumentedProtoError;
+
+  /**
+   * Decodes an UndocumentedProtoError message from the specified reader or buffer, length delimited.
+   * @param reader Reader or buffer to decode from
+   * @returns UndocumentedProtoError
+   * @throws {Error} If the payload is not a reader or valid buffer
+   * @throws {$protobuf.util.ProtocolError} If required fields are missing
+   */
+  public static decodeDelimited(
+    reader: $protobuf.Reader | Uint8Array
+  ): UndocumentedProtoError;
+
+  /**
+   * Verifies an UndocumentedProtoError message.
+   * @param message Plain object to verify
+   * @returns `null` if valid, otherwise the reason why it is not
+   */
+  public static verify(message: { [k: string]: any }): string | null;
+
+  /**
+   * Creates an UndocumentedProtoError message from a plain object. Also converts values to their respective internal types.
+   * @param object Plain object
+   * @returns UndocumentedProtoError
+   */
+  public static fromObject(object: {
+    [k: string]: any;
+  }): UndocumentedProtoError;
+
+  /**
+   * Creates a plain object from an UndocumentedProtoError message. Also converts values to other types if specified.
+   * @param message UndocumentedProtoError
+   * @param [options] Conversion options
+   * @returns Plain object
+   */
+  public static toObject(
+    message: UndocumentedProtoError,
+    options?: $protobuf.IConversionOptions
+  ): { [k: string]: any };
+
+  /**
+   * Converts this UndocumentedProtoError to JSON.
+   * @returns JSON object
+   */
+  public toJSON(): { [k: string]: any };
+}
+
 /** Properties of a ProtoMessage. */
 export interface IProtoMessage {
   /** ProtoMessage payloadType */
