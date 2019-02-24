@@ -34,6 +34,7 @@ export const mutation: Required<MutationResolvers.Resolvers> = {
       // const port = 5032;
 
       let heartbeat: NodeJS.Timeout | null = null;
+      let pingReq: NodeJS.Timeout | null = null;
       const socket = tls.connect(port, host, undefined, () => {
         function sendProtoMessage(buffer: Uint8Array) {
           const length = Buffer.alloc(4);
@@ -53,29 +54,34 @@ export const mutation: Required<MutationResolvers.Resolvers> = {
         );
 
         heartbeat = setInterval(() => {
-          console.log("sending 💜 event");
           const message = spotware.ProtoHeartbeatEvent.create();
           message.payloadType =
             spotware.ProtoHeartbeatEvent.prototype.payloadType;
           const buffer = spotware.ProtoHeartbeatEvent.encode(message).finish();
-          // const timestamp = new Date().valueOf();
-          // const message = spotware.ProtoPingReq.create({timestamp});
-          // message.payloadType = spotware.ProtoPingReq.prototype.payloadType;
-          // const buffer = spotware.ProtoPingReq.encode(message).finish();
+          console.log("sending 💜 event", Buffer.from(buffer).toString("hex"));
           sendProtoMessage(buffer);
         }, 5000);
-        // const message = spotware.ProtoOAApplicationAuthReq.create({
-        //   clientId: process.env.SPOTWARE__CLIENT_ID || "",
-        //   clientSecret: process.env.SPOTWARE__CLIENT_SECRET || ""
-        // });
-        // const buffer = spotware.ProtoOAApplicationAuthReq.encode(
-        //   message
-        // ).finish();
-        const message = spotware.ProtoOAVersionReq.create();
-        const buffer = spotware.ProtoOAVersionReq.encode(message).finish();
-        sendProtoMessage(buffer);
+
+        pingReq = setInterval(() => {
+          const timestamp = new Date().valueOf();
+          const message = spotware.ProtoPingReq.create({ timestamp });
+          message.payloadType = spotware.ProtoPingReq.prototype.payloadType;
+          const buffer = spotware.ProtoPingReq.encode(message).finish();
+          console.log("sending ping req", Buffer.from(buffer).toString("hex"));
+          sendProtoMessage(buffer);
+        }, 7500);
+
+        //  const message = spotware.ProtoOAApplicationAuthReq.create({
+        //    clientId: process.env.SPOTWARE__CLIENT_ID || "",
+        //    clientSecret: process.env.SPOTWARE__CLIENT_SECRET || ""
+        //  });
+        //  message.payloadType = spotware.ProtoOAApplicationAuthReq.prototype.payloadType;
+        //  const buffer = spotware.ProtoOAApplicationAuthReq.encode(
+        //    message
+        //  ).finish();
+        // sendProtoMessage(buffer);
       });
-      socket.setEncoding("utf8");
+      socket.setEncoding("binary");
       socket.on("data", data => {
         console.log("on 'data'", Buffer.from(data, "binary").toString("hex"));
         const message = Buffer.from(data, "binary");
@@ -114,6 +120,9 @@ export const mutation: Required<MutationResolvers.Resolvers> = {
         if (heartbeat) {
           clearInterval(heartbeat);
         }
+        if (pingReq) {
+          clearInterval(pingReq);
+        }
 
         console.log("on 'end'", "server ends connection");
         resolve("the end!");
@@ -121,6 +130,9 @@ export const mutation: Required<MutationResolvers.Resolvers> = {
       socket.on("error", error => {
         if (heartbeat) {
           clearInterval(heartbeat);
+        }
+        if (pingReq) {
+          clearInterval(pingReq);
         }
         console.log("on 'error'", error);
         reject(error);
