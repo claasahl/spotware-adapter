@@ -43,6 +43,30 @@ The `Open API 2.0` is the second version of the publicly available protobuf-base
   > The Refresh Token grant type is used by clients to exchange a refresh token for an access token when the access token has expired
   > This allows clients to continue to have a valid access token without further interaction with the user.[source](https://oauth.net/2/grant-types/refresh-token/)
 
+## Protocol Buffer - ProtoMessages
+
+## Message Naming Conventions
+
+Messages are divided into one of four groups.
+
+- Request messages
+- Response messages
+- Event messages
+- Model messages
+
+https://protogen.marcgravell.com/decode
+
+## Servers
+
+1. live.ctraderapi.com:5035
+1. demo.ctraderapi.com:5035
+
+## data
+
+1. create nessage (e.g. PingReq)
+1. wrap message in ProtoMessage
+1. prepend length of proto message (4 bytes in big endian)
+
 ## Getting Started
 
 1. [log In](https://connect.spotware.com) with cTID
