@@ -9,7 +9,7 @@ import { somethingChanged } from "./Subscription";
 function send(
   socket: tls.TLSSocket,
   payloadTypeName: string,
-  payloadType: spotware.ProtoPayloadType,
+  payloadType: spotware.ProtoPayloadType | spotware.ProtoOAPayloadType,
   payload: Uint8Array,
   resolve: (value?: boolean | PromiseLike<boolean>) => void,
   reject: (reason?: any) => void
@@ -50,7 +50,7 @@ export const mutation: Required<MutationResolvers.Resolvers> = {
     const response = await axios.post(url);
     return JSON.stringify(response.data);
   },
-  heartbeat: (_parent, args, ctx) => {
+  heartbeat: async (_parent, args, ctx) => {
     return new Promise<boolean>((resolve, reject) => {
       if (!ctx.socket) {
         reject("no socket!");
@@ -73,6 +73,39 @@ export const mutation: Required<MutationResolvers.Resolvers> = {
       const { clientMsgId, ...propterties } = args;
       const TYPE = spotware.ProtoPingReq;
       const message = TYPE.create(propterties);
+      const payloadType = TYPE.prototype.payloadType;
+      const payload = TYPE.encode(message).finish();
+      send(ctx.socket, TYPE.name, payloadType, payload, resolve, reject);
+    });
+  },
+  applicationAuth: async (_parent, args, ctx) => {
+    return new Promise<boolean>((resolve, reject) => {
+      if (!ctx.socket) {
+        reject("no socket!");
+        return;
+      }
+      const clientId = encodeURI(process.env.SPOTWARE__CLIENT_ID || "");
+      const clientSecret = encodeURI(process.env.SPOTWARE__CLIENT_SECRET || "");
+
+      const { clientMsgId, ...propterties } = args;
+      const TYPE = spotware.ProtoOAApplicationAuthReq;
+      const message = TYPE.create({ ...propterties, clientId, clientSecret });
+      const payloadType = TYPE.prototype.payloadType;
+      const payload = TYPE.encode(message).finish();
+      send(ctx.socket, TYPE.name, payloadType, payload, resolve, reject);
+    });
+  },
+  accountAuth: async (_parent, args, ctx) => {
+    return new Promise<boolean>((resolve, reject) => {
+      if (!ctx.socket) {
+        reject("no socket!");
+        return;
+      }
+      const accessToken = "";
+
+      const { clientMsgId, ...propterties } = args;
+      const TYPE = spotware.ProtoOAAccountAuthReq;
+      const message = TYPE.create({ ...propterties, accessToken });
       const payloadType = TYPE.prototype.payloadType;
       const payload = TYPE.encode(message).finish();
       send(ctx.socket, TYPE.name, payloadType, payload, resolve, reject);

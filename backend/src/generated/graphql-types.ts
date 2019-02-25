@@ -18,8 +18,12 @@ export interface Mutation {
   tokens: string;
 
   heartbeat: boolean;
-  /** ping(timestamp: Int64!): Boolean! */
+  /** ping(timestamp: Int64!, clientMsgId: String): Boolean! */
   ping: boolean;
+
+  applicationAuth: boolean;
+  /** accountAuth(ctidTraderAccountId: Int64!, clientMsgId: String): Boolean! */
+  accountAuth: boolean;
 }
 
 export interface Subscription {
@@ -47,6 +51,14 @@ export interface HeartbeatMutationArgs {
 }
 export interface PingMutationArgs {
   timestamp: number;
+
+  clientMsgId?: Maybe<string>;
+}
+export interface ApplicationAuthMutationArgs {
+  clientMsgId?: Maybe<string>;
+}
+export interface AccountAuthMutationArgs {
+  ctidTraderAccountId: number;
 
   clientMsgId?: Maybe<string>;
 }
@@ -124,8 +136,12 @@ export namespace MutationResolvers {
     tokens?: TokensResolver<string, TypeParent, TContext>;
 
     heartbeat?: HeartbeatResolver<boolean, TypeParent, TContext>;
-    /** ping(timestamp: Int64!): Boolean! */
+    /** ping(timestamp: Int64!, clientMsgId: String): Boolean! */
     ping?: PingResolver<boolean, TypeParent, TContext>;
+
+    applicationAuth?: ApplicationAuthResolver<boolean, TypeParent, TContext>;
+    /** accountAuth(ctidTraderAccountId: Int64!, clientMsgId: String): Boolean! */
+    accountAuth?: AccountAuthResolver<boolean, TypeParent, TContext>;
   }
 
   export type TokensResolver<
@@ -153,6 +169,26 @@ export namespace MutationResolvers {
   > = Resolver<R, Parent, TContext, PingArgs>;
   export interface PingArgs {
     timestamp: number;
+
+    clientMsgId?: Maybe<string>;
+  }
+
+  export type ApplicationAuthResolver<
+    R = boolean,
+    Parent = {},
+    TContext = IContext
+  > = Resolver<R, Parent, TContext, ApplicationAuthArgs>;
+  export interface ApplicationAuthArgs {
+    clientMsgId?: Maybe<string>;
+  }
+
+  export type AccountAuthResolver<
+    R = boolean,
+    Parent = {},
+    TContext = IContext
+  > = Resolver<R, Parent, TContext, AccountAuthArgs>;
+  export interface AccountAuthArgs {
+    ctidTraderAccountId: number;
 
     clientMsgId?: Maybe<string>;
   }
