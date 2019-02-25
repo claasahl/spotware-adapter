@@ -1,15 +1,23 @@
 import { ContextParameters } from "graphql-yoga/dist/types";
+import tls from "tls";
+import { socket } from "../socket";
 
 export interface IContext {
-  test: string;
+  socket?: tls.TLSSocket;
 }
 
 export async function context(params: ContextParameters): Promise<IContext> {
-  if (params.request) {
-    return { test: "with request" };
-  } else if (params.connection) {
-    return { test: "with connection" };
+  if (
+    params.request &&
+    params.request.body.operationName === "IntrospectionQuery"
+  ) {
+    return {};
   }
-  return { test: "with [nothin']" };
+  if (params.request) {
+    return { socket: socket() };
+  } else if (params.connection) {
+    return { socket: socket() };
+  }
+  return { socket: socket() };
 }
 export default context;

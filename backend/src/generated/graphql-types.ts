@@ -1,5 +1,11 @@
 export type Maybe<T> = T | null;
 
+export enum Direction {
+  ToServer = "TO_SERVER",
+  ToClient = "TO_CLIENT",
+  None = "NONE"
+}
+
 // ====================================================
 // Types
 // ====================================================
@@ -11,7 +17,9 @@ export interface Query {
 export interface Mutation {
   tokens: string;
 
-  proto: string;
+  heartbeat: boolean;
+  /** ping(timestamp: Int64!): Boolean! */
+  ping: boolean;
 }
 
 export interface Subscription {
@@ -20,6 +28,8 @@ export interface Subscription {
 
 export interface Result {
   id: string;
+
+  direction: Direction;
 }
 
 // ====================================================
@@ -32,12 +42,13 @@ export interface HelloQueryArgs {
 export interface TokensMutationArgs {
   code: string;
 }
-export interface ProtoMutationArgs {
-  code: string;
+export interface HeartbeatMutationArgs {
+  clientMsgId?: Maybe<string>;
+}
+export interface PingMutationArgs {
+  timestamp: number;
 
-  host: string;
-
-  port: number;
+  clientMsgId?: Maybe<string>;
 }
 
 import { GraphQLResolveInfo } from "graphql";
@@ -112,7 +123,9 @@ export namespace MutationResolvers {
   export interface Resolvers<TContext = IContext, TypeParent = {}> {
     tokens?: TokensResolver<string, TypeParent, TContext>;
 
-    proto?: ProtoResolver<string, TypeParent, TContext>;
+    heartbeat?: HeartbeatResolver<boolean, TypeParent, TContext>;
+    /** ping(timestamp: Int64!): Boolean! */
+    ping?: PingResolver<boolean, TypeParent, TContext>;
   }
 
   export type TokensResolver<
@@ -124,17 +137,24 @@ export namespace MutationResolvers {
     code: string;
   }
 
-  export type ProtoResolver<
-    R = string,
+  export type HeartbeatResolver<
+    R = boolean,
     Parent = {},
     TContext = IContext
-  > = Resolver<R, Parent, TContext, ProtoArgs>;
-  export interface ProtoArgs {
-    code: string;
+  > = Resolver<R, Parent, TContext, HeartbeatArgs>;
+  export interface HeartbeatArgs {
+    clientMsgId?: Maybe<string>;
+  }
 
-    host: string;
+  export type PingResolver<
+    R = boolean,
+    Parent = {},
+    TContext = IContext
+  > = Resolver<R, Parent, TContext, PingArgs>;
+  export interface PingArgs {
+    timestamp: number;
 
-    port: number;
+    clientMsgId?: Maybe<string>;
   }
 }
 
@@ -157,10 +177,17 @@ export namespace SubscriptionResolvers {
 export namespace ResultResolvers {
   export interface Resolvers<TContext = IContext, TypeParent = Result> {
     id?: IdResolver<string, TypeParent, TContext>;
+
+    direction?: DirectionResolver<Direction, TypeParent, TContext>;
   }
 
   export type IdResolver<
     R = string,
+    Parent = Result,
+    TContext = IContext
+  > = Resolver<R, Parent, TContext>;
+  export type DirectionResolver<
+    R = Direction,
     Parent = Result,
     TContext = IContext
   > = Resolver<R, Parent, TContext>;

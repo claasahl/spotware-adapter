@@ -1,8 +1,10 @@
-import { MutationResolvers } from "../generated/graphql-types";
+import { MutationResolvers, Direction } from "../generated/graphql-types";
 import axios from "axios";
 import tls from "tls";
 import * as spotware from "../generated/spotware";
 import * as protobufjs from "protobufjs";
+
+import { somethingChanged } from "./Subscription";
 
 export const mutation: Required<MutationResolvers.Resolvers> = {
   tokens: async (_parent, args) => {
@@ -16,147 +18,75 @@ export const mutation: Required<MutationResolvers.Resolvers> = {
     const response = await axios.post(url);
     return JSON.stringify(response.data);
   },
-  proto: async (_parent, args) => {
-    return new Promise<string>((resolve, reject) => {
-      const { code, host, port } = args;
+  heartbeat: (_parent, args, ctx) => {
+    return new Promise<boolean>((resolve, reject) => {
+      if (!ctx.socket) {
+        reject("no socket!");
+        return;
+      }
+      const { clientMsgId, ...propterties } = args;
+      const TYPE = spotware.ProtoHeartbeatEvent;
+      const message = TYPE.create(propterties);
+      const payloadType = TYPE.prototype.payloadType;
+      const payload = TYPE.encode(message).finish();
 
-      // const host = "live.ctraderapi.com";   // 5035, 5032
-      // const host = "api.spotware.com";      // x   , x
-      // const host = "connect.spotware.com";  // x   , x
-      // const host = "tradeapi.spotware.com"; // 5035, 5032
+      const PM = spotware.ProtoMessage;
+      const pm = PM.create({ payloadType, payload });
+      const data = PM.encode(pm).finish();
 
-      // const host = "demo.ctraderapi.com";           // 5035, 5032
-      // const host = "sandbox-api.spotware.com";      // x   , x
-      // const host = "sandbox-connect.spotware.com";  // x   , x
-      // const host = "sandbox-tradeapi.spotware.com"; // 5035, 5032
+      const length = Buffer.alloc(4);
+      length.writeInt32BE(data.length, 0);
+      const writer = protobufjs.Writer.create();
+      writer.bytes(length.toString("binary"));
+      writer.bytes(data);
+      const buffer = writer.finish();
 
-      // const port = 5035;
-      // const port = 5032;
-
-      let heartbeat: NodeJS.Timeout | null = null;
-      let pingReq: NodeJS.Timeout | null = null;
-      const socket = tls.connect(port, host, undefined, () => {
-        function sendProtoMessage(buffer: Uint8Array) {
-          const length = Buffer.alloc(4);
-          length.writeInt32BE(buffer.length, 0);
-
-          const writer = protobufjs.Writer.create();
-          writer.bytes(length.toString("binary"));
-          writer.bytes(buffer);
-          const data = writer.finish();
-
-          socket.write(data, "binary", () =>
-            console.log("wrote message", Buffer.from(buffer).toString("hex"))
-          );
-        }
-
-        console.log(
-          "client connected",
-          socket.authorized ? "authorized" : "unauthorized"
-        );
-
-        heartbeat = setInterval(() => {
-          const HEARTBEAT = spotware.ProtoHeartbeatEvent;
-          const heartbeat = HEARTBEAT.create();
-          const payloadType = HEARTBEAT.prototype.payloadType;
-          const payload = HEARTBEAT.encode(heartbeat).finish();
-
-          const PROTOMESSAGE = spotware.ProtoMessage;
-          const protomessage = PROTOMESSAGE.create({ payloadType, payload });
-          const buffer = PROTOMESSAGE.encode(protomessage).finish();
-          console.log("sending 💜 event", Buffer.from(buffer).toString("hex"));
-          sendProtoMessage(buffer);
-        }, 5000);
-
-        pingReq = setInterval(() => {
-          const timestamp = new Date().valueOf();
-          const PING = spotware.ProtoPingReq;
-          const heartbeat = PING.create({ timestamp });
-          const payloadType = PING.prototype.payloadType;
-          const payload = PING.encode(heartbeat).finish();
-
-          const PROTOMESSAGE = spotware.ProtoMessage;
-          const protomessage = PROTOMESSAGE.create({ payloadType, payload });
-          const buffer = PROTOMESSAGE.encode(protomessage).finish();
-          console.log("sending ping req", Buffer.from(buffer).toString("hex"));
-          sendProtoMessage(buffer);
-        }, 7500);
-
-        function authApp() {
-          const AUTH_APP = spotware.ProtoOAApplicationAuthReq;
-          const heartbeat = AUTH_APP.create({
-            clientId: process.env.SPOTWARE__CLIENT_ID || "",
-            clientSecret: process.env.SPOTWARE__CLIENT_SECRET || ""
-          });
-          const payloadType = AUTH_APP.prototype.payloadType;
-          const payload = AUTH_APP.encode(heartbeat).finish();
-
-          const PROTOMESSAGE = spotware.ProtoMessage;
-          const protomessage = PROTOMESSAGE.create({ payloadType, payload });
-          const buffer = PROTOMESSAGE.encode(protomessage).finish();
-          console.log(
-            "sending auth_app req",
-            Buffer.from(buffer).toString("hex")
-          );
-          sendProtoMessage(buffer);
-        }
-        authApp();
-      });
-      socket.setEncoding("binary");
-      socket.on("data", data => {
-        console.log("on 'data'", Buffer.from(data, "binary").toString("hex"));
-        const message = Buffer.from(data, "binary");
-        const length = message.readInt32BE(0);
-        if (message.length - 4 === length) {
-          const payload = message.slice(4);
-          const msg = spotware.ProtoMessage.decode(payload);
-          if (msg.payloadType === 2173) {
-            const error = spotware.ProtoErrorRes.decode(payload);
-            console.log(
-              "on 'data'",
-              spotware.ProtoErrorRes.toObject(error, {
-                enums: String,
-                defaults: true
-              })
-            );
-          } else {
-            console.log(
-              "on 'data'",
-              spotware.ProtoMessage.toObject(msg, {
-                enums: String,
-                defaults: true
-              })
-            );
-          }
+      ctx.socket.write(buffer, "binary", (error: any) => {
+        if (error) {
+          reject(error);
         } else {
-          console.log(
-            "on 'data'",
-            "skip 'decode' due to invalid length",
-            length,
-            message.length
-          );
+          somethingChanged({
+            direction: Direction.ToServer,
+            id: `sent ${TYPE.name}-message`
+          });
+          resolve(true);
         }
       });
-      socket.on("end", () => {
-        if (heartbeat) {
-          clearInterval(heartbeat);
-        }
-        if (pingReq) {
-          clearInterval(pingReq);
-        }
+    });
+  },
+  ping: async (_parent, args, ctx) => {
+    return new Promise<boolean>((resolve, reject) => {
+      if (!ctx.socket) {
+        reject("no socket!");
+        return;
+      }
+      const { clientMsgId, ...propterties } = args;
+      const TYPE = spotware.ProtoPingReq;
+      const message = TYPE.create(propterties);
+      const payloadType = TYPE.prototype.payloadType;
+      const payload = TYPE.encode(message).finish();
 
-        console.log("on 'end'", "server ends connection");
-        resolve("the end!");
-      });
-      socket.on("error", error => {
-        if (heartbeat) {
-          clearInterval(heartbeat);
+      const PM = spotware.ProtoMessage;
+      const pm = PM.create({ payloadType, payload });
+      const data = PM.encode(pm).finish();
+
+      const length = Buffer.alloc(4);
+      length.writeInt32BE(data.length, 0);
+      const writer = protobufjs.Writer.create();
+      writer.bytes(length.toString("binary"));
+      writer.bytes(data);
+      const buffer = writer.finish();
+
+      ctx.socket.write(buffer, "binary", (error: any) => {
+        if (error) {
+          reject(error);
+        } else {
+          somethingChanged({
+            direction: Direction.ToServer,
+            id: `sent ${TYPE.name}-message`
+          });
+          resolve(true);
         }
-        if (pingReq) {
-          clearInterval(pingReq);
-        }
-        console.log("on 'error'", error);
-        reject(error);
       });
     });
   }

@@ -4,7 +4,9 @@ type Query {
 
 type Mutation {
   tokens(code: String!): String!
-  proto(code: String!, host: String!, port: Int!): String!
+  heartbeat(clientMsgId: String): Boolean!
+  # ping(timestamp: Int64!): Boolean!
+  ping(timestamp: Int!, clientMsgId: String): Boolean!
 }
 
 type Subscription {
@@ -13,4 +15,11 @@ type Subscription {
 
 type Result {
   id: String!
+  direction: Direction!
+}
+
+enum Direction {
+  TO_SERVER
+  TO_CLIENT
+  NONE
 }
