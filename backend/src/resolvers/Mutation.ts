@@ -6,6 +6,38 @@ import * as protobufjs from "protobufjs";
 
 import { somethingChanged } from "./Subscription";
 
+function send(
+  socket: tls.TLSSocket,
+  payloadTypeName: string,
+  payloadType: spotware.ProtoPayloadType,
+  payload: Uint8Array,
+  resolve: (value?: boolean | PromiseLike<boolean>) => void,
+  reject: (reason?: any) => void
+) {
+  const PM = spotware.ProtoMessage;
+  const pm = PM.create({ payloadType, payload });
+  const data = PM.encode(pm).finish();
+
+  const length = Buffer.alloc(4);
+  length.writeInt32BE(data.length, 0);
+  const writer = protobufjs.Writer.create();
+  writer.bytes(length.toString("binary"));
+  writer.bytes(data);
+  const buffer = writer.finish();
+
+  socket.write(buffer, "binary", (error: any) => {
+    if (error) {
+      reject(error);
+    } else {
+      somethingChanged({
+        direction: Direction.ToServer,
+        id: `sent ${payloadTypeName}-message`
+      });
+      resolve(true);
+    }
+  });
+}
+
 export const mutation: Required<MutationResolvers.Resolvers> = {
   tokens: async (_parent, args) => {
     const { code } = args;
@@ -29,29 +61,7 @@ export const mutation: Required<MutationResolvers.Resolvers> = {
       const message = TYPE.create(propterties);
       const payloadType = TYPE.prototype.payloadType;
       const payload = TYPE.encode(message).finish();
-
-      const PM = spotware.ProtoMessage;
-      const pm = PM.create({ payloadType, payload });
-      const data = PM.encode(pm).finish();
-
-      const length = Buffer.alloc(4);
-      length.writeInt32BE(data.length, 0);
-      const writer = protobufjs.Writer.create();
-      writer.bytes(length.toString("binary"));
-      writer.bytes(data);
-      const buffer = writer.finish();
-
-      ctx.socket.write(buffer, "binary", (error: any) => {
-        if (error) {
-          reject(error);
-        } else {
-          somethingChanged({
-            direction: Direction.ToServer,
-            id: `sent ${TYPE.name}-message`
-          });
-          resolve(true);
-        }
-      });
+      send(ctx.socket, TYPE.name, payloadType, payload, resolve, reject);
     });
   },
   ping: async (_parent, args, ctx) => {
@@ -65,29 +75,7 @@ export const mutation: Required<MutationResolvers.Resolvers> = {
       const message = TYPE.create(propterties);
       const payloadType = TYPE.prototype.payloadType;
       const payload = TYPE.encode(message).finish();
-
-      const PM = spotware.ProtoMessage;
-      const pm = PM.create({ payloadType, payload });
-      const data = PM.encode(pm).finish();
-
-      const length = Buffer.alloc(4);
-      length.writeInt32BE(data.length, 0);
-      const writer = protobufjs.Writer.create();
-      writer.bytes(length.toString("binary"));
-      writer.bytes(data);
-      const buffer = writer.finish();
-
-      ctx.socket.write(buffer, "binary", (error: any) => {
-        if (error) {
-          reject(error);
-        } else {
-          somethingChanged({
-            direction: Direction.ToServer,
-            id: `sent ${TYPE.name}-message`
-          });
-          resolve(true);
-        }
-      });
+      send(ctx.socket, TYPE.name, payloadType, payload, resolve, reject);
     });
   }
 };
