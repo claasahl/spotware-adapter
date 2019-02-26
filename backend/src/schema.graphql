@@ -4,12 +4,12 @@ type Query {
 
 type Mutation {
   tokens(code: String!): String!
-  heartbeat(clientMsgId: String): Boolean!
-  # ping(timestamp: Int64!, clientMsgId: String): Boolean!
-  ping(timestamp: Int!, clientMsgId: String): Boolean!
-  applicationAuth(clientMsgId: String): Boolean!
-  # accountAuth(ctidTraderAccountId: Int64!, clientMsgId: String): Boolean!
-  accountAuth(ctidTraderAccountId: Int!, clientMsgId: String): Boolean!
+  heartbeat(clientMsgId: String): Boolean
+  # ping(timestamp: Int64!, clientMsgId: String): Boolean
+  ping(timestamp: Int!, clientMsgId: String): Boolean
+  applicationAuth(clientMsgId: String): Boolean
+  # accountAuth(ctidTraderAccountId: Int64!, clientMsgId: String): Boolean
+  accountAuth(ctidTraderAccountId: Int!, clientMsgId: String): Boolean
 }
 
 type Subscription {

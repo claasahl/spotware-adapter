@@ -1,42 +1,11 @@
-import { MutationResolvers, Direction } from "../generated/graphql-types";
+import { MutationResolvers } from "../generated/graphql-types";
 import axios from "axios";
-import tls from "tls";
-import * as spotware from "../generated/spotware";
-import * as protobufjs from "protobufjs";
-
-import { somethingChanged } from "./Subscription";
-
-function send(
-  socket: tls.TLSSocket,
-  payloadTypeName: string,
-  payloadType: spotware.ProtoPayloadType | spotware.ProtoOAPayloadType,
-  payload: Uint8Array,
-  resolve: (value?: boolean | PromiseLike<boolean>) => void,
-  reject: (reason?: any) => void
-) {
-  const PM = spotware.ProtoMessage;
-  const pm = PM.create({ payloadType, payload });
-  const data = PM.encode(pm).finish();
-
-  const length = Buffer.alloc(4);
-  length.writeInt32BE(data.length, 0);
-  const writer = protobufjs.Writer.create();
-  writer.bytes(length.toString("binary"));
-  writer.bytes(data);
-  const buffer = writer.finish();
-
-  socket.write(buffer, "binary", (error: any) => {
-    if (error) {
-      reject(error);
-    } else {
-      somethingChanged({
-        direction: Direction.ToServer,
-        id: `sent ${payloadTypeName}-message`
-      });
-      resolve(true);
-    }
-  });
-}
+import {
+  ProtoHeartbeatEvent,
+  ProtoPingReq,
+  ProtoOAApplicationAuthReq,
+  ProtoOAAccountAuthReq
+} from "../generated/spotware";
 
 export const mutation: Required<MutationResolvers.Resolvers> = {
   tokens: async (_parent, args) => {
@@ -51,65 +20,44 @@ export const mutation: Required<MutationResolvers.Resolvers> = {
     return JSON.stringify(response.data);
   },
   heartbeat: async (_parent, args, ctx) => {
-    return new Promise<boolean>((resolve, reject) => {
-      if (!ctx.socket) {
-        reject("no socket!");
-        return;
-      }
-      const { clientMsgId, ...propterties } = args;
-      const TYPE = spotware.ProtoHeartbeatEvent;
-      const message = TYPE.create(propterties);
-      const payloadType = TYPE.prototype.payloadType;
-      const payload = TYPE.encode(message).finish();
-      send(ctx.socket, TYPE.name, payloadType, payload, resolve, reject);
-    });
+    const { clientMsgId, ...propterties } = args;
+    const TYPE = ProtoHeartbeatEvent;
+    const message = TYPE.create(propterties);
+    const payloadType = TYPE.prototype.payloadType;
+    const payload = TYPE.encode(message).finish();
+    await ctx.session.sendProtoMessage({ payloadType, payload, clientMsgId });
+    return true;
   },
   ping: async (_parent, args, ctx) => {
-    return new Promise<boolean>((resolve, reject) => {
-      if (!ctx.socket) {
-        reject("no socket!");
-        return;
-      }
-      const { clientMsgId, ...propterties } = args;
-      const TYPE = spotware.ProtoPingReq;
-      const message = TYPE.create(propterties);
-      const payloadType = TYPE.prototype.payloadType;
-      const payload = TYPE.encode(message).finish();
-      send(ctx.socket, TYPE.name, payloadType, payload, resolve, reject);
-    });
+    const { clientMsgId, ...propterties } = args;
+    const TYPE = ProtoPingReq;
+    const message = TYPE.create(propterties);
+    const payloadType = TYPE.prototype.payloadType;
+    const payload = TYPE.encode(message).finish();
+    await ctx.session.sendProtoMessage({ payloadType, payload, clientMsgId });
+    return true;
   },
   applicationAuth: async (_parent, args, ctx) => {
-    return new Promise<boolean>((resolve, reject) => {
-      if (!ctx.socket) {
-        reject("no socket!");
-        return;
-      }
-      const clientId = encodeURI(process.env.SPOTWARE__CLIENT_ID || "");
-      const clientSecret = encodeURI(process.env.SPOTWARE__CLIENT_SECRET || "");
+    const { clientId, clientSecret } = ctx.session;
 
-      const { clientMsgId, ...propterties } = args;
-      const TYPE = spotware.ProtoOAApplicationAuthReq;
-      const message = TYPE.create({ ...propterties, clientId, clientSecret });
-      const payloadType = TYPE.prototype.payloadType;
-      const payload = TYPE.encode(message).finish();
-      send(ctx.socket, TYPE.name, payloadType, payload, resolve, reject);
-    });
+    const { clientMsgId, ...propterties } = args;
+    const TYPE = ProtoOAApplicationAuthReq;
+    const message = TYPE.create({ ...propterties, clientId, clientSecret });
+    const payloadType = TYPE.prototype.payloadType;
+    const payload = TYPE.encode(message).finish();
+    await ctx.session.sendProtoMessage({ payloadType, payload, clientMsgId });
+    return true;
   },
   accountAuth: async (_parent, args, ctx) => {
-    return new Promise<boolean>((resolve, reject) => {
-      if (!ctx.socket) {
-        reject("no socket!");
-        return;
-      }
-      const accessToken = "";
+    const accessToken = await ctx.session.accessToken();
 
-      const { clientMsgId, ...propterties } = args;
-      const TYPE = spotware.ProtoOAAccountAuthReq;
-      const message = TYPE.create({ ...propterties, accessToken });
-      const payloadType = TYPE.prototype.payloadType;
-      const payload = TYPE.encode(message).finish();
-      send(ctx.socket, TYPE.name, payloadType, payload, resolve, reject);
-    });
+    const { clientMsgId, ...propterties } = args;
+    const TYPE = ProtoOAAccountAuthReq;
+    const message = TYPE.create({ ...propterties, accessToken });
+    const payloadType = TYPE.prototype.payloadType;
+    const payload = TYPE.encode(message).finish();
+    await ctx.session.sendProtoMessage({ payloadType, payload, clientMsgId });
+    return true;
   }
 };
 export default mutation;

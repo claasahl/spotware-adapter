@@ -17,13 +17,13 @@ export interface Query {
 export interface Mutation {
   tokens: string;
 
-  heartbeat: boolean;
-  /** ping(timestamp: Int64!, clientMsgId: String): Boolean! */
-  ping: boolean;
+  heartbeat?: Maybe<boolean>;
+  /** ping(timestamp: Int64!, clientMsgId: String): Boolean */
+  ping?: Maybe<boolean>;
 
-  applicationAuth: boolean;
-  /** accountAuth(ctidTraderAccountId: Int64!, clientMsgId: String): Boolean! */
-  accountAuth: boolean;
+  applicationAuth?: Maybe<boolean>;
+  /** accountAuth(ctidTraderAccountId: Int64!, clientMsgId: String): Boolean */
+  accountAuth?: Maybe<boolean>;
 }
 
 export interface Subscription {
@@ -135,13 +135,17 @@ export namespace MutationResolvers {
   export interface Resolvers<TContext = IContext, TypeParent = {}> {
     tokens?: TokensResolver<string, TypeParent, TContext>;
 
-    heartbeat?: HeartbeatResolver<boolean, TypeParent, TContext>;
-    /** ping(timestamp: Int64!, clientMsgId: String): Boolean! */
-    ping?: PingResolver<boolean, TypeParent, TContext>;
+    heartbeat?: HeartbeatResolver<Maybe<boolean>, TypeParent, TContext>;
+    /** ping(timestamp: Int64!, clientMsgId: String): Boolean */
+    ping?: PingResolver<Maybe<boolean>, TypeParent, TContext>;
 
-    applicationAuth?: ApplicationAuthResolver<boolean, TypeParent, TContext>;
-    /** accountAuth(ctidTraderAccountId: Int64!, clientMsgId: String): Boolean! */
-    accountAuth?: AccountAuthResolver<boolean, TypeParent, TContext>;
+    applicationAuth?: ApplicationAuthResolver<
+      Maybe<boolean>,
+      TypeParent,
+      TContext
+    >;
+    /** accountAuth(ctidTraderAccountId: Int64!, clientMsgId: String): Boolean */
+    accountAuth?: AccountAuthResolver<Maybe<boolean>, TypeParent, TContext>;
   }
 
   export type TokensResolver<
@@ -154,7 +158,7 @@ export namespace MutationResolvers {
   }
 
   export type HeartbeatResolver<
-    R = boolean,
+    R = Maybe<boolean>,
     Parent = {},
     TContext = IContext
   > = Resolver<R, Parent, TContext, HeartbeatArgs>;
@@ -163,7 +167,7 @@ export namespace MutationResolvers {
   }
 
   export type PingResolver<
-    R = boolean,
+    R = Maybe<boolean>,
     Parent = {},
     TContext = IContext
   > = Resolver<R, Parent, TContext, PingArgs>;
@@ -174,7 +178,7 @@ export namespace MutationResolvers {
   }
 
   export type ApplicationAuthResolver<
-    R = boolean,
+    R = Maybe<boolean>,
     Parent = {},
     TContext = IContext
   > = Resolver<R, Parent, TContext, ApplicationAuthArgs>;
@@ -183,7 +187,7 @@ export namespace MutationResolvers {
   }
 
   export type AccountAuthResolver<
-    R = boolean,
+    R = Maybe<boolean>,
     Parent = {},
     TContext = IContext
   > = Resolver<R, Parent, TContext, AccountAuthArgs>;

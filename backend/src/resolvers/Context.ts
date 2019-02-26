@@ -1,23 +1,19 @@
 import { ContextParameters } from "graphql-yoga/dist/types";
-import tls from "tls";
-import { socket } from "../socket";
+import SpotwareSession from "../spotwareSession";
+
+const sessions: Map<string, SpotwareSession> = new Map();
 
 export interface IContext {
-  socket?: tls.TLSSocket;
+  session: SpotwareSession;
 }
 
 export async function context(params: ContextParameters): Promise<IContext> {
-  if (
-    params.request &&
-    params.request.body.operationName === "IntrospectionQuery"
-  ) {
-    return {};
+  const uuid =
+    (params.request && params.request.header("spotware-session-uuid")) || "";
+  if (!sessions.has(uuid)) {
+    sessions.set(uuid, SpotwareSession.forId(uuid));
   }
-  if (params.request) {
-    return { socket: socket() };
-  } else if (params.connection) {
-    return { socket: socket() };
-  }
-  return { socket: socket() };
+  const session = sessions.get(uuid) as SpotwareSession;
+  return { session };
 }
 export default context;
