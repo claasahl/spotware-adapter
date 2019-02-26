@@ -1,5 +1,12 @@
 import { TLSSocket, connect } from "tls";
-import { ProtoMessage, IProtoMessage } from "./generated/spotware";
+import {
+  ProtoErrorRes,
+  ProtoOAErrorRes,
+  ProtoMessage,
+  IProtoMessage,
+  ProtoPayloadType,
+  ProtoOAPayloadType
+} from "./generated/spotware";
 
 export class SpotwareSession {
   public id: Readonly<string>;
@@ -101,11 +108,19 @@ export class SpotwareSession {
     if (message.length - 4 === length) {
       const payload = message.slice(4);
       const pm = ProtoMessage.decode(payload);
-      console.log(
-        "onSocketData",
-        message.toString("hex"),
-        ProtoMessage.toObject(pm)
-      );
+      if (pm.payloadType === ProtoPayloadType.ERROR_RES) {
+        const error = ProtoErrorRes.decode(pm.payload);
+        console.log("onSocketData", ProtoErrorRes.toObject(error));
+      } else if (pm.payloadType === ProtoOAPayloadType.PROTO_OA_ERROR_RES) {
+        const error = ProtoOAErrorRes.decode(pm.payload);
+        console.log("onSocketData", ProtoOAErrorRes.toObject(error));
+      } else {
+        console.log(
+          "onSocketData",
+          message.toString("hex"),
+          ProtoMessage.toObject(pm)
+        );
+      }
     } else {
       console.log("onSocketData", message.toString("hex"));
     }
