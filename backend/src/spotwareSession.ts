@@ -34,11 +34,11 @@ export class SpotwareSession {
     return new SpotwareSession(id, host, port, clientId, clientSecret);
   }
 
-  public async sendProtoMessage(properties: IProtoMessage): Promise<void> {
+  public async sendProtoMessage(properties: IProtoMessage): Promise<true> {
     if (!this.socket) {
       this.socket = await this.connect();
     }
-    return new Promise<void>((resolve, reject) => {
+    return new Promise<true>((resolve, reject) => {
       if (!this.socket) {
         reject("no socket!");
         return;
@@ -58,7 +58,7 @@ export class SpotwareSession {
         if (error) {
           reject(error);
         } else {
-          resolve();
+          resolve(true);
         }
       });
     });

@@ -19,25 +19,23 @@ export const mutation: Required<MutationResolvers.Resolvers> = {
     const response = await axios.post(url);
     return JSON.stringify(response.data);
   },
-  heartbeat: async (_parent, args, ctx) => {
+  heartbeat: (_parent, args, ctx) => {
     const { clientMsgId, ...propterties } = args;
     const TYPE = ProtoHeartbeatEvent;
     const message = TYPE.create(propterties);
     const payloadType = TYPE.prototype.payloadType;
     const payload = TYPE.encode(message).finish();
-    await ctx.session.sendProtoMessage({ payloadType, payload, clientMsgId });
-    return true;
+    return ctx.session.sendProtoMessage({ payloadType, payload, clientMsgId });
   },
-  ping: async (_parent, args, ctx) => {
+  ping: (_parent, args, ctx) => {
     const { clientMsgId, ...propterties } = args;
     const TYPE = ProtoPingReq;
     const message = TYPE.create(propterties);
     const payloadType = TYPE.prototype.payloadType;
     const payload = TYPE.encode(message).finish();
-    await ctx.session.sendProtoMessage({ payloadType, payload, clientMsgId });
-    return true;
+    return ctx.session.sendProtoMessage({ payloadType, payload, clientMsgId });
   },
-  applicationAuth: async (_parent, args, ctx) => {
+  applicationAuth: (_parent, args, ctx) => {
     const { clientId, clientSecret } = ctx.session;
 
     const { clientMsgId, ...propterties } = args;
@@ -45,8 +43,7 @@ export const mutation: Required<MutationResolvers.Resolvers> = {
     const message = TYPE.create({ ...propterties, clientId, clientSecret });
     const payloadType = TYPE.prototype.payloadType;
     const payload = TYPE.encode(message).finish();
-    await ctx.session.sendProtoMessage({ payloadType, payload, clientMsgId });
-    return true;
+    return ctx.session.sendProtoMessage({ payloadType, payload, clientMsgId });
   },
   accountAuth: async (_parent, args, ctx) => {
     const accessToken = await ctx.session.accessToken();
@@ -56,8 +53,7 @@ export const mutation: Required<MutationResolvers.Resolvers> = {
     const message = TYPE.create({ ...propterties, accessToken });
     const payloadType = TYPE.prototype.payloadType;
     const payload = TYPE.encode(message).finish();
-    await ctx.session.sendProtoMessage({ payloadType, payload, clientMsgId });
-    return true;
+    return ctx.session.sendProtoMessage({ payloadType, payload, clientMsgId });
   }
 };
 export default mutation;
