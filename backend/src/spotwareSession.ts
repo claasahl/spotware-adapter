@@ -5,7 +5,8 @@ import {
   ProtoMessage,
   IProtoMessage,
   ProtoPayloadType,
-  ProtoOAPayloadType
+  ProtoOAPayloadType,
+  ProtoOAVersionRes
 } from "./generated/spotware";
 
 export class SpotwareSession {
@@ -114,6 +115,9 @@ export class SpotwareSession {
       } else if (pm.payloadType === ProtoOAPayloadType.PROTO_OA_ERROR_RES) {
         const error = ProtoOAErrorRes.decode(pm.payload);
         console.log("onSocketData", ProtoOAErrorRes.toObject(error));
+      } else if (pm.payloadType === ProtoOAPayloadType.PROTO_OA_VERSION_RES) {
+        const msg = ProtoOAVersionRes.decode(pm.payload);
+        console.log("onSocketData", ProtoOAVersionRes.toObject(msg));
       } else {
         console.log(
           "onSocketData",

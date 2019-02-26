@@ -4,7 +4,8 @@ import {
   ProtoHeartbeatEvent,
   ProtoPingReq,
   ProtoOAApplicationAuthReq,
-  ProtoOAAccountAuthReq
+  ProtoOAAccountAuthReq,
+  ProtoOAVersionReq
 } from "../generated/spotware";
 
 export const mutation: Required<MutationResolvers.Resolvers> = {
@@ -46,11 +47,17 @@ export const mutation: Required<MutationResolvers.Resolvers> = {
     return ctx.session.sendProtoMessage({ payloadType, payload, clientMsgId });
   },
   accountAuth: async (_parent, args, ctx) => {
-    const accessToken = await ctx.session.accessToken();
-
     const { clientMsgId, ...propterties } = args;
     const TYPE = ProtoOAAccountAuthReq;
-    const message = TYPE.create({ ...propterties, accessToken });
+    const message = TYPE.create({ ...propterties });
+    const payloadType = TYPE.prototype.payloadType;
+    const payload = TYPE.encode(message).finish();
+    return ctx.session.sendProtoMessage({ payloadType, payload, clientMsgId });
+  },
+  version: async (_parent, args, ctx) => {
+    const { clientMsgId, ...propterties } = args;
+    const TYPE = ProtoOAVersionReq;
+    const message = TYPE.create({ ...propterties });
     const payloadType = TYPE.prototype.payloadType;
     const payload = TYPE.encode(message).finish();
     return ctx.session.sendProtoMessage({ payloadType, payload, clientMsgId });

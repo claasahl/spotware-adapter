@@ -9,7 +9,12 @@ type Mutation {
   ping(timestamp: Int!, clientMsgId: String): Boolean
   applicationAuth(clientMsgId: String): Boolean
   # accountAuth(ctidTraderAccountId: Int64!, clientMsgId: String): Boolean
-  accountAuth(ctidTraderAccountId: Int!, clientMsgId: String): Boolean
+  accountAuth(
+    ctidTraderAccountId: Int!
+    accessToken: String!
+    clientMsgId: String
+  ): Boolean
+  version(clientMsgId: String): Boolean
 }
 
 type Subscription {

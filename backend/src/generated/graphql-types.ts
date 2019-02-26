@@ -24,6 +24,8 @@ export interface Mutation {
   applicationAuth?: Maybe<boolean>;
   /** accountAuth(ctidTraderAccountId: Int64!, clientMsgId: String): Boolean */
   accountAuth?: Maybe<boolean>;
+
+  version?: Maybe<boolean>;
 }
 
 export interface Subscription {
@@ -60,6 +62,11 @@ export interface ApplicationAuthMutationArgs {
 export interface AccountAuthMutationArgs {
   ctidTraderAccountId: number;
 
+  accessToken: string;
+
+  clientMsgId?: Maybe<string>;
+}
+export interface VersionMutationArgs {
   clientMsgId?: Maybe<string>;
 }
 
@@ -146,6 +153,8 @@ export namespace MutationResolvers {
     >;
     /** accountAuth(ctidTraderAccountId: Int64!, clientMsgId: String): Boolean */
     accountAuth?: AccountAuthResolver<Maybe<boolean>, TypeParent, TContext>;
+
+    version?: VersionResolver<Maybe<boolean>, TypeParent, TContext>;
   }
 
   export type TokensResolver<
@@ -194,6 +203,17 @@ export namespace MutationResolvers {
   export interface AccountAuthArgs {
     ctidTraderAccountId: number;
 
+    accessToken: string;
+
+    clientMsgId?: Maybe<string>;
+  }
+
+  export type VersionResolver<
+    R = Maybe<boolean>,
+    Parent = {},
+    TContext = IContext
+  > = Resolver<R, Parent, TContext, VersionArgs>;
+  export interface VersionArgs {
     clientMsgId?: Maybe<string>;
   }
 }
