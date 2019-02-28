@@ -1,4 +1,5 @@
 import { TLSSocket, connect } from "tls";
+import { EventEmitter } from "events";
 import {
   ProtoErrorRes,
   ProtoOAErrorRes,
@@ -8,7 +9,6 @@ import {
   ProtoOAPayloadType,
   ProtoOAVersionRes,
   ProtoOAGetAccountListByAccessTokenRes,
-  ProtoOACtidProfile,
   ProtoOAGetCtidProfileByTokenRes
 } from "./generated/spotware";
 
@@ -19,6 +19,7 @@ export class SpotwareSession {
   public clientId: Readonly<string>;
   public clientSecret: Readonly<string>;
   private socket?: TLSSocket;
+  private emitter: EventEmitter;
 
   private constructor(
     id: string,
@@ -32,6 +33,28 @@ export class SpotwareSession {
     this.port = port;
     this.clientId = clientId;
     this.clientSecret = clientSecret;
+    this.emitter = new EventEmitter();
+    this.emitter.on(
+      ProtoPayloadType.ERROR_RES.toString(),
+      this.onProtoPayloadType__ERROR_RES
+    );
+    this.emitter.on(
+      ProtoOAPayloadType.PROTO_OA_ERROR_RES.toString(),
+      this.onProtoOAPayloadType__PROTO_OA_ERROR_RES
+    );
+    this.emitter.on(
+      ProtoOAPayloadType.PROTO_OA_GET_ACCOUNTS_BY_ACCESS_TOKEN_RES.toString(),
+      this.onProtoOAPayloadType__PROTO_OA_GET_ACCOUNTS_BY_ACCESS_TOKEN_RES
+    );
+    this.emitter.on(
+      ProtoOAPayloadType.PROTO_OA_GET_CTID_PROFILE_BY_TOKEN_RES.toString(),
+      this.onProtoOAPayloadType__PROTO_OA_GET_CTID_PROFILE_BY_TOKEN_RES
+    );
+    this.emitter.on(
+      ProtoOAPayloadType.PROTO_OA_VERSION_RES.toString(),
+      this.onProtoOAPayloadType__PROTO_OA_VERSION_RES
+    );
+    this.emitter.on("message", console.log);
   }
 
   public static forId(id: string): SpotwareSession {
@@ -101,48 +124,8 @@ export class SpotwareSession {
     if (message.length - 4 === length) {
       const payload = message.slice(4);
       const pm = ProtoMessage.decode(payload);
-      if (pm.payloadType === ProtoPayloadType.ERROR_RES) {
-        const TYPE = ProtoErrorRes;
-        const msg = TYPE.decode(pm.payload);
-        console.log("onSocketData", TYPE.toObject(msg));
-      } else if (pm.payloadType === ProtoOAPayloadType.PROTO_OA_ERROR_RES) {
-        const TYPE = ProtoOAErrorRes;
-        const error = TYPE.decode(pm.payload);
-        console.log("onSocketData", TYPE.toObject(error));
-      } else if (pm.payloadType === ProtoOAPayloadType.PROTO_OA_VERSION_RES) {
-        const TYPE = ProtoOAVersionRes;
-        const msg = TYPE.decode(pm.payload);
-        console.log("onSocketData", TYPE.toObject(msg));
-      } else if (
-        pm.payloadType ===
-        ProtoOAPayloadType.PROTO_OA_GET_CTID_PROFILE_BY_TOKEN_RES
-      ) {
-        const TYPE = ProtoOAGetCtidProfileByTokenRes;
-        const msg = TYPE.decode(pm.payload);
-        console.log(
-          "onSocketData",
-          TYPE.toObject(msg),
-          msg.profile.userId.toString()
-        );
-      } else if (
-        pm.payloadType ===
-        ProtoOAPayloadType.PROTO_OA_GET_ACCOUNTS_BY_ACCESS_TOKEN_RES
-      ) {
-        const TYPE = ProtoOAGetAccountListByAccessTokenRes;
-        const msg = TYPE.decode(pm.payload);
-        console.log(
-          "onSocketData",
-          TYPE.toObject(msg),
-          msg.ctidTraderAccount.length,
-          msg.ctidTraderAccount[0].ctidTraderAccountId.toString()
-        );
-      } else {
-        console.log(
-          "onSocketData",
-          message.toString("hex"),
-          ProtoMessage.toObject(pm)
-        );
-      }
+      this.emitter.emit(pm.payloadType.toString(), pm);
+      this.emitter.emit("message", pm);
     } else {
       console.log("onSocketData", message.toString("hex"));
     }
@@ -156,6 +139,49 @@ export class SpotwareSession {
   private onSocketEnd = () => {
     this.socket = undefined;
     console.log("onSocketEnd");
+  };
+
+  private onProtoPayloadType__ERROR_RES = (message: ProtoMessage) => {
+    const TYPE = ProtoErrorRes;
+    const msg = TYPE.decode(message.payload);
+    this.emitter.emit(TYPE.name, msg);
+    this.emitter.emit("message", msg);
+  };
+
+  private onProtoOAPayloadType__PROTO_OA_ERROR_RES = (
+    message: ProtoMessage
+  ) => {
+    const TYPE = ProtoOAErrorRes;
+    const msg = TYPE.decode(message.payload);
+    this.emitter.emit(TYPE.name, msg);
+    this.emitter.emit("message", msg);
+  };
+
+  private onProtoOAPayloadType__PROTO_OA_VERSION_RES = (
+    message: ProtoMessage
+  ) => {
+    const TYPE = ProtoOAVersionRes;
+    const msg = TYPE.decode(message.payload);
+    this.emitter.emit(TYPE.name, msg);
+    this.emitter.emit("message", msg);
+  };
+
+  private onProtoOAPayloadType__PROTO_OA_GET_CTID_PROFILE_BY_TOKEN_RES = (
+    message: ProtoMessage
+  ) => {
+    const TYPE = ProtoOAGetCtidProfileByTokenRes;
+    const msg = TYPE.decode(message.payload);
+    this.emitter.emit(TYPE.name, msg);
+    this.emitter.emit("message", msg);
+  };
+
+  private onProtoOAPayloadType__PROTO_OA_GET_ACCOUNTS_BY_ACCESS_TOKEN_RES = (
+    message: ProtoMessage
+  ) => {
+    const TYPE = ProtoOAGetAccountListByAccessTokenRes;
+    const msg = TYPE.decode(message.payload);
+    this.emitter.emit(TYPE.name, msg);
+    this.emitter.emit("message", msg);
   };
 }
 export default SpotwareSession;
