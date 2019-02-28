@@ -12,7 +12,14 @@
     "import": "shx mkdir ./spotware-messages && cd ./spotware-messages && isogit clone --url=https://github.com/spotware/Open-API-2.0-protobuf-messages --singleBranch",
     "postimport": "shx cp ./spotware-messages/*.proto ./assets && shx rm -rf ./spotware-messages"
   },
-  "keywords": [],
+  "keywords": [
+    "spotware",
+    "ctrader",
+    "typescript",
+    "ts",
+    "api",
+    "protobuf"
+  ],
   "author": "",
   "license": "ISC",
   "husky": {
