@@ -26,6 +26,10 @@ export interface Mutation {
   accountAuth?: Maybe<boolean>;
 
   version?: Maybe<boolean>;
+
+  getAccountListByAccessToken?: Maybe<boolean>;
+
+  getCtidProfileByToken?: Maybe<boolean>;
 }
 
 export interface Subscription {
@@ -67,6 +71,16 @@ export interface AccountAuthMutationArgs {
   clientMsgId?: Maybe<string>;
 }
 export interface VersionMutationArgs {
+  clientMsgId?: Maybe<string>;
+}
+export interface GetAccountListByAccessTokenMutationArgs {
+  accessToken: string;
+
+  clientMsgId?: Maybe<string>;
+}
+export interface GetCtidProfileByTokenMutationArgs {
+  accessToken: string;
+
   clientMsgId?: Maybe<string>;
 }
 
@@ -155,6 +169,18 @@ export namespace MutationResolvers {
     accountAuth?: AccountAuthResolver<Maybe<boolean>, TypeParent, TContext>;
 
     version?: VersionResolver<Maybe<boolean>, TypeParent, TContext>;
+
+    getAccountListByAccessToken?: GetAccountListByAccessTokenResolver<
+      Maybe<boolean>,
+      TypeParent,
+      TContext
+    >;
+
+    getCtidProfileByToken?: GetCtidProfileByTokenResolver<
+      Maybe<boolean>,
+      TypeParent,
+      TContext
+    >;
   }
 
   export type TokensResolver<
@@ -214,6 +240,28 @@ export namespace MutationResolvers {
     TContext = IContext
   > = Resolver<R, Parent, TContext, VersionArgs>;
   export interface VersionArgs {
+    clientMsgId?: Maybe<string>;
+  }
+
+  export type GetAccountListByAccessTokenResolver<
+    R = Maybe<boolean>,
+    Parent = {},
+    TContext = IContext
+  > = Resolver<R, Parent, TContext, GetAccountListByAccessTokenArgs>;
+  export interface GetAccountListByAccessTokenArgs {
+    accessToken: string;
+
+    clientMsgId?: Maybe<string>;
+  }
+
+  export type GetCtidProfileByTokenResolver<
+    R = Maybe<boolean>,
+    Parent = {},
+    TContext = IContext
+  > = Resolver<R, Parent, TContext, GetCtidProfileByTokenArgs>;
+  export interface GetCtidProfileByTokenArgs {
+    accessToken: string;
+
     clientMsgId?: Maybe<string>;
   }
 }

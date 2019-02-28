@@ -15,6 +15,11 @@ type Mutation {
     clientMsgId: String
   ): Boolean
   version(clientMsgId: String): Boolean
+  getAccountListByAccessToken(
+    accessToken: String!
+    clientMsgId: String
+  ): Boolean
+  getCtidProfileByToken(accessToken: String!, clientMsgId: String): Boolean
 }
 
 type Subscription {

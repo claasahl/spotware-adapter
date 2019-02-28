@@ -5,7 +5,9 @@ import {
   ProtoPingReq,
   ProtoOAApplicationAuthReq,
   ProtoOAAccountAuthReq,
-  ProtoOAVersionReq
+  ProtoOAVersionReq,
+  ProtoOAGetAccountListByAccessTokenReq,
+  ProtoOAGetCtidProfileByTokenReq
 } from "../generated/spotware";
 
 export const mutation: Required<MutationResolvers.Resolvers> = {
@@ -57,6 +59,22 @@ export const mutation: Required<MutationResolvers.Resolvers> = {
   version: async (_parent, args, ctx) => {
     const { clientMsgId, ...propterties } = args;
     const TYPE = ProtoOAVersionReq;
+    const message = TYPE.create({ ...propterties });
+    const payloadType = TYPE.prototype.payloadType;
+    const payload = TYPE.encode(message).finish();
+    return ctx.session.sendProtoMessage({ payloadType, payload, clientMsgId });
+  },
+  getAccountListByAccessToken: async (_parent, args, ctx) => {
+    const { clientMsgId, ...propterties } = args;
+    const TYPE = ProtoOAGetAccountListByAccessTokenReq;
+    const message = TYPE.create({ ...propterties });
+    const payloadType = TYPE.prototype.payloadType;
+    const payload = TYPE.encode(message).finish();
+    return ctx.session.sendProtoMessage({ payloadType, payload, clientMsgId });
+  },
+  getCtidProfileByToken: async (_parent, args, ctx) => {
+    const { clientMsgId, ...propterties } = args;
+    const TYPE = ProtoOAGetCtidProfileByTokenReq;
     const message = TYPE.create({ ...propterties });
     const payloadType = TYPE.prototype.payloadType;
     const payload = TYPE.encode(message).finish();
