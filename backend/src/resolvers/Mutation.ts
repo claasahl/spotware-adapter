@@ -5,10 +5,10 @@ import {
   ProtoPingReq,
   ProtoOAApplicationAuthReq,
   ProtoOAAccountAuthReq,
-  ProtoOAVersionReq,
   ProtoOAGetAccountListByAccessTokenReq,
   ProtoOAGetCtidProfileByTokenReq
 } from "../generated/spotware";
+import { Request as Version } from "../requests/ProtoOAVersion";
 
 export const mutation: Required<MutationResolvers.Resolvers> = {
   tokens: async (_parent, args) => {
@@ -58,11 +58,8 @@ export const mutation: Required<MutationResolvers.Resolvers> = {
   },
   version: async (_parent, args, ctx) => {
     const { clientMsgId, ...properties } = args;
-    const TYPE = ProtoOAVersionReq;
-    const message = TYPE.create({ ...properties });
-    const payloadType = TYPE.prototype.payloadType;
-    const payload = TYPE.encode(message).finish();
-    return ctx.session.sendProtoMessage({ payloadType, payload, clientMsgId });
+    const message = Version.toProtoMessage(properties, clientMsgId);
+    return ctx.session.sendProtoMessage(message);
   },
   getAccountListByAccessToken: async (_parent, args, ctx) => {
     const { clientMsgId, ...properties } = args;

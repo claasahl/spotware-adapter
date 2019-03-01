@@ -7,10 +7,10 @@ import {
   IProtoMessage,
   ProtoPayloadType,
   ProtoOAPayloadType,
-  ProtoOAVersionRes,
   ProtoOAGetAccountListByAccessTokenRes,
   ProtoOAGetCtidProfileByTokenRes
 } from "./generated/spotware";
+import { Response as Version } from "./requests/ProtoOAVersion";
 
 export class SpotwareSession {
   public id: Readonly<string>;
@@ -50,10 +50,8 @@ export class SpotwareSession {
       ProtoOAPayloadType.PROTO_OA_GET_CTID_PROFILE_BY_TOKEN_RES.toString(),
       this.onProtoOAPayloadType__PROTO_OA_GET_CTID_PROFILE_BY_TOKEN_RES
     );
-    this.emitter.on(
-      ProtoOAPayloadType.PROTO_OA_VERSION_RES.toString(),
-      this.onProtoOAPayloadType__PROTO_OA_VERSION_RES
-    );
+    //this.emitter.on(Version.EVENT, Version.test(this.emitter));
+    Version.register(this.emitter);
     this.emitter.on("message", console.log);
   }
 
@@ -152,15 +150,6 @@ export class SpotwareSession {
     message: ProtoMessage
   ) => {
     const TYPE = ProtoOAErrorRes;
-    const msg = TYPE.decode(message.payload);
-    this.emitter.emit(TYPE.name, msg);
-    this.emitter.emit("message", msg);
-  };
-
-  private onProtoOAPayloadType__PROTO_OA_VERSION_RES = (
-    message: ProtoMessage
-  ) => {
-    const TYPE = ProtoOAVersionRes;
     const msg = TYPE.decode(message.payload);
     this.emitter.emit(TYPE.name, msg);
     this.emitter.emit("message", msg);
