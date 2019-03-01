@@ -6,29 +6,26 @@ import {
 } from "../../generated/spotware";
 import { EventEmitter } from "events";
 import { Gateway } from "../gateway";
+import { MessageHandler } from "../message_handler";
 
-export namespace Response {
-  const TYPE = ProtoOAVersionRes;
-  const EVENT = ProtoOAPayloadType.PROTO_OA_VERSION_RES.toString();
+const TYPE = ProtoOAVersionRes;
+const EVENT = ProtoOAPayloadType.PROTO_OA_VERSION_RES.toString();
 
-  export function register(gateway: Gateway): void {
+export class Response implements MessageHandler<IProtoOAVersionRes> {
+  register(gateway: Gateway): void {
     const { emitter } = gateway;
-    emitter.on(EVENT, parseAndEmitMessage(emitter));
+    emitter.on(EVENT, this.parseAndEmitMessage(emitter));
   }
 
-  export function fromProtoMessage(
-    message: IProtoMessage
-  ): IProtoOAVersionRes | undefined {
+  fromProtoMessage(message: IProtoMessage): IProtoOAVersionRes | undefined {
     if (message.payload) {
       return TYPE.decode(message.payload);
     }
   }
 
-  export function parseAndEmitMessage(
-    emitter: EventEmitter
-  ): (message: IProtoMessage) => void {
+  parseAndEmitMessage(emitter: EventEmitter): (message: IProtoMessage) => void {
     return (message: IProtoMessage) => {
-      const msg = fromProtoMessage(message);
+      const msg = this.fromProtoMessage(message);
       if (msg) {
         emitter.emit(TYPE.name, msg);
         emitter.emit("message", msg);
