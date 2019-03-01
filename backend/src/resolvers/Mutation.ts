@@ -59,6 +59,7 @@ export const mutation: Required<MutationResolvers.Resolvers> = {
   version: async (_parent, args, ctx) => {
     const { clientMsgId, ...properties } = args;
     const message = Version.toProtoMessage(properties, clientMsgId);
+    ctx.gateway.writeProtoMessage(message);
     return ctx.session.sendProtoMessage(message);
   },
   getAccountListByAccessToken: async (_parent, args, ctx) => {
