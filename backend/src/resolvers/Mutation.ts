@@ -23,17 +23,17 @@ export const mutation: Required<MutationResolvers.Resolvers> = {
     return JSON.stringify(response.data);
   },
   heartbeat: (_parent, args, ctx) => {
-    const { clientMsgId, ...propterties } = args;
+    const { clientMsgId, ...properties } = args;
     const TYPE = ProtoHeartbeatEvent;
-    const message = TYPE.create(propterties);
+    const message = TYPE.create(properties);
     const payloadType = TYPE.prototype.payloadType;
     const payload = TYPE.encode(message).finish();
     return ctx.session.sendProtoMessage({ payloadType, payload, clientMsgId });
   },
   ping: (_parent, args, ctx) => {
-    const { clientMsgId, ...propterties } = args;
+    const { clientMsgId, ...properties } = args;
     const TYPE = ProtoPingReq;
-    const message = TYPE.create(propterties);
+    const message = TYPE.create(properties);
     const payloadType = TYPE.prototype.payloadType;
     const payload = TYPE.encode(message).finish();
     return ctx.session.sendProtoMessage({ payloadType, payload, clientMsgId });
@@ -41,41 +41,41 @@ export const mutation: Required<MutationResolvers.Resolvers> = {
   applicationAuth: (_parent, args, ctx) => {
     const { clientId, clientSecret } = ctx.session;
 
-    const { clientMsgId, ...propterties } = args;
+    const { clientMsgId, ...properties } = args;
     const TYPE = ProtoOAApplicationAuthReq;
-    const message = TYPE.create({ ...propterties, clientId, clientSecret });
+    const message = TYPE.create({ ...properties, clientId, clientSecret });
     const payloadType = TYPE.prototype.payloadType;
     const payload = TYPE.encode(message).finish();
     return ctx.session.sendProtoMessage({ payloadType, payload, clientMsgId });
   },
   accountAuth: async (_parent, args, ctx) => {
-    const { clientMsgId, ...propterties } = args;
+    const { clientMsgId, ...properties } = args;
     const TYPE = ProtoOAAccountAuthReq;
-    const message = TYPE.create({ ...propterties });
+    const message = TYPE.create({ ...properties });
     const payloadType = TYPE.prototype.payloadType;
     const payload = TYPE.encode(message).finish();
     return ctx.session.sendProtoMessage({ payloadType, payload, clientMsgId });
   },
   version: async (_parent, args, ctx) => {
-    const { clientMsgId, ...propterties } = args;
+    const { clientMsgId, ...properties } = args;
     const TYPE = ProtoOAVersionReq;
-    const message = TYPE.create({ ...propterties });
+    const message = TYPE.create({ ...properties });
     const payloadType = TYPE.prototype.payloadType;
     const payload = TYPE.encode(message).finish();
     return ctx.session.sendProtoMessage({ payloadType, payload, clientMsgId });
   },
   getAccountListByAccessToken: async (_parent, args, ctx) => {
-    const { clientMsgId, ...propterties } = args;
+    const { clientMsgId, ...properties } = args;
     const TYPE = ProtoOAGetAccountListByAccessTokenReq;
-    const message = TYPE.create({ ...propterties });
+    const message = TYPE.create({ ...properties });
     const payloadType = TYPE.prototype.payloadType;
     const payload = TYPE.encode(message).finish();
     return ctx.session.sendProtoMessage({ payloadType, payload, clientMsgId });
   },
   getCtidProfileByToken: async (_parent, args, ctx) => {
-    const { clientMsgId, ...propterties } = args;
+    const { clientMsgId, ...properties } = args;
     const TYPE = ProtoOAGetCtidProfileByTokenReq;
-    const message = TYPE.create({ ...propterties });
+    const message = TYPE.create({ ...properties });
     const payloadType = TYPE.prototype.payloadType;
     const payload = TYPE.encode(message).finish();
     return ctx.session.sendProtoMessage({ payloadType, payload, clientMsgId });
