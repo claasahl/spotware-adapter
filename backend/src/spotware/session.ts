@@ -8,5 +8,5 @@ export function create(socket: TLSSocket): Gateway {
   return gateway;
 }
 function registerResponseHandlers(gateway: Gateway) {
-  Response.register(gateway);
+  new Response().register(gateway);
 }
