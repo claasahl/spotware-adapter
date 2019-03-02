@@ -10,7 +10,6 @@ import {
   ProtoOAGetAccountListByAccessTokenRes,
   ProtoOAGetCtidProfileByTokenRes
 } from "./generated/spotware";
-import { Response as Version } from "./requests/ProtoOAVersion";
 
 export class SpotwareSession {
   public id: Readonly<string>;
@@ -50,8 +49,6 @@ export class SpotwareSession {
       ProtoOAPayloadType.PROTO_OA_GET_CTID_PROFILE_BY_TOKEN_RES.toString(),
       this.onProtoOAPayloadType__PROTO_OA_GET_CTID_PROFILE_BY_TOKEN_RES
     );
-    //this.emitter.on(Version.EVENT, Version.test(this.emitter));
-    Version.register(this.emitter);
     this.emitter.on("message", console.log);
   }
 

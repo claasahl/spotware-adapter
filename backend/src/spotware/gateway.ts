@@ -31,9 +31,9 @@ export class Gateway {
     this.socket.write(data, undefined, callback);
   }
 
-  private onData = (data: Uint8Array) => {
+  private onData = (data: string) => {
     const INT_SIZE = 4;
-    const message = Buffer.from(data);
+    const message = Buffer.from(data, "binary");
     const length = message.readInt32BE(0);
     if (message.length - INT_SIZE >= length) {
       const payload = message.slice(INT_SIZE, length + INT_SIZE);
