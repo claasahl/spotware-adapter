@@ -8,7 +8,7 @@ import {
   ProtoOAGetAccountListByAccessTokenReq,
   ProtoOAGetCtidProfileByTokenReq
 } from "../generated/spotware";
-import { Request } from "../spotware/requests/ProtoOAVersionReq";
+import { toProtoMessage } from "../spotware/requests/ProtoOAVersionReq";
 
 export const mutation: Required<MutationResolvers.Resolvers> = {
   tokens: async (_parent, args) => {
@@ -58,7 +58,7 @@ export const mutation: Required<MutationResolvers.Resolvers> = {
   },
   version: async (_parent, args, ctx) => {
     const { clientMsgId, ...properties } = args;
-    const message = new Request().toProtoMessage(properties, clientMsgId);
+    const message = toProtoMessage(properties, clientMsgId);
     return new Promise<boolean>(resolve => {
       ctx.gateway.writeProtoMessage(message, () => {
         resolve(true);
