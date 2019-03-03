@@ -1,6 +1,6 @@
 import { TLSSocket } from "tls";
 import { Gateway } from "./gateway";
-import { Response } from "./responses/ProtoOAVersionRes";
+import { register } from "./responses/ProtoOAVersionRes";
 
 export function create(socket: TLSSocket): Gateway {
   const gateway = new Gateway(socket);
@@ -9,5 +9,5 @@ export function create(socket: TLSSocket): Gateway {
   return gateway;
 }
 function registerResponseHandlers(gateway: Gateway) {
-  new Response().register(gateway);
+  register(gateway.emitter);
 }
