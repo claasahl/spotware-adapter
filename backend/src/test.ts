@@ -31,6 +31,10 @@ function generateResponse(message: Message) {
 }`;
 }
 
+function generateEvent(message: Message) {
+  return generateResponse(message);
+}
+
 function writeRequests(requests: string[]) {
   if (requests.length > 0) {
     const stream = fs.createWriteStream("src/spotware/requests.ts");
@@ -60,20 +64,39 @@ function writeResponses(responses: string[]) {
   }
 }
 
+function writeEvents(events: string[]) {
+  if (events.length > 0) {
+    const stream = fs.createWriteStream("src/spotware/events.ts");
+    stream.write('import * as $spotware from "../generated/spotware";\n');
+    stream.write('import { EventEmitter } from "events";\n');
+    stream.write('import * as $base from "./message_handler";\n');
+    stream.write("\n");
+    for (const event of events) {
+      stream.write(event);
+    }
+    stream.write("\n");
+    stream.end();
+  }
+}
+
 const protoFile =
   "node_modules/@claasahl/spotware-protobuf-messages/OpenApiMessages.proto";
 const proto = fs.readFileSync(protoFile);
 const s = schema(proto);
 const requests: string[] = [];
 const responses: string[] = [];
+const events: string[] = [];
 for (const message of s.messages) {
   if (message.name.endsWith("Req")) {
     requests.push(generateRequest(message));
   } else if (message.name.endsWith("Res")) {
     responses.push(generateResponse(message));
+  } else if (message.name.endsWith("Event")) {
+    events.push(generateEvent(message));
   } else {
     console.log("not categorized:", message.name);
   }
 }
 writeRequests(requests);
 writeResponses(responses);
+writeEvents(events);
