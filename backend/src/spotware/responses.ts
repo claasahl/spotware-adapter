@@ -172,3 +172,29 @@ export function ProtoOAAccountLogoutRes(emitter: EventEmitter): void {
     emitter
   );
 }
+export default function registerResponseHendlers(emitter: EventEmitter): void {
+  ProtoOAApplicationAuthRes(emitter);
+  ProtoOAAccountAuthRes(emitter);
+  ProtoOAErrorRes(emitter);
+  ProtoOAVersionRes(emitter);
+  ProtoOAAssetListRes(emitter);
+  ProtoOASymbolsListRes(emitter);
+  ProtoOASymbolByIdRes(emitter);
+  ProtoOASymbolsForConversionRes(emitter);
+  ProtoOAAssetClassListRes(emitter);
+  ProtoOATraderRes(emitter);
+  ProtoOAReconcileRes(emitter);
+  ProtoOADealListRes(emitter);
+  ProtoOAExpectedMarginRes(emitter);
+  ProtoOACashFlowHistoryListRes(emitter);
+  ProtoOAGetAccountListByAccessTokenRes(emitter);
+  ProtoOASubscribeSpotsRes(emitter);
+  ProtoOAUnsubscribeSpotsRes(emitter);
+  ProtoOAGetTrendbarsRes(emitter);
+  ProtoOAGetTickDataRes(emitter);
+  ProtoOAGetCtidProfileByTokenRes(emitter);
+  ProtoOASubscribeDepthQuotesRes(emitter);
+  ProtoOAUnsubscribeDepthQuotesRes(emitter);
+  ProtoOASymbolCategoryListRes(emitter);
+  ProtoOAAccountLogoutRes(emitter);
+}
