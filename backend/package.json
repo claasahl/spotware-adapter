@@ -7,6 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepare": "npm run build",
     "build": "npm run gen && tsc",
+    "proto": "ts-node src/test.ts",
     "start": "ts-node -r dotenv/config src/server.ts",
     "gen": "npm run gen:graphql && npm run gen:protobuf:js && npm run gen:protobuf:ts",
     "gen:protobuf:js": "pbjs -t static-module -w commonjs -o ./src/generated/spotware.js node_modules/@claasahl/spotware-protobuf-messages/*.proto",
@@ -37,6 +38,7 @@
     "prettier": "^1.16.4",
     "pretty-quick": "^1.10.0",
     "protobufjs": "^6.8.8",
+    "protocol-buffers-schema": "^3.3.2",
     "ts-node": "^8.0.2",
     "typescript": "^3.3.3333"
   },
