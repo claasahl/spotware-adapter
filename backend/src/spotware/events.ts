@@ -74,3 +74,15 @@ export function ProtoOADepthEvent(emitter: EventEmitter): void {
     emitter
   );
 }
+export default function registerEventHandlers(emitter: EventEmitter): void {
+  ProtoOAClientDisconnectEvent(emitter);
+  ProtoOAAccountsTokenInvalidatedEvent(emitter);
+  ProtoOAExecutionEvent(emitter);
+  ProtoOATrailingSLChangedEvent(emitter);
+  ProtoOASymbolChangedEvent(emitter);
+  ProtoOATraderUpdatedEvent(emitter);
+  ProtoOAOrderErrorEvent(emitter);
+  ProtoOAMarginChangedEvent(emitter);
+  ProtoOASpotEvent(emitter);
+  ProtoOADepthEvent(emitter);
+}

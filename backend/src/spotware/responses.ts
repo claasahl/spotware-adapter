@@ -172,7 +172,7 @@ export function ProtoOAAccountLogoutRes(emitter: EventEmitter): void {
     emitter
   );
 }
-export default function registerResponseHendlers(emitter: EventEmitter): void {
+export default function registerResponseHandlers(emitter: EventEmitter): void {
   ProtoOAApplicationAuthRes(emitter);
   ProtoOAAccountAuthRes(emitter);
   ProtoOAErrorRes(emitter);

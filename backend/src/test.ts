@@ -60,7 +60,7 @@ function writeResponses(responses: Message[]) {
       stream.write(generateResponse(response));
     }
     stream.write(
-      "export default function registerResponseHendlers(emitter: EventEmitter): void {\n"
+      "export default function registerResponseHandlers(emitter: EventEmitter): void {\n"
     );
     for (const response of responses) {
       stream.write(`${response.name}(emitter);\n`);
@@ -81,6 +81,13 @@ function writeEvents(events: Message[]) {
     for (const event of events) {
       stream.write(generateEvent(event));
     }
+    stream.write(
+      "export default function registerEventHandlers(emitter: EventEmitter): void {\n"
+    );
+    for (const event of events) {
+      stream.write(`${event.name}(emitter);\n`);
+    }
+    stream.write("}\n");
     stream.write("\n");
     stream.end();
   }
