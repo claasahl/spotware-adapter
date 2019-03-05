@@ -53,7 +53,8 @@ export const mutation: Required<MutationResolvers.Resolvers> = {
     });
   },
   applicationAuth: (_parent, args, ctx) => {
-    const { clientId, clientSecret } = ctx.session;
+    const clientId = process.env.SPOTWARE__CLIENT_ID || "";
+    const clientSecret = process.env.SPOTWARE__CLIENT_SECRET || "";
 
     const { clientMsgId, ...properties } = args;
     const message = requests.ProtoOAApplicationAuthReq(
