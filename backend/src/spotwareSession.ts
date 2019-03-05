@@ -37,18 +37,6 @@ export class SpotwareSession {
       ProtoPayloadType.ERROR_RES.toString(),
       this.onProtoPayloadType__ERROR_RES
     );
-    this.emitter.on(
-      ProtoOAPayloadType.PROTO_OA_ERROR_RES.toString(),
-      this.onProtoOAPayloadType__PROTO_OA_ERROR_RES
-    );
-    this.emitter.on(
-      ProtoOAPayloadType.PROTO_OA_GET_ACCOUNTS_BY_ACCESS_TOKEN_RES.toString(),
-      this.onProtoOAPayloadType__PROTO_OA_GET_ACCOUNTS_BY_ACCESS_TOKEN_RES
-    );
-    this.emitter.on(
-      ProtoOAPayloadType.PROTO_OA_GET_CTID_PROFILE_BY_TOKEN_RES.toString(),
-      this.onProtoOAPayloadType__PROTO_OA_GET_CTID_PROFILE_BY_TOKEN_RES
-    );
     this.emitter.on("message", console.log);
   }
 
@@ -138,33 +126,6 @@ export class SpotwareSession {
 
   private onProtoPayloadType__ERROR_RES = (message: ProtoMessage) => {
     const TYPE = ProtoErrorRes;
-    const msg = TYPE.decode(message.payload);
-    this.emitter.emit(TYPE.name, msg);
-    this.emitter.emit("message", msg);
-  };
-
-  private onProtoOAPayloadType__PROTO_OA_ERROR_RES = (
-    message: ProtoMessage
-  ) => {
-    const TYPE = ProtoOAErrorRes;
-    const msg = TYPE.decode(message.payload);
-    this.emitter.emit(TYPE.name, msg);
-    this.emitter.emit("message", msg);
-  };
-
-  private onProtoOAPayloadType__PROTO_OA_GET_CTID_PROFILE_BY_TOKEN_RES = (
-    message: ProtoMessage
-  ) => {
-    const TYPE = ProtoOAGetCtidProfileByTokenRes;
-    const msg = TYPE.decode(message.payload);
-    this.emitter.emit(TYPE.name, msg);
-    this.emitter.emit("message", msg);
-  };
-
-  private onProtoOAPayloadType__PROTO_OA_GET_ACCOUNTS_BY_ACCESS_TOKEN_RES = (
-    message: ProtoMessage
-  ) => {
-    const TYPE = ProtoOAGetAccountListByAccessTokenRes;
     const msg = TYPE.decode(message.payload);
     this.emitter.emit(TYPE.name, msg);
     this.emitter.emit("message", msg);
