@@ -28,7 +28,14 @@ export const mutation: Required<MutationResolvers.Resolvers> = {
     const message = TYPE.create(properties);
     const payloadType = TYPE.prototype.payloadType;
     const payload = TYPE.encode(message).finish();
-    return ctx.session.sendProtoMessage({ payloadType, payload, clientMsgId });
+    return new Promise<boolean>(resolve => {
+      ctx.gateway.writeProtoMessage(
+        { payloadType, payload, clientMsgId },
+        () => {
+          resolve(true);
+        }
+      );
+    });
   },
   ping: (_parent, args, ctx) => {
     const { clientMsgId, ...properties } = args;
@@ -36,25 +43,37 @@ export const mutation: Required<MutationResolvers.Resolvers> = {
     const message = TYPE.create(properties);
     const payloadType = TYPE.prototype.payloadType;
     const payload = TYPE.encode(message).finish();
-    return ctx.session.sendProtoMessage({ payloadType, payload, clientMsgId });
+    return new Promise<boolean>(resolve => {
+      ctx.gateway.writeProtoMessage(
+        { payloadType, payload, clientMsgId },
+        () => {
+          resolve(true);
+        }
+      );
+    });
   },
   applicationAuth: (_parent, args, ctx) => {
     const { clientId, clientSecret } = ctx.session;
 
     const { clientMsgId, ...properties } = args;
-    const TYPE = ProtoOAApplicationAuthReq;
-    const message = TYPE.create({ ...properties, clientId, clientSecret });
-    const payloadType = TYPE.prototype.payloadType;
-    const payload = TYPE.encode(message).finish();
-    return ctx.session.sendProtoMessage({ payloadType, payload, clientMsgId });
+    const message = requests.ProtoOAApplicationAuthReq(
+      { ...properties, clientId, clientSecret },
+      clientMsgId
+    );
+    return new Promise<boolean>(resolve => {
+      ctx.gateway.writeProtoMessage(message, () => {
+        resolve(true);
+      });
+    });
   },
   accountAuth: async (_parent, args, ctx) => {
     const { clientMsgId, ...properties } = args;
-    const TYPE = ProtoOAAccountAuthReq;
-    const message = TYPE.create({ ...properties });
-    const payloadType = TYPE.prototype.payloadType;
-    const payload = TYPE.encode(message).finish();
-    return ctx.session.sendProtoMessage({ payloadType, payload, clientMsgId });
+    const message = requests.ProtoOAAccountAuthReq(properties, clientMsgId);
+    return new Promise<boolean>(resolve => {
+      ctx.gateway.writeProtoMessage(message, () => {
+        resolve(true);
+      });
+    });
   },
   version: async (_parent, args, ctx) => {
     const { clientMsgId, ...properties } = args;
@@ -67,19 +86,27 @@ export const mutation: Required<MutationResolvers.Resolvers> = {
   },
   getAccountListByAccessToken: async (_parent, args, ctx) => {
     const { clientMsgId, ...properties } = args;
-    const TYPE = ProtoOAGetAccountListByAccessTokenReq;
-    const message = TYPE.create({ ...properties });
-    const payloadType = TYPE.prototype.payloadType;
-    const payload = TYPE.encode(message).finish();
-    return ctx.session.sendProtoMessage({ payloadType, payload, clientMsgId });
+    const message = requests.ProtoOAGetAccountListByAccessTokenReq(
+      properties,
+      clientMsgId
+    );
+    return new Promise<boolean>(resolve => {
+      ctx.gateway.writeProtoMessage(message, () => {
+        resolve(true);
+      });
+    });
   },
   getCtidProfileByToken: async (_parent, args, ctx) => {
     const { clientMsgId, ...properties } = args;
-    const TYPE = ProtoOAGetCtidProfileByTokenReq;
-    const message = TYPE.create({ ...properties });
-    const payloadType = TYPE.prototype.payloadType;
-    const payload = TYPE.encode(message).finish();
-    return ctx.session.sendProtoMessage({ payloadType, payload, clientMsgId });
+    const message = requests.ProtoOAGetCtidProfileByTokenReq(
+      properties,
+      clientMsgId
+    );
+    return new Promise<boolean>(resolve => {
+      ctx.gateway.writeProtoMessage(message, () => {
+        resolve(true);
+      });
+    });
   }
 };
 export default mutation;
