@@ -5,26 +5,43 @@ import {
   ProtoPayloadType
 } from "../generated/spotware";
 import { EventEmitter } from "events";
+import { PROTO_MESSAGE_EVENT, Gateway } from "./gateway";
 
 // aliasing "ProtoOAApplicationAuthRes", because it only contains exactly one field "payloadType"
 type wrapper = typeof ProtoOAApplicationAuthRes;
-export function toProtoMessage<P>(
+
+export function createAndEmitMessage<P>(
   TYPE: wrapper,
   properties: P,
-  clientMsgId: string | null | undefined
-): IProtoMessage {
-  const message = TYPE.create({ ...properties });
+  clientMsgId: string | null | undefined,
+  emitter: EventEmitter
+) {
   const payloadType = TYPE.prototype.payloadType;
+  const message = TYPE.create({ ...properties });
   const payload = TYPE.encode(message).finish();
-  return { payloadType, payload, clientMsgId };
+  const pm: IProtoMessage = { payloadType, payload, clientMsgId };
+  emitter.emit(`${payloadType}.${TYPE.name}`, { ...properties });
+  emitter.emit(`${payloadType}.${PROTO_MESSAGE_EVENT}`, pm);
+  emitter.emit(PROTO_MESSAGE_EVENT, pm);
 }
 
-export function register(
+export function registerRequest(
+  EVENT: ProtoOAPayloadType | ProtoPayloadType,
+  gateway: Gateway
+) {
+  const { emitter } = gateway;
+  emitter.on(`${EVENT}.${PROTO_MESSAGE_EVENT}`, gateway.writeProtoMessage);
+}
+
+export function registerResponse(
   TYPE: wrapper,
   EVENT: ProtoOAPayloadType | ProtoPayloadType,
   emitter: EventEmitter
 ): void {
-  emitter.on(EVENT.toString(), parseAndEmitMessage(TYPE, emitter));
+  emitter.on(
+    `${EVENT}.${PROTO_MESSAGE_EVENT}`,
+    parseAndEmitMessage(TYPE, emitter)
+  );
 }
 
 function parseAndEmitMessage(
@@ -35,8 +52,7 @@ function parseAndEmitMessage(
     if (message.payload) {
       const msg = TYPE.decode(message.payload);
       if (msg) {
-        emitter.emit(TYPE.name, msg);
-        emitter.emit("message", msg);
+        emitter.emit(`${message.payloadType}.${TYPE.name}`, msg);
       }
     }
   };

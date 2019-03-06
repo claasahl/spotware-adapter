@@ -4,16 +4,18 @@ import { Message } from "protocol-buffers-schema/types";
 
 function generateRequest(message: Message): string {
   const type = message.name;
-  return `export function ${type}(
+  return `export function emit${type}(
   properties: $spotware.I${type},
-  clientMsgId: string | null | undefined
-): $spotware.IProtoMessage {
-  return $base.toProtoMessage(
+  clientMsgId: string | null | undefined,
+  emitter: EventEmitter
+): void {
+  $base.createAndEmitMessage(
     $spotware.${type},
     properties,
-    clientMsgId
+    clientMsgId, emitter
   );
-}`;
+}
+`;
 }
 
 function generateResponse(message: Message) {
@@ -22,13 +24,14 @@ function generateResponse(message: Message) {
   )[0];
   const type = message.name;
   const payloadType = payloadTypeField.options["default"];
-  return `export function ${type}(emitter: EventEmitter): void {
-  $base.register(
+  return `function ${type}(emitter: EventEmitter): void {
+  $base.registerResponse(
     $spotware.${type},
     $spotware.ProtoOAPayloadType.${payloadType},
     emitter
   );
-}`;
+}
+`;
 }
 
 function generateEvent(message: Message) {
@@ -40,12 +43,39 @@ function writeRequests(requests: Message[]) {
     const stream = fs.createWriteStream("src/spotware/requests.ts");
     stream.write('import * as $spotware from "../generated/spotware";\n');
     stream.write('import * as $base from "./message_handler";\n');
+    stream.write('import { Gateway } from "./gateway";\n');
+    stream.write('import { EventEmitter } from "events";\n');
     stream.write("\n");
     for (const request of requests) {
       stream.write(generateRequest(request));
     }
+    stream.write(
+      "export default function registerRequestHandlers(gateway: Gateway): void {\n"
+    );
+    for (const request of requests) {
+      stream.write(
+        `$base.registerRequest($spotware.${
+          request.name
+        }.prototype.payloadType, gateway);\n`
+      );
+    }
+    stream.write("}\n");
     stream.write("\n");
     stream.end();
+  }
+
+  for (const request of requests) {
+    const name = request.name.replace("ProtoOA", "").replace("Req", "");
+    const fields = request.fields
+      .filter(field => !["clientId", "clientSecret"].includes(field.name))
+      .map(field => `${field.name}: ${field.type}${field.required ? "!" : ""}`)
+      .map(field => field.replace("int32", "Int"))
+      .map(field => field.replace("int64", "Int"))
+      .map(field => field.replace("string", "String"))
+      .map(field => field.replace("double", "Float"))
+      .map(field => field.replace("bool", "boolean"));
+    fields.push("clientMsgId: String");
+    console.log(`${name}(${fields.join(", ")}): Boolean`);
   }
 }
 

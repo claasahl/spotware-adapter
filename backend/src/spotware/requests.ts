@@ -1,303 +1,487 @@
 import * as $spotware from "../generated/spotware";
 import * as $base from "./message_handler";
+import { Gateway } from "./gateway";
+import { EventEmitter } from "events";
 
-export function ProtoOAApplicationAuthReq(
+export function emitProtoOAApplicationAuthReq(
   properties: $spotware.IProtoOAApplicationAuthReq,
-  clientMsgId: string | null | undefined
-): $spotware.IProtoMessage {
-  return $base.toProtoMessage(
+  clientMsgId: string | null | undefined,
+  emitter: EventEmitter
+): void {
+  $base.createAndEmitMessage(
     $spotware.ProtoOAApplicationAuthReq,
     properties,
-    clientMsgId
+    clientMsgId,
+    emitter
   );
 }
-export function ProtoOAAccountAuthReq(
+export function emitProtoOAAccountAuthReq(
   properties: $spotware.IProtoOAAccountAuthReq,
-  clientMsgId: string | null | undefined
-): $spotware.IProtoMessage {
-  return $base.toProtoMessage(
+  clientMsgId: string | null | undefined,
+  emitter: EventEmitter
+): void {
+  $base.createAndEmitMessage(
     $spotware.ProtoOAAccountAuthReq,
     properties,
-    clientMsgId
+    clientMsgId,
+    emitter
   );
 }
-export function ProtoOAVersionReq(
+export function emitProtoOAVersionReq(
   properties: $spotware.IProtoOAVersionReq,
-  clientMsgId: string | null | undefined
-): $spotware.IProtoMessage {
-  return $base.toProtoMessage(
+  clientMsgId: string | null | undefined,
+  emitter: EventEmitter
+): void {
+  $base.createAndEmitMessage(
     $spotware.ProtoOAVersionReq,
     properties,
-    clientMsgId
+    clientMsgId,
+    emitter
   );
 }
-export function ProtoOANewOrderReq(
+export function emitProtoOANewOrderReq(
   properties: $spotware.IProtoOANewOrderReq,
-  clientMsgId: string | null | undefined
-): $spotware.IProtoMessage {
-  return $base.toProtoMessage(
+  clientMsgId: string | null | undefined,
+  emitter: EventEmitter
+): void {
+  $base.createAndEmitMessage(
     $spotware.ProtoOANewOrderReq,
     properties,
-    clientMsgId
+    clientMsgId,
+    emitter
   );
 }
-export function ProtoOACancelOrderReq(
+export function emitProtoOACancelOrderReq(
   properties: $spotware.IProtoOACancelOrderReq,
-  clientMsgId: string | null | undefined
-): $spotware.IProtoMessage {
-  return $base.toProtoMessage(
+  clientMsgId: string | null | undefined,
+  emitter: EventEmitter
+): void {
+  $base.createAndEmitMessage(
     $spotware.ProtoOACancelOrderReq,
     properties,
-    clientMsgId
+    clientMsgId,
+    emitter
   );
 }
-export function ProtoOAAmendOrderReq(
+export function emitProtoOAAmendOrderReq(
   properties: $spotware.IProtoOAAmendOrderReq,
-  clientMsgId: string | null | undefined
-): $spotware.IProtoMessage {
-  return $base.toProtoMessage(
+  clientMsgId: string | null | undefined,
+  emitter: EventEmitter
+): void {
+  $base.createAndEmitMessage(
     $spotware.ProtoOAAmendOrderReq,
     properties,
-    clientMsgId
+    clientMsgId,
+    emitter
   );
 }
-export function ProtoOAAmendPositionSLTPReq(
+export function emitProtoOAAmendPositionSLTPReq(
   properties: $spotware.IProtoOAAmendPositionSLTPReq,
-  clientMsgId: string | null | undefined
-): $spotware.IProtoMessage {
-  return $base.toProtoMessage(
+  clientMsgId: string | null | undefined,
+  emitter: EventEmitter
+): void {
+  $base.createAndEmitMessage(
     $spotware.ProtoOAAmendPositionSLTPReq,
     properties,
-    clientMsgId
+    clientMsgId,
+    emitter
   );
 }
-export function ProtoOAClosePositionReq(
+export function emitProtoOAClosePositionReq(
   properties: $spotware.IProtoOAClosePositionReq,
-  clientMsgId: string | null | undefined
-): $spotware.IProtoMessage {
-  return $base.toProtoMessage(
+  clientMsgId: string | null | undefined,
+  emitter: EventEmitter
+): void {
+  $base.createAndEmitMessage(
     $spotware.ProtoOAClosePositionReq,
     properties,
-    clientMsgId
+    clientMsgId,
+    emitter
   );
 }
-export function ProtoOAAssetListReq(
+export function emitProtoOAAssetListReq(
   properties: $spotware.IProtoOAAssetListReq,
-  clientMsgId: string | null | undefined
-): $spotware.IProtoMessage {
-  return $base.toProtoMessage(
+  clientMsgId: string | null | undefined,
+  emitter: EventEmitter
+): void {
+  $base.createAndEmitMessage(
     $spotware.ProtoOAAssetListReq,
     properties,
-    clientMsgId
+    clientMsgId,
+    emitter
   );
 }
-export function ProtoOASymbolsListReq(
+export function emitProtoOASymbolsListReq(
   properties: $spotware.IProtoOASymbolsListReq,
-  clientMsgId: string | null | undefined
-): $spotware.IProtoMessage {
-  return $base.toProtoMessage(
+  clientMsgId: string | null | undefined,
+  emitter: EventEmitter
+): void {
+  $base.createAndEmitMessage(
     $spotware.ProtoOASymbolsListReq,
     properties,
-    clientMsgId
+    clientMsgId,
+    emitter
   );
 }
-export function ProtoOASymbolByIdReq(
+export function emitProtoOASymbolByIdReq(
   properties: $spotware.IProtoOASymbolByIdReq,
-  clientMsgId: string | null | undefined
-): $spotware.IProtoMessage {
-  return $base.toProtoMessage(
+  clientMsgId: string | null | undefined,
+  emitter: EventEmitter
+): void {
+  $base.createAndEmitMessage(
     $spotware.ProtoOASymbolByIdReq,
     properties,
-    clientMsgId
+    clientMsgId,
+    emitter
   );
 }
-export function ProtoOASymbolsForConversionReq(
+export function emitProtoOASymbolsForConversionReq(
   properties: $spotware.IProtoOASymbolsForConversionReq,
-  clientMsgId: string | null | undefined
-): $spotware.IProtoMessage {
-  return $base.toProtoMessage(
+  clientMsgId: string | null | undefined,
+  emitter: EventEmitter
+): void {
+  $base.createAndEmitMessage(
     $spotware.ProtoOASymbolsForConversionReq,
     properties,
-    clientMsgId
+    clientMsgId,
+    emitter
   );
 }
-export function ProtoOAAssetClassListReq(
+export function emitProtoOAAssetClassListReq(
   properties: $spotware.IProtoOAAssetClassListReq,
-  clientMsgId: string | null | undefined
-): $spotware.IProtoMessage {
-  return $base.toProtoMessage(
+  clientMsgId: string | null | undefined,
+  emitter: EventEmitter
+): void {
+  $base.createAndEmitMessage(
     $spotware.ProtoOAAssetClassListReq,
     properties,
-    clientMsgId
+    clientMsgId,
+    emitter
   );
 }
-export function ProtoOATraderReq(
+export function emitProtoOATraderReq(
   properties: $spotware.IProtoOATraderReq,
-  clientMsgId: string | null | undefined
-): $spotware.IProtoMessage {
-  return $base.toProtoMessage(
+  clientMsgId: string | null | undefined,
+  emitter: EventEmitter
+): void {
+  $base.createAndEmitMessage(
     $spotware.ProtoOATraderReq,
     properties,
-    clientMsgId
+    clientMsgId,
+    emitter
   );
 }
-export function ProtoOAReconcileReq(
+export function emitProtoOAReconcileReq(
   properties: $spotware.IProtoOAReconcileReq,
-  clientMsgId: string | null | undefined
-): $spotware.IProtoMessage {
-  return $base.toProtoMessage(
+  clientMsgId: string | null | undefined,
+  emitter: EventEmitter
+): void {
+  $base.createAndEmitMessage(
     $spotware.ProtoOAReconcileReq,
     properties,
-    clientMsgId
+    clientMsgId,
+    emitter
   );
 }
-export function ProtoOADealListReq(
+export function emitProtoOADealListReq(
   properties: $spotware.IProtoOADealListReq,
-  clientMsgId: string | null | undefined
-): $spotware.IProtoMessage {
-  return $base.toProtoMessage(
+  clientMsgId: string | null | undefined,
+  emitter: EventEmitter
+): void {
+  $base.createAndEmitMessage(
     $spotware.ProtoOADealListReq,
     properties,
-    clientMsgId
+    clientMsgId,
+    emitter
   );
 }
-export function ProtoOAExpectedMarginReq(
+export function emitProtoOAExpectedMarginReq(
   properties: $spotware.IProtoOAExpectedMarginReq,
-  clientMsgId: string | null | undefined
-): $spotware.IProtoMessage {
-  return $base.toProtoMessage(
+  clientMsgId: string | null | undefined,
+  emitter: EventEmitter
+): void {
+  $base.createAndEmitMessage(
     $spotware.ProtoOAExpectedMarginReq,
     properties,
-    clientMsgId
+    clientMsgId,
+    emitter
   );
 }
-export function ProtoOACashFlowHistoryListReq(
+export function emitProtoOACashFlowHistoryListReq(
   properties: $spotware.IProtoOACashFlowHistoryListReq,
-  clientMsgId: string | null | undefined
-): $spotware.IProtoMessage {
-  return $base.toProtoMessage(
+  clientMsgId: string | null | undefined,
+  emitter: EventEmitter
+): void {
+  $base.createAndEmitMessage(
     $spotware.ProtoOACashFlowHistoryListReq,
     properties,
-    clientMsgId
+    clientMsgId,
+    emitter
   );
 }
-export function ProtoOAGetAccountListByAccessTokenReq(
+export function emitProtoOAGetAccountListByAccessTokenReq(
   properties: $spotware.IProtoOAGetAccountListByAccessTokenReq,
-  clientMsgId: string | null | undefined
-): $spotware.IProtoMessage {
-  return $base.toProtoMessage(
+  clientMsgId: string | null | undefined,
+  emitter: EventEmitter
+): void {
+  $base.createAndEmitMessage(
     $spotware.ProtoOAGetAccountListByAccessTokenReq,
     properties,
-    clientMsgId
+    clientMsgId,
+    emitter
   );
 }
-export function ProtoOASubscribeSpotsReq(
+export function emitProtoOASubscribeSpotsReq(
   properties: $spotware.IProtoOASubscribeSpotsReq,
-  clientMsgId: string | null | undefined
-): $spotware.IProtoMessage {
-  return $base.toProtoMessage(
+  clientMsgId: string | null | undefined,
+  emitter: EventEmitter
+): void {
+  $base.createAndEmitMessage(
     $spotware.ProtoOASubscribeSpotsReq,
     properties,
-    clientMsgId
+    clientMsgId,
+    emitter
   );
 }
-export function ProtoOAUnsubscribeSpotsReq(
+export function emitProtoOAUnsubscribeSpotsReq(
   properties: $spotware.IProtoOAUnsubscribeSpotsReq,
-  clientMsgId: string | null | undefined
-): $spotware.IProtoMessage {
-  return $base.toProtoMessage(
+  clientMsgId: string | null | undefined,
+  emitter: EventEmitter
+): void {
+  $base.createAndEmitMessage(
     $spotware.ProtoOAUnsubscribeSpotsReq,
     properties,
-    clientMsgId
+    clientMsgId,
+    emitter
   );
 }
-export function ProtoOASubscribeLiveTrendbarReq(
+export function emitProtoOASubscribeLiveTrendbarReq(
   properties: $spotware.IProtoOASubscribeLiveTrendbarReq,
-  clientMsgId: string | null | undefined
-): $spotware.IProtoMessage {
-  return $base.toProtoMessage(
+  clientMsgId: string | null | undefined,
+  emitter: EventEmitter
+): void {
+  $base.createAndEmitMessage(
     $spotware.ProtoOASubscribeLiveTrendbarReq,
     properties,
-    clientMsgId
+    clientMsgId,
+    emitter
   );
 }
-export function ProtoOAUnsubscribeLiveTrendbarReq(
+export function emitProtoOAUnsubscribeLiveTrendbarReq(
   properties: $spotware.IProtoOAUnsubscribeLiveTrendbarReq,
-  clientMsgId: string | null | undefined
-): $spotware.IProtoMessage {
-  return $base.toProtoMessage(
+  clientMsgId: string | null | undefined,
+  emitter: EventEmitter
+): void {
+  $base.createAndEmitMessage(
     $spotware.ProtoOAUnsubscribeLiveTrendbarReq,
     properties,
-    clientMsgId
+    clientMsgId,
+    emitter
   );
 }
-export function ProtoOAGetTrendbarsReq(
+export function emitProtoOAGetTrendbarsReq(
   properties: $spotware.IProtoOAGetTrendbarsReq,
-  clientMsgId: string | null | undefined
-): $spotware.IProtoMessage {
-  return $base.toProtoMessage(
+  clientMsgId: string | null | undefined,
+  emitter: EventEmitter
+): void {
+  $base.createAndEmitMessage(
     $spotware.ProtoOAGetTrendbarsReq,
     properties,
-    clientMsgId
+    clientMsgId,
+    emitter
   );
 }
-export function ProtoOAGetTickDataReq(
+export function emitProtoOAGetTickDataReq(
   properties: $spotware.IProtoOAGetTickDataReq,
-  clientMsgId: string | null | undefined
-): $spotware.IProtoMessage {
-  return $base.toProtoMessage(
+  clientMsgId: string | null | undefined,
+  emitter: EventEmitter
+): void {
+  $base.createAndEmitMessage(
     $spotware.ProtoOAGetTickDataReq,
     properties,
-    clientMsgId
+    clientMsgId,
+    emitter
   );
 }
-export function ProtoOAGetCtidProfileByTokenReq(
+export function emitProtoOAGetCtidProfileByTokenReq(
   properties: $spotware.IProtoOAGetCtidProfileByTokenReq,
-  clientMsgId: string | null | undefined
-): $spotware.IProtoMessage {
-  return $base.toProtoMessage(
+  clientMsgId: string | null | undefined,
+  emitter: EventEmitter
+): void {
+  $base.createAndEmitMessage(
     $spotware.ProtoOAGetCtidProfileByTokenReq,
     properties,
-    clientMsgId
+    clientMsgId,
+    emitter
   );
 }
-export function ProtoOASubscribeDepthQuotesReq(
+export function emitProtoOASubscribeDepthQuotesReq(
   properties: $spotware.IProtoOASubscribeDepthQuotesReq,
-  clientMsgId: string | null | undefined
-): $spotware.IProtoMessage {
-  return $base.toProtoMessage(
+  clientMsgId: string | null | undefined,
+  emitter: EventEmitter
+): void {
+  $base.createAndEmitMessage(
     $spotware.ProtoOASubscribeDepthQuotesReq,
     properties,
-    clientMsgId
+    clientMsgId,
+    emitter
   );
 }
-export function ProtoOAUnsubscribeDepthQuotesReq(
+export function emitProtoOAUnsubscribeDepthQuotesReq(
   properties: $spotware.IProtoOAUnsubscribeDepthQuotesReq,
-  clientMsgId: string | null | undefined
-): $spotware.IProtoMessage {
-  return $base.toProtoMessage(
+  clientMsgId: string | null | undefined,
+  emitter: EventEmitter
+): void {
+  $base.createAndEmitMessage(
     $spotware.ProtoOAUnsubscribeDepthQuotesReq,
     properties,
-    clientMsgId
+    clientMsgId,
+    emitter
   );
 }
-export function ProtoOASymbolCategoryListReq(
+export function emitProtoOASymbolCategoryListReq(
   properties: $spotware.IProtoOASymbolCategoryListReq,
-  clientMsgId: string | null | undefined
-): $spotware.IProtoMessage {
-  return $base.toProtoMessage(
+  clientMsgId: string | null | undefined,
+  emitter: EventEmitter
+): void {
+  $base.createAndEmitMessage(
     $spotware.ProtoOASymbolCategoryListReq,
     properties,
-    clientMsgId
+    clientMsgId,
+    emitter
   );
 }
-export function ProtoOAAccountLogoutReq(
+export function emitProtoOAAccountLogoutReq(
   properties: $spotware.IProtoOAAccountLogoutReq,
-  clientMsgId: string | null | undefined
-): $spotware.IProtoMessage {
-  return $base.toProtoMessage(
+  clientMsgId: string | null | undefined,
+  emitter: EventEmitter
+): void {
+  $base.createAndEmitMessage(
     $spotware.ProtoOAAccountLogoutReq,
     properties,
-    clientMsgId
+    clientMsgId,
+    emitter
+  );
+}
+export default function registerRequestHandlers(gateway: Gateway): void {
+  $base.registerRequest(
+    $spotware.ProtoOAApplicationAuthReq.prototype.payloadType,
+    gateway
+  );
+  $base.registerRequest(
+    $spotware.ProtoOAAccountAuthReq.prototype.payloadType,
+    gateway
+  );
+  $base.registerRequest(
+    $spotware.ProtoOAVersionReq.prototype.payloadType,
+    gateway
+  );
+  $base.registerRequest(
+    $spotware.ProtoOANewOrderReq.prototype.payloadType,
+    gateway
+  );
+  $base.registerRequest(
+    $spotware.ProtoOACancelOrderReq.prototype.payloadType,
+    gateway
+  );
+  $base.registerRequest(
+    $spotware.ProtoOAAmendOrderReq.prototype.payloadType,
+    gateway
+  );
+  $base.registerRequest(
+    $spotware.ProtoOAAmendPositionSLTPReq.prototype.payloadType,
+    gateway
+  );
+  $base.registerRequest(
+    $spotware.ProtoOAClosePositionReq.prototype.payloadType,
+    gateway
+  );
+  $base.registerRequest(
+    $spotware.ProtoOAAssetListReq.prototype.payloadType,
+    gateway
+  );
+  $base.registerRequest(
+    $spotware.ProtoOASymbolsListReq.prototype.payloadType,
+    gateway
+  );
+  $base.registerRequest(
+    $spotware.ProtoOASymbolByIdReq.prototype.payloadType,
+    gateway
+  );
+  $base.registerRequest(
+    $spotware.ProtoOASymbolsForConversionReq.prototype.payloadType,
+    gateway
+  );
+  $base.registerRequest(
+    $spotware.ProtoOAAssetClassListReq.prototype.payloadType,
+    gateway
+  );
+  $base.registerRequest(
+    $spotware.ProtoOATraderReq.prototype.payloadType,
+    gateway
+  );
+  $base.registerRequest(
+    $spotware.ProtoOAReconcileReq.prototype.payloadType,
+    gateway
+  );
+  $base.registerRequest(
+    $spotware.ProtoOADealListReq.prototype.payloadType,
+    gateway
+  );
+  $base.registerRequest(
+    $spotware.ProtoOAExpectedMarginReq.prototype.payloadType,
+    gateway
+  );
+  $base.registerRequest(
+    $spotware.ProtoOACashFlowHistoryListReq.prototype.payloadType,
+    gateway
+  );
+  $base.registerRequest(
+    $spotware.ProtoOAGetAccountListByAccessTokenReq.prototype.payloadType,
+    gateway
+  );
+  $base.registerRequest(
+    $spotware.ProtoOASubscribeSpotsReq.prototype.payloadType,
+    gateway
+  );
+  $base.registerRequest(
+    $spotware.ProtoOAUnsubscribeSpotsReq.prototype.payloadType,
+    gateway
+  );
+  $base.registerRequest(
+    $spotware.ProtoOASubscribeLiveTrendbarReq.prototype.payloadType,
+    gateway
+  );
+  $base.registerRequest(
+    $spotware.ProtoOAUnsubscribeLiveTrendbarReq.prototype.payloadType,
+    gateway
+  );
+  $base.registerRequest(
+    $spotware.ProtoOAGetTrendbarsReq.prototype.payloadType,
+    gateway
+  );
+  $base.registerRequest(
+    $spotware.ProtoOAGetTickDataReq.prototype.payloadType,
+    gateway
+  );
+  $base.registerRequest(
+    $spotware.ProtoOAGetCtidProfileByTokenReq.prototype.payloadType,
+    gateway
+  );
+  $base.registerRequest(
+    $spotware.ProtoOASubscribeDepthQuotesReq.prototype.payloadType,
+    gateway
+  );
+  $base.registerRequest(
+    $spotware.ProtoOAUnsubscribeDepthQuotesReq.prototype.payloadType,
+    gateway
+  );
+  $base.registerRequest(
+    $spotware.ProtoOASymbolCategoryListReq.prototype.payloadType,
+    gateway
+  );
+  $base.registerRequest(
+    $spotware.ProtoOAAccountLogoutReq.prototype.payloadType,
+    gateway
   );
 }

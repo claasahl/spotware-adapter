@@ -1,13 +1,6 @@
 import { MutationResolvers } from "../generated/graphql-types";
 import axios from "axios";
-import {
-  ProtoHeartbeatEvent,
-  ProtoPingReq,
-  ProtoOAApplicationAuthReq,
-  ProtoOAAccountAuthReq,
-  ProtoOAGetAccountListByAccessTokenReq,
-  ProtoOAGetCtidProfileByTokenReq
-} from "../generated/spotware";
+import { ProtoHeartbeatEvent, ProtoPingReq } from "../generated/spotware";
 import * as requests from "../spotware/requests";
 
 export const mutation: Required<MutationResolvers.Resolvers> = {
@@ -57,57 +50,48 @@ export const mutation: Required<MutationResolvers.Resolvers> = {
     const clientSecret = process.env.SPOTWARE__CLIENT_SECRET || "";
 
     const { clientMsgId, ...properties } = args;
-    const message = requests.ProtoOAApplicationAuthReq(
+    requests.emitProtoOAApplicationAuthReq(
       { ...properties, clientId, clientSecret },
-      clientMsgId
+      clientMsgId,
+      ctx.gateway.emitter
     );
-    return new Promise<boolean>(resolve => {
-      ctx.gateway.writeProtoMessage(message, () => {
-        resolve(true);
-      });
-    });
+    return true;
   },
   accountAuth: async (_parent, args, ctx) => {
     const { clientMsgId, ...properties } = args;
-    const message = requests.ProtoOAAccountAuthReq(properties, clientMsgId);
-    return new Promise<boolean>(resolve => {
-      ctx.gateway.writeProtoMessage(message, () => {
-        resolve(true);
-      });
-    });
+    requests.emitProtoOAAccountAuthReq(
+      properties,
+      clientMsgId,
+      ctx.gateway.emitter
+    );
+    return true;
   },
   version: async (_parent, args, ctx) => {
     const { clientMsgId, ...properties } = args;
-    const message = requests.ProtoOAVersionReq(properties, clientMsgId);
-    return new Promise<boolean>(resolve => {
-      ctx.gateway.writeProtoMessage(message, () => {
-        resolve(true);
-      });
-    });
+    requests.emitProtoOAVersionReq(
+      properties,
+      clientMsgId,
+      ctx.gateway.emitter
+    );
+    return true;
   },
   getAccountListByAccessToken: async (_parent, args, ctx) => {
     const { clientMsgId, ...properties } = args;
-    const message = requests.ProtoOAGetAccountListByAccessTokenReq(
+    requests.emitProtoOAGetAccountListByAccessTokenReq(
       properties,
-      clientMsgId
+      clientMsgId,
+      ctx.gateway.emitter
     );
-    return new Promise<boolean>(resolve => {
-      ctx.gateway.writeProtoMessage(message, () => {
-        resolve(true);
-      });
-    });
+    return true;
   },
   getCtidProfileByToken: async (_parent, args, ctx) => {
     const { clientMsgId, ...properties } = args;
-    const message = requests.ProtoOAGetCtidProfileByTokenReq(
+    requests.emitProtoOAGetCtidProfileByTokenReq(
       properties,
-      clientMsgId
+      clientMsgId,
+      ctx.gateway.emitter
     );
-    return new Promise<boolean>(resolve => {
-      ctx.gateway.writeProtoMessage(message, () => {
-        resolve(true);
-      });
-    });
+    return true;
   }
 };
 export default mutation;
