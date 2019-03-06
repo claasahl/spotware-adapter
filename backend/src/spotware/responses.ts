@@ -2,6 +2,20 @@ import * as $spotware from "../generated/spotware";
 import { EventEmitter } from "events";
 import * as $base from "./message_handler";
 
+function ProtoErrorRes(emitter: EventEmitter): void {
+  $base.registerResponse(
+    $spotware.ProtoErrorRes,
+    $spotware.ProtoPayloadType.ERROR_RES,
+    emitter
+  );
+}
+function ProtoPingRes(emitter: EventEmitter): void {
+  $base.registerResponse(
+    $spotware.ProtoPingRes,
+    $spotware.ProtoPayloadType.PING_RES,
+    emitter
+  );
+}
 function ProtoOAApplicationAuthRes(emitter: EventEmitter): void {
   $base.registerResponse(
     $spotware.ProtoOAApplicationAuthRes,
@@ -171,6 +185,8 @@ function ProtoOAAccountLogoutRes(emitter: EventEmitter): void {
   );
 }
 export default function registerResponseHandlers(emitter: EventEmitter): void {
+  ProtoErrorRes(emitter);
+  ProtoPingRes(emitter);
   ProtoOAApplicationAuthRes(emitter);
   ProtoOAAccountAuthRes(emitter);
   ProtoOAErrorRes(emitter);

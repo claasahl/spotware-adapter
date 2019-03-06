@@ -2,16 +2,34 @@ import {
   IProtoMessage,
   ProtoOAApplicationAuthRes,
   ProtoOAPayloadType,
-  ProtoPayloadType
+  ProtoPayloadType,
+  ProtoHeartbeatEvent
 } from "../generated/spotware";
 import { EventEmitter } from "events";
 import { PROTO_MESSAGE_EVENT, Gateway } from "./gateway";
 
 // aliasing "ProtoOAApplicationAuthRes", because it only contains exactly one field "payloadType"
-type wrapper = typeof ProtoOAApplicationAuthRes;
+type wrapperOpenApi = typeof ProtoOAApplicationAuthRes;
+type wrapperCommon = typeof ProtoHeartbeatEvent;
+type wrapper = wrapperCommon | wrapperOpenApi;
 
-export function createAndEmitMessage<P>(
-  TYPE: wrapper,
+export function createAndEmitCommonMessage<P>(
+  TYPE: wrapperCommon,
+  properties: P,
+  clientMsgId: string | null | undefined,
+  emitter: EventEmitter
+) {
+  const payloadType = TYPE.prototype.payloadType;
+  const message = TYPE.create({ ...properties });
+  const payload = TYPE.encode(message).finish();
+  const pm: IProtoMessage = { payloadType, payload, clientMsgId };
+  emitter.emit(`${payloadType}.${TYPE.name}`, { ...properties });
+  emitter.emit(`${payloadType}.${PROTO_MESSAGE_EVENT}`, pm);
+  emitter.emit(PROTO_MESSAGE_EVENT, pm);
+}
+
+export function createAndEmitOpenApiMessage<P>(
+  TYPE: wrapperOpenApi,
   properties: P,
   clientMsgId: string | null | undefined,
   emitter: EventEmitter

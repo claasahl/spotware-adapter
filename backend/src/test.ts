@@ -1,6 +1,6 @@
-import fs from "fs";
+import fs, { PathLike } from "fs";
 import schema from "protocol-buffers-schema";
-import { Message } from "protocol-buffers-schema/types";
+import { Message, Schema } from "protocol-buffers-schema/types";
 
 function generateRequest(message: Message): string {
   const type = message.name;
@@ -9,10 +9,11 @@ function generateRequest(message: Message): string {
   clientMsgId: string | null | undefined,
   emitter: EventEmitter
 ): void {
-  $base.createAndEmitMessage(
+  $base.createAndEmit${type.includes("OA") ? "OpenApi" : "Common"}Message(
     $spotware.${type},
     properties,
-    clientMsgId, emitter
+    clientMsgId,
+    emitter
   );
 }
 `;
@@ -27,7 +28,9 @@ function generateResponse(message: Message) {
   return `function ${type}(emitter: EventEmitter): void {
   $base.registerResponse(
     $spotware.${type},
-    $spotware.ProtoOAPayloadType.${payloadType},
+    $spotware.${
+      payloadType.includes("_OA_") ? "ProtoOAPayloadType" : "ProtoPayloadType"
+    }.${payloadType},
     emitter
   );
 }
@@ -123,22 +126,32 @@ function writeEvents(events: Message[]) {
   }
 }
 
-const protoFile =
-  "node_modules/@claasahl/spotware-protobuf-messages/OpenApiMessages.proto";
-const proto = fs.readFileSync(protoFile);
-const s = schema(proto);
+function loadSchema(protoFile: PathLike): Schema {
+  const proto = fs.readFileSync(protoFile);
+  return schema(proto);
+}
+
+const sCommon = loadSchema(
+  "node_modules/@claasahl/spotware-protobuf-messages/CommonMessages.proto"
+);
+const sOpenApi = loadSchema(
+  "node_modules/@claasahl/spotware-protobuf-messages/OpenApiMessages.proto"
+);
+
 const requests: Message[] = [];
 const responses: Message[] = [];
 const events: Message[] = [];
-for (const message of s.messages) {
+for (const message of [...sCommon.messages, ...sOpenApi.messages]) {
   if (message.name.endsWith("Req")) {
     requests.push(message);
   } else if (message.name.endsWith("Res")) {
     responses.push(message);
   } else if (message.name.endsWith("Event")) {
     events.push(message);
+  } else if (message.name === "ProtoMessage") {
+    console.log("skipping:", message.name);
   } else {
-    console.log("not categorized:", message.name);
+    throw new Error(`found uncategorized proto message: ${message.name}`);
   }
 }
 writeRequests(requests);

@@ -3,12 +3,24 @@ import * as $base from "./message_handler";
 import { Gateway } from "./gateway";
 import { EventEmitter } from "events";
 
+export function emitProtoPingReq(
+  properties: $spotware.IProtoPingReq,
+  clientMsgId: string | null | undefined,
+  emitter: EventEmitter
+): void {
+  $base.createAndEmitCommonMessage(
+    $spotware.ProtoPingReq,
+    properties,
+    clientMsgId,
+    emitter
+  );
+}
 export function emitProtoOAApplicationAuthReq(
   properties: $spotware.IProtoOAApplicationAuthReq,
   clientMsgId: string | null | undefined,
   emitter: EventEmitter
 ): void {
-  $base.createAndEmitMessage(
+  $base.createAndEmitOpenApiMessage(
     $spotware.ProtoOAApplicationAuthReq,
     properties,
     clientMsgId,
@@ -20,7 +32,7 @@ export function emitProtoOAAccountAuthReq(
   clientMsgId: string | null | undefined,
   emitter: EventEmitter
 ): void {
-  $base.createAndEmitMessage(
+  $base.createAndEmitOpenApiMessage(
     $spotware.ProtoOAAccountAuthReq,
     properties,
     clientMsgId,
@@ -32,7 +44,7 @@ export function emitProtoOAVersionReq(
   clientMsgId: string | null | undefined,
   emitter: EventEmitter
 ): void {
-  $base.createAndEmitMessage(
+  $base.createAndEmitOpenApiMessage(
     $spotware.ProtoOAVersionReq,
     properties,
     clientMsgId,
@@ -44,7 +56,7 @@ export function emitProtoOANewOrderReq(
   clientMsgId: string | null | undefined,
   emitter: EventEmitter
 ): void {
-  $base.createAndEmitMessage(
+  $base.createAndEmitOpenApiMessage(
     $spotware.ProtoOANewOrderReq,
     properties,
     clientMsgId,
@@ -56,7 +68,7 @@ export function emitProtoOACancelOrderReq(
   clientMsgId: string | null | undefined,
   emitter: EventEmitter
 ): void {
-  $base.createAndEmitMessage(
+  $base.createAndEmitOpenApiMessage(
     $spotware.ProtoOACancelOrderReq,
     properties,
     clientMsgId,
@@ -68,7 +80,7 @@ export function emitProtoOAAmendOrderReq(
   clientMsgId: string | null | undefined,
   emitter: EventEmitter
 ): void {
-  $base.createAndEmitMessage(
+  $base.createAndEmitOpenApiMessage(
     $spotware.ProtoOAAmendOrderReq,
     properties,
     clientMsgId,
@@ -80,7 +92,7 @@ export function emitProtoOAAmendPositionSLTPReq(
   clientMsgId: string | null | undefined,
   emitter: EventEmitter
 ): void {
-  $base.createAndEmitMessage(
+  $base.createAndEmitOpenApiMessage(
     $spotware.ProtoOAAmendPositionSLTPReq,
     properties,
     clientMsgId,
@@ -92,7 +104,7 @@ export function emitProtoOAClosePositionReq(
   clientMsgId: string | null | undefined,
   emitter: EventEmitter
 ): void {
-  $base.createAndEmitMessage(
+  $base.createAndEmitOpenApiMessage(
     $spotware.ProtoOAClosePositionReq,
     properties,
     clientMsgId,
@@ -104,7 +116,7 @@ export function emitProtoOAAssetListReq(
   clientMsgId: string | null | undefined,
   emitter: EventEmitter
 ): void {
-  $base.createAndEmitMessage(
+  $base.createAndEmitOpenApiMessage(
     $spotware.ProtoOAAssetListReq,
     properties,
     clientMsgId,
@@ -116,7 +128,7 @@ export function emitProtoOASymbolsListReq(
   clientMsgId: string | null | undefined,
   emitter: EventEmitter
 ): void {
-  $base.createAndEmitMessage(
+  $base.createAndEmitOpenApiMessage(
     $spotware.ProtoOASymbolsListReq,
     properties,
     clientMsgId,
@@ -128,7 +140,7 @@ export function emitProtoOASymbolByIdReq(
   clientMsgId: string | null | undefined,
   emitter: EventEmitter
 ): void {
-  $base.createAndEmitMessage(
+  $base.createAndEmitOpenApiMessage(
     $spotware.ProtoOASymbolByIdReq,
     properties,
     clientMsgId,
@@ -140,7 +152,7 @@ export function emitProtoOASymbolsForConversionReq(
   clientMsgId: string | null | undefined,
   emitter: EventEmitter
 ): void {
-  $base.createAndEmitMessage(
+  $base.createAndEmitOpenApiMessage(
     $spotware.ProtoOASymbolsForConversionReq,
     properties,
     clientMsgId,
@@ -152,7 +164,7 @@ export function emitProtoOAAssetClassListReq(
   clientMsgId: string | null | undefined,
   emitter: EventEmitter
 ): void {
-  $base.createAndEmitMessage(
+  $base.createAndEmitOpenApiMessage(
     $spotware.ProtoOAAssetClassListReq,
     properties,
     clientMsgId,
@@ -164,7 +176,7 @@ export function emitProtoOATraderReq(
   clientMsgId: string | null | undefined,
   emitter: EventEmitter
 ): void {
-  $base.createAndEmitMessage(
+  $base.createAndEmitOpenApiMessage(
     $spotware.ProtoOATraderReq,
     properties,
     clientMsgId,
@@ -176,7 +188,7 @@ export function emitProtoOAReconcileReq(
   clientMsgId: string | null | undefined,
   emitter: EventEmitter
 ): void {
-  $base.createAndEmitMessage(
+  $base.createAndEmitOpenApiMessage(
     $spotware.ProtoOAReconcileReq,
     properties,
     clientMsgId,
@@ -188,7 +200,7 @@ export function emitProtoOADealListReq(
   clientMsgId: string | null | undefined,
   emitter: EventEmitter
 ): void {
-  $base.createAndEmitMessage(
+  $base.createAndEmitOpenApiMessage(
     $spotware.ProtoOADealListReq,
     properties,
     clientMsgId,
@@ -200,7 +212,7 @@ export function emitProtoOAExpectedMarginReq(
   clientMsgId: string | null | undefined,
   emitter: EventEmitter
 ): void {
-  $base.createAndEmitMessage(
+  $base.createAndEmitOpenApiMessage(
     $spotware.ProtoOAExpectedMarginReq,
     properties,
     clientMsgId,
@@ -212,7 +224,7 @@ export function emitProtoOACashFlowHistoryListReq(
   clientMsgId: string | null | undefined,
   emitter: EventEmitter
 ): void {
-  $base.createAndEmitMessage(
+  $base.createAndEmitOpenApiMessage(
     $spotware.ProtoOACashFlowHistoryListReq,
     properties,
     clientMsgId,
@@ -224,7 +236,7 @@ export function emitProtoOAGetAccountListByAccessTokenReq(
   clientMsgId: string | null | undefined,
   emitter: EventEmitter
 ): void {
-  $base.createAndEmitMessage(
+  $base.createAndEmitOpenApiMessage(
     $spotware.ProtoOAGetAccountListByAccessTokenReq,
     properties,
     clientMsgId,
@@ -236,7 +248,7 @@ export function emitProtoOASubscribeSpotsReq(
   clientMsgId: string | null | undefined,
   emitter: EventEmitter
 ): void {
-  $base.createAndEmitMessage(
+  $base.createAndEmitOpenApiMessage(
     $spotware.ProtoOASubscribeSpotsReq,
     properties,
     clientMsgId,
@@ -248,7 +260,7 @@ export function emitProtoOAUnsubscribeSpotsReq(
   clientMsgId: string | null | undefined,
   emitter: EventEmitter
 ): void {
-  $base.createAndEmitMessage(
+  $base.createAndEmitOpenApiMessage(
     $spotware.ProtoOAUnsubscribeSpotsReq,
     properties,
     clientMsgId,
@@ -260,7 +272,7 @@ export function emitProtoOASubscribeLiveTrendbarReq(
   clientMsgId: string | null | undefined,
   emitter: EventEmitter
 ): void {
-  $base.createAndEmitMessage(
+  $base.createAndEmitOpenApiMessage(
     $spotware.ProtoOASubscribeLiveTrendbarReq,
     properties,
     clientMsgId,
@@ -272,7 +284,7 @@ export function emitProtoOAUnsubscribeLiveTrendbarReq(
   clientMsgId: string | null | undefined,
   emitter: EventEmitter
 ): void {
-  $base.createAndEmitMessage(
+  $base.createAndEmitOpenApiMessage(
     $spotware.ProtoOAUnsubscribeLiveTrendbarReq,
     properties,
     clientMsgId,
@@ -284,7 +296,7 @@ export function emitProtoOAGetTrendbarsReq(
   clientMsgId: string | null | undefined,
   emitter: EventEmitter
 ): void {
-  $base.createAndEmitMessage(
+  $base.createAndEmitOpenApiMessage(
     $spotware.ProtoOAGetTrendbarsReq,
     properties,
     clientMsgId,
@@ -296,7 +308,7 @@ export function emitProtoOAGetTickDataReq(
   clientMsgId: string | null | undefined,
   emitter: EventEmitter
 ): void {
-  $base.createAndEmitMessage(
+  $base.createAndEmitOpenApiMessage(
     $spotware.ProtoOAGetTickDataReq,
     properties,
     clientMsgId,
@@ -308,7 +320,7 @@ export function emitProtoOAGetCtidProfileByTokenReq(
   clientMsgId: string | null | undefined,
   emitter: EventEmitter
 ): void {
-  $base.createAndEmitMessage(
+  $base.createAndEmitOpenApiMessage(
     $spotware.ProtoOAGetCtidProfileByTokenReq,
     properties,
     clientMsgId,
@@ -320,7 +332,7 @@ export function emitProtoOASubscribeDepthQuotesReq(
   clientMsgId: string | null | undefined,
   emitter: EventEmitter
 ): void {
-  $base.createAndEmitMessage(
+  $base.createAndEmitOpenApiMessage(
     $spotware.ProtoOASubscribeDepthQuotesReq,
     properties,
     clientMsgId,
@@ -332,7 +344,7 @@ export function emitProtoOAUnsubscribeDepthQuotesReq(
   clientMsgId: string | null | undefined,
   emitter: EventEmitter
 ): void {
-  $base.createAndEmitMessage(
+  $base.createAndEmitOpenApiMessage(
     $spotware.ProtoOAUnsubscribeDepthQuotesReq,
     properties,
     clientMsgId,
@@ -344,7 +356,7 @@ export function emitProtoOASymbolCategoryListReq(
   clientMsgId: string | null | undefined,
   emitter: EventEmitter
 ): void {
-  $base.createAndEmitMessage(
+  $base.createAndEmitOpenApiMessage(
     $spotware.ProtoOASymbolCategoryListReq,
     properties,
     clientMsgId,
@@ -356,7 +368,7 @@ export function emitProtoOAAccountLogoutReq(
   clientMsgId: string | null | undefined,
   emitter: EventEmitter
 ): void {
-  $base.createAndEmitMessage(
+  $base.createAndEmitOpenApiMessage(
     $spotware.ProtoOAAccountLogoutReq,
     properties,
     clientMsgId,
@@ -364,6 +376,7 @@ export function emitProtoOAAccountLogoutReq(
   );
 }
 export default function registerRequestHandlers(gateway: Gateway): void {
+  $base.registerRequest($spotware.ProtoPingReq.prototype.payloadType, gateway);
   $base.registerRequest(
     $spotware.ProtoOAApplicationAuthReq.prototype.payloadType,
     gateway

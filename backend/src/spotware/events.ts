@@ -2,6 +2,13 @@ import * as $spotware from "../generated/spotware";
 import { EventEmitter } from "events";
 import * as $base from "./message_handler";
 
+function ProtoHeartbeatEvent(emitter: EventEmitter): void {
+  $base.registerResponse(
+    $spotware.ProtoHeartbeatEvent,
+    $spotware.ProtoPayloadType.HEARTBEAT_EVENT,
+    emitter
+  );
+}
 function ProtoOAClientDisconnectEvent(emitter: EventEmitter): void {
   $base.registerResponse(
     $spotware.ProtoOAClientDisconnectEvent,
@@ -73,6 +80,7 @@ function ProtoOADepthEvent(emitter: EventEmitter): void {
   );
 }
 export default function registerEventHandlers(emitter: EventEmitter): void {
+  ProtoHeartbeatEvent(emitter);
   ProtoOAClientDisconnectEvent(emitter);
   ProtoOAAccountsTokenInvalidatedEvent(emitter);
   ProtoOAExecutionEvent(emitter);
