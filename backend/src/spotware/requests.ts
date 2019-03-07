@@ -35,98 +35,141 @@ export async function ProtoOAApplicationAuthReq(
   return new Promise<$spotware.IProtoOAApplicationAuthRes>(
     (resolve, reject) => {
       emitProtoOAApplicationAuthReq(properties, clientMsgId, emitter);
-      const listener = (message: $spotware.IProtoMessage) => {
-        try {
-          if (message.clientMsgId === clientMsgId) {
-            unregister();
-            if (!!!message.payload) {
-              return reject(
-                new Error(
-                  `Got expected message (${
-                    message.payloadType
-                  }), but it did not have a payload.`
-                )
-              );
-            }
-            switch (message.payloadType) {
-              case $spotware.ProtoOAApplicationAuthRes.prototype.payloadType: {
-                const msg = $spotware.ProtoOAApplicationAuthRes.decode(
-                  message.payload
-                );
-                return resolve(
-                  $spotware.ProtoOAApplicationAuthRes.toObject(msg)
-                );
-              }
-              case $spotware.ProtoOAErrorRes.prototype.payloadType: {
-                const msg = $spotware.ProtoOAErrorRes.decode(message.payload);
-                return reject(
-                  new Error(
-                    `${msg.description} [error code: ${msg.errorCode}; cTID: ${
-                      msg.ctidTraderAccountId
-                    }]`
-                  )
-                );
-              }
-              case $spotware.ProtoErrorRes.prototype.payloadType: {
-                const msg = $spotware.ProtoErrorRes.decode(message.payload);
-                return reject(
-                  new Error(`${msg.description} [error code: ${msg.errorCode}]`)
-                );
-              }
-              default:
-                return reject(
-                  new Error(`Got unexpected message (${message.payloadType}).`)
-                );
-            }
-          }
-        } catch (error) {
-          reject(error);
-        }
-      };
+      const listener = createListener(clientMsgId, unregister, resolve, reject);
+
+      registerListener(emitter, listener);
       const timeout = setTimeout(() => {
         unregister();
         reject(new Error("Did not receive response in a timely manner."));
       }, 2000);
-      emitter.on(
-        `${
-          $spotware.ProtoOAApplicationAuthRes.prototype.payloadType
-        }.${PROTO_MESSAGE_EVENT}`,
-        listener
-      );
-      emitter.on(
-        `${
-          $spotware.ProtoOAErrorRes.prototype.payloadType
-        }.${PROTO_MESSAGE_EVENT}`,
-        listener
-      );
-      emitter.on(
-        `${
-          $spotware.ProtoErrorRes.prototype.payloadType
-        }.${PROTO_MESSAGE_EVENT}`,
-        listener
-      );
-      const unregister = () => {
+      function unregister() {
         clearTimeout(timeout);
-        emitter.off(
-          `${
-            $spotware.ProtoOAApplicationAuthRes.prototype.payloadType
-          }.${PROTO_MESSAGE_EVENT}`,
-          listener
-        );
-        emitter.off(
-          `${
-            $spotware.ProtoOAErrorRes.prototype.payloadType
-          }.${PROTO_MESSAGE_EVENT}`,
-          listener
-        );
-        emitter.off(
-          `${
-            $spotware.ProtoErrorRes.prototype.payloadType
-          }.${PROTO_MESSAGE_EVENT}`,
-          listener
-        );
-      };
+        unregisterListener(emitter, listener);
+      }
     }
+  );
+}
+type LISTENER = (message: $spotware.IProtoMessage) => void;
+function createListener(
+  clientMsgId: string | null | undefined,
+  unregister: () => void,
+  resolve: (
+    value?:
+      | $spotware.IProtoOAApplicationAuthRes
+      | PromiseLike<$spotware.IProtoOAApplicationAuthRes>
+  ) => void,
+  reject: (reason?: any) => void
+): LISTENER {
+  return (message: $spotware.IProtoMessage) => {
+    try {
+      if (message.clientMsgId === clientMsgId) {
+        unregister();
+        if (!!!message.payload) {
+          return reject(
+            new Error(
+              `Got expected message (${
+                message.payloadType
+              }), but it did not have a payload.`
+            )
+          );
+        }
+        switch (message.payloadType) {
+          case $spotware.ProtoOAApplicationAuthRes.prototype.payloadType: {
+            const msg = $spotware.ProtoOAApplicationAuthRes.decode(
+              message.payload
+            );
+            return resolve($spotware.ProtoOAApplicationAuthRes.toObject(msg));
+          }
+          case $spotware.ProtoOAErrorRes.prototype.payloadType: {
+            const msg = $spotware.ProtoOAErrorRes.decode(message.payload);
+            return reject(
+              new Error(
+                `${msg.description} [error code: ${msg.errorCode}; cTID: ${
+                  msg.ctidTraderAccountId
+                }]`
+              )
+            );
+          }
+          case $spotware.ProtoErrorRes.prototype.payloadType: {
+            const msg = $spotware.ProtoErrorRes.decode(message.payload);
+            return reject(
+              new Error(`${msg.description} [error code: ${msg.errorCode}]`)
+            );
+          }
+          default:
+            return reject(
+              new Error(`Got unexpected message (${message.payloadType}).`)
+            );
+        }
+      }
+    } catch (error) {
+      reject(error);
+    }
+  };
+}
+function registerListener(emitter: EventEmitter, listener: LISTENER) {
+  registerListenerResponse(emitter, listener);
+  registerListenerOpenApiError(emitter, listener);
+  registerListenerCommonError(emitter, listener);
+}
+function registerListenerResponse(emitter: EventEmitter, listener: LISTENER) {
+  emitter.on(
+    `${
+      $spotware.ProtoOAApplicationAuthRes.prototype.payloadType
+    }.${PROTO_MESSAGE_EVENT}`,
+    listener
+  );
+}
+function registerListenerOpenApiError(
+  emitter: EventEmitter,
+  listener: LISTENER
+) {
+  emitter.on(
+    `${$spotware.ProtoOAErrorRes.prototype.payloadType}.${PROTO_MESSAGE_EVENT}`,
+    listener
+  );
+}
+function registerListenerCommonError(
+  emitter: EventEmitter,
+  listener: LISTENER
+) {
+  emitter.on(
+    `${$spotware.ProtoErrorRes.prototype.payloadType}.${PROTO_MESSAGE_EVENT}`,
+    listener
+  );
+}
+function unregisterListener(emitter: EventEmitter, listener: LISTENER): void {
+  unregisterListenerResponse(emitter, listener);
+  unregisterListenerOpenApiError(emitter, listener);
+  unregisterListenerCommonError(emitter, listener);
+}
+function unregisterListenerResponse(
+  emitter: EventEmitter,
+  listener: LISTENER
+): void {
+  emitter.off(
+    `${
+      $spotware.ProtoOAApplicationAuthRes.prototype.payloadType
+    }.${PROTO_MESSAGE_EVENT}`,
+    listener
+  );
+}
+function unregisterListenerOpenApiError(
+  emitter: EventEmitter,
+  listener: LISTENER
+): void {
+  emitter.off(
+    `${$spotware.ProtoOAErrorRes.prototype.payloadType}.${PROTO_MESSAGE_EVENT}`,
+    listener
+  );
+}
+function unregisterListenerCommonError(
+  emitter: EventEmitter,
+  listener: LISTENER
+): void {
+  emitter.off(
+    `${$spotware.ProtoErrorRes.prototype.payloadType}.${PROTO_MESSAGE_EVENT}`,
+    listener
   );
 }
 export function emitProtoOAAccountAuthReq(
