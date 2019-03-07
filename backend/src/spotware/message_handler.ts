@@ -1,16 +1,10 @@
-import {
-  IProtoMessage,
-  ProtoOAApplicationAuthRes,
-  ProtoOAPayloadType,
-  ProtoPayloadType,
-  ProtoHeartbeatEvent
-} from "../generated/spotware";
+import * as $spotware from "../generated/spotware";
 import { EventEmitter } from "events";
 import { PROTO_MESSAGE_EVENT, Gateway } from "./gateway";
 
 // aliasing "ProtoOAApplicationAuthRes", because it only contains exactly one field "payloadType"
-type wrapperOpenApi = typeof ProtoOAApplicationAuthRes;
-type wrapperCommon = typeof ProtoHeartbeatEvent;
+type wrapperOpenApi = typeof $spotware.ProtoOAApplicationAuthRes;
+type wrapperCommon = typeof $spotware.ProtoHeartbeatEvent;
 type wrapper = wrapperCommon | wrapperOpenApi;
 
 export function createAndEmitCommonMessage<P>(
@@ -22,7 +16,7 @@ export function createAndEmitCommonMessage<P>(
   const payloadType = TYPE.prototype.payloadType;
   const message = TYPE.create({ ...properties });
   const payload = TYPE.encode(message).finish();
-  const pm: IProtoMessage = { payloadType, payload, clientMsgId };
+  const pm: $spotware.IProtoMessage = { payloadType, payload, clientMsgId };
   emitter.emit(`${payloadType}.${TYPE.name}`, { ...properties });
   emitter.emit(`${payloadType}.${PROTO_MESSAGE_EVENT}`, pm);
   emitter.emit(PROTO_MESSAGE_EVENT, pm);
@@ -37,14 +31,14 @@ export function createAndEmitOpenApiMessage<P>(
   const payloadType = TYPE.prototype.payloadType;
   const message = TYPE.create({ ...properties });
   const payload = TYPE.encode(message).finish();
-  const pm: IProtoMessage = { payloadType, payload, clientMsgId };
+  const pm: $spotware.IProtoMessage = { payloadType, payload, clientMsgId };
   emitter.emit(`${payloadType}.${TYPE.name}`, { ...properties });
   emitter.emit(`${payloadType}.${PROTO_MESSAGE_EVENT}`, pm);
   emitter.emit(PROTO_MESSAGE_EVENT, pm);
 }
 
 export function registerRequest(
-  EVENT: ProtoOAPayloadType | ProtoPayloadType,
+  EVENT: $spotware.ProtoOAPayloadType | $spotware.ProtoPayloadType,
   gateway: Gateway
 ) {
   const { emitter } = gateway;
@@ -53,7 +47,7 @@ export function registerRequest(
 
 export function registerResponse(
   TYPE: wrapper,
-  EVENT: ProtoOAPayloadType | ProtoPayloadType,
+  EVENT: $spotware.ProtoOAPayloadType | $spotware.ProtoPayloadType,
   emitter: EventEmitter
 ): void {
   emitter.on(
@@ -65,8 +59,8 @@ export function registerResponse(
 function parseAndEmitMessage(
   TYPE: wrapper,
   emitter: EventEmitter
-): (message: IProtoMessage) => void {
-  return (message: IProtoMessage) => {
+): (message: $spotware.IProtoMessage) => void {
+  return (message: $spotware.IProtoMessage) => {
     if (message.payload) {
       const msg = TYPE.decode(message.payload);
       if (msg) {
