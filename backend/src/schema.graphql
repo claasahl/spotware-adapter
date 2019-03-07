@@ -7,7 +7,7 @@ type Mutation {
   heartbeat(clientMsgId: String): Boolean
   # ping(timestamp: Int64!, clientMsgId: String): Boolean
   ping(timestamp: Int!, clientMsgId: String): Boolean
-  applicationAuth(clientMsgId: String): Boolean
+  applicationAuth(clientMsgId: String): IProtoOaApplicationAuthRes!
   # accountAuth(ctidTraderAccountId: Int64!, clientMsgId: String): Boolean
   accountAuth(
     ctidTraderAccountId: Int!
@@ -24,6 +24,10 @@ type Mutation {
 
 type Subscription {
   somethingChanged: Result
+}
+
+type IProtoOaApplicationAuthRes {
+  payloadType: Int
 }
 
 type Result {

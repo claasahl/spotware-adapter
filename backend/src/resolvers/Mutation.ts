@@ -1,7 +1,8 @@
 import { MutationResolvers } from "../generated/graphql-types";
 import axios from "axios";
-import { ProtoHeartbeatEvent, ProtoPingReq } from "../generated/spotware";
+import * as $spotware from "../generated/spotware";
 import * as requests from "../spotware/requests";
+import { PROTO_MESSAGE_EVENT } from "../spotware/gateway";
 
 export const mutation: Required<MutationResolvers.Resolvers> = {
   tokens: async (_parent, args) => {
@@ -17,7 +18,7 @@ export const mutation: Required<MutationResolvers.Resolvers> = {
   },
   heartbeat: (_parent, args, ctx) => {
     const { clientMsgId, ...properties } = args;
-    const TYPE = ProtoHeartbeatEvent;
+    const TYPE = $spotware.ProtoHeartbeatEvent;
     const message = TYPE.create(properties);
     const payloadType = TYPE.prototype.payloadType;
     const payload = TYPE.encode(message).finish();
@@ -32,7 +33,7 @@ export const mutation: Required<MutationResolvers.Resolvers> = {
   },
   ping: (_parent, args, ctx) => {
     const { clientMsgId, ...properties } = args;
-    const TYPE = ProtoPingReq;
+    const TYPE = $spotware.ProtoPingReq;
     const message = TYPE.create(properties);
     const payloadType = TYPE.prototype.payloadType;
     const payload = TYPE.encode(message).finish();
@@ -55,7 +56,108 @@ export const mutation: Required<MutationResolvers.Resolvers> = {
       clientMsgId,
       ctx.gateway.emitter
     );
-    return true;
+    return new Promise<$spotware.IProtoOAApplicationAuthRes>(
+      (resolve, reject) => {
+        // await response or error
+        const { emitter } = ctx.gateway;
+        const listener = (message: $spotware.IProtoMessage) => {
+          try {
+            if (message.clientMsgId === clientMsgId) {
+              unregister();
+              if (!!!message.payload) {
+                return reject(
+                  new Error(
+                    `Got expected message (${
+                      message.payloadType
+                    }), but it did not have a payload.`
+                  )
+                );
+              }
+              switch (message.payloadType) {
+                case $spotware.ProtoOAApplicationAuthRes.prototype
+                  .payloadType: {
+                  const msg = $spotware.ProtoOAApplicationAuthRes.decode(
+                    message.payload
+                  );
+                  return resolve(
+                    $spotware.ProtoOAApplicationAuthRes.toObject(msg)
+                  );
+                }
+                case $spotware.ProtoOAErrorRes.prototype.payloadType: {
+                  const msg = $spotware.ProtoOAErrorRes.decode(message.payload);
+                  return reject(
+                    new Error(
+                      `${msg.description} [error code: ${
+                        msg.errorCode
+                      }; cTID: ${msg.ctidTraderAccountId}]`
+                    )
+                  );
+                }
+                case $spotware.ProtoErrorRes.prototype.payloadType: {
+                  const msg = $spotware.ProtoErrorRes.decode(message.payload);
+                  return reject(
+                    new Error(
+                      `${msg.description} [error code: ${msg.errorCode}]`
+                    )
+                  );
+                }
+                default:
+                  return reject(
+                    new Error(
+                      `Got unexpected message (${message.payloadType}).`
+                    )
+                  );
+              }
+            }
+          } catch (error) {
+            reject(error);
+          }
+        };
+        const timeout = setTimeout(() => {
+          unregister();
+          reject(new Error("Did not receive response in a timely manner."));
+        }, 2000);
+        emitter.on(
+          `${
+            $spotware.ProtoOAApplicationAuthRes.prototype.payloadType
+          }.${PROTO_MESSAGE_EVENT}`,
+          listener
+        );
+        emitter.on(
+          `${
+            $spotware.ProtoOAErrorRes.prototype.payloadType
+          }.${PROTO_MESSAGE_EVENT}`,
+          listener
+        );
+        emitter.on(
+          `${
+            $spotware.ProtoErrorRes.prototype.payloadType
+          }.${PROTO_MESSAGE_EVENT}`,
+          listener
+        );
+        const unregister = () => {
+          clearTimeout(timeout);
+          emitter.off(
+            `${
+              $spotware.ProtoOAApplicationAuthRes.prototype.payloadType
+            }.${PROTO_MESSAGE_EVENT}`,
+            listener
+          );
+          emitter.off(
+            `${
+              $spotware.ProtoOAErrorRes.prototype.payloadType
+            }.${PROTO_MESSAGE_EVENT}`,
+            listener
+          );
+          emitter.off(
+            `${
+              $spotware.ProtoErrorRes.prototype.payloadType
+            }.${PROTO_MESSAGE_EVENT}`,
+            listener
+          );
+        };
+      }
+    );
   },
   accountAuth: async (_parent, args, ctx) => {
     const { clientMsgId, ...properties } = args;
