@@ -1,6 +1,6 @@
 import * as $spotware from "../generated/spotware";
 import * as $base from "./message_handler";
-import { Gateway } from "./gateway";
+import { Gateway, PROTO_MESSAGE_EVENT } from "./gateway";
 import { EventEmitter } from "events";
 
 export function emitProtoPingReq(
@@ -25,6 +25,108 @@ export function emitProtoOAApplicationAuthReq(
     properties,
     clientMsgId,
     emitter
+  );
+}
+export async function ProtoOAApplicationAuthReq(
+  properties: $spotware.IProtoOAApplicationAuthReq,
+  clientMsgId: string | null | undefined,
+  emitter: EventEmitter
+): Promise<$spotware.IProtoOAApplicationAuthRes> {
+  return new Promise<$spotware.IProtoOAApplicationAuthRes>(
+    (resolve, reject) => {
+      emitProtoOAApplicationAuthReq(properties, clientMsgId, emitter);
+      const listener = (message: $spotware.IProtoMessage) => {
+        try {
+          if (message.clientMsgId === clientMsgId) {
+            unregister();
+            if (!!!message.payload) {
+              return reject(
+                new Error(
+                  `Got expected message (${
+                    message.payloadType
+                  }), but it did not have a payload.`
+                )
+              );
+            }
+            switch (message.payloadType) {
+              case $spotware.ProtoOAApplicationAuthRes.prototype.payloadType: {
+                const msg = $spotware.ProtoOAApplicationAuthRes.decode(
+                  message.payload
+                );
+                return resolve(
+                  $spotware.ProtoOAApplicationAuthRes.toObject(msg)
+                );
+              }
+              case $spotware.ProtoOAErrorRes.prototype.payloadType: {
+                const msg = $spotware.ProtoOAErrorRes.decode(message.payload);
+                return reject(
+                  new Error(
+                    `${msg.description} [error code: ${msg.errorCode}; cTID: ${
+                      msg.ctidTraderAccountId
+                    }]`
+                  )
+                );
+              }
+              case $spotware.ProtoErrorRes.prototype.payloadType: {
+                const msg = $spotware.ProtoErrorRes.decode(message.payload);
+                return reject(
+                  new Error(`${msg.description} [error code: ${msg.errorCode}]`)
+                );
+              }
+              default:
+                return reject(
+                  new Error(`Got unexpected message (${message.payloadType}).`)
+                );
+            }
+          }
+        } catch (error) {
+          reject(error);
+        }
+      };
+      const timeout = setTimeout(() => {
+        unregister();
+        reject(new Error("Did not receive response in a timely manner."));
+      }, 2000);
+      emitter.on(
+        `${
+          $spotware.ProtoOAApplicationAuthRes.prototype.payloadType
+        }.${PROTO_MESSAGE_EVENT}`,
+        listener
+      );
+      emitter.on(
+        `${
+          $spotware.ProtoOAErrorRes.prototype.payloadType
+        }.${PROTO_MESSAGE_EVENT}`,
+        listener
+      );
+      emitter.on(
+        `${
+          $spotware.ProtoErrorRes.prototype.payloadType
+        }.${PROTO_MESSAGE_EVENT}`,
+        listener
+      );
+      const unregister = () => {
+        clearTimeout(timeout);
+        emitter.off(
+          `${
+            $spotware.ProtoOAApplicationAuthRes.prototype.payloadType
+          }.${PROTO_MESSAGE_EVENT}`,
+          listener
+        );
+        emitter.off(
+          `${
+            $spotware.ProtoOAErrorRes.prototype.payloadType
+          }.${PROTO_MESSAGE_EVENT}`,
+          listener
+        );
+        emitter.off(
+          `${
+            $spotware.ProtoErrorRes.prototype.payloadType
+          }.${PROTO_MESSAGE_EVENT}`,
+          listener
+        );
+      };
+    }
   );
 }
 export function emitProtoOAAccountAuthReq(
