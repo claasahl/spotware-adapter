@@ -3,9 +3,9 @@ import { EventEmitter } from "events";
 import { PROTO_MESSAGE_EVENT, Gateway } from "./gateway";
 
 // aliasing "ProtoOAApplicationAuthRes", because it only contains exactly one field "payloadType"
-type wrapperOpenApi = typeof $spotware.ProtoOAApplicationAuthRes;
-type wrapperCommon = typeof $spotware.ProtoHeartbeatEvent;
-type wrapper = wrapperCommon | wrapperOpenApi;
+export type wrapperOpenApi = typeof $spotware.ProtoOAApplicationAuthRes;
+export type wrapperCommon = typeof $spotware.ProtoHeartbeatEvent;
+export type wrapper = wrapperCommon | wrapperOpenApi;
 
 export function createAndEmitCommonMessage<P>(
   TYPE: wrapperCommon,
