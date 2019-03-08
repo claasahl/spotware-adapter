@@ -1,6 +1,6 @@
 import * as $spotware from "../generated/spotware";
 import * as $base from "./message_handler";
-import { Gateway, PROTO_MESSAGE_EVENT } from "./gateway";
+import { Gateway } from "./gateway";
 import { EventEmitter } from "events";
 
 export function emitProtoOAApplicationAuthReq(
@@ -26,19 +26,18 @@ export async function ProtoOAApplicationAuthReq(
       const listener = createListener(clientMsgId, unregister, resolve, reject);
 
       const TYPE = $spotware.ProtoOAApplicationAuthRes;
-      registerListener(TYPE, emitter, listener);
+      $base.registerListener(TYPE, emitter, listener);
       const timeout = setTimeout(() => {
         unregister();
         reject(new Error("Did not receive response in a timely manner."));
       }, 2000);
       function unregister() {
         clearTimeout(timeout);
-        unregisterListener(TYPE, emitter, listener);
+        $base.unregisterListener(TYPE, emitter, listener);
       }
     }
   );
 }
-type LISTENER = (message: $spotware.IProtoMessage) => void;
 function createListener(
   clientMsgId: string | null | undefined,
   unregister: () => void,
@@ -48,7 +47,7 @@ function createListener(
       | PromiseLike<$spotware.IProtoOAApplicationAuthRes>
   ) => void,
   reject: (reason?: any) => void
-): LISTENER {
+): $base.LISTENER {
   return (message: $spotware.IProtoMessage) => {
     try {
       if (message.clientMsgId === clientMsgId) {
@@ -95,68 +94,6 @@ function createListener(
       reject(error);
     }
   };
-}
-function registerListener(
-  TYPE: $base.wrapper,
-  emitter: EventEmitter,
-  listener: LISTENER
-) {
-  registerListenerResponse(TYPE, emitter, listener);
-  registerListenerOpenApiError(emitter, listener);
-  registerListenerCommonError(emitter, listener);
-}
-function registerListenerResponse(
-  TYPE: $base.wrapper,
-  emitter: EventEmitter,
-  listener: LISTENER
-) {
-  const { payloadType } = TYPE.prototype;
-  emitter.on(`${payloadType}.${PROTO_MESSAGE_EVENT}`, listener);
-}
-function registerListenerOpenApiError(
-  emitter: EventEmitter,
-  listener: LISTENER
-) {
-  const { payloadType } = $spotware.ProtoOAErrorRes.prototype;
-  emitter.on(`${payloadType}.${PROTO_MESSAGE_EVENT}`, listener);
-}
-function registerListenerCommonError(
-  emitter: EventEmitter,
-  listener: LISTENER
-) {
-  const { payloadType } = $spotware.ProtoErrorRes.prototype;
-  emitter.on(`${payloadType}.${PROTO_MESSAGE_EVENT}`, listener);
-}
-function unregisterListener(
-  TYPE: $base.wrapper,
-  emitter: EventEmitter,
-  listener: LISTENER
-): void {
-  unregisterListenerResponse(TYPE, emitter, listener);
-  unregisterListenerOpenApiError(emitter, listener);
-  unregisterListenerCommonError(emitter, listener);
-}
-function unregisterListenerResponse(
-  TYPE: $base.wrapper,
-  emitter: EventEmitter,
-  listener: LISTENER
-): void {
-  const { payloadType } = TYPE.prototype;
-  emitter.off(`${payloadType}.${PROTO_MESSAGE_EVENT}`, listener);
-}
-function unregisterListenerOpenApiError(
-  emitter: EventEmitter,
-  listener: LISTENER
-): void {
-  const { payloadType } = $spotware.ProtoOAErrorRes.prototype;
-  emitter.off(`${payloadType}.${PROTO_MESSAGE_EVENT}`, listener);
-}
-function unregisterListenerCommonError(
-  emitter: EventEmitter,
-  listener: LISTENER
-): void {
-  const { payloadType } = $spotware.ProtoErrorRes.prototype;
-  emitter.off(`${payloadType}.${PROTO_MESSAGE_EVENT}`, listener);
 }
 export function emitProtoOAAccountAuthReq(
   properties: $spotware.IProtoOAAccountAuthReq,

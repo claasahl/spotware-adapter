@@ -69,3 +69,68 @@ function parseAndEmitMessage(
     }
   };
 }
+
+export type LISTENER = (message: $spotware.IProtoMessage) => void;
+
+export function registerListener(
+  TYPE: wrapper,
+  emitter: EventEmitter,
+  listener: LISTENER
+) {
+  registerListenerResponse(TYPE, emitter, listener);
+  registerListenerOpenApiError(emitter, listener);
+  registerListenerCommonError(emitter, listener);
+}
+function registerListenerResponse(
+  TYPE: wrapper,
+  emitter: EventEmitter,
+  listener: LISTENER
+) {
+  const { payloadType } = TYPE.prototype;
+  emitter.on(`${payloadType}.${PROTO_MESSAGE_EVENT}`, listener);
+}
+function registerListenerOpenApiError(
+  emitter: EventEmitter,
+  listener: LISTENER
+) {
+  const { payloadType } = $spotware.ProtoOAErrorRes.prototype;
+  emitter.on(`${payloadType}.${PROTO_MESSAGE_EVENT}`, listener);
+}
+function registerListenerCommonError(
+  emitter: EventEmitter,
+  listener: LISTENER
+) {
+  const { payloadType } = $spotware.ProtoErrorRes.prototype;
+  emitter.on(`${payloadType}.${PROTO_MESSAGE_EVENT}`, listener);
+}
+export function unregisterListener(
+  TYPE: wrapper,
+  emitter: EventEmitter,
+  listener: LISTENER
+): void {
+  unregisterListenerResponse(TYPE, emitter, listener);
+  unregisterListenerOpenApiError(emitter, listener);
+  unregisterListenerCommonError(emitter, listener);
+}
+function unregisterListenerResponse(
+  TYPE: wrapper,
+  emitter: EventEmitter,
+  listener: LISTENER
+): void {
+  const { payloadType } = TYPE.prototype;
+  emitter.off(`${payloadType}.${PROTO_MESSAGE_EVENT}`, listener);
+}
+function unregisterListenerOpenApiError(
+  emitter: EventEmitter,
+  listener: LISTENER
+): void {
+  const { payloadType } = $spotware.ProtoOAErrorRes.prototype;
+  emitter.off(`${payloadType}.${PROTO_MESSAGE_EVENT}`, listener);
+}
+function unregisterListenerCommonError(
+  emitter: EventEmitter,
+  listener: LISTENER
+): void {
+  const { payloadType } = $spotware.ProtoErrorRes.prototype;
+  emitter.off(`${payloadType}.${PROTO_MESSAGE_EVENT}`, listener);
+}
