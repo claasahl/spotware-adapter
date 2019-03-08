@@ -79,6 +79,13 @@ function ProtoOADepthEvent(emitter: EventEmitter): void {
     emitter
   );
 }
+function ProtoOAAccountDisconnectEvent(emitter: EventEmitter): void {
+  $base.registerResponse(
+    $spotware.ProtoOAAccountDisconnectEvent,
+    $spotware.ProtoOAPayloadType.PROTO_OA_ACCOUNT_DISCONNECT_EVENT,
+    emitter
+  );
+}
 export default function registerEventHandlers(emitter: EventEmitter): void {
   ProtoHeartbeatEvent(emitter);
   ProtoOAClientDisconnectEvent(emitter);
@@ -91,4 +98,5 @@ export default function registerEventHandlers(emitter: EventEmitter): void {
   ProtoOAMarginChangedEvent(emitter);
   ProtoOASpotEvent(emitter);
   ProtoOADepthEvent(emitter);
+  ProtoOAAccountDisconnectEvent(emitter);
 }

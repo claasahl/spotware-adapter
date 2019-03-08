@@ -3,18 +3,6 @@ import * as $base from "./message_handler";
 import { Gateway, PROTO_MESSAGE_EVENT } from "./gateway";
 import { EventEmitter } from "events";
 
-export function emitProtoPingReq(
-  properties: $spotware.IProtoPingReq,
-  clientMsgId: string | null | undefined,
-  emitter: EventEmitter
-): void {
-  $base.createAndEmitCommonMessage(
-    $spotware.ProtoPingReq,
-    properties,
-    clientMsgId,
-    emitter
-  );
-}
 export function emitProtoOAApplicationAuthReq(
   properties: $spotware.IProtoOAApplicationAuthReq,
   clientMsgId: string | null | undefined,
@@ -519,7 +507,6 @@ export function emitProtoOAAccountLogoutReq(
   );
 }
 export default function registerRequestHandlers(gateway: Gateway): void {
-  $base.registerRequest($spotware.ProtoPingReq.prototype.payloadType, gateway);
   $base.registerRequest(
     $spotware.ProtoOAApplicationAuthReq.prototype.payloadType,
     gateway

@@ -2,7 +2,6 @@ import { MutationResolvers } from "../generated/graphql-types";
 import axios from "axios";
 import * as $spotware from "../generated/spotware";
 import * as requests from "../spotware/requests";
-import { PROTO_MESSAGE_EVENT } from "../spotware/gateway";
 
 export const mutation: Required<MutationResolvers.Resolvers> = {
   tokens: async (_parent, args) => {
@@ -19,21 +18,6 @@ export const mutation: Required<MutationResolvers.Resolvers> = {
   heartbeat: (_parent, args, ctx) => {
     const { clientMsgId, ...properties } = args;
     const TYPE = $spotware.ProtoHeartbeatEvent;
-    const message = TYPE.create(properties);
-    const payloadType = TYPE.prototype.payloadType;
-    const payload = TYPE.encode(message).finish();
-    return new Promise<boolean>(resolve => {
-      ctx.gateway.writeProtoMessage(
-        { payloadType, payload, clientMsgId },
-        () => {
-          resolve(true);
-        }
-      );
-    });
-  },
-  ping: (_parent, args, ctx) => {
-    const { clientMsgId, ...properties } = args;
-    const TYPE = $spotware.ProtoPingReq;
     const message = TYPE.create(properties);
     const payloadType = TYPE.prototype.payloadType;
     const payload = TYPE.encode(message).finish();

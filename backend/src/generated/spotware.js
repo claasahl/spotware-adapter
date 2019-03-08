@@ -270,6 +270,7 @@ $root.ProtoErrorRes = (function() {
    * @property {ProtoPayloadType|null} [payloadType] ProtoErrorRes payloadType
    * @property {string} errorCode ProtoErrorRes errorCode
    * @property {string|null} [description] ProtoErrorRes description
+   * @property {number|Long|null} [maintenanceEndTimestamp] ProtoErrorRes maintenanceEndTimestamp
    */
 
   /**
@@ -311,6 +312,16 @@ $root.ProtoErrorRes = (function() {
   ProtoErrorRes.prototype.description = "";
 
   /**
+   * ProtoErrorRes maintenanceEndTimestamp.
+   * @member {number|Long} maintenanceEndTimestamp
+   * @memberof ProtoErrorRes
+   * @instance
+   */
+  ProtoErrorRes.prototype.maintenanceEndTimestamp = $util.Long
+    ? $util.Long.fromBits(0, 0, true)
+    : 0;
+
+  /**
    * Creates a new ProtoErrorRes instance using the specified properties.
    * @function create
    * @memberof ProtoErrorRes
@@ -338,6 +349,13 @@ $root.ProtoErrorRes = (function() {
     writer.uint32(/* id 2, wireType 2 =*/ 18).string(message.errorCode);
     if (message.description != null && message.hasOwnProperty("description"))
       writer.uint32(/* id 3, wireType 2 =*/ 26).string(message.description);
+    if (
+      message.maintenanceEndTimestamp != null &&
+      message.hasOwnProperty("maintenanceEndTimestamp")
+    )
+      writer
+        .uint32(/* id 4, wireType 0 =*/ 32)
+        .uint64(message.maintenanceEndTimestamp);
     return writer;
   };
 
@@ -381,6 +399,9 @@ $root.ProtoErrorRes = (function() {
         case 3:
           message.description = reader.string();
           break;
+        case 4:
+          message.maintenanceEndTimestamp = reader.uint64();
+          break;
         default:
           reader.skipType(tag & 7);
           break;
@@ -423,16 +444,28 @@ $root.ProtoErrorRes = (function() {
       switch (message.payloadType) {
         default:
           return "payloadType: enum value expected";
+        case 5:
         case 50:
         case 51:
-        case 52:
-        case 53:
           break;
       }
     if (!$util.isString(message.errorCode)) return "errorCode: string expected";
     if (message.description != null && message.hasOwnProperty("description"))
       if (!$util.isString(message.description))
         return "description: string expected";
+    if (
+      message.maintenanceEndTimestamp != null &&
+      message.hasOwnProperty("maintenanceEndTimestamp")
+    )
+      if (
+        !$util.isInteger(message.maintenanceEndTimestamp) &&
+        !(
+          message.maintenanceEndTimestamp &&
+          $util.isInteger(message.maintenanceEndTimestamp.low) &&
+          $util.isInteger(message.maintenanceEndTimestamp.high)
+        )
+      )
+        return "maintenanceEndTimestamp: integer|Long expected";
     return null;
   };
 
@@ -448,6 +481,10 @@ $root.ProtoErrorRes = (function() {
     if (object instanceof $root.ProtoErrorRes) return object;
     var message = new $root.ProtoErrorRes();
     switch (object.payloadType) {
+      case "PROTO_MESSAGE":
+      case 5:
+        message.payloadType = 5;
+        break;
       case "ERROR_RES":
       case 50:
         message.payloadType = 50;
@@ -456,18 +493,27 @@ $root.ProtoErrorRes = (function() {
       case 51:
         message.payloadType = 51;
         break;
-      case "PING_REQ":
-      case 52:
-        message.payloadType = 52;
-        break;
-      case "PING_RES":
-      case 53:
-        message.payloadType = 53;
-        break;
     }
     if (object.errorCode != null) message.errorCode = String(object.errorCode);
     if (object.description != null)
       message.description = String(object.description);
+    if (object.maintenanceEndTimestamp != null)
+      if ($util.Long)
+        (message.maintenanceEndTimestamp = $util.Long.fromValue(
+          object.maintenanceEndTimestamp
+        )).unsigned = true;
+      else if (typeof object.maintenanceEndTimestamp === "string")
+        message.maintenanceEndTimestamp = parseInt(
+          object.maintenanceEndTimestamp,
+          10
+        );
+      else if (typeof object.maintenanceEndTimestamp === "number")
+        message.maintenanceEndTimestamp = object.maintenanceEndTimestamp;
+      else if (typeof object.maintenanceEndTimestamp === "object")
+        message.maintenanceEndTimestamp = new $util.LongBits(
+          object.maintenanceEndTimestamp.low >>> 0,
+          object.maintenanceEndTimestamp.high >>> 0
+        ).toNumber(true);
     return message;
   };
 
@@ -487,6 +533,16 @@ $root.ProtoErrorRes = (function() {
       object.payloadType = options.enums === String ? "ERROR_RES" : 50;
       object.errorCode = "";
       object.description = "";
+      if ($util.Long) {
+        var long = new $util.Long(0, 0, true);
+        object.maintenanceEndTimestamp =
+          options.longs === String
+            ? long.toString()
+            : options.longs === Number
+            ? long.toNumber()
+            : long;
+      } else
+        object.maintenanceEndTimestamp = options.longs === String ? "0" : 0;
     }
     if (message.payloadType != null && message.hasOwnProperty("payloadType"))
       object.payloadType =
@@ -497,6 +553,27 @@ $root.ProtoErrorRes = (function() {
       object.errorCode = message.errorCode;
     if (message.description != null && message.hasOwnProperty("description"))
       object.description = message.description;
+    if (
+      message.maintenanceEndTimestamp != null &&
+      message.hasOwnProperty("maintenanceEndTimestamp")
+    )
+      if (typeof message.maintenanceEndTimestamp === "number")
+        object.maintenanceEndTimestamp =
+          options.longs === String
+            ? String(message.maintenanceEndTimestamp)
+            : message.maintenanceEndTimestamp;
+      else
+        object.maintenanceEndTimestamp =
+          options.longs === String
+            ? $util.Long.prototype.toString.call(
+                message.maintenanceEndTimestamp
+              )
+            : options.longs === Number
+            ? new $util.LongBits(
+                message.maintenanceEndTimestamp.low >>> 0,
+                message.maintenanceEndTimestamp.high >>> 0
+              ).toNumber(true)
+            : message.maintenanceEndTimestamp;
     return object;
   };
 
@@ -525,7 +602,7 @@ $root.ProtoHeartbeatEvent = (function() {
   /**
    * Constructs a new ProtoHeartbeatEvent.
    * @exports ProtoHeartbeatEvent
-   * @classdesc Represents a ProtoHeartbeatEvent.
+   * @classdesc Event that is sent from Open API proxy and can be used as criteria that connection is healthy when no other messages are sent by cTrader platform. Open API client can send this message when he needs to keep the connection open for a period without other messages longer than 30 seconds
    * @implements IProtoHeartbeatEvent
    * @constructor
    * @param {IProtoHeartbeatEvent=} [properties] Properties to set
@@ -647,10 +724,9 @@ $root.ProtoHeartbeatEvent = (function() {
       switch (message.payloadType) {
         default:
           return "payloadType: enum value expected";
+        case 5:
         case 50:
         case 51:
-        case 52:
-        case 53:
           break;
       }
     return null;
@@ -668,6 +744,10 @@ $root.ProtoHeartbeatEvent = (function() {
     if (object instanceof $root.ProtoHeartbeatEvent) return object;
     var message = new $root.ProtoHeartbeatEvent();
     switch (object.payloadType) {
+      case "PROTO_MESSAGE":
+      case 5:
+        message.payloadType = 5;
+        break;
       case "ERROR_RES":
       case 50:
         message.payloadType = 50;
@@ -675,14 +755,6 @@ $root.ProtoHeartbeatEvent = (function() {
       case "HEARTBEAT_EVENT":
       case 51:
         message.payloadType = 51;
-        break;
-      case "PING_REQ":
-      case 52:
-        message.payloadType = 52;
-        break;
-      case "PING_RES":
-      case 53:
-        message.payloadType = 53;
         break;
     }
     return message;
@@ -724,572 +796,20 @@ $root.ProtoHeartbeatEvent = (function() {
   return ProtoHeartbeatEvent;
 })();
 
-$root.ProtoPingReq = (function() {
-  /**
-   * Properties of a ProtoPingReq.
-   * @exports IProtoPingReq
-   * @interface IProtoPingReq
-   * @property {ProtoPayloadType|null} [payloadType] ProtoPingReq payloadType
-   * @property {number|Long} timestamp ProtoPingReq timestamp
-   */
-
-  /**
-   * Constructs a new ProtoPingReq.
-   * @exports ProtoPingReq
-   * @classdesc Represents a ProtoPingReq.
-   * @implements IProtoPingReq
-   * @constructor
-   * @param {IProtoPingReq=} [properties] Properties to set
-   */
-  function ProtoPingReq(properties) {
-    if (properties)
-      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-        if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
-  }
-
-  /**
-   * ProtoPingReq payloadType.
-   * @member {ProtoPayloadType} payloadType
-   * @memberof ProtoPingReq
-   * @instance
-   */
-  ProtoPingReq.prototype.payloadType = 52;
-
-  /**
-   * ProtoPingReq timestamp.
-   * @member {number|Long} timestamp
-   * @memberof ProtoPingReq
-   * @instance
-   */
-  ProtoPingReq.prototype.timestamp = $util.Long
-    ? $util.Long.fromBits(0, 0, true)
-    : 0;
-
-  /**
-   * Creates a new ProtoPingReq instance using the specified properties.
-   * @function create
-   * @memberof ProtoPingReq
-   * @static
-   * @param {IProtoPingReq=} [properties] Properties to set
-   * @returns {ProtoPingReq} ProtoPingReq instance
-   */
-  ProtoPingReq.create = function create(properties) {
-    return new ProtoPingReq(properties);
-  };
-
-  /**
-   * Encodes the specified ProtoPingReq message. Does not implicitly {@link ProtoPingReq.verify|verify} messages.
-   * @function encode
-   * @memberof ProtoPingReq
-   * @static
-   * @param {IProtoPingReq} message ProtoPingReq message or plain object to encode
-   * @param {$protobuf.Writer} [writer] Writer to encode to
-   * @returns {$protobuf.Writer} Writer
-   */
-  ProtoPingReq.encode = function encode(message, writer) {
-    if (!writer) writer = $Writer.create();
-    if (message.payloadType != null && message.hasOwnProperty("payloadType"))
-      writer.uint32(/* id 1, wireType 0 =*/ 8).int32(message.payloadType);
-    writer.uint32(/* id 2, wireType 0 =*/ 16).uint64(message.timestamp);
-    return writer;
-  };
-
-  /**
-   * Encodes the specified ProtoPingReq message, length delimited. Does not implicitly {@link ProtoPingReq.verify|verify} messages.
-   * @function encodeDelimited
-   * @memberof ProtoPingReq
-   * @static
-   * @param {IProtoPingReq} message ProtoPingReq message or plain object to encode
-   * @param {$protobuf.Writer} [writer] Writer to encode to
-   * @returns {$protobuf.Writer} Writer
-   */
-  ProtoPingReq.encodeDelimited = function encodeDelimited(message, writer) {
-    return this.encode(message, writer).ldelim();
-  };
-
-  /**
-   * Decodes a ProtoPingReq message from the specified reader or buffer.
-   * @function decode
-   * @memberof ProtoPingReq
-   * @static
-   * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-   * @param {number} [length] Message length if known beforehand
-   * @returns {ProtoPingReq} ProtoPingReq
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  ProtoPingReq.decode = function decode(reader, length) {
-    if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    var end = length === undefined ? reader.len : reader.pos + length,
-      message = new $root.ProtoPingReq();
-    while (reader.pos < end) {
-      var tag = reader.uint32();
-      switch (tag >>> 3) {
-        case 1:
-          message.payloadType = reader.int32();
-          break;
-        case 2:
-          message.timestamp = reader.uint64();
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
-      }
-    }
-    if (!message.hasOwnProperty("timestamp"))
-      throw $util.ProtocolError("missing required 'timestamp'", {
-        instance: message
-      });
-    return message;
-  };
-
-  /**
-   * Decodes a ProtoPingReq message from the specified reader or buffer, length delimited.
-   * @function decodeDelimited
-   * @memberof ProtoPingReq
-   * @static
-   * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-   * @returns {ProtoPingReq} ProtoPingReq
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  ProtoPingReq.decodeDelimited = function decodeDelimited(reader) {
-    if (!(reader instanceof $Reader)) reader = new $Reader(reader);
-    return this.decode(reader, reader.uint32());
-  };
-
-  /**
-   * Verifies a ProtoPingReq message.
-   * @function verify
-   * @memberof ProtoPingReq
-   * @static
-   * @param {Object.<string,*>} message Plain object to verify
-   * @returns {string|null} `null` if valid, otherwise the reason why it is not
-   */
-  ProtoPingReq.verify = function verify(message) {
-    if (typeof message !== "object" || message === null)
-      return "object expected";
-    if (message.payloadType != null && message.hasOwnProperty("payloadType"))
-      switch (message.payloadType) {
-        default:
-          return "payloadType: enum value expected";
-        case 50:
-        case 51:
-        case 52:
-        case 53:
-          break;
-      }
-    if (
-      !$util.isInteger(message.timestamp) &&
-      !(
-        message.timestamp &&
-        $util.isInteger(message.timestamp.low) &&
-        $util.isInteger(message.timestamp.high)
-      )
-    )
-      return "timestamp: integer|Long expected";
-    return null;
-  };
-
-  /**
-   * Creates a ProtoPingReq message from a plain object. Also converts values to their respective internal types.
-   * @function fromObject
-   * @memberof ProtoPingReq
-   * @static
-   * @param {Object.<string,*>} object Plain object
-   * @returns {ProtoPingReq} ProtoPingReq
-   */
-  ProtoPingReq.fromObject = function fromObject(object) {
-    if (object instanceof $root.ProtoPingReq) return object;
-    var message = new $root.ProtoPingReq();
-    switch (object.payloadType) {
-      case "ERROR_RES":
-      case 50:
-        message.payloadType = 50;
-        break;
-      case "HEARTBEAT_EVENT":
-      case 51:
-        message.payloadType = 51;
-        break;
-      case "PING_REQ":
-      case 52:
-        message.payloadType = 52;
-        break;
-      case "PING_RES":
-      case 53:
-        message.payloadType = 53;
-        break;
-    }
-    if (object.timestamp != null)
-      if ($util.Long)
-        (message.timestamp = $util.Long.fromValue(
-          object.timestamp
-        )).unsigned = true;
-      else if (typeof object.timestamp === "string")
-        message.timestamp = parseInt(object.timestamp, 10);
-      else if (typeof object.timestamp === "number")
-        message.timestamp = object.timestamp;
-      else if (typeof object.timestamp === "object")
-        message.timestamp = new $util.LongBits(
-          object.timestamp.low >>> 0,
-          object.timestamp.high >>> 0
-        ).toNumber(true);
-    return message;
-  };
-
-  /**
-   * Creates a plain object from a ProtoPingReq message. Also converts values to other types if specified.
-   * @function toObject
-   * @memberof ProtoPingReq
-   * @static
-   * @param {ProtoPingReq} message ProtoPingReq
-   * @param {$protobuf.IConversionOptions} [options] Conversion options
-   * @returns {Object.<string,*>} Plain object
-   */
-  ProtoPingReq.toObject = function toObject(message, options) {
-    if (!options) options = {};
-    var object = {};
-    if (options.defaults) {
-      object.payloadType = options.enums === String ? "PING_REQ" : 52;
-      if ($util.Long) {
-        var long = new $util.Long(0, 0, true);
-        object.timestamp =
-          options.longs === String
-            ? long.toString()
-            : options.longs === Number
-            ? long.toNumber()
-            : long;
-      } else object.timestamp = options.longs === String ? "0" : 0;
-    }
-    if (message.payloadType != null && message.hasOwnProperty("payloadType"))
-      object.payloadType =
-        options.enums === String
-          ? $root.ProtoPayloadType[message.payloadType]
-          : message.payloadType;
-    if (message.timestamp != null && message.hasOwnProperty("timestamp"))
-      if (typeof message.timestamp === "number")
-        object.timestamp =
-          options.longs === String
-            ? String(message.timestamp)
-            : message.timestamp;
-      else
-        object.timestamp =
-          options.longs === String
-            ? $util.Long.prototype.toString.call(message.timestamp)
-            : options.longs === Number
-            ? new $util.LongBits(
-                message.timestamp.low >>> 0,
-                message.timestamp.high >>> 0
-              ).toNumber(true)
-            : message.timestamp;
-    return object;
-  };
-
-  /**
-   * Converts this ProtoPingReq to JSON.
-   * @function toJSON
-   * @memberof ProtoPingReq
-   * @instance
-   * @returns {Object.<string,*>} JSON object
-   */
-  ProtoPingReq.prototype.toJSON = function toJSON() {
-    return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-  };
-
-  return ProtoPingReq;
-})();
-
-$root.ProtoPingRes = (function() {
-  /**
-   * Properties of a ProtoPingRes.
-   * @exports IProtoPingRes
-   * @interface IProtoPingRes
-   * @property {ProtoPayloadType|null} [payloadType] ProtoPingRes payloadType
-   * @property {number|Long} timestamp ProtoPingRes timestamp
-   */
-
-  /**
-   * Constructs a new ProtoPingRes.
-   * @exports ProtoPingRes
-   * @classdesc Represents a ProtoPingRes.
-   * @implements IProtoPingRes
-   * @constructor
-   * @param {IProtoPingRes=} [properties] Properties to set
-   */
-  function ProtoPingRes(properties) {
-    if (properties)
-      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-        if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
-  }
-
-  /**
-   * ProtoPingRes payloadType.
-   * @member {ProtoPayloadType} payloadType
-   * @memberof ProtoPingRes
-   * @instance
-   */
-  ProtoPingRes.prototype.payloadType = 53;
-
-  /**
-   * ProtoPingRes timestamp.
-   * @member {number|Long} timestamp
-   * @memberof ProtoPingRes
-   * @instance
-   */
-  ProtoPingRes.prototype.timestamp = $util.Long
-    ? $util.Long.fromBits(0, 0, true)
-    : 0;
-
-  /**
-   * Creates a new ProtoPingRes instance using the specified properties.
-   * @function create
-   * @memberof ProtoPingRes
-   * @static
-   * @param {IProtoPingRes=} [properties] Properties to set
-   * @returns {ProtoPingRes} ProtoPingRes instance
-   */
-  ProtoPingRes.create = function create(properties) {
-    return new ProtoPingRes(properties);
-  };
-
-  /**
-   * Encodes the specified ProtoPingRes message. Does not implicitly {@link ProtoPingRes.verify|verify} messages.
-   * @function encode
-   * @memberof ProtoPingRes
-   * @static
-   * @param {IProtoPingRes} message ProtoPingRes message or plain object to encode
-   * @param {$protobuf.Writer} [writer] Writer to encode to
-   * @returns {$protobuf.Writer} Writer
-   */
-  ProtoPingRes.encode = function encode(message, writer) {
-    if (!writer) writer = $Writer.create();
-    if (message.payloadType != null && message.hasOwnProperty("payloadType"))
-      writer.uint32(/* id 1, wireType 0 =*/ 8).int32(message.payloadType);
-    writer.uint32(/* id 2, wireType 0 =*/ 16).uint64(message.timestamp);
-    return writer;
-  };
-
-  /**
-   * Encodes the specified ProtoPingRes message, length delimited. Does not implicitly {@link ProtoPingRes.verify|verify} messages.
-   * @function encodeDelimited
-   * @memberof ProtoPingRes
-   * @static
-   * @param {IProtoPingRes} message ProtoPingRes message or plain object to encode
-   * @param {$protobuf.Writer} [writer] Writer to encode to
-   * @returns {$protobuf.Writer} Writer
-   */
-  ProtoPingRes.encodeDelimited = function encodeDelimited(message, writer) {
-    return this.encode(message, writer).ldelim();
-  };
-
-  /**
-   * Decodes a ProtoPingRes message from the specified reader or buffer.
-   * @function decode
-   * @memberof ProtoPingRes
-   * @static
-   * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-   * @param {number} [length] Message length if known beforehand
-   * @returns {ProtoPingRes} ProtoPingRes
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  ProtoPingRes.decode = function decode(reader, length) {
-    if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    var end = length === undefined ? reader.len : reader.pos + length,
-      message = new $root.ProtoPingRes();
-    while (reader.pos < end) {
-      var tag = reader.uint32();
-      switch (tag >>> 3) {
-        case 1:
-          message.payloadType = reader.int32();
-          break;
-        case 2:
-          message.timestamp = reader.uint64();
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
-      }
-    }
-    if (!message.hasOwnProperty("timestamp"))
-      throw $util.ProtocolError("missing required 'timestamp'", {
-        instance: message
-      });
-    return message;
-  };
-
-  /**
-   * Decodes a ProtoPingRes message from the specified reader or buffer, length delimited.
-   * @function decodeDelimited
-   * @memberof ProtoPingRes
-   * @static
-   * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-   * @returns {ProtoPingRes} ProtoPingRes
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  ProtoPingRes.decodeDelimited = function decodeDelimited(reader) {
-    if (!(reader instanceof $Reader)) reader = new $Reader(reader);
-    return this.decode(reader, reader.uint32());
-  };
-
-  /**
-   * Verifies a ProtoPingRes message.
-   * @function verify
-   * @memberof ProtoPingRes
-   * @static
-   * @param {Object.<string,*>} message Plain object to verify
-   * @returns {string|null} `null` if valid, otherwise the reason why it is not
-   */
-  ProtoPingRes.verify = function verify(message) {
-    if (typeof message !== "object" || message === null)
-      return "object expected";
-    if (message.payloadType != null && message.hasOwnProperty("payloadType"))
-      switch (message.payloadType) {
-        default:
-          return "payloadType: enum value expected";
-        case 50:
-        case 51:
-        case 52:
-        case 53:
-          break;
-      }
-    if (
-      !$util.isInteger(message.timestamp) &&
-      !(
-        message.timestamp &&
-        $util.isInteger(message.timestamp.low) &&
-        $util.isInteger(message.timestamp.high)
-      )
-    )
-      return "timestamp: integer|Long expected";
-    return null;
-  };
-
-  /**
-   * Creates a ProtoPingRes message from a plain object. Also converts values to their respective internal types.
-   * @function fromObject
-   * @memberof ProtoPingRes
-   * @static
-   * @param {Object.<string,*>} object Plain object
-   * @returns {ProtoPingRes} ProtoPingRes
-   */
-  ProtoPingRes.fromObject = function fromObject(object) {
-    if (object instanceof $root.ProtoPingRes) return object;
-    var message = new $root.ProtoPingRes();
-    switch (object.payloadType) {
-      case "ERROR_RES":
-      case 50:
-        message.payloadType = 50;
-        break;
-      case "HEARTBEAT_EVENT":
-      case 51:
-        message.payloadType = 51;
-        break;
-      case "PING_REQ":
-      case 52:
-        message.payloadType = 52;
-        break;
-      case "PING_RES":
-      case 53:
-        message.payloadType = 53;
-        break;
-    }
-    if (object.timestamp != null)
-      if ($util.Long)
-        (message.timestamp = $util.Long.fromValue(
-          object.timestamp
-        )).unsigned = true;
-      else if (typeof object.timestamp === "string")
-        message.timestamp = parseInt(object.timestamp, 10);
-      else if (typeof object.timestamp === "number")
-        message.timestamp = object.timestamp;
-      else if (typeof object.timestamp === "object")
-        message.timestamp = new $util.LongBits(
-          object.timestamp.low >>> 0,
-          object.timestamp.high >>> 0
-        ).toNumber(true);
-    return message;
-  };
-
-  /**
-   * Creates a plain object from a ProtoPingRes message. Also converts values to other types if specified.
-   * @function toObject
-   * @memberof ProtoPingRes
-   * @static
-   * @param {ProtoPingRes} message ProtoPingRes
-   * @param {$protobuf.IConversionOptions} [options] Conversion options
-   * @returns {Object.<string,*>} Plain object
-   */
-  ProtoPingRes.toObject = function toObject(message, options) {
-    if (!options) options = {};
-    var object = {};
-    if (options.defaults) {
-      object.payloadType = options.enums === String ? "PING_RES" : 53;
-      if ($util.Long) {
-        var long = new $util.Long(0, 0, true);
-        object.timestamp =
-          options.longs === String
-            ? long.toString()
-            : options.longs === Number
-            ? long.toNumber()
-            : long;
-      } else object.timestamp = options.longs === String ? "0" : 0;
-    }
-    if (message.payloadType != null && message.hasOwnProperty("payloadType"))
-      object.payloadType =
-        options.enums === String
-          ? $root.ProtoPayloadType[message.payloadType]
-          : message.payloadType;
-    if (message.timestamp != null && message.hasOwnProperty("timestamp"))
-      if (typeof message.timestamp === "number")
-        object.timestamp =
-          options.longs === String
-            ? String(message.timestamp)
-            : message.timestamp;
-      else
-        object.timestamp =
-          options.longs === String
-            ? $util.Long.prototype.toString.call(message.timestamp)
-            : options.longs === Number
-            ? new $util.LongBits(
-                message.timestamp.low >>> 0,
-                message.timestamp.high >>> 0
-              ).toNumber(true)
-            : message.timestamp;
-    return object;
-  };
-
-  /**
-   * Converts this ProtoPingRes to JSON.
-   * @function toJSON
-   * @memberof ProtoPingRes
-   * @instance
-   * @returns {Object.<string,*>} JSON object
-   */
-  ProtoPingRes.prototype.toJSON = function toJSON() {
-    return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-  };
-
-  return ProtoPingRes;
-})();
-
 /**
  * ProtoPayloadType enum.
  * @exports ProtoPayloadType
  * @enum {string}
+ * @property {number} PROTO_MESSAGE=5 PROTO_MESSAGE value
  * @property {number} ERROR_RES=50 ERROR_RES value
  * @property {number} HEARTBEAT_EVENT=51 HEARTBEAT_EVENT value
- * @property {number} PING_REQ=52 PING_REQ value
- * @property {number} PING_RES=53 PING_RES value
  */
 $root.ProtoPayloadType = (function() {
   var valuesById = {},
     values = Object.create(valuesById);
+  values[(valuesById[5] = "PROTO_MESSAGE")] = 5;
   values[(valuesById[50] = "ERROR_RES")] = 50;
   values[(valuesById[51] = "HEARTBEAT_EVENT")] = 51;
-  values[(valuesById[52] = "PING_REQ")] = 52;
-  values[(valuesById[53] = "PING_RES")] = 53;
   return values;
 })();
 
@@ -1307,6 +827,7 @@ $root.ProtoPayloadType = (function() {
  * @property {number} FRAME_TOO_LONG=8 FRAME_TOO_LONG value
  * @property {number} MARKET_CLOSED=9 MARKET_CLOSED value
  * @property {number} CONCURRENT_MODIFICATION=10 CONCURRENT_MODIFICATION value
+ * @property {number} BLOCKED_PAYLOAD_TYPE=11 BLOCKED_PAYLOAD_TYPE value
  */
 $root.ProtoErrorCode = (function() {
   var valuesById = {},
@@ -1321,736 +842,7 @@ $root.ProtoErrorCode = (function() {
   values[(valuesById[8] = "FRAME_TOO_LONG")] = 8;
   values[(valuesById[9] = "MARKET_CLOSED")] = 9;
   values[(valuesById[10] = "CONCURRENT_MODIFICATION")] = 10;
-  return values;
-})();
-
-$root.ProtoIntRange = (function() {
-  /**
-   * Properties of a ProtoIntRange.
-   * @exports IProtoIntRange
-   * @interface IProtoIntRange
-   * @property {number|null} [from] ProtoIntRange from
-   * @property {number|null} [to] ProtoIntRange to
-   */
-
-  /**
-   * Constructs a new ProtoIntRange.
-   * @exports ProtoIntRange
-   * @classdesc Represents a ProtoIntRange.
-   * @implements IProtoIntRange
-   * @constructor
-   * @param {IProtoIntRange=} [properties] Properties to set
-   */
-  function ProtoIntRange(properties) {
-    if (properties)
-      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-        if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
-  }
-
-  /**
-   * ProtoIntRange from.
-   * @member {number} from
-   * @memberof ProtoIntRange
-   * @instance
-   */
-  ProtoIntRange.prototype.from = 0;
-
-  /**
-   * ProtoIntRange to.
-   * @member {number} to
-   * @memberof ProtoIntRange
-   * @instance
-   */
-  ProtoIntRange.prototype.to = 0;
-
-  /**
-   * Creates a new ProtoIntRange instance using the specified properties.
-   * @function create
-   * @memberof ProtoIntRange
-   * @static
-   * @param {IProtoIntRange=} [properties] Properties to set
-   * @returns {ProtoIntRange} ProtoIntRange instance
-   */
-  ProtoIntRange.create = function create(properties) {
-    return new ProtoIntRange(properties);
-  };
-
-  /**
-   * Encodes the specified ProtoIntRange message. Does not implicitly {@link ProtoIntRange.verify|verify} messages.
-   * @function encode
-   * @memberof ProtoIntRange
-   * @static
-   * @param {IProtoIntRange} message ProtoIntRange message or plain object to encode
-   * @param {$protobuf.Writer} [writer] Writer to encode to
-   * @returns {$protobuf.Writer} Writer
-   */
-  ProtoIntRange.encode = function encode(message, writer) {
-    if (!writer) writer = $Writer.create();
-    if (message.from != null && message.hasOwnProperty("from"))
-      writer.uint32(/* id 1, wireType 0 =*/ 8).int32(message.from);
-    if (message.to != null && message.hasOwnProperty("to"))
-      writer.uint32(/* id 2, wireType 0 =*/ 16).int32(message.to);
-    return writer;
-  };
-
-  /**
-   * Encodes the specified ProtoIntRange message, length delimited. Does not implicitly {@link ProtoIntRange.verify|verify} messages.
-   * @function encodeDelimited
-   * @memberof ProtoIntRange
-   * @static
-   * @param {IProtoIntRange} message ProtoIntRange message or plain object to encode
-   * @param {$protobuf.Writer} [writer] Writer to encode to
-   * @returns {$protobuf.Writer} Writer
-   */
-  ProtoIntRange.encodeDelimited = function encodeDelimited(message, writer) {
-    return this.encode(message, writer).ldelim();
-  };
-
-  /**
-   * Decodes a ProtoIntRange message from the specified reader or buffer.
-   * @function decode
-   * @memberof ProtoIntRange
-   * @static
-   * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-   * @param {number} [length] Message length if known beforehand
-   * @returns {ProtoIntRange} ProtoIntRange
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  ProtoIntRange.decode = function decode(reader, length) {
-    if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    var end = length === undefined ? reader.len : reader.pos + length,
-      message = new $root.ProtoIntRange();
-    while (reader.pos < end) {
-      var tag = reader.uint32();
-      switch (tag >>> 3) {
-        case 1:
-          message.from = reader.int32();
-          break;
-        case 2:
-          message.to = reader.int32();
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
-      }
-    }
-    return message;
-  };
-
-  /**
-   * Decodes a ProtoIntRange message from the specified reader or buffer, length delimited.
-   * @function decodeDelimited
-   * @memberof ProtoIntRange
-   * @static
-   * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-   * @returns {ProtoIntRange} ProtoIntRange
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  ProtoIntRange.decodeDelimited = function decodeDelimited(reader) {
-    if (!(reader instanceof $Reader)) reader = new $Reader(reader);
-    return this.decode(reader, reader.uint32());
-  };
-
-  /**
-   * Verifies a ProtoIntRange message.
-   * @function verify
-   * @memberof ProtoIntRange
-   * @static
-   * @param {Object.<string,*>} message Plain object to verify
-   * @returns {string|null} `null` if valid, otherwise the reason why it is not
-   */
-  ProtoIntRange.verify = function verify(message) {
-    if (typeof message !== "object" || message === null)
-      return "object expected";
-    if (message.from != null && message.hasOwnProperty("from"))
-      if (!$util.isInteger(message.from)) return "from: integer expected";
-    if (message.to != null && message.hasOwnProperty("to"))
-      if (!$util.isInteger(message.to)) return "to: integer expected";
-    return null;
-  };
-
-  /**
-   * Creates a ProtoIntRange message from a plain object. Also converts values to their respective internal types.
-   * @function fromObject
-   * @memberof ProtoIntRange
-   * @static
-   * @param {Object.<string,*>} object Plain object
-   * @returns {ProtoIntRange} ProtoIntRange
-   */
-  ProtoIntRange.fromObject = function fromObject(object) {
-    if (object instanceof $root.ProtoIntRange) return object;
-    var message = new $root.ProtoIntRange();
-    if (object.from != null) message.from = object.from | 0;
-    if (object.to != null) message.to = object.to | 0;
-    return message;
-  };
-
-  /**
-   * Creates a plain object from a ProtoIntRange message. Also converts values to other types if specified.
-   * @function toObject
-   * @memberof ProtoIntRange
-   * @static
-   * @param {ProtoIntRange} message ProtoIntRange
-   * @param {$protobuf.IConversionOptions} [options] Conversion options
-   * @returns {Object.<string,*>} Plain object
-   */
-  ProtoIntRange.toObject = function toObject(message, options) {
-    if (!options) options = {};
-    var object = {};
-    if (options.defaults) {
-      object.from = 0;
-      object.to = 0;
-    }
-    if (message.from != null && message.hasOwnProperty("from"))
-      object.from = message.from;
-    if (message.to != null && message.hasOwnProperty("to"))
-      object.to = message.to;
-    return object;
-  };
-
-  /**
-   * Converts this ProtoIntRange to JSON.
-   * @function toJSON
-   * @memberof ProtoIntRange
-   * @instance
-   * @returns {Object.<string,*>} JSON object
-   */
-  ProtoIntRange.prototype.toJSON = function toJSON() {
-    return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-  };
-
-  return ProtoIntRange;
-})();
-
-$root.ProtoLongRange = (function() {
-  /**
-   * Properties of a ProtoLongRange.
-   * @exports IProtoLongRange
-   * @interface IProtoLongRange
-   * @property {number|Long|null} [from] ProtoLongRange from
-   * @property {number|Long|null} [to] ProtoLongRange to
-   */
-
-  /**
-   * Constructs a new ProtoLongRange.
-   * @exports ProtoLongRange
-   * @classdesc Represents a ProtoLongRange.
-   * @implements IProtoLongRange
-   * @constructor
-   * @param {IProtoLongRange=} [properties] Properties to set
-   */
-  function ProtoLongRange(properties) {
-    if (properties)
-      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-        if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
-  }
-
-  /**
-   * ProtoLongRange from.
-   * @member {number|Long} from
-   * @memberof ProtoLongRange
-   * @instance
-   */
-  ProtoLongRange.prototype.from = $util.Long
-    ? $util.Long.fromBits(0, 0, false)
-    : 0;
-
-  /**
-   * ProtoLongRange to.
-   * @member {number|Long} to
-   * @memberof ProtoLongRange
-   * @instance
-   */
-  ProtoLongRange.prototype.to = $util.Long
-    ? $util.Long.fromBits(0, 0, false)
-    : 0;
-
-  /**
-   * Creates a new ProtoLongRange instance using the specified properties.
-   * @function create
-   * @memberof ProtoLongRange
-   * @static
-   * @param {IProtoLongRange=} [properties] Properties to set
-   * @returns {ProtoLongRange} ProtoLongRange instance
-   */
-  ProtoLongRange.create = function create(properties) {
-    return new ProtoLongRange(properties);
-  };
-
-  /**
-   * Encodes the specified ProtoLongRange message. Does not implicitly {@link ProtoLongRange.verify|verify} messages.
-   * @function encode
-   * @memberof ProtoLongRange
-   * @static
-   * @param {IProtoLongRange} message ProtoLongRange message or plain object to encode
-   * @param {$protobuf.Writer} [writer] Writer to encode to
-   * @returns {$protobuf.Writer} Writer
-   */
-  ProtoLongRange.encode = function encode(message, writer) {
-    if (!writer) writer = $Writer.create();
-    if (message.from != null && message.hasOwnProperty("from"))
-      writer.uint32(/* id 1, wireType 0 =*/ 8).int64(message.from);
-    if (message.to != null && message.hasOwnProperty("to"))
-      writer.uint32(/* id 2, wireType 0 =*/ 16).int64(message.to);
-    return writer;
-  };
-
-  /**
-   * Encodes the specified ProtoLongRange message, length delimited. Does not implicitly {@link ProtoLongRange.verify|verify} messages.
-   * @function encodeDelimited
-   * @memberof ProtoLongRange
-   * @static
-   * @param {IProtoLongRange} message ProtoLongRange message or plain object to encode
-   * @param {$protobuf.Writer} [writer] Writer to encode to
-   * @returns {$protobuf.Writer} Writer
-   */
-  ProtoLongRange.encodeDelimited = function encodeDelimited(message, writer) {
-    return this.encode(message, writer).ldelim();
-  };
-
-  /**
-   * Decodes a ProtoLongRange message from the specified reader or buffer.
-   * @function decode
-   * @memberof ProtoLongRange
-   * @static
-   * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-   * @param {number} [length] Message length if known beforehand
-   * @returns {ProtoLongRange} ProtoLongRange
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  ProtoLongRange.decode = function decode(reader, length) {
-    if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    var end = length === undefined ? reader.len : reader.pos + length,
-      message = new $root.ProtoLongRange();
-    while (reader.pos < end) {
-      var tag = reader.uint32();
-      switch (tag >>> 3) {
-        case 1:
-          message.from = reader.int64();
-          break;
-        case 2:
-          message.to = reader.int64();
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
-      }
-    }
-    return message;
-  };
-
-  /**
-   * Decodes a ProtoLongRange message from the specified reader or buffer, length delimited.
-   * @function decodeDelimited
-   * @memberof ProtoLongRange
-   * @static
-   * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-   * @returns {ProtoLongRange} ProtoLongRange
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  ProtoLongRange.decodeDelimited = function decodeDelimited(reader) {
-    if (!(reader instanceof $Reader)) reader = new $Reader(reader);
-    return this.decode(reader, reader.uint32());
-  };
-
-  /**
-   * Verifies a ProtoLongRange message.
-   * @function verify
-   * @memberof ProtoLongRange
-   * @static
-   * @param {Object.<string,*>} message Plain object to verify
-   * @returns {string|null} `null` if valid, otherwise the reason why it is not
-   */
-  ProtoLongRange.verify = function verify(message) {
-    if (typeof message !== "object" || message === null)
-      return "object expected";
-    if (message.from != null && message.hasOwnProperty("from"))
-      if (
-        !$util.isInteger(message.from) &&
-        !(
-          message.from &&
-          $util.isInteger(message.from.low) &&
-          $util.isInteger(message.from.high)
-        )
-      )
-        return "from: integer|Long expected";
-    if (message.to != null && message.hasOwnProperty("to"))
-      if (
-        !$util.isInteger(message.to) &&
-        !(
-          message.to &&
-          $util.isInteger(message.to.low) &&
-          $util.isInteger(message.to.high)
-        )
-      )
-        return "to: integer|Long expected";
-    return null;
-  };
-
-  /**
-   * Creates a ProtoLongRange message from a plain object. Also converts values to their respective internal types.
-   * @function fromObject
-   * @memberof ProtoLongRange
-   * @static
-   * @param {Object.<string,*>} object Plain object
-   * @returns {ProtoLongRange} ProtoLongRange
-   */
-  ProtoLongRange.fromObject = function fromObject(object) {
-    if (object instanceof $root.ProtoLongRange) return object;
-    var message = new $root.ProtoLongRange();
-    if (object.from != null)
-      if ($util.Long)
-        (message.from = $util.Long.fromValue(object.from)).unsigned = false;
-      else if (typeof object.from === "string")
-        message.from = parseInt(object.from, 10);
-      else if (typeof object.from === "number") message.from = object.from;
-      else if (typeof object.from === "object")
-        message.from = new $util.LongBits(
-          object.from.low >>> 0,
-          object.from.high >>> 0
-        ).toNumber();
-    if (object.to != null)
-      if ($util.Long)
-        (message.to = $util.Long.fromValue(object.to)).unsigned = false;
-      else if (typeof object.to === "string")
-        message.to = parseInt(object.to, 10);
-      else if (typeof object.to === "number") message.to = object.to;
-      else if (typeof object.to === "object")
-        message.to = new $util.LongBits(
-          object.to.low >>> 0,
-          object.to.high >>> 0
-        ).toNumber();
-    return message;
-  };
-
-  /**
-   * Creates a plain object from a ProtoLongRange message. Also converts values to other types if specified.
-   * @function toObject
-   * @memberof ProtoLongRange
-   * @static
-   * @param {ProtoLongRange} message ProtoLongRange
-   * @param {$protobuf.IConversionOptions} [options] Conversion options
-   * @returns {Object.<string,*>} Plain object
-   */
-  ProtoLongRange.toObject = function toObject(message, options) {
-    if (!options) options = {};
-    var object = {};
-    if (options.defaults) {
-      if ($util.Long) {
-        var long = new $util.Long(0, 0, false);
-        object.from =
-          options.longs === String
-            ? long.toString()
-            : options.longs === Number
-            ? long.toNumber()
-            : long;
-      } else object.from = options.longs === String ? "0" : 0;
-      if ($util.Long) {
-        var long = new $util.Long(0, 0, false);
-        object.to =
-          options.longs === String
-            ? long.toString()
-            : options.longs === Number
-            ? long.toNumber()
-            : long;
-      } else object.to = options.longs === String ? "0" : 0;
-    }
-    if (message.from != null && message.hasOwnProperty("from"))
-      if (typeof message.from === "number")
-        object.from =
-          options.longs === String ? String(message.from) : message.from;
-      else
-        object.from =
-          options.longs === String
-            ? $util.Long.prototype.toString.call(message.from)
-            : options.longs === Number
-            ? new $util.LongBits(
-                message.from.low >>> 0,
-                message.from.high >>> 0
-              ).toNumber()
-            : message.from;
-    if (message.to != null && message.hasOwnProperty("to"))
-      if (typeof message.to === "number")
-        object.to = options.longs === String ? String(message.to) : message.to;
-      else
-        object.to =
-          options.longs === String
-            ? $util.Long.prototype.toString.call(message.to)
-            : options.longs === Number
-            ? new $util.LongBits(
-                message.to.low >>> 0,
-                message.to.high >>> 0
-              ).toNumber()
-            : message.to;
-    return object;
-  };
-
-  /**
-   * Converts this ProtoLongRange to JSON.
-   * @function toJSON
-   * @memberof ProtoLongRange
-   * @instance
-   * @returns {Object.<string,*>} JSON object
-   */
-  ProtoLongRange.prototype.toJSON = function toJSON() {
-    return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-  };
-
-  return ProtoLongRange;
-})();
-
-$root.ProtoDoubleRange = (function() {
-  /**
-   * Properties of a ProtoDoubleRange.
-   * @exports IProtoDoubleRange
-   * @interface IProtoDoubleRange
-   * @property {number|null} [from] ProtoDoubleRange from
-   * @property {number|null} [to] ProtoDoubleRange to
-   */
-
-  /**
-   * Constructs a new ProtoDoubleRange.
-   * @exports ProtoDoubleRange
-   * @classdesc Represents a ProtoDoubleRange.
-   * @implements IProtoDoubleRange
-   * @constructor
-   * @param {IProtoDoubleRange=} [properties] Properties to set
-   */
-  function ProtoDoubleRange(properties) {
-    if (properties)
-      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-        if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
-  }
-
-  /**
-   * ProtoDoubleRange from.
-   * @member {number} from
-   * @memberof ProtoDoubleRange
-   * @instance
-   */
-  ProtoDoubleRange.prototype.from = 0;
-
-  /**
-   * ProtoDoubleRange to.
-   * @member {number} to
-   * @memberof ProtoDoubleRange
-   * @instance
-   */
-  ProtoDoubleRange.prototype.to = 0;
-
-  /**
-   * Creates a new ProtoDoubleRange instance using the specified properties.
-   * @function create
-   * @memberof ProtoDoubleRange
-   * @static
-   * @param {IProtoDoubleRange=} [properties] Properties to set
-   * @returns {ProtoDoubleRange} ProtoDoubleRange instance
-   */
-  ProtoDoubleRange.create = function create(properties) {
-    return new ProtoDoubleRange(properties);
-  };
-
-  /**
-   * Encodes the specified ProtoDoubleRange message. Does not implicitly {@link ProtoDoubleRange.verify|verify} messages.
-   * @function encode
-   * @memberof ProtoDoubleRange
-   * @static
-   * @param {IProtoDoubleRange} message ProtoDoubleRange message or plain object to encode
-   * @param {$protobuf.Writer} [writer] Writer to encode to
-   * @returns {$protobuf.Writer} Writer
-   */
-  ProtoDoubleRange.encode = function encode(message, writer) {
-    if (!writer) writer = $Writer.create();
-    if (message.from != null && message.hasOwnProperty("from"))
-      writer.uint32(/* id 1, wireType 1 =*/ 9).double(message.from);
-    if (message.to != null && message.hasOwnProperty("to"))
-      writer.uint32(/* id 2, wireType 1 =*/ 17).double(message.to);
-    return writer;
-  };
-
-  /**
-   * Encodes the specified ProtoDoubleRange message, length delimited. Does not implicitly {@link ProtoDoubleRange.verify|verify} messages.
-   * @function encodeDelimited
-   * @memberof ProtoDoubleRange
-   * @static
-   * @param {IProtoDoubleRange} message ProtoDoubleRange message or plain object to encode
-   * @param {$protobuf.Writer} [writer] Writer to encode to
-   * @returns {$protobuf.Writer} Writer
-   */
-  ProtoDoubleRange.encodeDelimited = function encodeDelimited(message, writer) {
-    return this.encode(message, writer).ldelim();
-  };
-
-  /**
-   * Decodes a ProtoDoubleRange message from the specified reader or buffer.
-   * @function decode
-   * @memberof ProtoDoubleRange
-   * @static
-   * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-   * @param {number} [length] Message length if known beforehand
-   * @returns {ProtoDoubleRange} ProtoDoubleRange
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  ProtoDoubleRange.decode = function decode(reader, length) {
-    if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    var end = length === undefined ? reader.len : reader.pos + length,
-      message = new $root.ProtoDoubleRange();
-    while (reader.pos < end) {
-      var tag = reader.uint32();
-      switch (tag >>> 3) {
-        case 1:
-          message.from = reader.double();
-          break;
-        case 2:
-          message.to = reader.double();
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
-      }
-    }
-    return message;
-  };
-
-  /**
-   * Decodes a ProtoDoubleRange message from the specified reader or buffer, length delimited.
-   * @function decodeDelimited
-   * @memberof ProtoDoubleRange
-   * @static
-   * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-   * @returns {ProtoDoubleRange} ProtoDoubleRange
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  ProtoDoubleRange.decodeDelimited = function decodeDelimited(reader) {
-    if (!(reader instanceof $Reader)) reader = new $Reader(reader);
-    return this.decode(reader, reader.uint32());
-  };
-
-  /**
-   * Verifies a ProtoDoubleRange message.
-   * @function verify
-   * @memberof ProtoDoubleRange
-   * @static
-   * @param {Object.<string,*>} message Plain object to verify
-   * @returns {string|null} `null` if valid, otherwise the reason why it is not
-   */
-  ProtoDoubleRange.verify = function verify(message) {
-    if (typeof message !== "object" || message === null)
-      return "object expected";
-    if (message.from != null && message.hasOwnProperty("from"))
-      if (typeof message.from !== "number") return "from: number expected";
-    if (message.to != null && message.hasOwnProperty("to"))
-      if (typeof message.to !== "number") return "to: number expected";
-    return null;
-  };
-
-  /**
-   * Creates a ProtoDoubleRange message from a plain object. Also converts values to their respective internal types.
-   * @function fromObject
-   * @memberof ProtoDoubleRange
-   * @static
-   * @param {Object.<string,*>} object Plain object
-   * @returns {ProtoDoubleRange} ProtoDoubleRange
-   */
-  ProtoDoubleRange.fromObject = function fromObject(object) {
-    if (object instanceof $root.ProtoDoubleRange) return object;
-    var message = new $root.ProtoDoubleRange();
-    if (object.from != null) message.from = Number(object.from);
-    if (object.to != null) message.to = Number(object.to);
-    return message;
-  };
-
-  /**
-   * Creates a plain object from a ProtoDoubleRange message. Also converts values to other types if specified.
-   * @function toObject
-   * @memberof ProtoDoubleRange
-   * @static
-   * @param {ProtoDoubleRange} message ProtoDoubleRange
-   * @param {$protobuf.IConversionOptions} [options] Conversion options
-   * @returns {Object.<string,*>} Plain object
-   */
-  ProtoDoubleRange.toObject = function toObject(message, options) {
-    if (!options) options = {};
-    var object = {};
-    if (options.defaults) {
-      object.from = 0;
-      object.to = 0;
-    }
-    if (message.from != null && message.hasOwnProperty("from"))
-      object.from =
-        options.json && !isFinite(message.from)
-          ? String(message.from)
-          : message.from;
-    if (message.to != null && message.hasOwnProperty("to"))
-      object.to =
-        options.json && !isFinite(message.to) ? String(message.to) : message.to;
-    return object;
-  };
-
-  /**
-   * Converts this ProtoDoubleRange to JSON.
-   * @function toJSON
-   * @memberof ProtoDoubleRange
-   * @instance
-   * @returns {Object.<string,*>} JSON object
-   */
-  ProtoDoubleRange.prototype.toJSON = function toJSON() {
-    return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-  };
-
-  return ProtoDoubleRange;
-})();
-
-/**
- * ProtoTradeSide enum.
- * @exports ProtoTradeSide
- * @enum {string}
- * @property {number} BUY=1 BUY value
- * @property {number} SELL=2 SELL value
- */
-$root.ProtoTradeSide = (function() {
-  var valuesById = {},
-    values = Object.create(valuesById);
-  values[(valuesById[1] = "BUY")] = 1;
-  values[(valuesById[2] = "SELL")] = 2;
-  return values;
-})();
-
-/**
- * ProtoQuoteType enum.
- * @exports ProtoQuoteType
- * @enum {string}
- * @property {number} BID=1 BID value
- * @property {number} ASK=2 ASK value
- */
-$root.ProtoQuoteType = (function() {
-  var valuesById = {},
-    values = Object.create(valuesById);
-  values[(valuesById[1] = "BID")] = 1;
-  values[(valuesById[2] = "ASK")] = 2;
-  return values;
-})();
-
-/**
- * ProtoTimeInForce enum.
- * @exports ProtoTimeInForce
- * @enum {string}
- * @property {number} GOOD_TILL_DATE=1 GOOD_TILL_DATE value
- * @property {number} GOOD_TILL_CANCEL=2 GOOD_TILL_CANCEL value
- * @property {number} IMMEDIATE_OR_CANCEL=3 IMMEDIATE_OR_CANCEL value
- */
-$root.ProtoTimeInForce = (function() {
-  var valuesById = {},
-    values = Object.create(valuesById);
-  values[(valuesById[1] = "GOOD_TILL_DATE")] = 1;
-  values[(valuesById[2] = "GOOD_TILL_CANCEL")] = 2;
-  values[(valuesById[3] = "IMMEDIATE_OR_CANCEL")] = 3;
+  values[(valuesById[11] = "BLOCKED_PAYLOAD_TYPE")] = 11;
   return values;
 })();
 
@@ -2285,6 +1077,7 @@ $root.ProtoOAApplicationAuthReq = (function() {
         case 2161:
         case 2162:
         case 2163:
+        case 2164:
           break;
       }
     if (!$util.isString(message.clientId)) return "clientId: string expected";
@@ -2561,6 +1354,10 @@ $root.ProtoOAApplicationAuthReq = (function() {
       case 2163:
         message.payloadType = 2163;
         break;
+      case "PROTO_OA_ACCOUNT_DISCONNECT_EVENT":
+      case 2164:
+        message.payloadType = 2164;
+        break;
     }
     if (object.clientId != null) message.clientId = String(object.clientId);
     if (object.clientSecret != null)
@@ -2809,6 +1606,7 @@ $root.ProtoOAApplicationAuthRes = (function() {
         case 2161:
         case 2162:
         case 2163:
+        case 2164:
           break;
       }
     return null;
@@ -3081,6 +1879,10 @@ $root.ProtoOAApplicationAuthRes = (function() {
       case "PROTO_OA_ACCOUNT_LOGOUT_RES":
       case 2163:
         message.payloadType = 2163;
+        break;
+      case "PROTO_OA_ACCOUNT_DISCONNECT_EVENT":
+      case 2164:
+        message.payloadType = 2164;
         break;
     }
     return message;
@@ -3358,6 +2160,7 @@ $root.ProtoOAAccountAuthReq = (function() {
         case 2161:
         case 2162:
         case 2163:
+        case 2164:
           break;
       }
     if (
@@ -3641,6 +2444,10 @@ $root.ProtoOAAccountAuthReq = (function() {
       case "PROTO_OA_ACCOUNT_LOGOUT_RES":
       case 2163:
         message.payloadType = 2163;
+        break;
+      case "PROTO_OA_ACCOUNT_DISCONNECT_EVENT":
+      case 2164:
+        message.payloadType = 2164;
         break;
     }
     if (object.ctidTraderAccountId != null)
@@ -3949,6 +2756,7 @@ $root.ProtoOAAccountAuthRes = (function() {
         case 2161:
         case 2162:
         case 2163:
+        case 2164:
           break;
       }
     if (
@@ -4230,6 +3038,10 @@ $root.ProtoOAAccountAuthRes = (function() {
       case "PROTO_OA_ACCOUNT_LOGOUT_RES":
       case 2163:
         message.payloadType = 2163;
+        break;
+      case "PROTO_OA_ACCOUNT_DISCONNECT_EVENT":
+      case 2164:
+        message.payloadType = 2164;
         break;
     }
     if (object.ctidTraderAccountId != null)
@@ -4561,6 +3373,7 @@ $root.ProtoOAErrorRes = (function() {
         case 2161:
         case 2162:
         case 2163:
+        case 2164:
           break;
       }
     if (
@@ -4850,6 +3663,10 @@ $root.ProtoOAErrorRes = (function() {
       case "PROTO_OA_ACCOUNT_LOGOUT_RES":
       case 2163:
         message.payloadType = 2163;
+        break;
+      case "PROTO_OA_ACCOUNT_DISCONNECT_EVENT":
+      case 2164:
+        message.payloadType = 2164;
         break;
     }
     if (object.ctidTraderAccountId != null)
@@ -5157,6 +3974,7 @@ $root.ProtoOAClientDisconnectEvent = (function() {
         case 2161:
         case 2162:
         case 2163:
+        case 2164:
           break;
       }
     if (message.reason != null && message.hasOwnProperty("reason"))
@@ -5431,6 +4249,10 @@ $root.ProtoOAClientDisconnectEvent = (function() {
       case "PROTO_OA_ACCOUNT_LOGOUT_RES":
       case 2163:
         message.payloadType = 2163;
+        break;
+      case "PROTO_OA_ACCOUNT_DISCONNECT_EVENT":
+      case 2164:
+        message.payloadType = 2164;
         break;
     }
     if (object.reason != null) message.reason = String(object.reason);
@@ -5730,6 +4552,7 @@ $root.ProtoOAAccountsTokenInvalidatedEvent = (function() {
         case 2161:
         case 2162:
         case 2163:
+        case 2164:
           break;
       }
     if (
@@ -6025,6 +4848,10 @@ $root.ProtoOAAccountsTokenInvalidatedEvent = (function() {
       case 2163:
         message.payloadType = 2163;
         break;
+      case "PROTO_OA_ACCOUNT_DISCONNECT_EVENT":
+      case 2164:
+        message.payloadType = 2164;
+        break;
     }
     if (object.ctidTraderAccountIds) {
       if (!Array.isArray(object.ctidTraderAccountIds))
@@ -6319,6 +5146,7 @@ $root.ProtoOAVersionReq = (function() {
         case 2161:
         case 2162:
         case 2163:
+        case 2164:
           break;
       }
     return null;
@@ -6592,6 +5420,10 @@ $root.ProtoOAVersionReq = (function() {
       case 2163:
         message.payloadType = 2163;
         break;
+      case "PROTO_OA_ACCOUNT_DISCONNECT_EVENT":
+      case 2164:
+        message.payloadType = 2164;
+        break;
     }
     return message;
   };
@@ -6847,6 +5679,7 @@ $root.ProtoOAVersionRes = (function() {
         case 2161:
         case 2162:
         case 2163:
+        case 2164:
           break;
       }
     if (!$util.isString(message.version)) return "version: string expected";
@@ -7120,6 +5953,10 @@ $root.ProtoOAVersionRes = (function() {
       case "PROTO_OA_ACCOUNT_LOGOUT_RES":
       case 2163:
         message.payloadType = 2163;
+        break;
+      case "PROTO_OA_ACCOUNT_DISCONNECT_EVENT":
+      case 2164:
+        message.payloadType = 2164;
         break;
     }
     if (object.version != null) message.version = String(object.version);
@@ -7746,6 +6583,7 @@ $root.ProtoOANewOrderReq = (function() {
         case 2161:
         case 2162:
         case 2163:
+        case 2164:
           break;
       }
     if (
@@ -8182,6 +7020,10 @@ $root.ProtoOANewOrderReq = (function() {
       case "PROTO_OA_ACCOUNT_LOGOUT_RES":
       case 2163:
         message.payloadType = 2163;
+        break;
+      case "PROTO_OA_ACCOUNT_DISCONNECT_EVENT":
+      case 2164:
+        message.payloadType = 2164;
         break;
     }
     if (object.ctidTraderAccountId != null)
@@ -9056,6 +7898,7 @@ $root.ProtoOAExecutionEvent = (function() {
         case 2161:
         case 2162:
         case 2163:
+        case 2164:
           break;
       }
     if (
@@ -9390,6 +8233,10 @@ $root.ProtoOAExecutionEvent = (function() {
       case "PROTO_OA_ACCOUNT_LOGOUT_RES":
       case 2163:
         message.payloadType = 2163;
+        break;
+      case "PROTO_OA_ACCOUNT_DISCONNECT_EVENT":
+      case 2164:
+        message.payloadType = 2164;
         break;
     }
     if (object.ctidTraderAccountId != null)
@@ -9842,6 +8689,7 @@ $root.ProtoOACancelOrderReq = (function() {
         case 2161:
         case 2162:
         case 2163:
+        case 2164:
           break;
       }
     if (
@@ -10132,6 +8980,10 @@ $root.ProtoOACancelOrderReq = (function() {
       case "PROTO_OA_ACCOUNT_LOGOUT_RES":
       case 2163:
         message.payloadType = 2163;
+        break;
+      case "PROTO_OA_ACCOUNT_DISCONNECT_EVENT":
+      case 2164:
+        message.payloadType = 2164;
         break;
     }
     if (object.ctidTraderAccountId != null)
@@ -10702,6 +9554,7 @@ $root.ProtoOAAmendOrderReq = (function() {
         case 2161:
         case 2162:
         case 2163:
+        case 2164:
           break;
       }
     if (
@@ -11084,6 +9937,10 @@ $root.ProtoOAAmendOrderReq = (function() {
       case "PROTO_OA_ACCOUNT_LOGOUT_RES":
       case 2163:
         message.payloadType = 2163;
+        break;
+      case "PROTO_OA_ACCOUNT_DISCONNECT_EVENT":
+      case 2164:
+        message.payloadType = 2164;
         break;
     }
     if (object.ctidTraderAccountId != null)
@@ -11770,6 +10627,7 @@ $root.ProtoOAAmendPositionSLTPReq = (function() {
         case 2161:
         case 2162:
         case 2163:
+        case 2164:
           break;
       }
     if (
@@ -12091,6 +10949,10 @@ $root.ProtoOAAmendPositionSLTPReq = (function() {
       case "PROTO_OA_ACCOUNT_LOGOUT_RES":
       case 2163:
         message.payloadType = 2163;
+        break;
+      case "PROTO_OA_ACCOUNT_DISCONNECT_EVENT":
+      case 2164:
+        message.payloadType = 2164;
         break;
     }
     if (object.ctidTraderAccountId != null)
@@ -12529,6 +11391,7 @@ $root.ProtoOAClosePositionReq = (function() {
         case 2161:
         case 2162:
         case 2163:
+        case 2164:
           break;
       }
     if (
@@ -12828,6 +11691,10 @@ $root.ProtoOAClosePositionReq = (function() {
       case "PROTO_OA_ACCOUNT_LOGOUT_RES":
       case 2163:
         message.payloadType = 2163;
+        break;
+      case "PROTO_OA_ACCOUNT_DISCONNECT_EVENT":
+      case 2164:
+        message.payloadType = 2164;
         break;
     }
     if (object.ctidTraderAccountId != null)
@@ -13283,6 +12150,7 @@ $root.ProtoOATrailingSLChangedEvent = (function() {
         case 2161:
         case 2162:
         case 2163:
+        case 2164:
           break;
       }
     if (
@@ -13593,6 +12461,10 @@ $root.ProtoOATrailingSLChangedEvent = (function() {
       case "PROTO_OA_ACCOUNT_LOGOUT_RES":
       case 2163:
         message.payloadType = 2163;
+        break;
+      case "PROTO_OA_ACCOUNT_DISCONNECT_EVENT":
+      case 2164:
+        message.payloadType = 2164;
         break;
     }
     if (object.ctidTraderAccountId != null)
@@ -14024,6 +12896,7 @@ $root.ProtoOAAssetListReq = (function() {
         case 2161:
         case 2162:
         case 2163:
+        case 2164:
           break;
       }
     if (
@@ -14305,6 +13178,10 @@ $root.ProtoOAAssetListReq = (function() {
       case "PROTO_OA_ACCOUNT_LOGOUT_RES":
       case 2163:
         message.payloadType = 2163;
+        break;
+      case "PROTO_OA_ACCOUNT_DISCONNECT_EVENT":
+      case 2164:
+        message.payloadType = 2164;
         break;
     }
     if (object.ctidTraderAccountId != null)
@@ -14630,6 +13507,7 @@ $root.ProtoOAAssetListRes = (function() {
         case 2161:
         case 2162:
         case 2163:
+        case 2164:
           break;
       }
     if (
@@ -14918,6 +13796,10 @@ $root.ProtoOAAssetListRes = (function() {
       case "PROTO_OA_ACCOUNT_LOGOUT_RES":
       case 2163:
         message.payloadType = 2163;
+        break;
+      case "PROTO_OA_ACCOUNT_DISCONNECT_EVENT":
+      case 2164:
+        message.payloadType = 2164;
         break;
     }
     if (object.ctidTraderAccountId != null)
@@ -15240,6 +14122,7 @@ $root.ProtoOASymbolsListReq = (function() {
         case 2161:
         case 2162:
         case 2163:
+        case 2164:
           break;
       }
     if (
@@ -15521,6 +14404,10 @@ $root.ProtoOASymbolsListReq = (function() {
       case "PROTO_OA_ACCOUNT_LOGOUT_RES":
       case 2163:
         message.payloadType = 2163;
+        break;
+      case "PROTO_OA_ACCOUNT_DISCONNECT_EVENT":
+      case 2164:
+        message.payloadType = 2164;
         break;
     }
     if (object.ctidTraderAccountId != null)
@@ -15846,6 +14733,7 @@ $root.ProtoOASymbolsListRes = (function() {
         case 2161:
         case 2162:
         case 2163:
+        case 2164:
           break;
       }
     if (
@@ -16134,6 +15022,10 @@ $root.ProtoOASymbolsListRes = (function() {
       case "PROTO_OA_ACCOUNT_LOGOUT_RES":
       case 2163:
         message.payloadType = 2163;
+        break;
+      case "PROTO_OA_ACCOUNT_DISCONNECT_EVENT":
+      case 2164:
+        message.payloadType = 2164;
         break;
     }
     if (object.ctidTraderAccountId != null)
@@ -16479,6 +15371,7 @@ $root.ProtoOASymbolByIdReq = (function() {
         case 2161:
         case 2162:
         case 2163:
+        case 2164:
           break;
       }
     if (
@@ -16773,6 +15666,10 @@ $root.ProtoOASymbolByIdReq = (function() {
       case "PROTO_OA_ACCOUNT_LOGOUT_RES":
       case 2163:
         message.payloadType = 2163;
+        break;
+      case "PROTO_OA_ACCOUNT_DISCONNECT_EVENT":
+      case 2164:
+        message.payloadType = 2164;
         break;
     }
     if (object.ctidTraderAccountId != null)
@@ -17137,6 +16034,7 @@ $root.ProtoOASymbolByIdRes = (function() {
         case 2161:
         case 2162:
         case 2163:
+        case 2164:
           break;
       }
     if (
@@ -17425,6 +16323,10 @@ $root.ProtoOASymbolByIdRes = (function() {
       case "PROTO_OA_ACCOUNT_LOGOUT_RES":
       case 2163:
         message.payloadType = 2163;
+        break;
+      case "PROTO_OA_ACCOUNT_DISCONNECT_EVENT":
+      case 2164:
+        message.payloadType = 2164;
         break;
     }
     if (object.ctidTraderAccountId != null)
@@ -17787,6 +16689,7 @@ $root.ProtoOASymbolsForConversionReq = (function() {
         case 2161:
         case 2162:
         case 2163:
+        case 2164:
           break;
       }
     if (
@@ -18086,6 +16989,10 @@ $root.ProtoOASymbolsForConversionReq = (function() {
       case "PROTO_OA_ACCOUNT_LOGOUT_RES":
       case 2163:
         message.payloadType = 2163;
+        break;
+      case "PROTO_OA_ACCOUNT_DISCONNECT_EVENT":
+      case 2164:
+        message.payloadType = 2164;
         break;
     }
     if (object.ctidTraderAccountId != null)
@@ -18494,6 +17401,7 @@ $root.ProtoOASymbolsForConversionRes = (function() {
         case 2161:
         case 2162:
         case 2163:
+        case 2164:
           break;
       }
     if (
@@ -18782,6 +17690,10 @@ $root.ProtoOASymbolsForConversionRes = (function() {
       case "PROTO_OA_ACCOUNT_LOGOUT_RES":
       case 2163:
         message.payloadType = 2163;
+        break;
+      case "PROTO_OA_ACCOUNT_DISCONNECT_EVENT":
+      case 2164:
+        message.payloadType = 2164;
         break;
     }
     if (object.ctidTraderAccountId != null)
@@ -19134,6 +18046,7 @@ $root.ProtoOASymbolChangedEvent = (function() {
         case 2161:
         case 2162:
         case 2163:
+        case 2164:
           break;
       }
     if (
@@ -19428,6 +18341,10 @@ $root.ProtoOASymbolChangedEvent = (function() {
       case "PROTO_OA_ACCOUNT_LOGOUT_RES":
       case 2163:
         message.payloadType = 2163;
+        break;
+      case "PROTO_OA_ACCOUNT_DISCONNECT_EVENT":
+      case 2164:
+        message.payloadType = 2164;
         break;
     }
     if (object.ctidTraderAccountId != null)
@@ -19770,6 +18687,7 @@ $root.ProtoOAAssetClassListReq = (function() {
         case 2161:
         case 2162:
         case 2163:
+        case 2164:
           break;
       }
     if (
@@ -20051,6 +18969,10 @@ $root.ProtoOAAssetClassListReq = (function() {
       case "PROTO_OA_ACCOUNT_LOGOUT_RES":
       case 2163:
         message.payloadType = 2163;
+        break;
+      case "PROTO_OA_ACCOUNT_DISCONNECT_EVENT":
+      case 2164:
+        message.payloadType = 2164;
         break;
     }
     if (object.ctidTraderAccountId != null)
@@ -20377,6 +19299,7 @@ $root.ProtoOAAssetClassListRes = (function() {
         case 2161:
         case 2162:
         case 2163:
+        case 2164:
           break;
       }
     if (
@@ -20666,6 +19589,10 @@ $root.ProtoOAAssetClassListRes = (function() {
       case "PROTO_OA_ACCOUNT_LOGOUT_RES":
       case 2163:
         message.payloadType = 2163;
+        break;
+      case "PROTO_OA_ACCOUNT_DISCONNECT_EVENT":
+      case 2164:
+        message.payloadType = 2164;
         break;
     }
     if (object.ctidTraderAccountId != null)
@@ -20989,6 +19916,7 @@ $root.ProtoOATraderReq = (function() {
         case 2161:
         case 2162:
         case 2163:
+        case 2164:
           break;
       }
     if (
@@ -21270,6 +20198,10 @@ $root.ProtoOATraderReq = (function() {
       case "PROTO_OA_ACCOUNT_LOGOUT_RES":
       case 2163:
         message.payloadType = 2163;
+        break;
+      case "PROTO_OA_ACCOUNT_DISCONNECT_EVENT":
+      case 2164:
+        message.payloadType = 2164;
         break;
     }
     if (object.ctidTraderAccountId != null)
@@ -21590,6 +20522,7 @@ $root.ProtoOATraderRes = (function() {
         case 2161:
         case 2162:
         case 2163:
+        case 2164:
           break;
       }
     if (
@@ -21875,6 +20808,10 @@ $root.ProtoOATraderRes = (function() {
       case "PROTO_OA_ACCOUNT_LOGOUT_RES":
       case 2163:
         message.payloadType = 2163;
+        break;
+      case "PROTO_OA_ACCOUNT_DISCONNECT_EVENT":
+      case 2164:
+        message.payloadType = 2164;
         break;
     }
     if (object.ctidTraderAccountId != null)
@@ -22206,6 +21143,7 @@ $root.ProtoOATraderUpdatedEvent = (function() {
         case 2161:
         case 2162:
         case 2163:
+        case 2164:
           break;
       }
     if (
@@ -22491,6 +21429,10 @@ $root.ProtoOATraderUpdatedEvent = (function() {
       case "PROTO_OA_ACCOUNT_LOGOUT_RES":
       case 2163:
         message.payloadType = 2163;
+        break;
+      case "PROTO_OA_ACCOUNT_DISCONNECT_EVENT":
+      case 2164:
+        message.payloadType = 2164;
         break;
     }
     if (object.ctidTraderAccountId != null)
@@ -22802,6 +21744,7 @@ $root.ProtoOAReconcileReq = (function() {
         case 2161:
         case 2162:
         case 2163:
+        case 2164:
           break;
       }
     if (
@@ -23083,6 +22026,10 @@ $root.ProtoOAReconcileReq = (function() {
       case "PROTO_OA_ACCOUNT_LOGOUT_RES":
       case 2163:
         message.payloadType = 2163;
+        break;
+      case "PROTO_OA_ACCOUNT_DISCONNECT_EVENT":
+      case 2164:
+        message.payloadType = 2164;
         break;
     }
     if (object.ctidTraderAccountId != null)
@@ -23431,6 +22378,7 @@ $root.ProtoOAReconcileRes = (function() {
         case 2161:
         case 2162:
         case 2163:
+        case 2164:
           break;
       }
     if (
@@ -23726,6 +22674,10 @@ $root.ProtoOAReconcileRes = (function() {
       case "PROTO_OA_ACCOUNT_LOGOUT_RES":
       case 2163:
         message.payloadType = 2163;
+        break;
+      case "PROTO_OA_ACCOUNT_DISCONNECT_EVENT":
+      case 2164:
+        message.payloadType = 2164;
         break;
     }
     if (object.ctidTraderAccountId != null)
@@ -24134,6 +23086,7 @@ $root.ProtoOAOrderErrorEvent = (function() {
         case 2161:
         case 2162:
         case 2163:
+        case 2164:
           break;
       }
     if (
@@ -24439,6 +23392,10 @@ $root.ProtoOAOrderErrorEvent = (function() {
       case "PROTO_OA_ACCOUNT_LOGOUT_RES":
       case 2163:
         message.payloadType = 2163;
+        break;
+      case "PROTO_OA_ACCOUNT_DISCONNECT_EVENT":
+      case 2164:
+        message.payloadType = 2164;
         break;
     }
     if (object.ctidTraderAccountId != null)
@@ -24879,6 +23836,7 @@ $root.ProtoOADealListReq = (function() {
         case 2161:
         case 2162:
         case 2163:
+        case 2164:
           break;
       }
     if (
@@ -25180,6 +24138,10 @@ $root.ProtoOADealListReq = (function() {
       case "PROTO_OA_ACCOUNT_LOGOUT_RES":
       case 2163:
         message.payloadType = 2163;
+        break;
+      case "PROTO_OA_ACCOUNT_DISCONNECT_EVENT":
+      case 2164:
+        message.payloadType = 2164;
         break;
     }
     if (object.ctidTraderAccountId != null)
@@ -25605,6 +24567,7 @@ $root.ProtoOADealListRes = (function() {
         case 2161:
         case 2162:
         case 2163:
+        case 2164:
           break;
       }
     if (
@@ -25895,6 +24858,10 @@ $root.ProtoOADealListRes = (function() {
       case "PROTO_OA_ACCOUNT_LOGOUT_RES":
       case 2163:
         message.payloadType = 2163;
+        break;
+      case "PROTO_OA_ACCOUNT_DISCONNECT_EVENT":
+      case 2164:
+        message.payloadType = 2164;
         break;
     }
     if (object.ctidTraderAccountId != null)
@@ -26257,6 +25224,7 @@ $root.ProtoOAExpectedMarginReq = (function() {
         case 2161:
         case 2162:
         case 2163:
+        case 2164:
           break;
       }
     if (
@@ -26560,6 +25528,10 @@ $root.ProtoOAExpectedMarginReq = (function() {
       case "PROTO_OA_ACCOUNT_LOGOUT_RES":
       case 2163:
         message.payloadType = 2163;
+        break;
+      case "PROTO_OA_ACCOUNT_DISCONNECT_EVENT":
+      case 2164:
+        message.payloadType = 2164;
         break;
     }
     if (object.ctidTraderAccountId != null)
@@ -26963,6 +25935,7 @@ $root.ProtoOAExpectedMarginRes = (function() {
         case 2161:
         case 2162:
         case 2163:
+        case 2164:
           break;
       }
     if (
@@ -27251,6 +26224,10 @@ $root.ProtoOAExpectedMarginRes = (function() {
       case "PROTO_OA_ACCOUNT_LOGOUT_RES":
       case 2163:
         message.payloadType = 2163;
+        break;
+      case "PROTO_OA_ACCOUNT_DISCONNECT_EVENT":
+      case 2164:
+        message.payloadType = 2164;
         break;
     }
     if (object.ctidTraderAccountId != null)
@@ -27613,6 +26590,7 @@ $root.ProtoOAMarginChangedEvent = (function() {
         case 2161:
         case 2162:
         case 2163:
+        case 2164:
           break;
       }
     if (
@@ -27912,6 +26890,10 @@ $root.ProtoOAMarginChangedEvent = (function() {
       case "PROTO_OA_ACCOUNT_LOGOUT_RES":
       case 2163:
         message.payloadType = 2163;
+        break;
+      case "PROTO_OA_ACCOUNT_DISCONNECT_EVENT":
+      case 2164:
+        message.payloadType = 2164;
         break;
     }
     if (object.ctidTraderAccountId != null)
@@ -28333,6 +27315,7 @@ $root.ProtoOACashFlowHistoryListReq = (function() {
         case 2161:
         case 2162:
         case 2163:
+        case 2164:
           break;
       }
     if (
@@ -28632,6 +27615,10 @@ $root.ProtoOACashFlowHistoryListReq = (function() {
       case "PROTO_OA_ACCOUNT_LOGOUT_RES":
       case 2163:
         message.payloadType = 2163;
+        break;
+      case "PROTO_OA_ACCOUNT_DISCONNECT_EVENT":
+      case 2164:
+        message.payloadType = 2164;
         break;
     }
     if (object.ctidTraderAccountId != null)
@@ -29041,6 +28028,7 @@ $root.ProtoOACashFlowHistoryListRes = (function() {
         case 2161:
         case 2162:
         case 2163:
+        case 2164:
           break;
       }
     if (
@@ -29335,6 +28323,10 @@ $root.ProtoOACashFlowHistoryListRes = (function() {
       case "PROTO_OA_ACCOUNT_LOGOUT_RES":
       case 2163:
         message.payloadType = 2163;
+        break;
+      case "PROTO_OA_ACCOUNT_DISCONNECT_EVENT":
+      case 2164:
+        message.payloadType = 2164;
         break;
     }
     if (object.ctidTraderAccountId != null)
@@ -29667,6 +28659,7 @@ $root.ProtoOAGetAccountListByAccessTokenReq = (function() {
         case 2161:
         case 2162:
         case 2163:
+        case 2164:
           break;
       }
     if (!$util.isString(message.accessToken))
@@ -29944,6 +28937,10 @@ $root.ProtoOAGetAccountListByAccessTokenReq = (function() {
       case "PROTO_OA_ACCOUNT_LOGOUT_RES":
       case 2163:
         message.payloadType = 2163;
+        break;
+      case "PROTO_OA_ACCOUNT_DISCONNECT_EVENT":
+      case 2164:
+        message.payloadType = 2164;
         break;
     }
     if (object.accessToken != null)
@@ -30260,6 +29257,7 @@ $root.ProtoOAGetAccountListByAccessTokenRes = (function() {
         case 2161:
         case 2162:
         case 2163:
+        case 2164:
           break;
       }
     if (!$util.isString(message.accessToken))
@@ -30561,6 +29559,10 @@ $root.ProtoOAGetAccountListByAccessTokenRes = (function() {
       case "PROTO_OA_ACCOUNT_LOGOUT_RES":
       case 2163:
         message.payloadType = 2163;
+        break;
+      case "PROTO_OA_ACCOUNT_DISCONNECT_EVENT":
+      case 2164:
+        message.payloadType = 2164;
         break;
     }
     if (object.accessToken != null)
@@ -30899,6 +29901,7 @@ $root.ProtoOASubscribeSpotsReq = (function() {
         case 2161:
         case 2162:
         case 2163:
+        case 2164:
           break;
       }
     if (
@@ -31193,6 +30196,10 @@ $root.ProtoOASubscribeSpotsReq = (function() {
       case "PROTO_OA_ACCOUNT_LOGOUT_RES":
       case 2163:
         message.payloadType = 2163;
+        break;
+      case "PROTO_OA_ACCOUNT_DISCONNECT_EVENT":
+      case 2164:
+        message.payloadType = 2164;
         break;
     }
     if (object.ctidTraderAccountId != null)
@@ -31535,6 +30542,7 @@ $root.ProtoOASubscribeSpotsRes = (function() {
         case 2161:
         case 2162:
         case 2163:
+        case 2164:
           break;
       }
     if (
@@ -31816,6 +30824,10 @@ $root.ProtoOASubscribeSpotsRes = (function() {
       case "PROTO_OA_ACCOUNT_LOGOUT_RES":
       case 2163:
         message.payloadType = 2163;
+        break;
+      case "PROTO_OA_ACCOUNT_DISCONNECT_EVENT":
+      case 2164:
+        message.payloadType = 2164;
         break;
     }
     if (object.ctidTraderAccountId != null)
@@ -32142,6 +31154,7 @@ $root.ProtoOAUnsubscribeSpotsReq = (function() {
         case 2161:
         case 2162:
         case 2163:
+        case 2164:
           break;
       }
     if (
@@ -32436,6 +31449,10 @@ $root.ProtoOAUnsubscribeSpotsReq = (function() {
       case "PROTO_OA_ACCOUNT_LOGOUT_RES":
       case 2163:
         message.payloadType = 2163;
+        break;
+      case "PROTO_OA_ACCOUNT_DISCONNECT_EVENT":
+      case 2164:
+        message.payloadType = 2164;
         break;
     }
     if (object.ctidTraderAccountId != null)
@@ -32780,6 +31797,7 @@ $root.ProtoOAUnsubscribeSpotsRes = (function() {
         case 2161:
         case 2162:
         case 2163:
+        case 2164:
           break;
       }
     if (
@@ -33061,6 +32079,10 @@ $root.ProtoOAUnsubscribeSpotsRes = (function() {
       case "PROTO_OA_ACCOUNT_LOGOUT_RES":
       case 2163:
         message.payloadType = 2163;
+        break;
+      case "PROTO_OA_ACCOUNT_DISCONNECT_EVENT":
+      case 2164:
+        message.payloadType = 2164;
         break;
     }
     if (object.ctidTraderAccountId != null)
@@ -33435,6 +32457,7 @@ $root.ProtoOASpotEvent = (function() {
         case 2161:
         case 2162:
         case 2163:
+        case 2164:
           break;
       }
     if (
@@ -33752,6 +32775,10 @@ $root.ProtoOASpotEvent = (function() {
       case "PROTO_OA_ACCOUNT_LOGOUT_RES":
       case 2163:
         message.payloadType = 2163;
+        break;
+      case "PROTO_OA_ACCOUNT_DISCONNECT_EVENT":
+      case 2164:
+        message.payloadType = 2164;
         break;
     }
     if (object.ctidTraderAccountId != null)
@@ -34221,6 +33248,7 @@ $root.ProtoOASubscribeLiveTrendbarReq = (function() {
         case 2161:
         case 2162:
         case 2163:
+        case 2164:
           break;
       }
     if (
@@ -34530,6 +33558,10 @@ $root.ProtoOASubscribeLiveTrendbarReq = (function() {
       case "PROTO_OA_ACCOUNT_LOGOUT_RES":
       case 2163:
         message.payloadType = 2163;
+        break;
+      case "PROTO_OA_ACCOUNT_DISCONNECT_EVENT":
+      case 2164:
+        message.payloadType = 2164;
         break;
     }
     if (object.ctidTraderAccountId != null)
@@ -34979,6 +34011,7 @@ $root.ProtoOAUnsubscribeLiveTrendbarReq = (function() {
         case 2161:
         case 2162:
         case 2163:
+        case 2164:
           break;
       }
     if (
@@ -35289,6 +34322,10 @@ $root.ProtoOAUnsubscribeLiveTrendbarReq = (function() {
       case "PROTO_OA_ACCOUNT_LOGOUT_RES":
       case 2163:
         message.payloadType = 2163;
+        break;
+      case "PROTO_OA_ACCOUNT_DISCONNECT_EVENT":
+      case 2164:
+        message.payloadType = 2164;
         break;
     }
     if (object.ctidTraderAccountId != null)
@@ -35774,6 +34811,7 @@ $root.ProtoOAGetTrendbarsReq = (function() {
         case 2161:
         case 2162:
         case 2163:
+        case 2164:
           break;
       }
     if (
@@ -36101,6 +35139,10 @@ $root.ProtoOAGetTrendbarsReq = (function() {
       case "PROTO_OA_ACCOUNT_LOGOUT_RES":
       case 2163:
         message.payloadType = 2163;
+        break;
+      case "PROTO_OA_ACCOUNT_DISCONNECT_EVENT":
+      case 2164:
+        message.payloadType = 2164;
         break;
     }
     if (object.ctidTraderAccountId != null)
@@ -36663,6 +35705,7 @@ $root.ProtoOAGetTrendbarsRes = (function() {
         case 2161:
         case 2162:
         case 2163:
+        case 2164:
           break;
       }
     if (
@@ -36989,6 +36032,10 @@ $root.ProtoOAGetTrendbarsRes = (function() {
       case "PROTO_OA_ACCOUNT_LOGOUT_RES":
       case 2163:
         message.payloadType = 2163;
+        break;
+      case "PROTO_OA_ACCOUNT_DISCONNECT_EVENT":
+      case 2164:
+        message.payloadType = 2164;
         break;
     }
     if (object.ctidTraderAccountId != null)
@@ -37529,6 +36576,7 @@ $root.ProtoOAGetTickDataReq = (function() {
         case 2161:
         case 2162:
         case 2163:
+        case 2164:
           break;
       }
     if (
@@ -37844,6 +36892,10 @@ $root.ProtoOAGetTickDataReq = (function() {
       case "PROTO_OA_ACCOUNT_LOGOUT_RES":
       case 2163:
         message.payloadType = 2163;
+        break;
+      case "PROTO_OA_ACCOUNT_DISCONNECT_EVENT":
+      case 2164:
+        message.payloadType = 2164;
         break;
     }
     if (object.ctidTraderAccountId != null)
@@ -38323,6 +37375,7 @@ $root.ProtoOAGetTickDataRes = (function() {
         case 2161:
         case 2162:
         case 2163:
+        case 2164:
           break;
       }
     if (
@@ -38613,6 +37666,10 @@ $root.ProtoOAGetTickDataRes = (function() {
       case "PROTO_OA_ACCOUNT_LOGOUT_RES":
       case 2163:
         message.payloadType = 2163;
+        break;
+      case "PROTO_OA_ACCOUNT_DISCONNECT_EVENT":
+      case 2164:
+        message.payloadType = 2164;
         break;
     }
     if (object.ctidTraderAccountId != null)
@@ -38939,6 +37996,7 @@ $root.ProtoOAGetCtidProfileByTokenReq = (function() {
         case 2161:
         case 2162:
         case 2163:
+        case 2164:
           break;
       }
     if (!$util.isString(message.accessToken))
@@ -39214,6 +38272,10 @@ $root.ProtoOAGetCtidProfileByTokenReq = (function() {
       case 2163:
         message.payloadType = 2163;
         break;
+      case "PROTO_OA_ACCOUNT_DISCONNECT_EVENT":
+      case 2164:
+        message.payloadType = 2164;
+        break;
     }
     if (object.accessToken != null)
       message.accessToken = String(object.accessToken);
@@ -39488,6 +38550,7 @@ $root.ProtoOAGetCtidProfileByTokenRes = (function() {
         case 2161:
         case 2162:
         case 2163:
+        case 2164:
           break;
       }
     {
@@ -39764,6 +38827,10 @@ $root.ProtoOAGetCtidProfileByTokenRes = (function() {
       case "PROTO_OA_ACCOUNT_LOGOUT_RES":
       case 2163:
         message.payloadType = 2163;
+        break;
+      case "PROTO_OA_ACCOUNT_DISCONNECT_EVENT":
+      case 2164:
+        message.payloadType = 2164;
         break;
     }
     if (object.profile != null) {
@@ -40110,6 +39177,7 @@ $root.ProtoOADepthEvent = (function() {
         case 2161:
         case 2162:
         case 2163:
+        case 2164:
           break;
       }
     if (
@@ -40424,6 +39492,10 @@ $root.ProtoOADepthEvent = (function() {
       case "PROTO_OA_ACCOUNT_LOGOUT_RES":
       case 2163:
         message.payloadType = 2163;
+        break;
+      case "PROTO_OA_ACCOUNT_DISCONNECT_EVENT":
+      case 2164:
+        message.payloadType = 2164;
         break;
     }
     if (object.ctidTraderAccountId != null)
@@ -40851,6 +39923,7 @@ $root.ProtoOASubscribeDepthQuotesReq = (function() {
         case 2161:
         case 2162:
         case 2163:
+        case 2164:
           break;
       }
     if (
@@ -41145,6 +40218,10 @@ $root.ProtoOASubscribeDepthQuotesReq = (function() {
       case "PROTO_OA_ACCOUNT_LOGOUT_RES":
       case 2163:
         message.payloadType = 2163;
+        break;
+      case "PROTO_OA_ACCOUNT_DISCONNECT_EVENT":
+      case 2164:
+        message.payloadType = 2164;
         break;
     }
     if (object.ctidTraderAccountId != null)
@@ -41494,6 +40571,7 @@ $root.ProtoOASubscribeDepthQuotesRes = (function() {
         case 2161:
         case 2162:
         case 2163:
+        case 2164:
           break;
       }
     if (
@@ -41775,6 +40853,10 @@ $root.ProtoOASubscribeDepthQuotesRes = (function() {
       case "PROTO_OA_ACCOUNT_LOGOUT_RES":
       case 2163:
         message.payloadType = 2163;
+        break;
+      case "PROTO_OA_ACCOUNT_DISCONNECT_EVENT":
+      case 2164:
+        message.payloadType = 2164;
         break;
     }
     if (object.ctidTraderAccountId != null)
@@ -42104,6 +41186,7 @@ $root.ProtoOAUnsubscribeDepthQuotesReq = (function() {
         case 2161:
         case 2162:
         case 2163:
+        case 2164:
           break;
       }
     if (
@@ -42398,6 +41481,10 @@ $root.ProtoOAUnsubscribeDepthQuotesReq = (function() {
       case "PROTO_OA_ACCOUNT_LOGOUT_RES":
       case 2163:
         message.payloadType = 2163;
+        break;
+      case "PROTO_OA_ACCOUNT_DISCONNECT_EVENT":
+      case 2164:
+        message.payloadType = 2164;
         break;
     }
     if (object.ctidTraderAccountId != null)
@@ -42749,6 +41836,7 @@ $root.ProtoOAUnsubscribeDepthQuotesRes = (function() {
         case 2161:
         case 2162:
         case 2163:
+        case 2164:
           break;
       }
     if (
@@ -43030,6 +42118,10 @@ $root.ProtoOAUnsubscribeDepthQuotesRes = (function() {
       case "PROTO_OA_ACCOUNT_LOGOUT_RES":
       case 2163:
         message.payloadType = 2163;
+        break;
+      case "PROTO_OA_ACCOUNT_DISCONNECT_EVENT":
+      case 2164:
+        message.payloadType = 2164;
         break;
     }
     if (object.ctidTraderAccountId != null)
@@ -43340,6 +42432,7 @@ $root.ProtoOASymbolCategoryListReq = (function() {
         case 2161:
         case 2162:
         case 2163:
+        case 2164:
           break;
       }
     if (
@@ -43621,6 +42714,10 @@ $root.ProtoOASymbolCategoryListReq = (function() {
       case "PROTO_OA_ACCOUNT_LOGOUT_RES":
       case 2163:
         message.payloadType = 2163;
+        break;
+      case "PROTO_OA_ACCOUNT_DISCONNECT_EVENT":
+      case 2164:
+        message.payloadType = 2164;
         break;
     }
     if (object.ctidTraderAccountId != null)
@@ -43949,6 +43046,7 @@ $root.ProtoOASymbolCategoryListRes = (function() {
         case 2161:
         case 2162:
         case 2163:
+        case 2164:
           break;
       }
     if (
@@ -44243,6 +43341,10 @@ $root.ProtoOASymbolCategoryListRes = (function() {
       case "PROTO_OA_ACCOUNT_LOGOUT_RES":
       case 2163:
         message.payloadType = 2163;
+        break;
+      case "PROTO_OA_ACCOUNT_DISCONNECT_EVENT":
+      case 2164:
+        message.payloadType = 2164;
         break;
     }
     if (object.ctidTraderAccountId != null)
@@ -44571,6 +43673,7 @@ $root.ProtoOAAccountLogoutReq = (function() {
         case 2161:
         case 2162:
         case 2163:
+        case 2164:
           break;
       }
     if (
@@ -44852,6 +43955,10 @@ $root.ProtoOAAccountLogoutReq = (function() {
       case "PROTO_OA_ACCOUNT_LOGOUT_RES":
       case 2163:
         message.payloadType = 2163;
+        break;
+      case "PROTO_OA_ACCOUNT_DISCONNECT_EVENT":
+      case 2164:
+        message.payloadType = 2164;
         break;
     }
     if (object.ctidTraderAccountId != null)
@@ -45155,6 +44262,7 @@ $root.ProtoOAAccountLogoutRes = (function() {
         case 2161:
         case 2162:
         case 2163:
+        case 2164:
           break;
       }
     if (
@@ -45437,6 +44545,10 @@ $root.ProtoOAAccountLogoutRes = (function() {
       case 2163:
         message.payloadType = 2163;
         break;
+      case "PROTO_OA_ACCOUNT_DISCONNECT_EVENT":
+      case 2164:
+        message.payloadType = 2164;
+        break;
     }
     if (object.ctidTraderAccountId != null)
       if ($util.Long)
@@ -45521,6 +44633,598 @@ $root.ProtoOAAccountLogoutRes = (function() {
   return ProtoOAAccountLogoutRes;
 })();
 
+$root.ProtoOAAccountDisconnectEvent = (function() {
+  /**
+   * Properties of a ProtoOAAccountDisconnectEvent.
+   * @exports IProtoOAAccountDisconnectEvent
+   * @interface IProtoOAAccountDisconnectEvent
+   * @property {ProtoOAPayloadType|null} [payloadType] ProtoOAAccountDisconnectEvent payloadType
+   * @property {number|Long} ctidTraderAccountId ProtoOAAccountDisconnectEvent ctidTraderAccountId
+   */
+
+  /**
+   * Constructs a new ProtoOAAccountDisconnectEvent.
+   * @exports ProtoOAAccountDisconnectEvent
+   * @classdesc Event that is sent when the established session for an account is dropped on the server side.
+   * A new session must be authorized for the account.
+   * @implements IProtoOAAccountDisconnectEvent
+   * @constructor
+   * @param {IProtoOAAccountDisconnectEvent=} [properties] Properties to set
+   */
+  function ProtoOAAccountDisconnectEvent(properties) {
+    if (properties)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+        if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
+  }
+
+  /**
+   * ProtoOAAccountDisconnectEvent payloadType.
+   * @member {ProtoOAPayloadType} payloadType
+   * @memberof ProtoOAAccountDisconnectEvent
+   * @instance
+   */
+  ProtoOAAccountDisconnectEvent.prototype.payloadType = 2164;
+
+  /**
+   * ProtoOAAccountDisconnectEvent ctidTraderAccountId.
+   * @member {number|Long} ctidTraderAccountId
+   * @memberof ProtoOAAccountDisconnectEvent
+   * @instance
+   */
+  ProtoOAAccountDisconnectEvent.prototype.ctidTraderAccountId = $util.Long
+    ? $util.Long.fromBits(0, 0, false)
+    : 0;
+
+  /**
+   * Creates a new ProtoOAAccountDisconnectEvent instance using the specified properties.
+   * @function create
+   * @memberof ProtoOAAccountDisconnectEvent
+   * @static
+   * @param {IProtoOAAccountDisconnectEvent=} [properties] Properties to set
+   * @returns {ProtoOAAccountDisconnectEvent} ProtoOAAccountDisconnectEvent instance
+   */
+  ProtoOAAccountDisconnectEvent.create = function create(properties) {
+    return new ProtoOAAccountDisconnectEvent(properties);
+  };
+
+  /**
+   * Encodes the specified ProtoOAAccountDisconnectEvent message. Does not implicitly {@link ProtoOAAccountDisconnectEvent.verify|verify} messages.
+   * @function encode
+   * @memberof ProtoOAAccountDisconnectEvent
+   * @static
+   * @param {IProtoOAAccountDisconnectEvent} message ProtoOAAccountDisconnectEvent message or plain object to encode
+   * @param {$protobuf.Writer} [writer] Writer to encode to
+   * @returns {$protobuf.Writer} Writer
+   */
+  ProtoOAAccountDisconnectEvent.encode = function encode(message, writer) {
+    if (!writer) writer = $Writer.create();
+    if (message.payloadType != null && message.hasOwnProperty("payloadType"))
+      writer.uint32(/* id 1, wireType 0 =*/ 8).int32(message.payloadType);
+    writer
+      .uint32(/* id 2, wireType 0 =*/ 16)
+      .int64(message.ctidTraderAccountId);
+    return writer;
+  };
+
+  /**
+   * Encodes the specified ProtoOAAccountDisconnectEvent message, length delimited. Does not implicitly {@link ProtoOAAccountDisconnectEvent.verify|verify} messages.
+   * @function encodeDelimited
+   * @memberof ProtoOAAccountDisconnectEvent
+   * @static
+   * @param {IProtoOAAccountDisconnectEvent} message ProtoOAAccountDisconnectEvent message or plain object to encode
+   * @param {$protobuf.Writer} [writer] Writer to encode to
+   * @returns {$protobuf.Writer} Writer
+   */
+  ProtoOAAccountDisconnectEvent.encodeDelimited = function encodeDelimited(
+    message,
+    writer
+  ) {
+    return this.encode(message, writer).ldelim();
+  };
+
+  /**
+   * Decodes a ProtoOAAccountDisconnectEvent message from the specified reader or buffer.
+   * @function decode
+   * @memberof ProtoOAAccountDisconnectEvent
+   * @static
+   * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+   * @param {number} [length] Message length if known beforehand
+   * @returns {ProtoOAAccountDisconnectEvent} ProtoOAAccountDisconnectEvent
+   * @throws {Error} If the payload is not a reader or valid buffer
+   * @throws {$protobuf.util.ProtocolError} If required fields are missing
+   */
+  ProtoOAAccountDisconnectEvent.decode = function decode(reader, length) {
+    if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
+    var end = length === undefined ? reader.len : reader.pos + length,
+      message = new $root.ProtoOAAccountDisconnectEvent();
+    while (reader.pos < end) {
+      var tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.payloadType = reader.int32();
+          break;
+        case 2:
+          message.ctidTraderAccountId = reader.int64();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    if (!message.hasOwnProperty("ctidTraderAccountId"))
+      throw $util.ProtocolError("missing required 'ctidTraderAccountId'", {
+        instance: message
+      });
+    return message;
+  };
+
+  /**
+   * Decodes a ProtoOAAccountDisconnectEvent message from the specified reader or buffer, length delimited.
+   * @function decodeDelimited
+   * @memberof ProtoOAAccountDisconnectEvent
+   * @static
+   * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+   * @returns {ProtoOAAccountDisconnectEvent} ProtoOAAccountDisconnectEvent
+   * @throws {Error} If the payload is not a reader or valid buffer
+   * @throws {$protobuf.util.ProtocolError} If required fields are missing
+   */
+  ProtoOAAccountDisconnectEvent.decodeDelimited = function decodeDelimited(
+    reader
+  ) {
+    if (!(reader instanceof $Reader)) reader = new $Reader(reader);
+    return this.decode(reader, reader.uint32());
+  };
+
+  /**
+   * Verifies a ProtoOAAccountDisconnectEvent message.
+   * @function verify
+   * @memberof ProtoOAAccountDisconnectEvent
+   * @static
+   * @param {Object.<string,*>} message Plain object to verify
+   * @returns {string|null} `null` if valid, otherwise the reason why it is not
+   */
+  ProtoOAAccountDisconnectEvent.verify = function verify(message) {
+    if (typeof message !== "object" || message === null)
+      return "object expected";
+    if (message.payloadType != null && message.hasOwnProperty("payloadType"))
+      switch (message.payloadType) {
+        default:
+          return "payloadType: enum value expected";
+        case 2100:
+        case 2101:
+        case 2102:
+        case 2103:
+        case 2104:
+        case 2105:
+        case 2106:
+        case 2107:
+        case 2108:
+        case 2109:
+        case 2110:
+        case 2111:
+        case 2112:
+        case 2113:
+        case 2114:
+        case 2115:
+        case 2116:
+        case 2117:
+        case 2118:
+        case 2119:
+        case 2120:
+        case 2121:
+        case 2122:
+        case 2123:
+        case 2124:
+        case 2125:
+        case 2126:
+        case 2127:
+        case 2128:
+        case 2129:
+        case 2130:
+        case 2131:
+        case 2132:
+        case 2133:
+        case 2134:
+        case 2135:
+        case 2136:
+        case 2137:
+        case 2138:
+        case 2139:
+        case 2140:
+        case 2141:
+        case 2142:
+        case 2143:
+        case 2144:
+        case 2145:
+        case 2146:
+        case 2147:
+        case 2148:
+        case 2149:
+        case 2150:
+        case 2151:
+        case 2152:
+        case 2153:
+        case 2154:
+        case 2155:
+        case 2156:
+        case 2157:
+        case 2158:
+        case 2159:
+        case 2160:
+        case 2161:
+        case 2162:
+        case 2163:
+        case 2164:
+          break;
+      }
+    if (
+      !$util.isInteger(message.ctidTraderAccountId) &&
+      !(
+        message.ctidTraderAccountId &&
+        $util.isInteger(message.ctidTraderAccountId.low) &&
+        $util.isInteger(message.ctidTraderAccountId.high)
+      )
+    )
+      return "ctidTraderAccountId: integer|Long expected";
+    return null;
+  };
+
+  /**
+   * Creates a ProtoOAAccountDisconnectEvent message from a plain object. Also converts values to their respective internal types.
+   * @function fromObject
+   * @memberof ProtoOAAccountDisconnectEvent
+   * @static
+   * @param {Object.<string,*>} object Plain object
+   * @returns {ProtoOAAccountDisconnectEvent} ProtoOAAccountDisconnectEvent
+   */
+  ProtoOAAccountDisconnectEvent.fromObject = function fromObject(object) {
+    if (object instanceof $root.ProtoOAAccountDisconnectEvent) return object;
+    var message = new $root.ProtoOAAccountDisconnectEvent();
+    switch (object.payloadType) {
+      case "PROTO_OA_APPLICATION_AUTH_REQ":
+      case 2100:
+        message.payloadType = 2100;
+        break;
+      case "PROTO_OA_APPLICATION_AUTH_RES":
+      case 2101:
+        message.payloadType = 2101;
+        break;
+      case "PROTO_OA_ACCOUNT_AUTH_REQ":
+      case 2102:
+        message.payloadType = 2102;
+        break;
+      case "PROTO_OA_ACCOUNT_AUTH_RES":
+      case 2103:
+        message.payloadType = 2103;
+        break;
+      case "PROTO_OA_VERSION_REQ":
+      case 2104:
+        message.payloadType = 2104;
+        break;
+      case "PROTO_OA_VERSION_RES":
+      case 2105:
+        message.payloadType = 2105;
+        break;
+      case "PROTO_OA_NEW_ORDER_REQ":
+      case 2106:
+        message.payloadType = 2106;
+        break;
+      case "PROTO_OA_TRAILING_SL_CHANGED_EVENT":
+      case 2107:
+        message.payloadType = 2107;
+        break;
+      case "PROTO_OA_CANCEL_ORDER_REQ":
+      case 2108:
+        message.payloadType = 2108;
+        break;
+      case "PROTO_OA_AMEND_ORDER_REQ":
+      case 2109:
+        message.payloadType = 2109;
+        break;
+      case "PROTO_OA_AMEND_POSITION_SLTP_REQ":
+      case 2110:
+        message.payloadType = 2110;
+        break;
+      case "PROTO_OA_CLOSE_POSITION_REQ":
+      case 2111:
+        message.payloadType = 2111;
+        break;
+      case "PROTO_OA_ASSET_LIST_REQ":
+      case 2112:
+        message.payloadType = 2112;
+        break;
+      case "PROTO_OA_ASSET_LIST_RES":
+      case 2113:
+        message.payloadType = 2113;
+        break;
+      case "PROTO_OA_SYMBOLS_LIST_REQ":
+      case 2114:
+        message.payloadType = 2114;
+        break;
+      case "PROTO_OA_SYMBOLS_LIST_RES":
+      case 2115:
+        message.payloadType = 2115;
+        break;
+      case "PROTO_OA_SYMBOL_BY_ID_REQ":
+      case 2116:
+        message.payloadType = 2116;
+        break;
+      case "PROTO_OA_SYMBOL_BY_ID_RES":
+      case 2117:
+        message.payloadType = 2117;
+        break;
+      case "PROTO_OA_SYMBOLS_FOR_CONVERSION_REQ":
+      case 2118:
+        message.payloadType = 2118;
+        break;
+      case "PROTO_OA_SYMBOLS_FOR_CONVERSION_RES":
+      case 2119:
+        message.payloadType = 2119;
+        break;
+      case "PROTO_OA_SYMBOL_CHANGED_EVENT":
+      case 2120:
+        message.payloadType = 2120;
+        break;
+      case "PROTO_OA_TRADER_REQ":
+      case 2121:
+        message.payloadType = 2121;
+        break;
+      case "PROTO_OA_TRADER_RES":
+      case 2122:
+        message.payloadType = 2122;
+        break;
+      case "PROTO_OA_TRADER_UPDATE_EVENT":
+      case 2123:
+        message.payloadType = 2123;
+        break;
+      case "PROTO_OA_RECONCILE_REQ":
+      case 2124:
+        message.payloadType = 2124;
+        break;
+      case "PROTO_OA_RECONCILE_RES":
+      case 2125:
+        message.payloadType = 2125;
+        break;
+      case "PROTO_OA_EXECUTION_EVENT":
+      case 2126:
+        message.payloadType = 2126;
+        break;
+      case "PROTO_OA_SUBSCRIBE_SPOTS_REQ":
+      case 2127:
+        message.payloadType = 2127;
+        break;
+      case "PROTO_OA_SUBSCRIBE_SPOTS_RES":
+      case 2128:
+        message.payloadType = 2128;
+        break;
+      case "PROTO_OA_UNSUBSCRIBE_SPOTS_REQ":
+      case 2129:
+        message.payloadType = 2129;
+        break;
+      case "PROTO_OA_UNSUBSCRIBE_SPOTS_RES":
+      case 2130:
+        message.payloadType = 2130;
+        break;
+      case "PROTO_OA_SPOT_EVENT":
+      case 2131:
+        message.payloadType = 2131;
+        break;
+      case "PROTO_OA_ORDER_ERROR_EVENT":
+      case 2132:
+        message.payloadType = 2132;
+        break;
+      case "PROTO_OA_DEAL_LIST_REQ":
+      case 2133:
+        message.payloadType = 2133;
+        break;
+      case "PROTO_OA_DEAL_LIST_RES":
+      case 2134:
+        message.payloadType = 2134;
+        break;
+      case "PROTO_OA_SUBSCRIBE_LIVE_TRENDBAR_REQ":
+      case 2135:
+        message.payloadType = 2135;
+        break;
+      case "PROTO_OA_UNSUBSCRIBE_LIVE_TRENDBAR_REQ":
+      case 2136:
+        message.payloadType = 2136;
+        break;
+      case "PROTO_OA_GET_TRENDBARS_REQ":
+      case 2137:
+        message.payloadType = 2137;
+        break;
+      case "PROTO_OA_GET_TRENDBARS_RES":
+      case 2138:
+        message.payloadType = 2138;
+        break;
+      case "PROTO_OA_EXPECTED_MARGIN_REQ":
+      case 2139:
+        message.payloadType = 2139;
+        break;
+      case "PROTO_OA_EXPECTED_MARGIN_RES":
+      case 2140:
+        message.payloadType = 2140;
+        break;
+      case "PROTO_OA_MARGIN_CHANGED_EVENT":
+      case 2141:
+        message.payloadType = 2141;
+        break;
+      case "PROTO_OA_ERROR_RES":
+      case 2142:
+        message.payloadType = 2142;
+        break;
+      case "PROTO_OA_CASH_FLOW_HISTORY_LIST_REQ":
+      case 2143:
+        message.payloadType = 2143;
+        break;
+      case "PROTO_OA_CASH_FLOW_HISTORY_LIST_RES":
+      case 2144:
+        message.payloadType = 2144;
+        break;
+      case "PROTO_OA_GET_TICKDATA_REQ":
+      case 2145:
+        message.payloadType = 2145;
+        break;
+      case "PROTO_OA_GET_TICKDATA_RES":
+      case 2146:
+        message.payloadType = 2146;
+        break;
+      case "PROTO_OA_ACCOUNTS_TOKEN_INVALIDATED_EVENT":
+      case 2147:
+        message.payloadType = 2147;
+        break;
+      case "PROTO_OA_CLIENT_DISCONNECT_EVENT":
+      case 2148:
+        message.payloadType = 2148;
+        break;
+      case "PROTO_OA_GET_ACCOUNTS_BY_ACCESS_TOKEN_REQ":
+      case 2149:
+        message.payloadType = 2149;
+        break;
+      case "PROTO_OA_GET_ACCOUNTS_BY_ACCESS_TOKEN_RES":
+      case 2150:
+        message.payloadType = 2150;
+        break;
+      case "PROTO_OA_GET_CTID_PROFILE_BY_TOKEN_REQ":
+      case 2151:
+        message.payloadType = 2151;
+        break;
+      case "PROTO_OA_GET_CTID_PROFILE_BY_TOKEN_RES":
+      case 2152:
+        message.payloadType = 2152;
+        break;
+      case "PROTO_OA_ASSET_CLASS_LIST_REQ":
+      case 2153:
+        message.payloadType = 2153;
+        break;
+      case "PROTO_OA_ASSET_CLASS_LIST_RES":
+      case 2154:
+        message.payloadType = 2154;
+        break;
+      case "PROTO_OA_DEPTH_EVENT":
+      case 2155:
+        message.payloadType = 2155;
+        break;
+      case "PROTO_OA_SUBSCRIBE_DEPTH_QUOTES_REQ":
+      case 2156:
+        message.payloadType = 2156;
+        break;
+      case "PROTO_OA_SUBSCRIBE_DEPTH_QUOTES_RES":
+      case 2157:
+        message.payloadType = 2157;
+        break;
+      case "PROTO_OA_UNSUBSCRIBE_DEPTH_QUOTES_REQ":
+      case 2158:
+        message.payloadType = 2158;
+        break;
+      case "PROTO_OA_UNSUBSCRIBE_DEPTH_QUOTES_RES":
+      case 2159:
+        message.payloadType = 2159;
+        break;
+      case "PROTO_OA_SYMBOL_CATEGORY_REQ":
+      case 2160:
+        message.payloadType = 2160;
+        break;
+      case "PROTO_OA_SYMBOL_CATEGORY_RES":
+      case 2161:
+        message.payloadType = 2161;
+        break;
+      case "PROTO_OA_ACCOUNT_LOGOUT_REQ":
+      case 2162:
+        message.payloadType = 2162;
+        break;
+      case "PROTO_OA_ACCOUNT_LOGOUT_RES":
+      case 2163:
+        message.payloadType = 2163;
+        break;
+      case "PROTO_OA_ACCOUNT_DISCONNECT_EVENT":
+      case 2164:
+        message.payloadType = 2164;
+        break;
+    }
+    if (object.ctidTraderAccountId != null)
+      if ($util.Long)
+        (message.ctidTraderAccountId = $util.Long.fromValue(
+          object.ctidTraderAccountId
+        )).unsigned = false;
+      else if (typeof object.ctidTraderAccountId === "string")
+        message.ctidTraderAccountId = parseInt(object.ctidTraderAccountId, 10);
+      else if (typeof object.ctidTraderAccountId === "number")
+        message.ctidTraderAccountId = object.ctidTraderAccountId;
+      else if (typeof object.ctidTraderAccountId === "object")
+        message.ctidTraderAccountId = new $util.LongBits(
+          object.ctidTraderAccountId.low >>> 0,
+          object.ctidTraderAccountId.high >>> 0
+        ).toNumber();
+    return message;
+  };
+
+  /**
+   * Creates a plain object from a ProtoOAAccountDisconnectEvent message. Also converts values to other types if specified.
+   * @function toObject
+   * @memberof ProtoOAAccountDisconnectEvent
+   * @static
+   * @param {ProtoOAAccountDisconnectEvent} message ProtoOAAccountDisconnectEvent
+   * @param {$protobuf.IConversionOptions} [options] Conversion options
+   * @returns {Object.<string,*>} Plain object
+   */
+  ProtoOAAccountDisconnectEvent.toObject = function toObject(message, options) {
+    if (!options) options = {};
+    var object = {};
+    if (options.defaults) {
+      object.payloadType =
+        options.enums === String ? "PROTO_OA_ACCOUNT_DISCONNECT_EVENT" : 2164;
+      if ($util.Long) {
+        var long = new $util.Long(0, 0, false);
+        object.ctidTraderAccountId =
+          options.longs === String
+            ? long.toString()
+            : options.longs === Number
+            ? long.toNumber()
+            : long;
+      } else object.ctidTraderAccountId = options.longs === String ? "0" : 0;
+    }
+    if (message.payloadType != null && message.hasOwnProperty("payloadType"))
+      object.payloadType =
+        options.enums === String
+          ? $root.ProtoOAPayloadType[message.payloadType]
+          : message.payloadType;
+    if (
+      message.ctidTraderAccountId != null &&
+      message.hasOwnProperty("ctidTraderAccountId")
+    )
+      if (typeof message.ctidTraderAccountId === "number")
+        object.ctidTraderAccountId =
+          options.longs === String
+            ? String(message.ctidTraderAccountId)
+            : message.ctidTraderAccountId;
+      else
+        object.ctidTraderAccountId =
+          options.longs === String
+            ? $util.Long.prototype.toString.call(message.ctidTraderAccountId)
+            : options.longs === Number
+            ? new $util.LongBits(
+                message.ctidTraderAccountId.low >>> 0,
+                message.ctidTraderAccountId.high >>> 0
+              ).toNumber()
+            : message.ctidTraderAccountId;
+    return object;
+  };
+
+  /**
+   * Converts this ProtoOAAccountDisconnectEvent to JSON.
+   * @function toJSON
+   * @memberof ProtoOAAccountDisconnectEvent
+   * @instance
+   * @returns {Object.<string,*>} JSON object
+   */
+  ProtoOAAccountDisconnectEvent.prototype.toJSON = function toJSON() {
+    return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+  };
+
+  return ProtoOAAccountDisconnectEvent;
+})();
+
 /**
  * ProtoOAPayloadType enum.
  * @exports ProtoOAPayloadType
@@ -45589,6 +45293,7 @@ $root.ProtoOAAccountLogoutRes = (function() {
  * @property {number} PROTO_OA_SYMBOL_CATEGORY_RES=2161 PROTO_OA_SYMBOL_CATEGORY_RES value
  * @property {number} PROTO_OA_ACCOUNT_LOGOUT_REQ=2162 PROTO_OA_ACCOUNT_LOGOUT_REQ value
  * @property {number} PROTO_OA_ACCOUNT_LOGOUT_RES=2163 PROTO_OA_ACCOUNT_LOGOUT_RES value
+ * @property {number} PROTO_OA_ACCOUNT_DISCONNECT_EVENT=2164 PROTO_OA_ACCOUNT_DISCONNECT_EVENT value
  */
 $root.ProtoOAPayloadType = (function() {
   var valuesById = {},
@@ -45663,6 +45368,7 @@ $root.ProtoOAPayloadType = (function() {
   values[(valuesById[2161] = "PROTO_OA_SYMBOL_CATEGORY_RES")] = 2161;
   values[(valuesById[2162] = "PROTO_OA_ACCOUNT_LOGOUT_REQ")] = 2162;
   values[(valuesById[2163] = "PROTO_OA_ACCOUNT_LOGOUT_RES")] = 2163;
+  values[(valuesById[2164] = "PROTO_OA_ACCOUNT_DISCONNECT_EVENT")] = 2164;
   return values;
 })();
 
@@ -45967,6 +45673,7 @@ $root.ProtoOASymbol = (function() {
    * @property {number|null} [skipRolloverDays] ProtoOASymbol skipRolloverDays
    * @property {string|null} [scheduleTimeZone] ProtoOASymbol scheduleTimeZone
    * @property {ProtoOATradingMode|null} [tradingMode] ProtoOASymbol tradingMode
+   * @property {ProtoOADayOfWeek|null} [rolloverCommission3Days] ProtoOASymbol rolloverCommission3Days
    */
 
   /**
@@ -46219,6 +45926,14 @@ $root.ProtoOASymbol = (function() {
   ProtoOASymbol.prototype.tradingMode = 0;
 
   /**
+   * ProtoOASymbol rolloverCommission3Days.
+   * @member {ProtoOADayOfWeek} rolloverCommission3Days
+   * @memberof ProtoOASymbol
+   * @instance
+   */
+  ProtoOASymbol.prototype.rolloverCommission3Days = 1;
+
+  /**
    * Creates a new ProtoOASymbol instance using the specified properties.
    * @function create
    * @memberof ProtoOASymbol
@@ -46344,6 +46059,13 @@ $root.ProtoOASymbol = (function() {
         .string(message.scheduleTimeZone);
     if (message.tradingMode != null && message.hasOwnProperty("tradingMode"))
       writer.uint32(/* id 27, wireType 0 =*/ 216).int32(message.tradingMode);
+    if (
+      message.rolloverCommission3Days != null &&
+      message.hasOwnProperty("rolloverCommission3Days")
+    )
+      writer
+        .uint32(/* id 28, wireType 0 =*/ 224)
+        .int32(message.rolloverCommission3Days);
     return writer;
   };
 
@@ -46462,6 +46184,9 @@ $root.ProtoOASymbol = (function() {
           break;
         case 27:
           message.tradingMode = reader.int32();
+          break;
+        case 28:
+          message.rolloverCommission3Days = reader.int32();
           break;
         default:
           reader.skipType(tag & 7);
@@ -46722,6 +46447,23 @@ $root.ProtoOASymbol = (function() {
         case 1:
         case 2:
         case 3:
+          break;
+      }
+    if (
+      message.rolloverCommission3Days != null &&
+      message.hasOwnProperty("rolloverCommission3Days")
+    )
+      switch (message.rolloverCommission3Days) {
+        default:
+          return "rolloverCommission3Days: enum value expected";
+        case 0:
+        case 1:
+        case 2:
+        case 3:
+        case 4:
+        case 5:
+        case 6:
+        case 7:
           break;
       }
     return null;
@@ -46985,6 +46727,40 @@ $root.ProtoOASymbol = (function() {
         message.tradingMode = 3;
         break;
     }
+    switch (object.rolloverCommission3Days) {
+      case "NONE":
+      case 0:
+        message.rolloverCommission3Days = 0;
+        break;
+      case "MONDAY":
+      case 1:
+        message.rolloverCommission3Days = 1;
+        break;
+      case "TUESDAY":
+      case 2:
+        message.rolloverCommission3Days = 2;
+        break;
+      case "WEDNESDAY":
+      case 3:
+        message.rolloverCommission3Days = 3;
+        break;
+      case "THURSDAY":
+      case 4:
+        message.rolloverCommission3Days = 4;
+        break;
+      case "FRIDAY":
+      case 5:
+        message.rolloverCommission3Days = 5;
+        break;
+      case "SATURDAY":
+      case 6:
+        message.rolloverCommission3Days = 6;
+        break;
+      case "SUNDAY":
+      case 7:
+        message.rolloverCommission3Days = 7;
+        break;
+    }
     return message;
   };
 
@@ -47101,6 +46877,7 @@ $root.ProtoOASymbol = (function() {
       object.skipRolloverDays = 0;
       object.scheduleTimeZone = "";
       object.tradingMode = options.enums === String ? "ENABLED" : 0;
+      object.rolloverCommission3Days = options.enums === String ? "MONDAY" : 1;
     }
     if (message.symbolId != null && message.hasOwnProperty("symbolId"))
       if (typeof message.symbolId === "number")
@@ -47342,6 +47119,14 @@ $root.ProtoOASymbol = (function() {
         options.enums === String
           ? $root.ProtoOATradingMode[message.tradingMode]
           : message.tradingMode;
+    if (
+      message.rolloverCommission3Days != null &&
+      message.hasOwnProperty("rolloverCommission3Days")
+    )
+      object.rolloverCommission3Days =
+        options.enums === String
+          ? $root.ProtoOADayOfWeek[message.rolloverCommission3Days]
+          : message.rolloverCommission3Days;
     return object;
   };
 
@@ -57177,6 +56962,7 @@ $root.ProtoOACtidTraderAccount = (function() {
    * @interface IProtoOACtidTraderAccount
    * @property {number|Long} ctidTraderAccountId ProtoOACtidTraderAccount ctidTraderAccountId
    * @property {boolean|null} [isLive] ProtoOACtidTraderAccount isLive
+   * @property {number|Long|null} [traderLogin] ProtoOACtidTraderAccount traderLogin
    */
 
   /**
@@ -57212,6 +56998,16 @@ $root.ProtoOACtidTraderAccount = (function() {
   ProtoOACtidTraderAccount.prototype.isLive = false;
 
   /**
+   * ProtoOACtidTraderAccount traderLogin.
+   * @member {number|Long} traderLogin
+   * @memberof ProtoOACtidTraderAccount
+   * @instance
+   */
+  ProtoOACtidTraderAccount.prototype.traderLogin = $util.Long
+    ? $util.Long.fromBits(0, 0, false)
+    : 0;
+
+  /**
    * Creates a new ProtoOACtidTraderAccount instance using the specified properties.
    * @function create
    * @memberof ProtoOACtidTraderAccount
@@ -57239,6 +57035,8 @@ $root.ProtoOACtidTraderAccount = (function() {
       .uint64(message.ctidTraderAccountId);
     if (message.isLive != null && message.hasOwnProperty("isLive"))
       writer.uint32(/* id 2, wireType 0 =*/ 16).bool(message.isLive);
+    if (message.traderLogin != null && message.hasOwnProperty("traderLogin"))
+      writer.uint32(/* id 3, wireType 0 =*/ 24).int64(message.traderLogin);
     return writer;
   };
 
@@ -57281,6 +57079,9 @@ $root.ProtoOACtidTraderAccount = (function() {
           break;
         case 2:
           message.isLive = reader.bool();
+          break;
+        case 3:
+          message.traderLogin = reader.int64();
           break;
         default:
           reader.skipType(tag & 7);
@@ -57332,6 +57133,16 @@ $root.ProtoOACtidTraderAccount = (function() {
     if (message.isLive != null && message.hasOwnProperty("isLive"))
       if (typeof message.isLive !== "boolean")
         return "isLive: boolean expected";
+    if (message.traderLogin != null && message.hasOwnProperty("traderLogin"))
+      if (
+        !$util.isInteger(message.traderLogin) &&
+        !(
+          message.traderLogin &&
+          $util.isInteger(message.traderLogin.low) &&
+          $util.isInteger(message.traderLogin.high)
+        )
+      )
+        return "traderLogin: integer|Long expected";
     return null;
   };
 
@@ -57361,6 +57172,20 @@ $root.ProtoOACtidTraderAccount = (function() {
           object.ctidTraderAccountId.high >>> 0
         ).toNumber(true);
     if (object.isLive != null) message.isLive = Boolean(object.isLive);
+    if (object.traderLogin != null)
+      if ($util.Long)
+        (message.traderLogin = $util.Long.fromValue(
+          object.traderLogin
+        )).unsigned = false;
+      else if (typeof object.traderLogin === "string")
+        message.traderLogin = parseInt(object.traderLogin, 10);
+      else if (typeof object.traderLogin === "number")
+        message.traderLogin = object.traderLogin;
+      else if (typeof object.traderLogin === "object")
+        message.traderLogin = new $util.LongBits(
+          object.traderLogin.low >>> 0,
+          object.traderLogin.high >>> 0
+        ).toNumber();
     return message;
   };
 
@@ -57387,6 +57212,15 @@ $root.ProtoOACtidTraderAccount = (function() {
             : long;
       } else object.ctidTraderAccountId = options.longs === String ? "0" : 0;
       object.isLive = false;
+      if ($util.Long) {
+        var long = new $util.Long(0, 0, false);
+        object.traderLogin =
+          options.longs === String
+            ? long.toString()
+            : options.longs === Number
+            ? long.toNumber()
+            : long;
+      } else object.traderLogin = options.longs === String ? "0" : 0;
     }
     if (
       message.ctidTraderAccountId != null &&
@@ -57409,6 +57243,22 @@ $root.ProtoOACtidTraderAccount = (function() {
             : message.ctidTraderAccountId;
     if (message.isLive != null && message.hasOwnProperty("isLive"))
       object.isLive = message.isLive;
+    if (message.traderLogin != null && message.hasOwnProperty("traderLogin"))
+      if (typeof message.traderLogin === "number")
+        object.traderLogin =
+          options.longs === String
+            ? String(message.traderLogin)
+            : message.traderLogin;
+      else
+        object.traderLogin =
+          options.longs === String
+            ? $util.Long.prototype.toString.call(message.traderLogin)
+            : options.longs === Number
+            ? new $util.LongBits(
+                message.traderLogin.low >>> 0,
+                message.traderLogin.high >>> 0
+              ).toNumber()
+            : message.traderLogin;
     return object;
   };
 

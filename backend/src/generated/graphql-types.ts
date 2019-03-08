@@ -18,8 +18,6 @@ export interface Mutation {
   tokens: string;
 
   heartbeat?: Maybe<boolean>;
-  /** ping(timestamp: Int64!, clientMsgId: String): Boolean */
-  ping?: Maybe<boolean>;
 
   applicationAuth: IProtoOaApplicationAuthRes;
   /** accountAuth(ctidTraderAccountId: Int64!, clientMsgId: String): Boolean */
@@ -57,11 +55,6 @@ export interface TokensMutationArgs {
   code: string;
 }
 export interface HeartbeatMutationArgs {
-  clientMsgId?: Maybe<string>;
-}
-export interface PingMutationArgs {
-  timestamp: number;
-
   clientMsgId?: Maybe<string>;
 }
 export interface ApplicationAuthMutationArgs {
@@ -161,8 +154,6 @@ export namespace MutationResolvers {
     tokens?: TokensResolver<string, TypeParent, TContext>;
 
     heartbeat?: HeartbeatResolver<Maybe<boolean>, TypeParent, TContext>;
-    /** ping(timestamp: Int64!, clientMsgId: String): Boolean */
-    ping?: PingResolver<Maybe<boolean>, TypeParent, TContext>;
 
     applicationAuth?: ApplicationAuthResolver<
       IProtoOaApplicationAuthRes,
@@ -202,17 +193,6 @@ export namespace MutationResolvers {
     TContext = IContext
   > = Resolver<R, Parent, TContext, HeartbeatArgs>;
   export interface HeartbeatArgs {
-    clientMsgId?: Maybe<string>;
-  }
-
-  export type PingResolver<
-    R = Maybe<boolean>,
-    Parent = {},
-    TContext = IContext
-  > = Resolver<R, Parent, TContext, PingArgs>;
-  export interface PingArgs {
-    timestamp: number;
-
     clientMsgId?: Maybe<string>;
   }
 

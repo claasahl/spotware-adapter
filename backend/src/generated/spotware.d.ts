@@ -123,6 +123,9 @@ export interface IProtoErrorRes {
 
   /** ProtoErrorRes description */
   description?: string | null;
+
+  /** ProtoErrorRes maintenanceEndTimestamp */
+  maintenanceEndTimestamp?: number | Long | null;
 }
 
 /** Represents a ProtoErrorRes. */
@@ -141,6 +144,9 @@ export class ProtoErrorRes implements IProtoErrorRes {
 
   /** ProtoErrorRes description. */
   public description: string;
+
+  /** ProtoErrorRes maintenanceEndTimestamp. */
+  public maintenanceEndTimestamp: number | Long;
 
   /**
    * Creates a new ProtoErrorRes instance using the specified properties.
@@ -233,7 +239,7 @@ export interface IProtoHeartbeatEvent {
   payloadType?: ProtoPayloadType | null;
 }
 
-/** Represents a ProtoHeartbeatEvent. */
+/** Event that is sent from Open API proxy and can be used as criteria that connection is healthy when no other messages are sent by cTrader platform. Open API client can send this message when he needs to keep the connection open for a period without other messages longer than 30 seconds */
 export class ProtoHeartbeatEvent implements IProtoHeartbeatEvent {
   /**
    * Constructs a new ProtoHeartbeatEvent.
@@ -329,228 +335,11 @@ export class ProtoHeartbeatEvent implements IProtoHeartbeatEvent {
   public toJSON(): { [k: string]: any };
 }
 
-/** Properties of a ProtoPingReq. */
-export interface IProtoPingReq {
-  /** ProtoPingReq payloadType */
-  payloadType?: ProtoPayloadType | null;
-
-  /** ProtoPingReq timestamp */
-  timestamp: number | Long;
-}
-
-/** Represents a ProtoPingReq. */
-export class ProtoPingReq implements IProtoPingReq {
-  /**
-   * Constructs a new ProtoPingReq.
-   * @param [properties] Properties to set
-   */
-  constructor(properties?: IProtoPingReq);
-
-  /** ProtoPingReq payloadType. */
-  public payloadType: ProtoPayloadType;
-
-  /** ProtoPingReq timestamp. */
-  public timestamp: number | Long;
-
-  /**
-   * Creates a new ProtoPingReq instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoPingReq instance
-   */
-  public static create(properties?: IProtoPingReq): ProtoPingReq;
-
-  /**
-   * Encodes the specified ProtoPingReq message. Does not implicitly {@link ProtoPingReq.verify|verify} messages.
-   * @param message ProtoPingReq message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encode(
-    message: IProtoPingReq,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoPingReq message, length delimited. Does not implicitly {@link ProtoPingReq.verify|verify} messages.
-   * @param message ProtoPingReq message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
-    message: IProtoPingReq,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Decodes a ProtoPingReq message from the specified reader or buffer.
-   * @param reader Reader or buffer to decode from
-   * @param [length] Message length if known beforehand
-   * @returns ProtoPingReq
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decode(
-    reader: $protobuf.Reader | Uint8Array,
-    length?: number
-  ): ProtoPingReq;
-
-  /**
-   * Decodes a ProtoPingReq message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoPingReq
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoPingReq;
-
-  /**
-   * Verifies a ProtoPingReq message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoPingReq message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoPingReq
-   */
-  public static fromObject(object: { [k: string]: any }): ProtoPingReq;
-
-  /**
-   * Creates a plain object from a ProtoPingReq message. Also converts values to other types if specified.
-   * @param message ProtoPingReq
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoPingReq,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoPingReq to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
-}
-
-/** Properties of a ProtoPingRes. */
-export interface IProtoPingRes {
-  /** ProtoPingRes payloadType */
-  payloadType?: ProtoPayloadType | null;
-
-  /** ProtoPingRes timestamp */
-  timestamp: number | Long;
-}
-
-/** Represents a ProtoPingRes. */
-export class ProtoPingRes implements IProtoPingRes {
-  /**
-   * Constructs a new ProtoPingRes.
-   * @param [properties] Properties to set
-   */
-  constructor(properties?: IProtoPingRes);
-
-  /** ProtoPingRes payloadType. */
-  public payloadType: ProtoPayloadType;
-
-  /** ProtoPingRes timestamp. */
-  public timestamp: number | Long;
-
-  /**
-   * Creates a new ProtoPingRes instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoPingRes instance
-   */
-  public static create(properties?: IProtoPingRes): ProtoPingRes;
-
-  /**
-   * Encodes the specified ProtoPingRes message. Does not implicitly {@link ProtoPingRes.verify|verify} messages.
-   * @param message ProtoPingRes message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encode(
-    message: IProtoPingRes,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoPingRes message, length delimited. Does not implicitly {@link ProtoPingRes.verify|verify} messages.
-   * @param message ProtoPingRes message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
-    message: IProtoPingRes,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Decodes a ProtoPingRes message from the specified reader or buffer.
-   * @param reader Reader or buffer to decode from
-   * @param [length] Message length if known beforehand
-   * @returns ProtoPingRes
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decode(
-    reader: $protobuf.Reader | Uint8Array,
-    length?: number
-  ): ProtoPingRes;
-
-  /**
-   * Decodes a ProtoPingRes message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoPingRes
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoPingRes;
-
-  /**
-   * Verifies a ProtoPingRes message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoPingRes message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoPingRes
-   */
-  public static fromObject(object: { [k: string]: any }): ProtoPingRes;
-
-  /**
-   * Creates a plain object from a ProtoPingRes message. Also converts values to other types if specified.
-   * @param message ProtoPingRes
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoPingRes,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoPingRes to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
-}
-
 /** ProtoPayloadType enum. */
 export enum ProtoPayloadType {
+  PROTO_MESSAGE = 5,
   ERROR_RES = 50,
-  HEARTBEAT_EVENT = 51,
-  PING_REQ = 52,
-  PING_RES = 53
+  HEARTBEAT_EVENT = 51
 }
 
 /** ProtoErrorCode enum. */
@@ -564,350 +353,8 @@ export enum ProtoErrorCode {
   CANT_ROUTE_REQUEST = 7,
   FRAME_TOO_LONG = 8,
   MARKET_CLOSED = 9,
-  CONCURRENT_MODIFICATION = 10
-}
-
-/** Properties of a ProtoIntRange. */
-export interface IProtoIntRange {
-  /** ProtoIntRange from */
-  from?: number | null;
-
-  /** ProtoIntRange to */
-  to?: number | null;
-}
-
-/** Represents a ProtoIntRange. */
-export class ProtoIntRange implements IProtoIntRange {
-  /**
-   * Constructs a new ProtoIntRange.
-   * @param [properties] Properties to set
-   */
-  constructor(properties?: IProtoIntRange);
-
-  /** ProtoIntRange from. */
-  public from: number;
-
-  /** ProtoIntRange to. */
-  public to: number;
-
-  /**
-   * Creates a new ProtoIntRange instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoIntRange instance
-   */
-  public static create(properties?: IProtoIntRange): ProtoIntRange;
-
-  /**
-   * Encodes the specified ProtoIntRange message. Does not implicitly {@link ProtoIntRange.verify|verify} messages.
-   * @param message ProtoIntRange message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encode(
-    message: IProtoIntRange,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoIntRange message, length delimited. Does not implicitly {@link ProtoIntRange.verify|verify} messages.
-   * @param message ProtoIntRange message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
-    message: IProtoIntRange,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Decodes a ProtoIntRange message from the specified reader or buffer.
-   * @param reader Reader or buffer to decode from
-   * @param [length] Message length if known beforehand
-   * @returns ProtoIntRange
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decode(
-    reader: $protobuf.Reader | Uint8Array,
-    length?: number
-  ): ProtoIntRange;
-
-  /**
-   * Decodes a ProtoIntRange message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoIntRange
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoIntRange;
-
-  /**
-   * Verifies a ProtoIntRange message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoIntRange message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoIntRange
-   */
-  public static fromObject(object: { [k: string]: any }): ProtoIntRange;
-
-  /**
-   * Creates a plain object from a ProtoIntRange message. Also converts values to other types if specified.
-   * @param message ProtoIntRange
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoIntRange,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoIntRange to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
-}
-
-/** Properties of a ProtoLongRange. */
-export interface IProtoLongRange {
-  /** ProtoLongRange from */
-  from?: number | Long | null;
-
-  /** ProtoLongRange to */
-  to?: number | Long | null;
-}
-
-/** Represents a ProtoLongRange. */
-export class ProtoLongRange implements IProtoLongRange {
-  /**
-   * Constructs a new ProtoLongRange.
-   * @param [properties] Properties to set
-   */
-  constructor(properties?: IProtoLongRange);
-
-  /** ProtoLongRange from. */
-  public from: number | Long;
-
-  /** ProtoLongRange to. */
-  public to: number | Long;
-
-  /**
-   * Creates a new ProtoLongRange instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoLongRange instance
-   */
-  public static create(properties?: IProtoLongRange): ProtoLongRange;
-
-  /**
-   * Encodes the specified ProtoLongRange message. Does not implicitly {@link ProtoLongRange.verify|verify} messages.
-   * @param message ProtoLongRange message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encode(
-    message: IProtoLongRange,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoLongRange message, length delimited. Does not implicitly {@link ProtoLongRange.verify|verify} messages.
-   * @param message ProtoLongRange message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
-    message: IProtoLongRange,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Decodes a ProtoLongRange message from the specified reader or buffer.
-   * @param reader Reader or buffer to decode from
-   * @param [length] Message length if known beforehand
-   * @returns ProtoLongRange
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decode(
-    reader: $protobuf.Reader | Uint8Array,
-    length?: number
-  ): ProtoLongRange;
-
-  /**
-   * Decodes a ProtoLongRange message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoLongRange
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoLongRange;
-
-  /**
-   * Verifies a ProtoLongRange message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoLongRange message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoLongRange
-   */
-  public static fromObject(object: { [k: string]: any }): ProtoLongRange;
-
-  /**
-   * Creates a plain object from a ProtoLongRange message. Also converts values to other types if specified.
-   * @param message ProtoLongRange
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoLongRange,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoLongRange to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
-}
-
-/** Properties of a ProtoDoubleRange. */
-export interface IProtoDoubleRange {
-  /** ProtoDoubleRange from */
-  from?: number | null;
-
-  /** ProtoDoubleRange to */
-  to?: number | null;
-}
-
-/** Represents a ProtoDoubleRange. */
-export class ProtoDoubleRange implements IProtoDoubleRange {
-  /**
-   * Constructs a new ProtoDoubleRange.
-   * @param [properties] Properties to set
-   */
-  constructor(properties?: IProtoDoubleRange);
-
-  /** ProtoDoubleRange from. */
-  public from: number;
-
-  /** ProtoDoubleRange to. */
-  public to: number;
-
-  /**
-   * Creates a new ProtoDoubleRange instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoDoubleRange instance
-   */
-  public static create(properties?: IProtoDoubleRange): ProtoDoubleRange;
-
-  /**
-   * Encodes the specified ProtoDoubleRange message. Does not implicitly {@link ProtoDoubleRange.verify|verify} messages.
-   * @param message ProtoDoubleRange message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encode(
-    message: IProtoDoubleRange,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoDoubleRange message, length delimited. Does not implicitly {@link ProtoDoubleRange.verify|verify} messages.
-   * @param message ProtoDoubleRange message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
-    message: IProtoDoubleRange,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Decodes a ProtoDoubleRange message from the specified reader or buffer.
-   * @param reader Reader or buffer to decode from
-   * @param [length] Message length if known beforehand
-   * @returns ProtoDoubleRange
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decode(
-    reader: $protobuf.Reader | Uint8Array,
-    length?: number
-  ): ProtoDoubleRange;
-
-  /**
-   * Decodes a ProtoDoubleRange message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoDoubleRange
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoDoubleRange;
-
-  /**
-   * Verifies a ProtoDoubleRange message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoDoubleRange message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoDoubleRange
-   */
-  public static fromObject(object: { [k: string]: any }): ProtoDoubleRange;
-
-  /**
-   * Creates a plain object from a ProtoDoubleRange message. Also converts values to other types if specified.
-   * @param message ProtoDoubleRange
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoDoubleRange,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoDoubleRange to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
-}
-
-/** ProtoTradeSide enum. */
-export enum ProtoTradeSide {
-  BUY = 1,
-  SELL = 2
-}
-
-/** ProtoQuoteType enum. */
-export enum ProtoQuoteType {
-  BID = 1,
-  ASK = 2
-}
-
-/** ProtoTimeInForce enum. */
-export enum ProtoTimeInForce {
-  GOOD_TILL_DATE = 1,
-  GOOD_TILL_CANCEL = 2,
-  IMMEDIATE_OR_CANCEL = 3
+  CONCURRENT_MODIFICATION = 10,
+  BLOCKED_PAYLOAD_TYPE = 11
 }
 
 /** Properties of a ProtoOAApplicationAuthReq. */
@@ -8740,6 +8187,122 @@ export class ProtoOAAccountLogoutRes implements IProtoOAAccountLogoutRes {
   public toJSON(): { [k: string]: any };
 }
 
+/** Properties of a ProtoOAAccountDisconnectEvent. */
+export interface IProtoOAAccountDisconnectEvent {
+  /** ProtoOAAccountDisconnectEvent payloadType */
+  payloadType?: ProtoOAPayloadType | null;
+
+  /** ProtoOAAccountDisconnectEvent ctidTraderAccountId */
+  ctidTraderAccountId: number | Long;
+}
+
+/**
+ * Event that is sent when the established session for an account is dropped on the server side.
+ * A new session must be authorized for the account.
+ */
+export class ProtoOAAccountDisconnectEvent
+  implements IProtoOAAccountDisconnectEvent {
+  /**
+   * Constructs a new ProtoOAAccountDisconnectEvent.
+   * @param [properties] Properties to set
+   */
+  constructor(properties?: IProtoOAAccountDisconnectEvent);
+
+  /** ProtoOAAccountDisconnectEvent payloadType. */
+  public payloadType: ProtoOAPayloadType;
+
+  /** ProtoOAAccountDisconnectEvent ctidTraderAccountId. */
+  public ctidTraderAccountId: number | Long;
+
+  /**
+   * Creates a new ProtoOAAccountDisconnectEvent instance using the specified properties.
+   * @param [properties] Properties to set
+   * @returns ProtoOAAccountDisconnectEvent instance
+   */
+  public static create(
+    properties?: IProtoOAAccountDisconnectEvent
+  ): ProtoOAAccountDisconnectEvent;
+
+  /**
+   * Encodes the specified ProtoOAAccountDisconnectEvent message. Does not implicitly {@link ProtoOAAccountDisconnectEvent.verify|verify} messages.
+   * @param message ProtoOAAccountDisconnectEvent message or plain object to encode
+   * @param [writer] Writer to encode to
+   * @returns Writer
+   */
+  public static encode(
+    message: IProtoOAAccountDisconnectEvent,
+    writer?: $protobuf.Writer
+  ): $protobuf.Writer;
+
+  /**
+   * Encodes the specified ProtoOAAccountDisconnectEvent message, length delimited. Does not implicitly {@link ProtoOAAccountDisconnectEvent.verify|verify} messages.
+   * @param message ProtoOAAccountDisconnectEvent message or plain object to encode
+   * @param [writer] Writer to encode to
+   * @returns Writer
+   */
+  public static encodeDelimited(
+    message: IProtoOAAccountDisconnectEvent,
+    writer?: $protobuf.Writer
+  ): $protobuf.Writer;
+
+  /**
+   * Decodes a ProtoOAAccountDisconnectEvent message from the specified reader or buffer.
+   * @param reader Reader or buffer to decode from
+   * @param [length] Message length if known beforehand
+   * @returns ProtoOAAccountDisconnectEvent
+   * @throws {Error} If the payload is not a reader or valid buffer
+   * @throws {$protobuf.util.ProtocolError} If required fields are missing
+   */
+  public static decode(
+    reader: $protobuf.Reader | Uint8Array,
+    length?: number
+  ): ProtoOAAccountDisconnectEvent;
+
+  /**
+   * Decodes a ProtoOAAccountDisconnectEvent message from the specified reader or buffer, length delimited.
+   * @param reader Reader or buffer to decode from
+   * @returns ProtoOAAccountDisconnectEvent
+   * @throws {Error} If the payload is not a reader or valid buffer
+   * @throws {$protobuf.util.ProtocolError} If required fields are missing
+   */
+  public static decodeDelimited(
+    reader: $protobuf.Reader | Uint8Array
+  ): ProtoOAAccountDisconnectEvent;
+
+  /**
+   * Verifies a ProtoOAAccountDisconnectEvent message.
+   * @param message Plain object to verify
+   * @returns `null` if valid, otherwise the reason why it is not
+   */
+  public static verify(message: { [k: string]: any }): string | null;
+
+  /**
+   * Creates a ProtoOAAccountDisconnectEvent message from a plain object. Also converts values to their respective internal types.
+   * @param object Plain object
+   * @returns ProtoOAAccountDisconnectEvent
+   */
+  public static fromObject(object: {
+    [k: string]: any;
+  }): ProtoOAAccountDisconnectEvent;
+
+  /**
+   * Creates a plain object from a ProtoOAAccountDisconnectEvent message. Also converts values to other types if specified.
+   * @param message ProtoOAAccountDisconnectEvent
+   * @param [options] Conversion options
+   * @returns Plain object
+   */
+  public static toObject(
+    message: ProtoOAAccountDisconnectEvent,
+    options?: $protobuf.IConversionOptions
+  ): { [k: string]: any };
+
+  /**
+   * Converts this ProtoOAAccountDisconnectEvent to JSON.
+   * @returns JSON object
+   */
+  public toJSON(): { [k: string]: any };
+}
+
 /** ProtoOAPayloadType enum. */
 export enum ProtoOAPayloadType {
   PROTO_OA_APPLICATION_AUTH_REQ = 2100,
@@ -8805,7 +8368,8 @@ export enum ProtoOAPayloadType {
   PROTO_OA_SYMBOL_CATEGORY_REQ = 2160,
   PROTO_OA_SYMBOL_CATEGORY_RES = 2161,
   PROTO_OA_ACCOUNT_LOGOUT_REQ = 2162,
-  PROTO_OA_ACCOUNT_LOGOUT_RES = 2163
+  PROTO_OA_ACCOUNT_LOGOUT_RES = 2163,
+  PROTO_OA_ACCOUNT_DISCONNECT_EVENT = 2164
 }
 
 /** Properties of a ProtoOAAsset. */
@@ -9004,6 +8568,9 @@ export interface IProtoOASymbol {
 
   /** ProtoOASymbol tradingMode */
   tradingMode?: ProtoOATradingMode | null;
+
+  /** ProtoOASymbol rolloverCommission3Days */
+  rolloverCommission3Days?: ProtoOADayOfWeek | null;
 }
 
 /** Trading symbol entity. */
@@ -9094,6 +8661,9 @@ export class ProtoOASymbol implements IProtoOASymbol {
 
   /** ProtoOASymbol tradingMode. */
   public tradingMode: ProtoOATradingMode;
+
+  /** ProtoOASymbol rolloverCommission3Days. */
+  public rolloverCommission3Days: ProtoOADayOfWeek;
 
   /**
    * Creates a new ProtoOASymbol instance using the specified properties.
@@ -11603,6 +11173,9 @@ export interface IProtoOACtidTraderAccount {
 
   /** ProtoOACtidTraderAccount isLive */
   isLive?: boolean | null;
+
+  /** ProtoOACtidTraderAccount traderLogin */
+  traderLogin?: number | Long | null;
 }
 
 /** Trader account entity. */
@@ -11618,6 +11191,9 @@ export class ProtoOACtidTraderAccount implements IProtoOACtidTraderAccount {
 
   /** ProtoOACtidTraderAccount isLive. */
   public isLive: boolean;
+
+  /** ProtoOACtidTraderAccount traderLogin. */
+  public traderLogin: number | Long;
 
   /**
    * Creates a new ProtoOACtidTraderAccount instance using the specified properties.

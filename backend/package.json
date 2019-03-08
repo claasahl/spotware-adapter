@@ -23,7 +23,7 @@
     }
   },
   "devDependencies": {
-    "@claasahl/spotware-protobuf-messages": "claasahl/Open-API-2.0-protobuf-messages#fe95b342bba568d790c3a74a165d204bf33eeaee",
+    "@claasahl/spotware-protobuf-messages": "github:claasahl/Open-API-2.0-protobuf-messages#5b190e86cfe69faf586b370b724b8fa8a05817e5",
     "@types/aws-lambda": "^8.10.19",
     "@types/axios": "^0.14.0",
     "@types/node": "^11.9.5",
