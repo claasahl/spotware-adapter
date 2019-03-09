@@ -36,12 +36,12 @@ export async function ProtoOAApplicationAuthReq(
         unregister();
         reject(reason);
       };
-      const listener = $base.createListener(clientMsgId, {
+      const TYPE = $spotware.ProtoOAApplicationAuthRes;
+      const listener = $base.createListener(TYPE, clientMsgId, {
         resolve: wrappedResolve,
         reject: wrappedReject
       });
 
-      const TYPE = $spotware.ProtoOAApplicationAuthRes;
       $base.registerListener(TYPE, emitter, listener);
       const timeout = setTimeout(() => {
         wrappedReject(

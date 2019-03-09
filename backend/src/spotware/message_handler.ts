@@ -57,11 +57,8 @@ export function registerResponse(
   );
 }
 
-function parseAndEmitMessage(
-  TYPE: wrapper,
-  emitter: EventEmitter
-): (message: $spotware.IProtoMessage) => void {
-  return (message: $spotware.IProtoMessage) => {
+function parseAndEmitMessage(TYPE: wrapper, emitter: EventEmitter): LISTENER {
+  return message => {
     if (message.payload) {
       const msg = TYPE.decode(message.payload);
       if (msg) {
@@ -77,10 +74,11 @@ export type PromiseCallbacks<T> = {
   reject: (reason?: any) => void;
 };
 export function createListener(
+  TYPE: wrapper,
   clientMsgId: string | null | undefined,
   callbacks: PromiseCallbacks<$spotware.IProtoOAApplicationAuthRes>
 ): LISTENER {
-  return (message: $spotware.IProtoMessage) => {
+  return message => {
     try {
       if (message.clientMsgId === clientMsgId) {
         if (!!!message.payload) {
@@ -93,8 +91,8 @@ export function createListener(
           );
         }
         switch (message.payloadType) {
-          case $spotware.ProtoOAApplicationAuthRes.prototype.payloadType:
-            return treatResponse(message.payload, callbacks);
+          case TYPE.prototype.payloadType:
+            return treatResponse(TYPE, message.payload, callbacks);
           case $spotware.ProtoOAErrorRes.prototype.payloadType:
             return treatOpenApiError(message.payload, callbacks);
           case $spotware.ProtoErrorRes.prototype.payloadType:
@@ -110,16 +108,18 @@ export function createListener(
     }
   };
 }
-function treatResponse(
+function treatResponse<T>(
+  TYPE: wrapper,
   payload: Reader | Uint8Array,
-  callbacks: PromiseCallbacks<$spotware.IProtoOAApplicationAuthRes>
+  callbacks: PromiseCallbacks<T>
 ) {
-  const msg = $spotware.ProtoOAApplicationAuthRes.decode(payload);
-  callbacks.resolve($spotware.ProtoOAApplicationAuthRes.toObject(msg));
+  const msg = TYPE.decode(payload);
+  // :(
+  callbacks.resolve(TYPE.toObject(msg as any) as any);
 }
-function treatOpenApiError(
+function treatOpenApiError<T>(
   payload: Reader | Uint8Array,
-  callbacks: PromiseCallbacks<$spotware.IProtoOAApplicationAuthRes>
+  callbacks: PromiseCallbacks<T>
 ) {
   const msg = $spotware.ProtoOAErrorRes.decode(payload);
   callbacks.reject(
@@ -130,9 +130,9 @@ function treatOpenApiError(
     )
   );
 }
-function treatCommonError(
+function treatCommonError<T>(
   payload: Reader | Uint8Array,
-  callbacks: PromiseCallbacks<$spotware.IProtoOAApplicationAuthRes>
+  callbacks: PromiseCallbacks<T>
 ) {
   const msg = $spotware.ProtoErrorRes.decode(payload);
   callbacks.reject(
