@@ -73,10 +73,48 @@ export type PromiseCallbacks<T> = {
   resolve: (value?: T | PromiseLike<T>) => void;
   reject: (reason?: any) => void;
 };
-export function createListener(
+export async function whatever<P>(
+  REQUEST: wrapperOpenApi,
+  RESPONSE: wrapperOpenApi,
+  properties: P,
+  clientMsgId: string | null | undefined,
+  emitter: EventEmitter
+): Promise<P> {
+  return new Promise<P>((resolve, reject) => {
+    createAndEmitOpenApiMessage(REQUEST, properties, clientMsgId, emitter);
+    const callbacks = decoratePromiseCallbacks({ resolve, reject }, unregister);
+    const listener = createListener(RESPONSE, clientMsgId, callbacks);
+
+    registerListener(RESPONSE, emitter, listener);
+    const timeout = setTimeout(() => {
+      callbacks.reject(
+        new Error("Did not receive response in a timely manner.")
+      );
+    }, 2000);
+    function unregister() {
+      clearTimeout(timeout);
+      unregisterListener(RESPONSE, emitter, listener);
+    }
+  });
+}
+function decoratePromiseCallbacks<P>(
+  callbacks: PromiseCallbacks<P>,
+  unregister: () => void
+): PromiseCallbacks<P> {
+  const resolve = (value?: P | PromiseLike<P>) => {
+    unregister();
+    callbacks.resolve(value);
+  };
+  const reject = (reason?: any) => {
+    unregister();
+    callbacks.reject(reason);
+  };
+  return { resolve, reject };
+}
+function createListener<P>(
   TYPE: wrapper,
   clientMsgId: string | null | undefined,
-  callbacks: PromiseCallbacks<$spotware.IProtoOAApplicationAuthRes>
+  callbacks: PromiseCallbacks<P>
 ): LISTENER {
   return message => {
     try {
@@ -136,10 +174,14 @@ function treatCommonError<T>(
 ) {
   const msg = $spotware.ProtoErrorRes.decode(payload);
   callbacks.reject(
-    new Error(`${msg.description} [error code: ${msg.errorCode}]`)
+    new Error(
+      `${msg.description} [error code: ${msg.errorCode}; maintenance end: ${
+        msg.maintenanceEndTimestamp
+      }]`
+    )
   );
 }
-export function registerListener(
+function registerListener(
   TYPE: wrapper,
   emitter: EventEmitter,
   listener: LISTENER
@@ -154,7 +196,9 @@ function registerListenerResponse(
   listener: LISTENER
 ) {
   const { payloadType } = TYPE.prototype;
-  emitter.on(`${payloadType}.${PROTO_MESSAGE_EVENT}`, listener);
+  emitter.on(`${payloadType}.${PROTO_MESSAGE_EVENT}`, message => {
+    listener(message);
+  });
 }
 function registerListenerOpenApiError(
   emitter: EventEmitter,
@@ -170,7 +214,7 @@ function registerListenerCommonError(
   const { payloadType } = $spotware.ProtoErrorRes.prototype;
   emitter.on(`${payloadType}.${PROTO_MESSAGE_EVENT}`, listener);
 }
-export function unregisterListener(
+function unregisterListener(
   TYPE: wrapper,
   emitter: EventEmitter,
   listener: LISTENER

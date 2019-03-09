@@ -2,7 +2,6 @@ import * as $spotware from "../generated/spotware";
 import * as $base from "./message_handler";
 import { Gateway } from "./gateway";
 import { EventEmitter } from "events";
-import { Reader } from "protobufjs";
 
 export function emitProtoOAApplicationAuthReq(
   properties: $spotware.IProtoOAApplicationAuthReq,
@@ -21,39 +20,12 @@ export async function ProtoOAApplicationAuthReq(
   clientMsgId: string | null | undefined,
   emitter: EventEmitter
 ): Promise<$spotware.IProtoOAApplicationAuthRes> {
-  return new Promise<$spotware.IProtoOAApplicationAuthRes>(
-    (resolve, reject) => {
-      emitProtoOAApplicationAuthReq(properties, clientMsgId, emitter);
-      const wrappedResolve = (
-        value?:
-          | $spotware.IProtoOAApplicationAuthRes
-          | PromiseLike<$spotware.IProtoOAApplicationAuthRes>
-      ) => {
-        unregister();
-        resolve(value);
-      };
-      const wrappedReject = (reason?: any) => {
-        unregister();
-        reject(reason);
-      };
-      const TYPE = $spotware.ProtoOAApplicationAuthRes;
-      const listener = $base.createListener(TYPE, clientMsgId, {
-        resolve: wrappedResolve,
-        reject: wrappedReject
-      });
-
-      $base.registerListener(TYPE, emitter, listener);
-      const timeout = setTimeout(() => {
-        wrappedReject(
-          new Error("Did not receive response in a timely manner.")
-        );
-      }, 2000);
-      function unregister() {
-        console.log("unregister!");
-        clearTimeout(timeout);
-        $base.unregisterListener(TYPE, emitter, listener);
-      }
-    }
+  return $base.whatever(
+    $spotware.ProtoOAApplicationAuthReq,
+    $spotware.ProtoOAApplicationAuthRes,
+    properties,
+    clientMsgId,
+    emitter
   );
 }
 export function emitProtoOAAccountAuthReq(
