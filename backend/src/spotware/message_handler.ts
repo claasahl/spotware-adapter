@@ -1,6 +1,7 @@
 import * as $spotware from "../generated/spotware";
 import { EventEmitter } from "events";
 import { PROTO_MESSAGE_EVENT, Gateway } from "./gateway";
+import { Reader } from "protobufjs";
 
 // aliasing "ProtoOAApplicationAuthRes", because it only contains exactly one field "payloadType"
 export type wrapperOpenApi = typeof $spotware.ProtoOAApplicationAuthRes;
@@ -71,7 +72,73 @@ function parseAndEmitMessage(
 }
 
 export type LISTENER = (message: $spotware.IProtoMessage) => void;
-
+export type PromiseCallbacks<T> = {
+  resolve: (value?: T | PromiseLike<T>) => void;
+  reject: (reason?: any) => void;
+};
+export function createListener(
+  clientMsgId: string | null | undefined,
+  callbacks: PromiseCallbacks<$spotware.IProtoOAApplicationAuthRes>
+): LISTENER {
+  return (message: $spotware.IProtoMessage) => {
+    try {
+      if (message.clientMsgId === clientMsgId) {
+        if (!!!message.payload) {
+          return callbacks.reject(
+            new Error(
+              `Got expected message (${
+                message.payloadType
+              }), but it did not have a payload.`
+            )
+          );
+        }
+        switch (message.payloadType) {
+          case $spotware.ProtoOAApplicationAuthRes.prototype.payloadType:
+            return treatResponse(message.payload, callbacks);
+          case $spotware.ProtoOAErrorRes.prototype.payloadType:
+            return treatOpenApiError(message.payload, callbacks);
+          case $spotware.ProtoErrorRes.prototype.payloadType:
+            return treatCommonError(message.payload, callbacks);
+          default:
+            return callbacks.reject(
+              new Error(`Got unexpected message (${message.payloadType}).`)
+            );
+        }
+      }
+    } catch (error) {
+      callbacks.reject(error);
+    }
+  };
+}
+function treatResponse(
+  payload: Reader | Uint8Array,
+  callbacks: PromiseCallbacks<$spotware.IProtoOAApplicationAuthRes>
+) {
+  const msg = $spotware.ProtoOAApplicationAuthRes.decode(payload);
+  callbacks.resolve($spotware.ProtoOAApplicationAuthRes.toObject(msg));
+}
+function treatOpenApiError(
+  payload: Reader | Uint8Array,
+  callbacks: PromiseCallbacks<$spotware.IProtoOAApplicationAuthRes>
+) {
+  const msg = $spotware.ProtoOAErrorRes.decode(payload);
+  callbacks.reject(
+    new Error(
+      `${msg.description} [error code: ${msg.errorCode}; cTID: ${
+        msg.ctidTraderAccountId
+      }]`
+    )
+  );
+}
+function treatCommonError(
+  payload: Reader | Uint8Array,
+  callbacks: PromiseCallbacks<$spotware.IProtoOAApplicationAuthRes>
+) {
+  const msg = $spotware.ProtoErrorRes.decode(payload);
+  callbacks.reject(
+    new Error(`${msg.description} [error code: ${msg.errorCode}]`)
+  );
+}
 export function registerListener(
   TYPE: wrapper,
   emitter: EventEmitter,
