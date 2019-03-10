@@ -126,6 +126,29 @@ function writeEvents(events: Message[]) {
   }
 }
 
+function writeGraphQL(graphql: Message[]) {
+  const stream = fs.createWriteStream("src/spotware/types.graphql");
+  for (const type of graphql) {
+    console.log(type.enums);
+    const name = type.name;
+    const fields = type.fields
+      .map(
+        field => `  ${field.name}: ${field.type}${field.required ? "!" : ""}`
+      )
+      .map(field => field.replace("int32", "Int"))
+      .map(field => field.replace("int64", "Int"))
+      .map(field => field.replace("string", "String"))
+      .map(field => field.replace("double", "Float"))
+      .map(field => field.replace("bool", "boolean"));
+    fields.push("  clientMsgId: String");
+
+    stream.write(`type ${name} {\n`);
+    stream.write(fields.join("\n"));
+    stream.write("\n}\n");
+    stream.write("\n");
+  }
+}
+
 function loadSchema(protoFile: PathLike): Schema {
   const proto = fs.readFileSync(protoFile);
   return schema(proto);
@@ -141,7 +164,9 @@ const sOpenApi = loadSchema(
 const requests: Message[] = [];
 const responses: Message[] = [];
 const events: Message[] = [];
+const graphql: Message[] = [];
 for (const message of [...sCommon.messages, ...sOpenApi.messages]) {
+  graphql.push(message);
   if (message.name.endsWith("Req")) {
     requests.push(message);
   } else if (message.name.endsWith("Res")) {
@@ -157,3 +182,4 @@ for (const message of [...sCommon.messages, ...sOpenApi.messages]) {
 writeRequests(requests);
 writeResponses(responses);
 writeEvents(events);
+writeGraphQL(graphql);
