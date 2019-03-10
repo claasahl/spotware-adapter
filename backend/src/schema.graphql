@@ -5,7 +5,7 @@ type Query {
 type Mutation {
   tokens(code: String!): String!
   heartbeat(clientMsgId: String): Boolean
-  applicationAuth(clientMsgId: String): IProtoOaApplicationAuthRes!
+  applicationAuth(clientMsgId: String): Boolean
   # accountAuth(ctidTraderAccountId: Int64!, clientMsgId: String): Boolean
   accountAuth(
     ctidTraderAccountId: Int!
@@ -22,10 +22,6 @@ type Mutation {
 
 type Subscription {
   somethingChanged: Result
-}
-
-type IProtoOaApplicationAuthRes {
-  payloadType: Int
 }
 
 type Result {

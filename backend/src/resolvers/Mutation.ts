@@ -34,11 +34,12 @@ export const mutation: Required<MutationResolvers.Resolvers> = {
     const clientId = process.env.SPOTWARE__CLIENT_ID || "";
     const clientSecret = process.env.SPOTWARE__CLIENT_SECRET || "";
     const { clientMsgId, ...properties } = args;
-    return requests.ProtoOAApplicationAuthReq(
+    requests.emitProtoOAApplicationAuthReq(
       { ...properties, clientId, clientSecret },
       clientMsgId,
       ctx.gateway.emitter
     );
+    return true;
   },
   accountAuth: async (_parent, args, ctx) => {
     const { clientMsgId, ...properties } = args;

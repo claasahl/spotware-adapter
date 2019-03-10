@@ -15,19 +15,6 @@ export function emitProtoOAApplicationAuthReq(
     emitter
   );
 }
-export async function ProtoOAApplicationAuthReq(
-  properties: $spotware.IProtoOAApplicationAuthReq,
-  clientMsgId: string | null | undefined,
-  emitter: EventEmitter
-): Promise<$spotware.IProtoOAApplicationAuthRes> {
-  return $base.whatever(
-    $spotware.ProtoOAApplicationAuthReq,
-    $spotware.ProtoOAApplicationAuthRes,
-    properties,
-    clientMsgId,
-    emitter
-  );
-}
 export function emitProtoOAAccountAuthReq(
   properties: $spotware.IProtoOAAccountAuthReq,
   clientMsgId: string | null | undefined,
