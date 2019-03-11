@@ -7,7 +7,7 @@ const SERIALIAZED =
 const DESERIALIZED = {
   clientMsgId: "client message ID",
   payloadType: 42,
-  payload: Uint8Array.from([1, 2, 3, 4, 5])
+  payload: Buffer.from([1, 2, 3, 4, 5])
 };
 
 describe("de-/serialize ProtoMessages", () => {
@@ -35,5 +35,21 @@ describe("de-/serialize ProtoMessages", () => {
     const buffer = Buffer.from(SERIALIAZED, "hex");
     const actual = () => util.deserialize(buffer, 2);
     expect(actual).toThrow("buffer not large enough");
+  });
+  test("serialize + deserialize + serialize", () => {
+    const protoMessage = ProtoMessage.create(DESERIALIZED);
+    const buffer1 = util.serialize(protoMessage);
+
+    const TMP = util.deserialize(buffer1);
+    const buffer2 = util.serialize(TMP);
+    expect(buffer1).toEqual(buffer2);
+  });
+  test("deserialize + serialize + deserialize", () => {
+    const buffer = Buffer.from(SERIALIAZED, "hex");
+    const protoMessage1 = util.deserialize(buffer);
+
+    const buffer1 = util.serialize(protoMessage1);
+    const protoMessage2 = util.deserialize(buffer1);
+    expect(protoMessage1).toEqual(protoMessage2);
   });
 });
