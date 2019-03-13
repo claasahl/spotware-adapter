@@ -19,7 +19,7 @@ export interface Mutation {
 
   heartbeat?: Maybe<boolean>;
 
-  applicationAuth: IProtoOaApplicationAuthRes;
+  applicationAuth?: Maybe<boolean>;
   /** accountAuth(ctidTraderAccountId: Int64!, clientMsgId: String): Boolean */
   accountAuth?: Maybe<boolean>;
 
@@ -28,10 +28,6 @@ export interface Mutation {
   getAccountListByAccessToken?: Maybe<boolean>;
 
   getCtidProfileByToken?: Maybe<boolean>;
-}
-
-export interface IProtoOaApplicationAuthRes {
-  payloadType?: Maybe<number>;
 }
 
 export interface Subscription {
@@ -156,7 +152,7 @@ export namespace MutationResolvers {
     heartbeat?: HeartbeatResolver<Maybe<boolean>, TypeParent, TContext>;
 
     applicationAuth?: ApplicationAuthResolver<
-      IProtoOaApplicationAuthRes,
+      Maybe<boolean>,
       TypeParent,
       TContext
     >;
@@ -197,7 +193,7 @@ export namespace MutationResolvers {
   }
 
   export type ApplicationAuthResolver<
-    R = IProtoOaApplicationAuthRes,
+    R = Maybe<boolean>,
     Parent = {},
     TContext = IContext
   > = Resolver<R, Parent, TContext, ApplicationAuthArgs>;
@@ -248,21 +244,6 @@ export namespace MutationResolvers {
 
     clientMsgId?: Maybe<string>;
   }
-}
-
-export namespace IProtoOaApplicationAuthResResolvers {
-  export interface Resolvers<
-    TContext = IContext,
-    TypeParent = IProtoOaApplicationAuthRes
-  > {
-    payloadType?: PayloadTypeResolver<Maybe<number>, TypeParent, TContext>;
-  }
-
-  export type PayloadTypeResolver<
-    R = Maybe<number>,
-    Parent = IProtoOaApplicationAuthRes,
-    TContext = IContext
-  > = Resolver<R, Parent, TContext>;
 }
 
 export namespace SubscriptionResolvers {
@@ -336,9 +317,6 @@ export interface DeprecatedDirectiveArgs {
 export interface IResolvers<TContext = IContext> {
   Query?: QueryResolvers.Resolvers<TContext>;
   Mutation?: MutationResolvers.Resolvers<TContext>;
-  IProtoOaApplicationAuthRes?: IProtoOaApplicationAuthResResolvers.Resolvers<
-    TContext
-  >;
   Subscription?: SubscriptionResolvers.Resolvers<TContext>;
   Result?: ResultResolvers.Resolvers<TContext>;
 }
