@@ -1,7 +1,6 @@
 import { MutationResolvers } from "../generated/graphql-types";
 import axios from "axios";
 import * as $spotware from "../generated/spotware";
-import * as requests from "../spotware/requests";
 
 export const mutation: Required<MutationResolvers.Resolvers> = {
   tokens: async (_parent, args) => {
@@ -17,63 +16,57 @@ export const mutation: Required<MutationResolvers.Resolvers> = {
   },
   heartbeat: (_parent, args, ctx) => {
     const { clientMsgId, ...properties } = args;
-    const TYPE = $spotware.ProtoHeartbeatEvent;
-    const message = TYPE.create(properties);
-    const payloadType = TYPE.prototype.payloadType;
-    const payload = TYPE.encode(message).finish();
-    return new Promise<boolean>(resolve => {
-      ctx.gateway.writeProtoMessage(
-        { payloadType, payload, clientMsgId },
-        () => {
-          resolve(true);
-        }
-      );
-    });
+    ctx.gateway.emitter.emit(
+      $spotware.ProtoPayloadType.HEARTBEAT_EVENT,
+      properties,
+      clientMsgId
+    );
+    return true;
   },
   applicationAuth: (_parent, args, ctx) => {
     const clientId = process.env.SPOTWARE__CLIENT_ID || "";
     const clientSecret = process.env.SPOTWARE__CLIENT_SECRET || "";
     const { clientMsgId, ...properties } = args;
-    requests.emitProtoOAApplicationAuthReq(
+    ctx.gateway.emitter.emit(
+      $spotware.ProtoOAPayloadType.PROTO_OA_APPLICATION_AUTH_REQ,
       { ...properties, clientId, clientSecret },
-      clientMsgId,
-      ctx.gateway.emitter
+      clientMsgId
     );
     return true;
   },
   accountAuth: async (_parent, args, ctx) => {
     const { clientMsgId, ...properties } = args;
-    requests.emitProtoOAAccountAuthReq(
+    ctx.gateway.emitter.emit(
+      $spotware.ProtoOAPayloadType.PROTO_OA_ACCOUNT_AUTH_REQ,
       properties,
-      clientMsgId,
-      ctx.gateway.emitter
+      clientMsgId
     );
     return true;
   },
   version: async (_parent, args, ctx) => {
     const { clientMsgId, ...properties } = args;
-    requests.emitProtoOAVersionReq(
+    ctx.gateway.emitter.emit(
+      $spotware.ProtoOAPayloadType.PROTO_OA_VERSION_REQ,
       properties,
-      clientMsgId,
-      ctx.gateway.emitter
+      clientMsgId
     );
     return true;
   },
   getAccountListByAccessToken: async (_parent, args, ctx) => {
     const { clientMsgId, ...properties } = args;
-    requests.emitProtoOAGetAccountListByAccessTokenReq(
+    ctx.gateway.emitter.emit(
+      $spotware.ProtoOAPayloadType.PROTO_OA_GET_ACCOUNTS_BY_ACCESS_TOKEN_REQ,
       properties,
-      clientMsgId,
-      ctx.gateway.emitter
+      clientMsgId
     );
     return true;
   },
   getCtidProfileByToken: async (_parent, args, ctx) => {
     const { clientMsgId, ...properties } = args;
-    requests.emitProtoOAGetCtidProfileByTokenReq(
+    ctx.gateway.emitter.emit(
+      $spotware.ProtoOAPayloadType.PROTO_OA_GET_CTID_PROFILE_BY_TOKEN_REQ,
       properties,
-      clientMsgId,
-      ctx.gateway.emitter
+      clientMsgId
     );
     return true;
   }

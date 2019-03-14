@@ -1,12 +1,10 @@
 import { ContextParameters } from "graphql-yoga/dist/types";
-import { create } from "../spotware/session";
-import { Gateway } from "../spotware/gateway";
-import { connect } from "../spotware/socket";
+import { ProtoMessageSocket, connect } from "../spotware/ProtoMessageSocket";
 
-const gateways: Map<string, Gateway> = new Map();
+const gateways: Map<string, ProtoMessageSocket> = new Map();
 
 export interface IContext {
-  gateway: Gateway;
+  gateway: ProtoMessageSocket;
 }
 
 export async function context(params: ContextParameters): Promise<IContext> {
@@ -14,9 +12,10 @@ export async function context(params: ContextParameters): Promise<IContext> {
     (params.request && params.request.header("spotware-session-uuid")) || "";
   if (!gateways.has(uuid)) {
     const socket = connect();
-    gateways.set(uuid, create(socket));
+    const gateway = new ProtoMessageSocket(socket);
+    gateways.set(uuid, gateway);
   }
-  const gateway = gateways.get(uuid) as Gateway;
+  const gateway = gateways.get(uuid) as ProtoMessageSocket;
   return { gateway };
 }
 export default context;

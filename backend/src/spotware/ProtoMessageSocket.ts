@@ -1,4 +1,4 @@
-import { TLSSocket } from "tls";
+import { connect as tlsConnect, TLSSocket, ConnectionOptions } from "tls";
 import { SpotwareEventEmitter } from "../generated/SpotwareEventEmitter";
 import {
   IProtoMessage,
@@ -56,7 +56,9 @@ export class ProtoMessageSocket {
         this.socket.write(buffer);
         break;
       default:
-      // only write white-listed messages to socket
+        // only write white-listed messages to socket
+        console.log("received message", message);
+        break;
     }
   };
 
@@ -69,4 +71,16 @@ export class ProtoMessageSocket {
       console.log("could not read/parse ProtoMessage", error);
     }
   };
+}
+
+export function connect(
+  options?: ConnectionOptions,
+  secureConnectListener?: () => void
+): TLSSocket {
+  const host = process.env.SPOTWARE__HOST || "";
+  const port = (process.env.SPOTWARE__PORT || 0) as number;
+  const socket = tlsConnect(port, host, options, secureConnectListener);
+  socket.setEncoding("binary");
+  socket.setDefaultEncoding("binary");
+  return socket;
 }
