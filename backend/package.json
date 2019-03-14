@@ -9,11 +9,12 @@
     "build": "npm run gen && tsc",
     "proto": "ts-node src/test.ts",
     "start": "ts-node -r dotenv/config src/server.ts",
-    "gen": "npm run gen:graphql && npm run gen:protobuf:js && npm run gen:protobuf:ts && npm run gen:event-emitter",
+    "gen": "npm run gen:graphql && npm run gen:protobuf:js && npm run gen:protobuf:ts && npm run gen:event-emitter && npm run gen:client",
     "gen:protobuf:js": "pbjs -t static-module -w commonjs -o ./src/generated/spotware.js node_modules/@claasahl/spotware-protobuf-messages/*.proto",
     "gen:protobuf:ts": "pbts -o ./src/generated/spotware.d.ts ./src/generated/spotware.js",
     "gen:graphql": "gql-gen --config codegen.yml",
-    "gen:event-emitter": "ts-node scripts/spotware-event-emitter.ts"
+    "gen:event-emitter": "ts-node scripts/spotware-event-emitter.ts",
+    "gen:client": "ts-node scripts/spotware-client.ts"
   },
   "keywords": [],
   "author": "",

@@ -5,6 +5,7 @@ import {
   ProtoPayloadType,
   ProtoOAPayloadType
 } from "../generated/spotware";
+import { SpotwareClient } from "../generated/SpotwareClient";
 
 import * as util from "./ProtoMessageUtil";
 
@@ -13,7 +14,7 @@ export class ProtoMessageSocket {
   private socket: Readonly<TLSSocket>;
 
   constructor(socket: TLSSocket) {
-    this.emitter = new SpotwareEventEmitter(socket);
+    this.emitter = new SpotwareClient(socket);
     this.socket = socket;
 
     this.socket.on("data", this.readProtoMessage);
