@@ -29,7 +29,7 @@
     "email": "claasahl@gmail.com",
     "url": "https://github.com/claasahl"
   },
-  "license": "ISC",
+  "license": "MIT",
   "husky": {
     "hooks": {
       "pre-commit": "pretty-quick --staged"
@@ -45,5 +45,9 @@
     "shx": "^0.3.2",
     "ts-node": "^8.0.3",
     "typescript": "^3.4.1"
+  },
+  "engines": {
+    "node": ">= 10.5.0",
+    "npm": ">= 6.4.1"
   }
 }
