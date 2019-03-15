@@ -10,7 +10,11 @@
     "start": "ts-node src/hello-world.ts",
     "preimport": "shx rm -rf ./assets/*.proto",
     "import": "shx mkdir ./spotware-messages && cd ./spotware-messages && isogit clone --url=https://github.com/spotware/Open-API-2.0-protobuf-messages --singleBranch",
-    "postimport": "shx cp ./spotware-messages/*.proto ./assets && shx rm -rf ./spotware-messages"
+    "postimport": "shx cp ./spotware-messages/*.proto ./assets && shx rm -rf ./spotware-messages",
+    "generate:js": "pbjs --target static-module --es6 --wrap es6 --force-message ./assets/*.proto > ./src/spotware-connect.js",
+    "postgenerate:js": "prettier --write ./src/spotware-connect.js",
+    "generate:ts": "pbts --out ./src/spotware-connect.d.ts ./src/spotware-connect.js",
+    "postgenerate:ts": "prettier --write ./src/spotware-connect.d.ts"
   },
   "keywords": [
     "spotware",
@@ -37,6 +41,7 @@
     "isomorphic-git": "^0.53.0",
     "prettier": "^1.16.4",
     "pretty-quick": "^1.10.0",
+    "protobufjs": "^6.8.8",
     "shx": "^0.3.2",
     "ts-node": "^8.0.3",
     "typescript": "^3.4.1"
