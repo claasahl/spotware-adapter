@@ -74,7 +74,7 @@ export const ProtoMessage = ($root.ProtoMessage = (() => {
    * @function encode
    * @memberof ProtoMessage
    * @static
-   * @param {ProtoMessage} message ProtoMessage message or plain object to encode
+   * @param {IProtoMessage} message ProtoMessage message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -93,7 +93,7 @@ export const ProtoMessage = ($root.ProtoMessage = (() => {
    * @function encodeDelimited
    * @memberof ProtoMessage
    * @static
-   * @param {ProtoMessage} message ProtoMessage message or plain object to encode
+   * @param {IProtoMessage} message ProtoMessage message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -336,7 +336,7 @@ export const ProtoErrorRes = ($root.ProtoErrorRes = (() => {
    * @function encode
    * @memberof ProtoErrorRes
    * @static
-   * @param {ProtoErrorRes} message ProtoErrorRes message or plain object to encode
+   * @param {IProtoErrorRes} message ProtoErrorRes message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -362,7 +362,7 @@ export const ProtoErrorRes = ($root.ProtoErrorRes = (() => {
    * @function encodeDelimited
    * @memberof ProtoErrorRes
    * @static
-   * @param {ProtoErrorRes} message ProtoErrorRes message or plain object to encode
+   * @param {IProtoErrorRes} message ProtoErrorRes message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -636,7 +636,7 @@ export const ProtoHeartbeatEvent = ($root.ProtoHeartbeatEvent = (() => {
    * @function encode
    * @memberof ProtoHeartbeatEvent
    * @static
-   * @param {ProtoHeartbeatEvent} message ProtoHeartbeatEvent message or plain object to encode
+   * @param {IProtoHeartbeatEvent} message ProtoHeartbeatEvent message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -652,7 +652,7 @@ export const ProtoHeartbeatEvent = ($root.ProtoHeartbeatEvent = (() => {
    * @function encodeDelimited
    * @memberof ProtoHeartbeatEvent
    * @static
-   * @param {ProtoHeartbeatEvent} message ProtoHeartbeatEvent message or plain object to encode
+   * @param {IProtoHeartbeatEvent} message ProtoHeartbeatEvent message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -909,7 +909,7 @@ export const ProtoOAApplicationAuthReq = ($root.ProtoOAApplicationAuthReq = (() 
    * @function encode
    * @memberof ProtoOAApplicationAuthReq
    * @static
-   * @param {ProtoOAApplicationAuthReq} message ProtoOAApplicationAuthReq message or plain object to encode
+   * @param {IProtoOAApplicationAuthReq} message ProtoOAApplicationAuthReq message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -927,7 +927,7 @@ export const ProtoOAApplicationAuthReq = ($root.ProtoOAApplicationAuthReq = (() 
    * @function encodeDelimited
    * @memberof ProtoOAApplicationAuthReq
    * @static
-   * @param {ProtoOAApplicationAuthReq} message ProtoOAApplicationAuthReq message or plain object to encode
+   * @param {IProtoOAApplicationAuthReq} message ProtoOAApplicationAuthReq message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -1454,7 +1454,7 @@ export const ProtoOAApplicationAuthRes = ($root.ProtoOAApplicationAuthRes = (() 
    * @function encode
    * @memberof ProtoOAApplicationAuthRes
    * @static
-   * @param {ProtoOAApplicationAuthRes} message ProtoOAApplicationAuthRes message or plain object to encode
+   * @param {IProtoOAApplicationAuthRes} message ProtoOAApplicationAuthRes message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -1470,7 +1470,7 @@ export const ProtoOAApplicationAuthRes = ($root.ProtoOAApplicationAuthRes = (() 
    * @function encodeDelimited
    * @memberof ProtoOAApplicationAuthRes
    * @static
-   * @param {ProtoOAApplicationAuthRes} message ProtoOAApplicationAuthRes message or plain object to encode
+   * @param {IProtoOAApplicationAuthRes} message ProtoOAApplicationAuthRes message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -1990,7 +1990,7 @@ export const ProtoOAAccountAuthReq = ($root.ProtoOAAccountAuthReq = (() => {
    * @function encode
    * @memberof ProtoOAAccountAuthReq
    * @static
-   * @param {ProtoOAAccountAuthReq} message ProtoOAAccountAuthReq message or plain object to encode
+   * @param {IProtoOAAccountAuthReq} message ProtoOAAccountAuthReq message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -2010,7 +2010,7 @@ export const ProtoOAAccountAuthReq = ($root.ProtoOAAccountAuthReq = (() => {
    * @function encodeDelimited
    * @memberof ProtoOAAccountAuthReq
    * @static
-   * @param {ProtoOAAccountAuthReq} message ProtoOAAccountAuthReq message or plain object to encode
+   * @param {IProtoOAAccountAuthReq} message ProtoOAAccountAuthReq message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -2594,7 +2594,7 @@ export const ProtoOAAccountAuthRes = ($root.ProtoOAAccountAuthRes = (() => {
    * @function encode
    * @memberof ProtoOAAccountAuthRes
    * @static
-   * @param {ProtoOAAccountAuthRes} message ProtoOAAccountAuthRes message or plain object to encode
+   * @param {IProtoOAAccountAuthRes} message ProtoOAAccountAuthRes message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -2613,7 +2613,7 @@ export const ProtoOAAccountAuthRes = ($root.ProtoOAAccountAuthRes = (() => {
    * @function encodeDelimited
    * @memberof ProtoOAAccountAuthRes
    * @static
-   * @param {ProtoOAAccountAuthRes} message ProtoOAAccountAuthRes message or plain object to encode
+   * @param {IProtoOAAccountAuthRes} message ProtoOAAccountAuthRes message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -3201,7 +3201,7 @@ export const ProtoOAErrorRes = ($root.ProtoOAErrorRes = (() => {
    * @function encode
    * @memberof ProtoOAErrorRes
    * @static
-   * @param {ProtoOAErrorRes} message ProtoOAErrorRes message or plain object to encode
+   * @param {IProtoOAErrorRes} message ProtoOAErrorRes message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -3227,7 +3227,7 @@ export const ProtoOAErrorRes = ($root.ProtoOAErrorRes = (() => {
    * @function encodeDelimited
    * @memberof ProtoOAErrorRes
    * @static
-   * @param {ProtoOAErrorRes} message ProtoOAErrorRes message or plain object to encode
+   * @param {IProtoOAErrorRes} message ProtoOAErrorRes message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -3815,7 +3815,7 @@ export const ProtoOAClientDisconnectEvent = ($root.ProtoOAClientDisconnectEvent 
    * @function encode
    * @memberof ProtoOAClientDisconnectEvent
    * @static
-   * @param {ProtoOAClientDisconnectEvent} message ProtoOAClientDisconnectEvent message or plain object to encode
+   * @param {IProtoOAClientDisconnectEvent} message ProtoOAClientDisconnectEvent message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -3833,7 +3833,7 @@ export const ProtoOAClientDisconnectEvent = ($root.ProtoOAClientDisconnectEvent 
    * @function encodeDelimited
    * @memberof ProtoOAClientDisconnectEvent
    * @static
-   * @param {ProtoOAClientDisconnectEvent} message ProtoOAClientDisconnectEvent message or plain object to encode
+   * @param {IProtoOAClientDisconnectEvent} message ProtoOAClientDisconnectEvent message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -4365,7 +4365,7 @@ export const ProtoOAAccountsTokenInvalidatedEvent = ($root.ProtoOAAccountsTokenI
    * @function encode
    * @memberof ProtoOAAccountsTokenInvalidatedEvent
    * @static
-   * @param {ProtoOAAccountsTokenInvalidatedEvent} message ProtoOAAccountsTokenInvalidatedEvent message or plain object to encode
+   * @param {IProtoOAAccountsTokenInvalidatedEvent} message ProtoOAAccountsTokenInvalidatedEvent message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -4394,7 +4394,7 @@ export const ProtoOAAccountsTokenInvalidatedEvent = ($root.ProtoOAAccountsTokenI
    * @function encodeDelimited
    * @memberof ProtoOAAccountsTokenInvalidatedEvent
    * @static
-   * @param {ProtoOAAccountsTokenInvalidatedEvent} message ProtoOAAccountsTokenInvalidatedEvent message or plain object to encode
+   * @param {IProtoOAAccountsTokenInvalidatedEvent} message ProtoOAAccountsTokenInvalidatedEvent message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -4994,7 +4994,7 @@ export const ProtoOAVersionReq = ($root.ProtoOAVersionReq = (() => {
    * @function encode
    * @memberof ProtoOAVersionReq
    * @static
-   * @param {ProtoOAVersionReq} message ProtoOAVersionReq message or plain object to encode
+   * @param {IProtoOAVersionReq} message ProtoOAVersionReq message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -5010,7 +5010,7 @@ export const ProtoOAVersionReq = ($root.ProtoOAVersionReq = (() => {
    * @function encodeDelimited
    * @memberof ProtoOAVersionReq
    * @static
-   * @param {ProtoOAVersionReq} message ProtoOAVersionReq message or plain object to encode
+   * @param {IProtoOAVersionReq} message ProtoOAVersionReq message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -5519,7 +5519,7 @@ export const ProtoOAVersionRes = ($root.ProtoOAVersionRes = (() => {
    * @function encode
    * @memberof ProtoOAVersionRes
    * @static
-   * @param {ProtoOAVersionRes} message ProtoOAVersionRes message or plain object to encode
+   * @param {IProtoOAVersionRes} message ProtoOAVersionRes message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -5536,7 +5536,7 @@ export const ProtoOAVersionRes = ($root.ProtoOAVersionRes = (() => {
    * @function encodeDelimited
    * @memberof ProtoOAVersionRes
    * @static
-   * @param {ProtoOAVersionRes} message ProtoOAVersionRes message or plain object to encode
+   * @param {IProtoOAVersionRes} message ProtoOAVersionRes message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -6261,7 +6261,7 @@ export const ProtoOANewOrderReq = ($root.ProtoOANewOrderReq = (() => {
    * @function encode
    * @memberof ProtoOANewOrderReq
    * @static
-   * @param {ProtoOANewOrderReq} message ProtoOANewOrderReq message or plain object to encode
+   * @param {IProtoOANewOrderReq} message ProtoOANewOrderReq message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -6361,7 +6361,7 @@ export const ProtoOANewOrderReq = ($root.ProtoOANewOrderReq = (() => {
    * @function encodeDelimited
    * @memberof ProtoOANewOrderReq
    * @static
-   * @param {ProtoOANewOrderReq} message ProtoOANewOrderReq message or plain object to encode
+   * @param {IProtoOANewOrderReq} message ProtoOANewOrderReq message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -7538,11 +7538,11 @@ export const ProtoOAExecutionEvent = ($root.ProtoOAExecutionEvent = (() => {
    * @property {ProtoOAPayloadType|null} [payloadType] ProtoOAExecutionEvent payloadType
    * @property {number|Long} ctidTraderAccountId ProtoOAExecutionEvent ctidTraderAccountId
    * @property {ProtoOAExecutionType} executionType ProtoOAExecutionEvent executionType
-   * @property {ProtoOAPosition|null} [position] ProtoOAExecutionEvent position
-   * @property {ProtoOAOrder|null} [order] ProtoOAExecutionEvent order
-   * @property {ProtoOADeal|null} [deal] ProtoOAExecutionEvent deal
-   * @property {ProtoOABonusDepositWithdraw|null} [bonusDepositWithdraw] ProtoOAExecutionEvent bonusDepositWithdraw
-   * @property {ProtoOADepositWithdraw|null} [depositWithdraw] ProtoOAExecutionEvent depositWithdraw
+   * @property {IProtoOAPosition|null} [position] ProtoOAExecutionEvent position
+   * @property {IProtoOAOrder|null} [order] ProtoOAExecutionEvent order
+   * @property {IProtoOADeal|null} [deal] ProtoOAExecutionEvent deal
+   * @property {IProtoOABonusDepositWithdraw|null} [bonusDepositWithdraw] ProtoOAExecutionEvent bonusDepositWithdraw
+   * @property {IProtoOADepositWithdraw|null} [depositWithdraw] ProtoOAExecutionEvent depositWithdraw
    * @property {string|null} [errorCode] ProtoOAExecutionEvent errorCode
    * @property {boolean|null} [isServerEvent] ProtoOAExecutionEvent isServerEvent
    */
@@ -7589,7 +7589,7 @@ export const ProtoOAExecutionEvent = ($root.ProtoOAExecutionEvent = (() => {
 
   /**
    * ProtoOAExecutionEvent position.
-   * @member {ProtoOAPosition|null|undefined} position
+   * @member {IProtoOAPosition|null|undefined} position
    * @memberof ProtoOAExecutionEvent
    * @instance
    */
@@ -7597,7 +7597,7 @@ export const ProtoOAExecutionEvent = ($root.ProtoOAExecutionEvent = (() => {
 
   /**
    * ProtoOAExecutionEvent order.
-   * @member {ProtoOAOrder|null|undefined} order
+   * @member {IProtoOAOrder|null|undefined} order
    * @memberof ProtoOAExecutionEvent
    * @instance
    */
@@ -7605,7 +7605,7 @@ export const ProtoOAExecutionEvent = ($root.ProtoOAExecutionEvent = (() => {
 
   /**
    * ProtoOAExecutionEvent deal.
-   * @member {ProtoOADeal|null|undefined} deal
+   * @member {IProtoOADeal|null|undefined} deal
    * @memberof ProtoOAExecutionEvent
    * @instance
    */
@@ -7613,7 +7613,7 @@ export const ProtoOAExecutionEvent = ($root.ProtoOAExecutionEvent = (() => {
 
   /**
    * ProtoOAExecutionEvent bonusDepositWithdraw.
-   * @member {ProtoOABonusDepositWithdraw|null|undefined} bonusDepositWithdraw
+   * @member {IProtoOABonusDepositWithdraw|null|undefined} bonusDepositWithdraw
    * @memberof ProtoOAExecutionEvent
    * @instance
    */
@@ -7621,7 +7621,7 @@ export const ProtoOAExecutionEvent = ($root.ProtoOAExecutionEvent = (() => {
 
   /**
    * ProtoOAExecutionEvent depositWithdraw.
-   * @member {ProtoOADepositWithdraw|null|undefined} depositWithdraw
+   * @member {IProtoOADepositWithdraw|null|undefined} depositWithdraw
    * @memberof ProtoOAExecutionEvent
    * @instance
    */
@@ -7660,7 +7660,7 @@ export const ProtoOAExecutionEvent = ($root.ProtoOAExecutionEvent = (() => {
    * @function encode
    * @memberof ProtoOAExecutionEvent
    * @static
-   * @param {ProtoOAExecutionEvent} message ProtoOAExecutionEvent message or plain object to encode
+   * @param {IProtoOAExecutionEvent} message ProtoOAExecutionEvent message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -7718,7 +7718,7 @@ export const ProtoOAExecutionEvent = ($root.ProtoOAExecutionEvent = (() => {
    * @function encodeDelimited
    * @memberof ProtoOAExecutionEvent
    * @static
-   * @param {ProtoOAExecutionEvent} message ProtoOAExecutionEvent message or plain object to encode
+   * @param {IProtoOAExecutionEvent} message ProtoOAExecutionEvent message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -8519,7 +8519,7 @@ export const ProtoOACancelOrderReq = ($root.ProtoOACancelOrderReq = (() => {
    * @function encode
    * @memberof ProtoOACancelOrderReq
    * @static
-   * @param {ProtoOACancelOrderReq} message ProtoOACancelOrderReq message or plain object to encode
+   * @param {IProtoOACancelOrderReq} message ProtoOACancelOrderReq message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -8539,7 +8539,7 @@ export const ProtoOACancelOrderReq = ($root.ProtoOACancelOrderReq = (() => {
    * @function encodeDelimited
    * @memberof ProtoOACancelOrderReq
    * @static
-   * @param {ProtoOACancelOrderReq} message ProtoOACancelOrderReq message or plain object to encode
+   * @param {IProtoOACancelOrderReq} message ProtoOACancelOrderReq message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -9289,7 +9289,7 @@ export const ProtoOAAmendOrderReq = ($root.ProtoOAAmendOrderReq = (() => {
    * @function encode
    * @memberof ProtoOAAmendOrderReq
    * @static
-   * @param {ProtoOAAmendOrderReq} message ProtoOAAmendOrderReq message or plain object to encode
+   * @param {IProtoOAAmendOrderReq} message ProtoOAAmendOrderReq message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -9368,7 +9368,7 @@ export const ProtoOAAmendOrderReq = ($root.ProtoOAAmendOrderReq = (() => {
    * @function encodeDelimited
    * @memberof ProtoOAAmendOrderReq
    * @static
-   * @param {ProtoOAAmendOrderReq} message ProtoOAAmendOrderReq message or plain object to encode
+   * @param {IProtoOAAmendOrderReq} message ProtoOAAmendOrderReq message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -10417,7 +10417,7 @@ export const ProtoOAAmendPositionSLTPReq = ($root.ProtoOAAmendPositionSLTPReq = 
    * @function encode
    * @memberof ProtoOAAmendPositionSLTPReq
    * @static
-   * @param {ProtoOAAmendPositionSLTPReq} message ProtoOAAmendPositionSLTPReq message or plain object to encode
+   * @param {IProtoOAAmendPositionSLTPReq} message ProtoOAAmendPositionSLTPReq message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -10460,7 +10460,7 @@ export const ProtoOAAmendPositionSLTPReq = ($root.ProtoOAAmendPositionSLTPReq = 
    * @function encodeDelimited
    * @memberof ProtoOAAmendPositionSLTPReq
    * @static
-   * @param {ProtoOAAmendPositionSLTPReq} message ProtoOAAmendPositionSLTPReq message or plain object to encode
+   * @param {IProtoOAAmendPositionSLTPReq} message ProtoOAAmendPositionSLTPReq message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -11213,7 +11213,7 @@ export const ProtoOAClosePositionReq = ($root.ProtoOAClosePositionReq = (() => {
    * @function encode
    * @memberof ProtoOAClosePositionReq
    * @static
-   * @param {ProtoOAClosePositionReq} message ProtoOAClosePositionReq message or plain object to encode
+   * @param {IProtoOAClosePositionReq} message ProtoOAClosePositionReq message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -11234,7 +11234,7 @@ export const ProtoOAClosePositionReq = ($root.ProtoOAClosePositionReq = (() => {
    * @function encodeDelimited
    * @memberof ProtoOAClosePositionReq
    * @static
-   * @param {ProtoOAClosePositionReq} message ProtoOAClosePositionReq message or plain object to encode
+   * @param {IProtoOAClosePositionReq} message ProtoOAClosePositionReq message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -11952,7 +11952,7 @@ export const ProtoOATrailingSLChangedEvent = ($root.ProtoOATrailingSLChangedEven
    * @function encode
    * @memberof ProtoOATrailingSLChangedEvent
    * @static
-   * @param {ProtoOATrailingSLChangedEvent} message ProtoOATrailingSLChangedEvent message or plain object to encode
+   * @param {IProtoOATrailingSLChangedEvent} message ProtoOATrailingSLChangedEvent message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -11977,7 +11977,7 @@ export const ProtoOATrailingSLChangedEvent = ($root.ProtoOATrailingSLChangedEven
    * @function encodeDelimited
    * @memberof ProtoOATrailingSLChangedEvent
    * @static
-   * @param {ProtoOATrailingSLChangedEvent} message ProtoOATrailingSLChangedEvent message or plain object to encode
+   * @param {IProtoOATrailingSLChangedEvent} message ProtoOATrailingSLChangedEvent message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -12734,7 +12734,7 @@ export const ProtoOAAssetListReq = ($root.ProtoOAAssetListReq = (() => {
    * @function encode
    * @memberof ProtoOAAssetListReq
    * @static
-   * @param {ProtoOAAssetListReq} message ProtoOAAssetListReq message or plain object to encode
+   * @param {IProtoOAAssetListReq} message ProtoOAAssetListReq message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -12753,7 +12753,7 @@ export const ProtoOAAssetListReq = ($root.ProtoOAAssetListReq = (() => {
    * @function encodeDelimited
    * @memberof ProtoOAAssetListReq
    * @static
-   * @param {ProtoOAAssetListReq} message ProtoOAAssetListReq message or plain object to encode
+   * @param {IProtoOAAssetListReq} message ProtoOAAssetListReq message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -13272,7 +13272,7 @@ export const ProtoOAAssetListRes = ($root.ProtoOAAssetListRes = (() => {
    * @interface IProtoOAAssetListRes
    * @property {ProtoOAPayloadType|null} [payloadType] ProtoOAAssetListRes payloadType
    * @property {number|Long} ctidTraderAccountId ProtoOAAssetListRes ctidTraderAccountId
-   * @property {Array.<ProtoOAAsset>|null} [asset] ProtoOAAssetListRes asset
+   * @property {Array.<IProtoOAAsset>|null} [asset] ProtoOAAssetListRes asset
    */
 
   /**
@@ -13310,7 +13310,7 @@ export const ProtoOAAssetListRes = ($root.ProtoOAAssetListRes = (() => {
 
   /**
    * ProtoOAAssetListRes asset.
-   * @member {Array.<ProtoOAAsset>} asset
+   * @member {Array.<IProtoOAAsset>} asset
    * @memberof ProtoOAAssetListRes
    * @instance
    */
@@ -13333,7 +13333,7 @@ export const ProtoOAAssetListRes = ($root.ProtoOAAssetListRes = (() => {
    * @function encode
    * @memberof ProtoOAAssetListRes
    * @static
-   * @param {ProtoOAAssetListRes} message ProtoOAAssetListRes message or plain object to encode
+   * @param {IProtoOAAssetListRes} message ProtoOAAssetListRes message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -13358,7 +13358,7 @@ export const ProtoOAAssetListRes = ($root.ProtoOAAssetListRes = (() => {
    * @function encodeDelimited
    * @memberof ProtoOAAssetListRes
    * @static
-   * @param {ProtoOAAssetListRes} message ProtoOAAssetListRes message or plain object to encode
+   * @param {IProtoOAAssetListRes} message ProtoOAAssetListRes message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -13960,7 +13960,7 @@ export const ProtoOASymbolsListReq = ($root.ProtoOASymbolsListReq = (() => {
    * @function encode
    * @memberof ProtoOASymbolsListReq
    * @static
-   * @param {ProtoOASymbolsListReq} message ProtoOASymbolsListReq message or plain object to encode
+   * @param {IProtoOASymbolsListReq} message ProtoOASymbolsListReq message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -13979,7 +13979,7 @@ export const ProtoOASymbolsListReq = ($root.ProtoOASymbolsListReq = (() => {
    * @function encodeDelimited
    * @memberof ProtoOASymbolsListReq
    * @static
-   * @param {ProtoOASymbolsListReq} message ProtoOASymbolsListReq message or plain object to encode
+   * @param {IProtoOASymbolsListReq} message ProtoOASymbolsListReq message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -14498,7 +14498,7 @@ export const ProtoOASymbolsListRes = ($root.ProtoOASymbolsListRes = (() => {
    * @interface IProtoOASymbolsListRes
    * @property {ProtoOAPayloadType|null} [payloadType] ProtoOASymbolsListRes payloadType
    * @property {number|Long} ctidTraderAccountId ProtoOASymbolsListRes ctidTraderAccountId
-   * @property {Array.<ProtoOALightSymbol>|null} [symbol] ProtoOASymbolsListRes symbol
+   * @property {Array.<IProtoOALightSymbol>|null} [symbol] ProtoOASymbolsListRes symbol
    */
 
   /**
@@ -14536,7 +14536,7 @@ export const ProtoOASymbolsListRes = ($root.ProtoOASymbolsListRes = (() => {
 
   /**
    * ProtoOASymbolsListRes symbol.
-   * @member {Array.<ProtoOALightSymbol>} symbol
+   * @member {Array.<IProtoOALightSymbol>} symbol
    * @memberof ProtoOASymbolsListRes
    * @instance
    */
@@ -14559,7 +14559,7 @@ export const ProtoOASymbolsListRes = ($root.ProtoOASymbolsListRes = (() => {
    * @function encode
    * @memberof ProtoOASymbolsListRes
    * @static
-   * @param {ProtoOASymbolsListRes} message ProtoOASymbolsListRes message or plain object to encode
+   * @param {IProtoOASymbolsListRes} message ProtoOASymbolsListRes message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -14584,7 +14584,7 @@ export const ProtoOASymbolsListRes = ($root.ProtoOASymbolsListRes = (() => {
    * @function encodeDelimited
    * @memberof ProtoOASymbolsListRes
    * @static
-   * @param {ProtoOASymbolsListRes} message ProtoOASymbolsListRes message or plain object to encode
+   * @param {IProtoOASymbolsListRes} message ProtoOASymbolsListRes message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -15198,7 +15198,7 @@ export const ProtoOASymbolByIdReq = ($root.ProtoOASymbolByIdReq = (() => {
    * @function encode
    * @memberof ProtoOASymbolByIdReq
    * @static
-   * @param {ProtoOASymbolByIdReq} message ProtoOASymbolByIdReq message or plain object to encode
+   * @param {IProtoOASymbolByIdReq} message ProtoOASymbolByIdReq message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -15220,7 +15220,7 @@ export const ProtoOASymbolByIdReq = ($root.ProtoOASymbolByIdReq = (() => {
    * @function encodeDelimited
    * @memberof ProtoOASymbolByIdReq
    * @static
-   * @param {ProtoOASymbolByIdReq} message ProtoOASymbolByIdReq message or plain object to encode
+   * @param {IProtoOASymbolByIdReq} message ProtoOASymbolByIdReq message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -15799,7 +15799,7 @@ export const ProtoOASymbolByIdRes = ($root.ProtoOASymbolByIdRes = (() => {
    * @interface IProtoOASymbolByIdRes
    * @property {ProtoOAPayloadType|null} [payloadType] ProtoOASymbolByIdRes payloadType
    * @property {number|Long} ctidTraderAccountId ProtoOASymbolByIdRes ctidTraderAccountId
-   * @property {Array.<ProtoOASymbol>|null} [symbol] ProtoOASymbolByIdRes symbol
+   * @property {Array.<IProtoOASymbol>|null} [symbol] ProtoOASymbolByIdRes symbol
    */
 
   /**
@@ -15837,7 +15837,7 @@ export const ProtoOASymbolByIdRes = ($root.ProtoOASymbolByIdRes = (() => {
 
   /**
    * ProtoOASymbolByIdRes symbol.
-   * @member {Array.<ProtoOASymbol>} symbol
+   * @member {Array.<IProtoOASymbol>} symbol
    * @memberof ProtoOASymbolByIdRes
    * @instance
    */
@@ -15860,7 +15860,7 @@ export const ProtoOASymbolByIdRes = ($root.ProtoOASymbolByIdRes = (() => {
    * @function encode
    * @memberof ProtoOASymbolByIdRes
    * @static
-   * @param {ProtoOASymbolByIdRes} message ProtoOASymbolByIdRes message or plain object to encode
+   * @param {IProtoOASymbolByIdRes} message ProtoOASymbolByIdRes message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -15885,7 +15885,7 @@ export const ProtoOASymbolByIdRes = ($root.ProtoOASymbolByIdRes = (() => {
    * @function encodeDelimited
    * @memberof ProtoOASymbolByIdRes
    * @static
-   * @param {ProtoOASymbolByIdRes} message ProtoOASymbolByIdRes message or plain object to encode
+   * @param {IProtoOASymbolByIdRes} message ProtoOASymbolByIdRes message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -16509,7 +16509,7 @@ export const ProtoOASymbolsForConversionReq = ($root.ProtoOASymbolsForConversion
    * @function encode
    * @memberof ProtoOASymbolsForConversionReq
    * @static
-   * @param {ProtoOASymbolsForConversionReq} message ProtoOASymbolsForConversionReq message or plain object to encode
+   * @param {IProtoOASymbolsForConversionReq} message ProtoOASymbolsForConversionReq message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -16530,7 +16530,7 @@ export const ProtoOASymbolsForConversionReq = ($root.ProtoOASymbolsForConversion
    * @function encodeDelimited
    * @memberof ProtoOASymbolsForConversionReq
    * @static
-   * @param {ProtoOASymbolsForConversionReq} message ProtoOASymbolsForConversionReq message or plain object to encode
+   * @param {IProtoOASymbolsForConversionReq} message ProtoOASymbolsForConversionReq message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -17164,7 +17164,7 @@ export const ProtoOASymbolsForConversionRes = ($root.ProtoOASymbolsForConversion
    * @interface IProtoOASymbolsForConversionRes
    * @property {ProtoOAPayloadType|null} [payloadType] ProtoOASymbolsForConversionRes payloadType
    * @property {number|Long} ctidTraderAccountId ProtoOASymbolsForConversionRes ctidTraderAccountId
-   * @property {Array.<ProtoOALightSymbol>|null} [symbol] ProtoOASymbolsForConversionRes symbol
+   * @property {Array.<IProtoOALightSymbol>|null} [symbol] ProtoOASymbolsForConversionRes symbol
    */
 
   /**
@@ -17202,7 +17202,7 @@ export const ProtoOASymbolsForConversionRes = ($root.ProtoOASymbolsForConversion
 
   /**
    * ProtoOASymbolsForConversionRes symbol.
-   * @member {Array.<ProtoOALightSymbol>} symbol
+   * @member {Array.<IProtoOALightSymbol>} symbol
    * @memberof ProtoOASymbolsForConversionRes
    * @instance
    */
@@ -17225,7 +17225,7 @@ export const ProtoOASymbolsForConversionRes = ($root.ProtoOASymbolsForConversion
    * @function encode
    * @memberof ProtoOASymbolsForConversionRes
    * @static
-   * @param {ProtoOASymbolsForConversionRes} message ProtoOASymbolsForConversionRes message or plain object to encode
+   * @param {IProtoOASymbolsForConversionRes} message ProtoOASymbolsForConversionRes message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -17250,7 +17250,7 @@ export const ProtoOASymbolsForConversionRes = ($root.ProtoOASymbolsForConversion
    * @function encodeDelimited
    * @memberof ProtoOASymbolsForConversionRes
    * @static
-   * @param {ProtoOASymbolsForConversionRes} message ProtoOASymbolsForConversionRes message or plain object to encode
+   * @param {IProtoOASymbolsForConversionRes} message ProtoOASymbolsForConversionRes message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -17873,7 +17873,7 @@ export const ProtoOASymbolChangedEvent = ($root.ProtoOASymbolChangedEvent = (() 
    * @function encode
    * @memberof ProtoOASymbolChangedEvent
    * @static
-   * @param {ProtoOASymbolChangedEvent} message ProtoOASymbolChangedEvent message or plain object to encode
+   * @param {IProtoOASymbolChangedEvent} message ProtoOASymbolChangedEvent message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -17895,7 +17895,7 @@ export const ProtoOASymbolChangedEvent = ($root.ProtoOASymbolChangedEvent = (() 
    * @function encodeDelimited
    * @memberof ProtoOASymbolChangedEvent
    * @static
-   * @param {ProtoOASymbolChangedEvent} message ProtoOASymbolChangedEvent message or plain object to encode
+   * @param {IProtoOASymbolChangedEvent} message ProtoOASymbolChangedEvent message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -18525,7 +18525,7 @@ export const ProtoOAAssetClassListReq = ($root.ProtoOAAssetClassListReq = (() =>
    * @function encode
    * @memberof ProtoOAAssetClassListReq
    * @static
-   * @param {ProtoOAAssetClassListReq} message ProtoOAAssetClassListReq message or plain object to encode
+   * @param {IProtoOAAssetClassListReq} message ProtoOAAssetClassListReq message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -18544,7 +18544,7 @@ export const ProtoOAAssetClassListReq = ($root.ProtoOAAssetClassListReq = (() =>
    * @function encodeDelimited
    * @memberof ProtoOAAssetClassListReq
    * @static
-   * @param {ProtoOAAssetClassListReq} message ProtoOAAssetClassListReq message or plain object to encode
+   * @param {IProtoOAAssetClassListReq} message ProtoOAAssetClassListReq message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -19063,7 +19063,7 @@ export const ProtoOAAssetClassListRes = ($root.ProtoOAAssetClassListRes = (() =>
    * @interface IProtoOAAssetClassListRes
    * @property {ProtoOAPayloadType|null} [payloadType] ProtoOAAssetClassListRes payloadType
    * @property {number|Long} ctidTraderAccountId ProtoOAAssetClassListRes ctidTraderAccountId
-   * @property {Array.<ProtoOAAssetClass>|null} [assetClass] ProtoOAAssetClassListRes assetClass
+   * @property {Array.<IProtoOAAssetClass>|null} [assetClass] ProtoOAAssetClassListRes assetClass
    */
 
   /**
@@ -19101,7 +19101,7 @@ export const ProtoOAAssetClassListRes = ($root.ProtoOAAssetClassListRes = (() =>
 
   /**
    * ProtoOAAssetClassListRes assetClass.
-   * @member {Array.<ProtoOAAssetClass>} assetClass
+   * @member {Array.<IProtoOAAssetClass>} assetClass
    * @memberof ProtoOAAssetClassListRes
    * @instance
    */
@@ -19124,7 +19124,7 @@ export const ProtoOAAssetClassListRes = ($root.ProtoOAAssetClassListRes = (() =>
    * @function encode
    * @memberof ProtoOAAssetClassListRes
    * @static
-   * @param {ProtoOAAssetClassListRes} message ProtoOAAssetClassListRes message or plain object to encode
+   * @param {IProtoOAAssetClassListRes} message ProtoOAAssetClassListRes message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -19149,7 +19149,7 @@ export const ProtoOAAssetClassListRes = ($root.ProtoOAAssetClassListRes = (() =>
    * @function encodeDelimited
    * @memberof ProtoOAAssetClassListRes
    * @static
-   * @param {ProtoOAAssetClassListRes} message ProtoOAAssetClassListRes message or plain object to encode
+   * @param {IProtoOAAssetClassListRes} message ProtoOAAssetClassListRes message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -19757,7 +19757,7 @@ export const ProtoOATraderReq = ($root.ProtoOATraderReq = (() => {
    * @function encode
    * @memberof ProtoOATraderReq
    * @static
-   * @param {ProtoOATraderReq} message ProtoOATraderReq message or plain object to encode
+   * @param {IProtoOATraderReq} message ProtoOATraderReq message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -19776,7 +19776,7 @@ export const ProtoOATraderReq = ($root.ProtoOATraderReq = (() => {
    * @function encodeDelimited
    * @memberof ProtoOATraderReq
    * @static
-   * @param {ProtoOATraderReq} message ProtoOATraderReq message or plain object to encode
+   * @param {IProtoOATraderReq} message ProtoOATraderReq message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -20292,7 +20292,7 @@ export const ProtoOATraderRes = ($root.ProtoOATraderRes = (() => {
    * @interface IProtoOATraderRes
    * @property {ProtoOAPayloadType|null} [payloadType] ProtoOATraderRes payloadType
    * @property {number|Long} ctidTraderAccountId ProtoOATraderRes ctidTraderAccountId
-   * @property {ProtoOATrader} trader ProtoOATraderRes trader
+   * @property {IProtoOATrader} trader ProtoOATraderRes trader
    */
 
   /**
@@ -20329,7 +20329,7 @@ export const ProtoOATraderRes = ($root.ProtoOATraderRes = (() => {
 
   /**
    * ProtoOATraderRes trader.
-   * @member {ProtoOATrader} trader
+   * @member {IProtoOATrader} trader
    * @memberof ProtoOATraderRes
    * @instance
    */
@@ -20352,7 +20352,7 @@ export const ProtoOATraderRes = ($root.ProtoOATraderRes = (() => {
    * @function encode
    * @memberof ProtoOATraderRes
    * @static
-   * @param {ProtoOATraderRes} message ProtoOATraderRes message or plain object to encode
+   * @param {IProtoOATraderRes} message ProtoOATraderRes message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -20375,7 +20375,7 @@ export const ProtoOATraderRes = ($root.ProtoOATraderRes = (() => {
    * @function encodeDelimited
    * @memberof ProtoOATraderRes
    * @static
-   * @param {ProtoOATraderRes} message ProtoOATraderRes message or plain object to encode
+   * @param {IProtoOATraderRes} message ProtoOATraderRes message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -20910,7 +20910,7 @@ export const ProtoOATraderUpdatedEvent = ($root.ProtoOATraderUpdatedEvent = (() 
    * @interface IProtoOATraderUpdatedEvent
    * @property {ProtoOAPayloadType|null} [payloadType] ProtoOATraderUpdatedEvent payloadType
    * @property {number|Long} ctidTraderAccountId ProtoOATraderUpdatedEvent ctidTraderAccountId
-   * @property {ProtoOATrader} trader ProtoOATraderUpdatedEvent trader
+   * @property {IProtoOATrader} trader ProtoOATraderUpdatedEvent trader
    */
 
   /**
@@ -20947,7 +20947,7 @@ export const ProtoOATraderUpdatedEvent = ($root.ProtoOATraderUpdatedEvent = (() 
 
   /**
    * ProtoOATraderUpdatedEvent trader.
-   * @member {ProtoOATrader} trader
+   * @member {IProtoOATrader} trader
    * @memberof ProtoOATraderUpdatedEvent
    * @instance
    */
@@ -20970,7 +20970,7 @@ export const ProtoOATraderUpdatedEvent = ($root.ProtoOATraderUpdatedEvent = (() 
    * @function encode
    * @memberof ProtoOATraderUpdatedEvent
    * @static
-   * @param {ProtoOATraderUpdatedEvent} message ProtoOATraderUpdatedEvent message or plain object to encode
+   * @param {IProtoOATraderUpdatedEvent} message ProtoOATraderUpdatedEvent message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -20993,7 +20993,7 @@ export const ProtoOATraderUpdatedEvent = ($root.ProtoOATraderUpdatedEvent = (() 
    * @function encodeDelimited
    * @memberof ProtoOATraderUpdatedEvent
    * @static
-   * @param {ProtoOATraderUpdatedEvent} message ProtoOATraderUpdatedEvent message or plain object to encode
+   * @param {IProtoOATraderUpdatedEvent} message ProtoOATraderUpdatedEvent message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -21582,7 +21582,7 @@ export const ProtoOAReconcileReq = ($root.ProtoOAReconcileReq = (() => {
    * @function encode
    * @memberof ProtoOAReconcileReq
    * @static
-   * @param {ProtoOAReconcileReq} message ProtoOAReconcileReq message or plain object to encode
+   * @param {IProtoOAReconcileReq} message ProtoOAReconcileReq message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -21601,7 +21601,7 @@ export const ProtoOAReconcileReq = ($root.ProtoOAReconcileReq = (() => {
    * @function encodeDelimited
    * @memberof ProtoOAReconcileReq
    * @static
-   * @param {ProtoOAReconcileReq} message ProtoOAReconcileReq message or plain object to encode
+   * @param {IProtoOAReconcileReq} message ProtoOAReconcileReq message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -22120,8 +22120,8 @@ export const ProtoOAReconcileRes = ($root.ProtoOAReconcileRes = (() => {
    * @interface IProtoOAReconcileRes
    * @property {ProtoOAPayloadType|null} [payloadType] ProtoOAReconcileRes payloadType
    * @property {number|Long} ctidTraderAccountId ProtoOAReconcileRes ctidTraderAccountId
-   * @property {Array.<ProtoOAPosition>|null} [position] ProtoOAReconcileRes position
-   * @property {Array.<ProtoOAOrder>|null} [order] ProtoOAReconcileRes order
+   * @property {Array.<IProtoOAPosition>|null} [position] ProtoOAReconcileRes position
+   * @property {Array.<IProtoOAOrder>|null} [order] ProtoOAReconcileRes order
    */
 
   /**
@@ -22160,7 +22160,7 @@ export const ProtoOAReconcileRes = ($root.ProtoOAReconcileRes = (() => {
 
   /**
    * ProtoOAReconcileRes position.
-   * @member {Array.<ProtoOAPosition>} position
+   * @member {Array.<IProtoOAPosition>} position
    * @memberof ProtoOAReconcileRes
    * @instance
    */
@@ -22168,7 +22168,7 @@ export const ProtoOAReconcileRes = ($root.ProtoOAReconcileRes = (() => {
 
   /**
    * ProtoOAReconcileRes order.
-   * @member {Array.<ProtoOAOrder>} order
+   * @member {Array.<IProtoOAOrder>} order
    * @memberof ProtoOAReconcileRes
    * @instance
    */
@@ -22191,7 +22191,7 @@ export const ProtoOAReconcileRes = ($root.ProtoOAReconcileRes = (() => {
    * @function encode
    * @memberof ProtoOAReconcileRes
    * @static
-   * @param {ProtoOAReconcileRes} message ProtoOAReconcileRes message or plain object to encode
+   * @param {IProtoOAReconcileRes} message ProtoOAReconcileRes message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -22222,7 +22222,7 @@ export const ProtoOAReconcileRes = ($root.ProtoOAReconcileRes = (() => {
    * @function encodeDelimited
    * @memberof ProtoOAReconcileRes
    * @static
-   * @param {ProtoOAReconcileRes} message ProtoOAReconcileRes message or plain object to encode
+   * @param {IProtoOAReconcileRes} message ProtoOAReconcileRes message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -22901,7 +22901,7 @@ export const ProtoOAOrderErrorEvent = ($root.ProtoOAOrderErrorEvent = (() => {
    * @function encode
    * @memberof ProtoOAOrderErrorEvent
    * @static
-   * @param {ProtoOAOrderErrorEvent} message ProtoOAOrderErrorEvent message or plain object to encode
+   * @param {IProtoOAOrderErrorEvent} message ProtoOAOrderErrorEvent message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -22927,7 +22927,7 @@ export const ProtoOAOrderErrorEvent = ($root.ProtoOAOrderErrorEvent = (() => {
    * @function encodeDelimited
    * @memberof ProtoOAOrderErrorEvent
    * @static
-   * @param {ProtoOAOrderErrorEvent} message ProtoOAOrderErrorEvent message or plain object to encode
+   * @param {IProtoOAOrderErrorEvent} message ProtoOAOrderErrorEvent message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -23653,7 +23653,7 @@ export const ProtoOADealListReq = ($root.ProtoOADealListReq = (() => {
    * @function encode
    * @memberof ProtoOADealListReq
    * @static
-   * @param {ProtoOADealListReq} message ProtoOADealListReq message or plain object to encode
+   * @param {IProtoOADealListReq} message ProtoOADealListReq message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -23676,7 +23676,7 @@ export const ProtoOADealListReq = ($root.ProtoOADealListReq = (() => {
    * @function encodeDelimited
    * @memberof ProtoOADealListReq
    * @static
-   * @param {ProtoOADealListReq} message ProtoOADealListReq message or plain object to encode
+   * @param {IProtoOADealListReq} message ProtoOADealListReq message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -24317,7 +24317,7 @@ export const ProtoOADealListRes = ($root.ProtoOADealListRes = (() => {
    * @interface IProtoOADealListRes
    * @property {ProtoOAPayloadType|null} [payloadType] ProtoOADealListRes payloadType
    * @property {number|Long} ctidTraderAccountId ProtoOADealListRes ctidTraderAccountId
-   * @property {Array.<ProtoOADeal>|null} [deal] ProtoOADealListRes deal
+   * @property {Array.<IProtoOADeal>|null} [deal] ProtoOADealListRes deal
    * @property {boolean} hasMore ProtoOADealListRes hasMore
    */
 
@@ -24356,7 +24356,7 @@ export const ProtoOADealListRes = ($root.ProtoOADealListRes = (() => {
 
   /**
    * ProtoOADealListRes deal.
-   * @member {Array.<ProtoOADeal>} deal
+   * @member {Array.<IProtoOADeal>} deal
    * @memberof ProtoOADealListRes
    * @instance
    */
@@ -24387,7 +24387,7 @@ export const ProtoOADealListRes = ($root.ProtoOADealListRes = (() => {
    * @function encode
    * @memberof ProtoOADealListRes
    * @static
-   * @param {ProtoOADealListRes} message ProtoOADealListRes message or plain object to encode
+   * @param {IProtoOADealListRes} message ProtoOADealListRes message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -24413,7 +24413,7 @@ export const ProtoOADealListRes = ($root.ProtoOADealListRes = (() => {
    * @function encodeDelimited
    * @memberof ProtoOADealListRes
    * @static
-   * @param {ProtoOADealListRes} message ProtoOADealListRes message or plain object to encode
+   * @param {IProtoOADealListRes} message ProtoOADealListRes message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -25044,7 +25044,7 @@ export const ProtoOAExpectedMarginReq = ($root.ProtoOAExpectedMarginReq = (() =>
    * @function encode
    * @memberof ProtoOAExpectedMarginReq
    * @static
-   * @param {ProtoOAExpectedMarginReq} message ProtoOAExpectedMarginReq message or plain object to encode
+   * @param {IProtoOAExpectedMarginReq} message ProtoOAExpectedMarginReq message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -25067,7 +25067,7 @@ export const ProtoOAExpectedMarginReq = ($root.ProtoOAExpectedMarginReq = (() =>
    * @function encodeDelimited
    * @memberof ProtoOAExpectedMarginReq
    * @static
-   * @param {ProtoOAExpectedMarginReq} message ProtoOAExpectedMarginReq message or plain object to encode
+   * @param {IProtoOAExpectedMarginReq} message ProtoOAExpectedMarginReq message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -25700,7 +25700,7 @@ export const ProtoOAExpectedMarginRes = ($root.ProtoOAExpectedMarginRes = (() =>
    * @interface IProtoOAExpectedMarginRes
    * @property {ProtoOAPayloadType|null} [payloadType] ProtoOAExpectedMarginRes payloadType
    * @property {number|Long} ctidTraderAccountId ProtoOAExpectedMarginRes ctidTraderAccountId
-   * @property {Array.<ProtoOAExpectedMargin>|null} [margin] ProtoOAExpectedMarginRes margin
+   * @property {Array.<IProtoOAExpectedMargin>|null} [margin] ProtoOAExpectedMarginRes margin
    */
 
   /**
@@ -25738,7 +25738,7 @@ export const ProtoOAExpectedMarginRes = ($root.ProtoOAExpectedMarginRes = (() =>
 
   /**
    * ProtoOAExpectedMarginRes margin.
-   * @member {Array.<ProtoOAExpectedMargin>} margin
+   * @member {Array.<IProtoOAExpectedMargin>} margin
    * @memberof ProtoOAExpectedMarginRes
    * @instance
    */
@@ -25761,7 +25761,7 @@ export const ProtoOAExpectedMarginRes = ($root.ProtoOAExpectedMarginRes = (() =>
    * @function encode
    * @memberof ProtoOAExpectedMarginRes
    * @static
-   * @param {ProtoOAExpectedMarginRes} message ProtoOAExpectedMarginRes message or plain object to encode
+   * @param {IProtoOAExpectedMarginRes} message ProtoOAExpectedMarginRes message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -25786,7 +25786,7 @@ export const ProtoOAExpectedMarginRes = ($root.ProtoOAExpectedMarginRes = (() =>
    * @function encodeDelimited
    * @memberof ProtoOAExpectedMarginRes
    * @static
-   * @param {ProtoOAExpectedMarginRes} message ProtoOAExpectedMarginRes message or plain object to encode
+   * @param {IProtoOAExpectedMarginRes} message ProtoOAExpectedMarginRes message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -26412,7 +26412,7 @@ export const ProtoOAMarginChangedEvent = ($root.ProtoOAMarginChangedEvent = (() 
    * @function encode
    * @memberof ProtoOAMarginChangedEvent
    * @static
-   * @param {ProtoOAMarginChangedEvent} message ProtoOAMarginChangedEvent message or plain object to encode
+   * @param {IProtoOAMarginChangedEvent} message ProtoOAMarginChangedEvent message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -26433,7 +26433,7 @@ export const ProtoOAMarginChangedEvent = ($root.ProtoOAMarginChangedEvent = (() 
    * @function encodeDelimited
    * @memberof ProtoOAMarginChangedEvent
    * @static
-   * @param {ProtoOAMarginChangedEvent} message ProtoOAMarginChangedEvent message or plain object to encode
+   * @param {IProtoOAMarginChangedEvent} message ProtoOAMarginChangedEvent message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -27135,7 +27135,7 @@ export const ProtoOACashFlowHistoryListReq = ($root.ProtoOACashFlowHistoryListRe
    * @function encode
    * @memberof ProtoOACashFlowHistoryListReq
    * @static
-   * @param {ProtoOACashFlowHistoryListReq} message ProtoOACashFlowHistoryListReq message or plain object to encode
+   * @param {IProtoOACashFlowHistoryListReq} message ProtoOACashFlowHistoryListReq message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -27156,7 +27156,7 @@ export const ProtoOACashFlowHistoryListReq = ($root.ProtoOACashFlowHistoryListRe
    * @function encodeDelimited
    * @memberof ProtoOACashFlowHistoryListReq
    * @static
-   * @param {ProtoOACashFlowHistoryListReq} message ProtoOACashFlowHistoryListReq message or plain object to encode
+   * @param {IProtoOACashFlowHistoryListReq} message ProtoOACashFlowHistoryListReq message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -27790,7 +27790,7 @@ export const ProtoOACashFlowHistoryListRes = ($root.ProtoOACashFlowHistoryListRe
    * @interface IProtoOACashFlowHistoryListRes
    * @property {ProtoOAPayloadType|null} [payloadType] ProtoOACashFlowHistoryListRes payloadType
    * @property {number|Long} ctidTraderAccountId ProtoOACashFlowHistoryListRes ctidTraderAccountId
-   * @property {Array.<ProtoOADepositWithdraw>|null} [depositWithdraw] ProtoOACashFlowHistoryListRes depositWithdraw
+   * @property {Array.<IProtoOADepositWithdraw>|null} [depositWithdraw] ProtoOACashFlowHistoryListRes depositWithdraw
    */
 
   /**
@@ -27828,7 +27828,7 @@ export const ProtoOACashFlowHistoryListRes = ($root.ProtoOACashFlowHistoryListRe
 
   /**
    * ProtoOACashFlowHistoryListRes depositWithdraw.
-   * @member {Array.<ProtoOADepositWithdraw>} depositWithdraw
+   * @member {Array.<IProtoOADepositWithdraw>} depositWithdraw
    * @memberof ProtoOACashFlowHistoryListRes
    * @instance
    */
@@ -27851,7 +27851,7 @@ export const ProtoOACashFlowHistoryListRes = ($root.ProtoOACashFlowHistoryListRe
    * @function encode
    * @memberof ProtoOACashFlowHistoryListRes
    * @static
-   * @param {ProtoOACashFlowHistoryListRes} message ProtoOACashFlowHistoryListRes message or plain object to encode
+   * @param {IProtoOACashFlowHistoryListRes} message ProtoOACashFlowHistoryListRes message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -27876,7 +27876,7 @@ export const ProtoOACashFlowHistoryListRes = ($root.ProtoOACashFlowHistoryListRe
    * @function encodeDelimited
    * @memberof ProtoOACashFlowHistoryListRes
    * @static
-   * @param {ProtoOACashFlowHistoryListRes} message ProtoOACashFlowHistoryListRes message or plain object to encode
+   * @param {IProtoOACashFlowHistoryListRes} message ProtoOACashFlowHistoryListRes message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -28491,7 +28491,7 @@ export const ProtoOAGetAccountListByAccessTokenReq = ($root.ProtoOAGetAccountLis
    * @function encode
    * @memberof ProtoOAGetAccountListByAccessTokenReq
    * @static
-   * @param {ProtoOAGetAccountListByAccessTokenReq} message ProtoOAGetAccountListByAccessTokenReq message or plain object to encode
+   * @param {IProtoOAGetAccountListByAccessTokenReq} message ProtoOAGetAccountListByAccessTokenReq message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -28511,7 +28511,7 @@ export const ProtoOAGetAccountListByAccessTokenReq = ($root.ProtoOAGetAccountLis
    * @function encodeDelimited
    * @memberof ProtoOAGetAccountListByAccessTokenReq
    * @static
-   * @param {ProtoOAGetAccountListByAccessTokenReq} message ProtoOAGetAccountListByAccessTokenReq message or plain object to encode
+   * @param {IProtoOAGetAccountListByAccessTokenReq} message ProtoOAGetAccountListByAccessTokenReq message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -29000,7 +29000,7 @@ export const ProtoOAGetAccountListByAccessTokenRes = ($root.ProtoOAGetAccountLis
    * @property {ProtoOAPayloadType|null} [payloadType] ProtoOAGetAccountListByAccessTokenRes payloadType
    * @property {string} accessToken ProtoOAGetAccountListByAccessTokenRes accessToken
    * @property {ProtoOAClientPermissionScope|null} [permissionScope] ProtoOAGetAccountListByAccessTokenRes permissionScope
-   * @property {Array.<ProtoOACtidTraderAccount>|null} [ctidTraderAccount] ProtoOAGetAccountListByAccessTokenRes ctidTraderAccount
+   * @property {Array.<IProtoOACtidTraderAccount>|null} [ctidTraderAccount] ProtoOAGetAccountListByAccessTokenRes ctidTraderAccount
    */
 
   /**
@@ -29044,7 +29044,7 @@ export const ProtoOAGetAccountListByAccessTokenRes = ($root.ProtoOAGetAccountLis
 
   /**
    * ProtoOAGetAccountListByAccessTokenRes ctidTraderAccount.
-   * @member {Array.<ProtoOACtidTraderAccount>} ctidTraderAccount
+   * @member {Array.<IProtoOACtidTraderAccount>} ctidTraderAccount
    * @memberof ProtoOAGetAccountListByAccessTokenRes
    * @instance
    */
@@ -29068,7 +29068,7 @@ export const ProtoOAGetAccountListByAccessTokenRes = ($root.ProtoOAGetAccountLis
    * @function encode
    * @memberof ProtoOAGetAccountListByAccessTokenRes
    * @static
-   * @param {ProtoOAGetAccountListByAccessTokenRes} message ProtoOAGetAccountListByAccessTokenRes message or plain object to encode
+   * @param {IProtoOAGetAccountListByAccessTokenRes} message ProtoOAGetAccountListByAccessTokenRes message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -29099,7 +29099,7 @@ export const ProtoOAGetAccountListByAccessTokenRes = ($root.ProtoOAGetAccountLis
    * @function encodeDelimited
    * @memberof ProtoOAGetAccountListByAccessTokenRes
    * @static
-   * @param {ProtoOAGetAccountListByAccessTokenRes} message ProtoOAGetAccountListByAccessTokenRes message or plain object to encode
+   * @param {IProtoOAGetAccountListByAccessTokenRes} message ProtoOAGetAccountListByAccessTokenRes message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -29728,7 +29728,7 @@ export const ProtoOASubscribeSpotsReq = ($root.ProtoOASubscribeSpotsReq = (() =>
    * @function encode
    * @memberof ProtoOASubscribeSpotsReq
    * @static
-   * @param {ProtoOASubscribeSpotsReq} message ProtoOASubscribeSpotsReq message or plain object to encode
+   * @param {IProtoOASubscribeSpotsReq} message ProtoOASubscribeSpotsReq message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -29750,7 +29750,7 @@ export const ProtoOASubscribeSpotsReq = ($root.ProtoOASubscribeSpotsReq = (() =>
    * @function encodeDelimited
    * @memberof ProtoOASubscribeSpotsReq
    * @static
-   * @param {ProtoOASubscribeSpotsReq} message ProtoOASubscribeSpotsReq message or plain object to encode
+   * @param {IProtoOASubscribeSpotsReq} message ProtoOASubscribeSpotsReq message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -30380,7 +30380,7 @@ export const ProtoOASubscribeSpotsRes = ($root.ProtoOASubscribeSpotsRes = (() =>
    * @function encode
    * @memberof ProtoOASubscribeSpotsRes
    * @static
-   * @param {ProtoOASubscribeSpotsRes} message ProtoOASubscribeSpotsRes message or plain object to encode
+   * @param {IProtoOASubscribeSpotsRes} message ProtoOASubscribeSpotsRes message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -30399,7 +30399,7 @@ export const ProtoOASubscribeSpotsRes = ($root.ProtoOASubscribeSpotsRes = (() =>
    * @function encodeDelimited
    * @memberof ProtoOASubscribeSpotsRes
    * @static
-   * @param {ProtoOASubscribeSpotsRes} message ProtoOASubscribeSpotsRes message or plain object to encode
+   * @param {IProtoOASubscribeSpotsRes} message ProtoOASubscribeSpotsRes message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -30979,7 +30979,7 @@ export const ProtoOAUnsubscribeSpotsReq = ($root.ProtoOAUnsubscribeSpotsReq = ((
    * @function encode
    * @memberof ProtoOAUnsubscribeSpotsReq
    * @static
-   * @param {ProtoOAUnsubscribeSpotsReq} message ProtoOAUnsubscribeSpotsReq message or plain object to encode
+   * @param {IProtoOAUnsubscribeSpotsReq} message ProtoOAUnsubscribeSpotsReq message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -31001,7 +31001,7 @@ export const ProtoOAUnsubscribeSpotsReq = ($root.ProtoOAUnsubscribeSpotsReq = ((
    * @function encodeDelimited
    * @memberof ProtoOAUnsubscribeSpotsReq
    * @static
-   * @param {ProtoOAUnsubscribeSpotsReq} message ProtoOAUnsubscribeSpotsReq message or plain object to encode
+   * @param {IProtoOAUnsubscribeSpotsReq} message ProtoOAUnsubscribeSpotsReq message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -31633,7 +31633,7 @@ export const ProtoOAUnsubscribeSpotsRes = ($root.ProtoOAUnsubscribeSpotsRes = ((
    * @function encode
    * @memberof ProtoOAUnsubscribeSpotsRes
    * @static
-   * @param {ProtoOAUnsubscribeSpotsRes} message ProtoOAUnsubscribeSpotsRes message or plain object to encode
+   * @param {IProtoOAUnsubscribeSpotsRes} message ProtoOAUnsubscribeSpotsRes message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -31652,7 +31652,7 @@ export const ProtoOAUnsubscribeSpotsRes = ($root.ProtoOAUnsubscribeSpotsRes = ((
    * @function encodeDelimited
    * @memberof ProtoOAUnsubscribeSpotsRes
    * @static
-   * @param {ProtoOAUnsubscribeSpotsRes} message ProtoOAUnsubscribeSpotsRes message or plain object to encode
+   * @param {IProtoOAUnsubscribeSpotsRes} message ProtoOAUnsubscribeSpotsRes message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -32176,7 +32176,7 @@ export const ProtoOASpotEvent = ($root.ProtoOASpotEvent = (() => {
    * @property {number|Long} symbolId ProtoOASpotEvent symbolId
    * @property {number|Long|null} [bid] ProtoOASpotEvent bid
    * @property {number|Long|null} [ask] ProtoOASpotEvent ask
-   * @property {Array.<ProtoOATrendbar>|null} [trendbar] ProtoOASpotEvent trendbar
+   * @property {Array.<IProtoOATrendbar>|null} [trendbar] ProtoOASpotEvent trendbar
    */
 
   /**
@@ -32244,7 +32244,7 @@ export const ProtoOASpotEvent = ($root.ProtoOASpotEvent = (() => {
 
   /**
    * ProtoOASpotEvent trendbar.
-   * @member {Array.<ProtoOATrendbar>} trendbar
+   * @member {Array.<IProtoOATrendbar>} trendbar
    * @memberof ProtoOASpotEvent
    * @instance
    */
@@ -32267,7 +32267,7 @@ export const ProtoOASpotEvent = ($root.ProtoOASpotEvent = (() => {
    * @function encode
    * @memberof ProtoOASpotEvent
    * @static
-   * @param {ProtoOASpotEvent} message ProtoOASpotEvent message or plain object to encode
+   * @param {IProtoOASpotEvent} message ProtoOASpotEvent message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -32297,7 +32297,7 @@ export const ProtoOASpotEvent = ($root.ProtoOASpotEvent = (() => {
    * @function encodeDelimited
    * @memberof ProtoOASpotEvent
    * @static
-   * @param {ProtoOASpotEvent} message ProtoOASpotEvent message or plain object to encode
+   * @param {IProtoOASpotEvent} message ProtoOASpotEvent message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -33068,7 +33068,7 @@ export const ProtoOASubscribeLiveTrendbarReq = ($root.ProtoOASubscribeLiveTrendb
    * @function encode
    * @memberof ProtoOASubscribeLiveTrendbarReq
    * @static
-   * @param {ProtoOASubscribeLiveTrendbarReq} message ProtoOASubscribeLiveTrendbarReq message or plain object to encode
+   * @param {IProtoOASubscribeLiveTrendbarReq} message ProtoOASubscribeLiveTrendbarReq message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -33089,7 +33089,7 @@ export const ProtoOASubscribeLiveTrendbarReq = ($root.ProtoOASubscribeLiveTrendb
    * @function encodeDelimited
    * @memberof ProtoOASubscribeLiveTrendbarReq
    * @static
-   * @param {ProtoOASubscribeLiveTrendbarReq} message ProtoOASubscribeLiveTrendbarReq message or plain object to encode
+   * @param {IProtoOASubscribeLiveTrendbarReq} message ProtoOASubscribeLiveTrendbarReq message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -33831,7 +33831,7 @@ export const ProtoOAUnsubscribeLiveTrendbarReq = ($root.ProtoOAUnsubscribeLiveTr
    * @function encode
    * @memberof ProtoOAUnsubscribeLiveTrendbarReq
    * @static
-   * @param {ProtoOAUnsubscribeLiveTrendbarReq} message ProtoOAUnsubscribeLiveTrendbarReq message or plain object to encode
+   * @param {IProtoOAUnsubscribeLiveTrendbarReq} message ProtoOAUnsubscribeLiveTrendbarReq message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -33852,7 +33852,7 @@ export const ProtoOAUnsubscribeLiveTrendbarReq = ($root.ProtoOAUnsubscribeLiveTr
    * @function encodeDelimited
    * @memberof ProtoOAUnsubscribeLiveTrendbarReq
    * @static
-   * @param {ProtoOAUnsubscribeLiveTrendbarReq} message ProtoOAUnsubscribeLiveTrendbarReq message or plain object to encode
+   * @param {IProtoOAUnsubscribeLiveTrendbarReq} message ProtoOAUnsubscribeLiveTrendbarReq message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -34617,7 +34617,7 @@ export const ProtoOAGetTrendbarsReq = ($root.ProtoOAGetTrendbarsReq = (() => {
    * @function encode
    * @memberof ProtoOAGetTrendbarsReq
    * @static
-   * @param {ProtoOAGetTrendbarsReq} message ProtoOAGetTrendbarsReq message or plain object to encode
+   * @param {IProtoOAGetTrendbarsReq} message ProtoOAGetTrendbarsReq message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -34640,7 +34640,7 @@ export const ProtoOAGetTrendbarsReq = ($root.ProtoOAGetTrendbarsReq = (() => {
    * @function encodeDelimited
    * @memberof ProtoOAGetTrendbarsReq
    * @static
-   * @param {ProtoOAGetTrendbarsReq} message ProtoOAGetTrendbarsReq message or plain object to encode
+   * @param {IProtoOAGetTrendbarsReq} message ProtoOAGetTrendbarsReq message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -35419,7 +35419,7 @@ export const ProtoOAGetTrendbarsRes = ($root.ProtoOAGetTrendbarsRes = (() => {
    * @property {number|Long} ctidTraderAccountId ProtoOAGetTrendbarsRes ctidTraderAccountId
    * @property {ProtoOATrendbarPeriod} period ProtoOAGetTrendbarsRes period
    * @property {number|Long} timestamp ProtoOAGetTrendbarsRes timestamp
-   * @property {Array.<ProtoOATrendbar>|null} [trendbar] ProtoOAGetTrendbarsRes trendbar
+   * @property {Array.<IProtoOATrendbar>|null} [trendbar] ProtoOAGetTrendbarsRes trendbar
    * @property {number|Long|null} [symbolId] ProtoOAGetTrendbarsRes symbolId
    */
 
@@ -35476,7 +35476,7 @@ export const ProtoOAGetTrendbarsRes = ($root.ProtoOAGetTrendbarsRes = (() => {
 
   /**
    * ProtoOAGetTrendbarsRes trendbar.
-   * @member {Array.<ProtoOATrendbar>} trendbar
+   * @member {Array.<IProtoOATrendbar>} trendbar
    * @memberof ProtoOAGetTrendbarsRes
    * @instance
    */
@@ -35509,7 +35509,7 @@ export const ProtoOAGetTrendbarsRes = ($root.ProtoOAGetTrendbarsRes = (() => {
    * @function encode
    * @memberof ProtoOAGetTrendbarsRes
    * @static
-   * @param {ProtoOAGetTrendbarsRes} message ProtoOAGetTrendbarsRes message or plain object to encode
+   * @param {IProtoOAGetTrendbarsRes} message ProtoOAGetTrendbarsRes message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -35538,7 +35538,7 @@ export const ProtoOAGetTrendbarsRes = ($root.ProtoOAGetTrendbarsRes = (() => {
    * @function encodeDelimited
    * @memberof ProtoOAGetTrendbarsRes
    * @static
-   * @param {ProtoOAGetTrendbarsRes} message ProtoOAGetTrendbarsRes message or plain object to encode
+   * @param {IProtoOAGetTrendbarsRes} message ProtoOAGetTrendbarsRes message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -36382,7 +36382,7 @@ export const ProtoOAGetTickDataReq = ($root.ProtoOAGetTickDataReq = (() => {
    * @function encode
    * @memberof ProtoOAGetTickDataReq
    * @static
-   * @param {ProtoOAGetTickDataReq} message ProtoOAGetTickDataReq message or plain object to encode
+   * @param {IProtoOAGetTickDataReq} message ProtoOAGetTickDataReq message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -36405,7 +36405,7 @@ export const ProtoOAGetTickDataReq = ($root.ProtoOAGetTickDataReq = (() => {
    * @function encodeDelimited
    * @memberof ProtoOAGetTickDataReq
    * @static
-   * @param {ProtoOAGetTickDataReq} message ProtoOAGetTickDataReq message or plain object to encode
+   * @param {IProtoOAGetTickDataReq} message ProtoOAGetTickDataReq message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -37122,7 +37122,7 @@ export const ProtoOAGetTickDataRes = ($root.ProtoOAGetTickDataRes = (() => {
    * @interface IProtoOAGetTickDataRes
    * @property {ProtoOAPayloadType|null} [payloadType] ProtoOAGetTickDataRes payloadType
    * @property {number|Long} ctidTraderAccountId ProtoOAGetTickDataRes ctidTraderAccountId
-   * @property {Array.<ProtoOATickData>|null} [tickData] ProtoOAGetTickDataRes tickData
+   * @property {Array.<IProtoOATickData>|null} [tickData] ProtoOAGetTickDataRes tickData
    * @property {boolean} hasMore ProtoOAGetTickDataRes hasMore
    */
 
@@ -37161,7 +37161,7 @@ export const ProtoOAGetTickDataRes = ($root.ProtoOAGetTickDataRes = (() => {
 
   /**
    * ProtoOAGetTickDataRes tickData.
-   * @member {Array.<ProtoOATickData>} tickData
+   * @member {Array.<IProtoOATickData>} tickData
    * @memberof ProtoOAGetTickDataRes
    * @instance
    */
@@ -37192,7 +37192,7 @@ export const ProtoOAGetTickDataRes = ($root.ProtoOAGetTickDataRes = (() => {
    * @function encode
    * @memberof ProtoOAGetTickDataRes
    * @static
-   * @param {ProtoOAGetTickDataRes} message ProtoOAGetTickDataRes message or plain object to encode
+   * @param {IProtoOAGetTickDataRes} message ProtoOAGetTickDataRes message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -37218,7 +37218,7 @@ export const ProtoOAGetTickDataRes = ($root.ProtoOAGetTickDataRes = (() => {
    * @function encodeDelimited
    * @memberof ProtoOAGetTickDataRes
    * @static
-   * @param {ProtoOAGetTickDataRes} message ProtoOAGetTickDataRes message or plain object to encode
+   * @param {IProtoOAGetTickDataRes} message ProtoOAGetTickDataRes message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -37834,7 +37834,7 @@ export const ProtoOAGetCtidProfileByTokenReq = ($root.ProtoOAGetCtidProfileByTok
    * @function encode
    * @memberof ProtoOAGetCtidProfileByTokenReq
    * @static
-   * @param {ProtoOAGetCtidProfileByTokenReq} message ProtoOAGetCtidProfileByTokenReq message or plain object to encode
+   * @param {IProtoOAGetCtidProfileByTokenReq} message ProtoOAGetCtidProfileByTokenReq message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -37851,7 +37851,7 @@ export const ProtoOAGetCtidProfileByTokenReq = ($root.ProtoOAGetCtidProfileByTok
    * @function encodeDelimited
    * @memberof ProtoOAGetCtidProfileByTokenReq
    * @static
-   * @param {ProtoOAGetCtidProfileByTokenReq} message ProtoOAGetCtidProfileByTokenReq message or plain object to encode
+   * @param {IProtoOAGetCtidProfileByTokenReq} message ProtoOAGetCtidProfileByTokenReq message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -38332,7 +38332,7 @@ export const ProtoOAGetCtidProfileByTokenRes = ($root.ProtoOAGetCtidProfileByTok
    * @exports IProtoOAGetCtidProfileByTokenRes
    * @interface IProtoOAGetCtidProfileByTokenRes
    * @property {ProtoOAPayloadType|null} [payloadType] ProtoOAGetCtidProfileByTokenRes payloadType
-   * @property {ProtoOACtidProfile} profile ProtoOAGetCtidProfileByTokenRes profile
+   * @property {IProtoOACtidProfile} profile ProtoOAGetCtidProfileByTokenRes profile
    */
 
   /**
@@ -38359,7 +38359,7 @@ export const ProtoOAGetCtidProfileByTokenRes = ($root.ProtoOAGetCtidProfileByTok
 
   /**
    * ProtoOAGetCtidProfileByTokenRes profile.
-   * @member {ProtoOACtidProfile} profile
+   * @member {IProtoOACtidProfile} profile
    * @memberof ProtoOAGetCtidProfileByTokenRes
    * @instance
    */
@@ -38382,7 +38382,7 @@ export const ProtoOAGetCtidProfileByTokenRes = ($root.ProtoOAGetCtidProfileByTok
    * @function encode
    * @memberof ProtoOAGetCtidProfileByTokenRes
    * @static
-   * @param {ProtoOAGetCtidProfileByTokenRes} message ProtoOAGetCtidProfileByTokenRes message or plain object to encode
+   * @param {IProtoOAGetCtidProfileByTokenRes} message ProtoOAGetCtidProfileByTokenRes message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -38402,7 +38402,7 @@ export const ProtoOAGetCtidProfileByTokenRes = ($root.ProtoOAGetCtidProfileByTok
    * @function encodeDelimited
    * @memberof ProtoOAGetCtidProfileByTokenRes
    * @static
-   * @param {ProtoOAGetCtidProfileByTokenRes} message ProtoOAGetCtidProfileByTokenRes message or plain object to encode
+   * @param {IProtoOAGetCtidProfileByTokenRes} message ProtoOAGetCtidProfileByTokenRes message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -38898,7 +38898,7 @@ export const ProtoOADepthEvent = ($root.ProtoOADepthEvent = (() => {
    * @property {ProtoOAPayloadType|null} [payloadType] ProtoOADepthEvent payloadType
    * @property {number|Long} ctidTraderAccountId ProtoOADepthEvent ctidTraderAccountId
    * @property {number|Long} symbolId ProtoOADepthEvent symbolId
-   * @property {Array.<ProtoOADepthQuote>|null} [newQuotes] ProtoOADepthEvent newQuotes
+   * @property {Array.<IProtoOADepthQuote>|null} [newQuotes] ProtoOADepthEvent newQuotes
    * @property {Array.<number|Long>|null} [deletedQuotes] ProtoOADepthEvent deletedQuotes
    */
 
@@ -38948,7 +38948,7 @@ export const ProtoOADepthEvent = ($root.ProtoOADepthEvent = (() => {
 
   /**
    * ProtoOADepthEvent newQuotes.
-   * @member {Array.<ProtoOADepthQuote>} newQuotes
+   * @member {Array.<IProtoOADepthQuote>} newQuotes
    * @memberof ProtoOADepthEvent
    * @instance
    */
@@ -38979,7 +38979,7 @@ export const ProtoOADepthEvent = ($root.ProtoOADepthEvent = (() => {
    * @function encode
    * @memberof ProtoOADepthEvent
    * @static
-   * @param {ProtoOADepthEvent} message ProtoOADepthEvent message or plain object to encode
+   * @param {IProtoOADepthEvent} message ProtoOADepthEvent message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -39011,7 +39011,7 @@ export const ProtoOADepthEvent = ($root.ProtoOADepthEvent = (() => {
    * @function encodeDelimited
    * @memberof ProtoOADepthEvent
    * @static
-   * @param {ProtoOADepthEvent} message ProtoOADepthEvent message or plain object to encode
+   * @param {IProtoOADepthEvent} message ProtoOADepthEvent message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -39748,7 +39748,7 @@ export const ProtoOASubscribeDepthQuotesReq = ($root.ProtoOASubscribeDepthQuotes
    * @function encode
    * @memberof ProtoOASubscribeDepthQuotesReq
    * @static
-   * @param {ProtoOASubscribeDepthQuotesReq} message ProtoOASubscribeDepthQuotesReq message or plain object to encode
+   * @param {IProtoOASubscribeDepthQuotesReq} message ProtoOASubscribeDepthQuotesReq message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -39770,7 +39770,7 @@ export const ProtoOASubscribeDepthQuotesReq = ($root.ProtoOASubscribeDepthQuotes
    * @function encodeDelimited
    * @memberof ProtoOASubscribeDepthQuotesReq
    * @static
-   * @param {ProtoOASubscribeDepthQuotesReq} message ProtoOASubscribeDepthQuotesReq message or plain object to encode
+   * @param {IProtoOASubscribeDepthQuotesReq} message ProtoOASubscribeDepthQuotesReq message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -40407,7 +40407,7 @@ export const ProtoOASubscribeDepthQuotesRes = ($root.ProtoOASubscribeDepthQuotes
    * @function encode
    * @memberof ProtoOASubscribeDepthQuotesRes
    * @static
-   * @param {ProtoOASubscribeDepthQuotesRes} message ProtoOASubscribeDepthQuotesRes message or plain object to encode
+   * @param {IProtoOASubscribeDepthQuotesRes} message ProtoOASubscribeDepthQuotesRes message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -40426,7 +40426,7 @@ export const ProtoOASubscribeDepthQuotesRes = ($root.ProtoOASubscribeDepthQuotes
    * @function encodeDelimited
    * @memberof ProtoOASubscribeDepthQuotesRes
    * @static
-   * @param {ProtoOASubscribeDepthQuotesRes} message ProtoOASubscribeDepthQuotesRes message or plain object to encode
+   * @param {IProtoOASubscribeDepthQuotesRes} message ProtoOASubscribeDepthQuotesRes message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -41011,7 +41011,7 @@ export const ProtoOAUnsubscribeDepthQuotesReq = ($root.ProtoOAUnsubscribeDepthQu
    * @function encode
    * @memberof ProtoOAUnsubscribeDepthQuotesReq
    * @static
-   * @param {ProtoOAUnsubscribeDepthQuotesReq} message ProtoOAUnsubscribeDepthQuotesReq message or plain object to encode
+   * @param {IProtoOAUnsubscribeDepthQuotesReq} message ProtoOAUnsubscribeDepthQuotesReq message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -41033,7 +41033,7 @@ export const ProtoOAUnsubscribeDepthQuotesReq = ($root.ProtoOAUnsubscribeDepthQu
    * @function encodeDelimited
    * @memberof ProtoOAUnsubscribeDepthQuotesReq
    * @static
-   * @param {ProtoOAUnsubscribeDepthQuotesReq} message ProtoOAUnsubscribeDepthQuotesReq message or plain object to encode
+   * @param {IProtoOAUnsubscribeDepthQuotesReq} message ProtoOAUnsubscribeDepthQuotesReq message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -41672,7 +41672,7 @@ export const ProtoOAUnsubscribeDepthQuotesRes = ($root.ProtoOAUnsubscribeDepthQu
    * @function encode
    * @memberof ProtoOAUnsubscribeDepthQuotesRes
    * @static
-   * @param {ProtoOAUnsubscribeDepthQuotesRes} message ProtoOAUnsubscribeDepthQuotesRes message or plain object to encode
+   * @param {IProtoOAUnsubscribeDepthQuotesRes} message ProtoOAUnsubscribeDepthQuotesRes message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -41691,7 +41691,7 @@ export const ProtoOAUnsubscribeDepthQuotesRes = ($root.ProtoOAUnsubscribeDepthQu
    * @function encodeDelimited
    * @memberof ProtoOAUnsubscribeDepthQuotesRes
    * @static
-   * @param {ProtoOAUnsubscribeDepthQuotesRes} message ProtoOAUnsubscribeDepthQuotesRes message or plain object to encode
+   * @param {IProtoOAUnsubscribeDepthQuotesRes} message ProtoOAUnsubscribeDepthQuotesRes message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -42268,7 +42268,7 @@ export const ProtoOASymbolCategoryListReq = ($root.ProtoOASymbolCategoryListReq 
    * @function encode
    * @memberof ProtoOASymbolCategoryListReq
    * @static
-   * @param {ProtoOASymbolCategoryListReq} message ProtoOASymbolCategoryListReq message or plain object to encode
+   * @param {IProtoOASymbolCategoryListReq} message ProtoOASymbolCategoryListReq message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -42287,7 +42287,7 @@ export const ProtoOASymbolCategoryListReq = ($root.ProtoOASymbolCategoryListReq 
    * @function encodeDelimited
    * @memberof ProtoOASymbolCategoryListReq
    * @static
-   * @param {ProtoOASymbolCategoryListReq} message ProtoOASymbolCategoryListReq message or plain object to encode
+   * @param {IProtoOASymbolCategoryListReq} message ProtoOASymbolCategoryListReq message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -42808,7 +42808,7 @@ export const ProtoOASymbolCategoryListRes = ($root.ProtoOASymbolCategoryListRes 
    * @interface IProtoOASymbolCategoryListRes
    * @property {ProtoOAPayloadType|null} [payloadType] ProtoOASymbolCategoryListRes payloadType
    * @property {number|Long} ctidTraderAccountId ProtoOASymbolCategoryListRes ctidTraderAccountId
-   * @property {Array.<ProtoOASymbolCategory>|null} [symbolCategory] ProtoOASymbolCategoryListRes symbolCategory
+   * @property {Array.<IProtoOASymbolCategory>|null} [symbolCategory] ProtoOASymbolCategoryListRes symbolCategory
    */
 
   /**
@@ -42846,7 +42846,7 @@ export const ProtoOASymbolCategoryListRes = ($root.ProtoOASymbolCategoryListRes 
 
   /**
    * ProtoOASymbolCategoryListRes symbolCategory.
-   * @member {Array.<ProtoOASymbolCategory>} symbolCategory
+   * @member {Array.<IProtoOASymbolCategory>} symbolCategory
    * @memberof ProtoOASymbolCategoryListRes
    * @instance
    */
@@ -42869,7 +42869,7 @@ export const ProtoOASymbolCategoryListRes = ($root.ProtoOASymbolCategoryListRes 
    * @function encode
    * @memberof ProtoOASymbolCategoryListRes
    * @static
-   * @param {ProtoOASymbolCategoryListRes} message ProtoOASymbolCategoryListRes message or plain object to encode
+   * @param {IProtoOASymbolCategoryListRes} message ProtoOASymbolCategoryListRes message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -42894,7 +42894,7 @@ export const ProtoOASymbolCategoryListRes = ($root.ProtoOASymbolCategoryListRes 
    * @function encodeDelimited
    * @memberof ProtoOASymbolCategoryListRes
    * @static
-   * @param {ProtoOASymbolCategoryListRes} message ProtoOASymbolCategoryListRes message or plain object to encode
+   * @param {IProtoOASymbolCategoryListRes} message ProtoOASymbolCategoryListRes message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -43511,7 +43511,7 @@ export const ProtoOAAccountLogoutReq = ($root.ProtoOAAccountLogoutReq = (() => {
    * @function encode
    * @memberof ProtoOAAccountLogoutReq
    * @static
-   * @param {ProtoOAAccountLogoutReq} message ProtoOAAccountLogoutReq message or plain object to encode
+   * @param {IProtoOAAccountLogoutReq} message ProtoOAAccountLogoutReq message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -43530,7 +43530,7 @@ export const ProtoOAAccountLogoutReq = ($root.ProtoOAAccountLogoutReq = (() => {
    * @function encodeDelimited
    * @memberof ProtoOAAccountLogoutReq
    * @static
-   * @param {ProtoOAAccountLogoutReq} message ProtoOAAccountLogoutReq message or plain object to encode
+   * @param {IProtoOAAccountLogoutReq} message ProtoOAAccountLogoutReq message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -44100,7 +44100,7 @@ export const ProtoOAAccountLogoutRes = ($root.ProtoOAAccountLogoutRes = (() => {
    * @function encode
    * @memberof ProtoOAAccountLogoutRes
    * @static
-   * @param {ProtoOAAccountLogoutRes} message ProtoOAAccountLogoutRes message or plain object to encode
+   * @param {IProtoOAAccountLogoutRes} message ProtoOAAccountLogoutRes message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -44119,7 +44119,7 @@ export const ProtoOAAccountLogoutRes = ($root.ProtoOAAccountLogoutRes = (() => {
    * @function encodeDelimited
    * @memberof ProtoOAAccountLogoutRes
    * @static
-   * @param {ProtoOAAccountLogoutRes} message ProtoOAAccountLogoutRes message or plain object to encode
+   * @param {IProtoOAAccountLogoutRes} message ProtoOAAccountLogoutRes message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -44690,7 +44690,7 @@ export const ProtoOAAccountDisconnectEvent = ($root.ProtoOAAccountDisconnectEven
    * @function encode
    * @memberof ProtoOAAccountDisconnectEvent
    * @static
-   * @param {ProtoOAAccountDisconnectEvent} message ProtoOAAccountDisconnectEvent message or plain object to encode
+   * @param {IProtoOAAccountDisconnectEvent} message ProtoOAAccountDisconnectEvent message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -44709,7 +44709,7 @@ export const ProtoOAAccountDisconnectEvent = ($root.ProtoOAAccountDisconnectEven
    * @function encodeDelimited
    * @memberof ProtoOAAccountDisconnectEvent
    * @static
-   * @param {ProtoOAAccountDisconnectEvent} message ProtoOAAccountDisconnectEvent message or plain object to encode
+   * @param {IProtoOAAccountDisconnectEvent} message ProtoOAAccountDisconnectEvent message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -45437,7 +45437,7 @@ export const ProtoOAAsset = ($root.ProtoOAAsset = (() => {
    * @function encode
    * @memberof ProtoOAAsset
    * @static
-   * @param {ProtoOAAsset} message ProtoOAAsset message or plain object to encode
+   * @param {IProtoOAAsset} message ProtoOAAsset message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -45455,7 +45455,7 @@ export const ProtoOAAsset = ($root.ProtoOAAsset = (() => {
    * @function encodeDelimited
    * @memberof ProtoOAAsset
    * @static
-   * @param {ProtoOAAsset} message ProtoOAAsset message or plain object to encode
+   * @param {IProtoOAAsset} message ProtoOAAsset message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -45656,7 +45656,7 @@ export const ProtoOASymbol = ($root.ProtoOASymbol = (() => {
    * @property {number|Long|null} [minVolume] ProtoOASymbol minVolume
    * @property {number|Long|null} [stepVolume] ProtoOASymbol stepVolume
    * @property {number|Long|null} [maxExposure] ProtoOASymbol maxExposure
-   * @property {Array.<ProtoOAInterval>|null} [schedule] ProtoOASymbol schedule
+   * @property {Array.<IProtoOAInterval>|null} [schedule] ProtoOASymbol schedule
    * @property {number|Long} commission ProtoOASymbol commission
    * @property {ProtoOACommissionType|null} [commissionType] ProtoOASymbol commissionType
    * @property {number|null} [slDistance] ProtoOASymbol slDistance
@@ -45797,7 +45797,7 @@ export const ProtoOASymbol = ($root.ProtoOASymbol = (() => {
 
   /**
    * ProtoOASymbol schedule.
-   * @member {Array.<ProtoOAInterval>} schedule
+   * @member {Array.<IProtoOAInterval>} schedule
    * @memberof ProtoOASymbol
    * @instance
    */
@@ -45948,7 +45948,7 @@ export const ProtoOASymbol = ($root.ProtoOASymbol = (() => {
    * @function encode
    * @memberof ProtoOASymbol
    * @static
-   * @param {ProtoOASymbol} message ProtoOASymbol message or plain object to encode
+   * @param {IProtoOASymbol} message ProtoOASymbol message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -46072,7 +46072,7 @@ export const ProtoOASymbol = ($root.ProtoOASymbol = (() => {
    * @function encodeDelimited
    * @memberof ProtoOASymbol
    * @static
-   * @param {ProtoOASymbol} message ProtoOASymbol message or plain object to encode
+   * @param {IProtoOASymbol} message ProtoOASymbol message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -47251,7 +47251,7 @@ export const ProtoOALightSymbol = ($root.ProtoOALightSymbol = (() => {
    * @function encode
    * @memberof ProtoOALightSymbol
    * @static
-   * @param {ProtoOALightSymbol} message ProtoOALightSymbol message or plain object to encode
+   * @param {IProtoOALightSymbol} message ProtoOALightSymbol message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -47281,7 +47281,7 @@ export const ProtoOALightSymbol = ($root.ProtoOALightSymbol = (() => {
    * @function encodeDelimited
    * @memberof ProtoOALightSymbol
    * @static
-   * @param {ProtoOALightSymbol} message ProtoOALightSymbol message or plain object to encode
+   * @param {IProtoOALightSymbol} message ProtoOALightSymbol message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -47710,7 +47710,7 @@ export const ProtoOASymbolCategory = ($root.ProtoOASymbolCategory = (() => {
    * @function encode
    * @memberof ProtoOASymbolCategory
    * @static
-   * @param {ProtoOASymbolCategory} message ProtoOASymbolCategory message or plain object to encode
+   * @param {IProtoOASymbolCategory} message ProtoOASymbolCategory message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -47727,7 +47727,7 @@ export const ProtoOASymbolCategory = ($root.ProtoOASymbolCategory = (() => {
    * @function encodeDelimited
    * @memberof ProtoOASymbolCategory
    * @static
-   * @param {ProtoOASymbolCategory} message ProtoOASymbolCategory message or plain object to encode
+   * @param {IProtoOASymbolCategory} message ProtoOASymbolCategory message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -48035,7 +48035,7 @@ export const ProtoOAInterval = ($root.ProtoOAInterval = (() => {
    * @function encode
    * @memberof ProtoOAInterval
    * @static
-   * @param {ProtoOAInterval} message ProtoOAInterval message or plain object to encode
+   * @param {IProtoOAInterval} message ProtoOAInterval message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -48051,7 +48051,7 @@ export const ProtoOAInterval = ($root.ProtoOAInterval = (() => {
    * @function encodeDelimited
    * @memberof ProtoOAInterval
    * @static
-   * @param {ProtoOAInterval} message ProtoOAInterval message or plain object to encode
+   * @param {IProtoOAInterval} message ProtoOAInterval message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -48516,7 +48516,7 @@ export const ProtoOATrader = ($root.ProtoOATrader = (() => {
    * @function encode
    * @memberof ProtoOATrader
    * @static
-   * @param {ProtoOATrader} message ProtoOATrader message or plain object to encode
+   * @param {IProtoOATrader} message ProtoOATrader message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -48584,7 +48584,7 @@ export const ProtoOATrader = ($root.ProtoOATrader = (() => {
    * @function encodeDelimited
    * @memberof ProtoOATrader
    * @static
-   * @param {ProtoOATrader} message ProtoOATrader message or plain object to encode
+   * @param {IProtoOATrader} message ProtoOATrader message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -49488,7 +49488,7 @@ export const ProtoOAPosition = ($root.ProtoOAPosition = (() => {
    * @exports IProtoOAPosition
    * @interface IProtoOAPosition
    * @property {number|Long} positionId ProtoOAPosition positionId
-   * @property {ProtoOATradeData} tradeData ProtoOAPosition tradeData
+   * @property {IProtoOATradeData} tradeData ProtoOAPosition tradeData
    * @property {ProtoOAPositionStatus} positionStatus ProtoOAPosition positionStatus
    * @property {number|Long} swap ProtoOAPosition swap
    * @property {number|null} [price] ProtoOAPosition price
@@ -49529,7 +49529,7 @@ export const ProtoOAPosition = ($root.ProtoOAPosition = (() => {
 
   /**
    * ProtoOAPosition tradeData.
-   * @member {ProtoOATradeData} tradeData
+   * @member {IProtoOATradeData} tradeData
    * @memberof ProtoOAPosition
    * @instance
    */
@@ -49658,7 +49658,7 @@ export const ProtoOAPosition = ($root.ProtoOAPosition = (() => {
    * @function encode
    * @memberof ProtoOAPosition
    * @static
-   * @param {ProtoOAPosition} message ProtoOAPosition message or plain object to encode
+   * @param {IProtoOAPosition} message ProtoOAPosition message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -49719,7 +49719,7 @@ export const ProtoOAPosition = ($root.ProtoOAPosition = (() => {
    * @function encodeDelimited
    * @memberof ProtoOAPosition
    * @static
-   * @param {ProtoOAPosition} message ProtoOAPosition message or plain object to encode
+   * @param {IProtoOAPosition} message ProtoOAPosition message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -50435,7 +50435,7 @@ export const ProtoOATradeData = ($root.ProtoOATradeData = (() => {
    * @function encode
    * @memberof ProtoOATradeData
    * @static
-   * @param {ProtoOATradeData} message ProtoOATradeData message or plain object to encode
+   * @param {IProtoOATradeData} message ProtoOATradeData message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -50466,7 +50466,7 @@ export const ProtoOATradeData = ($root.ProtoOATradeData = (() => {
    * @function encodeDelimited
    * @memberof ProtoOATradeData
    * @static
-   * @param {ProtoOATradeData} message ProtoOATradeData message or plain object to encode
+   * @param {IProtoOATradeData} message ProtoOATradeData message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -50800,7 +50800,7 @@ export const ProtoOAOrder = ($root.ProtoOAOrder = (() => {
    * @exports IProtoOAOrder
    * @interface IProtoOAOrder
    * @property {number|Long} orderId ProtoOAOrder orderId
-   * @property {ProtoOATradeData} tradeData ProtoOAOrder tradeData
+   * @property {IProtoOATradeData} tradeData ProtoOAOrder tradeData
    * @property {ProtoOAOrderType} orderType ProtoOAOrder orderType
    * @property {ProtoOAOrderStatus} orderStatus ProtoOAOrder orderStatus
    * @property {number|Long|null} [expirationTimestamp] ProtoOAOrder expirationTimestamp
@@ -50850,7 +50850,7 @@ export const ProtoOAOrder = ($root.ProtoOAOrder = (() => {
 
   /**
    * ProtoOAOrder tradeData.
-   * @member {ProtoOATradeData} tradeData
+   * @member {IProtoOATradeData} tradeData
    * @memberof ProtoOAOrder
    * @instance
    */
@@ -51055,7 +51055,7 @@ export const ProtoOAOrder = ($root.ProtoOAOrder = (() => {
    * @function encode
    * @memberof ProtoOAOrder
    * @static
-   * @param {ProtoOAOrder} message ProtoOAOrder message or plain object to encode
+   * @param {IProtoOAOrder} message ProtoOAOrder message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -51163,7 +51163,7 @@ export const ProtoOAOrder = ($root.ProtoOAOrder = (() => {
    * @function encodeDelimited
    * @memberof ProtoOAOrder
    * @static
-   * @param {ProtoOAOrder} message ProtoOAOrder message or plain object to encode
+   * @param {IProtoOAOrder} message ProtoOAOrder message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -52248,7 +52248,7 @@ export const ProtoOABonusDepositWithdraw = ($root.ProtoOABonusDepositWithdraw = 
    * @function encode
    * @memberof ProtoOABonusDepositWithdraw
    * @static
-   * @param {ProtoOABonusDepositWithdraw} message ProtoOABonusDepositWithdraw message or plain object to encode
+   * @param {IProtoOABonusDepositWithdraw} message ProtoOABonusDepositWithdraw message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -52280,7 +52280,7 @@ export const ProtoOABonusDepositWithdraw = ($root.ProtoOABonusDepositWithdraw = 
    * @function encodeDelimited
    * @memberof ProtoOABonusDepositWithdraw
    * @static
-   * @param {ProtoOABonusDepositWithdraw} message ProtoOABonusDepositWithdraw message or plain object to encode
+   * @param {IProtoOABonusDepositWithdraw} message ProtoOABonusDepositWithdraw message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -52967,7 +52967,7 @@ export const ProtoOADepositWithdraw = ($root.ProtoOADepositWithdraw = (() => {
    * @function encode
    * @memberof ProtoOADepositWithdraw
    * @static
-   * @param {ProtoOADepositWithdraw} message ProtoOADepositWithdraw message or plain object to encode
+   * @param {IProtoOADepositWithdraw} message ProtoOADepositWithdraw message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -52997,7 +52997,7 @@ export const ProtoOADepositWithdraw = ($root.ProtoOADepositWithdraw = (() => {
    * @function encodeDelimited
    * @memberof ProtoOADepositWithdraw
    * @static
-   * @param {ProtoOADepositWithdraw} message ProtoOADepositWithdraw message or plain object to encode
+   * @param {IProtoOADepositWithdraw} message ProtoOADepositWithdraw message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -53689,7 +53689,7 @@ export const ProtoOADeal = ($root.ProtoOADeal = (() => {
    * @property {number|null} [marginRate] ProtoOADeal marginRate
    * @property {number|Long|null} [commission] ProtoOADeal commission
    * @property {number|null} [baseToUsdConversionRate] ProtoOADeal baseToUsdConversionRate
-   * @property {ProtoOAClosePositionDetail|null} [closePositionDetail] ProtoOADeal closePositionDetail
+   * @property {IProtoOAClosePositionDetail|null} [closePositionDetail] ProtoOADeal closePositionDetail
    */
 
   /**
@@ -53848,7 +53848,7 @@ export const ProtoOADeal = ($root.ProtoOADeal = (() => {
 
   /**
    * ProtoOADeal closePositionDetail.
-   * @member {ProtoOAClosePositionDetail|null|undefined} closePositionDetail
+   * @member {IProtoOAClosePositionDetail|null|undefined} closePositionDetail
    * @memberof ProtoOADeal
    * @instance
    */
@@ -53871,7 +53871,7 @@ export const ProtoOADeal = ($root.ProtoOADeal = (() => {
    * @function encode
    * @memberof ProtoOADeal
    * @static
-   * @param {ProtoOADeal} message ProtoOADeal message or plain object to encode
+   * @param {IProtoOADeal} message ProtoOADeal message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -53926,7 +53926,7 @@ export const ProtoOADeal = ($root.ProtoOADeal = (() => {
    * @function encodeDelimited
    * @memberof ProtoOADeal
    * @static
-   * @param {ProtoOADeal} message ProtoOADeal message or plain object to encode
+   * @param {IProtoOADeal} message ProtoOADeal message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -54893,7 +54893,7 @@ export const ProtoOAClosePositionDetail = ($root.ProtoOAClosePositionDetail = ((
    * @function encode
    * @memberof ProtoOAClosePositionDetail
    * @static
-   * @param {ProtoOAClosePositionDetail} message ProtoOAClosePositionDetail message or plain object to encode
+   * @param {IProtoOAClosePositionDetail} message ProtoOAClosePositionDetail message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -54926,7 +54926,7 @@ export const ProtoOAClosePositionDetail = ($root.ProtoOAClosePositionDetail = ((
    * @function encodeDelimited
    * @memberof ProtoOAClosePositionDetail
    * @static
-   * @param {ProtoOAClosePositionDetail} message ProtoOAClosePositionDetail message or plain object to encode
+   * @param {IProtoOAClosePositionDetail} message ProtoOAClosePositionDetail message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -55551,7 +55551,7 @@ export const ProtoOATrendbar = ($root.ProtoOATrendbar = (() => {
    * @function encode
    * @memberof ProtoOATrendbar
    * @static
-   * @param {ProtoOATrendbar} message ProtoOATrendbar message or plain object to encode
+   * @param {IProtoOATrendbar} message ProtoOATrendbar message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -55583,7 +55583,7 @@ export const ProtoOATrendbar = ($root.ProtoOATrendbar = (() => {
    * @function encodeDelimited
    * @memberof ProtoOATrendbar
    * @static
-   * @param {ProtoOATrendbar} message ProtoOATrendbar message or plain object to encode
+   * @param {IProtoOATrendbar} message ProtoOATrendbar message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -56120,7 +56120,7 @@ export const ProtoOAExpectedMargin = ($root.ProtoOAExpectedMargin = (() => {
    * @function encode
    * @memberof ProtoOAExpectedMargin
    * @static
-   * @param {ProtoOAExpectedMargin} message ProtoOAExpectedMargin message or plain object to encode
+   * @param {IProtoOAExpectedMargin} message ProtoOAExpectedMargin message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -56137,7 +56137,7 @@ export const ProtoOAExpectedMargin = ($root.ProtoOAExpectedMargin = (() => {
    * @function encodeDelimited
    * @memberof ProtoOAExpectedMargin
    * @static
-   * @param {ProtoOAExpectedMargin} message ProtoOAExpectedMargin message or plain object to encode
+   * @param {IProtoOAExpectedMargin} message ProtoOAExpectedMargin message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -56484,7 +56484,7 @@ export const ProtoOATickData = ($root.ProtoOATickData = (() => {
    * @function encode
    * @memberof ProtoOATickData
    * @static
-   * @param {ProtoOATickData} message ProtoOATickData message or plain object to encode
+   * @param {IProtoOATickData} message ProtoOATickData message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -56500,7 +56500,7 @@ export const ProtoOATickData = ($root.ProtoOATickData = (() => {
    * @function encodeDelimited
    * @memberof ProtoOATickData
    * @static
-   * @param {ProtoOATickData} message ProtoOATickData message or plain object to encode
+   * @param {IProtoOATickData} message ProtoOATickData message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -56777,7 +56777,7 @@ export const ProtoOACtidProfile = ($root.ProtoOACtidProfile = (() => {
    * @function encode
    * @memberof ProtoOACtidProfile
    * @static
-   * @param {ProtoOACtidProfile} message ProtoOACtidProfile message or plain object to encode
+   * @param {IProtoOACtidProfile} message ProtoOACtidProfile message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -56792,7 +56792,7 @@ export const ProtoOACtidProfile = ($root.ProtoOACtidProfile = (() => {
    * @function encodeDelimited
    * @memberof ProtoOACtidProfile
    * @static
-   * @param {ProtoOACtidProfile} message ProtoOACtidProfile message or plain object to encode
+   * @param {IProtoOACtidProfile} message ProtoOACtidProfile message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -57022,7 +57022,7 @@ export const ProtoOACtidTraderAccount = ($root.ProtoOACtidTraderAccount = (() =>
    * @function encode
    * @memberof ProtoOACtidTraderAccount
    * @static
-   * @param {ProtoOACtidTraderAccount} message ProtoOACtidTraderAccount message or plain object to encode
+   * @param {IProtoOACtidTraderAccount} message ProtoOACtidTraderAccount message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -57043,7 +57043,7 @@ export const ProtoOACtidTraderAccount = ($root.ProtoOACtidTraderAccount = (() =>
    * @function encodeDelimited
    * @memberof ProtoOACtidTraderAccount
    * @static
-   * @param {ProtoOACtidTraderAccount} message ProtoOACtidTraderAccount message or plain object to encode
+   * @param {IProtoOACtidTraderAccount} message ProtoOACtidTraderAccount message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -57332,7 +57332,7 @@ export const ProtoOAAssetClass = ($root.ProtoOAAssetClass = (() => {
    * @function encode
    * @memberof ProtoOAAssetClass
    * @static
-   * @param {ProtoOAAssetClass} message ProtoOAAssetClass message or plain object to encode
+   * @param {IProtoOAAssetClass} message ProtoOAAssetClass message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -57350,7 +57350,7 @@ export const ProtoOAAssetClass = ($root.ProtoOAAssetClass = (() => {
    * @function encodeDelimited
    * @memberof ProtoOAAssetClass
    * @static
-   * @param {ProtoOAAssetClass} message ProtoOAAssetClass message or plain object to encode
+   * @param {IProtoOAAssetClass} message ProtoOAAssetClass message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -57598,7 +57598,7 @@ export const ProtoOADepthQuote = ($root.ProtoOADepthQuote = (() => {
    * @function encode
    * @memberof ProtoOADepthQuote
    * @static
-   * @param {ProtoOADepthQuote} message ProtoOADepthQuote message or plain object to encode
+   * @param {IProtoOADepthQuote} message ProtoOADepthQuote message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
@@ -57618,7 +57618,7 @@ export const ProtoOADepthQuote = ($root.ProtoOADepthQuote = (() => {
    * @function encodeDelimited
    * @memberof ProtoOADepthQuote
    * @static
-   * @param {ProtoOADepthQuote} message ProtoOADepthQuote message or plain object to encode
+   * @param {IProtoOADepthQuote} message ProtoOADepthQuote message or plain object to encode
    * @param {$protobuf.Writer} [writer] Writer to encode to
    * @returns {$protobuf.Writer} Writer
    */
