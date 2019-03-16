@@ -1,0 +1,11 @@
+language: node_js
+node_js:
+  - "node"
+  - "10"
+  - "8"
+  - "lts/*"
+deploy:
+  provider: npm
+  email: $DEPLOY_NPM_EMAIL
+  api_key: $DEPLOY_NPM_API_KEY
+skip_cleanup: true
