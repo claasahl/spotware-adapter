@@ -1,6 +1,6 @@
 import { MutationResolvers } from "../generated/graphql-types";
 import axios from "axios";
-import * as $spotware from "../generated/spotware";
+import * as $spotware from "@claasahl/spotware-connect-api/build/spotware-messages";
 
 export const mutation: Required<MutationResolvers.Resolvers> = {
   tokens: async (_parent, args) => {

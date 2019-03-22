@@ -7,14 +7,8 @@
     "test": "jest",
     "prepare": "npm run build",
     "build": "npm run gen && tsc",
-    "proto": "ts-node src/test.ts",
     "start": "ts-node -r dotenv/config src/server.ts",
-    "gen": "npm run gen:graphql && npm run gen:protobuf:js && npm run gen:protobuf:ts && npm run gen:event-emitter && npm run gen:client",
-    "gen:protobuf:js": "pbjs -t static-module -w commonjs -o ./src/generated/spotware.js node_modules/@claasahl/spotware-protobuf-messages/*.proto",
-    "gen:protobuf:ts": "pbts -o ./src/generated/spotware.d.ts ./src/generated/spotware.js",
-    "gen:graphql": "gql-gen --config codegen.yml",
-    "gen:event-emitter": "ts-node scripts/spotware-event-emitter.ts",
-    "gen:client": "ts-node scripts/spotware-client.ts"
+    "gen": "gql-gen --config codegen.yml"
   },
   "keywords": [],
   "author": "",
@@ -25,11 +19,10 @@
     }
   },
   "devDependencies": {
-    "@claasahl/spotware-protobuf-messages": "github:claasahl/Open-API-2.0-protobuf-messages#5b190e86cfe69faf586b370b724b8fa8a05817e5",
-    "@types/aws-lambda": "^8.10.19",
+    "@types/aws-lambda": "^8.10.23",
     "@types/axios": "^0.14.0",
     "@types/jest": "^24.0.11",
-    "@types/node": "^11.9.5",
+    "@types/node": "^11.12.2",
     "@types/ws": "^6.0.1",
     "dotenv": "^6.2.0",
     "graphql-code-generator": "^0.17.0",
@@ -43,11 +36,12 @@
     "pretty-quick": "^1.10.0",
     "protobufjs": "^6.8.8",
     "protocol-buffers-schema": "^3.3.2",
-    "ts-jest": "^24.0.0",
-    "ts-node": "^8.0.2",
-    "typescript": "^3.3.3333"
+    "ts-jest": "^24.0.1",
+    "ts-node": "^8.0.3",
+    "typescript": "^3.4.1"
   },
   "dependencies": {
+    "@claasahl/spotware-connect-api": "^0.1.8",
     "axios": "^0.18.0",
     "graphql-tag": "^2.10.1",
     "graphql-yoga": "^1.17.4"

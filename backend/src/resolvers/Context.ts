@@ -1,5 +1,8 @@
 import { ContextParameters } from "graphql-yoga/dist/types";
-import { ProtoMessageSocket, connect } from "../spotware/ProtoMessageSocket";
+import {
+  ProtoMessageSocket,
+  connect
+} from "@claasahl/spotware-connect-api/build/spotware-socket";
 
 const gateways: Map<string, ProtoMessageSocket> = new Map();
 
