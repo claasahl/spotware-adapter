@@ -1,6 +1,6 @@
-import { ProtoMessage } from "../spotware-messages";
+import { ProtoMessage } from "../src/spotware-messages";
 
-import * as util from "../spotware-utils";
+import * as util from "../src/spotware-utils";
 
 const SERIALIAZED =
   "0000001c082a120501020304051a11636c69656e74206d657373616765204944";
