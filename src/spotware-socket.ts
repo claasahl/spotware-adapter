@@ -9,7 +9,7 @@ import { SpotwareClient } from "./spotware-client";
 
 import * as util from "./spotware-utils";
 
-export class ProtoMessageSocket {
+export class SpotwareSocket {
   public emitter: Readonly<SpotwareEventEmitter>;
   private socket: Readonly<TLSSocket>;
 
