@@ -20,11 +20,11 @@ function writeEmitterOverloads(
         .map(field => field.options.default)[0] || "PROTO_MESSAGE";
     if (payloadType === "PROTO_MESSAGE") {
       apiStream.write(
-        `    public emit(payloadType: $spotware.ProtoPayloadType.${payloadType}, message: $spotware.${type}): void;\n`
+        `    emit(event: "${payloadType}", message: $spotware.${type}): void;\n`
       );
     } else {
       apiStream.write(
-        `    public emit(payloadType: $spotware.ProtoPayloadType.${payloadType}, message: $spotware.${type}, clientMsgId?: string | null): void;\n`
+        `    emit(event: "${payloadType}", message: $spotware.${type}, clientMsgId?: string | null): void;\n`
       );
     }
   });
@@ -34,13 +34,9 @@ function writeEmitterOverloads(
       .filter(field => field.name == "payloadType")
       .map(field => field.options.default)[0];
     apiStream.write(
-      `    public emit(payloadType: $spotware.ProtoOAPayloadType.${payloadType}, message: $spotware.${type}, clientMsgId?: string | null): void;\n`
+      `    emit(event: "${payloadType}", message: $spotware.${type}, clientMsgId?: string | null): void;\n`
     );
   });
-  apiStream.write(`    public emit(payloadType: $spotware.ProtoPayloadType | $spotware.ProtoOAPayloadType, message: any, clientMsgId?: string): void {
-        const event = $spotware.ProtoPayloadType[payloadType] || $spotware.ProtoOAPayloadType[payloadType];
-        this.emitter.emit(event, message, clientMsgId);
-    }\n\n`);
 }
 
 function writeListenerOverloads(
@@ -57,11 +53,11 @@ function writeListenerOverloads(
         .map(field => field.options.default)[0] || "PROTO_MESSAGE";
     if (payloadType === "PROTO_MESSAGE") {
       apiStream.write(
-        `    public ${name}(payloadType: $spotware.ProtoPayloadType.${payloadType}, listener: (message:$spotware.${type}) => void): void;\n`
+        `    ${name}(event: "${payloadType}", listener: (message:$spotware.${type}) => void): this;\n`
       );
     } else {
       apiStream.write(
-        `    public ${name}(payloadType: $spotware.ProtoPayloadType.${payloadType}, listener: (message:$spotware.${type}, clientMsgId?: string | null) => void): void;\n`
+        `    ${name}(event: "${payloadType}", listener: Listener<$spotware.${type}>): this;\n`
       );
     }
   });
@@ -71,24 +67,18 @@ function writeListenerOverloads(
       .filter(field => field.name == "payloadType")
       .map(field => field.options.default)[0];
     apiStream.write(
-      `    public ${name}(payloadType: $spotware.ProtoOAPayloadType.${payloadType}, listener: (message:$spotware.${type}, clientMsgId?: string | null) => void): void;\n`
+      `    ${name}(event: "${payloadType}", listener: Listener<$spotware.${type}>): void;\n`
     );
   });
-  apiStream.write(`    public ${name}(payloadType: $spotware.ProtoPayloadType | $spotware.ProtoOAPayloadType, listener: (message: any, clientMsgId?: string | null) => void): void {
-        const event = $spotware.ProtoPayloadType[payloadType] || $spotware.ProtoOAPayloadType[payloadType];
-        this.emitter.${name}(event, listener);
-    }\n\n`);
 }
 
 function writeHeader(apiStream: fs.WriteStream) {
   apiStream.write(`import { EventEmitter } from "events";
 import * as $spotware from "./spotware-messages";
 
-export class SpotwareEventEmitter {
-    private emitter: EventEmitter;
-    constructor(emitter: EventEmitter) {
-        this.emitter = emitter;
-    }\n`);
+type Listener<T> = (message: T, clientMsgId?: string | null) => void;
+
+export interface SpotwareEventEmitterOverloads {\n`);
 }
 
 function writeFooter(apiStream: fs.WriteStream) {
