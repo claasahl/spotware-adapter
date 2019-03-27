@@ -24,7 +24,7 @@ function writeEmitterOverloads(
       );
     } else {
       apiStream.write(
-        `    emit(event: "${payloadType}", message: $spotware.${type}, clientMsgId?: string | null): void;\n`
+        `    emit(event: "${payloadType}", message: $spotware.${type}, clientMsgId?: string | null): boolean;\n`
       );
     }
   });
@@ -34,7 +34,7 @@ function writeEmitterOverloads(
       .filter(field => field.name == "payloadType")
       .map(field => field.options.default)[0];
     apiStream.write(
-      `    emit(event: "${payloadType}", message: $spotware.${type}, clientMsgId?: string | null): void;\n`
+      `    emit(event: "${payloadType}", message: $spotware.${type}, clientMsgId?: string | null): boolean;\n`
     );
   });
 }
@@ -78,7 +78,7 @@ import * as $spotware from "./spotware-messages";
 
 type Listener<T> = (message: T, clientMsgId?: string | null) => void;
 
-export interface SpotwareEventEmitterOverloads {\n`);
+export interface SpotwareEventEmitterOverloads extends EventEmitter {\n`);
 }
 
 function writeFooter(apiStream: fs.WriteStream) {
