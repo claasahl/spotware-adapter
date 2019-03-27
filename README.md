@@ -14,10 +14,9 @@ emitter.emit("HEARTBEAT_EVENT", {});
 
 However, the nature of Typescript is such that it will fallback to more generic overloads if the types of.
 
-To counteract this, it is recommended to either use the utility methods (e.g. `onHeartbeat`, `emitHeartbeat`)
+To counteract this, it is recommended to either use the utility methods (e.g. `onMessage`, `emitMessage`)
 
 ```typescript
-emitter.emitHeartbeat({});
 emitter.emitMessage("HEARTBEAT_EVENT", {});
 ```
 
