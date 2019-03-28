@@ -15,16 +15,6 @@ function toPayloadType(message: Message) {
   );
 }
 
-function messages(filter: "Req" | "Res" | "Event", schema: Schema) {
-  const messages: Message[] = [];
-  for (const message of schema.messages) {
-    if (message.name.endsWith(filter)) {
-      messages.push(message);
-    }
-  }
-  return messages;
-}
-
 function writeTreatRequests(stream: fs.WriteStream, messages: Message[]) {
   stream.write(`    private treatRequests(): void {\n`);
   for (const message of messages) {
