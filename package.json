@@ -20,7 +20,8 @@
     "generate:event-emitter": "ts-node ./scripts/spotware-event-emitter.ts",
     "postgenerate:event-emitter": "prettier --write ./src/spotware-event-emitter.ts",
     "generate:client": "ts-node ./scripts/spotware-client.ts",
-    "postgenerate:client": "prettier --write ./src/spotware-client.ts"
+    "postgenerate:client": "prettier --write ./src/spotware-client.ts",
+    "something": "ts-node ./scripts/compile-message-map.ts && prettier --write ./assets/message-map.json"
   },
   "keywords": [
     "spotware",
