@@ -17,261 +17,261 @@ export interface OnMessageOverloads {
   onMessage(
     event: "PROTO_OA_APPLICATION_AUTH_REQ",
     listener: Listener<$spotware.IProtoOAApplicationAuthReq>
-  ): void;
+  ): this;
   onMessage(
     event: "PROTO_OA_APPLICATION_AUTH_RES",
     listener: Listener<$spotware.IProtoOAApplicationAuthRes>
-  ): void;
+  ): this;
   onMessage(
     event: "PROTO_OA_ACCOUNT_AUTH_REQ",
     listener: Listener<$spotware.IProtoOAAccountAuthReq>
-  ): void;
+  ): this;
   onMessage(
     event: "PROTO_OA_ACCOUNT_AUTH_RES",
     listener: Listener<$spotware.IProtoOAAccountAuthRes>
-  ): void;
+  ): this;
   onMessage(
     event: "PROTO_OA_ERROR_RES",
     listener: Listener<$spotware.IProtoOAErrorRes>
-  ): void;
+  ): this;
   onMessage(
     event: "PROTO_OA_CLIENT_DISCONNECT_EVENT",
     listener: Listener<$spotware.IProtoOAClientDisconnectEvent>
-  ): void;
+  ): this;
   onMessage(
     event: "PROTO_OA_ACCOUNTS_TOKEN_INVALIDATED_EVENT",
     listener: Listener<$spotware.IProtoOAAccountsTokenInvalidatedEvent>
-  ): void;
+  ): this;
   onMessage(
     event: "PROTO_OA_VERSION_REQ",
     listener: Listener<$spotware.IProtoOAVersionReq>
-  ): void;
+  ): this;
   onMessage(
     event: "PROTO_OA_VERSION_RES",
     listener: Listener<$spotware.IProtoOAVersionRes>
-  ): void;
+  ): this;
   onMessage(
     event: "PROTO_OA_NEW_ORDER_REQ",
     listener: Listener<$spotware.IProtoOANewOrderReq>
-  ): void;
+  ): this;
   onMessage(
     event: "PROTO_OA_EXECUTION_EVENT",
     listener: Listener<$spotware.IProtoOAExecutionEvent>
-  ): void;
+  ): this;
   onMessage(
     event: "PROTO_OA_CANCEL_ORDER_REQ",
     listener: Listener<$spotware.IProtoOACancelOrderReq>
-  ): void;
+  ): this;
   onMessage(
     event: "PROTO_OA_AMEND_ORDER_REQ",
     listener: Listener<$spotware.IProtoOAAmendOrderReq>
-  ): void;
+  ): this;
   onMessage(
     event: "PROTO_OA_AMEND_POSITION_SLTP_REQ",
     listener: Listener<$spotware.IProtoOAAmendPositionSLTPReq>
-  ): void;
+  ): this;
   onMessage(
     event: "PROTO_OA_CLOSE_POSITION_REQ",
     listener: Listener<$spotware.IProtoOAClosePositionReq>
-  ): void;
+  ): this;
   onMessage(
     event: "PROTO_OA_TRAILING_SL_CHANGED_EVENT",
     listener: Listener<$spotware.IProtoOATrailingSLChangedEvent>
-  ): void;
+  ): this;
   onMessage(
     event: "PROTO_OA_ASSET_LIST_REQ",
     listener: Listener<$spotware.IProtoOAAssetListReq>
-  ): void;
+  ): this;
   onMessage(
     event: "PROTO_OA_ASSET_LIST_RES",
     listener: Listener<$spotware.IProtoOAAssetListRes>
-  ): void;
+  ): this;
   onMessage(
     event: "PROTO_OA_SYMBOLS_LIST_REQ",
     listener: Listener<$spotware.IProtoOASymbolsListReq>
-  ): void;
+  ): this;
   onMessage(
     event: "PROTO_OA_SYMBOLS_LIST_RES",
     listener: Listener<$spotware.IProtoOASymbolsListRes>
-  ): void;
+  ): this;
   onMessage(
     event: "PROTO_OA_SYMBOL_BY_ID_REQ",
     listener: Listener<$spotware.IProtoOASymbolByIdReq>
-  ): void;
+  ): this;
   onMessage(
     event: "PROTO_OA_SYMBOL_BY_ID_RES",
     listener: Listener<$spotware.IProtoOASymbolByIdRes>
-  ): void;
+  ): this;
   onMessage(
     event: "PROTO_OA_SYMBOLS_FOR_CONVERSION_REQ",
     listener: Listener<$spotware.IProtoOASymbolsForConversionReq>
-  ): void;
+  ): this;
   onMessage(
     event: "PROTO_OA_SYMBOLS_FOR_CONVERSION_RES",
     listener: Listener<$spotware.IProtoOASymbolsForConversionRes>
-  ): void;
+  ): this;
   onMessage(
     event: "PROTO_OA_SYMBOL_CHANGED_EVENT",
     listener: Listener<$spotware.IProtoOASymbolChangedEvent>
-  ): void;
+  ): this;
   onMessage(
     event: "PROTO_OA_ASSET_CLASS_LIST_REQ",
     listener: Listener<$spotware.IProtoOAAssetClassListReq>
-  ): void;
+  ): this;
   onMessage(
     event: "PROTO_OA_ASSET_CLASS_LIST_RES",
     listener: Listener<$spotware.IProtoOAAssetClassListRes>
-  ): void;
+  ): this;
   onMessage(
     event: "PROTO_OA_TRADER_REQ",
     listener: Listener<$spotware.IProtoOATraderReq>
-  ): void;
+  ): this;
   onMessage(
     event: "PROTO_OA_TRADER_RES",
     listener: Listener<$spotware.IProtoOATraderRes>
-  ): void;
+  ): this;
   onMessage(
     event: "PROTO_OA_TRADER_UPDATE_EVENT",
     listener: Listener<$spotware.IProtoOATraderUpdatedEvent>
-  ): void;
+  ): this;
   onMessage(
     event: "PROTO_OA_RECONCILE_REQ",
     listener: Listener<$spotware.IProtoOAReconcileReq>
-  ): void;
+  ): this;
   onMessage(
     event: "PROTO_OA_RECONCILE_RES",
     listener: Listener<$spotware.IProtoOAReconcileRes>
-  ): void;
+  ): this;
   onMessage(
     event: "PROTO_OA_ORDER_ERROR_EVENT",
     listener: Listener<$spotware.IProtoOAOrderErrorEvent>
-  ): void;
+  ): this;
   onMessage(
     event: "PROTO_OA_DEAL_LIST_REQ",
     listener: Listener<$spotware.IProtoOADealListReq>
-  ): void;
+  ): this;
   onMessage(
     event: "PROTO_OA_DEAL_LIST_RES",
     listener: Listener<$spotware.IProtoOADealListRes>
-  ): void;
+  ): this;
   onMessage(
     event: "PROTO_OA_EXPECTED_MARGIN_REQ",
     listener: Listener<$spotware.IProtoOAExpectedMarginReq>
-  ): void;
+  ): this;
   onMessage(
     event: "PROTO_OA_EXPECTED_MARGIN_RES",
     listener: Listener<$spotware.IProtoOAExpectedMarginRes>
-  ): void;
+  ): this;
   onMessage(
     event: "PROTO_OA_MARGIN_CHANGED_EVENT",
     listener: Listener<$spotware.IProtoOAMarginChangedEvent>
-  ): void;
+  ): this;
   onMessage(
     event: "PROTO_OA_CASH_FLOW_HISTORY_LIST_REQ",
     listener: Listener<$spotware.IProtoOACashFlowHistoryListReq>
-  ): void;
+  ): this;
   onMessage(
     event: "PROTO_OA_CASH_FLOW_HISTORY_LIST_RES",
     listener: Listener<$spotware.IProtoOACashFlowHistoryListRes>
-  ): void;
+  ): this;
   onMessage(
     event: "PROTO_OA_GET_ACCOUNTS_BY_ACCESS_TOKEN_REQ",
     listener: Listener<$spotware.IProtoOAGetAccountListByAccessTokenReq>
-  ): void;
+  ): this;
   onMessage(
     event: "PROTO_OA_GET_ACCOUNTS_BY_ACCESS_TOKEN_RES",
     listener: Listener<$spotware.IProtoOAGetAccountListByAccessTokenRes>
-  ): void;
+  ): this;
   onMessage(
     event: "PROTO_OA_SUBSCRIBE_SPOTS_REQ",
     listener: Listener<$spotware.IProtoOASubscribeSpotsReq>
-  ): void;
+  ): this;
   onMessage(
     event: "PROTO_OA_SUBSCRIBE_SPOTS_RES",
     listener: Listener<$spotware.IProtoOASubscribeSpotsRes>
-  ): void;
+  ): this;
   onMessage(
     event: "PROTO_OA_UNSUBSCRIBE_SPOTS_REQ",
     listener: Listener<$spotware.IProtoOAUnsubscribeSpotsReq>
-  ): void;
+  ): this;
   onMessage(
     event: "PROTO_OA_UNSUBSCRIBE_SPOTS_RES",
     listener: Listener<$spotware.IProtoOAUnsubscribeSpotsRes>
-  ): void;
+  ): this;
   onMessage(
     event: "PROTO_OA_SPOT_EVENT",
     listener: Listener<$spotware.IProtoOASpotEvent>
-  ): void;
+  ): this;
   onMessage(
     event: "PROTO_OA_SUBSCRIBE_LIVE_TRENDBAR_REQ",
     listener: Listener<$spotware.IProtoOASubscribeLiveTrendbarReq>
-  ): void;
+  ): this;
   onMessage(
     event: "PROTO_OA_UNSUBSCRIBE_LIVE_TRENDBAR_REQ",
     listener: Listener<$spotware.IProtoOAUnsubscribeLiveTrendbarReq>
-  ): void;
+  ): this;
   onMessage(
     event: "PROTO_OA_GET_TRENDBARS_REQ",
     listener: Listener<$spotware.IProtoOAGetTrendbarsReq>
-  ): void;
+  ): this;
   onMessage(
     event: "PROTO_OA_GET_TRENDBARS_RES",
     listener: Listener<$spotware.IProtoOAGetTrendbarsRes>
-  ): void;
+  ): this;
   onMessage(
     event: "PROTO_OA_GET_TICKDATA_REQ",
     listener: Listener<$spotware.IProtoOAGetTickDataReq>
-  ): void;
+  ): this;
   onMessage(
     event: "PROTO_OA_GET_TICKDATA_RES",
     listener: Listener<$spotware.IProtoOAGetTickDataRes>
-  ): void;
+  ): this;
   onMessage(
     event: "PROTO_OA_GET_CTID_PROFILE_BY_TOKEN_REQ",
     listener: Listener<$spotware.IProtoOAGetCtidProfileByTokenReq>
-  ): void;
+  ): this;
   onMessage(
     event: "PROTO_OA_GET_CTID_PROFILE_BY_TOKEN_RES",
     listener: Listener<$spotware.IProtoOAGetCtidProfileByTokenRes>
-  ): void;
+  ): this;
   onMessage(
     event: "PROTO_OA_DEPTH_EVENT",
     listener: Listener<$spotware.IProtoOADepthEvent>
-  ): void;
+  ): this;
   onMessage(
     event: "PROTO_OA_SUBSCRIBE_DEPTH_QUOTES_REQ",
     listener: Listener<$spotware.IProtoOASubscribeDepthQuotesReq>
-  ): void;
+  ): this;
   onMessage(
     event: "PROTO_OA_SUBSCRIBE_DEPTH_QUOTES_RES",
     listener: Listener<$spotware.IProtoOASubscribeDepthQuotesRes>
-  ): void;
+  ): this;
   onMessage(
     event: "PROTO_OA_UNSUBSCRIBE_DEPTH_QUOTES_REQ",
     listener: Listener<$spotware.IProtoOAUnsubscribeDepthQuotesReq>
-  ): void;
+  ): this;
   onMessage(
     event: "PROTO_OA_UNSUBSCRIBE_DEPTH_QUOTES_RES",
     listener: Listener<$spotware.IProtoOAUnsubscribeDepthQuotesRes>
-  ): void;
+  ): this;
   onMessage(
     event: "PROTO_OA_SYMBOL_CATEGORY_REQ",
     listener: Listener<$spotware.IProtoOASymbolCategoryListReq>
-  ): void;
+  ): this;
   onMessage(
     event: "PROTO_OA_SYMBOL_CATEGORY_RES",
     listener: Listener<$spotware.IProtoOASymbolCategoryListRes>
-  ): void;
+  ): this;
   onMessage(
     event: "PROTO_OA_ACCOUNT_LOGOUT_REQ",
     listener: Listener<$spotware.IProtoOAAccountLogoutReq>
-  ): void;
+  ): this;
   onMessage(
     event: "PROTO_OA_ACCOUNT_LOGOUT_RES",
     listener: Listener<$spotware.IProtoOAAccountLogoutRes>
-  ): void;
+  ): this;
   onMessage(
     event: "PROTO_OA_ACCOUNT_DISCONNECT_EVENT",
     listener: Listener<$spotware.IProtoOAAccountDisconnectEvent>
-  ): void;
+  ): this;
 }
