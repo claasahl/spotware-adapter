@@ -49,7 +49,7 @@ function toType(message: Message): Type {
   };
 }
 
-function writeMessageMap(file: string) {
+function writeMessageMap() {
   const common = loadSchema("./assets/OpenApiCommonMessages.proto");
   const openApi = loadSchema("./assets/OpenApiMessages.proto");
   const messages = [...common.messages, ...openApi.messages];
@@ -57,7 +57,7 @@ function writeMessageMap(file: string) {
   for (const message of messages) {
     types.push(toType(message));
   }
-  fs.writeFileSync(file, JSON.stringify(types));
+  process.stdout.write(JSON.stringify(types));
 }
 
-writeMessageMap("./assets/message-map.json");
+writeMessageMap();

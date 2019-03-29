@@ -21,7 +21,11 @@
     "postgenerate:event-emitter": "prettier --write ./src/spotware-event-emitter.ts",
     "generate:client": "ts-node ./scripts/spotware-client.ts",
     "postgenerate:client": "prettier --write ./src/spotware-client.ts",
-    "something": "ts-node ./scripts/compile-message-map.ts && prettier --write ./assets/message-map.json"
+    "something": "ts-node ./scripts/compile-message-map.ts && prettier --write ./assets/message-map.json",
+    "compile": "npm run 00-map && npm run 05-events && npm run 10-event-emitter",
+    "00-map": "ts-node ./scripts/00-compile-map.ts > ./assets/message-map.json && prettier --write ./assets/message-map.json",
+    "05-events": "ts-node ./scripts/05-compile-events.ts > ./src/spotware-events.ts && prettier --write ./src/spotware-events.ts",
+    "10-event-emitter": "ts-node ./scripts/10-compile-event-emitter.ts > ./src/spotware-event-emitter.ts && prettier --write ./src/spotware-event-emitter.ts"
   },
   "keywords": [
     "spotware",
