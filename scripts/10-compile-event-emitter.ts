@@ -39,10 +39,10 @@ for (const message of map) {
       `prependOnceListener(event: "${payloadType}", listener: (message: $spotware.I${type}) => void): this;\n`
     );
     stream.write(
-      `listeners(event: "${payloadType}"): ((message: $spotware.I${type}) => void)[];\n`
+      `// TODO: listeners(event: "${payloadType}"): ((message: $spotware.I${type}) => void)[];\n`
     );
     stream.write(
-      `rawListeners(event: "${payloadType}"): ((message: $spotware.I${type}) => void)[];\n`
+      `// TODO: rawListeners(event: "${payloadType}"): ((message: $spotware.I${type}) => void)[];\n`
     );
   } else {
     stream.write(
@@ -70,15 +70,15 @@ for (const message of map) {
       `prependOnceListener(event: "${payloadType}", listener: Listener<$spotware.I${type}>): this;\n`
     );
     stream.write(
-      `listeners(event: "${payloadType}"): Listener<$spotware.I${type}>[];\n`
+      `// TODO: listeners(event: "${payloadType}"): Listener<$spotware.I${type}>[];\n`
     );
     stream.write(
-      `rawListeners(event: "${payloadType}"): Listener<$spotware.I${type}>[];\n`
+      `// TODO: rawListeners(event: "${payloadType}"): Listener<$spotware.I${type}>[];\n`
     );
   }
 }
 stream.write(`removeAllListeners(event?: SpotwareEvents): this;\n`);
 stream.write(`listenerCount(event: SpotwareEvents): number;\n`);
-stream.write(`eventNames(): SpotwareEvents[];\n`);
+stream.write(`// TODO: eventNames(): SpotwareEvents[];\n`);
 stream.write("}\n");
 stream.write("export default SpotwareEventEmitter;");
