@@ -5,6 +5,7 @@
   "main": "./build/spotware-socket.js",
   "scripts": {
     "test": "jest",
+    "prepare": "npm run build",
     "prebuild": "shx rm -rf ./build",
     "build": "npm run import && npm run generate && tsc",
     "preimport": "shx rm -rf ./assets/*.proto",
