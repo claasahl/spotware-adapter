@@ -1,6 +1,6 @@
 {
-  "name": "spotware-connect-api",
-  "version": "1.0.0",
+  "name": "@claasahl/spotware-connect-api",
+  "version": "0.1.0",
   "description": "Protocol Buffers and Data Models for Spotware Open API 2.0",
   "main": "index.js",
   "scripts": {
