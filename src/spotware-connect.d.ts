@@ -42,7 +42,7 @@ export class ProtoMessage implements IProtoMessage {
    * @returns Writer
    */
   public static encode(
-    message: ProtoMessage,
+    message: IProtoMessage,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -53,7 +53,7 @@ export class ProtoMessage implements IProtoMessage {
    * @returns Writer
    */
   public static encodeDelimited(
-    message: ProtoMessage,
+    message: IProtoMessage,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -162,7 +162,7 @@ export class ProtoErrorRes implements IProtoErrorRes {
    * @returns Writer
    */
   public static encode(
-    message: ProtoErrorRes,
+    message: IProtoErrorRes,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -173,7 +173,7 @@ export class ProtoErrorRes implements IProtoErrorRes {
    * @returns Writer
    */
   public static encodeDelimited(
-    message: ProtoErrorRes,
+    message: IProtoErrorRes,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -264,7 +264,7 @@ export class ProtoHeartbeatEvent implements IProtoHeartbeatEvent {
    * @returns Writer
    */
   public static encode(
-    message: ProtoHeartbeatEvent,
+    message: IProtoHeartbeatEvent,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -275,7 +275,7 @@ export class ProtoHeartbeatEvent implements IProtoHeartbeatEvent {
    * @returns Writer
    */
   public static encodeDelimited(
-    message: ProtoHeartbeatEvent,
+    message: IProtoHeartbeatEvent,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -402,7 +402,7 @@ export class ProtoOAApplicationAuthReq implements IProtoOAApplicationAuthReq {
    * @returns Writer
    */
   public static encode(
-    message: ProtoOAApplicationAuthReq,
+    message: IProtoOAApplicationAuthReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -413,7 +413,7 @@ export class ProtoOAApplicationAuthReq implements IProtoOAApplicationAuthReq {
    * @returns Writer
    */
   public static encodeDelimited(
-    message: ProtoOAApplicationAuthReq,
+    message: IProtoOAApplicationAuthReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -508,7 +508,7 @@ export class ProtoOAApplicationAuthRes implements IProtoOAApplicationAuthRes {
    * @returns Writer
    */
   public static encode(
-    message: ProtoOAApplicationAuthRes,
+    message: IProtoOAApplicationAuthRes,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -519,7 +519,7 @@ export class ProtoOAApplicationAuthRes implements IProtoOAApplicationAuthRes {
    * @returns Writer
    */
   public static encodeDelimited(
-    message: ProtoOAApplicationAuthRes,
+    message: IProtoOAApplicationAuthRes,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -626,7 +626,7 @@ export class ProtoOAAccountAuthReq implements IProtoOAAccountAuthReq {
    * @returns Writer
    */
   public static encode(
-    message: ProtoOAAccountAuthReq,
+    message: IProtoOAAccountAuthReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -637,7 +637,7 @@ export class ProtoOAAccountAuthReq implements IProtoOAAccountAuthReq {
    * @returns Writer
    */
   public static encodeDelimited(
-    message: ProtoOAAccountAuthReq,
+    message: IProtoOAAccountAuthReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -736,7 +736,7 @@ export class ProtoOAAccountAuthRes implements IProtoOAAccountAuthRes {
    * @returns Writer
    */
   public static encode(
-    message: ProtoOAAccountAuthRes,
+    message: IProtoOAAccountAuthRes,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -747,7 +747,7 @@ export class ProtoOAAccountAuthRes implements IProtoOAAccountAuthRes {
    * @returns Writer
    */
   public static encodeDelimited(
-    message: ProtoOAAccountAuthRes,
+    message: IProtoOAAccountAuthRes,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -856,7 +856,7 @@ export class ProtoOAErrorRes implements IProtoOAErrorRes {
    * @returns Writer
    */
   public static encode(
-    message: ProtoOAErrorRes,
+    message: IProtoOAErrorRes,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -867,7 +867,7 @@ export class ProtoOAErrorRes implements IProtoOAErrorRes {
    * @returns Writer
    */
   public static encodeDelimited(
-    message: ProtoOAErrorRes,
+    message: IProtoOAErrorRes,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -967,7 +967,7 @@ export class ProtoOAClientDisconnectEvent
    * @returns Writer
    */
   public static encode(
-    message: ProtoOAClientDisconnectEvent,
+    message: IProtoOAClientDisconnectEvent,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -978,7 +978,7 @@ export class ProtoOAClientDisconnectEvent
    * @returns Writer
    */
   public static encodeDelimited(
-    message: ProtoOAClientDisconnectEvent,
+    message: IProtoOAClientDisconnectEvent,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -1086,7 +1086,7 @@ export class ProtoOAAccountsTokenInvalidatedEvent
    * @returns Writer
    */
   public static encode(
-    message: ProtoOAAccountsTokenInvalidatedEvent,
+    message: IProtoOAAccountsTokenInvalidatedEvent,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -1097,7 +1097,7 @@ export class ProtoOAAccountsTokenInvalidatedEvent
    * @returns Writer
    */
   public static encodeDelimited(
-    message: ProtoOAAccountsTokenInvalidatedEvent,
+    message: IProtoOAAccountsTokenInvalidatedEvent,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -1190,7 +1190,7 @@ export class ProtoOAVersionReq implements IProtoOAVersionReq {
    * @returns Writer
    */
   public static encode(
-    message: ProtoOAVersionReq,
+    message: IProtoOAVersionReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -1201,7 +1201,7 @@ export class ProtoOAVersionReq implements IProtoOAVersionReq {
    * @returns Writer
    */
   public static encodeDelimited(
-    message: ProtoOAVersionReq,
+    message: IProtoOAVersionReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -1298,7 +1298,7 @@ export class ProtoOAVersionRes implements IProtoOAVersionRes {
    * @returns Writer
    */
   public static encode(
-    message: ProtoOAVersionRes,
+    message: IProtoOAVersionRes,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -1309,7 +1309,7 @@ export class ProtoOAVersionRes implements IProtoOAVersionRes {
    * @returns Writer
    */
   public static encodeDelimited(
-    message: ProtoOAVersionRes,
+    message: IProtoOAVersionRes,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -1532,7 +1532,7 @@ export class ProtoOANewOrderReq implements IProtoOANewOrderReq {
    * @returns Writer
    */
   public static encode(
-    message: ProtoOANewOrderReq,
+    message: IProtoOANewOrderReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -1543,7 +1543,7 @@ export class ProtoOANewOrderReq implements IProtoOANewOrderReq {
    * @returns Writer
    */
   public static encodeDelimited(
-    message: ProtoOANewOrderReq,
+    message: IProtoOANewOrderReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -1615,19 +1615,19 @@ export interface IProtoOAExecutionEvent {
   executionType: ProtoOAExecutionType;
 
   /** ProtoOAExecutionEvent position */
-  position?: ProtoOAPosition | null;
+  position?: IProtoOAPosition | null;
 
   /** ProtoOAExecutionEvent order */
-  order?: ProtoOAOrder | null;
+  order?: IProtoOAOrder | null;
 
   /** ProtoOAExecutionEvent deal */
-  deal?: ProtoOADeal | null;
+  deal?: IProtoOADeal | null;
 
   /** ProtoOAExecutionEvent bonusDepositWithdraw */
-  bonusDepositWithdraw?: ProtoOABonusDepositWithdraw | null;
+  bonusDepositWithdraw?: IProtoOABonusDepositWithdraw | null;
 
   /** ProtoOAExecutionEvent depositWithdraw */
-  depositWithdraw?: ProtoOADepositWithdraw | null;
+  depositWithdraw?: IProtoOADepositWithdraw | null;
 
   /** ProtoOAExecutionEvent errorCode */
   errorCode?: string | null;
@@ -1654,19 +1654,19 @@ export class ProtoOAExecutionEvent implements IProtoOAExecutionEvent {
   public executionType: ProtoOAExecutionType;
 
   /** ProtoOAExecutionEvent position. */
-  public position?: ProtoOAPosition | null;
+  public position?: IProtoOAPosition | null;
 
   /** ProtoOAExecutionEvent order. */
-  public order?: ProtoOAOrder | null;
+  public order?: IProtoOAOrder | null;
 
   /** ProtoOAExecutionEvent deal. */
-  public deal?: ProtoOADeal | null;
+  public deal?: IProtoOADeal | null;
 
   /** ProtoOAExecutionEvent bonusDepositWithdraw. */
-  public bonusDepositWithdraw?: ProtoOABonusDepositWithdraw | null;
+  public bonusDepositWithdraw?: IProtoOABonusDepositWithdraw | null;
 
   /** ProtoOAExecutionEvent depositWithdraw. */
-  public depositWithdraw?: ProtoOADepositWithdraw | null;
+  public depositWithdraw?: IProtoOADepositWithdraw | null;
 
   /** ProtoOAExecutionEvent errorCode. */
   public errorCode: string;
@@ -1690,7 +1690,7 @@ export class ProtoOAExecutionEvent implements IProtoOAExecutionEvent {
    * @returns Writer
    */
   public static encode(
-    message: ProtoOAExecutionEvent,
+    message: IProtoOAExecutionEvent,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -1701,7 +1701,7 @@ export class ProtoOAExecutionEvent implements IProtoOAExecutionEvent {
    * @returns Writer
    */
   public static encodeDelimited(
-    message: ProtoOAExecutionEvent,
+    message: IProtoOAExecutionEvent,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -1806,7 +1806,7 @@ export class ProtoOACancelOrderReq implements IProtoOACancelOrderReq {
    * @returns Writer
    */
   public static encode(
-    message: ProtoOACancelOrderReq,
+    message: IProtoOACancelOrderReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -1817,7 +1817,7 @@ export class ProtoOACancelOrderReq implements IProtoOACancelOrderReq {
    * @returns Writer
    */
   public static encodeDelimited(
-    message: ProtoOACancelOrderReq,
+    message: IProtoOACancelOrderReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -1994,7 +1994,7 @@ export class ProtoOAAmendOrderReq implements IProtoOAAmendOrderReq {
    * @returns Writer
    */
   public static encode(
-    message: ProtoOAAmendOrderReq,
+    message: IProtoOAAmendOrderReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -2005,7 +2005,7 @@ export class ProtoOAAmendOrderReq implements IProtoOAAmendOrderReq {
    * @returns Writer
    */
   public static encodeDelimited(
-    message: ProtoOAAmendOrderReq,
+    message: IProtoOAAmendOrderReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -2141,7 +2141,7 @@ export class ProtoOAAmendPositionSLTPReq
    * @returns Writer
    */
   public static encode(
-    message: ProtoOAAmendPositionSLTPReq,
+    message: IProtoOAAmendPositionSLTPReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -2152,7 +2152,7 @@ export class ProtoOAAmendPositionSLTPReq
    * @returns Writer
    */
   public static encodeDelimited(
-    message: ProtoOAAmendPositionSLTPReq,
+    message: IProtoOAAmendPositionSLTPReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -2265,7 +2265,7 @@ export class ProtoOAClosePositionReq implements IProtoOAClosePositionReq {
    * @returns Writer
    */
   public static encode(
-    message: ProtoOAClosePositionReq,
+    message: IProtoOAClosePositionReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -2276,7 +2276,7 @@ export class ProtoOAClosePositionReq implements IProtoOAClosePositionReq {
    * @returns Writer
    */
   public static encodeDelimited(
-    message: ProtoOAClosePositionReq,
+    message: IProtoOAClosePositionReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -2402,7 +2402,7 @@ export class ProtoOATrailingSLChangedEvent
    * @returns Writer
    */
   public static encode(
-    message: ProtoOATrailingSLChangedEvent,
+    message: IProtoOATrailingSLChangedEvent,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -2413,7 +2413,7 @@ export class ProtoOATrailingSLChangedEvent
    * @returns Writer
    */
   public static encodeDelimited(
-    message: ProtoOATrailingSLChangedEvent,
+    message: IProtoOATrailingSLChangedEvent,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -2512,7 +2512,7 @@ export class ProtoOAAssetListReq implements IProtoOAAssetListReq {
    * @returns Writer
    */
   public static encode(
-    message: ProtoOAAssetListReq,
+    message: IProtoOAAssetListReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -2523,7 +2523,7 @@ export class ProtoOAAssetListReq implements IProtoOAAssetListReq {
    * @returns Writer
    */
   public static encodeDelimited(
-    message: ProtoOAAssetListReq,
+    message: IProtoOAAssetListReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -2592,7 +2592,7 @@ export interface IProtoOAAssetListRes {
   ctidTraderAccountId: number | Long;
 
   /** ProtoOAAssetListRes asset */
-  asset?: ProtoOAAsset[] | null;
+  asset?: IProtoOAAsset[] | null;
 }
 
 /** Response to the ProtoOAAssetListReq request. */
@@ -2610,7 +2610,7 @@ export class ProtoOAAssetListRes implements IProtoOAAssetListRes {
   public ctidTraderAccountId: number | Long;
 
   /** ProtoOAAssetListRes asset. */
-  public asset: ProtoOAAsset[];
+  public asset: IProtoOAAsset[];
 
   /**
    * Creates a new ProtoOAAssetListRes instance using the specified properties.
@@ -2626,7 +2626,7 @@ export class ProtoOAAssetListRes implements IProtoOAAssetListRes {
    * @returns Writer
    */
   public static encode(
-    message: ProtoOAAssetListRes,
+    message: IProtoOAAssetListRes,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -2637,7 +2637,7 @@ export class ProtoOAAssetListRes implements IProtoOAAssetListRes {
    * @returns Writer
    */
   public static encodeDelimited(
-    message: ProtoOAAssetListRes,
+    message: IProtoOAAssetListRes,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -2736,7 +2736,7 @@ export class ProtoOASymbolsListReq implements IProtoOASymbolsListReq {
    * @returns Writer
    */
   public static encode(
-    message: ProtoOASymbolsListReq,
+    message: IProtoOASymbolsListReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -2747,7 +2747,7 @@ export class ProtoOASymbolsListReq implements IProtoOASymbolsListReq {
    * @returns Writer
    */
   public static encodeDelimited(
-    message: ProtoOASymbolsListReq,
+    message: IProtoOASymbolsListReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -2816,7 +2816,7 @@ export interface IProtoOASymbolsListRes {
   ctidTraderAccountId: number | Long;
 
   /** ProtoOASymbolsListRes symbol */
-  symbol?: ProtoOALightSymbol[] | null;
+  symbol?: IProtoOALightSymbol[] | null;
 }
 
 /** Response to the ProtoOASymbolsListReq request. */
@@ -2834,7 +2834,7 @@ export class ProtoOASymbolsListRes implements IProtoOASymbolsListRes {
   public ctidTraderAccountId: number | Long;
 
   /** ProtoOASymbolsListRes symbol. */
-  public symbol: ProtoOALightSymbol[];
+  public symbol: IProtoOALightSymbol[];
 
   /**
    * Creates a new ProtoOASymbolsListRes instance using the specified properties.
@@ -2852,7 +2852,7 @@ export class ProtoOASymbolsListRes implements IProtoOASymbolsListRes {
    * @returns Writer
    */
   public static encode(
-    message: ProtoOASymbolsListRes,
+    message: IProtoOASymbolsListRes,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -2863,7 +2863,7 @@ export class ProtoOASymbolsListRes implements IProtoOASymbolsListRes {
    * @returns Writer
    */
   public static encodeDelimited(
-    message: ProtoOASymbolsListRes,
+    message: IProtoOASymbolsListRes,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -2968,7 +2968,7 @@ export class ProtoOASymbolByIdReq implements IProtoOASymbolByIdReq {
    * @returns Writer
    */
   public static encode(
-    message: ProtoOASymbolByIdReq,
+    message: IProtoOASymbolByIdReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -2979,7 +2979,7 @@ export class ProtoOASymbolByIdReq implements IProtoOASymbolByIdReq {
    * @returns Writer
    */
   public static encodeDelimited(
-    message: ProtoOASymbolByIdReq,
+    message: IProtoOASymbolByIdReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -3048,7 +3048,7 @@ export interface IProtoOASymbolByIdRes {
   ctidTraderAccountId: number | Long;
 
   /** ProtoOASymbolByIdRes symbol */
-  symbol?: ProtoOASymbol[] | null;
+  symbol?: IProtoOASymbol[] | null;
 }
 
 /** Response to the ProtoOASymbolByIdReq request. */
@@ -3066,7 +3066,7 @@ export class ProtoOASymbolByIdRes implements IProtoOASymbolByIdRes {
   public ctidTraderAccountId: number | Long;
 
   /** ProtoOASymbolByIdRes symbol. */
-  public symbol: ProtoOASymbol[];
+  public symbol: IProtoOASymbol[];
 
   /**
    * Creates a new ProtoOASymbolByIdRes instance using the specified properties.
@@ -3084,7 +3084,7 @@ export class ProtoOASymbolByIdRes implements IProtoOASymbolByIdRes {
    * @returns Writer
    */
   public static encode(
-    message: ProtoOASymbolByIdRes,
+    message: IProtoOASymbolByIdRes,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -3095,7 +3095,7 @@ export class ProtoOASymbolByIdRes implements IProtoOASymbolByIdRes {
    * @returns Writer
    */
   public static encodeDelimited(
-    message: ProtoOASymbolByIdRes,
+    message: IProtoOASymbolByIdRes,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -3207,7 +3207,7 @@ export class ProtoOASymbolsForConversionReq
    * @returns Writer
    */
   public static encode(
-    message: ProtoOASymbolsForConversionReq,
+    message: IProtoOASymbolsForConversionReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -3218,7 +3218,7 @@ export class ProtoOASymbolsForConversionReq
    * @returns Writer
    */
   public static encodeDelimited(
-    message: ProtoOASymbolsForConversionReq,
+    message: IProtoOASymbolsForConversionReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -3289,7 +3289,7 @@ export interface IProtoOASymbolsForConversionRes {
   ctidTraderAccountId: number | Long;
 
   /** ProtoOASymbolsForConversionRes symbol */
-  symbol?: ProtoOALightSymbol[] | null;
+  symbol?: IProtoOALightSymbol[] | null;
 }
 
 /** Response to the ProtoOASymbolsForConversionReq request. */
@@ -3308,7 +3308,7 @@ export class ProtoOASymbolsForConversionRes
   public ctidTraderAccountId: number | Long;
 
   /** ProtoOASymbolsForConversionRes symbol. */
-  public symbol: ProtoOALightSymbol[];
+  public symbol: IProtoOALightSymbol[];
 
   /**
    * Creates a new ProtoOASymbolsForConversionRes instance using the specified properties.
@@ -3326,7 +3326,7 @@ export class ProtoOASymbolsForConversionRes
    * @returns Writer
    */
   public static encode(
-    message: ProtoOASymbolsForConversionRes,
+    message: IProtoOASymbolsForConversionRes,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -3337,7 +3337,7 @@ export class ProtoOASymbolsForConversionRes
    * @returns Writer
    */
   public static encodeDelimited(
-    message: ProtoOASymbolsForConversionRes,
+    message: IProtoOASymbolsForConversionRes,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -3444,7 +3444,7 @@ export class ProtoOASymbolChangedEvent implements IProtoOASymbolChangedEvent {
    * @returns Writer
    */
   public static encode(
-    message: ProtoOASymbolChangedEvent,
+    message: IProtoOASymbolChangedEvent,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -3455,7 +3455,7 @@ export class ProtoOASymbolChangedEvent implements IProtoOASymbolChangedEvent {
    * @returns Writer
    */
   public static encodeDelimited(
-    message: ProtoOASymbolChangedEvent,
+    message: IProtoOASymbolChangedEvent,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -3556,7 +3556,7 @@ export class ProtoOAAssetClassListReq implements IProtoOAAssetClassListReq {
    * @returns Writer
    */
   public static encode(
-    message: ProtoOAAssetClassListReq,
+    message: IProtoOAAssetClassListReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -3567,7 +3567,7 @@ export class ProtoOAAssetClassListReq implements IProtoOAAssetClassListReq {
    * @returns Writer
    */
   public static encodeDelimited(
-    message: ProtoOAAssetClassListReq,
+    message: IProtoOAAssetClassListReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -3638,7 +3638,7 @@ export interface IProtoOAAssetClassListRes {
   ctidTraderAccountId: number | Long;
 
   /** ProtoOAAssetClassListRes assetClass */
-  assetClass?: ProtoOAAssetClass[] | null;
+  assetClass?: IProtoOAAssetClass[] | null;
 }
 
 /** Response to the ProtoOAAssetListReq request. */
@@ -3656,7 +3656,7 @@ export class ProtoOAAssetClassListRes implements IProtoOAAssetClassListRes {
   public ctidTraderAccountId: number | Long;
 
   /** ProtoOAAssetClassListRes assetClass. */
-  public assetClass: ProtoOAAssetClass[];
+  public assetClass: IProtoOAAssetClass[];
 
   /**
    * Creates a new ProtoOAAssetClassListRes instance using the specified properties.
@@ -3674,7 +3674,7 @@ export class ProtoOAAssetClassListRes implements IProtoOAAssetClassListRes {
    * @returns Writer
    */
   public static encode(
-    message: ProtoOAAssetClassListRes,
+    message: IProtoOAAssetClassListRes,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -3685,7 +3685,7 @@ export class ProtoOAAssetClassListRes implements IProtoOAAssetClassListRes {
    * @returns Writer
    */
   public static encodeDelimited(
-    message: ProtoOAAssetClassListRes,
+    message: IProtoOAAssetClassListRes,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -3784,7 +3784,7 @@ export class ProtoOATraderReq implements IProtoOATraderReq {
    * @returns Writer
    */
   public static encode(
-    message: ProtoOATraderReq,
+    message: IProtoOATraderReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -3795,7 +3795,7 @@ export class ProtoOATraderReq implements IProtoOATraderReq {
    * @returns Writer
    */
   public static encodeDelimited(
-    message: ProtoOATraderReq,
+    message: IProtoOATraderReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -3864,7 +3864,7 @@ export interface IProtoOATraderRes {
   ctidTraderAccountId: number | Long;
 
   /** ProtoOATraderRes trader */
-  trader: ProtoOATrader;
+  trader: IProtoOATrader;
 }
 
 /** Response to the ProtoOATraderReq request. */
@@ -3882,7 +3882,7 @@ export class ProtoOATraderRes implements IProtoOATraderRes {
   public ctidTraderAccountId: number | Long;
 
   /** ProtoOATraderRes trader. */
-  public trader: ProtoOATrader;
+  public trader: IProtoOATrader;
 
   /**
    * Creates a new ProtoOATraderRes instance using the specified properties.
@@ -3898,7 +3898,7 @@ export class ProtoOATraderRes implements IProtoOATraderRes {
    * @returns Writer
    */
   public static encode(
-    message: ProtoOATraderRes,
+    message: IProtoOATraderRes,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -3909,7 +3909,7 @@ export class ProtoOATraderRes implements IProtoOATraderRes {
    * @returns Writer
    */
   public static encodeDelimited(
-    message: ProtoOATraderRes,
+    message: IProtoOATraderRes,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -3978,7 +3978,7 @@ export interface IProtoOATraderUpdatedEvent {
   ctidTraderAccountId: number | Long;
 
   /** ProtoOATraderUpdatedEvent trader */
-  trader: ProtoOATrader;
+  trader: IProtoOATrader;
 }
 
 /** Event that is sent when a Trader is updated on Server side. */
@@ -3996,7 +3996,7 @@ export class ProtoOATraderUpdatedEvent implements IProtoOATraderUpdatedEvent {
   public ctidTraderAccountId: number | Long;
 
   /** ProtoOATraderUpdatedEvent trader. */
-  public trader: ProtoOATrader;
+  public trader: IProtoOATrader;
 
   /**
    * Creates a new ProtoOATraderUpdatedEvent instance using the specified properties.
@@ -4014,7 +4014,7 @@ export class ProtoOATraderUpdatedEvent implements IProtoOATraderUpdatedEvent {
    * @returns Writer
    */
   public static encode(
-    message: ProtoOATraderUpdatedEvent,
+    message: IProtoOATraderUpdatedEvent,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -4025,7 +4025,7 @@ export class ProtoOATraderUpdatedEvent implements IProtoOATraderUpdatedEvent {
    * @returns Writer
    */
   public static encodeDelimited(
-    message: ProtoOATraderUpdatedEvent,
+    message: IProtoOATraderUpdatedEvent,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -4124,7 +4124,7 @@ export class ProtoOAReconcileReq implements IProtoOAReconcileReq {
    * @returns Writer
    */
   public static encode(
-    message: ProtoOAReconcileReq,
+    message: IProtoOAReconcileReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -4135,7 +4135,7 @@ export class ProtoOAReconcileReq implements IProtoOAReconcileReq {
    * @returns Writer
    */
   public static encodeDelimited(
-    message: ProtoOAReconcileReq,
+    message: IProtoOAReconcileReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -4204,10 +4204,10 @@ export interface IProtoOAReconcileRes {
   ctidTraderAccountId: number | Long;
 
   /** ProtoOAReconcileRes position */
-  position?: ProtoOAPosition[] | null;
+  position?: IProtoOAPosition[] | null;
 
   /** ProtoOAReconcileRes order */
-  order?: ProtoOAOrder[] | null;
+  order?: IProtoOAOrder[] | null;
 }
 
 /** The response to the ProtoOAReconcileReq request. */
@@ -4225,10 +4225,10 @@ export class ProtoOAReconcileRes implements IProtoOAReconcileRes {
   public ctidTraderAccountId: number | Long;
 
   /** ProtoOAReconcileRes position. */
-  public position: ProtoOAPosition[];
+  public position: IProtoOAPosition[];
 
   /** ProtoOAReconcileRes order. */
-  public order: ProtoOAOrder[];
+  public order: IProtoOAOrder[];
 
   /**
    * Creates a new ProtoOAReconcileRes instance using the specified properties.
@@ -4244,7 +4244,7 @@ export class ProtoOAReconcileRes implements IProtoOAReconcileRes {
    * @returns Writer
    */
   public static encode(
-    message: ProtoOAReconcileRes,
+    message: IProtoOAReconcileRes,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -4255,7 +4255,7 @@ export class ProtoOAReconcileRes implements IProtoOAReconcileRes {
    * @returns Writer
    */
   public static encodeDelimited(
-    message: ProtoOAReconcileRes,
+    message: IProtoOAReconcileRes,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -4378,7 +4378,7 @@ export class ProtoOAOrderErrorEvent implements IProtoOAOrderErrorEvent {
    * @returns Writer
    */
   public static encode(
-    message: ProtoOAOrderErrorEvent,
+    message: IProtoOAOrderErrorEvent,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -4389,7 +4389,7 @@ export class ProtoOAOrderErrorEvent implements IProtoOAOrderErrorEvent {
    * @returns Writer
    */
   public static encodeDelimited(
-    message: ProtoOAOrderErrorEvent,
+    message: IProtoOAOrderErrorEvent,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -4506,7 +4506,7 @@ export class ProtoOADealListReq implements IProtoOADealListReq {
    * @returns Writer
    */
   public static encode(
-    message: ProtoOADealListReq,
+    message: IProtoOADealListReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -4517,7 +4517,7 @@ export class ProtoOADealListReq implements IProtoOADealListReq {
    * @returns Writer
    */
   public static encodeDelimited(
-    message: ProtoOADealListReq,
+    message: IProtoOADealListReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -4586,7 +4586,7 @@ export interface IProtoOADealListRes {
   ctidTraderAccountId: number | Long;
 
   /** ProtoOADealListRes deal */
-  deal?: ProtoOADeal[] | null;
+  deal?: IProtoOADeal[] | null;
 
   /** ProtoOADealListRes hasMore */
   hasMore: boolean;
@@ -4607,7 +4607,7 @@ export class ProtoOADealListRes implements IProtoOADealListRes {
   public ctidTraderAccountId: number | Long;
 
   /** ProtoOADealListRes deal. */
-  public deal: ProtoOADeal[];
+  public deal: IProtoOADeal[];
 
   /** ProtoOADealListRes hasMore. */
   public hasMore: boolean;
@@ -4626,7 +4626,7 @@ export class ProtoOADealListRes implements IProtoOADealListRes {
    * @returns Writer
    */
   public static encode(
-    message: ProtoOADealListRes,
+    message: IProtoOADealListRes,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -4637,7 +4637,7 @@ export class ProtoOADealListRes implements IProtoOADealListRes {
    * @returns Writer
    */
   public static encodeDelimited(
-    message: ProtoOADealListRes,
+    message: IProtoOADealListRes,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -4748,7 +4748,7 @@ export class ProtoOAExpectedMarginReq implements IProtoOAExpectedMarginReq {
    * @returns Writer
    */
   public static encode(
-    message: ProtoOAExpectedMarginReq,
+    message: IProtoOAExpectedMarginReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -4759,7 +4759,7 @@ export class ProtoOAExpectedMarginReq implements IProtoOAExpectedMarginReq {
    * @returns Writer
    */
   public static encodeDelimited(
-    message: ProtoOAExpectedMarginReq,
+    message: IProtoOAExpectedMarginReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -4830,7 +4830,7 @@ export interface IProtoOAExpectedMarginRes {
   ctidTraderAccountId: number | Long;
 
   /** ProtoOAExpectedMarginRes margin */
-  margin?: ProtoOAExpectedMargin[] | null;
+  margin?: IProtoOAExpectedMargin[] | null;
 }
 
 /** The response to the ProtoOAExpectedMarginReq request. */
@@ -4848,7 +4848,7 @@ export class ProtoOAExpectedMarginRes implements IProtoOAExpectedMarginRes {
   public ctidTraderAccountId: number | Long;
 
   /** ProtoOAExpectedMarginRes margin. */
-  public margin: ProtoOAExpectedMargin[];
+  public margin: IProtoOAExpectedMargin[];
 
   /**
    * Creates a new ProtoOAExpectedMarginRes instance using the specified properties.
@@ -4866,7 +4866,7 @@ export class ProtoOAExpectedMarginRes implements IProtoOAExpectedMarginRes {
    * @returns Writer
    */
   public static encode(
-    message: ProtoOAExpectedMarginRes,
+    message: IProtoOAExpectedMarginRes,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -4877,7 +4877,7 @@ export class ProtoOAExpectedMarginRes implements IProtoOAExpectedMarginRes {
    * @returns Writer
    */
   public static encodeDelimited(
-    message: ProtoOAExpectedMarginRes,
+    message: IProtoOAExpectedMarginRes,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -4990,7 +4990,7 @@ export class ProtoOAMarginChangedEvent implements IProtoOAMarginChangedEvent {
    * @returns Writer
    */
   public static encode(
-    message: ProtoOAMarginChangedEvent,
+    message: IProtoOAMarginChangedEvent,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -5001,7 +5001,7 @@ export class ProtoOAMarginChangedEvent implements IProtoOAMarginChangedEvent {
    * @returns Writer
    */
   public static encodeDelimited(
-    message: ProtoOAMarginChangedEvent,
+    message: IProtoOAMarginChangedEvent,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -5115,7 +5115,7 @@ export class ProtoOACashFlowHistoryListReq
    * @returns Writer
    */
   public static encode(
-    message: ProtoOACashFlowHistoryListReq,
+    message: IProtoOACashFlowHistoryListReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -5126,7 +5126,7 @@ export class ProtoOACashFlowHistoryListReq
    * @returns Writer
    */
   public static encodeDelimited(
-    message: ProtoOACashFlowHistoryListReq,
+    message: IProtoOACashFlowHistoryListReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -5197,7 +5197,7 @@ export interface IProtoOACashFlowHistoryListRes {
   ctidTraderAccountId: number | Long;
 
   /** ProtoOACashFlowHistoryListRes depositWithdraw */
-  depositWithdraw?: ProtoOADepositWithdraw[] | null;
+  depositWithdraw?: IProtoOADepositWithdraw[] | null;
 }
 
 /** Response to the ProtoOACashFlowHistoryListReq request. */
@@ -5216,7 +5216,7 @@ export class ProtoOACashFlowHistoryListRes
   public ctidTraderAccountId: number | Long;
 
   /** ProtoOACashFlowHistoryListRes depositWithdraw. */
-  public depositWithdraw: ProtoOADepositWithdraw[];
+  public depositWithdraw: IProtoOADepositWithdraw[];
 
   /**
    * Creates a new ProtoOACashFlowHistoryListRes instance using the specified properties.
@@ -5234,7 +5234,7 @@ export class ProtoOACashFlowHistoryListRes
    * @returns Writer
    */
   public static encode(
-    message: ProtoOACashFlowHistoryListRes,
+    message: IProtoOACashFlowHistoryListRes,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -5245,7 +5245,7 @@ export class ProtoOACashFlowHistoryListRes
    * @returns Writer
    */
   public static encodeDelimited(
-    message: ProtoOACashFlowHistoryListRes,
+    message: IProtoOACashFlowHistoryListRes,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -5347,7 +5347,7 @@ export class ProtoOAGetAccountListByAccessTokenReq
    * @returns Writer
    */
   public static encode(
-    message: ProtoOAGetAccountListByAccessTokenReq,
+    message: IProtoOAGetAccountListByAccessTokenReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -5358,7 +5358,7 @@ export class ProtoOAGetAccountListByAccessTokenReq
    * @returns Writer
    */
   public static encodeDelimited(
-    message: ProtoOAGetAccountListByAccessTokenReq,
+    message: IProtoOAGetAccountListByAccessTokenReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -5432,7 +5432,7 @@ export interface IProtoOAGetAccountListByAccessTokenRes {
   permissionScope?: ProtoOAClientPermissionScope | null;
 
   /** ProtoOAGetAccountListByAccessTokenRes ctidTraderAccount */
-  ctidTraderAccount?: ProtoOACtidTraderAccount[] | null;
+  ctidTraderAccount?: IProtoOACtidTraderAccount[] | null;
 }
 
 /** Response to the ProtoOAGetAccountListByAccessTokenReq request. */
@@ -5454,7 +5454,7 @@ export class ProtoOAGetAccountListByAccessTokenRes
   public permissionScope: ProtoOAClientPermissionScope;
 
   /** ProtoOAGetAccountListByAccessTokenRes ctidTraderAccount. */
-  public ctidTraderAccount: ProtoOACtidTraderAccount[];
+  public ctidTraderAccount: IProtoOACtidTraderAccount[];
 
   /**
    * Creates a new ProtoOAGetAccountListByAccessTokenRes instance using the specified properties.
@@ -5472,7 +5472,7 @@ export class ProtoOAGetAccountListByAccessTokenRes
    * @returns Writer
    */
   public static encode(
-    message: ProtoOAGetAccountListByAccessTokenRes,
+    message: IProtoOAGetAccountListByAccessTokenRes,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -5483,7 +5483,7 @@ export class ProtoOAGetAccountListByAccessTokenRes
    * @returns Writer
    */
   public static encodeDelimited(
-    message: ProtoOAGetAccountListByAccessTokenRes,
+    message: IProtoOAGetAccountListByAccessTokenRes,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -5590,7 +5590,7 @@ export class ProtoOASubscribeSpotsReq implements IProtoOASubscribeSpotsReq {
    * @returns Writer
    */
   public static encode(
-    message: ProtoOASubscribeSpotsReq,
+    message: IProtoOASubscribeSpotsReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -5601,7 +5601,7 @@ export class ProtoOASubscribeSpotsReq implements IProtoOASubscribeSpotsReq {
    * @returns Writer
    */
   public static encodeDelimited(
-    message: ProtoOASubscribeSpotsReq,
+    message: IProtoOASubscribeSpotsReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -5702,7 +5702,7 @@ export class ProtoOASubscribeSpotsRes implements IProtoOASubscribeSpotsRes {
    * @returns Writer
    */
   public static encode(
-    message: ProtoOASubscribeSpotsRes,
+    message: IProtoOASubscribeSpotsRes,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -5713,7 +5713,7 @@ export class ProtoOASubscribeSpotsRes implements IProtoOASubscribeSpotsRes {
    * @returns Writer
    */
   public static encodeDelimited(
-    message: ProtoOASubscribeSpotsRes,
+    message: IProtoOASubscribeSpotsRes,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -5820,7 +5820,7 @@ export class ProtoOAUnsubscribeSpotsReq implements IProtoOAUnsubscribeSpotsReq {
    * @returns Writer
    */
   public static encode(
-    message: ProtoOAUnsubscribeSpotsReq,
+    message: IProtoOAUnsubscribeSpotsReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -5831,7 +5831,7 @@ export class ProtoOAUnsubscribeSpotsReq implements IProtoOAUnsubscribeSpotsReq {
    * @returns Writer
    */
   public static encodeDelimited(
-    message: ProtoOAUnsubscribeSpotsReq,
+    message: IProtoOAUnsubscribeSpotsReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -5932,7 +5932,7 @@ export class ProtoOAUnsubscribeSpotsRes implements IProtoOAUnsubscribeSpotsRes {
    * @returns Writer
    */
   public static encode(
-    message: ProtoOAUnsubscribeSpotsRes,
+    message: IProtoOAUnsubscribeSpotsRes,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -5943,7 +5943,7 @@ export class ProtoOAUnsubscribeSpotsRes implements IProtoOAUnsubscribeSpotsRes {
    * @returns Writer
    */
   public static encodeDelimited(
-    message: ProtoOAUnsubscribeSpotsRes,
+    message: IProtoOAUnsubscribeSpotsRes,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -6023,7 +6023,7 @@ export interface IProtoOASpotEvent {
   ask?: number | Long | null;
 
   /** ProtoOASpotEvent trendbar */
-  trendbar?: ProtoOATrendbar[] | null;
+  trendbar?: IProtoOATrendbar[] | null;
 }
 
 /** Event that is sent when a new spot event is generated on the server side. Requires subscription on the spot events, see ProtoOASubscribeSpotsReq. */
@@ -6050,7 +6050,7 @@ export class ProtoOASpotEvent implements IProtoOASpotEvent {
   public ask: number | Long;
 
   /** ProtoOASpotEvent trendbar. */
-  public trendbar: ProtoOATrendbar[];
+  public trendbar: IProtoOATrendbar[];
 
   /**
    * Creates a new ProtoOASpotEvent instance using the specified properties.
@@ -6066,7 +6066,7 @@ export class ProtoOASpotEvent implements IProtoOASpotEvent {
    * @returns Writer
    */
   public static encode(
-    message: ProtoOASpotEvent,
+    message: IProtoOASpotEvent,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -6077,7 +6077,7 @@ export class ProtoOASpotEvent implements IProtoOASpotEvent {
    * @returns Writer
    */
   public static encodeDelimited(
-    message: ProtoOASpotEvent,
+    message: IProtoOASpotEvent,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -6189,7 +6189,7 @@ export class ProtoOASubscribeLiveTrendbarReq
    * @returns Writer
    */
   public static encode(
-    message: ProtoOASubscribeLiveTrendbarReq,
+    message: IProtoOASubscribeLiveTrendbarReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -6200,7 +6200,7 @@ export class ProtoOASubscribeLiveTrendbarReq
    * @returns Writer
    */
   public static encodeDelimited(
-    message: ProtoOASubscribeLiveTrendbarReq,
+    message: IProtoOASubscribeLiveTrendbarReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -6314,7 +6314,7 @@ export class ProtoOAUnsubscribeLiveTrendbarReq
    * @returns Writer
    */
   public static encode(
-    message: ProtoOAUnsubscribeLiveTrendbarReq,
+    message: IProtoOAUnsubscribeLiveTrendbarReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -6325,7 +6325,7 @@ export class ProtoOAUnsubscribeLiveTrendbarReq
    * @returns Writer
    */
   public static encodeDelimited(
-    message: ProtoOAUnsubscribeLiveTrendbarReq,
+    message: IProtoOAUnsubscribeLiveTrendbarReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -6450,7 +6450,7 @@ export class ProtoOAGetTrendbarsReq implements IProtoOAGetTrendbarsReq {
    * @returns Writer
    */
   public static encode(
-    message: ProtoOAGetTrendbarsReq,
+    message: IProtoOAGetTrendbarsReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -6461,7 +6461,7 @@ export class ProtoOAGetTrendbarsReq implements IProtoOAGetTrendbarsReq {
    * @returns Writer
    */
   public static encodeDelimited(
-    message: ProtoOAGetTrendbarsReq,
+    message: IProtoOAGetTrendbarsReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -6538,7 +6538,7 @@ export interface IProtoOAGetTrendbarsRes {
   timestamp: number | Long;
 
   /** ProtoOAGetTrendbarsRes trendbar */
-  trendbar?: ProtoOATrendbar[] | null;
+  trendbar?: IProtoOATrendbar[] | null;
 
   /** ProtoOAGetTrendbarsRes symbolId */
   symbolId?: number | Long | null;
@@ -6565,7 +6565,7 @@ export class ProtoOAGetTrendbarsRes implements IProtoOAGetTrendbarsRes {
   public timestamp: number | Long;
 
   /** ProtoOAGetTrendbarsRes trendbar. */
-  public trendbar: ProtoOATrendbar[];
+  public trendbar: IProtoOATrendbar[];
 
   /** ProtoOAGetTrendbarsRes symbolId. */
   public symbolId: number | Long;
@@ -6586,7 +6586,7 @@ export class ProtoOAGetTrendbarsRes implements IProtoOAGetTrendbarsRes {
    * @returns Writer
    */
   public static encode(
-    message: ProtoOAGetTrendbarsRes,
+    message: IProtoOAGetTrendbarsRes,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -6597,7 +6597,7 @@ export class ProtoOAGetTrendbarsRes implements IProtoOAGetTrendbarsRes {
    * @returns Writer
    */
   public static encodeDelimited(
-    message: ProtoOAGetTrendbarsRes,
+    message: IProtoOAGetTrendbarsRes,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -6722,7 +6722,7 @@ export class ProtoOAGetTickDataReq implements IProtoOAGetTickDataReq {
    * @returns Writer
    */
   public static encode(
-    message: ProtoOAGetTickDataReq,
+    message: IProtoOAGetTickDataReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -6733,7 +6733,7 @@ export class ProtoOAGetTickDataReq implements IProtoOAGetTickDataReq {
    * @returns Writer
    */
   public static encodeDelimited(
-    message: ProtoOAGetTickDataReq,
+    message: IProtoOAGetTickDataReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -6802,7 +6802,7 @@ export interface IProtoOAGetTickDataRes {
   ctidTraderAccountId: number | Long;
 
   /** ProtoOAGetTickDataRes tickData */
-  tickData?: ProtoOATickData[] | null;
+  tickData?: IProtoOATickData[] | null;
 
   /** ProtoOAGetTickDataRes hasMore */
   hasMore: boolean;
@@ -6823,7 +6823,7 @@ export class ProtoOAGetTickDataRes implements IProtoOAGetTickDataRes {
   public ctidTraderAccountId: number | Long;
 
   /** ProtoOAGetTickDataRes tickData. */
-  public tickData: ProtoOATickData[];
+  public tickData: IProtoOATickData[];
 
   /** ProtoOAGetTickDataRes hasMore. */
   public hasMore: boolean;
@@ -6844,7 +6844,7 @@ export class ProtoOAGetTickDataRes implements IProtoOAGetTickDataRes {
    * @returns Writer
    */
   public static encode(
-    message: ProtoOAGetTickDataRes,
+    message: IProtoOAGetTickDataRes,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -6855,7 +6855,7 @@ export class ProtoOAGetTickDataRes implements IProtoOAGetTickDataRes {
    * @returns Writer
    */
   public static encodeDelimited(
-    message: ProtoOAGetTickDataRes,
+    message: IProtoOAGetTickDataRes,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -6955,7 +6955,7 @@ export class ProtoOAGetCtidProfileByTokenReq
    * @returns Writer
    */
   public static encode(
-    message: ProtoOAGetCtidProfileByTokenReq,
+    message: IProtoOAGetCtidProfileByTokenReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -6966,7 +6966,7 @@ export class ProtoOAGetCtidProfileByTokenReq
    * @returns Writer
    */
   public static encodeDelimited(
-    message: ProtoOAGetCtidProfileByTokenReq,
+    message: IProtoOAGetCtidProfileByTokenReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -7034,7 +7034,7 @@ export interface IProtoOAGetCtidProfileByTokenRes {
   payloadType?: ProtoOAPayloadType | null;
 
   /** ProtoOAGetCtidProfileByTokenRes profile */
-  profile: ProtoOACtidProfile;
+  profile: IProtoOACtidProfile;
 }
 
 /** Response to the ProtoOAGetCtidProfileByTokenReq request. */
@@ -7050,7 +7050,7 @@ export class ProtoOAGetCtidProfileByTokenRes
   public payloadType: ProtoOAPayloadType;
 
   /** ProtoOAGetCtidProfileByTokenRes profile. */
-  public profile: ProtoOACtidProfile;
+  public profile: IProtoOACtidProfile;
 
   /**
    * Creates a new ProtoOAGetCtidProfileByTokenRes instance using the specified properties.
@@ -7068,7 +7068,7 @@ export class ProtoOAGetCtidProfileByTokenRes
    * @returns Writer
    */
   public static encode(
-    message: ProtoOAGetCtidProfileByTokenRes,
+    message: IProtoOAGetCtidProfileByTokenRes,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -7079,7 +7079,7 @@ export class ProtoOAGetCtidProfileByTokenRes
    * @returns Writer
    */
   public static encodeDelimited(
-    message: ProtoOAGetCtidProfileByTokenRes,
+    message: IProtoOAGetCtidProfileByTokenRes,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -7153,7 +7153,7 @@ export interface IProtoOADepthEvent {
   symbolId: number | Long;
 
   /** ProtoOADepthEvent newQuotes */
-  newQuotes?: ProtoOADepthQuote[] | null;
+  newQuotes?: IProtoOADepthQuote[] | null;
 
   /** ProtoOADepthEvent deletedQuotes */
   deletedQuotes?: (number | Long)[] | null;
@@ -7177,7 +7177,7 @@ export class ProtoOADepthEvent implements IProtoOADepthEvent {
   public symbolId: number | Long;
 
   /** ProtoOADepthEvent newQuotes. */
-  public newQuotes: ProtoOADepthQuote[];
+  public newQuotes: IProtoOADepthQuote[];
 
   /** ProtoOADepthEvent deletedQuotes. */
   public deletedQuotes: (number | Long)[];
@@ -7196,7 +7196,7 @@ export class ProtoOADepthEvent implements IProtoOADepthEvent {
    * @returns Writer
    */
   public static encode(
-    message: ProtoOADepthEvent,
+    message: IProtoOADepthEvent,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -7207,7 +7207,7 @@ export class ProtoOADepthEvent implements IProtoOADepthEvent {
    * @returns Writer
    */
   public static encodeDelimited(
-    message: ProtoOADepthEvent,
+    message: IProtoOADepthEvent,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -7313,7 +7313,7 @@ export class ProtoOASubscribeDepthQuotesReq
    * @returns Writer
    */
   public static encode(
-    message: ProtoOASubscribeDepthQuotesReq,
+    message: IProtoOASubscribeDepthQuotesReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -7324,7 +7324,7 @@ export class ProtoOASubscribeDepthQuotesReq
    * @returns Writer
    */
   public static encodeDelimited(
-    message: ProtoOASubscribeDepthQuotesReq,
+    message: IProtoOASubscribeDepthQuotesReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -7426,7 +7426,7 @@ export class ProtoOASubscribeDepthQuotesRes
    * @returns Writer
    */
   public static encode(
-    message: ProtoOASubscribeDepthQuotesRes,
+    message: IProtoOASubscribeDepthQuotesRes,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -7437,7 +7437,7 @@ export class ProtoOASubscribeDepthQuotesRes
    * @returns Writer
    */
   public static encodeDelimited(
-    message: ProtoOASubscribeDepthQuotesRes,
+    message: IProtoOASubscribeDepthQuotesRes,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -7545,7 +7545,7 @@ export class ProtoOAUnsubscribeDepthQuotesReq
    * @returns Writer
    */
   public static encode(
-    message: ProtoOAUnsubscribeDepthQuotesReq,
+    message: IProtoOAUnsubscribeDepthQuotesReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -7556,7 +7556,7 @@ export class ProtoOAUnsubscribeDepthQuotesReq
    * @returns Writer
    */
   public static encodeDelimited(
-    message: ProtoOAUnsubscribeDepthQuotesReq,
+    message: IProtoOAUnsubscribeDepthQuotesReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -7658,7 +7658,7 @@ export class ProtoOAUnsubscribeDepthQuotesRes
    * @returns Writer
    */
   public static encode(
-    message: ProtoOAUnsubscribeDepthQuotesRes,
+    message: IProtoOAUnsubscribeDepthQuotesRes,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -7669,7 +7669,7 @@ export class ProtoOAUnsubscribeDepthQuotesRes
    * @returns Writer
    */
   public static encodeDelimited(
-    message: ProtoOAUnsubscribeDepthQuotesRes,
+    message: IProtoOAUnsubscribeDepthQuotesRes,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -7771,7 +7771,7 @@ export class ProtoOASymbolCategoryListReq
    * @returns Writer
    */
   public static encode(
-    message: ProtoOASymbolCategoryListReq,
+    message: IProtoOASymbolCategoryListReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -7782,7 +7782,7 @@ export class ProtoOASymbolCategoryListReq
    * @returns Writer
    */
   public static encodeDelimited(
-    message: ProtoOASymbolCategoryListReq,
+    message: IProtoOASymbolCategoryListReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -7853,7 +7853,7 @@ export interface IProtoOASymbolCategoryListRes {
   ctidTraderAccountId: number | Long;
 
   /** ProtoOASymbolCategoryListRes symbolCategory */
-  symbolCategory?: ProtoOASymbolCategory[] | null;
+  symbolCategory?: IProtoOASymbolCategory[] | null;
 }
 
 /** Response to the ProtoSymbolCategoryListReq request. */
@@ -7872,7 +7872,7 @@ export class ProtoOASymbolCategoryListRes
   public ctidTraderAccountId: number | Long;
 
   /** ProtoOASymbolCategoryListRes symbolCategory. */
-  public symbolCategory: ProtoOASymbolCategory[];
+  public symbolCategory: IProtoOASymbolCategory[];
 
   /**
    * Creates a new ProtoOASymbolCategoryListRes instance using the specified properties.
@@ -7890,7 +7890,7 @@ export class ProtoOASymbolCategoryListRes
    * @returns Writer
    */
   public static encode(
-    message: ProtoOASymbolCategoryListRes,
+    message: IProtoOASymbolCategoryListRes,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -7901,7 +7901,7 @@ export class ProtoOASymbolCategoryListRes
    * @returns Writer
    */
   public static encodeDelimited(
-    message: ProtoOASymbolCategoryListRes,
+    message: IProtoOASymbolCategoryListRes,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -8002,7 +8002,7 @@ export class ProtoOAAccountLogoutReq implements IProtoOAAccountLogoutReq {
    * @returns Writer
    */
   public static encode(
-    message: ProtoOAAccountLogoutReq,
+    message: IProtoOAAccountLogoutReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -8013,7 +8013,7 @@ export class ProtoOAAccountLogoutReq implements IProtoOAAccountLogoutReq {
    * @returns Writer
    */
   public static encodeDelimited(
-    message: ProtoOAAccountLogoutReq,
+    message: IProtoOAAccountLogoutReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -8114,7 +8114,7 @@ export class ProtoOAAccountLogoutRes implements IProtoOAAccountLogoutRes {
    * @returns Writer
    */
   public static encode(
-    message: ProtoOAAccountLogoutRes,
+    message: IProtoOAAccountLogoutRes,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -8125,7 +8125,7 @@ export class ProtoOAAccountLogoutRes implements IProtoOAAccountLogoutRes {
    * @returns Writer
    */
   public static encodeDelimited(
-    message: ProtoOAAccountLogoutRes,
+    message: IProtoOAAccountLogoutRes,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -8230,7 +8230,7 @@ export class ProtoOAAccountDisconnectEvent
    * @returns Writer
    */
   public static encode(
-    message: ProtoOAAccountDisconnectEvent,
+    message: IProtoOAAccountDisconnectEvent,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -8241,7 +8241,7 @@ export class ProtoOAAccountDisconnectEvent
    * @returns Writer
    */
   public static encodeDelimited(
-    message: ProtoOAAccountDisconnectEvent,
+    message: IProtoOAAccountDisconnectEvent,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -8415,7 +8415,7 @@ export class ProtoOAAsset implements IProtoOAAsset {
    * @returns Writer
    */
   public static encode(
-    message: ProtoOAAsset,
+    message: IProtoOAAsset,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -8426,7 +8426,7 @@ export class ProtoOAAsset implements IProtoOAAsset {
    * @returns Writer
    */
   public static encodeDelimited(
-    message: ProtoOAAsset,
+    message: IProtoOAAsset,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -8525,7 +8525,7 @@ export interface IProtoOASymbol {
   maxExposure?: number | Long | null;
 
   /** ProtoOASymbol schedule */
-  schedule?: ProtoOAInterval[] | null;
+  schedule?: IProtoOAInterval[] | null;
 
   /** ProtoOASymbol commission */
   commission: number | Long;
@@ -8618,7 +8618,7 @@ export class ProtoOASymbol implements IProtoOASymbol {
   public maxExposure: number | Long;
 
   /** ProtoOASymbol schedule. */
-  public schedule: ProtoOAInterval[];
+  public schedule: IProtoOAInterval[];
 
   /** ProtoOASymbol commission. */
   public commission: number | Long;
@@ -8679,7 +8679,7 @@ export class ProtoOASymbol implements IProtoOASymbol {
    * @returns Writer
    */
   public static encode(
-    message: ProtoOASymbol,
+    message: IProtoOASymbol,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -8690,7 +8690,7 @@ export class ProtoOASymbol implements IProtoOASymbol {
    * @returns Writer
    */
   public static encodeDelimited(
-    message: ProtoOASymbol,
+    message: IProtoOASymbol,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -8817,7 +8817,7 @@ export class ProtoOALightSymbol implements IProtoOALightSymbol {
    * @returns Writer
    */
   public static encode(
-    message: ProtoOALightSymbol,
+    message: IProtoOALightSymbol,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -8828,7 +8828,7 @@ export class ProtoOALightSymbol implements IProtoOALightSymbol {
    * @returns Writer
    */
   public static encodeDelimited(
-    message: ProtoOALightSymbol,
+    message: IProtoOALightSymbol,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -8933,7 +8933,7 @@ export class ProtoOASymbolCategory implements IProtoOASymbolCategory {
    * @returns Writer
    */
   public static encode(
-    message: ProtoOASymbolCategory,
+    message: IProtoOASymbolCategory,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -8944,7 +8944,7 @@ export class ProtoOASymbolCategory implements IProtoOASymbolCategory {
    * @returns Writer
    */
   public static encodeDelimited(
-    message: ProtoOASymbolCategory,
+    message: IProtoOASymbolCategory,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -9053,7 +9053,7 @@ export class ProtoOAInterval implements IProtoOAInterval {
    * @returns Writer
    */
   public static encode(
-    message: ProtoOAInterval,
+    message: IProtoOAInterval,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -9064,7 +9064,7 @@ export class ProtoOAInterval implements IProtoOAInterval {
    * @returns Writer
    */
   public static encodeDelimited(
-    message: ProtoOAInterval,
+    message: IProtoOAInterval,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -9301,7 +9301,7 @@ export class ProtoOATrader implements IProtoOATrader {
    * @returns Writer
    */
   public static encode(
-    message: ProtoOATrader,
+    message: IProtoOATrader,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -9312,7 +9312,7 @@ export class ProtoOATrader implements IProtoOATrader {
    * @returns Writer
    */
   public static encodeDelimited(
-    message: ProtoOATrader,
+    message: IProtoOATrader,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -9428,7 +9428,7 @@ export interface IProtoOAPosition {
   positionId: number | Long;
 
   /** ProtoOAPosition tradeData */
-  tradeData: ProtoOATradeData;
+  tradeData: IProtoOATradeData;
 
   /** ProtoOAPosition positionStatus */
   positionStatus: ProtoOAPositionStatus;
@@ -9479,7 +9479,7 @@ export class ProtoOAPosition implements IProtoOAPosition {
   public positionId: number | Long;
 
   /** ProtoOAPosition tradeData. */
-  public tradeData: ProtoOATradeData;
+  public tradeData: IProtoOATradeData;
 
   /** ProtoOAPosition positionStatus. */
   public positionStatus: ProtoOAPositionStatus;
@@ -9531,7 +9531,7 @@ export class ProtoOAPosition implements IProtoOAPosition {
    * @returns Writer
    */
   public static encode(
-    message: ProtoOAPosition,
+    message: IProtoOAPosition,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -9542,7 +9542,7 @@ export class ProtoOAPosition implements IProtoOAPosition {
    * @returns Writer
    */
   public static encodeDelimited(
-    message: ProtoOAPosition,
+    message: IProtoOAPosition,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -9663,7 +9663,7 @@ export class ProtoOATradeData implements IProtoOATradeData {
    * @returns Writer
    */
   public static encode(
-    message: ProtoOATradeData,
+    message: IProtoOATradeData,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -9674,7 +9674,7 @@ export class ProtoOATradeData implements IProtoOATradeData {
    * @returns Writer
    */
   public static encodeDelimited(
-    message: ProtoOATradeData,
+    message: IProtoOATradeData,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -9740,7 +9740,7 @@ export interface IProtoOAOrder {
   orderId: number | Long;
 
   /** ProtoOAOrder tradeData */
-  tradeData: ProtoOATradeData;
+  tradeData: IProtoOATradeData;
 
   /** ProtoOAOrder orderType */
   orderType: ProtoOAOrderType;
@@ -9818,7 +9818,7 @@ export class ProtoOAOrder implements IProtoOAOrder {
   public orderId: number | Long;
 
   /** ProtoOAOrder tradeData. */
-  public tradeData: ProtoOATradeData;
+  public tradeData: IProtoOATradeData;
 
   /** ProtoOAOrder orderType. */
   public orderType: ProtoOAOrderType;
@@ -9897,7 +9897,7 @@ export class ProtoOAOrder implements IProtoOAOrder {
    * @returns Writer
    */
   public static encode(
-    message: ProtoOAOrder,
+    message: IProtoOAOrder,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -9908,7 +9908,7 @@ export class ProtoOAOrder implements IProtoOAOrder {
    * @returns Writer
    */
   public static encodeDelimited(
-    message: ProtoOAOrder,
+    message: IProtoOAOrder,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -10065,7 +10065,7 @@ export class ProtoOABonusDepositWithdraw
    * @returns Writer
    */
   public static encode(
-    message: ProtoOABonusDepositWithdraw,
+    message: IProtoOABonusDepositWithdraw,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -10076,7 +10076,7 @@ export class ProtoOABonusDepositWithdraw
    * @returns Writer
    */
   public static encodeDelimited(
-    message: ProtoOABonusDepositWithdraw,
+    message: IProtoOABonusDepositWithdraw,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -10219,7 +10219,7 @@ export class ProtoOADepositWithdraw implements IProtoOADepositWithdraw {
    * @returns Writer
    */
   public static encode(
-    message: ProtoOADepositWithdraw,
+    message: IProtoOADepositWithdraw,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -10230,7 +10230,7 @@ export class ProtoOADepositWithdraw implements IProtoOADepositWithdraw {
    * @returns Writer
    */
   public static encodeDelimited(
-    message: ProtoOADepositWithdraw,
+    message: IProtoOADepositWithdraw,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -10370,7 +10370,7 @@ export interface IProtoOADeal {
   baseToUsdConversionRate?: number | null;
 
   /** ProtoOADeal closePositionDetail */
-  closePositionDetail?: ProtoOAClosePositionDetail | null;
+  closePositionDetail?: IProtoOAClosePositionDetail | null;
 }
 
 /** Execution entity. */
@@ -10427,7 +10427,7 @@ export class ProtoOADeal implements IProtoOADeal {
   public baseToUsdConversionRate: number;
 
   /** ProtoOADeal closePositionDetail. */
-  public closePositionDetail?: ProtoOAClosePositionDetail | null;
+  public closePositionDetail?: IProtoOAClosePositionDetail | null;
 
   /**
    * Creates a new ProtoOADeal instance using the specified properties.
@@ -10443,7 +10443,7 @@ export class ProtoOADeal implements IProtoOADeal {
    * @returns Writer
    */
   public static encode(
-    message: ProtoOADeal,
+    message: IProtoOADeal,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -10454,7 +10454,7 @@ export class ProtoOADeal implements IProtoOADeal {
    * @returns Writer
    */
   public static encodeDelimited(
-    message: ProtoOADeal,
+    message: IProtoOADeal,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -10599,7 +10599,7 @@ export class ProtoOAClosePositionDetail implements IProtoOAClosePositionDetail {
    * @returns Writer
    */
   public static encode(
-    message: ProtoOAClosePositionDetail,
+    message: IProtoOAClosePositionDetail,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -10610,7 +10610,7 @@ export class ProtoOAClosePositionDetail implements IProtoOAClosePositionDetail {
    * @returns Writer
    */
   public static encodeDelimited(
-    message: ProtoOAClosePositionDetail,
+    message: IProtoOAClosePositionDetail,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -10757,7 +10757,7 @@ export class ProtoOATrendbar implements IProtoOATrendbar {
    * @returns Writer
    */
   public static encode(
-    message: ProtoOATrendbar,
+    message: IProtoOATrendbar,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -10768,7 +10768,7 @@ export class ProtoOATrendbar implements IProtoOATrendbar {
    * @returns Writer
    */
   public static encodeDelimited(
-    message: ProtoOATrendbar,
+    message: IProtoOATrendbar,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -10873,7 +10873,7 @@ export class ProtoOAExpectedMargin implements IProtoOAExpectedMargin {
    * @returns Writer
    */
   public static encode(
-    message: ProtoOAExpectedMargin,
+    message: IProtoOAExpectedMargin,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -10884,7 +10884,7 @@ export class ProtoOAExpectedMargin implements IProtoOAExpectedMargin {
    * @returns Writer
    */
   public static encodeDelimited(
-    message: ProtoOAExpectedMargin,
+    message: IProtoOAExpectedMargin,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -10987,7 +10987,7 @@ export class ProtoOATickData implements IProtoOATickData {
    * @returns Writer
    */
   public static encode(
-    message: ProtoOATickData,
+    message: IProtoOATickData,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -10998,7 +10998,7 @@ export class ProtoOATickData implements IProtoOATickData {
    * @returns Writer
    */
   public static encodeDelimited(
-    message: ProtoOATickData,
+    message: IProtoOATickData,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -11095,7 +11095,7 @@ export class ProtoOACtidProfile implements IProtoOACtidProfile {
    * @returns Writer
    */
   public static encode(
-    message: ProtoOACtidProfile,
+    message: IProtoOACtidProfile,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -11106,7 +11106,7 @@ export class ProtoOACtidProfile implements IProtoOACtidProfile {
    * @returns Writer
    */
   public static encodeDelimited(
-    message: ProtoOACtidProfile,
+    message: IProtoOACtidProfile,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -11211,7 +11211,7 @@ export class ProtoOACtidTraderAccount implements IProtoOACtidTraderAccount {
    * @returns Writer
    */
   public static encode(
-    message: ProtoOACtidTraderAccount,
+    message: IProtoOACtidTraderAccount,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -11222,7 +11222,7 @@ export class ProtoOACtidTraderAccount implements IProtoOACtidTraderAccount {
    * @returns Writer
    */
   public static encodeDelimited(
-    message: ProtoOACtidTraderAccount,
+    message: IProtoOACtidTraderAccount,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -11321,7 +11321,7 @@ export class ProtoOAAssetClass implements IProtoOAAssetClass {
    * @returns Writer
    */
   public static encode(
-    message: ProtoOAAssetClass,
+    message: IProtoOAAssetClass,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -11332,7 +11332,7 @@ export class ProtoOAAssetClass implements IProtoOAAssetClass {
    * @returns Writer
    */
   public static encodeDelimited(
-    message: ProtoOAAssetClass,
+    message: IProtoOAAssetClass,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -11441,7 +11441,7 @@ export class ProtoOADepthQuote implements IProtoOADepthQuote {
    * @returns Writer
    */
   public static encode(
-    message: ProtoOADepthQuote,
+    message: IProtoOADepthQuote,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 
@@ -11452,7 +11452,7 @@ export class ProtoOADepthQuote implements IProtoOADepthQuote {
    * @returns Writer
    */
   public static encodeDelimited(
-    message: ProtoOADepthQuote,
+    message: IProtoOADepthQuote,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
 

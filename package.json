@@ -5,12 +5,13 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prepare": "tsc",
-    "build": "tsc",
+    "prepare": "npm run build",
+    "build": "npm run import && npm run generate && tsc",
     "preimport": "shx rm -rf ./assets/*.proto",
     "import": "shx mkdir ./spotware-messages && cd ./spotware-messages && isogit clone --url=https://github.com/spotware/Open-API-2.0-protobuf-messages --singleBranch",
     "postimport": "shx cp ./spotware-messages/*.proto ./assets && shx rm -rf ./spotware-messages",
-    "generate:js": "pbjs --target static-module --es6 --wrap es6 --force-message ./assets/*.proto > ./src/spotware-connect.js",
+    "generate": "npm run generate:js && npm run generate:ts",
+    "generate:js": "pbjs --target static-module --wrap es6 --es6 --out ./src/spotware-connect.js ./assets/*.proto",
     "postgenerate:js": "prettier --write ./src/spotware-connect.js",
     "generate:ts": "pbts --out ./src/spotware-connect.d.ts ./src/spotware-connect.js",
     "postgenerate:ts": "prettier --write ./src/spotware-connect.d.ts"
