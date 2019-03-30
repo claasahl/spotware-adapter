@@ -20,7 +20,11 @@
     "api",
     "protobuf"
   ],
-  "author": "",
+  "author": {
+    "name": "Claas Ahlrichs",
+    "email": "claasahl@gmail.com",
+    "url": "https://github.com/claasahl"
+  },
   "license": "ISC",
   "husky": {
     "hooks": {
