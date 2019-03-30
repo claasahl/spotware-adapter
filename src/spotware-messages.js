@@ -1,15 +1,17 @@
 /*eslint-disable block-scoped-var, id-length, no-control-regex, no-magic-numbers, no-prototype-builtins, no-redeclare, no-shadow, no-var, sort-vars*/
-import * as $protobuf from "protobufjs/minimal";
+"use strict";
+
+var $protobuf = require("protobufjs/minimal");
 
 // Common aliases
-const $Reader = $protobuf.Reader,
+var $Reader = $protobuf.Reader,
   $Writer = $protobuf.Writer,
   $util = $protobuf.util;
 
 // Exported root namespace
-const $root = $protobuf.roots["default"] || ($protobuf.roots["default"] = {});
+var $root = $protobuf.roots["default"] || ($protobuf.roots["default"] = {});
 
-export const ProtoMessage = ($root.ProtoMessage = (() => {
+$root.ProtoMessage = (function() {
   /**
    * Properties of a ProtoMessage.
    * @exports IProtoMessage
@@ -29,7 +31,7 @@ export const ProtoMessage = ($root.ProtoMessage = (() => {
    */
   function ProtoMessage(properties) {
     if (properties)
-      for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
 
@@ -114,10 +116,10 @@ export const ProtoMessage = ($root.ProtoMessage = (() => {
    */
   ProtoMessage.decode = function decode(reader, length) {
     if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    let end = length === undefined ? reader.len : reader.pos + length,
+    var end = length === undefined ? reader.len : reader.pos + length,
       message = new $root.ProtoMessage();
     while (reader.pos < end) {
-      let tag = reader.uint32();
+      var tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
           message.payloadType = reader.uint32();
@@ -192,7 +194,7 @@ export const ProtoMessage = ($root.ProtoMessage = (() => {
    */
   ProtoMessage.fromObject = function fromObject(object) {
     if (object instanceof $root.ProtoMessage) return object;
-    let message = new $root.ProtoMessage();
+    var message = new $root.ProtoMessage();
     if (object.payloadType != null)
       message.payloadType = object.payloadType >>> 0;
     if (object.payload != null)
@@ -221,7 +223,7 @@ export const ProtoMessage = ($root.ProtoMessage = (() => {
    */
   ProtoMessage.toObject = function toObject(message, options) {
     if (!options) options = {};
-    let object = {};
+    var object = {};
     if (options.defaults) {
       object.payloadType = 0;
       if (options.bytes === String) object.payload = "";
@@ -258,9 +260,9 @@ export const ProtoMessage = ($root.ProtoMessage = (() => {
   };
 
   return ProtoMessage;
-})());
+})();
 
-export const ProtoErrorRes = ($root.ProtoErrorRes = (() => {
+$root.ProtoErrorRes = (function() {
   /**
    * Properties of a ProtoErrorRes.
    * @exports IProtoErrorRes
@@ -281,7 +283,7 @@ export const ProtoErrorRes = ($root.ProtoErrorRes = (() => {
    */
   function ProtoErrorRes(properties) {
     if (properties)
-      for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
 
@@ -383,10 +385,10 @@ export const ProtoErrorRes = ($root.ProtoErrorRes = (() => {
    */
   ProtoErrorRes.decode = function decode(reader, length) {
     if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    let end = length === undefined ? reader.len : reader.pos + length,
+    var end = length === undefined ? reader.len : reader.pos + length,
       message = new $root.ProtoErrorRes();
     while (reader.pos < end) {
-      let tag = reader.uint32();
+      var tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
           message.payloadType = reader.int32();
@@ -477,7 +479,7 @@ export const ProtoErrorRes = ($root.ProtoErrorRes = (() => {
    */
   ProtoErrorRes.fromObject = function fromObject(object) {
     if (object instanceof $root.ProtoErrorRes) return object;
-    let message = new $root.ProtoErrorRes();
+    var message = new $root.ProtoErrorRes();
     switch (object.payloadType) {
       case "PROTO_MESSAGE":
       case 5:
@@ -526,13 +528,13 @@ export const ProtoErrorRes = ($root.ProtoErrorRes = (() => {
    */
   ProtoErrorRes.toObject = function toObject(message, options) {
     if (!options) options = {};
-    let object = {};
+    var object = {};
     if (options.defaults) {
       object.payloadType = options.enums === String ? "ERROR_RES" : 50;
       object.errorCode = "";
       object.description = "";
       if ($util.Long) {
-        let long = new $util.Long(0, 0, true);
+        var long = new $util.Long(0, 0, true);
         object.maintenanceEndTimestamp =
           options.longs === String
             ? long.toString()
@@ -587,9 +589,9 @@ export const ProtoErrorRes = ($root.ProtoErrorRes = (() => {
   };
 
   return ProtoErrorRes;
-})());
+})();
 
-export const ProtoHeartbeatEvent = ($root.ProtoHeartbeatEvent = (() => {
+$root.ProtoHeartbeatEvent = (function() {
   /**
    * Properties of a ProtoHeartbeatEvent.
    * @exports IProtoHeartbeatEvent
@@ -607,7 +609,7 @@ export const ProtoHeartbeatEvent = ($root.ProtoHeartbeatEvent = (() => {
    */
   function ProtoHeartbeatEvent(properties) {
     if (properties)
-      for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
 
@@ -676,10 +678,10 @@ export const ProtoHeartbeatEvent = ($root.ProtoHeartbeatEvent = (() => {
    */
   ProtoHeartbeatEvent.decode = function decode(reader, length) {
     if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    let end = length === undefined ? reader.len : reader.pos + length,
+    var end = length === undefined ? reader.len : reader.pos + length,
       message = new $root.ProtoHeartbeatEvent();
     while (reader.pos < end) {
-      let tag = reader.uint32();
+      var tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
           message.payloadType = reader.int32();
@@ -740,7 +742,7 @@ export const ProtoHeartbeatEvent = ($root.ProtoHeartbeatEvent = (() => {
    */
   ProtoHeartbeatEvent.fromObject = function fromObject(object) {
     if (object instanceof $root.ProtoHeartbeatEvent) return object;
-    let message = new $root.ProtoHeartbeatEvent();
+    var message = new $root.ProtoHeartbeatEvent();
     switch (object.payloadType) {
       case "PROTO_MESSAGE":
       case 5:
@@ -769,7 +771,7 @@ export const ProtoHeartbeatEvent = ($root.ProtoHeartbeatEvent = (() => {
    */
   ProtoHeartbeatEvent.toObject = function toObject(message, options) {
     if (!options) options = {};
-    let object = {};
+    var object = {};
     if (options.defaults)
       object.payloadType = options.enums === String ? "HEARTBEAT_EVENT" : 51;
     if (message.payloadType != null && message.hasOwnProperty("payloadType"))
@@ -792,7 +794,7 @@ export const ProtoHeartbeatEvent = ($root.ProtoHeartbeatEvent = (() => {
   };
 
   return ProtoHeartbeatEvent;
-})());
+})();
 
 /**
  * ProtoPayloadType enum.
@@ -803,7 +805,7 @@ export const ProtoHeartbeatEvent = ($root.ProtoHeartbeatEvent = (() => {
  * @property {number} HEARTBEAT_EVENT=51 HEARTBEAT_EVENT value
  */
 $root.ProtoPayloadType = (function() {
-  const valuesById = {},
+  var valuesById = {},
     values = Object.create(valuesById);
   values[(valuesById[5] = "PROTO_MESSAGE")] = 5;
   values[(valuesById[50] = "ERROR_RES")] = 50;
@@ -828,7 +830,7 @@ $root.ProtoPayloadType = (function() {
  * @property {number} BLOCKED_PAYLOAD_TYPE=11 BLOCKED_PAYLOAD_TYPE value
  */
 $root.ProtoErrorCode = (function() {
-  const valuesById = {},
+  var valuesById = {},
     values = Object.create(valuesById);
   values[(valuesById[1] = "UNKNOWN_ERROR")] = 1;
   values[(valuesById[2] = "UNSUPPORTED_MESSAGE")] = 2;
@@ -844,7 +846,7 @@ $root.ProtoErrorCode = (function() {
   return values;
 })();
 
-export const ProtoOAApplicationAuthReq = ($root.ProtoOAApplicationAuthReq = (() => {
+$root.ProtoOAApplicationAuthReq = (function() {
   /**
    * Properties of a ProtoOAApplicationAuthReq.
    * @exports IProtoOAApplicationAuthReq
@@ -864,7 +866,7 @@ export const ProtoOAApplicationAuthReq = ($root.ProtoOAApplicationAuthReq = (() 
    */
   function ProtoOAApplicationAuthReq(properties) {
     if (properties)
-      for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
 
@@ -951,10 +953,10 @@ export const ProtoOAApplicationAuthReq = ($root.ProtoOAApplicationAuthReq = (() 
    */
   ProtoOAApplicationAuthReq.decode = function decode(reader, length) {
     if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    let end = length === undefined ? reader.len : reader.pos + length,
+    var end = length === undefined ? reader.len : reader.pos + length,
       message = new $root.ProtoOAApplicationAuthReq();
     while (reader.pos < end) {
-      let tag = reader.uint32();
+      var tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
           message.payloadType = reader.int32();
@@ -1094,7 +1096,7 @@ export const ProtoOAApplicationAuthReq = ($root.ProtoOAApplicationAuthReq = (() 
    */
   ProtoOAApplicationAuthReq.fromObject = function fromObject(object) {
     if (object instanceof $root.ProtoOAApplicationAuthReq) return object;
-    let message = new $root.ProtoOAApplicationAuthReq();
+    var message = new $root.ProtoOAApplicationAuthReq();
     switch (object.payloadType) {
       case "PROTO_OA_APPLICATION_AUTH_REQ":
       case 2100:
@@ -1374,7 +1376,7 @@ export const ProtoOAApplicationAuthReq = ($root.ProtoOAApplicationAuthReq = (() 
    */
   ProtoOAApplicationAuthReq.toObject = function toObject(message, options) {
     if (!options) options = {};
-    let object = {};
+    var object = {};
     if (options.defaults) {
       object.payloadType =
         options.enums === String ? "PROTO_OA_APPLICATION_AUTH_REQ" : 2100;
@@ -1405,9 +1407,9 @@ export const ProtoOAApplicationAuthReq = ($root.ProtoOAApplicationAuthReq = (() 
   };
 
   return ProtoOAApplicationAuthReq;
-})());
+})();
 
-export const ProtoOAApplicationAuthRes = ($root.ProtoOAApplicationAuthRes = (() => {
+$root.ProtoOAApplicationAuthRes = (function() {
   /**
    * Properties of a ProtoOAApplicationAuthRes.
    * @exports IProtoOAApplicationAuthRes
@@ -1425,7 +1427,7 @@ export const ProtoOAApplicationAuthRes = ($root.ProtoOAApplicationAuthRes = (() 
    */
   function ProtoOAApplicationAuthRes(properties) {
     if (properties)
-      for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
 
@@ -1494,10 +1496,10 @@ export const ProtoOAApplicationAuthRes = ($root.ProtoOAApplicationAuthRes = (() 
    */
   ProtoOAApplicationAuthRes.decode = function decode(reader, length) {
     if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    let end = length === undefined ? reader.len : reader.pos + length,
+    var end = length === undefined ? reader.len : reader.pos + length,
       message = new $root.ProtoOAApplicationAuthRes();
     while (reader.pos < end) {
-      let tag = reader.uint32();
+      var tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
           message.payloadType = reader.int32();
@@ -1620,7 +1622,7 @@ export const ProtoOAApplicationAuthRes = ($root.ProtoOAApplicationAuthRes = (() 
    */
   ProtoOAApplicationAuthRes.fromObject = function fromObject(object) {
     if (object instanceof $root.ProtoOAApplicationAuthRes) return object;
-    let message = new $root.ProtoOAApplicationAuthRes();
+    var message = new $root.ProtoOAApplicationAuthRes();
     switch (object.payloadType) {
       case "PROTO_OA_APPLICATION_AUTH_REQ":
       case 2100:
@@ -1897,7 +1899,7 @@ export const ProtoOAApplicationAuthRes = ($root.ProtoOAApplicationAuthRes = (() 
    */
   ProtoOAApplicationAuthRes.toObject = function toObject(message, options) {
     if (!options) options = {};
-    let object = {};
+    var object = {};
     if (options.defaults)
       object.payloadType =
         options.enums === String ? "PROTO_OA_APPLICATION_AUTH_RES" : 2101;
@@ -1921,9 +1923,9 @@ export const ProtoOAApplicationAuthRes = ($root.ProtoOAApplicationAuthRes = (() 
   };
 
   return ProtoOAApplicationAuthRes;
-})());
+})();
 
-export const ProtoOAAccountAuthReq = ($root.ProtoOAAccountAuthReq = (() => {
+$root.ProtoOAAccountAuthReq = (function() {
   /**
    * Properties of a ProtoOAAccountAuthReq.
    * @exports IProtoOAAccountAuthReq
@@ -1943,7 +1945,7 @@ export const ProtoOAAccountAuthReq = ($root.ProtoOAAccountAuthReq = (() => {
    */
   function ProtoOAAccountAuthReq(properties) {
     if (properties)
-      for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
 
@@ -2034,10 +2036,10 @@ export const ProtoOAAccountAuthReq = ($root.ProtoOAAccountAuthReq = (() => {
    */
   ProtoOAAccountAuthReq.decode = function decode(reader, length) {
     if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    let end = length === undefined ? reader.len : reader.pos + length,
+    var end = length === undefined ? reader.len : reader.pos + length,
       message = new $root.ProtoOAAccountAuthReq();
     while (reader.pos < end) {
-      let tag = reader.uint32();
+      var tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
           message.payloadType = reader.int32();
@@ -2185,7 +2187,7 @@ export const ProtoOAAccountAuthReq = ($root.ProtoOAAccountAuthReq = (() => {
    */
   ProtoOAAccountAuthReq.fromObject = function fromObject(object) {
     if (object instanceof $root.ProtoOAAccountAuthReq) return object;
-    let message = new $root.ProtoOAAccountAuthReq();
+    var message = new $root.ProtoOAAccountAuthReq();
     switch (object.payloadType) {
       case "PROTO_OA_APPLICATION_AUTH_REQ":
       case 2100:
@@ -2478,12 +2480,12 @@ export const ProtoOAAccountAuthReq = ($root.ProtoOAAccountAuthReq = (() => {
    */
   ProtoOAAccountAuthReq.toObject = function toObject(message, options) {
     if (!options) options = {};
-    let object = {};
+    var object = {};
     if (options.defaults) {
       object.payloadType =
         options.enums === String ? "PROTO_OA_ACCOUNT_AUTH_REQ" : 2102;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.ctidTraderAccountId =
           options.longs === String
             ? long.toString()
@@ -2534,9 +2536,9 @@ export const ProtoOAAccountAuthReq = ($root.ProtoOAAccountAuthReq = (() => {
   };
 
   return ProtoOAAccountAuthReq;
-})());
+})();
 
-export const ProtoOAAccountAuthRes = ($root.ProtoOAAccountAuthRes = (() => {
+$root.ProtoOAAccountAuthRes = (function() {
   /**
    * Properties of a ProtoOAAccountAuthRes.
    * @exports IProtoOAAccountAuthRes
@@ -2555,7 +2557,7 @@ export const ProtoOAAccountAuthRes = ($root.ProtoOAAccountAuthRes = (() => {
    */
   function ProtoOAAccountAuthRes(properties) {
     if (properties)
-      for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
 
@@ -2637,10 +2639,10 @@ export const ProtoOAAccountAuthRes = ($root.ProtoOAAccountAuthRes = (() => {
    */
   ProtoOAAccountAuthRes.decode = function decode(reader, length) {
     if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    let end = length === undefined ? reader.len : reader.pos + length,
+    var end = length === undefined ? reader.len : reader.pos + length,
       message = new $root.ProtoOAAccountAuthRes();
     while (reader.pos < end) {
-      let tag = reader.uint32();
+      var tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
           message.payloadType = reader.int32();
@@ -2779,7 +2781,7 @@ export const ProtoOAAccountAuthRes = ($root.ProtoOAAccountAuthRes = (() => {
    */
   ProtoOAAccountAuthRes.fromObject = function fromObject(object) {
     if (object instanceof $root.ProtoOAAccountAuthRes) return object;
-    let message = new $root.ProtoOAAccountAuthRes();
+    var message = new $root.ProtoOAAccountAuthRes();
     switch (object.payloadType) {
       case "PROTO_OA_APPLICATION_AUTH_REQ":
       case 2100:
@@ -3070,12 +3072,12 @@ export const ProtoOAAccountAuthRes = ($root.ProtoOAAccountAuthRes = (() => {
    */
   ProtoOAAccountAuthRes.toObject = function toObject(message, options) {
     if (!options) options = {};
-    let object = {};
+    var object = {};
     if (options.defaults) {
       object.payloadType =
         options.enums === String ? "PROTO_OA_ACCOUNT_AUTH_RES" : 2103;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.ctidTraderAccountId =
           options.longs === String
             ? long.toString()
@@ -3123,9 +3125,9 @@ export const ProtoOAAccountAuthRes = ($root.ProtoOAAccountAuthRes = (() => {
   };
 
   return ProtoOAAccountAuthRes;
-})());
+})();
 
-export const ProtoOAErrorRes = ($root.ProtoOAErrorRes = (() => {
+$root.ProtoOAErrorRes = (function() {
   /**
    * Properties of a ProtoOAErrorRes.
    * @exports IProtoOAErrorRes
@@ -3146,7 +3148,7 @@ export const ProtoOAErrorRes = ($root.ProtoOAErrorRes = (() => {
    */
   function ProtoOAErrorRes(properties) {
     if (properties)
-      for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
 
@@ -3248,10 +3250,10 @@ export const ProtoOAErrorRes = ($root.ProtoOAErrorRes = (() => {
    */
   ProtoOAErrorRes.decode = function decode(reader, length) {
     if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    let end = length === undefined ? reader.len : reader.pos + length,
+    var end = length === undefined ? reader.len : reader.pos + length,
       message = new $root.ProtoOAErrorRes();
     while (reader.pos < end) {
-      let tag = reader.uint32();
+      var tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
           message.payloadType = reader.int32();
@@ -3404,7 +3406,7 @@ export const ProtoOAErrorRes = ($root.ProtoOAErrorRes = (() => {
    */
   ProtoOAErrorRes.fromObject = function fromObject(object) {
     if (object instanceof $root.ProtoOAErrorRes) return object;
-    let message = new $root.ProtoOAErrorRes();
+    var message = new $root.ProtoOAErrorRes();
     switch (object.payloadType) {
       case "PROTO_OA_APPLICATION_AUTH_REQ":
       case 2100:
@@ -3698,12 +3700,12 @@ export const ProtoOAErrorRes = ($root.ProtoOAErrorRes = (() => {
    */
   ProtoOAErrorRes.toObject = function toObject(message, options) {
     if (!options) options = {};
-    let object = {};
+    var object = {};
     if (options.defaults) {
       object.payloadType =
         options.enums === String ? "PROTO_OA_ERROR_RES" : 2142;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.ctidTraderAccountId =
           options.longs === String
             ? long.toString()
@@ -3757,9 +3759,9 @@ export const ProtoOAErrorRes = ($root.ProtoOAErrorRes = (() => {
   };
 
   return ProtoOAErrorRes;
-})());
+})();
 
-export const ProtoOAClientDisconnectEvent = ($root.ProtoOAClientDisconnectEvent = (() => {
+$root.ProtoOAClientDisconnectEvent = (function() {
   /**
    * Properties of a ProtoOAClientDisconnectEvent.
    * @exports IProtoOAClientDisconnectEvent
@@ -3778,7 +3780,7 @@ export const ProtoOAClientDisconnectEvent = ($root.ProtoOAClientDisconnectEvent 
    */
   function ProtoOAClientDisconnectEvent(properties) {
     if (properties)
-      for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
 
@@ -3857,10 +3859,10 @@ export const ProtoOAClientDisconnectEvent = ($root.ProtoOAClientDisconnectEvent 
    */
   ProtoOAClientDisconnectEvent.decode = function decode(reader, length) {
     if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    let end = length === undefined ? reader.len : reader.pos + length,
+    var end = length === undefined ? reader.len : reader.pos + length,
       message = new $root.ProtoOAClientDisconnectEvent();
     while (reader.pos < end) {
-      let tag = reader.uint32();
+      var tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
           message.payloadType = reader.int32();
@@ -3990,7 +3992,7 @@ export const ProtoOAClientDisconnectEvent = ($root.ProtoOAClientDisconnectEvent 
    */
   ProtoOAClientDisconnectEvent.fromObject = function fromObject(object) {
     if (object instanceof $root.ProtoOAClientDisconnectEvent) return object;
-    let message = new $root.ProtoOAClientDisconnectEvent();
+    var message = new $root.ProtoOAClientDisconnectEvent();
     switch (object.payloadType) {
       case "PROTO_OA_APPLICATION_AUTH_REQ":
       case 2100:
@@ -4268,7 +4270,7 @@ export const ProtoOAClientDisconnectEvent = ($root.ProtoOAClientDisconnectEvent 
    */
   ProtoOAClientDisconnectEvent.toObject = function toObject(message, options) {
     if (!options) options = {};
-    let object = {};
+    var object = {};
     if (options.defaults) {
       object.payloadType =
         options.enums === String ? "PROTO_OA_CLIENT_DISCONNECT_EVENT" : 2148;
@@ -4296,9 +4298,9 @@ export const ProtoOAClientDisconnectEvent = ($root.ProtoOAClientDisconnectEvent 
   };
 
   return ProtoOAClientDisconnectEvent;
-})());
+})();
 
-export const ProtoOAAccountsTokenInvalidatedEvent = ($root.ProtoOAAccountsTokenInvalidatedEvent = (() => {
+$root.ProtoOAAccountsTokenInvalidatedEvent = (function() {
   /**
    * Properties of a ProtoOAAccountsTokenInvalidatedEvent.
    * @exports IProtoOAAccountsTokenInvalidatedEvent
@@ -4319,7 +4321,7 @@ export const ProtoOAAccountsTokenInvalidatedEvent = ($root.ProtoOAAccountsTokenI
   function ProtoOAAccountsTokenInvalidatedEvent(properties) {
     this.ctidTraderAccountIds = [];
     if (properties)
-      for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
 
@@ -4380,7 +4382,7 @@ export const ProtoOAAccountsTokenInvalidatedEvent = ($root.ProtoOAAccountsTokenI
       message.ctidTraderAccountIds != null &&
       message.ctidTraderAccountIds.length
     )
-      for (let i = 0; i < message.ctidTraderAccountIds.length; ++i)
+      for (var i = 0; i < message.ctidTraderAccountIds.length; ++i)
         writer
           .uint32(/* id 2, wireType 0 =*/ 16)
           .int64(message.ctidTraderAccountIds[i]);
@@ -4421,10 +4423,10 @@ export const ProtoOAAccountsTokenInvalidatedEvent = ($root.ProtoOAAccountsTokenI
     length
   ) {
     if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    let end = length === undefined ? reader.len : reader.pos + length,
+    var end = length === undefined ? reader.len : reader.pos + length,
       message = new $root.ProtoOAAccountsTokenInvalidatedEvent();
     while (reader.pos < end) {
-      let tag = reader.uint32();
+      var tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
           message.payloadType = reader.int32();
@@ -4438,7 +4440,7 @@ export const ProtoOAAccountsTokenInvalidatedEvent = ($root.ProtoOAAccountsTokenI
           )
             message.ctidTraderAccountIds = [];
           if ((tag & 7) === 2) {
-            let end2 = reader.uint32() + reader.pos;
+            var end2 = reader.uint32() + reader.pos;
             while (reader.pos < end2)
               message.ctidTraderAccountIds.push(reader.int64());
           } else message.ctidTraderAccountIds.push(reader.int64());
@@ -4559,7 +4561,7 @@ export const ProtoOAAccountsTokenInvalidatedEvent = ($root.ProtoOAAccountsTokenI
     ) {
       if (!Array.isArray(message.ctidTraderAccountIds))
         return "ctidTraderAccountIds: array expected";
-      for (let i = 0; i < message.ctidTraderAccountIds.length; ++i)
+      for (var i = 0; i < message.ctidTraderAccountIds.length; ++i)
         if (
           !$util.isInteger(message.ctidTraderAccountIds[i]) &&
           !(
@@ -4588,7 +4590,7 @@ export const ProtoOAAccountsTokenInvalidatedEvent = ($root.ProtoOAAccountsTokenI
   ) {
     if (object instanceof $root.ProtoOAAccountsTokenInvalidatedEvent)
       return object;
-    let message = new $root.ProtoOAAccountsTokenInvalidatedEvent();
+    var message = new $root.ProtoOAAccountsTokenInvalidatedEvent();
     switch (object.payloadType) {
       case "PROTO_OA_APPLICATION_AUTH_REQ":
       case 2100:
@@ -4857,7 +4859,7 @@ export const ProtoOAAccountsTokenInvalidatedEvent = ($root.ProtoOAAccountsTokenI
           ".ProtoOAAccountsTokenInvalidatedEvent.ctidTraderAccountIds: array expected"
         );
       message.ctidTraderAccountIds = [];
-      for (let i = 0; i < object.ctidTraderAccountIds.length; ++i)
+      for (var i = 0; i < object.ctidTraderAccountIds.length; ++i)
         if ($util.Long)
           (message.ctidTraderAccountIds[i] = $util.Long.fromValue(
             object.ctidTraderAccountIds[i]
@@ -4893,7 +4895,7 @@ export const ProtoOAAccountsTokenInvalidatedEvent = ($root.ProtoOAAccountsTokenI
     options
   ) {
     if (!options) options = {};
-    let object = {};
+    var object = {};
     if (options.arrays || options.defaults) object.ctidTraderAccountIds = [];
     if (options.defaults) {
       object.payloadType =
@@ -4909,7 +4911,7 @@ export const ProtoOAAccountsTokenInvalidatedEvent = ($root.ProtoOAAccountsTokenI
           : message.payloadType;
     if (message.ctidTraderAccountIds && message.ctidTraderAccountIds.length) {
       object.ctidTraderAccountIds = [];
-      for (let j = 0; j < message.ctidTraderAccountIds.length; ++j)
+      for (var j = 0; j < message.ctidTraderAccountIds.length; ++j)
         if (typeof message.ctidTraderAccountIds[j] === "number")
           object.ctidTraderAccountIds[j] =
             options.longs === String
@@ -4945,9 +4947,9 @@ export const ProtoOAAccountsTokenInvalidatedEvent = ($root.ProtoOAAccountsTokenI
   };
 
   return ProtoOAAccountsTokenInvalidatedEvent;
-})());
+})();
 
-export const ProtoOAVersionReq = ($root.ProtoOAVersionReq = (() => {
+$root.ProtoOAVersionReq = (function() {
   /**
    * Properties of a ProtoOAVersionReq.
    * @exports IProtoOAVersionReq
@@ -4965,7 +4967,7 @@ export const ProtoOAVersionReq = ($root.ProtoOAVersionReq = (() => {
    */
   function ProtoOAVersionReq(properties) {
     if (properties)
-      for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
 
@@ -5034,10 +5036,10 @@ export const ProtoOAVersionReq = ($root.ProtoOAVersionReq = (() => {
    */
   ProtoOAVersionReq.decode = function decode(reader, length) {
     if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    let end = length === undefined ? reader.len : reader.pos + length,
+    var end = length === undefined ? reader.len : reader.pos + length,
       message = new $root.ProtoOAVersionReq();
     while (reader.pos < end) {
-      let tag = reader.uint32();
+      var tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
           message.payloadType = reader.int32();
@@ -5160,7 +5162,7 @@ export const ProtoOAVersionReq = ($root.ProtoOAVersionReq = (() => {
    */
   ProtoOAVersionReq.fromObject = function fromObject(object) {
     if (object instanceof $root.ProtoOAVersionReq) return object;
-    let message = new $root.ProtoOAVersionReq();
+    var message = new $root.ProtoOAVersionReq();
     switch (object.payloadType) {
       case "PROTO_OA_APPLICATION_AUTH_REQ":
       case 2100:
@@ -5437,7 +5439,7 @@ export const ProtoOAVersionReq = ($root.ProtoOAVersionReq = (() => {
    */
   ProtoOAVersionReq.toObject = function toObject(message, options) {
     if (!options) options = {};
-    let object = {};
+    var object = {};
     if (options.defaults)
       object.payloadType =
         options.enums === String ? "PROTO_OA_VERSION_REQ" : 2104;
@@ -5461,9 +5463,9 @@ export const ProtoOAVersionReq = ($root.ProtoOAVersionReq = (() => {
   };
 
   return ProtoOAVersionReq;
-})());
+})();
 
-export const ProtoOAVersionRes = ($root.ProtoOAVersionRes = (() => {
+$root.ProtoOAVersionRes = (function() {
   /**
    * Properties of a ProtoOAVersionRes.
    * @exports IProtoOAVersionRes
@@ -5482,7 +5484,7 @@ export const ProtoOAVersionRes = ($root.ProtoOAVersionRes = (() => {
    */
   function ProtoOAVersionRes(properties) {
     if (properties)
-      for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
 
@@ -5560,10 +5562,10 @@ export const ProtoOAVersionRes = ($root.ProtoOAVersionRes = (() => {
    */
   ProtoOAVersionRes.decode = function decode(reader, length) {
     if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    let end = length === undefined ? reader.len : reader.pos + length,
+    var end = length === undefined ? reader.len : reader.pos + length,
       message = new $root.ProtoOAVersionRes();
     while (reader.pos < end) {
-      let tag = reader.uint32();
+      var tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
           message.payloadType = reader.int32();
@@ -5694,7 +5696,7 @@ export const ProtoOAVersionRes = ($root.ProtoOAVersionRes = (() => {
    */
   ProtoOAVersionRes.fromObject = function fromObject(object) {
     if (object instanceof $root.ProtoOAVersionRes) return object;
-    let message = new $root.ProtoOAVersionRes();
+    var message = new $root.ProtoOAVersionRes();
     switch (object.payloadType) {
       case "PROTO_OA_APPLICATION_AUTH_REQ":
       case 2100:
@@ -5972,7 +5974,7 @@ export const ProtoOAVersionRes = ($root.ProtoOAVersionRes = (() => {
    */
   ProtoOAVersionRes.toObject = function toObject(message, options) {
     if (!options) options = {};
-    let object = {};
+    var object = {};
     if (options.defaults) {
       object.payloadType =
         options.enums === String ? "PROTO_OA_VERSION_RES" : 2105;
@@ -6000,9 +6002,9 @@ export const ProtoOAVersionRes = ($root.ProtoOAVersionRes = (() => {
   };
 
   return ProtoOAVersionRes;
-})());
+})();
 
-export const ProtoOANewOrderReq = ($root.ProtoOANewOrderReq = (() => {
+$root.ProtoOANewOrderReq = (function() {
   /**
    * Properties of a ProtoOANewOrderReq.
    * @exports IProtoOANewOrderReq
@@ -6042,7 +6044,7 @@ export const ProtoOANewOrderReq = ($root.ProtoOANewOrderReq = (() => {
    */
   function ProtoOANewOrderReq(properties) {
     if (properties)
-      for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
 
@@ -6385,10 +6387,10 @@ export const ProtoOANewOrderReq = ($root.ProtoOANewOrderReq = (() => {
    */
   ProtoOANewOrderReq.decode = function decode(reader, length) {
     if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    let end = length === undefined ? reader.len : reader.pos + length,
+    var end = length === undefined ? reader.len : reader.pos + length,
       message = new $root.ProtoOANewOrderReq();
     while (reader.pos < end) {
-      let tag = reader.uint32();
+      var tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
           message.payloadType = reader.int32();
@@ -6761,7 +6763,7 @@ export const ProtoOANewOrderReq = ($root.ProtoOANewOrderReq = (() => {
    */
   ProtoOANewOrderReq.fromObject = function fromObject(object) {
     if (object instanceof $root.ProtoOANewOrderReq) return object;
-    let message = new $root.ProtoOANewOrderReq();
+    var message = new $root.ProtoOANewOrderReq();
     switch (object.payloadType) {
       case "PROTO_OA_APPLICATION_AUTH_REQ":
       case 2100:
@@ -7228,12 +7230,12 @@ export const ProtoOANewOrderReq = ($root.ProtoOANewOrderReq = (() => {
    */
   ProtoOANewOrderReq.toObject = function toObject(message, options) {
     if (!options) options = {};
-    let object = {};
+    var object = {};
     if (options.defaults) {
       object.payloadType =
         options.enums === String ? "PROTO_OA_NEW_ORDER_REQ" : 2106;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.ctidTraderAccountId =
           options.longs === String
             ? long.toString()
@@ -7242,7 +7244,7 @@ export const ProtoOANewOrderReq = ($root.ProtoOANewOrderReq = (() => {
             : long;
       } else object.ctidTraderAccountId = options.longs === String ? "0" : 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.symbolId =
           options.longs === String
             ? long.toString()
@@ -7253,7 +7255,7 @@ export const ProtoOANewOrderReq = ($root.ProtoOANewOrderReq = (() => {
       object.orderType = options.enums === String ? "MARKET" : 1;
       object.tradeSide = options.enums === String ? "BUY" : 1;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.volume =
           options.longs === String
             ? long.toString()
@@ -7265,7 +7267,7 @@ export const ProtoOANewOrderReq = ($root.ProtoOANewOrderReq = (() => {
       object.stopPrice = 0;
       object.timeInForce = options.enums === String ? "GOOD_TILL_CANCEL" : 2;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.expirationTimestamp =
           options.longs === String
             ? long.toString()
@@ -7280,7 +7282,7 @@ export const ProtoOANewOrderReq = ($root.ProtoOANewOrderReq = (() => {
       object.slippageInPoints = 0;
       object.label = "";
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.positionId =
           options.longs === String
             ? long.toString()
@@ -7290,7 +7292,7 @@ export const ProtoOANewOrderReq = ($root.ProtoOANewOrderReq = (() => {
       } else object.positionId = options.longs === String ? "0" : 0;
       object.clientOrderId = "";
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.relativeStopLoss =
           options.longs === String
             ? long.toString()
@@ -7299,7 +7301,7 @@ export const ProtoOANewOrderReq = ($root.ProtoOANewOrderReq = (() => {
             : long;
       } else object.relativeStopLoss = options.longs === String ? "0" : 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.relativeTakeProfit =
           options.longs === String
             ? long.toString()
@@ -7528,9 +7530,9 @@ export const ProtoOANewOrderReq = ($root.ProtoOANewOrderReq = (() => {
   };
 
   return ProtoOANewOrderReq;
-})());
+})();
 
-export const ProtoOAExecutionEvent = ($root.ProtoOAExecutionEvent = (() => {
+$root.ProtoOAExecutionEvent = (function() {
   /**
    * Properties of a ProtoOAExecutionEvent.
    * @exports IProtoOAExecutionEvent
@@ -7557,7 +7559,7 @@ export const ProtoOAExecutionEvent = ($root.ProtoOAExecutionEvent = (() => {
    */
   function ProtoOAExecutionEvent(properties) {
     if (properties)
-      for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
 
@@ -7742,10 +7744,10 @@ export const ProtoOAExecutionEvent = ($root.ProtoOAExecutionEvent = (() => {
    */
   ProtoOAExecutionEvent.decode = function decode(reader, length) {
     if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    let end = length === undefined ? reader.len : reader.pos + length,
+    var end = length === undefined ? reader.len : reader.pos + length,
       message = new $root.ProtoOAExecutionEvent();
     while (reader.pos < end) {
-      let tag = reader.uint32();
+      var tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
           message.payloadType = reader.int32();
@@ -7925,22 +7927,22 @@ export const ProtoOAExecutionEvent = ($root.ProtoOAExecutionEvent = (() => {
         break;
     }
     if (message.position != null && message.hasOwnProperty("position")) {
-      let error = $root.ProtoOAPosition.verify(message.position);
+      var error = $root.ProtoOAPosition.verify(message.position);
       if (error) return "position." + error;
     }
     if (message.order != null && message.hasOwnProperty("order")) {
-      let error = $root.ProtoOAOrder.verify(message.order);
+      var error = $root.ProtoOAOrder.verify(message.order);
       if (error) return "order." + error;
     }
     if (message.deal != null && message.hasOwnProperty("deal")) {
-      let error = $root.ProtoOADeal.verify(message.deal);
+      var error = $root.ProtoOADeal.verify(message.deal);
       if (error) return "deal." + error;
     }
     if (
       message.bonusDepositWithdraw != null &&
       message.hasOwnProperty("bonusDepositWithdraw")
     ) {
-      let error = $root.ProtoOABonusDepositWithdraw.verify(
+      var error = $root.ProtoOABonusDepositWithdraw.verify(
         message.bonusDepositWithdraw
       );
       if (error) return "bonusDepositWithdraw." + error;
@@ -7949,7 +7951,7 @@ export const ProtoOAExecutionEvent = ($root.ProtoOAExecutionEvent = (() => {
       message.depositWithdraw != null &&
       message.hasOwnProperty("depositWithdraw")
     ) {
-      let error = $root.ProtoOADepositWithdraw.verify(message.depositWithdraw);
+      var error = $root.ProtoOADepositWithdraw.verify(message.depositWithdraw);
       if (error) return "depositWithdraw." + error;
     }
     if (message.errorCode != null && message.hasOwnProperty("errorCode"))
@@ -7974,7 +7976,7 @@ export const ProtoOAExecutionEvent = ($root.ProtoOAExecutionEvent = (() => {
    */
   ProtoOAExecutionEvent.fromObject = function fromObject(object) {
     if (object instanceof $root.ProtoOAExecutionEvent) return object;
-    let message = new $root.ProtoOAExecutionEvent();
+    var message = new $root.ProtoOAExecutionEvent();
     switch (object.payloadType) {
       case "PROTO_OA_APPLICATION_AUTH_REQ":
       case 2100:
@@ -8347,12 +8349,12 @@ export const ProtoOAExecutionEvent = ($root.ProtoOAExecutionEvent = (() => {
    */
   ProtoOAExecutionEvent.toObject = function toObject(message, options) {
     if (!options) options = {};
-    let object = {};
+    var object = {};
     if (options.defaults) {
       object.payloadType =
         options.enums === String ? "PROTO_OA_EXECUTION_EVENT" : 2126;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.ctidTraderAccountId =
           options.longs === String
             ? long.toString()
@@ -8448,9 +8450,9 @@ export const ProtoOAExecutionEvent = ($root.ProtoOAExecutionEvent = (() => {
   };
 
   return ProtoOAExecutionEvent;
-})());
+})();
 
-export const ProtoOACancelOrderReq = ($root.ProtoOACancelOrderReq = (() => {
+$root.ProtoOACancelOrderReq = (function() {
   /**
    * Properties of a ProtoOACancelOrderReq.
    * @exports IProtoOACancelOrderReq
@@ -8470,7 +8472,7 @@ export const ProtoOACancelOrderReq = ($root.ProtoOACancelOrderReq = (() => {
    */
   function ProtoOACancelOrderReq(properties) {
     if (properties)
-      for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
 
@@ -8563,10 +8565,10 @@ export const ProtoOACancelOrderReq = ($root.ProtoOACancelOrderReq = (() => {
    */
   ProtoOACancelOrderReq.decode = function decode(reader, length) {
     if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    let end = length === undefined ? reader.len : reader.pos + length,
+    var end = length === undefined ? reader.len : reader.pos + length,
       message = new $root.ProtoOACancelOrderReq();
     while (reader.pos < end) {
-      let tag = reader.uint32();
+      var tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
           message.payloadType = reader.int32();
@@ -8721,7 +8723,7 @@ export const ProtoOACancelOrderReq = ($root.ProtoOACancelOrderReq = (() => {
    */
   ProtoOACancelOrderReq.fromObject = function fromObject(object) {
     if (object instanceof $root.ProtoOACancelOrderReq) return object;
-    let message = new $root.ProtoOACancelOrderReq();
+    var message = new $root.ProtoOACancelOrderReq();
     switch (object.payloadType) {
       case "PROTO_OA_APPLICATION_AUTH_REQ":
       case 2100:
@@ -9026,12 +9028,12 @@ export const ProtoOACancelOrderReq = ($root.ProtoOACancelOrderReq = (() => {
    */
   ProtoOACancelOrderReq.toObject = function toObject(message, options) {
     if (!options) options = {};
-    let object = {};
+    var object = {};
     if (options.defaults) {
       object.payloadType =
         options.enums === String ? "PROTO_OA_CANCEL_ORDER_REQ" : 2108;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.ctidTraderAccountId =
           options.longs === String
             ? long.toString()
@@ -9040,7 +9042,7 @@ export const ProtoOACancelOrderReq = ($root.ProtoOACancelOrderReq = (() => {
             : long;
       } else object.ctidTraderAccountId = options.longs === String ? "0" : 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.orderId =
           options.longs === String
             ? long.toString()
@@ -9102,9 +9104,9 @@ export const ProtoOACancelOrderReq = ($root.ProtoOACancelOrderReq = (() => {
   };
 
   return ProtoOACancelOrderReq;
-})());
+})();
 
-export const ProtoOAAmendOrderReq = ($root.ProtoOAAmendOrderReq = (() => {
+$root.ProtoOAAmendOrderReq = (function() {
   /**
    * Properties of a ProtoOAAmendOrderReq.
    * @exports IProtoOAAmendOrderReq
@@ -9136,7 +9138,7 @@ export const ProtoOAAmendOrderReq = ($root.ProtoOAAmendOrderReq = (() => {
    */
   function ProtoOAAmendOrderReq(properties) {
     if (properties)
-      for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
 
@@ -9392,10 +9394,10 @@ export const ProtoOAAmendOrderReq = ($root.ProtoOAAmendOrderReq = (() => {
    */
   ProtoOAAmendOrderReq.decode = function decode(reader, length) {
     if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    let end = length === undefined ? reader.len : reader.pos + length,
+    var end = length === undefined ? reader.len : reader.pos + length,
       message = new $root.ProtoOAAmendOrderReq();
     while (reader.pos < end) {
-      let tag = reader.uint32();
+      var tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
           message.payloadType = reader.int32();
@@ -9678,7 +9680,7 @@ export const ProtoOAAmendOrderReq = ($root.ProtoOAAmendOrderReq = (() => {
    */
   ProtoOAAmendOrderReq.fromObject = function fromObject(object) {
     if (object instanceof $root.ProtoOAAmendOrderReq) return object;
-    let message = new $root.ProtoOAAmendOrderReq();
+    var message = new $root.ProtoOAAmendOrderReq();
     switch (object.payloadType) {
       case "PROTO_OA_APPLICATION_AUTH_REQ":
       case 2100:
@@ -10067,12 +10069,12 @@ export const ProtoOAAmendOrderReq = ($root.ProtoOAAmendOrderReq = (() => {
    */
   ProtoOAAmendOrderReq.toObject = function toObject(message, options) {
     if (!options) options = {};
-    let object = {};
+    var object = {};
     if (options.defaults) {
       object.payloadType =
         options.enums === String ? "PROTO_OA_AMEND_ORDER_REQ" : 2109;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.ctidTraderAccountId =
           options.longs === String
             ? long.toString()
@@ -10081,7 +10083,7 @@ export const ProtoOAAmendOrderReq = ($root.ProtoOAAmendOrderReq = (() => {
             : long;
       } else object.ctidTraderAccountId = options.longs === String ? "0" : 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.orderId =
           options.longs === String
             ? long.toString()
@@ -10090,7 +10092,7 @@ export const ProtoOAAmendOrderReq = ($root.ProtoOAAmendOrderReq = (() => {
             : long;
       } else object.orderId = options.longs === String ? "0" : 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.volume =
           options.longs === String
             ? long.toString()
@@ -10101,7 +10103,7 @@ export const ProtoOAAmendOrderReq = ($root.ProtoOAAmendOrderReq = (() => {
       object.limitPrice = 0;
       object.stopPrice = 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.expirationTimestamp =
           options.longs === String
             ? long.toString()
@@ -10113,7 +10115,7 @@ export const ProtoOAAmendOrderReq = ($root.ProtoOAAmendOrderReq = (() => {
       object.takeProfit = 0;
       object.slippageInPoints = 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.relativeStopLoss =
           options.longs === String
             ? long.toString()
@@ -10122,7 +10124,7 @@ export const ProtoOAAmendOrderReq = ($root.ProtoOAAmendOrderReq = (() => {
             : long;
       } else object.relativeStopLoss = options.longs === String ? "0" : 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.relativeTakeProfit =
           options.longs === String
             ? long.toString()
@@ -10301,9 +10303,9 @@ export const ProtoOAAmendOrderReq = ($root.ProtoOAAmendOrderReq = (() => {
   };
 
   return ProtoOAAmendOrderReq;
-})());
+})();
 
-export const ProtoOAAmendPositionSLTPReq = ($root.ProtoOAAmendPositionSLTPReq = (() => {
+$root.ProtoOAAmendPositionSLTPReq = (function() {
   /**
    * Properties of a ProtoOAAmendPositionSLTPReq.
    * @exports IProtoOAAmendPositionSLTPReq
@@ -10328,7 +10330,7 @@ export const ProtoOAAmendPositionSLTPReq = ($root.ProtoOAAmendPositionSLTPReq = 
    */
   function ProtoOAAmendPositionSLTPReq(properties) {
     if (properties)
-      for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
 
@@ -10484,10 +10486,10 @@ export const ProtoOAAmendPositionSLTPReq = ($root.ProtoOAAmendPositionSLTPReq = 
    */
   ProtoOAAmendPositionSLTPReq.decode = function decode(reader, length) {
     if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    let end = length === undefined ? reader.len : reader.pos + length,
+    var end = length === undefined ? reader.len : reader.pos + length,
       message = new $root.ProtoOAAmendPositionSLTPReq();
     while (reader.pos < end) {
-      let tag = reader.uint32();
+      var tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
           message.payloadType = reader.int32();
@@ -10690,7 +10692,7 @@ export const ProtoOAAmendPositionSLTPReq = ($root.ProtoOAAmendPositionSLTPReq = 
    */
   ProtoOAAmendPositionSLTPReq.fromObject = function fromObject(object) {
     if (object instanceof $root.ProtoOAAmendPositionSLTPReq) return object;
-    let message = new $root.ProtoOAAmendPositionSLTPReq();
+    var message = new $root.ProtoOAAmendPositionSLTPReq();
     switch (object.payloadType) {
       case "PROTO_OA_APPLICATION_AUTH_REQ":
       case 2100:
@@ -11020,12 +11022,12 @@ export const ProtoOAAmendPositionSLTPReq = ($root.ProtoOAAmendPositionSLTPReq = 
    */
   ProtoOAAmendPositionSLTPReq.toObject = function toObject(message, options) {
     if (!options) options = {};
-    let object = {};
+    var object = {};
     if (options.defaults) {
       object.payloadType =
         options.enums === String ? "PROTO_OA_AMEND_POSITION_SLTP_REQ" : 2110;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.ctidTraderAccountId =
           options.longs === String
             ? long.toString()
@@ -11034,7 +11036,7 @@ export const ProtoOAAmendPositionSLTPReq = ($root.ProtoOAAmendPositionSLTPReq = 
             : long;
       } else object.ctidTraderAccountId = options.longs === String ? "0" : 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.positionId =
           options.longs === String
             ? long.toString()
@@ -11131,9 +11133,9 @@ export const ProtoOAAmendPositionSLTPReq = ($root.ProtoOAAmendPositionSLTPReq = 
   };
 
   return ProtoOAAmendPositionSLTPReq;
-})());
+})();
 
-export const ProtoOAClosePositionReq = ($root.ProtoOAClosePositionReq = (() => {
+$root.ProtoOAClosePositionReq = (function() {
   /**
    * Properties of a ProtoOAClosePositionReq.
    * @exports IProtoOAClosePositionReq
@@ -11154,7 +11156,7 @@ export const ProtoOAClosePositionReq = ($root.ProtoOAClosePositionReq = (() => {
    */
   function ProtoOAClosePositionReq(properties) {
     if (properties)
-      for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
 
@@ -11258,10 +11260,10 @@ export const ProtoOAClosePositionReq = ($root.ProtoOAClosePositionReq = (() => {
    */
   ProtoOAClosePositionReq.decode = function decode(reader, length) {
     if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    let end = length === undefined ? reader.len : reader.pos + length,
+    var end = length === undefined ? reader.len : reader.pos + length,
       message = new $root.ProtoOAClosePositionReq();
     while (reader.pos < end) {
-      let tag = reader.uint32();
+      var tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
           message.payloadType = reader.int32();
@@ -11432,7 +11434,7 @@ export const ProtoOAClosePositionReq = ($root.ProtoOAClosePositionReq = (() => {
    */
   ProtoOAClosePositionReq.fromObject = function fromObject(object) {
     if (object instanceof $root.ProtoOAClosePositionReq) return object;
-    let message = new $root.ProtoOAClosePositionReq();
+    var message = new $root.ProtoOAClosePositionReq();
     switch (object.payloadType) {
       case "PROTO_OA_APPLICATION_AUTH_REQ":
       case 2100:
@@ -11749,12 +11751,12 @@ export const ProtoOAClosePositionReq = ($root.ProtoOAClosePositionReq = (() => {
    */
   ProtoOAClosePositionReq.toObject = function toObject(message, options) {
     if (!options) options = {};
-    let object = {};
+    var object = {};
     if (options.defaults) {
       object.payloadType =
         options.enums === String ? "PROTO_OA_CLOSE_POSITION_REQ" : 2111;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.ctidTraderAccountId =
           options.longs === String
             ? long.toString()
@@ -11763,7 +11765,7 @@ export const ProtoOAClosePositionReq = ($root.ProtoOAClosePositionReq = (() => {
             : long;
       } else object.ctidTraderAccountId = options.longs === String ? "0" : 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.positionId =
           options.longs === String
             ? long.toString()
@@ -11772,7 +11774,7 @@ export const ProtoOAClosePositionReq = ($root.ProtoOAClosePositionReq = (() => {
             : long;
       } else object.positionId = options.longs === String ? "0" : 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.volume =
           options.longs === String
             ? long.toString()
@@ -11850,9 +11852,9 @@ export const ProtoOAClosePositionReq = ($root.ProtoOAClosePositionReq = (() => {
   };
 
   return ProtoOAClosePositionReq;
-})());
+})();
 
-export const ProtoOATrailingSLChangedEvent = ($root.ProtoOATrailingSLChangedEvent = (() => {
+$root.ProtoOATrailingSLChangedEvent = (function() {
   /**
    * Properties of a ProtoOATrailingSLChangedEvent.
    * @exports IProtoOATrailingSLChangedEvent
@@ -11875,7 +11877,7 @@ export const ProtoOATrailingSLChangedEvent = ($root.ProtoOATrailingSLChangedEven
    */
   function ProtoOATrailingSLChangedEvent(properties) {
     if (properties)
-      for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
 
@@ -12001,10 +12003,10 @@ export const ProtoOATrailingSLChangedEvent = ($root.ProtoOATrailingSLChangedEven
    */
   ProtoOATrailingSLChangedEvent.decode = function decode(reader, length) {
     if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    let end = length === undefined ? reader.len : reader.pos + length,
+    var end = length === undefined ? reader.len : reader.pos + length,
       message = new $root.ProtoOATrailingSLChangedEvent();
     while (reader.pos < end) {
-      let tag = reader.uint32();
+      var tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
           message.payloadType = reader.int32();
@@ -12202,7 +12204,7 @@ export const ProtoOATrailingSLChangedEvent = ($root.ProtoOATrailingSLChangedEven
    */
   ProtoOATrailingSLChangedEvent.fromObject = function fromObject(object) {
     if (object instanceof $root.ProtoOATrailingSLChangedEvent) return object;
-    let message = new $root.ProtoOATrailingSLChangedEvent();
+    var message = new $root.ProtoOATrailingSLChangedEvent();
     switch (object.payloadType) {
       case "PROTO_OA_APPLICATION_AUTH_REQ":
       case 2100:
@@ -12539,12 +12541,12 @@ export const ProtoOATrailingSLChangedEvent = ($root.ProtoOATrailingSLChangedEven
    */
   ProtoOATrailingSLChangedEvent.toObject = function toObject(message, options) {
     if (!options) options = {};
-    let object = {};
+    var object = {};
     if (options.defaults) {
       object.payloadType =
         options.enums === String ? "PROTO_OA_TRAILING_SL_CHANGED_EVENT" : 2107;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.ctidTraderAccountId =
           options.longs === String
             ? long.toString()
@@ -12553,7 +12555,7 @@ export const ProtoOATrailingSLChangedEvent = ($root.ProtoOATrailingSLChangedEven
             : long;
       } else object.ctidTraderAccountId = options.longs === String ? "0" : 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.positionId =
           options.longs === String
             ? long.toString()
@@ -12562,7 +12564,7 @@ export const ProtoOATrailingSLChangedEvent = ($root.ProtoOATrailingSLChangedEven
             : long;
       } else object.positionId = options.longs === String ? "0" : 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.orderId =
           options.longs === String
             ? long.toString()
@@ -12572,7 +12574,7 @@ export const ProtoOATrailingSLChangedEvent = ($root.ProtoOATrailingSLChangedEven
       } else object.orderId = options.longs === String ? "0" : 0;
       object.stopPrice = 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.utcLastUpdateTimestamp =
           options.longs === String
             ? long.toString()
@@ -12674,9 +12676,9 @@ export const ProtoOATrailingSLChangedEvent = ($root.ProtoOATrailingSLChangedEven
   };
 
   return ProtoOATrailingSLChangedEvent;
-})());
+})();
 
-export const ProtoOAAssetListReq = ($root.ProtoOAAssetListReq = (() => {
+$root.ProtoOAAssetListReq = (function() {
   /**
    * Properties of a ProtoOAAssetListReq.
    * @exports IProtoOAAssetListReq
@@ -12695,7 +12697,7 @@ export const ProtoOAAssetListReq = ($root.ProtoOAAssetListReq = (() => {
    */
   function ProtoOAAssetListReq(properties) {
     if (properties)
-      for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
 
@@ -12777,10 +12779,10 @@ export const ProtoOAAssetListReq = ($root.ProtoOAAssetListReq = (() => {
    */
   ProtoOAAssetListReq.decode = function decode(reader, length) {
     if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    let end = length === undefined ? reader.len : reader.pos + length,
+    var end = length === undefined ? reader.len : reader.pos + length,
       message = new $root.ProtoOAAssetListReq();
     while (reader.pos < end) {
-      let tag = reader.uint32();
+      var tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
           message.payloadType = reader.int32();
@@ -12919,7 +12921,7 @@ export const ProtoOAAssetListReq = ($root.ProtoOAAssetListReq = (() => {
    */
   ProtoOAAssetListReq.fromObject = function fromObject(object) {
     if (object instanceof $root.ProtoOAAssetListReq) return object;
-    let message = new $root.ProtoOAAssetListReq();
+    var message = new $root.ProtoOAAssetListReq();
     switch (object.payloadType) {
       case "PROTO_OA_APPLICATION_AUTH_REQ":
       case 2100:
@@ -13210,12 +13212,12 @@ export const ProtoOAAssetListReq = ($root.ProtoOAAssetListReq = (() => {
    */
   ProtoOAAssetListReq.toObject = function toObject(message, options) {
     if (!options) options = {};
-    let object = {};
+    var object = {};
     if (options.defaults) {
       object.payloadType =
         options.enums === String ? "PROTO_OA_ASSET_LIST_REQ" : 2112;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.ctidTraderAccountId =
           options.longs === String
             ? long.toString()
@@ -13263,9 +13265,9 @@ export const ProtoOAAssetListReq = ($root.ProtoOAAssetListReq = (() => {
   };
 
   return ProtoOAAssetListReq;
-})());
+})();
 
-export const ProtoOAAssetListRes = ($root.ProtoOAAssetListRes = (() => {
+$root.ProtoOAAssetListRes = (function() {
   /**
    * Properties of a ProtoOAAssetListRes.
    * @exports IProtoOAAssetListRes
@@ -13286,7 +13288,7 @@ export const ProtoOAAssetListRes = ($root.ProtoOAAssetListRes = (() => {
   function ProtoOAAssetListRes(properties) {
     this.asset = [];
     if (properties)
-      for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
 
@@ -13345,7 +13347,7 @@ export const ProtoOAAssetListRes = ($root.ProtoOAAssetListRes = (() => {
       .uint32(/* id 2, wireType 0 =*/ 16)
       .int64(message.ctidTraderAccountId);
     if (message.asset != null && message.asset.length)
-      for (let i = 0; i < message.asset.length; ++i)
+      for (var i = 0; i < message.asset.length; ++i)
         $root.ProtoOAAsset.encode(
           message.asset[i],
           writer.uint32(/* id 3, wireType 2 =*/ 26).fork()
@@ -13382,10 +13384,10 @@ export const ProtoOAAssetListRes = ($root.ProtoOAAssetListRes = (() => {
    */
   ProtoOAAssetListRes.decode = function decode(reader, length) {
     if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    let end = length === undefined ? reader.len : reader.pos + length,
+    var end = length === undefined ? reader.len : reader.pos + length,
       message = new $root.ProtoOAAssetListRes();
     while (reader.pos < end) {
-      let tag = reader.uint32();
+      var tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
           message.payloadType = reader.int32();
@@ -13519,8 +13521,8 @@ export const ProtoOAAssetListRes = ($root.ProtoOAAssetListRes = (() => {
       return "ctidTraderAccountId: integer|Long expected";
     if (message.asset != null && message.hasOwnProperty("asset")) {
       if (!Array.isArray(message.asset)) return "asset: array expected";
-      for (let i = 0; i < message.asset.length; ++i) {
-        let error = $root.ProtoOAAsset.verify(message.asset[i]);
+      for (var i = 0; i < message.asset.length; ++i) {
+        var error = $root.ProtoOAAsset.verify(message.asset[i]);
         if (error) return "asset." + error;
       }
     }
@@ -13537,7 +13539,7 @@ export const ProtoOAAssetListRes = ($root.ProtoOAAssetListRes = (() => {
    */
   ProtoOAAssetListRes.fromObject = function fromObject(object) {
     if (object instanceof $root.ProtoOAAssetListRes) return object;
-    let message = new $root.ProtoOAAssetListRes();
+    var message = new $root.ProtoOAAssetListRes();
     switch (object.payloadType) {
       case "PROTO_OA_APPLICATION_AUTH_REQ":
       case 2100:
@@ -13818,7 +13820,7 @@ export const ProtoOAAssetListRes = ($root.ProtoOAAssetListRes = (() => {
       if (!Array.isArray(object.asset))
         throw TypeError(".ProtoOAAssetListRes.asset: array expected");
       message.asset = [];
-      for (let i = 0; i < object.asset.length; ++i) {
+      for (var i = 0; i < object.asset.length; ++i) {
         if (typeof object.asset[i] !== "object")
           throw TypeError(".ProtoOAAssetListRes.asset: object expected");
         message.asset[i] = $root.ProtoOAAsset.fromObject(object.asset[i]);
@@ -13838,13 +13840,13 @@ export const ProtoOAAssetListRes = ($root.ProtoOAAssetListRes = (() => {
    */
   ProtoOAAssetListRes.toObject = function toObject(message, options) {
     if (!options) options = {};
-    let object = {};
+    var object = {};
     if (options.arrays || options.defaults) object.asset = [];
     if (options.defaults) {
       object.payloadType =
         options.enums === String ? "PROTO_OA_ASSET_LIST_RES" : 2113;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.ctidTraderAccountId =
           options.longs === String
             ? long.toString()
@@ -13879,7 +13881,7 @@ export const ProtoOAAssetListRes = ($root.ProtoOAAssetListRes = (() => {
             : message.ctidTraderAccountId;
     if (message.asset && message.asset.length) {
       object.asset = [];
-      for (let j = 0; j < message.asset.length; ++j)
+      for (var j = 0; j < message.asset.length; ++j)
         object.asset[j] = $root.ProtoOAAsset.toObject(
           message.asset[j],
           options
@@ -13900,9 +13902,9 @@ export const ProtoOAAssetListRes = ($root.ProtoOAAssetListRes = (() => {
   };
 
   return ProtoOAAssetListRes;
-})());
+})();
 
-export const ProtoOASymbolsListReq = ($root.ProtoOASymbolsListReq = (() => {
+$root.ProtoOASymbolsListReq = (function() {
   /**
    * Properties of a ProtoOASymbolsListReq.
    * @exports IProtoOASymbolsListReq
@@ -13921,7 +13923,7 @@ export const ProtoOASymbolsListReq = ($root.ProtoOASymbolsListReq = (() => {
    */
   function ProtoOASymbolsListReq(properties) {
     if (properties)
-      for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
 
@@ -14003,10 +14005,10 @@ export const ProtoOASymbolsListReq = ($root.ProtoOASymbolsListReq = (() => {
    */
   ProtoOASymbolsListReq.decode = function decode(reader, length) {
     if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    let end = length === undefined ? reader.len : reader.pos + length,
+    var end = length === undefined ? reader.len : reader.pos + length,
       message = new $root.ProtoOASymbolsListReq();
     while (reader.pos < end) {
-      let tag = reader.uint32();
+      var tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
           message.payloadType = reader.int32();
@@ -14145,7 +14147,7 @@ export const ProtoOASymbolsListReq = ($root.ProtoOASymbolsListReq = (() => {
    */
   ProtoOASymbolsListReq.fromObject = function fromObject(object) {
     if (object instanceof $root.ProtoOASymbolsListReq) return object;
-    let message = new $root.ProtoOASymbolsListReq();
+    var message = new $root.ProtoOASymbolsListReq();
     switch (object.payloadType) {
       case "PROTO_OA_APPLICATION_AUTH_REQ":
       case 2100:
@@ -14436,12 +14438,12 @@ export const ProtoOASymbolsListReq = ($root.ProtoOASymbolsListReq = (() => {
    */
   ProtoOASymbolsListReq.toObject = function toObject(message, options) {
     if (!options) options = {};
-    let object = {};
+    var object = {};
     if (options.defaults) {
       object.payloadType =
         options.enums === String ? "PROTO_OA_SYMBOLS_LIST_REQ" : 2114;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.ctidTraderAccountId =
           options.longs === String
             ? long.toString()
@@ -14489,9 +14491,9 @@ export const ProtoOASymbolsListReq = ($root.ProtoOASymbolsListReq = (() => {
   };
 
   return ProtoOASymbolsListReq;
-})());
+})();
 
-export const ProtoOASymbolsListRes = ($root.ProtoOASymbolsListRes = (() => {
+$root.ProtoOASymbolsListRes = (function() {
   /**
    * Properties of a ProtoOASymbolsListRes.
    * @exports IProtoOASymbolsListRes
@@ -14512,7 +14514,7 @@ export const ProtoOASymbolsListRes = ($root.ProtoOASymbolsListRes = (() => {
   function ProtoOASymbolsListRes(properties) {
     this.symbol = [];
     if (properties)
-      for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
 
@@ -14571,7 +14573,7 @@ export const ProtoOASymbolsListRes = ($root.ProtoOASymbolsListRes = (() => {
       .uint32(/* id 2, wireType 0 =*/ 16)
       .int64(message.ctidTraderAccountId);
     if (message.symbol != null && message.symbol.length)
-      for (let i = 0; i < message.symbol.length; ++i)
+      for (var i = 0; i < message.symbol.length; ++i)
         $root.ProtoOALightSymbol.encode(
           message.symbol[i],
           writer.uint32(/* id 3, wireType 2 =*/ 26).fork()
@@ -14608,10 +14610,10 @@ export const ProtoOASymbolsListRes = ($root.ProtoOASymbolsListRes = (() => {
    */
   ProtoOASymbolsListRes.decode = function decode(reader, length) {
     if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    let end = length === undefined ? reader.len : reader.pos + length,
+    var end = length === undefined ? reader.len : reader.pos + length,
       message = new $root.ProtoOASymbolsListRes();
     while (reader.pos < end) {
-      let tag = reader.uint32();
+      var tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
           message.payloadType = reader.int32();
@@ -14745,8 +14747,8 @@ export const ProtoOASymbolsListRes = ($root.ProtoOASymbolsListRes = (() => {
       return "ctidTraderAccountId: integer|Long expected";
     if (message.symbol != null && message.hasOwnProperty("symbol")) {
       if (!Array.isArray(message.symbol)) return "symbol: array expected";
-      for (let i = 0; i < message.symbol.length; ++i) {
-        let error = $root.ProtoOALightSymbol.verify(message.symbol[i]);
+      for (var i = 0; i < message.symbol.length; ++i) {
+        var error = $root.ProtoOALightSymbol.verify(message.symbol[i]);
         if (error) return "symbol." + error;
       }
     }
@@ -14763,7 +14765,7 @@ export const ProtoOASymbolsListRes = ($root.ProtoOASymbolsListRes = (() => {
    */
   ProtoOASymbolsListRes.fromObject = function fromObject(object) {
     if (object instanceof $root.ProtoOASymbolsListRes) return object;
-    let message = new $root.ProtoOASymbolsListRes();
+    var message = new $root.ProtoOASymbolsListRes();
     switch (object.payloadType) {
       case "PROTO_OA_APPLICATION_AUTH_REQ":
       case 2100:
@@ -15044,7 +15046,7 @@ export const ProtoOASymbolsListRes = ($root.ProtoOASymbolsListRes = (() => {
       if (!Array.isArray(object.symbol))
         throw TypeError(".ProtoOASymbolsListRes.symbol: array expected");
       message.symbol = [];
-      for (let i = 0; i < object.symbol.length; ++i) {
+      for (var i = 0; i < object.symbol.length; ++i) {
         if (typeof object.symbol[i] !== "object")
           throw TypeError(".ProtoOASymbolsListRes.symbol: object expected");
         message.symbol[i] = $root.ProtoOALightSymbol.fromObject(
@@ -15066,13 +15068,13 @@ export const ProtoOASymbolsListRes = ($root.ProtoOASymbolsListRes = (() => {
    */
   ProtoOASymbolsListRes.toObject = function toObject(message, options) {
     if (!options) options = {};
-    let object = {};
+    var object = {};
     if (options.arrays || options.defaults) object.symbol = [];
     if (options.defaults) {
       object.payloadType =
         options.enums === String ? "PROTO_OA_SYMBOLS_LIST_RES" : 2115;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.ctidTraderAccountId =
           options.longs === String
             ? long.toString()
@@ -15107,7 +15109,7 @@ export const ProtoOASymbolsListRes = ($root.ProtoOASymbolsListRes = (() => {
             : message.ctidTraderAccountId;
     if (message.symbol && message.symbol.length) {
       object.symbol = [];
-      for (let j = 0; j < message.symbol.length; ++j)
+      for (var j = 0; j < message.symbol.length; ++j)
         object.symbol[j] = $root.ProtoOALightSymbol.toObject(
           message.symbol[j],
           options
@@ -15128,9 +15130,9 @@ export const ProtoOASymbolsListRes = ($root.ProtoOASymbolsListRes = (() => {
   };
 
   return ProtoOASymbolsListRes;
-})());
+})();
 
-export const ProtoOASymbolByIdReq = ($root.ProtoOASymbolByIdReq = (() => {
+$root.ProtoOASymbolByIdReq = (function() {
   /**
    * Properties of a ProtoOASymbolByIdReq.
    * @exports IProtoOASymbolByIdReq
@@ -15151,7 +15153,7 @@ export const ProtoOASymbolByIdReq = ($root.ProtoOASymbolByIdReq = (() => {
   function ProtoOASymbolByIdReq(properties) {
     this.symbolId = [];
     if (properties)
-      for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
 
@@ -15210,7 +15212,7 @@ export const ProtoOASymbolByIdReq = ($root.ProtoOASymbolByIdReq = (() => {
       .uint32(/* id 2, wireType 0 =*/ 16)
       .int64(message.ctidTraderAccountId);
     if (message.symbolId != null && message.symbolId.length)
-      for (let i = 0; i < message.symbolId.length; ++i)
+      for (var i = 0; i < message.symbolId.length; ++i)
         writer.uint32(/* id 3, wireType 0 =*/ 24).int64(message.symbolId[i]);
     return writer;
   };
@@ -15244,10 +15246,10 @@ export const ProtoOASymbolByIdReq = ($root.ProtoOASymbolByIdReq = (() => {
    */
   ProtoOASymbolByIdReq.decode = function decode(reader, length) {
     if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    let end = length === undefined ? reader.len : reader.pos + length,
+    var end = length === undefined ? reader.len : reader.pos + length,
       message = new $root.ProtoOASymbolByIdReq();
     while (reader.pos < end) {
-      let tag = reader.uint32();
+      var tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
           message.payloadType = reader.int32();
@@ -15259,7 +15261,7 @@ export const ProtoOASymbolByIdReq = ($root.ProtoOASymbolByIdReq = (() => {
           if (!(message.symbolId && message.symbolId.length))
             message.symbolId = [];
           if ((tag & 7) === 2) {
-            let end2 = reader.uint32() + reader.pos;
+            var end2 = reader.uint32() + reader.pos;
             while (reader.pos < end2) message.symbolId.push(reader.int64());
           } else message.symbolId.push(reader.int64());
           break;
@@ -15383,7 +15385,7 @@ export const ProtoOASymbolByIdReq = ($root.ProtoOASymbolByIdReq = (() => {
       return "ctidTraderAccountId: integer|Long expected";
     if (message.symbolId != null && message.hasOwnProperty("symbolId")) {
       if (!Array.isArray(message.symbolId)) return "symbolId: array expected";
-      for (let i = 0; i < message.symbolId.length; ++i)
+      for (var i = 0; i < message.symbolId.length; ++i)
         if (
           !$util.isInteger(message.symbolId[i]) &&
           !(
@@ -15407,7 +15409,7 @@ export const ProtoOASymbolByIdReq = ($root.ProtoOASymbolByIdReq = (() => {
    */
   ProtoOASymbolByIdReq.fromObject = function fromObject(object) {
     if (object instanceof $root.ProtoOASymbolByIdReq) return object;
-    let message = new $root.ProtoOASymbolByIdReq();
+    var message = new $root.ProtoOASymbolByIdReq();
     switch (object.payloadType) {
       case "PROTO_OA_APPLICATION_AUTH_REQ":
       case 2100:
@@ -15688,7 +15690,7 @@ export const ProtoOASymbolByIdReq = ($root.ProtoOASymbolByIdReq = (() => {
       if (!Array.isArray(object.symbolId))
         throw TypeError(".ProtoOASymbolByIdReq.symbolId: array expected");
       message.symbolId = [];
-      for (let i = 0; i < object.symbolId.length; ++i)
+      for (var i = 0; i < object.symbolId.length; ++i)
         if ($util.Long)
           (message.symbolId[i] = $util.Long.fromValue(
             object.symbolId[i]
@@ -15717,13 +15719,13 @@ export const ProtoOASymbolByIdReq = ($root.ProtoOASymbolByIdReq = (() => {
    */
   ProtoOASymbolByIdReq.toObject = function toObject(message, options) {
     if (!options) options = {};
-    let object = {};
+    var object = {};
     if (options.arrays || options.defaults) object.symbolId = [];
     if (options.defaults) {
       object.payloadType =
         options.enums === String ? "PROTO_OA_SYMBOL_BY_ID_REQ" : 2116;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.ctidTraderAccountId =
           options.longs === String
             ? long.toString()
@@ -15758,7 +15760,7 @@ export const ProtoOASymbolByIdReq = ($root.ProtoOASymbolByIdReq = (() => {
             : message.ctidTraderAccountId;
     if (message.symbolId && message.symbolId.length) {
       object.symbolId = [];
-      for (let j = 0; j < message.symbolId.length; ++j)
+      for (var j = 0; j < message.symbolId.length; ++j)
         if (typeof message.symbolId[j] === "number")
           object.symbolId[j] =
             options.longs === String
@@ -15790,9 +15792,9 @@ export const ProtoOASymbolByIdReq = ($root.ProtoOASymbolByIdReq = (() => {
   };
 
   return ProtoOASymbolByIdReq;
-})());
+})();
 
-export const ProtoOASymbolByIdRes = ($root.ProtoOASymbolByIdRes = (() => {
+$root.ProtoOASymbolByIdRes = (function() {
   /**
    * Properties of a ProtoOASymbolByIdRes.
    * @exports IProtoOASymbolByIdRes
@@ -15813,7 +15815,7 @@ export const ProtoOASymbolByIdRes = ($root.ProtoOASymbolByIdRes = (() => {
   function ProtoOASymbolByIdRes(properties) {
     this.symbol = [];
     if (properties)
-      for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
 
@@ -15872,7 +15874,7 @@ export const ProtoOASymbolByIdRes = ($root.ProtoOASymbolByIdRes = (() => {
       .uint32(/* id 2, wireType 0 =*/ 16)
       .int64(message.ctidTraderAccountId);
     if (message.symbol != null && message.symbol.length)
-      for (let i = 0; i < message.symbol.length; ++i)
+      for (var i = 0; i < message.symbol.length; ++i)
         $root.ProtoOASymbol.encode(
           message.symbol[i],
           writer.uint32(/* id 3, wireType 2 =*/ 26).fork()
@@ -15909,10 +15911,10 @@ export const ProtoOASymbolByIdRes = ($root.ProtoOASymbolByIdRes = (() => {
    */
   ProtoOASymbolByIdRes.decode = function decode(reader, length) {
     if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    let end = length === undefined ? reader.len : reader.pos + length,
+    var end = length === undefined ? reader.len : reader.pos + length,
       message = new $root.ProtoOASymbolByIdRes();
     while (reader.pos < end) {
-      let tag = reader.uint32();
+      var tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
           message.payloadType = reader.int32();
@@ -16046,8 +16048,8 @@ export const ProtoOASymbolByIdRes = ($root.ProtoOASymbolByIdRes = (() => {
       return "ctidTraderAccountId: integer|Long expected";
     if (message.symbol != null && message.hasOwnProperty("symbol")) {
       if (!Array.isArray(message.symbol)) return "symbol: array expected";
-      for (let i = 0; i < message.symbol.length; ++i) {
-        let error = $root.ProtoOASymbol.verify(message.symbol[i]);
+      for (var i = 0; i < message.symbol.length; ++i) {
+        var error = $root.ProtoOASymbol.verify(message.symbol[i]);
         if (error) return "symbol." + error;
       }
     }
@@ -16064,7 +16066,7 @@ export const ProtoOASymbolByIdRes = ($root.ProtoOASymbolByIdRes = (() => {
    */
   ProtoOASymbolByIdRes.fromObject = function fromObject(object) {
     if (object instanceof $root.ProtoOASymbolByIdRes) return object;
-    let message = new $root.ProtoOASymbolByIdRes();
+    var message = new $root.ProtoOASymbolByIdRes();
     switch (object.payloadType) {
       case "PROTO_OA_APPLICATION_AUTH_REQ":
       case 2100:
@@ -16345,7 +16347,7 @@ export const ProtoOASymbolByIdRes = ($root.ProtoOASymbolByIdRes = (() => {
       if (!Array.isArray(object.symbol))
         throw TypeError(".ProtoOASymbolByIdRes.symbol: array expected");
       message.symbol = [];
-      for (let i = 0; i < object.symbol.length; ++i) {
+      for (var i = 0; i < object.symbol.length; ++i) {
         if (typeof object.symbol[i] !== "object")
           throw TypeError(".ProtoOASymbolByIdRes.symbol: object expected");
         message.symbol[i] = $root.ProtoOASymbol.fromObject(object.symbol[i]);
@@ -16365,13 +16367,13 @@ export const ProtoOASymbolByIdRes = ($root.ProtoOASymbolByIdRes = (() => {
    */
   ProtoOASymbolByIdRes.toObject = function toObject(message, options) {
     if (!options) options = {};
-    let object = {};
+    var object = {};
     if (options.arrays || options.defaults) object.symbol = [];
     if (options.defaults) {
       object.payloadType =
         options.enums === String ? "PROTO_OA_SYMBOL_BY_ID_RES" : 2117;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.ctidTraderAccountId =
           options.longs === String
             ? long.toString()
@@ -16406,7 +16408,7 @@ export const ProtoOASymbolByIdRes = ($root.ProtoOASymbolByIdRes = (() => {
             : message.ctidTraderAccountId;
     if (message.symbol && message.symbol.length) {
       object.symbol = [];
-      for (let j = 0; j < message.symbol.length; ++j)
+      for (var j = 0; j < message.symbol.length; ++j)
         object.symbol[j] = $root.ProtoOASymbol.toObject(
           message.symbol[j],
           options
@@ -16427,9 +16429,9 @@ export const ProtoOASymbolByIdRes = ($root.ProtoOASymbolByIdRes = (() => {
   };
 
   return ProtoOASymbolByIdRes;
-})());
+})();
 
-export const ProtoOASymbolsForConversionReq = ($root.ProtoOASymbolsForConversionReq = (() => {
+$root.ProtoOASymbolsForConversionReq = (function() {
   /**
    * Properties of a ProtoOASymbolsForConversionReq.
    * @exports IProtoOASymbolsForConversionReq
@@ -16450,7 +16452,7 @@ export const ProtoOASymbolsForConversionReq = ($root.ProtoOASymbolsForConversion
    */
   function ProtoOASymbolsForConversionReq(properties) {
     if (properties)
-      for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
 
@@ -16554,10 +16556,10 @@ export const ProtoOASymbolsForConversionReq = ($root.ProtoOASymbolsForConversion
    */
   ProtoOASymbolsForConversionReq.decode = function decode(reader, length) {
     if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    let end = length === undefined ? reader.len : reader.pos + length,
+    var end = length === undefined ? reader.len : reader.pos + length,
       message = new $root.ProtoOASymbolsForConversionReq();
     while (reader.pos < end) {
-      let tag = reader.uint32();
+      var tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
           message.payloadType = reader.int32();
@@ -16730,7 +16732,7 @@ export const ProtoOASymbolsForConversionReq = ($root.ProtoOASymbolsForConversion
    */
   ProtoOASymbolsForConversionReq.fromObject = function fromObject(object) {
     if (object instanceof $root.ProtoOASymbolsForConversionReq) return object;
-    let message = new $root.ProtoOASymbolsForConversionReq();
+    var message = new $root.ProtoOASymbolsForConversionReq();
     switch (object.payloadType) {
       case "PROTO_OA_APPLICATION_AUTH_REQ":
       case 2100:
@@ -17052,12 +17054,12 @@ export const ProtoOASymbolsForConversionReq = ($root.ProtoOASymbolsForConversion
     options
   ) {
     if (!options) options = {};
-    let object = {};
+    var object = {};
     if (options.defaults) {
       object.payloadType =
         options.enums === String ? "PROTO_OA_SYMBOLS_FOR_CONVERSION_REQ" : 2118;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.ctidTraderAccountId =
           options.longs === String
             ? long.toString()
@@ -17066,7 +17068,7 @@ export const ProtoOASymbolsForConversionReq = ($root.ProtoOASymbolsForConversion
             : long;
       } else object.ctidTraderAccountId = options.longs === String ? "0" : 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.firstAssetId =
           options.longs === String
             ? long.toString()
@@ -17075,7 +17077,7 @@ export const ProtoOASymbolsForConversionReq = ($root.ProtoOASymbolsForConversion
             : long;
       } else object.firstAssetId = options.longs === String ? "0" : 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.lastAssetId =
           options.longs === String
             ? long.toString()
@@ -17155,9 +17157,9 @@ export const ProtoOASymbolsForConversionReq = ($root.ProtoOASymbolsForConversion
   };
 
   return ProtoOASymbolsForConversionReq;
-})());
+})();
 
-export const ProtoOASymbolsForConversionRes = ($root.ProtoOASymbolsForConversionRes = (() => {
+$root.ProtoOASymbolsForConversionRes = (function() {
   /**
    * Properties of a ProtoOASymbolsForConversionRes.
    * @exports IProtoOASymbolsForConversionRes
@@ -17178,7 +17180,7 @@ export const ProtoOASymbolsForConversionRes = ($root.ProtoOASymbolsForConversion
   function ProtoOASymbolsForConversionRes(properties) {
     this.symbol = [];
     if (properties)
-      for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
 
@@ -17237,7 +17239,7 @@ export const ProtoOASymbolsForConversionRes = ($root.ProtoOASymbolsForConversion
       .uint32(/* id 2, wireType 0 =*/ 16)
       .int64(message.ctidTraderAccountId);
     if (message.symbol != null && message.symbol.length)
-      for (let i = 0; i < message.symbol.length; ++i)
+      for (var i = 0; i < message.symbol.length; ++i)
         $root.ProtoOALightSymbol.encode(
           message.symbol[i],
           writer.uint32(/* id 3, wireType 2 =*/ 26).fork()
@@ -17274,10 +17276,10 @@ export const ProtoOASymbolsForConversionRes = ($root.ProtoOASymbolsForConversion
    */
   ProtoOASymbolsForConversionRes.decode = function decode(reader, length) {
     if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    let end = length === undefined ? reader.len : reader.pos + length,
+    var end = length === undefined ? reader.len : reader.pos + length,
       message = new $root.ProtoOASymbolsForConversionRes();
     while (reader.pos < end) {
-      let tag = reader.uint32();
+      var tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
           message.payloadType = reader.int32();
@@ -17413,8 +17415,8 @@ export const ProtoOASymbolsForConversionRes = ($root.ProtoOASymbolsForConversion
       return "ctidTraderAccountId: integer|Long expected";
     if (message.symbol != null && message.hasOwnProperty("symbol")) {
       if (!Array.isArray(message.symbol)) return "symbol: array expected";
-      for (let i = 0; i < message.symbol.length; ++i) {
-        let error = $root.ProtoOALightSymbol.verify(message.symbol[i]);
+      for (var i = 0; i < message.symbol.length; ++i) {
+        var error = $root.ProtoOALightSymbol.verify(message.symbol[i]);
         if (error) return "symbol." + error;
       }
     }
@@ -17431,7 +17433,7 @@ export const ProtoOASymbolsForConversionRes = ($root.ProtoOASymbolsForConversion
    */
   ProtoOASymbolsForConversionRes.fromObject = function fromObject(object) {
     if (object instanceof $root.ProtoOASymbolsForConversionRes) return object;
-    let message = new $root.ProtoOASymbolsForConversionRes();
+    var message = new $root.ProtoOASymbolsForConversionRes();
     switch (object.payloadType) {
       case "PROTO_OA_APPLICATION_AUTH_REQ":
       case 2100:
@@ -17714,7 +17716,7 @@ export const ProtoOASymbolsForConversionRes = ($root.ProtoOASymbolsForConversion
           ".ProtoOASymbolsForConversionRes.symbol: array expected"
         );
       message.symbol = [];
-      for (let i = 0; i < object.symbol.length; ++i) {
+      for (var i = 0; i < object.symbol.length; ++i) {
         if (typeof object.symbol[i] !== "object")
           throw TypeError(
             ".ProtoOASymbolsForConversionRes.symbol: object expected"
@@ -17741,13 +17743,13 @@ export const ProtoOASymbolsForConversionRes = ($root.ProtoOASymbolsForConversion
     options
   ) {
     if (!options) options = {};
-    let object = {};
+    var object = {};
     if (options.arrays || options.defaults) object.symbol = [];
     if (options.defaults) {
       object.payloadType =
         options.enums === String ? "PROTO_OA_SYMBOLS_FOR_CONVERSION_RES" : 2119;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.ctidTraderAccountId =
           options.longs === String
             ? long.toString()
@@ -17782,7 +17784,7 @@ export const ProtoOASymbolsForConversionRes = ($root.ProtoOASymbolsForConversion
             : message.ctidTraderAccountId;
     if (message.symbol && message.symbol.length) {
       object.symbol = [];
-      for (let j = 0; j < message.symbol.length; ++j)
+      for (var j = 0; j < message.symbol.length; ++j)
         object.symbol[j] = $root.ProtoOALightSymbol.toObject(
           message.symbol[j],
           options
@@ -17803,9 +17805,9 @@ export const ProtoOASymbolsForConversionRes = ($root.ProtoOASymbolsForConversion
   };
 
   return ProtoOASymbolsForConversionRes;
-})());
+})();
 
-export const ProtoOASymbolChangedEvent = ($root.ProtoOASymbolChangedEvent = (() => {
+$root.ProtoOASymbolChangedEvent = (function() {
   /**
    * Properties of a ProtoOASymbolChangedEvent.
    * @exports IProtoOASymbolChangedEvent
@@ -17826,7 +17828,7 @@ export const ProtoOASymbolChangedEvent = ($root.ProtoOASymbolChangedEvent = (() 
   function ProtoOASymbolChangedEvent(properties) {
     this.symbolId = [];
     if (properties)
-      for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
 
@@ -17885,7 +17887,7 @@ export const ProtoOASymbolChangedEvent = ($root.ProtoOASymbolChangedEvent = (() 
       .uint32(/* id 2, wireType 0 =*/ 16)
       .int64(message.ctidTraderAccountId);
     if (message.symbolId != null && message.symbolId.length)
-      for (let i = 0; i < message.symbolId.length; ++i)
+      for (var i = 0; i < message.symbolId.length; ++i)
         writer.uint32(/* id 3, wireType 0 =*/ 24).int64(message.symbolId[i]);
     return writer;
   };
@@ -17919,10 +17921,10 @@ export const ProtoOASymbolChangedEvent = ($root.ProtoOASymbolChangedEvent = (() 
    */
   ProtoOASymbolChangedEvent.decode = function decode(reader, length) {
     if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    let end = length === undefined ? reader.len : reader.pos + length,
+    var end = length === undefined ? reader.len : reader.pos + length,
       message = new $root.ProtoOASymbolChangedEvent();
     while (reader.pos < end) {
-      let tag = reader.uint32();
+      var tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
           message.payloadType = reader.int32();
@@ -17934,7 +17936,7 @@ export const ProtoOASymbolChangedEvent = ($root.ProtoOASymbolChangedEvent = (() 
           if (!(message.symbolId && message.symbolId.length))
             message.symbolId = [];
           if ((tag & 7) === 2) {
-            let end2 = reader.uint32() + reader.pos;
+            var end2 = reader.uint32() + reader.pos;
             while (reader.pos < end2) message.symbolId.push(reader.int64());
           } else message.symbolId.push(reader.int64());
           break;
@@ -18058,7 +18060,7 @@ export const ProtoOASymbolChangedEvent = ($root.ProtoOASymbolChangedEvent = (() 
       return "ctidTraderAccountId: integer|Long expected";
     if (message.symbolId != null && message.hasOwnProperty("symbolId")) {
       if (!Array.isArray(message.symbolId)) return "symbolId: array expected";
-      for (let i = 0; i < message.symbolId.length; ++i)
+      for (var i = 0; i < message.symbolId.length; ++i)
         if (
           !$util.isInteger(message.symbolId[i]) &&
           !(
@@ -18082,7 +18084,7 @@ export const ProtoOASymbolChangedEvent = ($root.ProtoOASymbolChangedEvent = (() 
    */
   ProtoOASymbolChangedEvent.fromObject = function fromObject(object) {
     if (object instanceof $root.ProtoOASymbolChangedEvent) return object;
-    let message = new $root.ProtoOASymbolChangedEvent();
+    var message = new $root.ProtoOASymbolChangedEvent();
     switch (object.payloadType) {
       case "PROTO_OA_APPLICATION_AUTH_REQ":
       case 2100:
@@ -18363,7 +18365,7 @@ export const ProtoOASymbolChangedEvent = ($root.ProtoOASymbolChangedEvent = (() 
       if (!Array.isArray(object.symbolId))
         throw TypeError(".ProtoOASymbolChangedEvent.symbolId: array expected");
       message.symbolId = [];
-      for (let i = 0; i < object.symbolId.length; ++i)
+      for (var i = 0; i < object.symbolId.length; ++i)
         if ($util.Long)
           (message.symbolId[i] = $util.Long.fromValue(
             object.symbolId[i]
@@ -18392,13 +18394,13 @@ export const ProtoOASymbolChangedEvent = ($root.ProtoOASymbolChangedEvent = (() 
    */
   ProtoOASymbolChangedEvent.toObject = function toObject(message, options) {
     if (!options) options = {};
-    let object = {};
+    var object = {};
     if (options.arrays || options.defaults) object.symbolId = [];
     if (options.defaults) {
       object.payloadType =
         options.enums === String ? "PROTO_OA_SYMBOL_CHANGED_EVENT" : 2120;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.ctidTraderAccountId =
           options.longs === String
             ? long.toString()
@@ -18433,7 +18435,7 @@ export const ProtoOASymbolChangedEvent = ($root.ProtoOASymbolChangedEvent = (() 
             : message.ctidTraderAccountId;
     if (message.symbolId && message.symbolId.length) {
       object.symbolId = [];
-      for (let j = 0; j < message.symbolId.length; ++j)
+      for (var j = 0; j < message.symbolId.length; ++j)
         if (typeof message.symbolId[j] === "number")
           object.symbolId[j] =
             options.longs === String
@@ -18465,9 +18467,9 @@ export const ProtoOASymbolChangedEvent = ($root.ProtoOASymbolChangedEvent = (() 
   };
 
   return ProtoOASymbolChangedEvent;
-})());
+})();
 
-export const ProtoOAAssetClassListReq = ($root.ProtoOAAssetClassListReq = (() => {
+$root.ProtoOAAssetClassListReq = (function() {
   /**
    * Properties of a ProtoOAAssetClassListReq.
    * @exports IProtoOAAssetClassListReq
@@ -18486,7 +18488,7 @@ export const ProtoOAAssetClassListReq = ($root.ProtoOAAssetClassListReq = (() =>
    */
   function ProtoOAAssetClassListReq(properties) {
     if (properties)
-      for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
 
@@ -18568,10 +18570,10 @@ export const ProtoOAAssetClassListReq = ($root.ProtoOAAssetClassListReq = (() =>
    */
   ProtoOAAssetClassListReq.decode = function decode(reader, length) {
     if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    let end = length === undefined ? reader.len : reader.pos + length,
+    var end = length === undefined ? reader.len : reader.pos + length,
       message = new $root.ProtoOAAssetClassListReq();
     while (reader.pos < end) {
-      let tag = reader.uint32();
+      var tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
           message.payloadType = reader.int32();
@@ -18710,7 +18712,7 @@ export const ProtoOAAssetClassListReq = ($root.ProtoOAAssetClassListReq = (() =>
    */
   ProtoOAAssetClassListReq.fromObject = function fromObject(object) {
     if (object instanceof $root.ProtoOAAssetClassListReq) return object;
-    let message = new $root.ProtoOAAssetClassListReq();
+    var message = new $root.ProtoOAAssetClassListReq();
     switch (object.payloadType) {
       case "PROTO_OA_APPLICATION_AUTH_REQ":
       case 2100:
@@ -19001,12 +19003,12 @@ export const ProtoOAAssetClassListReq = ($root.ProtoOAAssetClassListReq = (() =>
    */
   ProtoOAAssetClassListReq.toObject = function toObject(message, options) {
     if (!options) options = {};
-    let object = {};
+    var object = {};
     if (options.defaults) {
       object.payloadType =
         options.enums === String ? "PROTO_OA_ASSET_CLASS_LIST_REQ" : 2153;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.ctidTraderAccountId =
           options.longs === String
             ? long.toString()
@@ -19054,9 +19056,9 @@ export const ProtoOAAssetClassListReq = ($root.ProtoOAAssetClassListReq = (() =>
   };
 
   return ProtoOAAssetClassListReq;
-})());
+})();
 
-export const ProtoOAAssetClassListRes = ($root.ProtoOAAssetClassListRes = (() => {
+$root.ProtoOAAssetClassListRes = (function() {
   /**
    * Properties of a ProtoOAAssetClassListRes.
    * @exports IProtoOAAssetClassListRes
@@ -19077,7 +19079,7 @@ export const ProtoOAAssetClassListRes = ($root.ProtoOAAssetClassListRes = (() =>
   function ProtoOAAssetClassListRes(properties) {
     this.assetClass = [];
     if (properties)
-      for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
 
@@ -19136,7 +19138,7 @@ export const ProtoOAAssetClassListRes = ($root.ProtoOAAssetClassListRes = (() =>
       .uint32(/* id 2, wireType 0 =*/ 16)
       .int64(message.ctidTraderAccountId);
     if (message.assetClass != null && message.assetClass.length)
-      for (let i = 0; i < message.assetClass.length; ++i)
+      for (var i = 0; i < message.assetClass.length; ++i)
         $root.ProtoOAAssetClass.encode(
           message.assetClass[i],
           writer.uint32(/* id 3, wireType 2 =*/ 26).fork()
@@ -19173,10 +19175,10 @@ export const ProtoOAAssetClassListRes = ($root.ProtoOAAssetClassListRes = (() =>
    */
   ProtoOAAssetClassListRes.decode = function decode(reader, length) {
     if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    let end = length === undefined ? reader.len : reader.pos + length,
+    var end = length === undefined ? reader.len : reader.pos + length,
       message = new $root.ProtoOAAssetClassListRes();
     while (reader.pos < end) {
-      let tag = reader.uint32();
+      var tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
           message.payloadType = reader.int32();
@@ -19312,8 +19314,8 @@ export const ProtoOAAssetClassListRes = ($root.ProtoOAAssetClassListRes = (() =>
     if (message.assetClass != null && message.hasOwnProperty("assetClass")) {
       if (!Array.isArray(message.assetClass))
         return "assetClass: array expected";
-      for (let i = 0; i < message.assetClass.length; ++i) {
-        let error = $root.ProtoOAAssetClass.verify(message.assetClass[i]);
+      for (var i = 0; i < message.assetClass.length; ++i) {
+        var error = $root.ProtoOAAssetClass.verify(message.assetClass[i]);
         if (error) return "assetClass." + error;
       }
     }
@@ -19330,7 +19332,7 @@ export const ProtoOAAssetClassListRes = ($root.ProtoOAAssetClassListRes = (() =>
    */
   ProtoOAAssetClassListRes.fromObject = function fromObject(object) {
     if (object instanceof $root.ProtoOAAssetClassListRes) return object;
-    let message = new $root.ProtoOAAssetClassListRes();
+    var message = new $root.ProtoOAAssetClassListRes();
     switch (object.payloadType) {
       case "PROTO_OA_APPLICATION_AUTH_REQ":
       case 2100:
@@ -19611,7 +19613,7 @@ export const ProtoOAAssetClassListRes = ($root.ProtoOAAssetClassListRes = (() =>
       if (!Array.isArray(object.assetClass))
         throw TypeError(".ProtoOAAssetClassListRes.assetClass: array expected");
       message.assetClass = [];
-      for (let i = 0; i < object.assetClass.length; ++i) {
+      for (var i = 0; i < object.assetClass.length; ++i) {
         if (typeof object.assetClass[i] !== "object")
           throw TypeError(
             ".ProtoOAAssetClassListRes.assetClass: object expected"
@@ -19635,13 +19637,13 @@ export const ProtoOAAssetClassListRes = ($root.ProtoOAAssetClassListRes = (() =>
    */
   ProtoOAAssetClassListRes.toObject = function toObject(message, options) {
     if (!options) options = {};
-    let object = {};
+    var object = {};
     if (options.arrays || options.defaults) object.assetClass = [];
     if (options.defaults) {
       object.payloadType =
         options.enums === String ? "PROTO_OA_ASSET_CLASS_LIST_RES" : 2154;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.ctidTraderAccountId =
           options.longs === String
             ? long.toString()
@@ -19676,7 +19678,7 @@ export const ProtoOAAssetClassListRes = ($root.ProtoOAAssetClassListRes = (() =>
             : message.ctidTraderAccountId;
     if (message.assetClass && message.assetClass.length) {
       object.assetClass = [];
-      for (let j = 0; j < message.assetClass.length; ++j)
+      for (var j = 0; j < message.assetClass.length; ++j)
         object.assetClass[j] = $root.ProtoOAAssetClass.toObject(
           message.assetClass[j],
           options
@@ -19697,9 +19699,9 @@ export const ProtoOAAssetClassListRes = ($root.ProtoOAAssetClassListRes = (() =>
   };
 
   return ProtoOAAssetClassListRes;
-})());
+})();
 
-export const ProtoOATraderReq = ($root.ProtoOATraderReq = (() => {
+$root.ProtoOATraderReq = (function() {
   /**
    * Properties of a ProtoOATraderReq.
    * @exports IProtoOATraderReq
@@ -19718,7 +19720,7 @@ export const ProtoOATraderReq = ($root.ProtoOATraderReq = (() => {
    */
   function ProtoOATraderReq(properties) {
     if (properties)
-      for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
 
@@ -19797,10 +19799,10 @@ export const ProtoOATraderReq = ($root.ProtoOATraderReq = (() => {
    */
   ProtoOATraderReq.decode = function decode(reader, length) {
     if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    let end = length === undefined ? reader.len : reader.pos + length,
+    var end = length === undefined ? reader.len : reader.pos + length,
       message = new $root.ProtoOATraderReq();
     while (reader.pos < end) {
-      let tag = reader.uint32();
+      var tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
           message.payloadType = reader.int32();
@@ -19939,7 +19941,7 @@ export const ProtoOATraderReq = ($root.ProtoOATraderReq = (() => {
    */
   ProtoOATraderReq.fromObject = function fromObject(object) {
     if (object instanceof $root.ProtoOATraderReq) return object;
-    let message = new $root.ProtoOATraderReq();
+    var message = new $root.ProtoOATraderReq();
     switch (object.payloadType) {
       case "PROTO_OA_APPLICATION_AUTH_REQ":
       case 2100:
@@ -20230,12 +20232,12 @@ export const ProtoOATraderReq = ($root.ProtoOATraderReq = (() => {
    */
   ProtoOATraderReq.toObject = function toObject(message, options) {
     if (!options) options = {};
-    let object = {};
+    var object = {};
     if (options.defaults) {
       object.payloadType =
         options.enums === String ? "PROTO_OA_TRADER_REQ" : 2121;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.ctidTraderAccountId =
           options.longs === String
             ? long.toString()
@@ -20283,9 +20285,9 @@ export const ProtoOATraderReq = ($root.ProtoOATraderReq = (() => {
   };
 
   return ProtoOATraderReq;
-})());
+})();
 
-export const ProtoOATraderRes = ($root.ProtoOATraderRes = (() => {
+$root.ProtoOATraderRes = (function() {
   /**
    * Properties of a ProtoOATraderRes.
    * @exports IProtoOATraderRes
@@ -20305,7 +20307,7 @@ export const ProtoOATraderRes = ($root.ProtoOATraderRes = (() => {
    */
   function ProtoOATraderRes(properties) {
     if (properties)
-      for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
 
@@ -20396,10 +20398,10 @@ export const ProtoOATraderRes = ($root.ProtoOATraderRes = (() => {
    */
   ProtoOATraderRes.decode = function decode(reader, length) {
     if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    let end = length === undefined ? reader.len : reader.pos + length,
+    var end = length === undefined ? reader.len : reader.pos + length,
       message = new $root.ProtoOATraderRes();
     while (reader.pos < end) {
-      let tag = reader.uint32();
+      var tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
           message.payloadType = reader.int32();
@@ -20533,7 +20535,7 @@ export const ProtoOATraderRes = ($root.ProtoOATraderRes = (() => {
     )
       return "ctidTraderAccountId: integer|Long expected";
     {
-      let error = $root.ProtoOATrader.verify(message.trader);
+      var error = $root.ProtoOATrader.verify(message.trader);
       if (error) return "trader." + error;
     }
     return null;
@@ -20549,7 +20551,7 @@ export const ProtoOATraderRes = ($root.ProtoOATraderRes = (() => {
    */
   ProtoOATraderRes.fromObject = function fromObject(object) {
     if (object instanceof $root.ProtoOATraderRes) return object;
-    let message = new $root.ProtoOATraderRes();
+    var message = new $root.ProtoOATraderRes();
     switch (object.payloadType) {
       case "PROTO_OA_APPLICATION_AUTH_REQ":
       case 2100:
@@ -20845,12 +20847,12 @@ export const ProtoOATraderRes = ($root.ProtoOATraderRes = (() => {
    */
   ProtoOATraderRes.toObject = function toObject(message, options) {
     if (!options) options = {};
-    let object = {};
+    var object = {};
     if (options.defaults) {
       object.payloadType =
         options.enums === String ? "PROTO_OA_TRADER_RES" : 2122;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.ctidTraderAccountId =
           options.longs === String
             ? long.toString()
@@ -20901,9 +20903,9 @@ export const ProtoOATraderRes = ($root.ProtoOATraderRes = (() => {
   };
 
   return ProtoOATraderRes;
-})());
+})();
 
-export const ProtoOATraderUpdatedEvent = ($root.ProtoOATraderUpdatedEvent = (() => {
+$root.ProtoOATraderUpdatedEvent = (function() {
   /**
    * Properties of a ProtoOATraderUpdatedEvent.
    * @exports IProtoOATraderUpdatedEvent
@@ -20923,7 +20925,7 @@ export const ProtoOATraderUpdatedEvent = ($root.ProtoOATraderUpdatedEvent = (() 
    */
   function ProtoOATraderUpdatedEvent(properties) {
     if (properties)
-      for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
 
@@ -21017,10 +21019,10 @@ export const ProtoOATraderUpdatedEvent = ($root.ProtoOATraderUpdatedEvent = (() 
    */
   ProtoOATraderUpdatedEvent.decode = function decode(reader, length) {
     if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    let end = length === undefined ? reader.len : reader.pos + length,
+    var end = length === undefined ? reader.len : reader.pos + length,
       message = new $root.ProtoOATraderUpdatedEvent();
     while (reader.pos < end) {
-      let tag = reader.uint32();
+      var tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
           message.payloadType = reader.int32();
@@ -21154,7 +21156,7 @@ export const ProtoOATraderUpdatedEvent = ($root.ProtoOATraderUpdatedEvent = (() 
     )
       return "ctidTraderAccountId: integer|Long expected";
     {
-      let error = $root.ProtoOATrader.verify(message.trader);
+      var error = $root.ProtoOATrader.verify(message.trader);
       if (error) return "trader." + error;
     }
     return null;
@@ -21170,7 +21172,7 @@ export const ProtoOATraderUpdatedEvent = ($root.ProtoOATraderUpdatedEvent = (() 
    */
   ProtoOATraderUpdatedEvent.fromObject = function fromObject(object) {
     if (object instanceof $root.ProtoOATraderUpdatedEvent) return object;
-    let message = new $root.ProtoOATraderUpdatedEvent();
+    var message = new $root.ProtoOATraderUpdatedEvent();
     switch (object.payloadType) {
       case "PROTO_OA_APPLICATION_AUTH_REQ":
       case 2100:
@@ -21466,12 +21468,12 @@ export const ProtoOATraderUpdatedEvent = ($root.ProtoOATraderUpdatedEvent = (() 
    */
   ProtoOATraderUpdatedEvent.toObject = function toObject(message, options) {
     if (!options) options = {};
-    let object = {};
+    var object = {};
     if (options.defaults) {
       object.payloadType =
         options.enums === String ? "PROTO_OA_TRADER_UPDATE_EVENT" : 2123;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.ctidTraderAccountId =
           options.longs === String
             ? long.toString()
@@ -21522,9 +21524,9 @@ export const ProtoOATraderUpdatedEvent = ($root.ProtoOATraderUpdatedEvent = (() 
   };
 
   return ProtoOATraderUpdatedEvent;
-})());
+})();
 
-export const ProtoOAReconcileReq = ($root.ProtoOAReconcileReq = (() => {
+$root.ProtoOAReconcileReq = (function() {
   /**
    * Properties of a ProtoOAReconcileReq.
    * @exports IProtoOAReconcileReq
@@ -21543,7 +21545,7 @@ export const ProtoOAReconcileReq = ($root.ProtoOAReconcileReq = (() => {
    */
   function ProtoOAReconcileReq(properties) {
     if (properties)
-      for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
 
@@ -21625,10 +21627,10 @@ export const ProtoOAReconcileReq = ($root.ProtoOAReconcileReq = (() => {
    */
   ProtoOAReconcileReq.decode = function decode(reader, length) {
     if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    let end = length === undefined ? reader.len : reader.pos + length,
+    var end = length === undefined ? reader.len : reader.pos + length,
       message = new $root.ProtoOAReconcileReq();
     while (reader.pos < end) {
-      let tag = reader.uint32();
+      var tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
           message.payloadType = reader.int32();
@@ -21767,7 +21769,7 @@ export const ProtoOAReconcileReq = ($root.ProtoOAReconcileReq = (() => {
    */
   ProtoOAReconcileReq.fromObject = function fromObject(object) {
     if (object instanceof $root.ProtoOAReconcileReq) return object;
-    let message = new $root.ProtoOAReconcileReq();
+    var message = new $root.ProtoOAReconcileReq();
     switch (object.payloadType) {
       case "PROTO_OA_APPLICATION_AUTH_REQ":
       case 2100:
@@ -22058,12 +22060,12 @@ export const ProtoOAReconcileReq = ($root.ProtoOAReconcileReq = (() => {
    */
   ProtoOAReconcileReq.toObject = function toObject(message, options) {
     if (!options) options = {};
-    let object = {};
+    var object = {};
     if (options.defaults) {
       object.payloadType =
         options.enums === String ? "PROTO_OA_RECONCILE_REQ" : 2124;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.ctidTraderAccountId =
           options.longs === String
             ? long.toString()
@@ -22111,9 +22113,9 @@ export const ProtoOAReconcileReq = ($root.ProtoOAReconcileReq = (() => {
   };
 
   return ProtoOAReconcileReq;
-})());
+})();
 
-export const ProtoOAReconcileRes = ($root.ProtoOAReconcileRes = (() => {
+$root.ProtoOAReconcileRes = (function() {
   /**
    * Properties of a ProtoOAReconcileRes.
    * @exports IProtoOAReconcileRes
@@ -22136,7 +22138,7 @@ export const ProtoOAReconcileRes = ($root.ProtoOAReconcileRes = (() => {
     this.position = [];
     this.order = [];
     if (properties)
-      for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
 
@@ -22203,13 +22205,13 @@ export const ProtoOAReconcileRes = ($root.ProtoOAReconcileRes = (() => {
       .uint32(/* id 2, wireType 0 =*/ 16)
       .int64(message.ctidTraderAccountId);
     if (message.position != null && message.position.length)
-      for (let i = 0; i < message.position.length; ++i)
+      for (var i = 0; i < message.position.length; ++i)
         $root.ProtoOAPosition.encode(
           message.position[i],
           writer.uint32(/* id 3, wireType 2 =*/ 26).fork()
         ).ldelim();
     if (message.order != null && message.order.length)
-      for (let i = 0; i < message.order.length; ++i)
+      for (var i = 0; i < message.order.length; ++i)
         $root.ProtoOAOrder.encode(
           message.order[i],
           writer.uint32(/* id 4, wireType 2 =*/ 34).fork()
@@ -22246,10 +22248,10 @@ export const ProtoOAReconcileRes = ($root.ProtoOAReconcileRes = (() => {
    */
   ProtoOAReconcileRes.decode = function decode(reader, length) {
     if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    let end = length === undefined ? reader.len : reader.pos + length,
+    var end = length === undefined ? reader.len : reader.pos + length,
       message = new $root.ProtoOAReconcileRes();
     while (reader.pos < end) {
-      let tag = reader.uint32();
+      var tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
           message.payloadType = reader.int32();
@@ -22390,15 +22392,15 @@ export const ProtoOAReconcileRes = ($root.ProtoOAReconcileRes = (() => {
       return "ctidTraderAccountId: integer|Long expected";
     if (message.position != null && message.hasOwnProperty("position")) {
       if (!Array.isArray(message.position)) return "position: array expected";
-      for (let i = 0; i < message.position.length; ++i) {
-        let error = $root.ProtoOAPosition.verify(message.position[i]);
+      for (var i = 0; i < message.position.length; ++i) {
+        var error = $root.ProtoOAPosition.verify(message.position[i]);
         if (error) return "position." + error;
       }
     }
     if (message.order != null && message.hasOwnProperty("order")) {
       if (!Array.isArray(message.order)) return "order: array expected";
-      for (let i = 0; i < message.order.length; ++i) {
-        let error = $root.ProtoOAOrder.verify(message.order[i]);
+      for (var i = 0; i < message.order.length; ++i) {
+        var error = $root.ProtoOAOrder.verify(message.order[i]);
         if (error) return "order." + error;
       }
     }
@@ -22415,7 +22417,7 @@ export const ProtoOAReconcileRes = ($root.ProtoOAReconcileRes = (() => {
    */
   ProtoOAReconcileRes.fromObject = function fromObject(object) {
     if (object instanceof $root.ProtoOAReconcileRes) return object;
-    let message = new $root.ProtoOAReconcileRes();
+    var message = new $root.ProtoOAReconcileRes();
     switch (object.payloadType) {
       case "PROTO_OA_APPLICATION_AUTH_REQ":
       case 2100:
@@ -22696,7 +22698,7 @@ export const ProtoOAReconcileRes = ($root.ProtoOAReconcileRes = (() => {
       if (!Array.isArray(object.position))
         throw TypeError(".ProtoOAReconcileRes.position: array expected");
       message.position = [];
-      for (let i = 0; i < object.position.length; ++i) {
+      for (var i = 0; i < object.position.length; ++i) {
         if (typeof object.position[i] !== "object")
           throw TypeError(".ProtoOAReconcileRes.position: object expected");
         message.position[i] = $root.ProtoOAPosition.fromObject(
@@ -22708,7 +22710,7 @@ export const ProtoOAReconcileRes = ($root.ProtoOAReconcileRes = (() => {
       if (!Array.isArray(object.order))
         throw TypeError(".ProtoOAReconcileRes.order: array expected");
       message.order = [];
-      for (let i = 0; i < object.order.length; ++i) {
+      for (var i = 0; i < object.order.length; ++i) {
         if (typeof object.order[i] !== "object")
           throw TypeError(".ProtoOAReconcileRes.order: object expected");
         message.order[i] = $root.ProtoOAOrder.fromObject(object.order[i]);
@@ -22728,7 +22730,7 @@ export const ProtoOAReconcileRes = ($root.ProtoOAReconcileRes = (() => {
    */
   ProtoOAReconcileRes.toObject = function toObject(message, options) {
     if (!options) options = {};
-    let object = {};
+    var object = {};
     if (options.arrays || options.defaults) {
       object.position = [];
       object.order = [];
@@ -22737,7 +22739,7 @@ export const ProtoOAReconcileRes = ($root.ProtoOAReconcileRes = (() => {
       object.payloadType =
         options.enums === String ? "PROTO_OA_RECONCILE_RES" : 2125;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.ctidTraderAccountId =
           options.longs === String
             ? long.toString()
@@ -22772,7 +22774,7 @@ export const ProtoOAReconcileRes = ($root.ProtoOAReconcileRes = (() => {
             : message.ctidTraderAccountId;
     if (message.position && message.position.length) {
       object.position = [];
-      for (let j = 0; j < message.position.length; ++j)
+      for (var j = 0; j < message.position.length; ++j)
         object.position[j] = $root.ProtoOAPosition.toObject(
           message.position[j],
           options
@@ -22780,7 +22782,7 @@ export const ProtoOAReconcileRes = ($root.ProtoOAReconcileRes = (() => {
     }
     if (message.order && message.order.length) {
       object.order = [];
-      for (let j = 0; j < message.order.length; ++j)
+      for (var j = 0; j < message.order.length; ++j)
         object.order[j] = $root.ProtoOAOrder.toObject(
           message.order[j],
           options
@@ -22801,9 +22803,9 @@ export const ProtoOAReconcileRes = ($root.ProtoOAReconcileRes = (() => {
   };
 
   return ProtoOAReconcileRes;
-})());
+})();
 
-export const ProtoOAOrderErrorEvent = ($root.ProtoOAOrderErrorEvent = (() => {
+$root.ProtoOAOrderErrorEvent = (function() {
   /**
    * Properties of a ProtoOAOrderErrorEvent.
    * @exports IProtoOAOrderErrorEvent
@@ -22826,7 +22828,7 @@ export const ProtoOAOrderErrorEvent = ($root.ProtoOAOrderErrorEvent = (() => {
    */
   function ProtoOAOrderErrorEvent(properties) {
     if (properties)
-      for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
 
@@ -22951,10 +22953,10 @@ export const ProtoOAOrderErrorEvent = ($root.ProtoOAOrderErrorEvent = (() => {
    */
   ProtoOAOrderErrorEvent.decode = function decode(reader, length) {
     if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    let end = length === undefined ? reader.len : reader.pos + length,
+    var end = length === undefined ? reader.len : reader.pos + length,
       message = new $root.ProtoOAOrderErrorEvent();
     while (reader.pos < end) {
-      let tag = reader.uint32();
+      var tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
           message.payloadType = reader.int32();
@@ -23133,7 +23135,7 @@ export const ProtoOAOrderErrorEvent = ($root.ProtoOAOrderErrorEvent = (() => {
    */
   ProtoOAOrderErrorEvent.fromObject = function fromObject(object) {
     if (object instanceof $root.ProtoOAOrderErrorEvent) return object;
-    let message = new $root.ProtoOAOrderErrorEvent();
+    var message = new $root.ProtoOAOrderErrorEvent();
     switch (object.payloadType) {
       case "PROTO_OA_APPLICATION_AUTH_REQ":
       case 2100:
@@ -23455,13 +23457,13 @@ export const ProtoOAOrderErrorEvent = ($root.ProtoOAOrderErrorEvent = (() => {
    */
   ProtoOAOrderErrorEvent.toObject = function toObject(message, options) {
     if (!options) options = {};
-    let object = {};
+    var object = {};
     if (options.defaults) {
       object.payloadType =
         options.enums === String ? "PROTO_OA_ORDER_ERROR_EVENT" : 2132;
       object.errorCode = "";
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.orderId =
           options.longs === String
             ? long.toString()
@@ -23470,7 +23472,7 @@ export const ProtoOAOrderErrorEvent = ($root.ProtoOAOrderErrorEvent = (() => {
             : long;
       } else object.orderId = options.longs === String ? "0" : 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.ctidTraderAccountId =
           options.longs === String
             ? long.toString()
@@ -23479,7 +23481,7 @@ export const ProtoOAOrderErrorEvent = ($root.ProtoOAOrderErrorEvent = (() => {
             : long;
       } else object.ctidTraderAccountId = options.longs === String ? "0" : 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.positionId =
           options.longs === String
             ? long.toString()
@@ -23562,9 +23564,9 @@ export const ProtoOAOrderErrorEvent = ($root.ProtoOAOrderErrorEvent = (() => {
   };
 
   return ProtoOAOrderErrorEvent;
-})());
+})();
 
-export const ProtoOADealListReq = ($root.ProtoOADealListReq = (() => {
+$root.ProtoOADealListReq = (function() {
   /**
    * Properties of a ProtoOADealListReq.
    * @exports IProtoOADealListReq
@@ -23586,7 +23588,7 @@ export const ProtoOADealListReq = ($root.ProtoOADealListReq = (() => {
    */
   function ProtoOADealListReq(properties) {
     if (properties)
-      for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
 
@@ -23700,10 +23702,10 @@ export const ProtoOADealListReq = ($root.ProtoOADealListReq = (() => {
    */
   ProtoOADealListReq.decode = function decode(reader, length) {
     if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    let end = length === undefined ? reader.len : reader.pos + length,
+    var end = length === undefined ? reader.len : reader.pos + length,
       message = new $root.ProtoOADealListReq();
     while (reader.pos < end) {
-      let tag = reader.uint32();
+      var tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
           message.payloadType = reader.int32();
@@ -23879,7 +23881,7 @@ export const ProtoOADealListReq = ($root.ProtoOADealListReq = (() => {
    */
   ProtoOADealListReq.fromObject = function fromObject(object) {
     if (object instanceof $root.ProtoOADealListReq) return object;
-    let message = new $root.ProtoOADealListReq();
+    var message = new $root.ProtoOADealListReq();
     switch (object.payloadType) {
       case "PROTO_OA_APPLICATION_AUTH_REQ":
       case 2100:
@@ -24199,12 +24201,12 @@ export const ProtoOADealListReq = ($root.ProtoOADealListReq = (() => {
    */
   ProtoOADealListReq.toObject = function toObject(message, options) {
     if (!options) options = {};
-    let object = {};
+    var object = {};
     if (options.defaults) {
       object.payloadType =
         options.enums === String ? "PROTO_OA_DEAL_LIST_REQ" : 2133;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.ctidTraderAccountId =
           options.longs === String
             ? long.toString()
@@ -24213,7 +24215,7 @@ export const ProtoOADealListReq = ($root.ProtoOADealListReq = (() => {
             : long;
       } else object.ctidTraderAccountId = options.longs === String ? "0" : 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.fromTimestamp =
           options.longs === String
             ? long.toString()
@@ -24222,7 +24224,7 @@ export const ProtoOADealListReq = ($root.ProtoOADealListReq = (() => {
             : long;
       } else object.fromTimestamp = options.longs === String ? "0" : 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.toTimestamp =
           options.longs === String
             ? long.toString()
@@ -24308,9 +24310,9 @@ export const ProtoOADealListReq = ($root.ProtoOADealListReq = (() => {
   };
 
   return ProtoOADealListReq;
-})());
+})();
 
-export const ProtoOADealListRes = ($root.ProtoOADealListRes = (() => {
+$root.ProtoOADealListRes = (function() {
   /**
    * Properties of a ProtoOADealListRes.
    * @exports IProtoOADealListRes
@@ -24332,7 +24334,7 @@ export const ProtoOADealListRes = ($root.ProtoOADealListRes = (() => {
   function ProtoOADealListRes(properties) {
     this.deal = [];
     if (properties)
-      for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
 
@@ -24399,7 +24401,7 @@ export const ProtoOADealListRes = ($root.ProtoOADealListRes = (() => {
       .uint32(/* id 2, wireType 0 =*/ 16)
       .int64(message.ctidTraderAccountId);
     if (message.deal != null && message.deal.length)
-      for (let i = 0; i < message.deal.length; ++i)
+      for (var i = 0; i < message.deal.length; ++i)
         $root.ProtoOADeal.encode(
           message.deal[i],
           writer.uint32(/* id 3, wireType 2 =*/ 26).fork()
@@ -24437,10 +24439,10 @@ export const ProtoOADealListRes = ($root.ProtoOADealListRes = (() => {
    */
   ProtoOADealListRes.decode = function decode(reader, length) {
     if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    let end = length === undefined ? reader.len : reader.pos + length,
+    var end = length === undefined ? reader.len : reader.pos + length,
       message = new $root.ProtoOADealListRes();
     while (reader.pos < end) {
-      let tag = reader.uint32();
+      var tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
           message.payloadType = reader.int32();
@@ -24579,8 +24581,8 @@ export const ProtoOADealListRes = ($root.ProtoOADealListRes = (() => {
       return "ctidTraderAccountId: integer|Long expected";
     if (message.deal != null && message.hasOwnProperty("deal")) {
       if (!Array.isArray(message.deal)) return "deal: array expected";
-      for (let i = 0; i < message.deal.length; ++i) {
-        let error = $root.ProtoOADeal.verify(message.deal[i]);
+      for (var i = 0; i < message.deal.length; ++i) {
+        var error = $root.ProtoOADeal.verify(message.deal[i]);
         if (error) return "deal." + error;
       }
     }
@@ -24599,7 +24601,7 @@ export const ProtoOADealListRes = ($root.ProtoOADealListRes = (() => {
    */
   ProtoOADealListRes.fromObject = function fromObject(object) {
     if (object instanceof $root.ProtoOADealListRes) return object;
-    let message = new $root.ProtoOADealListRes();
+    var message = new $root.ProtoOADealListRes();
     switch (object.payloadType) {
       case "PROTO_OA_APPLICATION_AUTH_REQ":
       case 2100:
@@ -24880,7 +24882,7 @@ export const ProtoOADealListRes = ($root.ProtoOADealListRes = (() => {
       if (!Array.isArray(object.deal))
         throw TypeError(".ProtoOADealListRes.deal: array expected");
       message.deal = [];
-      for (let i = 0; i < object.deal.length; ++i) {
+      for (var i = 0; i < object.deal.length; ++i) {
         if (typeof object.deal[i] !== "object")
           throw TypeError(".ProtoOADealListRes.deal: object expected");
         message.deal[i] = $root.ProtoOADeal.fromObject(object.deal[i]);
@@ -24901,13 +24903,13 @@ export const ProtoOADealListRes = ($root.ProtoOADealListRes = (() => {
    */
   ProtoOADealListRes.toObject = function toObject(message, options) {
     if (!options) options = {};
-    let object = {};
+    var object = {};
     if (options.arrays || options.defaults) object.deal = [];
     if (options.defaults) {
       object.payloadType =
         options.enums === String ? "PROTO_OA_DEAL_LIST_RES" : 2134;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.ctidTraderAccountId =
           options.longs === String
             ? long.toString()
@@ -24943,7 +24945,7 @@ export const ProtoOADealListRes = ($root.ProtoOADealListRes = (() => {
             : message.ctidTraderAccountId;
     if (message.deal && message.deal.length) {
       object.deal = [];
-      for (let j = 0; j < message.deal.length; ++j)
+      for (var j = 0; j < message.deal.length; ++j)
         object.deal[j] = $root.ProtoOADeal.toObject(message.deal[j], options);
     }
     if (message.hasMore != null && message.hasOwnProperty("hasMore"))
@@ -24963,9 +24965,9 @@ export const ProtoOADealListRes = ($root.ProtoOADealListRes = (() => {
   };
 
   return ProtoOADealListRes;
-})());
+})();
 
-export const ProtoOAExpectedMarginReq = ($root.ProtoOAExpectedMarginReq = (() => {
+$root.ProtoOAExpectedMarginReq = (function() {
   /**
    * Properties of a ProtoOAExpectedMarginReq.
    * @exports IProtoOAExpectedMarginReq
@@ -24987,7 +24989,7 @@ export const ProtoOAExpectedMarginReq = ($root.ProtoOAExpectedMarginReq = (() =>
   function ProtoOAExpectedMarginReq(properties) {
     this.volume = [];
     if (properties)
-      for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
 
@@ -25057,7 +25059,7 @@ export const ProtoOAExpectedMarginReq = ($root.ProtoOAExpectedMarginReq = (() =>
       .int64(message.ctidTraderAccountId);
     writer.uint32(/* id 3, wireType 0 =*/ 24).int64(message.symbolId);
     if (message.volume != null && message.volume.length)
-      for (let i = 0; i < message.volume.length; ++i)
+      for (var i = 0; i < message.volume.length; ++i)
         writer.uint32(/* id 4, wireType 0 =*/ 32).int64(message.volume[i]);
     return writer;
   };
@@ -25091,10 +25093,10 @@ export const ProtoOAExpectedMarginReq = ($root.ProtoOAExpectedMarginReq = (() =>
    */
   ProtoOAExpectedMarginReq.decode = function decode(reader, length) {
     if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    let end = length === undefined ? reader.len : reader.pos + length,
+    var end = length === undefined ? reader.len : reader.pos + length,
       message = new $root.ProtoOAExpectedMarginReq();
     while (reader.pos < end) {
-      let tag = reader.uint32();
+      var tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
           message.payloadType = reader.int32();
@@ -25108,7 +25110,7 @@ export const ProtoOAExpectedMarginReq = ($root.ProtoOAExpectedMarginReq = (() =>
         case 4:
           if (!(message.volume && message.volume.length)) message.volume = [];
           if ((tag & 7) === 2) {
-            let end2 = reader.uint32() + reader.pos;
+            var end2 = reader.uint32() + reader.pos;
             while (reader.pos < end2) message.volume.push(reader.int64());
           } else message.volume.push(reader.int64());
           break;
@@ -25245,7 +25247,7 @@ export const ProtoOAExpectedMarginReq = ($root.ProtoOAExpectedMarginReq = (() =>
       return "symbolId: integer|Long expected";
     if (message.volume != null && message.hasOwnProperty("volume")) {
       if (!Array.isArray(message.volume)) return "volume: array expected";
-      for (let i = 0; i < message.volume.length; ++i)
+      for (var i = 0; i < message.volume.length; ++i)
         if (
           !$util.isInteger(message.volume[i]) &&
           !(
@@ -25269,7 +25271,7 @@ export const ProtoOAExpectedMarginReq = ($root.ProtoOAExpectedMarginReq = (() =>
    */
   ProtoOAExpectedMarginReq.fromObject = function fromObject(object) {
     if (object instanceof $root.ProtoOAExpectedMarginReq) return object;
-    let message = new $root.ProtoOAExpectedMarginReq();
+    var message = new $root.ProtoOAExpectedMarginReq();
     switch (object.payloadType) {
       case "PROTO_OA_APPLICATION_AUTH_REQ":
       case 2100:
@@ -25564,7 +25566,7 @@ export const ProtoOAExpectedMarginReq = ($root.ProtoOAExpectedMarginReq = (() =>
       if (!Array.isArray(object.volume))
         throw TypeError(".ProtoOAExpectedMarginReq.volume: array expected");
       message.volume = [];
-      for (let i = 0; i < object.volume.length; ++i)
+      for (var i = 0; i < object.volume.length; ++i)
         if ($util.Long)
           (message.volume[i] = $util.Long.fromValue(
             object.volume[i]
@@ -25593,13 +25595,13 @@ export const ProtoOAExpectedMarginReq = ($root.ProtoOAExpectedMarginReq = (() =>
    */
   ProtoOAExpectedMarginReq.toObject = function toObject(message, options) {
     if (!options) options = {};
-    let object = {};
+    var object = {};
     if (options.arrays || options.defaults) object.volume = [];
     if (options.defaults) {
       object.payloadType =
         options.enums === String ? "PROTO_OA_EXPECTED_MARGIN_REQ" : 2139;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.ctidTraderAccountId =
           options.longs === String
             ? long.toString()
@@ -25608,7 +25610,7 @@ export const ProtoOAExpectedMarginReq = ($root.ProtoOAExpectedMarginReq = (() =>
             : long;
       } else object.ctidTraderAccountId = options.longs === String ? "0" : 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.symbolId =
           options.longs === String
             ? long.toString()
@@ -25659,7 +25661,7 @@ export const ProtoOAExpectedMarginReq = ($root.ProtoOAExpectedMarginReq = (() =>
             : message.symbolId;
     if (message.volume && message.volume.length) {
       object.volume = [];
-      for (let j = 0; j < message.volume.length; ++j)
+      for (var j = 0; j < message.volume.length; ++j)
         if (typeof message.volume[j] === "number")
           object.volume[j] =
             options.longs === String
@@ -25691,9 +25693,9 @@ export const ProtoOAExpectedMarginReq = ($root.ProtoOAExpectedMarginReq = (() =>
   };
 
   return ProtoOAExpectedMarginReq;
-})());
+})();
 
-export const ProtoOAExpectedMarginRes = ($root.ProtoOAExpectedMarginRes = (() => {
+$root.ProtoOAExpectedMarginRes = (function() {
   /**
    * Properties of a ProtoOAExpectedMarginRes.
    * @exports IProtoOAExpectedMarginRes
@@ -25714,7 +25716,7 @@ export const ProtoOAExpectedMarginRes = ($root.ProtoOAExpectedMarginRes = (() =>
   function ProtoOAExpectedMarginRes(properties) {
     this.margin = [];
     if (properties)
-      for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
 
@@ -25773,7 +25775,7 @@ export const ProtoOAExpectedMarginRes = ($root.ProtoOAExpectedMarginRes = (() =>
       .uint32(/* id 2, wireType 0 =*/ 16)
       .int64(message.ctidTraderAccountId);
     if (message.margin != null && message.margin.length)
-      for (let i = 0; i < message.margin.length; ++i)
+      for (var i = 0; i < message.margin.length; ++i)
         $root.ProtoOAExpectedMargin.encode(
           message.margin[i],
           writer.uint32(/* id 3, wireType 2 =*/ 26).fork()
@@ -25810,10 +25812,10 @@ export const ProtoOAExpectedMarginRes = ($root.ProtoOAExpectedMarginRes = (() =>
    */
   ProtoOAExpectedMarginRes.decode = function decode(reader, length) {
     if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    let end = length === undefined ? reader.len : reader.pos + length,
+    var end = length === undefined ? reader.len : reader.pos + length,
       message = new $root.ProtoOAExpectedMarginRes();
     while (reader.pos < end) {
-      let tag = reader.uint32();
+      var tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
           message.payloadType = reader.int32();
@@ -25947,8 +25949,8 @@ export const ProtoOAExpectedMarginRes = ($root.ProtoOAExpectedMarginRes = (() =>
       return "ctidTraderAccountId: integer|Long expected";
     if (message.margin != null && message.hasOwnProperty("margin")) {
       if (!Array.isArray(message.margin)) return "margin: array expected";
-      for (let i = 0; i < message.margin.length; ++i) {
-        let error = $root.ProtoOAExpectedMargin.verify(message.margin[i]);
+      for (var i = 0; i < message.margin.length; ++i) {
+        var error = $root.ProtoOAExpectedMargin.verify(message.margin[i]);
         if (error) return "margin." + error;
       }
     }
@@ -25965,7 +25967,7 @@ export const ProtoOAExpectedMarginRes = ($root.ProtoOAExpectedMarginRes = (() =>
    */
   ProtoOAExpectedMarginRes.fromObject = function fromObject(object) {
     if (object instanceof $root.ProtoOAExpectedMarginRes) return object;
-    let message = new $root.ProtoOAExpectedMarginRes();
+    var message = new $root.ProtoOAExpectedMarginRes();
     switch (object.payloadType) {
       case "PROTO_OA_APPLICATION_AUTH_REQ":
       case 2100:
@@ -26246,7 +26248,7 @@ export const ProtoOAExpectedMarginRes = ($root.ProtoOAExpectedMarginRes = (() =>
       if (!Array.isArray(object.margin))
         throw TypeError(".ProtoOAExpectedMarginRes.margin: array expected");
       message.margin = [];
-      for (let i = 0; i < object.margin.length; ++i) {
+      for (var i = 0; i < object.margin.length; ++i) {
         if (typeof object.margin[i] !== "object")
           throw TypeError(".ProtoOAExpectedMarginRes.margin: object expected");
         message.margin[i] = $root.ProtoOAExpectedMargin.fromObject(
@@ -26268,13 +26270,13 @@ export const ProtoOAExpectedMarginRes = ($root.ProtoOAExpectedMarginRes = (() =>
    */
   ProtoOAExpectedMarginRes.toObject = function toObject(message, options) {
     if (!options) options = {};
-    let object = {};
+    var object = {};
     if (options.arrays || options.defaults) object.margin = [];
     if (options.defaults) {
       object.payloadType =
         options.enums === String ? "PROTO_OA_EXPECTED_MARGIN_RES" : 2140;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.ctidTraderAccountId =
           options.longs === String
             ? long.toString()
@@ -26309,7 +26311,7 @@ export const ProtoOAExpectedMarginRes = ($root.ProtoOAExpectedMarginRes = (() =>
             : message.ctidTraderAccountId;
     if (message.margin && message.margin.length) {
       object.margin = [];
-      for (let j = 0; j < message.margin.length; ++j)
+      for (var j = 0; j < message.margin.length; ++j)
         object.margin[j] = $root.ProtoOAExpectedMargin.toObject(
           message.margin[j],
           options
@@ -26330,9 +26332,9 @@ export const ProtoOAExpectedMarginRes = ($root.ProtoOAExpectedMarginRes = (() =>
   };
 
   return ProtoOAExpectedMarginRes;
-})());
+})();
 
-export const ProtoOAMarginChangedEvent = ($root.ProtoOAMarginChangedEvent = (() => {
+$root.ProtoOAMarginChangedEvent = (function() {
   /**
    * Properties of a ProtoOAMarginChangedEvent.
    * @exports IProtoOAMarginChangedEvent
@@ -26353,7 +26355,7 @@ export const ProtoOAMarginChangedEvent = ($root.ProtoOAMarginChangedEvent = (() 
    */
   function ProtoOAMarginChangedEvent(properties) {
     if (properties)
-      for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
 
@@ -26457,10 +26459,10 @@ export const ProtoOAMarginChangedEvent = ($root.ProtoOAMarginChangedEvent = (() 
    */
   ProtoOAMarginChangedEvent.decode = function decode(reader, length) {
     if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    let end = length === undefined ? reader.len : reader.pos + length,
+    var end = length === undefined ? reader.len : reader.pos + length,
       message = new $root.ProtoOAMarginChangedEvent();
     while (reader.pos < end) {
-      let tag = reader.uint32();
+      var tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
           message.payloadType = reader.int32();
@@ -26631,7 +26633,7 @@ export const ProtoOAMarginChangedEvent = ($root.ProtoOAMarginChangedEvent = (() 
    */
   ProtoOAMarginChangedEvent.fromObject = function fromObject(object) {
     if (object instanceof $root.ProtoOAMarginChangedEvent) return object;
-    let message = new $root.ProtoOAMarginChangedEvent();
+    var message = new $root.ProtoOAMarginChangedEvent();
     switch (object.payloadType) {
       case "PROTO_OA_APPLICATION_AUTH_REQ":
       case 2100:
@@ -26950,12 +26952,12 @@ export const ProtoOAMarginChangedEvent = ($root.ProtoOAMarginChangedEvent = (() 
    */
   ProtoOAMarginChangedEvent.toObject = function toObject(message, options) {
     if (!options) options = {};
-    let object = {};
+    var object = {};
     if (options.defaults) {
       object.payloadType =
         options.enums === String ? "PROTO_OA_MARGIN_CHANGED_EVENT" : 2141;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.ctidTraderAccountId =
           options.longs === String
             ? long.toString()
@@ -26964,7 +26966,7 @@ export const ProtoOAMarginChangedEvent = ($root.ProtoOAMarginChangedEvent = (() 
             : long;
       } else object.ctidTraderAccountId = options.longs === String ? "0" : 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, true);
+        var long = new $util.Long(0, 0, true);
         object.positionId =
           options.longs === String
             ? long.toString()
@@ -26973,7 +26975,7 @@ export const ProtoOAMarginChangedEvent = ($root.ProtoOAMarginChangedEvent = (() 
             : long;
       } else object.positionId = options.longs === String ? "0" : 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, true);
+        var long = new $util.Long(0, 0, true);
         object.usedMargin =
           options.longs === String
             ? long.toString()
@@ -27053,9 +27055,9 @@ export const ProtoOAMarginChangedEvent = ($root.ProtoOAMarginChangedEvent = (() 
   };
 
   return ProtoOAMarginChangedEvent;
-})());
+})();
 
-export const ProtoOACashFlowHistoryListReq = ($root.ProtoOACashFlowHistoryListReq = (() => {
+$root.ProtoOACashFlowHistoryListReq = (function() {
   /**
    * Properties of a ProtoOACashFlowHistoryListReq.
    * @exports IProtoOACashFlowHistoryListReq
@@ -27076,7 +27078,7 @@ export const ProtoOACashFlowHistoryListReq = ($root.ProtoOACashFlowHistoryListRe
    */
   function ProtoOACashFlowHistoryListReq(properties) {
     if (properties)
-      for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
 
@@ -27180,10 +27182,10 @@ export const ProtoOACashFlowHistoryListReq = ($root.ProtoOACashFlowHistoryListRe
    */
   ProtoOACashFlowHistoryListReq.decode = function decode(reader, length) {
     if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    let end = length === undefined ? reader.len : reader.pos + length,
+    var end = length === undefined ? reader.len : reader.pos + length,
       message = new $root.ProtoOACashFlowHistoryListReq();
     while (reader.pos < end) {
-      let tag = reader.uint32();
+      var tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
           message.payloadType = reader.int32();
@@ -27356,7 +27358,7 @@ export const ProtoOACashFlowHistoryListReq = ($root.ProtoOACashFlowHistoryListRe
    */
   ProtoOACashFlowHistoryListReq.fromObject = function fromObject(object) {
     if (object instanceof $root.ProtoOACashFlowHistoryListReq) return object;
-    let message = new $root.ProtoOACashFlowHistoryListReq();
+    var message = new $root.ProtoOACashFlowHistoryListReq();
     switch (object.payloadType) {
       case "PROTO_OA_APPLICATION_AUTH_REQ":
       case 2100:
@@ -27675,12 +27677,12 @@ export const ProtoOACashFlowHistoryListReq = ($root.ProtoOACashFlowHistoryListRe
    */
   ProtoOACashFlowHistoryListReq.toObject = function toObject(message, options) {
     if (!options) options = {};
-    let object = {};
+    var object = {};
     if (options.defaults) {
       object.payloadType =
         options.enums === String ? "PROTO_OA_CASH_FLOW_HISTORY_LIST_REQ" : 2143;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.ctidTraderAccountId =
           options.longs === String
             ? long.toString()
@@ -27689,7 +27691,7 @@ export const ProtoOACashFlowHistoryListReq = ($root.ProtoOACashFlowHistoryListRe
             : long;
       } else object.ctidTraderAccountId = options.longs === String ? "0" : 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.fromTimestamp =
           options.longs === String
             ? long.toString()
@@ -27698,7 +27700,7 @@ export const ProtoOACashFlowHistoryListReq = ($root.ProtoOACashFlowHistoryListRe
             : long;
       } else object.fromTimestamp = options.longs === String ? "0" : 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.toTimestamp =
           options.longs === String
             ? long.toString()
@@ -27781,9 +27783,9 @@ export const ProtoOACashFlowHistoryListReq = ($root.ProtoOACashFlowHistoryListRe
   };
 
   return ProtoOACashFlowHistoryListReq;
-})());
+})();
 
-export const ProtoOACashFlowHistoryListRes = ($root.ProtoOACashFlowHistoryListRes = (() => {
+$root.ProtoOACashFlowHistoryListRes = (function() {
   /**
    * Properties of a ProtoOACashFlowHistoryListRes.
    * @exports IProtoOACashFlowHistoryListRes
@@ -27804,7 +27806,7 @@ export const ProtoOACashFlowHistoryListRes = ($root.ProtoOACashFlowHistoryListRe
   function ProtoOACashFlowHistoryListRes(properties) {
     this.depositWithdraw = [];
     if (properties)
-      for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
 
@@ -27863,7 +27865,7 @@ export const ProtoOACashFlowHistoryListRes = ($root.ProtoOACashFlowHistoryListRe
       .uint32(/* id 2, wireType 0 =*/ 16)
       .int64(message.ctidTraderAccountId);
     if (message.depositWithdraw != null && message.depositWithdraw.length)
-      for (let i = 0; i < message.depositWithdraw.length; ++i)
+      for (var i = 0; i < message.depositWithdraw.length; ++i)
         $root.ProtoOADepositWithdraw.encode(
           message.depositWithdraw[i],
           writer.uint32(/* id 3, wireType 2 =*/ 26).fork()
@@ -27900,10 +27902,10 @@ export const ProtoOACashFlowHistoryListRes = ($root.ProtoOACashFlowHistoryListRe
    */
   ProtoOACashFlowHistoryListRes.decode = function decode(reader, length) {
     if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    let end = length === undefined ? reader.len : reader.pos + length,
+    var end = length === undefined ? reader.len : reader.pos + length,
       message = new $root.ProtoOACashFlowHistoryListRes();
     while (reader.pos < end) {
-      let tag = reader.uint32();
+      var tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
           message.payloadType = reader.int32();
@@ -28044,8 +28046,8 @@ export const ProtoOACashFlowHistoryListRes = ($root.ProtoOACashFlowHistoryListRe
     ) {
       if (!Array.isArray(message.depositWithdraw))
         return "depositWithdraw: array expected";
-      for (let i = 0; i < message.depositWithdraw.length; ++i) {
-        let error = $root.ProtoOADepositWithdraw.verify(
+      for (var i = 0; i < message.depositWithdraw.length; ++i) {
+        var error = $root.ProtoOADepositWithdraw.verify(
           message.depositWithdraw[i]
         );
         if (error) return "depositWithdraw." + error;
@@ -28064,7 +28066,7 @@ export const ProtoOACashFlowHistoryListRes = ($root.ProtoOACashFlowHistoryListRe
    */
   ProtoOACashFlowHistoryListRes.fromObject = function fromObject(object) {
     if (object instanceof $root.ProtoOACashFlowHistoryListRes) return object;
-    let message = new $root.ProtoOACashFlowHistoryListRes();
+    var message = new $root.ProtoOACashFlowHistoryListRes();
     switch (object.payloadType) {
       case "PROTO_OA_APPLICATION_AUTH_REQ":
       case 2100:
@@ -28347,7 +28349,7 @@ export const ProtoOACashFlowHistoryListRes = ($root.ProtoOACashFlowHistoryListRe
           ".ProtoOACashFlowHistoryListRes.depositWithdraw: array expected"
         );
       message.depositWithdraw = [];
-      for (let i = 0; i < object.depositWithdraw.length; ++i) {
+      for (var i = 0; i < object.depositWithdraw.length; ++i) {
         if (typeof object.depositWithdraw[i] !== "object")
           throw TypeError(
             ".ProtoOACashFlowHistoryListRes.depositWithdraw: object expected"
@@ -28371,13 +28373,13 @@ export const ProtoOACashFlowHistoryListRes = ($root.ProtoOACashFlowHistoryListRe
    */
   ProtoOACashFlowHistoryListRes.toObject = function toObject(message, options) {
     if (!options) options = {};
-    let object = {};
+    var object = {};
     if (options.arrays || options.defaults) object.depositWithdraw = [];
     if (options.defaults) {
       object.payloadType =
         options.enums === String ? "PROTO_OA_CASH_FLOW_HISTORY_LIST_RES" : 2144;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.ctidTraderAccountId =
           options.longs === String
             ? long.toString()
@@ -28412,7 +28414,7 @@ export const ProtoOACashFlowHistoryListRes = ($root.ProtoOACashFlowHistoryListRe
             : message.ctidTraderAccountId;
     if (message.depositWithdraw && message.depositWithdraw.length) {
       object.depositWithdraw = [];
-      for (let j = 0; j < message.depositWithdraw.length; ++j)
+      for (var j = 0; j < message.depositWithdraw.length; ++j)
         object.depositWithdraw[j] = $root.ProtoOADepositWithdraw.toObject(
           message.depositWithdraw[j],
           options
@@ -28433,9 +28435,9 @@ export const ProtoOACashFlowHistoryListRes = ($root.ProtoOACashFlowHistoryListRe
   };
 
   return ProtoOACashFlowHistoryListRes;
-})());
+})();
 
-export const ProtoOAGetAccountListByAccessTokenReq = ($root.ProtoOAGetAccountListByAccessTokenReq = (() => {
+$root.ProtoOAGetAccountListByAccessTokenReq = (function() {
   /**
    * Properties of a ProtoOAGetAccountListByAccessTokenReq.
    * @exports IProtoOAGetAccountListByAccessTokenReq
@@ -28454,7 +28456,7 @@ export const ProtoOAGetAccountListByAccessTokenReq = ($root.ProtoOAGetAccountLis
    */
   function ProtoOAGetAccountListByAccessTokenReq(properties) {
     if (properties)
-      for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
 
@@ -28538,10 +28540,10 @@ export const ProtoOAGetAccountListByAccessTokenReq = ($root.ProtoOAGetAccountLis
     length
   ) {
     if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    let end = length === undefined ? reader.len : reader.pos + length,
+    var end = length === undefined ? reader.len : reader.pos + length,
       message = new $root.ProtoOAGetAccountListByAccessTokenReq();
     while (reader.pos < end) {
-      let tag = reader.uint32();
+      var tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
           message.payloadType = reader.int32();
@@ -28678,7 +28680,7 @@ export const ProtoOAGetAccountListByAccessTokenReq = ($root.ProtoOAGetAccountLis
   ) {
     if (object instanceof $root.ProtoOAGetAccountListByAccessTokenReq)
       return object;
-    let message = new $root.ProtoOAGetAccountListByAccessTokenReq();
+    var message = new $root.ProtoOAGetAccountListByAccessTokenReq();
     switch (object.payloadType) {
       case "PROTO_OA_APPLICATION_AUTH_REQ":
       case 2100:
@@ -28960,7 +28962,7 @@ export const ProtoOAGetAccountListByAccessTokenReq = ($root.ProtoOAGetAccountLis
     options
   ) {
     if (!options) options = {};
-    let object = {};
+    var object = {};
     if (options.defaults) {
       object.payloadType =
         options.enums === String
@@ -28990,9 +28992,9 @@ export const ProtoOAGetAccountListByAccessTokenReq = ($root.ProtoOAGetAccountLis
   };
 
   return ProtoOAGetAccountListByAccessTokenReq;
-})());
+})();
 
-export const ProtoOAGetAccountListByAccessTokenRes = ($root.ProtoOAGetAccountListByAccessTokenRes = (() => {
+$root.ProtoOAGetAccountListByAccessTokenRes = (function() {
   /**
    * Properties of a ProtoOAGetAccountListByAccessTokenRes.
    * @exports IProtoOAGetAccountListByAccessTokenRes
@@ -29014,7 +29016,7 @@ export const ProtoOAGetAccountListByAccessTokenRes = ($root.ProtoOAGetAccountLis
   function ProtoOAGetAccountListByAccessTokenRes(properties) {
     this.ctidTraderAccount = [];
     if (properties)
-      for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
 
@@ -29086,7 +29088,7 @@ export const ProtoOAGetAccountListByAccessTokenRes = ($root.ProtoOAGetAccountLis
     )
       writer.uint32(/* id 3, wireType 0 =*/ 24).int32(message.permissionScope);
     if (message.ctidTraderAccount != null && message.ctidTraderAccount.length)
-      for (let i = 0; i < message.ctidTraderAccount.length; ++i)
+      for (var i = 0; i < message.ctidTraderAccount.length; ++i)
         $root.ProtoOACtidTraderAccount.encode(
           message.ctidTraderAccount[i],
           writer.uint32(/* id 4, wireType 2 =*/ 34).fork()
@@ -29126,10 +29128,10 @@ export const ProtoOAGetAccountListByAccessTokenRes = ($root.ProtoOAGetAccountLis
     length
   ) {
     if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    let end = length === undefined ? reader.len : reader.pos + length,
+    var end = length === undefined ? reader.len : reader.pos + length,
       message = new $root.ProtoOAGetAccountListByAccessTokenRes();
     while (reader.pos < end) {
-      let tag = reader.uint32();
+      var tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
           message.payloadType = reader.int32();
@@ -29277,8 +29279,8 @@ export const ProtoOAGetAccountListByAccessTokenRes = ($root.ProtoOAGetAccountLis
     ) {
       if (!Array.isArray(message.ctidTraderAccount))
         return "ctidTraderAccount: array expected";
-      for (let i = 0; i < message.ctidTraderAccount.length; ++i) {
-        let error = $root.ProtoOACtidTraderAccount.verify(
+      for (var i = 0; i < message.ctidTraderAccount.length; ++i) {
+        var error = $root.ProtoOACtidTraderAccount.verify(
           message.ctidTraderAccount[i]
         );
         if (error) return "ctidTraderAccount." + error;
@@ -29300,7 +29302,7 @@ export const ProtoOAGetAccountListByAccessTokenRes = ($root.ProtoOAGetAccountLis
   ) {
     if (object instanceof $root.ProtoOAGetAccountListByAccessTokenRes)
       return object;
-    let message = new $root.ProtoOAGetAccountListByAccessTokenRes();
+    var message = new $root.ProtoOAGetAccountListByAccessTokenRes();
     switch (object.payloadType) {
       case "PROTO_OA_APPLICATION_AUTH_REQ":
       case 2100:
@@ -29581,7 +29583,7 @@ export const ProtoOAGetAccountListByAccessTokenRes = ($root.ProtoOAGetAccountLis
           ".ProtoOAGetAccountListByAccessTokenRes.ctidTraderAccount: array expected"
         );
       message.ctidTraderAccount = [];
-      for (let i = 0; i < object.ctidTraderAccount.length; ++i) {
+      for (var i = 0; i < object.ctidTraderAccount.length; ++i) {
         if (typeof object.ctidTraderAccount[i] !== "object")
           throw TypeError(
             ".ProtoOAGetAccountListByAccessTokenRes.ctidTraderAccount: object expected"
@@ -29610,7 +29612,7 @@ export const ProtoOAGetAccountListByAccessTokenRes = ($root.ProtoOAGetAccountLis
     options
   ) {
     if (!options) options = {};
-    let object = {};
+    var object = {};
     if (options.arrays || options.defaults) object.ctidTraderAccount = [];
     if (options.defaults) {
       object.payloadType =
@@ -29637,7 +29639,7 @@ export const ProtoOAGetAccountListByAccessTokenRes = ($root.ProtoOAGetAccountLis
           : message.permissionScope;
     if (message.ctidTraderAccount && message.ctidTraderAccount.length) {
       object.ctidTraderAccount = [];
-      for (let j = 0; j < message.ctidTraderAccount.length; ++j)
+      for (var j = 0; j < message.ctidTraderAccount.length; ++j)
         object.ctidTraderAccount[j] = $root.ProtoOACtidTraderAccount.toObject(
           message.ctidTraderAccount[j],
           options
@@ -29658,9 +29660,9 @@ export const ProtoOAGetAccountListByAccessTokenRes = ($root.ProtoOAGetAccountLis
   };
 
   return ProtoOAGetAccountListByAccessTokenRes;
-})());
+})();
 
-export const ProtoOASubscribeSpotsReq = ($root.ProtoOASubscribeSpotsReq = (() => {
+$root.ProtoOASubscribeSpotsReq = (function() {
   /**
    * Properties of a ProtoOASubscribeSpotsReq.
    * @exports IProtoOASubscribeSpotsReq
@@ -29681,7 +29683,7 @@ export const ProtoOASubscribeSpotsReq = ($root.ProtoOASubscribeSpotsReq = (() =>
   function ProtoOASubscribeSpotsReq(properties) {
     this.symbolId = [];
     if (properties)
-      for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
 
@@ -29740,7 +29742,7 @@ export const ProtoOASubscribeSpotsReq = ($root.ProtoOASubscribeSpotsReq = (() =>
       .uint32(/* id 2, wireType 0 =*/ 16)
       .int64(message.ctidTraderAccountId);
     if (message.symbolId != null && message.symbolId.length)
-      for (let i = 0; i < message.symbolId.length; ++i)
+      for (var i = 0; i < message.symbolId.length; ++i)
         writer.uint32(/* id 3, wireType 0 =*/ 24).int64(message.symbolId[i]);
     return writer;
   };
@@ -29774,10 +29776,10 @@ export const ProtoOASubscribeSpotsReq = ($root.ProtoOASubscribeSpotsReq = (() =>
    */
   ProtoOASubscribeSpotsReq.decode = function decode(reader, length) {
     if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    let end = length === undefined ? reader.len : reader.pos + length,
+    var end = length === undefined ? reader.len : reader.pos + length,
       message = new $root.ProtoOASubscribeSpotsReq();
     while (reader.pos < end) {
-      let tag = reader.uint32();
+      var tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
           message.payloadType = reader.int32();
@@ -29789,7 +29791,7 @@ export const ProtoOASubscribeSpotsReq = ($root.ProtoOASubscribeSpotsReq = (() =>
           if (!(message.symbolId && message.symbolId.length))
             message.symbolId = [];
           if ((tag & 7) === 2) {
-            let end2 = reader.uint32() + reader.pos;
+            var end2 = reader.uint32() + reader.pos;
             while (reader.pos < end2) message.symbolId.push(reader.int64());
           } else message.symbolId.push(reader.int64());
           break;
@@ -29913,7 +29915,7 @@ export const ProtoOASubscribeSpotsReq = ($root.ProtoOASubscribeSpotsReq = (() =>
       return "ctidTraderAccountId: integer|Long expected";
     if (message.symbolId != null && message.hasOwnProperty("symbolId")) {
       if (!Array.isArray(message.symbolId)) return "symbolId: array expected";
-      for (let i = 0; i < message.symbolId.length; ++i)
+      for (var i = 0; i < message.symbolId.length; ++i)
         if (
           !$util.isInteger(message.symbolId[i]) &&
           !(
@@ -29937,7 +29939,7 @@ export const ProtoOASubscribeSpotsReq = ($root.ProtoOASubscribeSpotsReq = (() =>
    */
   ProtoOASubscribeSpotsReq.fromObject = function fromObject(object) {
     if (object instanceof $root.ProtoOASubscribeSpotsReq) return object;
-    let message = new $root.ProtoOASubscribeSpotsReq();
+    var message = new $root.ProtoOASubscribeSpotsReq();
     switch (object.payloadType) {
       case "PROTO_OA_APPLICATION_AUTH_REQ":
       case 2100:
@@ -30218,7 +30220,7 @@ export const ProtoOASubscribeSpotsReq = ($root.ProtoOASubscribeSpotsReq = (() =>
       if (!Array.isArray(object.symbolId))
         throw TypeError(".ProtoOASubscribeSpotsReq.symbolId: array expected");
       message.symbolId = [];
-      for (let i = 0; i < object.symbolId.length; ++i)
+      for (var i = 0; i < object.symbolId.length; ++i)
         if ($util.Long)
           (message.symbolId[i] = $util.Long.fromValue(
             object.symbolId[i]
@@ -30247,13 +30249,13 @@ export const ProtoOASubscribeSpotsReq = ($root.ProtoOASubscribeSpotsReq = (() =>
    */
   ProtoOASubscribeSpotsReq.toObject = function toObject(message, options) {
     if (!options) options = {};
-    let object = {};
+    var object = {};
     if (options.arrays || options.defaults) object.symbolId = [];
     if (options.defaults) {
       object.payloadType =
         options.enums === String ? "PROTO_OA_SUBSCRIBE_SPOTS_REQ" : 2127;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.ctidTraderAccountId =
           options.longs === String
             ? long.toString()
@@ -30288,7 +30290,7 @@ export const ProtoOASubscribeSpotsReq = ($root.ProtoOASubscribeSpotsReq = (() =>
             : message.ctidTraderAccountId;
     if (message.symbolId && message.symbolId.length) {
       object.symbolId = [];
-      for (let j = 0; j < message.symbolId.length; ++j)
+      for (var j = 0; j < message.symbolId.length; ++j)
         if (typeof message.symbolId[j] === "number")
           object.symbolId[j] =
             options.longs === String
@@ -30320,9 +30322,9 @@ export const ProtoOASubscribeSpotsReq = ($root.ProtoOASubscribeSpotsReq = (() =>
   };
 
   return ProtoOASubscribeSpotsReq;
-})());
+})();
 
-export const ProtoOASubscribeSpotsRes = ($root.ProtoOASubscribeSpotsRes = (() => {
+$root.ProtoOASubscribeSpotsRes = (function() {
   /**
    * Properties of a ProtoOASubscribeSpotsRes.
    * @exports IProtoOASubscribeSpotsRes
@@ -30341,7 +30343,7 @@ export const ProtoOASubscribeSpotsRes = ($root.ProtoOASubscribeSpotsRes = (() =>
    */
   function ProtoOASubscribeSpotsRes(properties) {
     if (properties)
-      for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
 
@@ -30423,10 +30425,10 @@ export const ProtoOASubscribeSpotsRes = ($root.ProtoOASubscribeSpotsRes = (() =>
    */
   ProtoOASubscribeSpotsRes.decode = function decode(reader, length) {
     if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    let end = length === undefined ? reader.len : reader.pos + length,
+    var end = length === undefined ? reader.len : reader.pos + length,
       message = new $root.ProtoOASubscribeSpotsRes();
     while (reader.pos < end) {
-      let tag = reader.uint32();
+      var tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
           message.payloadType = reader.int32();
@@ -30565,7 +30567,7 @@ export const ProtoOASubscribeSpotsRes = ($root.ProtoOASubscribeSpotsRes = (() =>
    */
   ProtoOASubscribeSpotsRes.fromObject = function fromObject(object) {
     if (object instanceof $root.ProtoOASubscribeSpotsRes) return object;
-    let message = new $root.ProtoOASubscribeSpotsRes();
+    var message = new $root.ProtoOASubscribeSpotsRes();
     switch (object.payloadType) {
       case "PROTO_OA_APPLICATION_AUTH_REQ":
       case 2100:
@@ -30856,12 +30858,12 @@ export const ProtoOASubscribeSpotsRes = ($root.ProtoOASubscribeSpotsRes = (() =>
    */
   ProtoOASubscribeSpotsRes.toObject = function toObject(message, options) {
     if (!options) options = {};
-    let object = {};
+    var object = {};
     if (options.defaults) {
       object.payloadType =
         options.enums === String ? "PROTO_OA_SUBSCRIBE_SPOTS_RES" : 2128;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.ctidTraderAccountId =
           options.longs === String
             ? long.toString()
@@ -30909,9 +30911,9 @@ export const ProtoOASubscribeSpotsRes = ($root.ProtoOASubscribeSpotsRes = (() =>
   };
 
   return ProtoOASubscribeSpotsRes;
-})());
+})();
 
-export const ProtoOAUnsubscribeSpotsReq = ($root.ProtoOAUnsubscribeSpotsReq = (() => {
+$root.ProtoOAUnsubscribeSpotsReq = (function() {
   /**
    * Properties of a ProtoOAUnsubscribeSpotsReq.
    * @exports IProtoOAUnsubscribeSpotsReq
@@ -30932,7 +30934,7 @@ export const ProtoOAUnsubscribeSpotsReq = ($root.ProtoOAUnsubscribeSpotsReq = ((
   function ProtoOAUnsubscribeSpotsReq(properties) {
     this.symbolId = [];
     if (properties)
-      for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
 
@@ -30991,7 +30993,7 @@ export const ProtoOAUnsubscribeSpotsReq = ($root.ProtoOAUnsubscribeSpotsReq = ((
       .uint32(/* id 2, wireType 0 =*/ 16)
       .int64(message.ctidTraderAccountId);
     if (message.symbolId != null && message.symbolId.length)
-      for (let i = 0; i < message.symbolId.length; ++i)
+      for (var i = 0; i < message.symbolId.length; ++i)
         writer.uint32(/* id 3, wireType 0 =*/ 24).int64(message.symbolId[i]);
     return writer;
   };
@@ -31025,10 +31027,10 @@ export const ProtoOAUnsubscribeSpotsReq = ($root.ProtoOAUnsubscribeSpotsReq = ((
    */
   ProtoOAUnsubscribeSpotsReq.decode = function decode(reader, length) {
     if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    let end = length === undefined ? reader.len : reader.pos + length,
+    var end = length === undefined ? reader.len : reader.pos + length,
       message = new $root.ProtoOAUnsubscribeSpotsReq();
     while (reader.pos < end) {
-      let tag = reader.uint32();
+      var tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
           message.payloadType = reader.int32();
@@ -31040,7 +31042,7 @@ export const ProtoOAUnsubscribeSpotsReq = ($root.ProtoOAUnsubscribeSpotsReq = ((
           if (!(message.symbolId && message.symbolId.length))
             message.symbolId = [];
           if ((tag & 7) === 2) {
-            let end2 = reader.uint32() + reader.pos;
+            var end2 = reader.uint32() + reader.pos;
             while (reader.pos < end2) message.symbolId.push(reader.int64());
           } else message.symbolId.push(reader.int64());
           break;
@@ -31166,7 +31168,7 @@ export const ProtoOAUnsubscribeSpotsReq = ($root.ProtoOAUnsubscribeSpotsReq = ((
       return "ctidTraderAccountId: integer|Long expected";
     if (message.symbolId != null && message.hasOwnProperty("symbolId")) {
       if (!Array.isArray(message.symbolId)) return "symbolId: array expected";
-      for (let i = 0; i < message.symbolId.length; ++i)
+      for (var i = 0; i < message.symbolId.length; ++i)
         if (
           !$util.isInteger(message.symbolId[i]) &&
           !(
@@ -31190,7 +31192,7 @@ export const ProtoOAUnsubscribeSpotsReq = ($root.ProtoOAUnsubscribeSpotsReq = ((
    */
   ProtoOAUnsubscribeSpotsReq.fromObject = function fromObject(object) {
     if (object instanceof $root.ProtoOAUnsubscribeSpotsReq) return object;
-    let message = new $root.ProtoOAUnsubscribeSpotsReq();
+    var message = new $root.ProtoOAUnsubscribeSpotsReq();
     switch (object.payloadType) {
       case "PROTO_OA_APPLICATION_AUTH_REQ":
       case 2100:
@@ -31471,7 +31473,7 @@ export const ProtoOAUnsubscribeSpotsReq = ($root.ProtoOAUnsubscribeSpotsReq = ((
       if (!Array.isArray(object.symbolId))
         throw TypeError(".ProtoOAUnsubscribeSpotsReq.symbolId: array expected");
       message.symbolId = [];
-      for (let i = 0; i < object.symbolId.length; ++i)
+      for (var i = 0; i < object.symbolId.length; ++i)
         if ($util.Long)
           (message.symbolId[i] = $util.Long.fromValue(
             object.symbolId[i]
@@ -31500,13 +31502,13 @@ export const ProtoOAUnsubscribeSpotsReq = ($root.ProtoOAUnsubscribeSpotsReq = ((
    */
   ProtoOAUnsubscribeSpotsReq.toObject = function toObject(message, options) {
     if (!options) options = {};
-    let object = {};
+    var object = {};
     if (options.arrays || options.defaults) object.symbolId = [];
     if (options.defaults) {
       object.payloadType =
         options.enums === String ? "PROTO_OA_UNSUBSCRIBE_SPOTS_REQ" : 2129;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.ctidTraderAccountId =
           options.longs === String
             ? long.toString()
@@ -31541,7 +31543,7 @@ export const ProtoOAUnsubscribeSpotsReq = ($root.ProtoOAUnsubscribeSpotsReq = ((
             : message.ctidTraderAccountId;
     if (message.symbolId && message.symbolId.length) {
       object.symbolId = [];
-      for (let j = 0; j < message.symbolId.length; ++j)
+      for (var j = 0; j < message.symbolId.length; ++j)
         if (typeof message.symbolId[j] === "number")
           object.symbolId[j] =
             options.longs === String
@@ -31573,9 +31575,9 @@ export const ProtoOAUnsubscribeSpotsReq = ($root.ProtoOAUnsubscribeSpotsReq = ((
   };
 
   return ProtoOAUnsubscribeSpotsReq;
-})());
+})();
 
-export const ProtoOAUnsubscribeSpotsRes = ($root.ProtoOAUnsubscribeSpotsRes = (() => {
+$root.ProtoOAUnsubscribeSpotsRes = (function() {
   /**
    * Properties of a ProtoOAUnsubscribeSpotsRes.
    * @exports IProtoOAUnsubscribeSpotsRes
@@ -31594,7 +31596,7 @@ export const ProtoOAUnsubscribeSpotsRes = ($root.ProtoOAUnsubscribeSpotsRes = ((
    */
   function ProtoOAUnsubscribeSpotsRes(properties) {
     if (properties)
-      for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
 
@@ -31676,10 +31678,10 @@ export const ProtoOAUnsubscribeSpotsRes = ($root.ProtoOAUnsubscribeSpotsRes = ((
    */
   ProtoOAUnsubscribeSpotsRes.decode = function decode(reader, length) {
     if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    let end = length === undefined ? reader.len : reader.pos + length,
+    var end = length === undefined ? reader.len : reader.pos + length,
       message = new $root.ProtoOAUnsubscribeSpotsRes();
     while (reader.pos < end) {
-      let tag = reader.uint32();
+      var tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
           message.payloadType = reader.int32();
@@ -31820,7 +31822,7 @@ export const ProtoOAUnsubscribeSpotsRes = ($root.ProtoOAUnsubscribeSpotsRes = ((
    */
   ProtoOAUnsubscribeSpotsRes.fromObject = function fromObject(object) {
     if (object instanceof $root.ProtoOAUnsubscribeSpotsRes) return object;
-    let message = new $root.ProtoOAUnsubscribeSpotsRes();
+    var message = new $root.ProtoOAUnsubscribeSpotsRes();
     switch (object.payloadType) {
       case "PROTO_OA_APPLICATION_AUTH_REQ":
       case 2100:
@@ -32111,12 +32113,12 @@ export const ProtoOAUnsubscribeSpotsRes = ($root.ProtoOAUnsubscribeSpotsRes = ((
    */
   ProtoOAUnsubscribeSpotsRes.toObject = function toObject(message, options) {
     if (!options) options = {};
-    let object = {};
+    var object = {};
     if (options.defaults) {
       object.payloadType =
         options.enums === String ? "PROTO_OA_UNSUBSCRIBE_SPOTS_RES" : 2130;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.ctidTraderAccountId =
           options.longs === String
             ? long.toString()
@@ -32164,9 +32166,9 @@ export const ProtoOAUnsubscribeSpotsRes = ($root.ProtoOAUnsubscribeSpotsRes = ((
   };
 
   return ProtoOAUnsubscribeSpotsRes;
-})());
+})();
 
-export const ProtoOASpotEvent = ($root.ProtoOASpotEvent = (() => {
+$root.ProtoOASpotEvent = (function() {
   /**
    * Properties of a ProtoOASpotEvent.
    * @exports IProtoOASpotEvent
@@ -32190,7 +32192,7 @@ export const ProtoOASpotEvent = ($root.ProtoOASpotEvent = (() => {
   function ProtoOASpotEvent(properties) {
     this.trendbar = [];
     if (properties)
-      for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
 
@@ -32284,7 +32286,7 @@ export const ProtoOASpotEvent = ($root.ProtoOASpotEvent = (() => {
     if (message.ask != null && message.hasOwnProperty("ask"))
       writer.uint32(/* id 5, wireType 0 =*/ 40).uint64(message.ask);
     if (message.trendbar != null && message.trendbar.length)
-      for (let i = 0; i < message.trendbar.length; ++i)
+      for (var i = 0; i < message.trendbar.length; ++i)
         $root.ProtoOATrendbar.encode(
           message.trendbar[i],
           writer.uint32(/* id 6, wireType 2 =*/ 50).fork()
@@ -32318,10 +32320,10 @@ export const ProtoOASpotEvent = ($root.ProtoOASpotEvent = (() => {
    */
   ProtoOASpotEvent.decode = function decode(reader, length) {
     if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    let end = length === undefined ? reader.len : reader.pos + length,
+    var end = length === undefined ? reader.len : reader.pos + length,
       message = new $root.ProtoOASpotEvent();
     while (reader.pos < end) {
-      let tag = reader.uint32();
+      var tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
           message.payloadType = reader.int32();
@@ -32498,8 +32500,8 @@ export const ProtoOASpotEvent = ($root.ProtoOASpotEvent = (() => {
         return "ask: integer|Long expected";
     if (message.trendbar != null && message.hasOwnProperty("trendbar")) {
       if (!Array.isArray(message.trendbar)) return "trendbar: array expected";
-      for (let i = 0; i < message.trendbar.length; ++i) {
-        let error = $root.ProtoOATrendbar.verify(message.trendbar[i]);
+      for (var i = 0; i < message.trendbar.length; ++i) {
+        var error = $root.ProtoOATrendbar.verify(message.trendbar[i]);
         if (error) return "trendbar." + error;
       }
     }
@@ -32516,7 +32518,7 @@ export const ProtoOASpotEvent = ($root.ProtoOASpotEvent = (() => {
    */
   ProtoOASpotEvent.fromObject = function fromObject(object) {
     if (object instanceof $root.ProtoOASpotEvent) return object;
-    let message = new $root.ProtoOASpotEvent();
+    var message = new $root.ProtoOASpotEvent();
     switch (object.payloadType) {
       case "PROTO_OA_APPLICATION_AUTH_REQ":
       case 2100:
@@ -32833,7 +32835,7 @@ export const ProtoOASpotEvent = ($root.ProtoOASpotEvent = (() => {
       if (!Array.isArray(object.trendbar))
         throw TypeError(".ProtoOASpotEvent.trendbar: array expected");
       message.trendbar = [];
-      for (let i = 0; i < object.trendbar.length; ++i) {
+      for (var i = 0; i < object.trendbar.length; ++i) {
         if (typeof object.trendbar[i] !== "object")
           throw TypeError(".ProtoOASpotEvent.trendbar: object expected");
         message.trendbar[i] = $root.ProtoOATrendbar.fromObject(
@@ -32855,13 +32857,13 @@ export const ProtoOASpotEvent = ($root.ProtoOASpotEvent = (() => {
    */
   ProtoOASpotEvent.toObject = function toObject(message, options) {
     if (!options) options = {};
-    let object = {};
+    var object = {};
     if (options.arrays || options.defaults) object.trendbar = [];
     if (options.defaults) {
       object.payloadType =
         options.enums === String ? "PROTO_OA_SPOT_EVENT" : 2131;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.ctidTraderAccountId =
           options.longs === String
             ? long.toString()
@@ -32870,7 +32872,7 @@ export const ProtoOASpotEvent = ($root.ProtoOASpotEvent = (() => {
             : long;
       } else object.ctidTraderAccountId = options.longs === String ? "0" : 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.symbolId =
           options.longs === String
             ? long.toString()
@@ -32879,7 +32881,7 @@ export const ProtoOASpotEvent = ($root.ProtoOASpotEvent = (() => {
             : long;
       } else object.symbolId = options.longs === String ? "0" : 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, true);
+        var long = new $util.Long(0, 0, true);
         object.bid =
           options.longs === String
             ? long.toString()
@@ -32888,7 +32890,7 @@ export const ProtoOASpotEvent = ($root.ProtoOASpotEvent = (() => {
             : long;
       } else object.bid = options.longs === String ? "0" : 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, true);
+        var long = new $util.Long(0, 0, true);
         object.ask =
           options.longs === String
             ? long.toString()
@@ -32967,7 +32969,7 @@ export const ProtoOASpotEvent = ($root.ProtoOASpotEvent = (() => {
             : message.ask;
     if (message.trendbar && message.trendbar.length) {
       object.trendbar = [];
-      for (let j = 0; j < message.trendbar.length; ++j)
+      for (var j = 0; j < message.trendbar.length; ++j)
         object.trendbar[j] = $root.ProtoOATrendbar.toObject(
           message.trendbar[j],
           options
@@ -32988,9 +32990,9 @@ export const ProtoOASpotEvent = ($root.ProtoOASpotEvent = (() => {
   };
 
   return ProtoOASpotEvent;
-})());
+})();
 
-export const ProtoOASubscribeLiveTrendbarReq = ($root.ProtoOASubscribeLiveTrendbarReq = (() => {
+$root.ProtoOASubscribeLiveTrendbarReq = (function() {
   /**
    * Properties of a ProtoOASubscribeLiveTrendbarReq.
    * @exports IProtoOASubscribeLiveTrendbarReq
@@ -33011,7 +33013,7 @@ export const ProtoOASubscribeLiveTrendbarReq = ($root.ProtoOASubscribeLiveTrendb
    */
   function ProtoOASubscribeLiveTrendbarReq(properties) {
     if (properties)
-      for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
 
@@ -33113,10 +33115,10 @@ export const ProtoOASubscribeLiveTrendbarReq = ($root.ProtoOASubscribeLiveTrendb
    */
   ProtoOASubscribeLiveTrendbarReq.decode = function decode(reader, length) {
     if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    let end = length === undefined ? reader.len : reader.pos + length,
+    var end = length === undefined ? reader.len : reader.pos + length,
       message = new $root.ProtoOASubscribeLiveTrendbarReq();
     while (reader.pos < end) {
-      let tag = reader.uint32();
+      var tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
           message.payloadType = reader.int32();
@@ -33299,7 +33301,7 @@ export const ProtoOASubscribeLiveTrendbarReq = ($root.ProtoOASubscribeLiveTrendb
    */
   ProtoOASubscribeLiveTrendbarReq.fromObject = function fromObject(object) {
     if (object instanceof $root.ProtoOASubscribeLiveTrendbarReq) return object;
-    let message = new $root.ProtoOASubscribeLiveTrendbarReq();
+    var message = new $root.ProtoOASubscribeLiveTrendbarReq();
     switch (object.payloadType) {
       case "PROTO_OA_APPLICATION_AUTH_REQ":
       case 2100:
@@ -33665,14 +33667,14 @@ export const ProtoOASubscribeLiveTrendbarReq = ($root.ProtoOASubscribeLiveTrendb
     options
   ) {
     if (!options) options = {};
-    let object = {};
+    var object = {};
     if (options.defaults) {
       object.payloadType =
         options.enums === String
           ? "PROTO_OA_SUBSCRIBE_LIVE_TRENDBAR_REQ"
           : 2135;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.ctidTraderAccountId =
           options.longs === String
             ? long.toString()
@@ -33682,7 +33684,7 @@ export const ProtoOASubscribeLiveTrendbarReq = ($root.ProtoOASubscribeLiveTrendb
       } else object.ctidTraderAccountId = options.longs === String ? "0" : 0;
       object.period = options.enums === String ? "M1" : 1;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.symbolId =
           options.longs === String
             ? long.toString()
@@ -33751,9 +33753,9 @@ export const ProtoOASubscribeLiveTrendbarReq = ($root.ProtoOASubscribeLiveTrendb
   };
 
   return ProtoOASubscribeLiveTrendbarReq;
-})());
+})();
 
-export const ProtoOAUnsubscribeLiveTrendbarReq = ($root.ProtoOAUnsubscribeLiveTrendbarReq = (() => {
+$root.ProtoOAUnsubscribeLiveTrendbarReq = (function() {
   /**
    * Properties of a ProtoOAUnsubscribeLiveTrendbarReq.
    * @exports IProtoOAUnsubscribeLiveTrendbarReq
@@ -33774,7 +33776,7 @@ export const ProtoOAUnsubscribeLiveTrendbarReq = ($root.ProtoOAUnsubscribeLiveTr
    */
   function ProtoOAUnsubscribeLiveTrendbarReq(properties) {
     if (properties)
-      for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
 
@@ -33876,10 +33878,10 @@ export const ProtoOAUnsubscribeLiveTrendbarReq = ($root.ProtoOAUnsubscribeLiveTr
    */
   ProtoOAUnsubscribeLiveTrendbarReq.decode = function decode(reader, length) {
     if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    let end = length === undefined ? reader.len : reader.pos + length,
+    var end = length === undefined ? reader.len : reader.pos + length,
       message = new $root.ProtoOAUnsubscribeLiveTrendbarReq();
     while (reader.pos < end) {
-      let tag = reader.uint32();
+      var tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
           message.payloadType = reader.int32();
@@ -34063,7 +34065,7 @@ export const ProtoOAUnsubscribeLiveTrendbarReq = ($root.ProtoOAUnsubscribeLiveTr
   ProtoOAUnsubscribeLiveTrendbarReq.fromObject = function fromObject(object) {
     if (object instanceof $root.ProtoOAUnsubscribeLiveTrendbarReq)
       return object;
-    let message = new $root.ProtoOAUnsubscribeLiveTrendbarReq();
+    var message = new $root.ProtoOAUnsubscribeLiveTrendbarReq();
     switch (object.payloadType) {
       case "PROTO_OA_APPLICATION_AUTH_REQ":
       case 2100:
@@ -34429,14 +34431,14 @@ export const ProtoOAUnsubscribeLiveTrendbarReq = ($root.ProtoOAUnsubscribeLiveTr
     options
   ) {
     if (!options) options = {};
-    let object = {};
+    var object = {};
     if (options.defaults) {
       object.payloadType =
         options.enums === String
           ? "PROTO_OA_UNSUBSCRIBE_LIVE_TRENDBAR_REQ"
           : 2136;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.ctidTraderAccountId =
           options.longs === String
             ? long.toString()
@@ -34446,7 +34448,7 @@ export const ProtoOAUnsubscribeLiveTrendbarReq = ($root.ProtoOAUnsubscribeLiveTr
       } else object.ctidTraderAccountId = options.longs === String ? "0" : 0;
       object.period = options.enums === String ? "M1" : 1;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.symbolId =
           options.longs === String
             ? long.toString()
@@ -34515,9 +34517,9 @@ export const ProtoOAUnsubscribeLiveTrendbarReq = ($root.ProtoOAUnsubscribeLiveTr
   };
 
   return ProtoOAUnsubscribeLiveTrendbarReq;
-})());
+})();
 
-export const ProtoOAGetTrendbarsReq = ($root.ProtoOAGetTrendbarsReq = (() => {
+$root.ProtoOAGetTrendbarsReq = (function() {
   /**
    * Properties of a ProtoOAGetTrendbarsReq.
    * @exports IProtoOAGetTrendbarsReq
@@ -34540,7 +34542,7 @@ export const ProtoOAGetTrendbarsReq = ($root.ProtoOAGetTrendbarsReq = (() => {
    */
   function ProtoOAGetTrendbarsReq(properties) {
     if (properties)
-      for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
 
@@ -34664,10 +34666,10 @@ export const ProtoOAGetTrendbarsReq = ($root.ProtoOAGetTrendbarsReq = (() => {
    */
   ProtoOAGetTrendbarsReq.decode = function decode(reader, length) {
     if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    let end = length === undefined ? reader.len : reader.pos + length,
+    var end = length === undefined ? reader.len : reader.pos + length,
       message = new $root.ProtoOAGetTrendbarsReq();
     while (reader.pos < end) {
-      let tag = reader.uint32();
+      var tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
           message.payloadType = reader.int32();
@@ -34880,7 +34882,7 @@ export const ProtoOAGetTrendbarsReq = ($root.ProtoOAGetTrendbarsReq = (() => {
    */
   ProtoOAGetTrendbarsReq.fromObject = function fromObject(object) {
     if (object instanceof $root.ProtoOAGetTrendbarsReq) return object;
-    let message = new $root.ProtoOAGetTrendbarsReq();
+    var message = new $root.ProtoOAGetTrendbarsReq();
     switch (object.payloadType) {
       case "PROTO_OA_APPLICATION_AUTH_REQ":
       case 2100:
@@ -35271,12 +35273,12 @@ export const ProtoOAGetTrendbarsReq = ($root.ProtoOAGetTrendbarsReq = (() => {
    */
   ProtoOAGetTrendbarsReq.toObject = function toObject(message, options) {
     if (!options) options = {};
-    let object = {};
+    var object = {};
     if (options.defaults) {
       object.payloadType =
         options.enums === String ? "PROTO_OA_GET_TRENDBARS_REQ" : 2137;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.ctidTraderAccountId =
           options.longs === String
             ? long.toString()
@@ -35285,7 +35287,7 @@ export const ProtoOAGetTrendbarsReq = ($root.ProtoOAGetTrendbarsReq = (() => {
             : long;
       } else object.ctidTraderAccountId = options.longs === String ? "0" : 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.fromTimestamp =
           options.longs === String
             ? long.toString()
@@ -35294,7 +35296,7 @@ export const ProtoOAGetTrendbarsReq = ($root.ProtoOAGetTrendbarsReq = (() => {
             : long;
       } else object.fromTimestamp = options.longs === String ? "0" : 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.toTimestamp =
           options.longs === String
             ? long.toString()
@@ -35304,7 +35306,7 @@ export const ProtoOAGetTrendbarsReq = ($root.ProtoOAGetTrendbarsReq = (() => {
       } else object.toTimestamp = options.longs === String ? "0" : 0;
       object.period = options.enums === String ? "M1" : 1;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.symbolId =
           options.longs === String
             ? long.toString()
@@ -35408,9 +35410,9 @@ export const ProtoOAGetTrendbarsReq = ($root.ProtoOAGetTrendbarsReq = (() => {
   };
 
   return ProtoOAGetTrendbarsReq;
-})());
+})();
 
-export const ProtoOAGetTrendbarsRes = ($root.ProtoOAGetTrendbarsRes = (() => {
+$root.ProtoOAGetTrendbarsRes = (function() {
   /**
    * Properties of a ProtoOAGetTrendbarsRes.
    * @exports IProtoOAGetTrendbarsRes
@@ -35434,7 +35436,7 @@ export const ProtoOAGetTrendbarsRes = ($root.ProtoOAGetTrendbarsRes = (() => {
   function ProtoOAGetTrendbarsRes(properties) {
     this.trendbar = [];
     if (properties)
-      for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
 
@@ -35523,7 +35525,7 @@ export const ProtoOAGetTrendbarsRes = ($root.ProtoOAGetTrendbarsRes = (() => {
     writer.uint32(/* id 3, wireType 0 =*/ 24).int32(message.period);
     writer.uint32(/* id 4, wireType 0 =*/ 32).int64(message.timestamp);
     if (message.trendbar != null && message.trendbar.length)
-      for (let i = 0; i < message.trendbar.length; ++i)
+      for (var i = 0; i < message.trendbar.length; ++i)
         $root.ProtoOATrendbar.encode(
           message.trendbar[i],
           writer.uint32(/* id 5, wireType 2 =*/ 42).fork()
@@ -35562,10 +35564,10 @@ export const ProtoOAGetTrendbarsRes = ($root.ProtoOAGetTrendbarsRes = (() => {
    */
   ProtoOAGetTrendbarsRes.decode = function decode(reader, length) {
     if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    let end = length === undefined ? reader.len : reader.pos + length,
+    var end = length === undefined ? reader.len : reader.pos + length,
       message = new $root.ProtoOAGetTrendbarsRes();
     while (reader.pos < end) {
-      let tag = reader.uint32();
+      var tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
           message.payloadType = reader.int32();
@@ -35745,8 +35747,8 @@ export const ProtoOAGetTrendbarsRes = ($root.ProtoOAGetTrendbarsRes = (() => {
       return "timestamp: integer|Long expected";
     if (message.trendbar != null && message.hasOwnProperty("trendbar")) {
       if (!Array.isArray(message.trendbar)) return "trendbar: array expected";
-      for (let i = 0; i < message.trendbar.length; ++i) {
-        let error = $root.ProtoOATrendbar.verify(message.trendbar[i]);
+      for (var i = 0; i < message.trendbar.length; ++i) {
+        var error = $root.ProtoOATrendbar.verify(message.trendbar[i]);
         if (error) return "trendbar." + error;
       }
     }
@@ -35773,7 +35775,7 @@ export const ProtoOAGetTrendbarsRes = ($root.ProtoOAGetTrendbarsRes = (() => {
    */
   ProtoOAGetTrendbarsRes.fromObject = function fromObject(object) {
     if (object instanceof $root.ProtoOAGetTrendbarsRes) return object;
-    let message = new $root.ProtoOAGetTrendbarsRes();
+    var message = new $root.ProtoOAGetTrendbarsRes();
     switch (object.payloadType) {
       case "PROTO_OA_APPLICATION_AUTH_REQ":
       case 2100:
@@ -36126,7 +36128,7 @@ export const ProtoOAGetTrendbarsRes = ($root.ProtoOAGetTrendbarsRes = (() => {
       if (!Array.isArray(object.trendbar))
         throw TypeError(".ProtoOAGetTrendbarsRes.trendbar: array expected");
       message.trendbar = [];
-      for (let i = 0; i < object.trendbar.length; ++i) {
+      for (var i = 0; i < object.trendbar.length; ++i) {
         if (typeof object.trendbar[i] !== "object")
           throw TypeError(".ProtoOAGetTrendbarsRes.trendbar: object expected");
         message.trendbar[i] = $root.ProtoOATrendbar.fromObject(
@@ -36162,13 +36164,13 @@ export const ProtoOAGetTrendbarsRes = ($root.ProtoOAGetTrendbarsRes = (() => {
    */
   ProtoOAGetTrendbarsRes.toObject = function toObject(message, options) {
     if (!options) options = {};
-    let object = {};
+    var object = {};
     if (options.arrays || options.defaults) object.trendbar = [];
     if (options.defaults) {
       object.payloadType =
         options.enums === String ? "PROTO_OA_GET_TRENDBARS_RES" : 2138;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.ctidTraderAccountId =
           options.longs === String
             ? long.toString()
@@ -36178,7 +36180,7 @@ export const ProtoOAGetTrendbarsRes = ($root.ProtoOAGetTrendbarsRes = (() => {
       } else object.ctidTraderAccountId = options.longs === String ? "0" : 0;
       object.period = options.enums === String ? "M1" : 1;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.timestamp =
           options.longs === String
             ? long.toString()
@@ -36187,7 +36189,7 @@ export const ProtoOAGetTrendbarsRes = ($root.ProtoOAGetTrendbarsRes = (() => {
             : long;
       } else object.timestamp = options.longs === String ? "0" : 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.symbolId =
           options.longs === String
             ? long.toString()
@@ -36243,7 +36245,7 @@ export const ProtoOAGetTrendbarsRes = ($root.ProtoOAGetTrendbarsRes = (() => {
             : message.timestamp;
     if (message.trendbar && message.trendbar.length) {
       object.trendbar = [];
-      for (let j = 0; j < message.trendbar.length; ++j)
+      for (var j = 0; j < message.trendbar.length; ++j)
         object.trendbar[j] = $root.ProtoOATrendbar.toObject(
           message.trendbar[j],
           options
@@ -36280,9 +36282,9 @@ export const ProtoOAGetTrendbarsRes = ($root.ProtoOAGetTrendbarsRes = (() => {
   };
 
   return ProtoOAGetTrendbarsRes;
-})());
+})();
 
-export const ProtoOAGetTickDataReq = ($root.ProtoOAGetTickDataReq = (() => {
+$root.ProtoOAGetTickDataReq = (function() {
   /**
    * Properties of a ProtoOAGetTickDataReq.
    * @exports IProtoOAGetTickDataReq
@@ -36305,7 +36307,7 @@ export const ProtoOAGetTickDataReq = ($root.ProtoOAGetTickDataReq = (() => {
    */
   function ProtoOAGetTickDataReq(properties) {
     if (properties)
-      for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
 
@@ -36429,10 +36431,10 @@ export const ProtoOAGetTickDataReq = ($root.ProtoOAGetTickDataReq = (() => {
    */
   ProtoOAGetTickDataReq.decode = function decode(reader, length) {
     if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    let end = length === undefined ? reader.len : reader.pos + length,
+    var end = length === undefined ? reader.len : reader.pos + length,
       message = new $root.ProtoOAGetTickDataReq();
     while (reader.pos < end) {
-      let tag = reader.uint32();
+      var tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
           message.payloadType = reader.int32();
@@ -36633,7 +36635,7 @@ export const ProtoOAGetTickDataReq = ($root.ProtoOAGetTickDataReq = (() => {
    */
   ProtoOAGetTickDataReq.fromObject = function fromObject(object) {
     if (object instanceof $root.ProtoOAGetTickDataReq) return object;
-    let message = new $root.ProtoOAGetTickDataReq();
+    var message = new $root.ProtoOAGetTickDataReq();
     switch (object.payloadType) {
       case "PROTO_OA_APPLICATION_AUTH_REQ":
       case 2100:
@@ -36976,12 +36978,12 @@ export const ProtoOAGetTickDataReq = ($root.ProtoOAGetTickDataReq = (() => {
    */
   ProtoOAGetTickDataReq.toObject = function toObject(message, options) {
     if (!options) options = {};
-    let object = {};
+    var object = {};
     if (options.defaults) {
       object.payloadType =
         options.enums === String ? "PROTO_OA_GET_TICKDATA_REQ" : 2145;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.ctidTraderAccountId =
           options.longs === String
             ? long.toString()
@@ -36990,7 +36992,7 @@ export const ProtoOAGetTickDataReq = ($root.ProtoOAGetTickDataReq = (() => {
             : long;
       } else object.ctidTraderAccountId = options.longs === String ? "0" : 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.symbolId =
           options.longs === String
             ? long.toString()
@@ -37000,7 +37002,7 @@ export const ProtoOAGetTickDataReq = ($root.ProtoOAGetTickDataReq = (() => {
       } else object.symbolId = options.longs === String ? "0" : 0;
       object.type = options.enums === String ? "BID" : 1;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.fromTimestamp =
           options.longs === String
             ? long.toString()
@@ -37009,7 +37011,7 @@ export const ProtoOAGetTickDataReq = ($root.ProtoOAGetTickDataReq = (() => {
             : long;
       } else object.fromTimestamp = options.longs === String ? "0" : 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.toTimestamp =
           options.longs === String
             ? long.toString()
@@ -37113,9 +37115,9 @@ export const ProtoOAGetTickDataReq = ($root.ProtoOAGetTickDataReq = (() => {
   };
 
   return ProtoOAGetTickDataReq;
-})());
+})();
 
-export const ProtoOAGetTickDataRes = ($root.ProtoOAGetTickDataRes = (() => {
+$root.ProtoOAGetTickDataRes = (function() {
   /**
    * Properties of a ProtoOAGetTickDataRes.
    * @exports IProtoOAGetTickDataRes
@@ -37137,7 +37139,7 @@ export const ProtoOAGetTickDataRes = ($root.ProtoOAGetTickDataRes = (() => {
   function ProtoOAGetTickDataRes(properties) {
     this.tickData = [];
     if (properties)
-      for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
 
@@ -37204,7 +37206,7 @@ export const ProtoOAGetTickDataRes = ($root.ProtoOAGetTickDataRes = (() => {
       .uint32(/* id 2, wireType 0 =*/ 16)
       .int64(message.ctidTraderAccountId);
     if (message.tickData != null && message.tickData.length)
-      for (let i = 0; i < message.tickData.length; ++i)
+      for (var i = 0; i < message.tickData.length; ++i)
         $root.ProtoOATickData.encode(
           message.tickData[i],
           writer.uint32(/* id 3, wireType 2 =*/ 26).fork()
@@ -37242,10 +37244,10 @@ export const ProtoOAGetTickDataRes = ($root.ProtoOAGetTickDataRes = (() => {
    */
   ProtoOAGetTickDataRes.decode = function decode(reader, length) {
     if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    let end = length === undefined ? reader.len : reader.pos + length,
+    var end = length === undefined ? reader.len : reader.pos + length,
       message = new $root.ProtoOAGetTickDataRes();
     while (reader.pos < end) {
-      let tag = reader.uint32();
+      var tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
           message.payloadType = reader.int32();
@@ -37387,8 +37389,8 @@ export const ProtoOAGetTickDataRes = ($root.ProtoOAGetTickDataRes = (() => {
       return "ctidTraderAccountId: integer|Long expected";
     if (message.tickData != null && message.hasOwnProperty("tickData")) {
       if (!Array.isArray(message.tickData)) return "tickData: array expected";
-      for (let i = 0; i < message.tickData.length; ++i) {
-        let error = $root.ProtoOATickData.verify(message.tickData[i]);
+      for (var i = 0; i < message.tickData.length; ++i) {
+        var error = $root.ProtoOATickData.verify(message.tickData[i]);
         if (error) return "tickData." + error;
       }
     }
@@ -37407,7 +37409,7 @@ export const ProtoOAGetTickDataRes = ($root.ProtoOAGetTickDataRes = (() => {
    */
   ProtoOAGetTickDataRes.fromObject = function fromObject(object) {
     if (object instanceof $root.ProtoOAGetTickDataRes) return object;
-    let message = new $root.ProtoOAGetTickDataRes();
+    var message = new $root.ProtoOAGetTickDataRes();
     switch (object.payloadType) {
       case "PROTO_OA_APPLICATION_AUTH_REQ":
       case 2100:
@@ -37688,7 +37690,7 @@ export const ProtoOAGetTickDataRes = ($root.ProtoOAGetTickDataRes = (() => {
       if (!Array.isArray(object.tickData))
         throw TypeError(".ProtoOAGetTickDataRes.tickData: array expected");
       message.tickData = [];
-      for (let i = 0; i < object.tickData.length; ++i) {
+      for (var i = 0; i < object.tickData.length; ++i) {
         if (typeof object.tickData[i] !== "object")
           throw TypeError(".ProtoOAGetTickDataRes.tickData: object expected");
         message.tickData[i] = $root.ProtoOATickData.fromObject(
@@ -37711,13 +37713,13 @@ export const ProtoOAGetTickDataRes = ($root.ProtoOAGetTickDataRes = (() => {
    */
   ProtoOAGetTickDataRes.toObject = function toObject(message, options) {
     if (!options) options = {};
-    let object = {};
+    var object = {};
     if (options.arrays || options.defaults) object.tickData = [];
     if (options.defaults) {
       object.payloadType =
         options.enums === String ? "PROTO_OA_GET_TICKDATA_RES" : 2146;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.ctidTraderAccountId =
           options.longs === String
             ? long.toString()
@@ -37753,7 +37755,7 @@ export const ProtoOAGetTickDataRes = ($root.ProtoOAGetTickDataRes = (() => {
             : message.ctidTraderAccountId;
     if (message.tickData && message.tickData.length) {
       object.tickData = [];
-      for (let j = 0; j < message.tickData.length; ++j)
+      for (var j = 0; j < message.tickData.length; ++j)
         object.tickData[j] = $root.ProtoOATickData.toObject(
           message.tickData[j],
           options
@@ -37776,9 +37778,9 @@ export const ProtoOAGetTickDataRes = ($root.ProtoOAGetTickDataRes = (() => {
   };
 
   return ProtoOAGetTickDataRes;
-})());
+})();
 
-export const ProtoOAGetCtidProfileByTokenReq = ($root.ProtoOAGetCtidProfileByTokenReq = (() => {
+$root.ProtoOAGetCtidProfileByTokenReq = (function() {
   /**
    * Properties of a ProtoOAGetCtidProfileByTokenReq.
    * @exports IProtoOAGetCtidProfileByTokenReq
@@ -37797,7 +37799,7 @@ export const ProtoOAGetCtidProfileByTokenReq = ($root.ProtoOAGetCtidProfileByTok
    */
   function ProtoOAGetCtidProfileByTokenReq(properties) {
     if (properties)
-      for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
 
@@ -37875,10 +37877,10 @@ export const ProtoOAGetCtidProfileByTokenReq = ($root.ProtoOAGetCtidProfileByTok
    */
   ProtoOAGetCtidProfileByTokenReq.decode = function decode(reader, length) {
     if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    let end = length === undefined ? reader.len : reader.pos + length,
+    var end = length === undefined ? reader.len : reader.pos + length,
       message = new $root.ProtoOAGetCtidProfileByTokenReq();
     while (reader.pos < end) {
-      let tag = reader.uint32();
+      var tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
           message.payloadType = reader.int32();
@@ -38012,7 +38014,7 @@ export const ProtoOAGetCtidProfileByTokenReq = ($root.ProtoOAGetCtidProfileByTok
    */
   ProtoOAGetCtidProfileByTokenReq.fromObject = function fromObject(object) {
     if (object instanceof $root.ProtoOAGetCtidProfileByTokenReq) return object;
-    let message = new $root.ProtoOAGetCtidProfileByTokenReq();
+    var message = new $root.ProtoOAGetCtidProfileByTokenReq();
     switch (object.payloadType) {
       case "PROTO_OA_APPLICATION_AUTH_REQ":
       case 2100:
@@ -38294,7 +38296,7 @@ export const ProtoOAGetCtidProfileByTokenReq = ($root.ProtoOAGetCtidProfileByTok
     options
   ) {
     if (!options) options = {};
-    let object = {};
+    var object = {};
     if (options.defaults) {
       object.payloadType =
         options.enums === String
@@ -38324,9 +38326,9 @@ export const ProtoOAGetCtidProfileByTokenReq = ($root.ProtoOAGetCtidProfileByTok
   };
 
   return ProtoOAGetCtidProfileByTokenReq;
-})());
+})();
 
-export const ProtoOAGetCtidProfileByTokenRes = ($root.ProtoOAGetCtidProfileByTokenRes = (() => {
+$root.ProtoOAGetCtidProfileByTokenRes = (function() {
   /**
    * Properties of a ProtoOAGetCtidProfileByTokenRes.
    * @exports IProtoOAGetCtidProfileByTokenRes
@@ -38345,7 +38347,7 @@ export const ProtoOAGetCtidProfileByTokenRes = ($root.ProtoOAGetCtidProfileByTok
    */
   function ProtoOAGetCtidProfileByTokenRes(properties) {
     if (properties)
-      for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
 
@@ -38426,10 +38428,10 @@ export const ProtoOAGetCtidProfileByTokenRes = ($root.ProtoOAGetCtidProfileByTok
    */
   ProtoOAGetCtidProfileByTokenRes.decode = function decode(reader, length) {
     if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    let end = length === undefined ? reader.len : reader.pos + length,
+    var end = length === undefined ? reader.len : reader.pos + length,
       message = new $root.ProtoOAGetCtidProfileByTokenRes();
     while (reader.pos < end) {
-      let tag = reader.uint32();
+      var tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
           message.payloadType = reader.int32();
@@ -38552,7 +38554,7 @@ export const ProtoOAGetCtidProfileByTokenRes = ($root.ProtoOAGetCtidProfileByTok
           break;
       }
     {
-      let error = $root.ProtoOACtidProfile.verify(message.profile);
+      var error = $root.ProtoOACtidProfile.verify(message.profile);
       if (error) return "profile." + error;
     }
     return null;
@@ -38568,7 +38570,7 @@ export const ProtoOAGetCtidProfileByTokenRes = ($root.ProtoOAGetCtidProfileByTok
    */
   ProtoOAGetCtidProfileByTokenRes.fromObject = function fromObject(object) {
     if (object instanceof $root.ProtoOAGetCtidProfileByTokenRes) return object;
-    let message = new $root.ProtoOAGetCtidProfileByTokenRes();
+    var message = new $root.ProtoOAGetCtidProfileByTokenRes();
     switch (object.payloadType) {
       case "PROTO_OA_APPLICATION_AUTH_REQ":
       case 2100:
@@ -38855,7 +38857,7 @@ export const ProtoOAGetCtidProfileByTokenRes = ($root.ProtoOAGetCtidProfileByTok
     options
   ) {
     if (!options) options = {};
-    let object = {};
+    var object = {};
     if (options.defaults) {
       object.payloadType =
         options.enums === String
@@ -38888,9 +38890,9 @@ export const ProtoOAGetCtidProfileByTokenRes = ($root.ProtoOAGetCtidProfileByTok
   };
 
   return ProtoOAGetCtidProfileByTokenRes;
-})());
+})();
 
-export const ProtoOADepthEvent = ($root.ProtoOADepthEvent = (() => {
+$root.ProtoOADepthEvent = (function() {
   /**
    * Properties of a ProtoOADepthEvent.
    * @exports IProtoOADepthEvent
@@ -38914,7 +38916,7 @@ export const ProtoOADepthEvent = ($root.ProtoOADepthEvent = (() => {
     this.newQuotes = [];
     this.deletedQuotes = [];
     if (properties)
-      for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
 
@@ -38992,14 +38994,14 @@ export const ProtoOADepthEvent = ($root.ProtoOADepthEvent = (() => {
       .int64(message.ctidTraderAccountId);
     writer.uint32(/* id 3, wireType 0 =*/ 24).uint64(message.symbolId);
     if (message.newQuotes != null && message.newQuotes.length)
-      for (let i = 0; i < message.newQuotes.length; ++i)
+      for (var i = 0; i < message.newQuotes.length; ++i)
         $root.ProtoOADepthQuote.encode(
           message.newQuotes[i],
           writer.uint32(/* id 4, wireType 2 =*/ 34).fork()
         ).ldelim();
     if (message.deletedQuotes != null && message.deletedQuotes.length) {
       writer.uint32(/* id 5, wireType 2 =*/ 42).fork();
-      for (let i = 0; i < message.deletedQuotes.length; ++i)
+      for (var i = 0; i < message.deletedQuotes.length; ++i)
         writer.uint64(message.deletedQuotes[i]);
       writer.ldelim();
     }
@@ -39035,10 +39037,10 @@ export const ProtoOADepthEvent = ($root.ProtoOADepthEvent = (() => {
    */
   ProtoOADepthEvent.decode = function decode(reader, length) {
     if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    let end = length === undefined ? reader.len : reader.pos + length,
+    var end = length === undefined ? reader.len : reader.pos + length,
       message = new $root.ProtoOADepthEvent();
     while (reader.pos < end) {
-      let tag = reader.uint32();
+      var tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
           message.payloadType = reader.int32();
@@ -39060,7 +39062,7 @@ export const ProtoOADepthEvent = ($root.ProtoOADepthEvent = (() => {
           if (!(message.deletedQuotes && message.deletedQuotes.length))
             message.deletedQuotes = [];
           if ((tag & 7) === 2) {
-            let end2 = reader.uint32() + reader.pos;
+            var end2 = reader.uint32() + reader.pos;
             while (reader.pos < end2)
               message.deletedQuotes.push(reader.uint64());
           } else message.deletedQuotes.push(reader.uint64());
@@ -39198,8 +39200,8 @@ export const ProtoOADepthEvent = ($root.ProtoOADepthEvent = (() => {
       return "symbolId: integer|Long expected";
     if (message.newQuotes != null && message.hasOwnProperty("newQuotes")) {
       if (!Array.isArray(message.newQuotes)) return "newQuotes: array expected";
-      for (let i = 0; i < message.newQuotes.length; ++i) {
-        let error = $root.ProtoOADepthQuote.verify(message.newQuotes[i]);
+      for (var i = 0; i < message.newQuotes.length; ++i) {
+        var error = $root.ProtoOADepthQuote.verify(message.newQuotes[i]);
         if (error) return "newQuotes." + error;
       }
     }
@@ -39209,7 +39211,7 @@ export const ProtoOADepthEvent = ($root.ProtoOADepthEvent = (() => {
     ) {
       if (!Array.isArray(message.deletedQuotes))
         return "deletedQuotes: array expected";
-      for (let i = 0; i < message.deletedQuotes.length; ++i)
+      for (var i = 0; i < message.deletedQuotes.length; ++i)
         if (
           !$util.isInteger(message.deletedQuotes[i]) &&
           !(
@@ -39233,7 +39235,7 @@ export const ProtoOADepthEvent = ($root.ProtoOADepthEvent = (() => {
    */
   ProtoOADepthEvent.fromObject = function fromObject(object) {
     if (object instanceof $root.ProtoOADepthEvent) return object;
-    let message = new $root.ProtoOADepthEvent();
+    var message = new $root.ProtoOADepthEvent();
     switch (object.payloadType) {
       case "PROTO_OA_APPLICATION_AUTH_REQ":
       case 2100:
@@ -39528,7 +39530,7 @@ export const ProtoOADepthEvent = ($root.ProtoOADepthEvent = (() => {
       if (!Array.isArray(object.newQuotes))
         throw TypeError(".ProtoOADepthEvent.newQuotes: array expected");
       message.newQuotes = [];
-      for (let i = 0; i < object.newQuotes.length; ++i) {
+      for (var i = 0; i < object.newQuotes.length; ++i) {
         if (typeof object.newQuotes[i] !== "object")
           throw TypeError(".ProtoOADepthEvent.newQuotes: object expected");
         message.newQuotes[i] = $root.ProtoOADepthQuote.fromObject(
@@ -39540,7 +39542,7 @@ export const ProtoOADepthEvent = ($root.ProtoOADepthEvent = (() => {
       if (!Array.isArray(object.deletedQuotes))
         throw TypeError(".ProtoOADepthEvent.deletedQuotes: array expected");
       message.deletedQuotes = [];
-      for (let i = 0; i < object.deletedQuotes.length; ++i)
+      for (var i = 0; i < object.deletedQuotes.length; ++i)
         if ($util.Long)
           (message.deletedQuotes[i] = $util.Long.fromValue(
             object.deletedQuotes[i]
@@ -39569,7 +39571,7 @@ export const ProtoOADepthEvent = ($root.ProtoOADepthEvent = (() => {
    */
   ProtoOADepthEvent.toObject = function toObject(message, options) {
     if (!options) options = {};
-    let object = {};
+    var object = {};
     if (options.arrays || options.defaults) {
       object.newQuotes = [];
       object.deletedQuotes = [];
@@ -39578,7 +39580,7 @@ export const ProtoOADepthEvent = ($root.ProtoOADepthEvent = (() => {
       object.payloadType =
         options.enums === String ? "PROTO_OA_DEPTH_EVENT" : 2155;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.ctidTraderAccountId =
           options.longs === String
             ? long.toString()
@@ -39587,7 +39589,7 @@ export const ProtoOADepthEvent = ($root.ProtoOADepthEvent = (() => {
             : long;
       } else object.ctidTraderAccountId = options.longs === String ? "0" : 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, true);
+        var long = new $util.Long(0, 0, true);
         object.symbolId =
           options.longs === String
             ? long.toString()
@@ -39638,7 +39640,7 @@ export const ProtoOADepthEvent = ($root.ProtoOADepthEvent = (() => {
             : message.symbolId;
     if (message.newQuotes && message.newQuotes.length) {
       object.newQuotes = [];
-      for (let j = 0; j < message.newQuotes.length; ++j)
+      for (var j = 0; j < message.newQuotes.length; ++j)
         object.newQuotes[j] = $root.ProtoOADepthQuote.toObject(
           message.newQuotes[j],
           options
@@ -39646,7 +39648,7 @@ export const ProtoOADepthEvent = ($root.ProtoOADepthEvent = (() => {
     }
     if (message.deletedQuotes && message.deletedQuotes.length) {
       object.deletedQuotes = [];
-      for (let j = 0; j < message.deletedQuotes.length; ++j)
+      for (var j = 0; j < message.deletedQuotes.length; ++j)
         if (typeof message.deletedQuotes[j] === "number")
           object.deletedQuotes[j] =
             options.longs === String
@@ -39678,9 +39680,9 @@ export const ProtoOADepthEvent = ($root.ProtoOADepthEvent = (() => {
   };
 
   return ProtoOADepthEvent;
-})());
+})();
 
-export const ProtoOASubscribeDepthQuotesReq = ($root.ProtoOASubscribeDepthQuotesReq = (() => {
+$root.ProtoOASubscribeDepthQuotesReq = (function() {
   /**
    * Properties of a ProtoOASubscribeDepthQuotesReq.
    * @exports IProtoOASubscribeDepthQuotesReq
@@ -39701,7 +39703,7 @@ export const ProtoOASubscribeDepthQuotesReq = ($root.ProtoOASubscribeDepthQuotes
   function ProtoOASubscribeDepthQuotesReq(properties) {
     this.symbolId = [];
     if (properties)
-      for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
 
@@ -39760,7 +39762,7 @@ export const ProtoOASubscribeDepthQuotesReq = ($root.ProtoOASubscribeDepthQuotes
       .uint32(/* id 2, wireType 0 =*/ 16)
       .int64(message.ctidTraderAccountId);
     if (message.symbolId != null && message.symbolId.length)
-      for (let i = 0; i < message.symbolId.length; ++i)
+      for (var i = 0; i < message.symbolId.length; ++i)
         writer.uint32(/* id 3, wireType 0 =*/ 24).int64(message.symbolId[i]);
     return writer;
   };
@@ -39794,10 +39796,10 @@ export const ProtoOASubscribeDepthQuotesReq = ($root.ProtoOASubscribeDepthQuotes
    */
   ProtoOASubscribeDepthQuotesReq.decode = function decode(reader, length) {
     if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    let end = length === undefined ? reader.len : reader.pos + length,
+    var end = length === undefined ? reader.len : reader.pos + length,
       message = new $root.ProtoOASubscribeDepthQuotesReq();
     while (reader.pos < end) {
-      let tag = reader.uint32();
+      var tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
           message.payloadType = reader.int32();
@@ -39809,7 +39811,7 @@ export const ProtoOASubscribeDepthQuotesReq = ($root.ProtoOASubscribeDepthQuotes
           if (!(message.symbolId && message.symbolId.length))
             message.symbolId = [];
           if ((tag & 7) === 2) {
-            let end2 = reader.uint32() + reader.pos;
+            var end2 = reader.uint32() + reader.pos;
             while (reader.pos < end2) message.symbolId.push(reader.int64());
           } else message.symbolId.push(reader.int64());
           break;
@@ -39935,7 +39937,7 @@ export const ProtoOASubscribeDepthQuotesReq = ($root.ProtoOASubscribeDepthQuotes
       return "ctidTraderAccountId: integer|Long expected";
     if (message.symbolId != null && message.hasOwnProperty("symbolId")) {
       if (!Array.isArray(message.symbolId)) return "symbolId: array expected";
-      for (let i = 0; i < message.symbolId.length; ++i)
+      for (var i = 0; i < message.symbolId.length; ++i)
         if (
           !$util.isInteger(message.symbolId[i]) &&
           !(
@@ -39959,7 +39961,7 @@ export const ProtoOASubscribeDepthQuotesReq = ($root.ProtoOASubscribeDepthQuotes
    */
   ProtoOASubscribeDepthQuotesReq.fromObject = function fromObject(object) {
     if (object instanceof $root.ProtoOASubscribeDepthQuotesReq) return object;
-    let message = new $root.ProtoOASubscribeDepthQuotesReq();
+    var message = new $root.ProtoOASubscribeDepthQuotesReq();
     switch (object.payloadType) {
       case "PROTO_OA_APPLICATION_AUTH_REQ":
       case 2100:
@@ -40242,7 +40244,7 @@ export const ProtoOASubscribeDepthQuotesReq = ($root.ProtoOASubscribeDepthQuotes
           ".ProtoOASubscribeDepthQuotesReq.symbolId: array expected"
         );
       message.symbolId = [];
-      for (let i = 0; i < object.symbolId.length; ++i)
+      for (var i = 0; i < object.symbolId.length; ++i)
         if ($util.Long)
           (message.symbolId[i] = $util.Long.fromValue(
             object.symbolId[i]
@@ -40274,13 +40276,13 @@ export const ProtoOASubscribeDepthQuotesReq = ($root.ProtoOASubscribeDepthQuotes
     options
   ) {
     if (!options) options = {};
-    let object = {};
+    var object = {};
     if (options.arrays || options.defaults) object.symbolId = [];
     if (options.defaults) {
       object.payloadType =
         options.enums === String ? "PROTO_OA_SUBSCRIBE_DEPTH_QUOTES_REQ" : 2156;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.ctidTraderAccountId =
           options.longs === String
             ? long.toString()
@@ -40315,7 +40317,7 @@ export const ProtoOASubscribeDepthQuotesReq = ($root.ProtoOASubscribeDepthQuotes
             : message.ctidTraderAccountId;
     if (message.symbolId && message.symbolId.length) {
       object.symbolId = [];
-      for (let j = 0; j < message.symbolId.length; ++j)
+      for (var j = 0; j < message.symbolId.length; ++j)
         if (typeof message.symbolId[j] === "number")
           object.symbolId[j] =
             options.longs === String
@@ -40347,9 +40349,9 @@ export const ProtoOASubscribeDepthQuotesReq = ($root.ProtoOASubscribeDepthQuotes
   };
 
   return ProtoOASubscribeDepthQuotesReq;
-})());
+})();
 
-export const ProtoOASubscribeDepthQuotesRes = ($root.ProtoOASubscribeDepthQuotesRes = (() => {
+$root.ProtoOASubscribeDepthQuotesRes = (function() {
   /**
    * Properties of a ProtoOASubscribeDepthQuotesRes.
    * @exports IProtoOASubscribeDepthQuotesRes
@@ -40368,7 +40370,7 @@ export const ProtoOASubscribeDepthQuotesRes = ($root.ProtoOASubscribeDepthQuotes
    */
   function ProtoOASubscribeDepthQuotesRes(properties) {
     if (properties)
-      for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
 
@@ -40450,10 +40452,10 @@ export const ProtoOASubscribeDepthQuotesRes = ($root.ProtoOASubscribeDepthQuotes
    */
   ProtoOASubscribeDepthQuotesRes.decode = function decode(reader, length) {
     if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    let end = length === undefined ? reader.len : reader.pos + length,
+    var end = length === undefined ? reader.len : reader.pos + length,
       message = new $root.ProtoOASubscribeDepthQuotesRes();
     while (reader.pos < end) {
-      let tag = reader.uint32();
+      var tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
           message.payloadType = reader.int32();
@@ -40594,7 +40596,7 @@ export const ProtoOASubscribeDepthQuotesRes = ($root.ProtoOASubscribeDepthQuotes
    */
   ProtoOASubscribeDepthQuotesRes.fromObject = function fromObject(object) {
     if (object instanceof $root.ProtoOASubscribeDepthQuotesRes) return object;
-    let message = new $root.ProtoOASubscribeDepthQuotesRes();
+    var message = new $root.ProtoOASubscribeDepthQuotesRes();
     switch (object.payloadType) {
       case "PROTO_OA_APPLICATION_AUTH_REQ":
       case 2100:
@@ -40888,12 +40890,12 @@ export const ProtoOASubscribeDepthQuotesRes = ($root.ProtoOASubscribeDepthQuotes
     options
   ) {
     if (!options) options = {};
-    let object = {};
+    var object = {};
     if (options.defaults) {
       object.payloadType =
         options.enums === String ? "PROTO_OA_SUBSCRIBE_DEPTH_QUOTES_RES" : 2157;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.ctidTraderAccountId =
           options.longs === String
             ? long.toString()
@@ -40941,9 +40943,9 @@ export const ProtoOASubscribeDepthQuotesRes = ($root.ProtoOASubscribeDepthQuotes
   };
 
   return ProtoOASubscribeDepthQuotesRes;
-})());
+})();
 
-export const ProtoOAUnsubscribeDepthQuotesReq = ($root.ProtoOAUnsubscribeDepthQuotesReq = (() => {
+$root.ProtoOAUnsubscribeDepthQuotesReq = (function() {
   /**
    * Properties of a ProtoOAUnsubscribeDepthQuotesReq.
    * @exports IProtoOAUnsubscribeDepthQuotesReq
@@ -40964,7 +40966,7 @@ export const ProtoOAUnsubscribeDepthQuotesReq = ($root.ProtoOAUnsubscribeDepthQu
   function ProtoOAUnsubscribeDepthQuotesReq(properties) {
     this.symbolId = [];
     if (properties)
-      for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
 
@@ -41023,7 +41025,7 @@ export const ProtoOAUnsubscribeDepthQuotesReq = ($root.ProtoOAUnsubscribeDepthQu
       .uint32(/* id 2, wireType 0 =*/ 16)
       .int64(message.ctidTraderAccountId);
     if (message.symbolId != null && message.symbolId.length)
-      for (let i = 0; i < message.symbolId.length; ++i)
+      for (var i = 0; i < message.symbolId.length; ++i)
         writer.uint32(/* id 3, wireType 0 =*/ 24).int64(message.symbolId[i]);
     return writer;
   };
@@ -41057,10 +41059,10 @@ export const ProtoOAUnsubscribeDepthQuotesReq = ($root.ProtoOAUnsubscribeDepthQu
    */
   ProtoOAUnsubscribeDepthQuotesReq.decode = function decode(reader, length) {
     if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    let end = length === undefined ? reader.len : reader.pos + length,
+    var end = length === undefined ? reader.len : reader.pos + length,
       message = new $root.ProtoOAUnsubscribeDepthQuotesReq();
     while (reader.pos < end) {
-      let tag = reader.uint32();
+      var tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
           message.payloadType = reader.int32();
@@ -41072,7 +41074,7 @@ export const ProtoOAUnsubscribeDepthQuotesReq = ($root.ProtoOAUnsubscribeDepthQu
           if (!(message.symbolId && message.symbolId.length))
             message.symbolId = [];
           if ((tag & 7) === 2) {
-            let end2 = reader.uint32() + reader.pos;
+            var end2 = reader.uint32() + reader.pos;
             while (reader.pos < end2) message.symbolId.push(reader.int64());
           } else message.symbolId.push(reader.int64());
           break;
@@ -41198,7 +41200,7 @@ export const ProtoOAUnsubscribeDepthQuotesReq = ($root.ProtoOAUnsubscribeDepthQu
       return "ctidTraderAccountId: integer|Long expected";
     if (message.symbolId != null && message.hasOwnProperty("symbolId")) {
       if (!Array.isArray(message.symbolId)) return "symbolId: array expected";
-      for (let i = 0; i < message.symbolId.length; ++i)
+      for (var i = 0; i < message.symbolId.length; ++i)
         if (
           !$util.isInteger(message.symbolId[i]) &&
           !(
@@ -41222,7 +41224,7 @@ export const ProtoOAUnsubscribeDepthQuotesReq = ($root.ProtoOAUnsubscribeDepthQu
    */
   ProtoOAUnsubscribeDepthQuotesReq.fromObject = function fromObject(object) {
     if (object instanceof $root.ProtoOAUnsubscribeDepthQuotesReq) return object;
-    let message = new $root.ProtoOAUnsubscribeDepthQuotesReq();
+    var message = new $root.ProtoOAUnsubscribeDepthQuotesReq();
     switch (object.payloadType) {
       case "PROTO_OA_APPLICATION_AUTH_REQ":
       case 2100:
@@ -41505,7 +41507,7 @@ export const ProtoOAUnsubscribeDepthQuotesReq = ($root.ProtoOAUnsubscribeDepthQu
           ".ProtoOAUnsubscribeDepthQuotesReq.symbolId: array expected"
         );
       message.symbolId = [];
-      for (let i = 0; i < object.symbolId.length; ++i)
+      for (var i = 0; i < object.symbolId.length; ++i)
         if ($util.Long)
           (message.symbolId[i] = $util.Long.fromValue(
             object.symbolId[i]
@@ -41537,7 +41539,7 @@ export const ProtoOAUnsubscribeDepthQuotesReq = ($root.ProtoOAUnsubscribeDepthQu
     options
   ) {
     if (!options) options = {};
-    let object = {};
+    var object = {};
     if (options.arrays || options.defaults) object.symbolId = [];
     if (options.defaults) {
       object.payloadType =
@@ -41545,7 +41547,7 @@ export const ProtoOAUnsubscribeDepthQuotesReq = ($root.ProtoOAUnsubscribeDepthQu
           ? "PROTO_OA_UNSUBSCRIBE_DEPTH_QUOTES_REQ"
           : 2158;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.ctidTraderAccountId =
           options.longs === String
             ? long.toString()
@@ -41580,7 +41582,7 @@ export const ProtoOAUnsubscribeDepthQuotesReq = ($root.ProtoOAUnsubscribeDepthQu
             : message.ctidTraderAccountId;
     if (message.symbolId && message.symbolId.length) {
       object.symbolId = [];
-      for (let j = 0; j < message.symbolId.length; ++j)
+      for (var j = 0; j < message.symbolId.length; ++j)
         if (typeof message.symbolId[j] === "number")
           object.symbolId[j] =
             options.longs === String
@@ -41612,9 +41614,9 @@ export const ProtoOAUnsubscribeDepthQuotesReq = ($root.ProtoOAUnsubscribeDepthQu
   };
 
   return ProtoOAUnsubscribeDepthQuotesReq;
-})());
+})();
 
-export const ProtoOAUnsubscribeDepthQuotesRes = ($root.ProtoOAUnsubscribeDepthQuotesRes = (() => {
+$root.ProtoOAUnsubscribeDepthQuotesRes = (function() {
   /**
    * Properties of a ProtoOAUnsubscribeDepthQuotesRes.
    * @exports IProtoOAUnsubscribeDepthQuotesRes
@@ -41633,7 +41635,7 @@ export const ProtoOAUnsubscribeDepthQuotesRes = ($root.ProtoOAUnsubscribeDepthQu
    */
   function ProtoOAUnsubscribeDepthQuotesRes(properties) {
     if (properties)
-      for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
 
@@ -41715,10 +41717,10 @@ export const ProtoOAUnsubscribeDepthQuotesRes = ($root.ProtoOAUnsubscribeDepthQu
    */
   ProtoOAUnsubscribeDepthQuotesRes.decode = function decode(reader, length) {
     if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    let end = length === undefined ? reader.len : reader.pos + length,
+    var end = length === undefined ? reader.len : reader.pos + length,
       message = new $root.ProtoOAUnsubscribeDepthQuotesRes();
     while (reader.pos < end) {
-      let tag = reader.uint32();
+      var tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
           message.payloadType = reader.int32();
@@ -41859,7 +41861,7 @@ export const ProtoOAUnsubscribeDepthQuotesRes = ($root.ProtoOAUnsubscribeDepthQu
    */
   ProtoOAUnsubscribeDepthQuotesRes.fromObject = function fromObject(object) {
     if (object instanceof $root.ProtoOAUnsubscribeDepthQuotesRes) return object;
-    let message = new $root.ProtoOAUnsubscribeDepthQuotesRes();
+    var message = new $root.ProtoOAUnsubscribeDepthQuotesRes();
     switch (object.payloadType) {
       case "PROTO_OA_APPLICATION_AUTH_REQ":
       case 2100:
@@ -42153,14 +42155,14 @@ export const ProtoOAUnsubscribeDepthQuotesRes = ($root.ProtoOAUnsubscribeDepthQu
     options
   ) {
     if (!options) options = {};
-    let object = {};
+    var object = {};
     if (options.defaults) {
       object.payloadType =
         options.enums === String
           ? "PROTO_OA_UNSUBSCRIBE_DEPTH_QUOTES_RES"
           : 2159;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.ctidTraderAccountId =
           options.longs === String
             ? long.toString()
@@ -42208,9 +42210,9 @@ export const ProtoOAUnsubscribeDepthQuotesRes = ($root.ProtoOAUnsubscribeDepthQu
   };
 
   return ProtoOAUnsubscribeDepthQuotesRes;
-})());
+})();
 
-export const ProtoOASymbolCategoryListReq = ($root.ProtoOASymbolCategoryListReq = (() => {
+$root.ProtoOASymbolCategoryListReq = (function() {
   /**
    * Properties of a ProtoOASymbolCategoryListReq.
    * @exports IProtoOASymbolCategoryListReq
@@ -42229,7 +42231,7 @@ export const ProtoOASymbolCategoryListReq = ($root.ProtoOASymbolCategoryListReq 
    */
   function ProtoOASymbolCategoryListReq(properties) {
     if (properties)
-      for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
 
@@ -42311,10 +42313,10 @@ export const ProtoOASymbolCategoryListReq = ($root.ProtoOASymbolCategoryListReq 
    */
   ProtoOASymbolCategoryListReq.decode = function decode(reader, length) {
     if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    let end = length === undefined ? reader.len : reader.pos + length,
+    var end = length === undefined ? reader.len : reader.pos + length,
       message = new $root.ProtoOASymbolCategoryListReq();
     while (reader.pos < end) {
-      let tag = reader.uint32();
+      var tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
           message.payloadType = reader.int32();
@@ -42455,7 +42457,7 @@ export const ProtoOASymbolCategoryListReq = ($root.ProtoOASymbolCategoryListReq 
    */
   ProtoOASymbolCategoryListReq.fromObject = function fromObject(object) {
     if (object instanceof $root.ProtoOASymbolCategoryListReq) return object;
-    let message = new $root.ProtoOASymbolCategoryListReq();
+    var message = new $root.ProtoOASymbolCategoryListReq();
     switch (object.payloadType) {
       case "PROTO_OA_APPLICATION_AUTH_REQ":
       case 2100:
@@ -42746,12 +42748,12 @@ export const ProtoOASymbolCategoryListReq = ($root.ProtoOASymbolCategoryListReq 
    */
   ProtoOASymbolCategoryListReq.toObject = function toObject(message, options) {
     if (!options) options = {};
-    let object = {};
+    var object = {};
     if (options.defaults) {
       object.payloadType =
         options.enums === String ? "PROTO_OA_SYMBOL_CATEGORY_REQ" : 2160;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.ctidTraderAccountId =
           options.longs === String
             ? long.toString()
@@ -42799,9 +42801,9 @@ export const ProtoOASymbolCategoryListReq = ($root.ProtoOASymbolCategoryListReq 
   };
 
   return ProtoOASymbolCategoryListReq;
-})());
+})();
 
-export const ProtoOASymbolCategoryListRes = ($root.ProtoOASymbolCategoryListRes = (() => {
+$root.ProtoOASymbolCategoryListRes = (function() {
   /**
    * Properties of a ProtoOASymbolCategoryListRes.
    * @exports IProtoOASymbolCategoryListRes
@@ -42822,7 +42824,7 @@ export const ProtoOASymbolCategoryListRes = ($root.ProtoOASymbolCategoryListRes 
   function ProtoOASymbolCategoryListRes(properties) {
     this.symbolCategory = [];
     if (properties)
-      for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
 
@@ -42881,7 +42883,7 @@ export const ProtoOASymbolCategoryListRes = ($root.ProtoOASymbolCategoryListRes 
       .uint32(/* id 2, wireType 0 =*/ 16)
       .int64(message.ctidTraderAccountId);
     if (message.symbolCategory != null && message.symbolCategory.length)
-      for (let i = 0; i < message.symbolCategory.length; ++i)
+      for (var i = 0; i < message.symbolCategory.length; ++i)
         $root.ProtoOASymbolCategory.encode(
           message.symbolCategory[i],
           writer.uint32(/* id 3, wireType 2 =*/ 26).fork()
@@ -42918,10 +42920,10 @@ export const ProtoOASymbolCategoryListRes = ($root.ProtoOASymbolCategoryListRes 
    */
   ProtoOASymbolCategoryListRes.decode = function decode(reader, length) {
     if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    let end = length === undefined ? reader.len : reader.pos + length,
+    var end = length === undefined ? reader.len : reader.pos + length,
       message = new $root.ProtoOASymbolCategoryListRes();
     while (reader.pos < end) {
-      let tag = reader.uint32();
+      var tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
           message.payloadType = reader.int32();
@@ -43062,8 +43064,8 @@ export const ProtoOASymbolCategoryListRes = ($root.ProtoOASymbolCategoryListRes 
     ) {
       if (!Array.isArray(message.symbolCategory))
         return "symbolCategory: array expected";
-      for (let i = 0; i < message.symbolCategory.length; ++i) {
-        let error = $root.ProtoOASymbolCategory.verify(
+      for (var i = 0; i < message.symbolCategory.length; ++i) {
+        var error = $root.ProtoOASymbolCategory.verify(
           message.symbolCategory[i]
         );
         if (error) return "symbolCategory." + error;
@@ -43082,7 +43084,7 @@ export const ProtoOASymbolCategoryListRes = ($root.ProtoOASymbolCategoryListRes 
    */
   ProtoOASymbolCategoryListRes.fromObject = function fromObject(object) {
     if (object instanceof $root.ProtoOASymbolCategoryListRes) return object;
-    let message = new $root.ProtoOASymbolCategoryListRes();
+    var message = new $root.ProtoOASymbolCategoryListRes();
     switch (object.payloadType) {
       case "PROTO_OA_APPLICATION_AUTH_REQ":
       case 2100:
@@ -43365,7 +43367,7 @@ export const ProtoOASymbolCategoryListRes = ($root.ProtoOASymbolCategoryListRes 
           ".ProtoOASymbolCategoryListRes.symbolCategory: array expected"
         );
       message.symbolCategory = [];
-      for (let i = 0; i < object.symbolCategory.length; ++i) {
+      for (var i = 0; i < object.symbolCategory.length; ++i) {
         if (typeof object.symbolCategory[i] !== "object")
           throw TypeError(
             ".ProtoOASymbolCategoryListRes.symbolCategory: object expected"
@@ -43389,13 +43391,13 @@ export const ProtoOASymbolCategoryListRes = ($root.ProtoOASymbolCategoryListRes 
    */
   ProtoOASymbolCategoryListRes.toObject = function toObject(message, options) {
     if (!options) options = {};
-    let object = {};
+    var object = {};
     if (options.arrays || options.defaults) object.symbolCategory = [];
     if (options.defaults) {
       object.payloadType =
         options.enums === String ? "PROTO_OA_SYMBOL_CATEGORY_RES" : 2161;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.ctidTraderAccountId =
           options.longs === String
             ? long.toString()
@@ -43430,7 +43432,7 @@ export const ProtoOASymbolCategoryListRes = ($root.ProtoOASymbolCategoryListRes 
             : message.ctidTraderAccountId;
     if (message.symbolCategory && message.symbolCategory.length) {
       object.symbolCategory = [];
-      for (let j = 0; j < message.symbolCategory.length; ++j)
+      for (var j = 0; j < message.symbolCategory.length; ++j)
         object.symbolCategory[j] = $root.ProtoOASymbolCategory.toObject(
           message.symbolCategory[j],
           options
@@ -43451,9 +43453,9 @@ export const ProtoOASymbolCategoryListRes = ($root.ProtoOASymbolCategoryListRes 
   };
 
   return ProtoOASymbolCategoryListRes;
-})());
+})();
 
-export const ProtoOAAccountLogoutReq = ($root.ProtoOAAccountLogoutReq = (() => {
+$root.ProtoOAAccountLogoutReq = (function() {
   /**
    * Properties of a ProtoOAAccountLogoutReq.
    * @exports IProtoOAAccountLogoutReq
@@ -43472,7 +43474,7 @@ export const ProtoOAAccountLogoutReq = ($root.ProtoOAAccountLogoutReq = (() => {
    */
   function ProtoOAAccountLogoutReq(properties) {
     if (properties)
-      for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
 
@@ -43554,10 +43556,10 @@ export const ProtoOAAccountLogoutReq = ($root.ProtoOAAccountLogoutReq = (() => {
    */
   ProtoOAAccountLogoutReq.decode = function decode(reader, length) {
     if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    let end = length === undefined ? reader.len : reader.pos + length,
+    var end = length === undefined ? reader.len : reader.pos + length,
       message = new $root.ProtoOAAccountLogoutReq();
     while (reader.pos < end) {
-      let tag = reader.uint32();
+      var tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
           message.payloadType = reader.int32();
@@ -43696,7 +43698,7 @@ export const ProtoOAAccountLogoutReq = ($root.ProtoOAAccountLogoutReq = (() => {
    */
   ProtoOAAccountLogoutReq.fromObject = function fromObject(object) {
     if (object instanceof $root.ProtoOAAccountLogoutReq) return object;
-    let message = new $root.ProtoOAAccountLogoutReq();
+    var message = new $root.ProtoOAAccountLogoutReq();
     switch (object.payloadType) {
       case "PROTO_OA_APPLICATION_AUTH_REQ":
       case 2100:
@@ -43987,12 +43989,12 @@ export const ProtoOAAccountLogoutReq = ($root.ProtoOAAccountLogoutReq = (() => {
    */
   ProtoOAAccountLogoutReq.toObject = function toObject(message, options) {
     if (!options) options = {};
-    let object = {};
+    var object = {};
     if (options.defaults) {
       object.payloadType =
         options.enums === String ? "PROTO_OA_ACCOUNT_LOGOUT_REQ" : 2162;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.ctidTraderAccountId =
           options.longs === String
             ? long.toString()
@@ -44040,9 +44042,9 @@ export const ProtoOAAccountLogoutReq = ($root.ProtoOAAccountLogoutReq = (() => {
   };
 
   return ProtoOAAccountLogoutReq;
-})());
+})();
 
-export const ProtoOAAccountLogoutRes = ($root.ProtoOAAccountLogoutRes = (() => {
+$root.ProtoOAAccountLogoutRes = (function() {
   /**
    * Properties of a ProtoOAAccountLogoutRes.
    * @exports IProtoOAAccountLogoutRes
@@ -44061,7 +44063,7 @@ export const ProtoOAAccountLogoutRes = ($root.ProtoOAAccountLogoutRes = (() => {
    */
   function ProtoOAAccountLogoutRes(properties) {
     if (properties)
-      for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
 
@@ -44143,10 +44145,10 @@ export const ProtoOAAccountLogoutRes = ($root.ProtoOAAccountLogoutRes = (() => {
    */
   ProtoOAAccountLogoutRes.decode = function decode(reader, length) {
     if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    let end = length === undefined ? reader.len : reader.pos + length,
+    var end = length === undefined ? reader.len : reader.pos + length,
       message = new $root.ProtoOAAccountLogoutRes();
     while (reader.pos < end) {
-      let tag = reader.uint32();
+      var tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
           message.payloadType = reader.int32();
@@ -44285,7 +44287,7 @@ export const ProtoOAAccountLogoutRes = ($root.ProtoOAAccountLogoutRes = (() => {
    */
   ProtoOAAccountLogoutRes.fromObject = function fromObject(object) {
     if (object instanceof $root.ProtoOAAccountLogoutRes) return object;
-    let message = new $root.ProtoOAAccountLogoutRes();
+    var message = new $root.ProtoOAAccountLogoutRes();
     switch (object.payloadType) {
       case "PROTO_OA_APPLICATION_AUTH_REQ":
       case 2100:
@@ -44576,12 +44578,12 @@ export const ProtoOAAccountLogoutRes = ($root.ProtoOAAccountLogoutRes = (() => {
    */
   ProtoOAAccountLogoutRes.toObject = function toObject(message, options) {
     if (!options) options = {};
-    let object = {};
+    var object = {};
     if (options.defaults) {
       object.payloadType =
         options.enums === String ? "PROTO_OA_ACCOUNT_LOGOUT_RES" : 2163;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.ctidTraderAccountId =
           options.longs === String
             ? long.toString()
@@ -44629,9 +44631,9 @@ export const ProtoOAAccountLogoutRes = ($root.ProtoOAAccountLogoutRes = (() => {
   };
 
   return ProtoOAAccountLogoutRes;
-})());
+})();
 
-export const ProtoOAAccountDisconnectEvent = ($root.ProtoOAAccountDisconnectEvent = (() => {
+$root.ProtoOAAccountDisconnectEvent = (function() {
   /**
    * Properties of a ProtoOAAccountDisconnectEvent.
    * @exports IProtoOAAccountDisconnectEvent
@@ -44651,7 +44653,7 @@ export const ProtoOAAccountDisconnectEvent = ($root.ProtoOAAccountDisconnectEven
    */
   function ProtoOAAccountDisconnectEvent(properties) {
     if (properties)
-      for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
 
@@ -44733,10 +44735,10 @@ export const ProtoOAAccountDisconnectEvent = ($root.ProtoOAAccountDisconnectEven
    */
   ProtoOAAccountDisconnectEvent.decode = function decode(reader, length) {
     if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    let end = length === undefined ? reader.len : reader.pos + length,
+    var end = length === undefined ? reader.len : reader.pos + length,
       message = new $root.ProtoOAAccountDisconnectEvent();
     while (reader.pos < end) {
-      let tag = reader.uint32();
+      var tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
           message.payloadType = reader.int32();
@@ -44877,7 +44879,7 @@ export const ProtoOAAccountDisconnectEvent = ($root.ProtoOAAccountDisconnectEven
    */
   ProtoOAAccountDisconnectEvent.fromObject = function fromObject(object) {
     if (object instanceof $root.ProtoOAAccountDisconnectEvent) return object;
-    let message = new $root.ProtoOAAccountDisconnectEvent();
+    var message = new $root.ProtoOAAccountDisconnectEvent();
     switch (object.payloadType) {
       case "PROTO_OA_APPLICATION_AUTH_REQ":
       case 2100:
@@ -45168,12 +45170,12 @@ export const ProtoOAAccountDisconnectEvent = ($root.ProtoOAAccountDisconnectEven
    */
   ProtoOAAccountDisconnectEvent.toObject = function toObject(message, options) {
     if (!options) options = {};
-    let object = {};
+    var object = {};
     if (options.defaults) {
       object.payloadType =
         options.enums === String ? "PROTO_OA_ACCOUNT_DISCONNECT_EVENT" : 2164;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.ctidTraderAccountId =
           options.longs === String
             ? long.toString()
@@ -45221,7 +45223,7 @@ export const ProtoOAAccountDisconnectEvent = ($root.ProtoOAAccountDisconnectEven
   };
 
   return ProtoOAAccountDisconnectEvent;
-})());
+})();
 
 /**
  * ProtoOAPayloadType enum.
@@ -45294,7 +45296,7 @@ export const ProtoOAAccountDisconnectEvent = ($root.ProtoOAAccountDisconnectEven
  * @property {number} PROTO_OA_ACCOUNT_DISCONNECT_EVENT=2164 PROTO_OA_ACCOUNT_DISCONNECT_EVENT value
  */
 $root.ProtoOAPayloadType = (function() {
-  const valuesById = {},
+  var valuesById = {},
     values = Object.create(valuesById);
   values[(valuesById[2100] = "PROTO_OA_APPLICATION_AUTH_REQ")] = 2100;
   values[(valuesById[2101] = "PROTO_OA_APPLICATION_AUTH_RES")] = 2101;
@@ -45370,7 +45372,7 @@ $root.ProtoOAPayloadType = (function() {
   return values;
 })();
 
-export const ProtoOAAsset = ($root.ProtoOAAsset = (() => {
+$root.ProtoOAAsset = (function() {
   /**
    * Properties of a ProtoOAAsset.
    * @exports IProtoOAAsset
@@ -45390,7 +45392,7 @@ export const ProtoOAAsset = ($root.ProtoOAAsset = (() => {
    */
   function ProtoOAAsset(properties) {
     if (properties)
-      for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
 
@@ -45476,10 +45478,10 @@ export const ProtoOAAsset = ($root.ProtoOAAsset = (() => {
    */
   ProtoOAAsset.decode = function decode(reader, length) {
     if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    let end = length === undefined ? reader.len : reader.pos + length,
+    var end = length === undefined ? reader.len : reader.pos + length,
       message = new $root.ProtoOAAsset();
     while (reader.pos < end) {
-      let tag = reader.uint32();
+      var tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
           message.assetId = reader.int64();
@@ -45558,7 +45560,7 @@ export const ProtoOAAsset = ($root.ProtoOAAsset = (() => {
    */
   ProtoOAAsset.fromObject = function fromObject(object) {
     if (object instanceof $root.ProtoOAAsset) return object;
-    let message = new $root.ProtoOAAsset();
+    var message = new $root.ProtoOAAsset();
     if (object.assetId != null)
       if ($util.Long)
         (message.assetId = $util.Long.fromValue(
@@ -45590,10 +45592,10 @@ export const ProtoOAAsset = ($root.ProtoOAAsset = (() => {
    */
   ProtoOAAsset.toObject = function toObject(message, options) {
     if (!options) options = {};
-    let object = {};
+    var object = {};
     if (options.defaults) {
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.assetId =
           options.longs === String
             ? long.toString()
@@ -45637,9 +45639,9 @@ export const ProtoOAAsset = ($root.ProtoOAAsset = (() => {
   };
 
   return ProtoOAAsset;
-})());
+})();
 
-export const ProtoOASymbol = ($root.ProtoOASymbol = (() => {
+$root.ProtoOASymbol = (function() {
   /**
    * Properties of a ProtoOASymbol.
    * @exports IProtoOASymbol
@@ -45685,7 +45687,7 @@ export const ProtoOASymbol = ($root.ProtoOASymbol = (() => {
   function ProtoOASymbol(properties) {
     this.schedule = [];
     if (properties)
-      for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
 
@@ -45991,7 +45993,7 @@ export const ProtoOASymbol = ($root.ProtoOASymbol = (() => {
     if (message.maxExposure != null && message.hasOwnProperty("maxExposure"))
       writer.uint32(/* id 12, wireType 0 =*/ 96).uint64(message.maxExposure);
     if (message.schedule != null && message.schedule.length)
-      for (let i = 0; i < message.schedule.length; ++i)
+      for (var i = 0; i < message.schedule.length; ++i)
         $root.ProtoOAInterval.encode(
           message.schedule[i],
           writer.uint32(/* id 13, wireType 2 =*/ 106).fork()
@@ -46093,10 +46095,10 @@ export const ProtoOASymbol = ($root.ProtoOASymbol = (() => {
    */
   ProtoOASymbol.decode = function decode(reader, length) {
     if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    let end = length === undefined ? reader.len : reader.pos + length,
+    var end = length === undefined ? reader.len : reader.pos + length,
       message = new $root.ProtoOASymbol();
     while (reader.pos < end) {
-      let tag = reader.uint32();
+      var tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
           message.symbolId = reader.int64();
@@ -46325,8 +46327,8 @@ export const ProtoOASymbol = ($root.ProtoOASymbol = (() => {
         return "maxExposure: integer|Long expected";
     if (message.schedule != null && message.hasOwnProperty("schedule")) {
       if (!Array.isArray(message.schedule)) return "schedule: array expected";
-      for (let i = 0; i < message.schedule.length; ++i) {
-        let error = $root.ProtoOAInterval.verify(message.schedule[i]);
+      for (var i = 0; i < message.schedule.length; ++i) {
+        var error = $root.ProtoOAInterval.verify(message.schedule[i]);
         if (error) return "schedule." + error;
       }
     }
@@ -46477,7 +46479,7 @@ export const ProtoOASymbol = ($root.ProtoOASymbol = (() => {
    */
   ProtoOASymbol.fromObject = function fromObject(object) {
     if (object instanceof $root.ProtoOASymbol) return object;
-    let message = new $root.ProtoOASymbol();
+    var message = new $root.ProtoOASymbol();
     if (object.symbolId != null)
       if ($util.Long)
         (message.symbolId = $util.Long.fromValue(
@@ -46595,7 +46597,7 @@ export const ProtoOASymbol = ($root.ProtoOASymbol = (() => {
       if (!Array.isArray(object.schedule))
         throw TypeError(".ProtoOASymbol.schedule: array expected");
       message.schedule = [];
-      for (let i = 0; i < object.schedule.length; ++i) {
+      for (var i = 0; i < object.schedule.length; ++i) {
         if (typeof object.schedule[i] !== "object")
           throw TypeError(".ProtoOASymbol.schedule: object expected");
         message.schedule[i] = $root.ProtoOAInterval.fromObject(
@@ -46773,11 +46775,11 @@ export const ProtoOASymbol = ($root.ProtoOASymbol = (() => {
    */
   ProtoOASymbol.toObject = function toObject(message, options) {
     if (!options) options = {};
-    let object = {};
+    var object = {};
     if (options.arrays || options.defaults) object.schedule = [];
     if (options.defaults) {
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.symbolId =
           options.longs === String
             ? long.toString()
@@ -46793,7 +46795,7 @@ export const ProtoOASymbol = ($root.ProtoOASymbol = (() => {
       object.swapLong = 0;
       object.swapShort = 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.maxVolume =
           options.longs === String
             ? long.toString()
@@ -46802,7 +46804,7 @@ export const ProtoOASymbol = ($root.ProtoOASymbol = (() => {
             : long;
       } else object.maxVolume = options.longs === String ? "0" : 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.minVolume =
           options.longs === String
             ? long.toString()
@@ -46811,7 +46813,7 @@ export const ProtoOASymbol = ($root.ProtoOASymbol = (() => {
             : long;
       } else object.minVolume = options.longs === String ? "0" : 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.stepVolume =
           options.longs === String
             ? long.toString()
@@ -46820,7 +46822,7 @@ export const ProtoOASymbol = ($root.ProtoOASymbol = (() => {
             : long;
       } else object.stepVolume = options.longs === String ? "0" : 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, true);
+        var long = new $util.Long(0, 0, true);
         object.maxExposure =
           options.longs === String
             ? long.toString()
@@ -46829,7 +46831,7 @@ export const ProtoOASymbol = ($root.ProtoOASymbol = (() => {
             : long;
       } else object.maxExposure = options.longs === String ? "0" : 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.commission =
           options.longs === String
             ? long.toString()
@@ -46842,7 +46844,7 @@ export const ProtoOASymbol = ($root.ProtoOASymbol = (() => {
       object.tpDistance = 0;
       object.gslDistance = 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.gslCharge =
           options.longs === String
             ? long.toString()
@@ -46853,7 +46855,7 @@ export const ProtoOASymbol = ($root.ProtoOASymbol = (() => {
       object.distanceSetIn =
         options.enums === String ? "SYMBOL_DISTANCE_IN_POINTS" : 1;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.minCommission =
           options.longs === String
             ? long.toString()
@@ -46864,7 +46866,7 @@ export const ProtoOASymbol = ($root.ProtoOASymbol = (() => {
       object.minCommissionType = options.enums === String ? "CURRENCY" : 1;
       object.minCommissionAsset = "USD";
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.rolloverCommission =
           options.longs === String
             ? long.toString()
@@ -46991,7 +46993,7 @@ export const ProtoOASymbol = ($root.ProtoOASymbol = (() => {
             : message.maxExposure;
     if (message.schedule && message.schedule.length) {
       object.schedule = [];
-      for (let j = 0; j < message.schedule.length; ++j)
+      for (var j = 0; j < message.schedule.length; ++j)
         object.schedule[j] = $root.ProtoOAInterval.toObject(
           message.schedule[j],
           options
@@ -47140,9 +47142,9 @@ export const ProtoOASymbol = ($root.ProtoOASymbol = (() => {
   };
 
   return ProtoOASymbol;
-})());
+})();
 
-export const ProtoOALightSymbol = ($root.ProtoOALightSymbol = (() => {
+$root.ProtoOALightSymbol = (function() {
   /**
    * Properties of a ProtoOALightSymbol.
    * @exports IProtoOALightSymbol
@@ -47166,7 +47168,7 @@ export const ProtoOALightSymbol = ($root.ProtoOALightSymbol = (() => {
    */
   function ProtoOALightSymbol(properties) {
     if (properties)
-      for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
 
@@ -47305,10 +47307,10 @@ export const ProtoOALightSymbol = ($root.ProtoOALightSymbol = (() => {
    */
   ProtoOALightSymbol.decode = function decode(reader, length) {
     if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    let end = length === undefined ? reader.len : reader.pos + length,
+    var end = length === undefined ? reader.len : reader.pos + length,
       message = new $root.ProtoOALightSymbol();
     while (reader.pos < end) {
-      let tag = reader.uint32();
+      var tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
           message.symbolId = reader.int64();
@@ -47433,7 +47435,7 @@ export const ProtoOALightSymbol = ($root.ProtoOALightSymbol = (() => {
    */
   ProtoOALightSymbol.fromObject = function fromObject(object) {
     if (object instanceof $root.ProtoOALightSymbol) return object;
-    let message = new $root.ProtoOALightSymbol();
+    var message = new $root.ProtoOALightSymbol();
     if (object.symbolId != null)
       if ($util.Long)
         (message.symbolId = $util.Long.fromValue(
@@ -47509,10 +47511,10 @@ export const ProtoOALightSymbol = ($root.ProtoOALightSymbol = (() => {
    */
   ProtoOALightSymbol.toObject = function toObject(message, options) {
     if (!options) options = {};
-    let object = {};
+    var object = {};
     if (options.defaults) {
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.symbolId =
           options.longs === String
             ? long.toString()
@@ -47523,7 +47525,7 @@ export const ProtoOALightSymbol = ($root.ProtoOALightSymbol = (() => {
       object.symbolName = "";
       object.enabled = false;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.baseAssetId =
           options.longs === String
             ? long.toString()
@@ -47532,7 +47534,7 @@ export const ProtoOALightSymbol = ($root.ProtoOALightSymbol = (() => {
             : long;
       } else object.baseAssetId = options.longs === String ? "0" : 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.quoteAssetId =
           options.longs === String
             ? long.toString()
@@ -47541,7 +47543,7 @@ export const ProtoOALightSymbol = ($root.ProtoOALightSymbol = (() => {
             : long;
       } else object.quoteAssetId = options.longs === String ? "0" : 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.symbolCategoryId =
           options.longs === String
             ? long.toString()
@@ -47639,9 +47641,9 @@ export const ProtoOALightSymbol = ($root.ProtoOALightSymbol = (() => {
   };
 
   return ProtoOALightSymbol;
-})());
+})();
 
-export const ProtoOASymbolCategory = ($root.ProtoOASymbolCategory = (() => {
+$root.ProtoOASymbolCategory = (function() {
   /**
    * Properties of a ProtoOASymbolCategory.
    * @exports IProtoOASymbolCategory
@@ -47661,7 +47663,7 @@ export const ProtoOASymbolCategory = ($root.ProtoOASymbolCategory = (() => {
    */
   function ProtoOASymbolCategory(properties) {
     if (properties)
-      for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
 
@@ -47751,10 +47753,10 @@ export const ProtoOASymbolCategory = ($root.ProtoOASymbolCategory = (() => {
    */
   ProtoOASymbolCategory.decode = function decode(reader, length) {
     if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    let end = length === undefined ? reader.len : reader.pos + length,
+    var end = length === undefined ? reader.len : reader.pos + length,
       message = new $root.ProtoOASymbolCategory();
     while (reader.pos < end) {
-      let tag = reader.uint32();
+      var tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
           message.id = reader.int64();
@@ -47841,7 +47843,7 @@ export const ProtoOASymbolCategory = ($root.ProtoOASymbolCategory = (() => {
    */
   ProtoOASymbolCategory.fromObject = function fromObject(object) {
     if (object instanceof $root.ProtoOASymbolCategory) return object;
-    let message = new $root.ProtoOASymbolCategory();
+    var message = new $root.ProtoOASymbolCategory();
     if (object.id != null)
       if ($util.Long)
         (message.id = $util.Long.fromValue(object.id)).unsigned = false;
@@ -47882,10 +47884,10 @@ export const ProtoOASymbolCategory = ($root.ProtoOASymbolCategory = (() => {
    */
   ProtoOASymbolCategory.toObject = function toObject(message, options) {
     if (!options) options = {};
-    let object = {};
+    var object = {};
     if (options.defaults) {
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.id =
           options.longs === String
             ? long.toString()
@@ -47894,7 +47896,7 @@ export const ProtoOASymbolCategory = ($root.ProtoOASymbolCategory = (() => {
             : long;
       } else object.id = options.longs === String ? "0" : 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.assetClassId =
           options.longs === String
             ? long.toString()
@@ -47950,7 +47952,7 @@ export const ProtoOASymbolCategory = ($root.ProtoOASymbolCategory = (() => {
   };
 
   return ProtoOASymbolCategory;
-})());
+})();
 
 /**
  * ProtoOADayOfWeek enum.
@@ -47966,7 +47968,7 @@ export const ProtoOASymbolCategory = ($root.ProtoOASymbolCategory = (() => {
  * @property {number} SUNDAY=7 SUNDAY value
  */
 $root.ProtoOADayOfWeek = (function() {
-  const valuesById = {},
+  var valuesById = {},
     values = Object.create(valuesById);
   values[(valuesById[0] = "NONE")] = 0;
   values[(valuesById[1] = "MONDAY")] = 1;
@@ -47979,7 +47981,7 @@ $root.ProtoOADayOfWeek = (function() {
   return values;
 })();
 
-export const ProtoOAInterval = ($root.ProtoOAInterval = (() => {
+$root.ProtoOAInterval = (function() {
   /**
    * Properties of a ProtoOAInterval.
    * @exports IProtoOAInterval
@@ -47998,7 +48000,7 @@ export const ProtoOAInterval = ($root.ProtoOAInterval = (() => {
    */
   function ProtoOAInterval(properties) {
     if (properties)
-      for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
 
@@ -48072,10 +48074,10 @@ export const ProtoOAInterval = ($root.ProtoOAInterval = (() => {
    */
   ProtoOAInterval.decode = function decode(reader, length) {
     if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    let end = length === undefined ? reader.len : reader.pos + length,
+    var end = length === undefined ? reader.len : reader.pos + length,
       message = new $root.ProtoOAInterval();
     while (reader.pos < end) {
-      let tag = reader.uint32();
+      var tag = reader.uint32();
       switch (tag >>> 3) {
         case 3:
           message.startSecond = reader.uint32();
@@ -48142,7 +48144,7 @@ export const ProtoOAInterval = ($root.ProtoOAInterval = (() => {
    */
   ProtoOAInterval.fromObject = function fromObject(object) {
     if (object instanceof $root.ProtoOAInterval) return object;
-    let message = new $root.ProtoOAInterval();
+    var message = new $root.ProtoOAInterval();
     if (object.startSecond != null)
       message.startSecond = object.startSecond >>> 0;
     if (object.endSecond != null) message.endSecond = object.endSecond >>> 0;
@@ -48160,7 +48162,7 @@ export const ProtoOAInterval = ($root.ProtoOAInterval = (() => {
    */
   ProtoOAInterval.toObject = function toObject(message, options) {
     if (!options) options = {};
-    let object = {};
+    var object = {};
     if (options.defaults) {
       object.startSecond = 0;
       object.endSecond = 0;
@@ -48184,7 +48186,7 @@ export const ProtoOAInterval = ($root.ProtoOAInterval = (() => {
   };
 
   return ProtoOAInterval;
-})());
+})();
 
 /**
  * Enum for specifying type of trading commission.
@@ -48196,7 +48198,7 @@ export const ProtoOAInterval = ($root.ProtoOAInterval = (() => {
  * @property {number} QUOTE_CCY_PER_LOT=4 QUOTE_CCY_PER_LOT value
  */
 $root.ProtoOACommissionType = (function() {
-  const valuesById = {},
+  var valuesById = {},
     values = Object.create(valuesById);
   values[(valuesById[1] = "USD_PER_MIL_USD")] = 1;
   values[(valuesById[2] = "USD_PER_LOT")] = 2;
@@ -48213,7 +48215,7 @@ $root.ProtoOACommissionType = (function() {
  * @property {number} SYMBOL_DISTANCE_IN_PERCENTAGE=2 SYMBOL_DISTANCE_IN_PERCENTAGE value
  */
 $root.ProtoOASymbolDistanceType = (function() {
-  const valuesById = {},
+  var valuesById = {},
     values = Object.create(valuesById);
   values[(valuesById[1] = "SYMBOL_DISTANCE_IN_POINTS")] = 1;
   values[(valuesById[2] = "SYMBOL_DISTANCE_IN_PERCENTAGE")] = 2;
@@ -48228,7 +48230,7 @@ $root.ProtoOASymbolDistanceType = (function() {
  * @property {number} QUOTE_CURRENCY=2 QUOTE_CURRENCY value
  */
 $root.ProtoOAMinCommissionType = (function() {
-  const valuesById = {},
+  var valuesById = {},
     values = Object.create(valuesById);
   values[(valuesById[1] = "CURRENCY")] = 1;
   values[(valuesById[2] = "QUOTE_CURRENCY")] = 2;
@@ -48245,7 +48247,7 @@ $root.ProtoOAMinCommissionType = (function() {
  * @property {number} CLOSE_ONLY_MODE=3 CLOSE_ONLY_MODE value
  */
 $root.ProtoOATradingMode = (function() {
-  const valuesById = {},
+  var valuesById = {},
     values = Object.create(valuesById);
   values[(valuesById[0] = "ENABLED")] = 0;
   values[(valuesById[1] = "DISABLED_WITHOUT_PENDINGS_EXECUTION")] = 1;
@@ -48264,7 +48266,7 @@ $root.ProtoOATradingMode = (function() {
  * @property {number} NO_LOGIN=3 NO_LOGIN value
  */
 $root.ProtoOAAccessRights = (function() {
-  const valuesById = {},
+  var valuesById = {},
     values = Object.create(valuesById);
   values[(valuesById[0] = "FULL_ACCESS")] = 0;
   values[(valuesById[1] = "CLOSE_ONLY")] = 1;
@@ -48282,7 +48284,7 @@ $root.ProtoOAAccessRights = (function() {
  * @property {number} NET=2 NET value
  */
 $root.ProtoOATotalMarginCalculationType = (function() {
-  const valuesById = {},
+  var valuesById = {},
     values = Object.create(valuesById);
   values[(valuesById[0] = "MAX")] = 0;
   values[(valuesById[1] = "SUM")] = 1;
@@ -48299,7 +48301,7 @@ $root.ProtoOATotalMarginCalculationType = (function() {
  * @property {number} SPREAD_BETTING=2 SPREAD_BETTING value
  */
 $root.ProtoOAAccountType = (function() {
-  const valuesById = {},
+  var valuesById = {},
     values = Object.create(valuesById);
   values[(valuesById[0] = "HEDGED")] = 0;
   values[(valuesById[1] = "NETTED")] = 1;
@@ -48307,7 +48309,7 @@ $root.ProtoOAAccountType = (function() {
   return values;
 })();
 
-export const ProtoOATrader = ($root.ProtoOATrader = (() => {
+$root.ProtoOATrader = (function() {
   /**
    * Properties of a ProtoOATrader.
    * @exports IProtoOATrader
@@ -48341,7 +48343,7 @@ export const ProtoOATrader = ($root.ProtoOATrader = (() => {
    */
   function ProtoOATrader(properties) {
     if (properties)
-      for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
 
@@ -48605,10 +48607,10 @@ export const ProtoOATrader = ($root.ProtoOATrader = (() => {
    */
   ProtoOATrader.decode = function decode(reader, length) {
     if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    let end = length === undefined ? reader.len : reader.pos + length,
+    var end = length === undefined ? reader.len : reader.pos + length,
       message = new $root.ProtoOATrader();
     while (reader.pos < end) {
-      let tag = reader.uint32();
+      var tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
           message.ctidTraderAccountId = reader.int64();
@@ -48865,7 +48867,7 @@ export const ProtoOATrader = ($root.ProtoOATrader = (() => {
    */
   ProtoOATrader.fromObject = function fromObject(object) {
     if (object instanceof $root.ProtoOATrader) return object;
-    let message = new $root.ProtoOATrader();
+    var message = new $root.ProtoOATrader();
     if (object.ctidTraderAccountId != null)
       if ($util.Long)
         (message.ctidTraderAccountId = $util.Long.fromValue(
@@ -49067,10 +49069,10 @@ export const ProtoOATrader = ($root.ProtoOATrader = (() => {
    */
   ProtoOATrader.toObject = function toObject(message, options) {
     if (!options) options = {};
-    let object = {};
+    var object = {};
     if (options.defaults) {
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.ctidTraderAccountId =
           options.longs === String
             ? long.toString()
@@ -49079,7 +49081,7 @@ export const ProtoOATrader = ($root.ProtoOATrader = (() => {
             : long;
       } else object.ctidTraderAccountId = options.longs === String ? "0" : 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.balance =
           options.longs === String
             ? long.toString()
@@ -49088,7 +49090,7 @@ export const ProtoOATrader = ($root.ProtoOATrader = (() => {
             : long;
       } else object.balance = options.longs === String ? "0" : 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.balanceVersion =
           options.longs === String
             ? long.toString()
@@ -49097,7 +49099,7 @@ export const ProtoOATrader = ($root.ProtoOATrader = (() => {
             : long;
       } else object.balanceVersion = options.longs === String ? "0" : 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.managerBonus =
           options.longs === String
             ? long.toString()
@@ -49106,7 +49108,7 @@ export const ProtoOATrader = ($root.ProtoOATrader = (() => {
             : long;
       } else object.managerBonus = options.longs === String ? "0" : 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.ibBonus =
           options.longs === String
             ? long.toString()
@@ -49115,7 +49117,7 @@ export const ProtoOATrader = ($root.ProtoOATrader = (() => {
             : long;
       } else object.ibBonus = options.longs === String ? "0" : 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.nonWithdrawableBonus =
           options.longs === String
             ? long.toString()
@@ -49125,7 +49127,7 @@ export const ProtoOATrader = ($root.ProtoOATrader = (() => {
       } else object.nonWithdrawableBonus = options.longs === String ? "0" : 0;
       object.accessRights = options.enums === String ? "FULL_ACCESS" : 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.depositAssetId =
           options.longs === String
             ? long.toString()
@@ -49139,7 +49141,7 @@ export const ProtoOATrader = ($root.ProtoOATrader = (() => {
       object.maxLeverage = 0;
       object.frenchRisk = false;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.traderLogin =
           options.longs === String
             ? long.toString()
@@ -49150,7 +49152,7 @@ export const ProtoOATrader = ($root.ProtoOATrader = (() => {
       object.accountType = options.enums === String ? "HEDGED" : 0;
       object.brokerName = "";
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.registrationTimestamp =
           options.longs === String
             ? long.toString()
@@ -49362,7 +49364,7 @@ export const ProtoOATrader = ($root.ProtoOATrader = (() => {
   };
 
   return ProtoOATrader;
-})());
+})();
 
 /**
  * Position status ENUM.
@@ -49374,7 +49376,7 @@ export const ProtoOATrader = ($root.ProtoOATrader = (() => {
  * @property {number} POSITION_STATUS_ERROR=4 POSITION_STATUS_ERROR value
  */
 $root.ProtoOAPositionStatus = (function() {
-  const valuesById = {},
+  var valuesById = {},
     values = Object.create(valuesById);
   values[(valuesById[1] = "POSITION_STATUS_OPEN")] = 1;
   values[(valuesById[2] = "POSITION_STATUS_CLOSED")] = 2;
@@ -49391,7 +49393,7 @@ $root.ProtoOAPositionStatus = (function() {
  * @property {number} SELL=2 SELL value
  */
 $root.ProtoOATradeSide = (function() {
-  const valuesById = {},
+  var valuesById = {},
     values = Object.create(valuesById);
   values[(valuesById[1] = "BUY")] = 1;
   values[(valuesById[2] = "SELL")] = 2;
@@ -49410,7 +49412,7 @@ $root.ProtoOATradeSide = (function() {
  * @property {number} STOP_LIMIT=6 STOP_LIMIT value
  */
 $root.ProtoOAOrderType = (function() {
-  const valuesById = {},
+  var valuesById = {},
     values = Object.create(valuesById);
   values[(valuesById[1] = "MARKET")] = 1;
   values[(valuesById[2] = "LIMIT")] = 2;
@@ -49432,7 +49434,7 @@ $root.ProtoOAOrderType = (function() {
  * @property {number} MARKET_ON_OPEN=5 MARKET_ON_OPEN value
  */
 $root.ProtoOATimeInForce = (function() {
-  const valuesById = {},
+  var valuesById = {},
     values = Object.create(valuesById);
   values[(valuesById[1] = "GOOD_TILL_DATE")] = 1;
   values[(valuesById[2] = "GOOD_TILL_CANCEL")] = 2;
@@ -49453,7 +49455,7 @@ $root.ProtoOATimeInForce = (function() {
  * @property {number} ORDER_STATUS_CANCELLED=5 ORDER_STATUS_CANCELLED value
  */
 $root.ProtoOAOrderStatus = (function() {
-  const valuesById = {},
+  var valuesById = {},
     values = Object.create(valuesById);
   values[(valuesById[1] = "ORDER_STATUS_ACCEPTED")] = 1;
   values[(valuesById[2] = "ORDER_STATUS_FILLED")] = 2;
@@ -49473,7 +49475,7 @@ $root.ProtoOAOrderStatus = (function() {
  * @property {number} DOUBLE_OPPOSITE=4 DOUBLE_OPPOSITE value
  */
 $root.ProtoOAOrderTriggerMethod = (function() {
-  const valuesById = {},
+  var valuesById = {},
     values = Object.create(valuesById);
   values[(valuesById[1] = "TRADE")] = 1;
   values[(valuesById[2] = "OPPOSITE")] = 2;
@@ -49482,7 +49484,7 @@ $root.ProtoOAOrderTriggerMethod = (function() {
   return values;
 })();
 
-export const ProtoOAPosition = ($root.ProtoOAPosition = (() => {
+$root.ProtoOAPosition = (function() {
   /**
    * Properties of a ProtoOAPosition.
    * @exports IProtoOAPosition
@@ -49513,7 +49515,7 @@ export const ProtoOAPosition = ($root.ProtoOAPosition = (() => {
    */
   function ProtoOAPosition(properties) {
     if (properties)
-      for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
 
@@ -49740,10 +49742,10 @@ export const ProtoOAPosition = ($root.ProtoOAPosition = (() => {
    */
   ProtoOAPosition.decode = function decode(reader, length) {
     if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    let end = length === undefined ? reader.len : reader.pos + length,
+    var end = length === undefined ? reader.len : reader.pos + length,
       message = new $root.ProtoOAPosition();
     while (reader.pos < end) {
-      let tag = reader.uint32();
+      var tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
           message.positionId = reader.int64();
@@ -49850,7 +49852,7 @@ export const ProtoOAPosition = ($root.ProtoOAPosition = (() => {
     )
       return "positionId: integer|Long expected";
     {
-      let error = $root.ProtoOATradeData.verify(message.tradeData);
+      var error = $root.ProtoOATradeData.verify(message.tradeData);
       if (error) return "tradeData." + error;
     }
     switch (message.positionStatus) {
@@ -49960,7 +49962,7 @@ export const ProtoOAPosition = ($root.ProtoOAPosition = (() => {
    */
   ProtoOAPosition.fromObject = function fromObject(object) {
     if (object instanceof $root.ProtoOAPosition) return object;
-    let message = new $root.ProtoOAPosition();
+    var message = new $root.ProtoOAPosition();
     if (object.positionId != null)
       if ($util.Long)
         (message.positionId = $util.Long.fromValue(
@@ -50108,10 +50110,10 @@ export const ProtoOAPosition = ($root.ProtoOAPosition = (() => {
    */
   ProtoOAPosition.toObject = function toObject(message, options) {
     if (!options) options = {};
-    let object = {};
+    var object = {};
     if (options.defaults) {
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.positionId =
           options.longs === String
             ? long.toString()
@@ -50123,7 +50125,7 @@ export const ProtoOAPosition = ($root.ProtoOAPosition = (() => {
       object.positionStatus =
         options.enums === String ? "POSITION_STATUS_OPEN" : 1;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.swap =
           options.longs === String
             ? long.toString()
@@ -50135,7 +50137,7 @@ export const ProtoOAPosition = ($root.ProtoOAPosition = (() => {
       object.stopLoss = 0;
       object.takeProfit = 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.utcLastUpdateTimestamp =
           options.longs === String
             ? long.toString()
@@ -50144,7 +50146,7 @@ export const ProtoOAPosition = ($root.ProtoOAPosition = (() => {
             : long;
       } else object.utcLastUpdateTimestamp = options.longs === String ? "0" : 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.commission =
           options.longs === String
             ? long.toString()
@@ -50154,7 +50156,7 @@ export const ProtoOAPosition = ($root.ProtoOAPosition = (() => {
       } else object.commission = options.longs === String ? "0" : 0;
       object.marginRate = 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.mirroringCommission =
           options.longs === String
             ? long.toString()
@@ -50164,7 +50166,7 @@ export const ProtoOAPosition = ($root.ProtoOAPosition = (() => {
       } else object.mirroringCommission = options.longs === String ? "0" : 0;
       object.guaranteedStopLoss = false;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, true);
+        var long = new $util.Long(0, 0, true);
         object.usedMargin =
           options.longs === String
             ? long.toString()
@@ -50335,9 +50337,9 @@ export const ProtoOAPosition = ($root.ProtoOAPosition = (() => {
   };
 
   return ProtoOAPosition;
-})());
+})();
 
-export const ProtoOATradeData = ($root.ProtoOATradeData = (() => {
+$root.ProtoOATradeData = (function() {
   /**
    * Properties of a ProtoOATradeData.
    * @exports IProtoOATradeData
@@ -50360,7 +50362,7 @@ export const ProtoOATradeData = ($root.ProtoOATradeData = (() => {
    */
   function ProtoOATradeData(properties) {
     if (properties)
-      for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
 
@@ -50487,10 +50489,10 @@ export const ProtoOATradeData = ($root.ProtoOATradeData = (() => {
    */
   ProtoOATradeData.decode = function decode(reader, length) {
     if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    let end = length === undefined ? reader.len : reader.pos + length,
+    var end = length === undefined ? reader.len : reader.pos + length,
       message = new $root.ProtoOATradeData();
     while (reader.pos < end) {
-      let tag = reader.uint32();
+      var tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
           message.symbolId = reader.int64();
@@ -50615,7 +50617,7 @@ export const ProtoOATradeData = ($root.ProtoOATradeData = (() => {
    */
   ProtoOATradeData.fromObject = function fromObject(object) {
     if (object instanceof $root.ProtoOATradeData) return object;
-    let message = new $root.ProtoOATradeData();
+    var message = new $root.ProtoOATradeData();
     if (object.symbolId != null)
       if ($util.Long)
         (message.symbolId = $util.Long.fromValue(
@@ -50683,10 +50685,10 @@ export const ProtoOATradeData = ($root.ProtoOATradeData = (() => {
    */
   ProtoOATradeData.toObject = function toObject(message, options) {
     if (!options) options = {};
-    let object = {};
+    var object = {};
     if (options.defaults) {
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.symbolId =
           options.longs === String
             ? long.toString()
@@ -50695,7 +50697,7 @@ export const ProtoOATradeData = ($root.ProtoOATradeData = (() => {
             : long;
       } else object.symbolId = options.longs === String ? "0" : 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.volume =
           options.longs === String
             ? long.toString()
@@ -50705,7 +50707,7 @@ export const ProtoOATradeData = ($root.ProtoOATradeData = (() => {
       } else object.volume = options.longs === String ? "0" : 0;
       object.tradeSide = options.enums === String ? "BUY" : 1;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.openTimestamp =
           options.longs === String
             ? long.toString()
@@ -50792,9 +50794,9 @@ export const ProtoOATradeData = ($root.ProtoOATradeData = (() => {
   };
 
   return ProtoOATradeData;
-})());
+})();
 
-export const ProtoOAOrder = ($root.ProtoOAOrder = (() => {
+$root.ProtoOAOrder = (function() {
   /**
    * Properties of a ProtoOAOrder.
    * @exports IProtoOAOrder
@@ -50834,7 +50836,7 @@ export const ProtoOAOrder = ($root.ProtoOAOrder = (() => {
    */
   function ProtoOAOrder(properties) {
     if (properties)
-      for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
 
@@ -51184,10 +51186,10 @@ export const ProtoOAOrder = ($root.ProtoOAOrder = (() => {
    */
   ProtoOAOrder.decode = function decode(reader, length) {
     if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    let end = length === undefined ? reader.len : reader.pos + length,
+    var end = length === undefined ? reader.len : reader.pos + length,
       message = new $root.ProtoOAOrder();
     while (reader.pos < end) {
-      let tag = reader.uint32();
+      var tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
           message.orderId = reader.int64();
@@ -51321,7 +51323,7 @@ export const ProtoOAOrder = ($root.ProtoOAOrder = (() => {
     )
       return "orderId: integer|Long expected";
     {
-      let error = $root.ProtoOATradeData.verify(message.tradeData);
+      var error = $root.ProtoOATradeData.verify(message.tradeData);
       if (error) return "tradeData." + error;
     }
     switch (message.orderType) {
@@ -51512,7 +51514,7 @@ export const ProtoOAOrder = ($root.ProtoOAOrder = (() => {
    */
   ProtoOAOrder.fromObject = function fromObject(object) {
     if (object instanceof $root.ProtoOAOrder) return object;
-    let message = new $root.ProtoOAOrder();
+    var message = new $root.ProtoOAOrder();
     if (object.orderId != null)
       if ($util.Long)
         (message.orderId = $util.Long.fromValue(
@@ -51752,10 +51754,10 @@ export const ProtoOAOrder = ($root.ProtoOAOrder = (() => {
    */
   ProtoOAOrder.toObject = function toObject(message, options) {
     if (!options) options = {};
-    let object = {};
+    var object = {};
     if (options.defaults) {
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.orderId =
           options.longs === String
             ? long.toString()
@@ -51768,7 +51770,7 @@ export const ProtoOAOrder = ($root.ProtoOAOrder = (() => {
       object.orderStatus =
         options.enums === String ? "ORDER_STATUS_ACCEPTED" : 1;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.expirationTimestamp =
           options.longs === String
             ? long.toString()
@@ -51778,7 +51780,7 @@ export const ProtoOAOrder = ($root.ProtoOAOrder = (() => {
       } else object.expirationTimestamp = options.longs === String ? "0" : 0;
       object.executionPrice = 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.executedVolume =
           options.longs === String
             ? long.toString()
@@ -51787,7 +51789,7 @@ export const ProtoOAOrder = ($root.ProtoOAOrder = (() => {
             : long;
       } else object.executedVolume = options.longs === String ? "0" : 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.utcLastUpdateTimestamp =
           options.longs === String
             ? long.toString()
@@ -51797,7 +51799,7 @@ export const ProtoOAOrder = ($root.ProtoOAOrder = (() => {
       } else object.utcLastUpdateTimestamp = options.longs === String ? "0" : 0;
       object.baseSlippagePrice = 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.slippageInPoints =
           options.longs === String
             ? long.toString()
@@ -51813,7 +51815,7 @@ export const ProtoOAOrder = ($root.ProtoOAOrder = (() => {
       object.clientOrderId = "";
       object.timeInForce = options.enums === String ? "IMMEDIATE_OR_CANCEL" : 3;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.positionId =
           options.longs === String
             ? long.toString()
@@ -51822,7 +51824,7 @@ export const ProtoOAOrder = ($root.ProtoOAOrder = (() => {
             : long;
       } else object.positionId = options.longs === String ? "0" : 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.relativeStopLoss =
           options.longs === String
             ? long.toString()
@@ -51831,7 +51833,7 @@ export const ProtoOAOrder = ($root.ProtoOAOrder = (() => {
             : long;
       } else object.relativeStopLoss = options.longs === String ? "0" : 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.relativeTakeProfit =
           options.longs === String
             ? long.toString()
@@ -52080,7 +52082,7 @@ export const ProtoOAOrder = ($root.ProtoOAOrder = (() => {
   };
 
   return ProtoOAOrder;
-})());
+})();
 
 /**
  * Execution event type ENUM.
@@ -52099,7 +52101,7 @@ export const ProtoOAOrder = ($root.ProtoOAOrder = (() => {
  * @property {number} BONUS_DEPOSIT_WITHDRAW=12 BONUS_DEPOSIT_WITHDRAW value
  */
 $root.ProtoOAExecutionType = (function() {
-  const valuesById = {},
+  var valuesById = {},
     values = Object.create(valuesById);
   values[(valuesById[2] = "ORDER_ACCEPTED")] = 2;
   values[(valuesById[3] = "ORDER_FILLED")] = 3;
@@ -52115,7 +52117,7 @@ $root.ProtoOAExecutionType = (function() {
   return values;
 })();
 
-export const ProtoOABonusDepositWithdraw = ($root.ProtoOABonusDepositWithdraw = (() => {
+$root.ProtoOABonusDepositWithdraw = (function() {
   /**
    * Properties of a ProtoOABonusDepositWithdraw.
    * @exports IProtoOABonusDepositWithdraw
@@ -52141,7 +52143,7 @@ export const ProtoOABonusDepositWithdraw = ($root.ProtoOABonusDepositWithdraw = 
    */
   function ProtoOABonusDepositWithdraw(properties) {
     if (properties)
-      for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
 
@@ -52304,10 +52306,10 @@ export const ProtoOABonusDepositWithdraw = ($root.ProtoOABonusDepositWithdraw = 
    */
   ProtoOABonusDepositWithdraw.decode = function decode(reader, length) {
     if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    let end = length === undefined ? reader.len : reader.pos + length,
+    var end = length === undefined ? reader.len : reader.pos + length,
       message = new $root.ProtoOABonusDepositWithdraw();
     while (reader.pos < end) {
-      let tag = reader.uint32();
+      var tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
           message.operationType = reader.int32();
@@ -52490,7 +52492,7 @@ export const ProtoOABonusDepositWithdraw = ($root.ProtoOABonusDepositWithdraw = 
    */
   ProtoOABonusDepositWithdraw.fromObject = function fromObject(object) {
     if (object instanceof $root.ProtoOABonusDepositWithdraw) return object;
-    let message = new $root.ProtoOABonusDepositWithdraw();
+    var message = new $root.ProtoOABonusDepositWithdraw();
     switch (object.operationType) {
       case "BONUS_DEPOSIT":
       case 0:
@@ -52618,11 +52620,11 @@ export const ProtoOABonusDepositWithdraw = ($root.ProtoOABonusDepositWithdraw = 
    */
   ProtoOABonusDepositWithdraw.toObject = function toObject(message, options) {
     if (!options) options = {};
-    let object = {};
+    var object = {};
     if (options.defaults) {
       object.operationType = options.enums === String ? "BONUS_DEPOSIT" : 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.bonusHistoryId =
           options.longs === String
             ? long.toString()
@@ -52631,7 +52633,7 @@ export const ProtoOABonusDepositWithdraw = ($root.ProtoOABonusDepositWithdraw = 
             : long;
       } else object.bonusHistoryId = options.longs === String ? "0" : 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.managerBonus =
           options.longs === String
             ? long.toString()
@@ -52640,7 +52642,7 @@ export const ProtoOABonusDepositWithdraw = ($root.ProtoOABonusDepositWithdraw = 
             : long;
       } else object.managerBonus = options.longs === String ? "0" : 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.managerDelta =
           options.longs === String
             ? long.toString()
@@ -52649,7 +52651,7 @@ export const ProtoOABonusDepositWithdraw = ($root.ProtoOABonusDepositWithdraw = 
             : long;
       } else object.managerDelta = options.longs === String ? "0" : 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.ibBonus =
           options.longs === String
             ? long.toString()
@@ -52658,7 +52660,7 @@ export const ProtoOABonusDepositWithdraw = ($root.ProtoOABonusDepositWithdraw = 
             : long;
       } else object.ibBonus = options.longs === String ? "0" : 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.ibDelta =
           options.longs === String
             ? long.toString()
@@ -52667,7 +52669,7 @@ export const ProtoOABonusDepositWithdraw = ($root.ProtoOABonusDepositWithdraw = 
             : long;
       } else object.ibDelta = options.longs === String ? "0" : 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.changeBonusTimestamp =
           options.longs === String
             ? long.toString()
@@ -52677,7 +52679,7 @@ export const ProtoOABonusDepositWithdraw = ($root.ProtoOABonusDepositWithdraw = 
       } else object.changeBonusTimestamp = options.longs === String ? "0" : 0;
       object.externalNote = "";
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.introducingBrokerId =
           options.longs === String
             ? long.toString()
@@ -52828,7 +52830,7 @@ export const ProtoOABonusDepositWithdraw = ($root.ProtoOABonusDepositWithdraw = 
   };
 
   return ProtoOABonusDepositWithdraw;
-})());
+})();
 
 /**
  * Bonus operation type ENUM.
@@ -52838,14 +52840,14 @@ export const ProtoOABonusDepositWithdraw = ($root.ProtoOABonusDepositWithdraw = 
  * @property {number} BONUS_WITHDRAW=1 BONUS_WITHDRAW value
  */
 $root.ProtoOAChangeBonusType = (function() {
-  const valuesById = {},
+  var valuesById = {},
     values = Object.create(valuesById);
   values[(valuesById[0] = "BONUS_DEPOSIT")] = 0;
   values[(valuesById[1] = "BONUS_WITHDRAW")] = 1;
   return values;
 })();
 
-export const ProtoOADepositWithdraw = ($root.ProtoOADepositWithdraw = (() => {
+$root.ProtoOADepositWithdraw = (function() {
   /**
    * Properties of a ProtoOADepositWithdraw.
    * @exports IProtoOADepositWithdraw
@@ -52870,7 +52872,7 @@ export const ProtoOADepositWithdraw = ($root.ProtoOADepositWithdraw = (() => {
    */
   function ProtoOADepositWithdraw(properties) {
     if (properties)
-      for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
 
@@ -53021,10 +53023,10 @@ export const ProtoOADepositWithdraw = ($root.ProtoOADepositWithdraw = (() => {
    */
   ProtoOADepositWithdraw.decode = function decode(reader, length) {
     if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    let end = length === undefined ? reader.len : reader.pos + length,
+    var end = length === undefined ? reader.len : reader.pos + length,
       message = new $root.ProtoOADepositWithdraw();
     while (reader.pos < end) {
-      let tag = reader.uint32();
+      var tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
           message.operationType = reader.int32();
@@ -53210,7 +53212,7 @@ export const ProtoOADepositWithdraw = ($root.ProtoOADepositWithdraw = (() => {
    */
   ProtoOADepositWithdraw.fromObject = function fromObject(object) {
     if (object instanceof $root.ProtoOADepositWithdraw) return object;
-    let message = new $root.ProtoOADepositWithdraw();
+    var message = new $root.ProtoOADepositWithdraw();
     switch (object.operationType) {
       case "BALANCE_DEPOSIT":
       case 0:
@@ -53415,11 +53417,11 @@ export const ProtoOADepositWithdraw = ($root.ProtoOADepositWithdraw = (() => {
    */
   ProtoOADepositWithdraw.toObject = function toObject(message, options) {
     if (!options) options = {};
-    let object = {};
+    var object = {};
     if (options.defaults) {
       object.operationType = options.enums === String ? "BALANCE_DEPOSIT" : 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.balanceHistoryId =
           options.longs === String
             ? long.toString()
@@ -53428,7 +53430,7 @@ export const ProtoOADepositWithdraw = ($root.ProtoOADepositWithdraw = (() => {
             : long;
       } else object.balanceHistoryId = options.longs === String ? "0" : 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.balance =
           options.longs === String
             ? long.toString()
@@ -53437,7 +53439,7 @@ export const ProtoOADepositWithdraw = ($root.ProtoOADepositWithdraw = (() => {
             : long;
       } else object.balance = options.longs === String ? "0" : 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.delta =
           options.longs === String
             ? long.toString()
@@ -53446,7 +53448,7 @@ export const ProtoOADepositWithdraw = ($root.ProtoOADepositWithdraw = (() => {
             : long;
       } else object.delta = options.longs === String ? "0" : 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.changeBalanceTimestamp =
           options.longs === String
             ? long.toString()
@@ -53456,7 +53458,7 @@ export const ProtoOADepositWithdraw = ($root.ProtoOADepositWithdraw = (() => {
       } else object.changeBalanceTimestamp = options.longs === String ? "0" : 0;
       object.externalNote = "";
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.balanceVersion =
           options.longs === String
             ? long.toString()
@@ -53465,7 +53467,7 @@ export const ProtoOADepositWithdraw = ($root.ProtoOADepositWithdraw = (() => {
             : long;
       } else object.balanceVersion = options.longs === String ? "0" : 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.equity =
           options.longs === String
             ? long.toString()
@@ -53598,7 +53600,7 @@ export const ProtoOADepositWithdraw = ($root.ProtoOADepositWithdraw = (() => {
   };
 
   return ProtoOADepositWithdraw;
-})());
+})();
 
 /**
  * Balance operation entity. Covers all cash movement operations related to account, trading, IB operations, mirroring, etc.
@@ -53632,7 +53634,7 @@ export const ProtoOADepositWithdraw = ($root.ProtoOADepositWithdraw = (() => {
  * @property {number} BALANCE_WITHDRAW_INACTIVITY_FEE=35 BALANCE_WITHDRAW_INACTIVITY_FEE value
  */
 $root.ProtoOAChangeBalanceType = (function() {
-  const valuesById = {},
+  var valuesById = {},
     values = Object.create(valuesById);
   values[(valuesById[0] = "BALANCE_DEPOSIT")] = 0;
   values[(valuesById[1] = "BALANCE_WITHDRAW")] = 1;
@@ -53669,7 +53671,7 @@ $root.ProtoOAChangeBalanceType = (function() {
   return values;
 })();
 
-export const ProtoOADeal = ($root.ProtoOADeal = (() => {
+$root.ProtoOADeal = (function() {
   /**
    * Properties of a ProtoOADeal.
    * @exports IProtoOADeal
@@ -53702,7 +53704,7 @@ export const ProtoOADeal = ($root.ProtoOADeal = (() => {
    */
   function ProtoOADeal(properties) {
     if (properties)
-      for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
 
@@ -53947,10 +53949,10 @@ export const ProtoOADeal = ($root.ProtoOADeal = (() => {
    */
   ProtoOADeal.decode = function decode(reader, length) {
     if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    let end = length === undefined ? reader.len : reader.pos + length,
+    var end = length === undefined ? reader.len : reader.pos + length,
       message = new $root.ProtoOADeal();
     while (reader.pos < end) {
-      let tag = reader.uint32();
+      var tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
           message.dealId = reader.int64();
@@ -54209,7 +54211,7 @@ export const ProtoOADeal = ($root.ProtoOADeal = (() => {
       message.closePositionDetail != null &&
       message.hasOwnProperty("closePositionDetail")
     ) {
-      let error = $root.ProtoOAClosePositionDetail.verify(
+      var error = $root.ProtoOAClosePositionDetail.verify(
         message.closePositionDetail
       );
       if (error) return "closePositionDetail." + error;
@@ -54227,7 +54229,7 @@ export const ProtoOADeal = ($root.ProtoOADeal = (() => {
    */
   ProtoOADeal.fromObject = function fromObject(object) {
     if (object instanceof $root.ProtoOADeal) return object;
-    let message = new $root.ProtoOADeal();
+    var message = new $root.ProtoOADeal();
     if (object.dealId != null)
       if ($util.Long)
         (message.dealId = $util.Long.fromValue(object.dealId)).unsigned = false;
@@ -54430,10 +54432,10 @@ export const ProtoOADeal = ($root.ProtoOADeal = (() => {
    */
   ProtoOADeal.toObject = function toObject(message, options) {
     if (!options) options = {};
-    let object = {};
+    var object = {};
     if (options.defaults) {
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.dealId =
           options.longs === String
             ? long.toString()
@@ -54442,7 +54444,7 @@ export const ProtoOADeal = ($root.ProtoOADeal = (() => {
             : long;
       } else object.dealId = options.longs === String ? "0" : 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.orderId =
           options.longs === String
             ? long.toString()
@@ -54451,7 +54453,7 @@ export const ProtoOADeal = ($root.ProtoOADeal = (() => {
             : long;
       } else object.orderId = options.longs === String ? "0" : 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.positionId =
           options.longs === String
             ? long.toString()
@@ -54460,7 +54462,7 @@ export const ProtoOADeal = ($root.ProtoOADeal = (() => {
             : long;
       } else object.positionId = options.longs === String ? "0" : 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.volume =
           options.longs === String
             ? long.toString()
@@ -54469,7 +54471,7 @@ export const ProtoOADeal = ($root.ProtoOADeal = (() => {
             : long;
       } else object.volume = options.longs === String ? "0" : 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.filledVolume =
           options.longs === String
             ? long.toString()
@@ -54478,7 +54480,7 @@ export const ProtoOADeal = ($root.ProtoOADeal = (() => {
             : long;
       } else object.filledVolume = options.longs === String ? "0" : 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.symbolId =
           options.longs === String
             ? long.toString()
@@ -54487,7 +54489,7 @@ export const ProtoOADeal = ($root.ProtoOADeal = (() => {
             : long;
       } else object.symbolId = options.longs === String ? "0" : 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.createTimestamp =
           options.longs === String
             ? long.toString()
@@ -54496,7 +54498,7 @@ export const ProtoOADeal = ($root.ProtoOADeal = (() => {
             : long;
       } else object.createTimestamp = options.longs === String ? "0" : 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.executionTimestamp =
           options.longs === String
             ? long.toString()
@@ -54505,7 +54507,7 @@ export const ProtoOADeal = ($root.ProtoOADeal = (() => {
             : long;
       } else object.executionTimestamp = options.longs === String ? "0" : 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.utcLastUpdateTimestamp =
           options.longs === String
             ? long.toString()
@@ -54518,7 +54520,7 @@ export const ProtoOADeal = ($root.ProtoOADeal = (() => {
       object.dealStatus = options.enums === String ? "FILLED" : 2;
       object.marginRate = 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.commission =
           options.longs === String
             ? long.toString()
@@ -54746,7 +54748,7 @@ export const ProtoOADeal = ($root.ProtoOADeal = (() => {
   };
 
   return ProtoOADeal;
-})());
+})();
 
 /**
  * Deal status ENUM.
@@ -54760,7 +54762,7 @@ export const ProtoOADeal = ($root.ProtoOADeal = (() => {
  * @property {number} MISSED=7 MISSED value
  */
 $root.ProtoOADealStatus = (function() {
-  const valuesById = {},
+  var valuesById = {},
     values = Object.create(valuesById);
   values[(valuesById[2] = "FILLED")] = 2;
   values[(valuesById[3] = "PARTIALLY_FILLED")] = 3;
@@ -54771,7 +54773,7 @@ $root.ProtoOADealStatus = (function() {
   return values;
 })();
 
-export const ProtoOAClosePositionDetail = ($root.ProtoOAClosePositionDetail = (() => {
+$root.ProtoOAClosePositionDetail = (function() {
   /**
    * Properties of a ProtoOAClosePositionDetail.
    * @exports IProtoOAClosePositionDetail
@@ -54796,7 +54798,7 @@ export const ProtoOAClosePositionDetail = ($root.ProtoOAClosePositionDetail = ((
    */
   function ProtoOAClosePositionDetail(properties) {
     if (properties)
-      for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
 
@@ -54950,10 +54952,10 @@ export const ProtoOAClosePositionDetail = ($root.ProtoOAClosePositionDetail = ((
    */
   ProtoOAClosePositionDetail.decode = function decode(reader, length) {
     if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    let end = length === undefined ? reader.len : reader.pos + length,
+    var end = length === undefined ? reader.len : reader.pos + length,
       message = new $root.ProtoOAClosePositionDetail();
     while (reader.pos < end) {
-      let tag = reader.uint32();
+      var tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
           message.entryPrice = reader.double();
@@ -55115,7 +55117,7 @@ export const ProtoOAClosePositionDetail = ($root.ProtoOAClosePositionDetail = ((
    */
   ProtoOAClosePositionDetail.fromObject = function fromObject(object) {
     if (object instanceof $root.ProtoOAClosePositionDetail) return object;
-    let message = new $root.ProtoOAClosePositionDetail();
+    var message = new $root.ProtoOAClosePositionDetail();
     if (object.entryPrice != null)
       message.entryPrice = Number(object.entryPrice);
     if (object.grossProfit != null)
@@ -55217,11 +55219,11 @@ export const ProtoOAClosePositionDetail = ($root.ProtoOAClosePositionDetail = ((
    */
   ProtoOAClosePositionDetail.toObject = function toObject(message, options) {
     if (!options) options = {};
-    let object = {};
+    var object = {};
     if (options.defaults) {
       object.entryPrice = 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.grossProfit =
           options.longs === String
             ? long.toString()
@@ -55230,7 +55232,7 @@ export const ProtoOAClosePositionDetail = ($root.ProtoOAClosePositionDetail = ((
             : long;
       } else object.grossProfit = options.longs === String ? "0" : 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.swap =
           options.longs === String
             ? long.toString()
@@ -55239,7 +55241,7 @@ export const ProtoOAClosePositionDetail = ($root.ProtoOAClosePositionDetail = ((
             : long;
       } else object.swap = options.longs === String ? "0" : 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.commission =
           options.longs === String
             ? long.toString()
@@ -55248,7 +55250,7 @@ export const ProtoOAClosePositionDetail = ($root.ProtoOAClosePositionDetail = ((
             : long;
       } else object.commission = options.longs === String ? "0" : 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.balance =
           options.longs === String
             ? long.toString()
@@ -55258,7 +55260,7 @@ export const ProtoOAClosePositionDetail = ($root.ProtoOAClosePositionDetail = ((
       } else object.balance = options.longs === String ? "0" : 0;
       object.quoteToDepositConversionRate = 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.closedVolume =
           options.longs === String
             ? long.toString()
@@ -55267,7 +55269,7 @@ export const ProtoOAClosePositionDetail = ($root.ProtoOAClosePositionDetail = ((
             : long;
       } else object.closedVolume = options.longs === String ? "0" : 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.balanceVersion =
           options.longs === String
             ? long.toString()
@@ -55399,7 +55401,7 @@ export const ProtoOAClosePositionDetail = ($root.ProtoOAClosePositionDetail = ((
   };
 
   return ProtoOAClosePositionDetail;
-})());
+})();
 
 /**
  * Trendbar period ENUM.
@@ -55421,7 +55423,7 @@ export const ProtoOAClosePositionDetail = ($root.ProtoOAClosePositionDetail = ((
  * @property {number} MN1=14 MN1 value
  */
 $root.ProtoOATrendbarPeriod = (function() {
-  const valuesById = {},
+  var valuesById = {},
     values = Object.create(valuesById);
   values[(valuesById[1] = "M1")] = 1;
   values[(valuesById[2] = "M2")] = 2;
@@ -55440,7 +55442,7 @@ $root.ProtoOATrendbarPeriod = (function() {
   return values;
 })();
 
-export const ProtoOATrendbar = ($root.ProtoOATrendbar = (() => {
+$root.ProtoOATrendbar = (function() {
   /**
    * Properties of a ProtoOATrendbar.
    * @exports IProtoOATrendbar
@@ -55464,7 +55466,7 @@ export const ProtoOATrendbar = ($root.ProtoOATrendbar = (() => {
    */
   function ProtoOATrendbar(properties) {
     if (properties)
-      for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
 
@@ -55604,10 +55606,10 @@ export const ProtoOATrendbar = ($root.ProtoOATrendbar = (() => {
    */
   ProtoOATrendbar.decode = function decode(reader, length) {
     if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    let end = length === undefined ? reader.len : reader.pos + length,
+    var end = length === undefined ? reader.len : reader.pos + length,
       message = new $root.ProtoOATrendbar();
     while (reader.pos < end) {
-      let tag = reader.uint32();
+      var tag = reader.uint32();
       switch (tag >>> 3) {
         case 3:
           message.volume = reader.int64();
@@ -55756,7 +55758,7 @@ export const ProtoOATrendbar = ($root.ProtoOATrendbar = (() => {
    */
   ProtoOATrendbar.fromObject = function fromObject(object) {
     if (object instanceof $root.ProtoOATrendbar) return object;
-    let message = new $root.ProtoOATrendbar();
+    var message = new $root.ProtoOATrendbar();
     if (object.volume != null)
       if ($util.Long)
         (message.volume = $util.Long.fromValue(object.volume)).unsigned = false;
@@ -55896,10 +55898,10 @@ export const ProtoOATrendbar = ($root.ProtoOATrendbar = (() => {
    */
   ProtoOATrendbar.toObject = function toObject(message, options) {
     if (!options) options = {};
-    let object = {};
+    var object = {};
     if (options.defaults) {
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.volume =
           options.longs === String
             ? long.toString()
@@ -55909,7 +55911,7 @@ export const ProtoOATrendbar = ($root.ProtoOATrendbar = (() => {
       } else object.volume = options.longs === String ? "0" : 0;
       object.period = options.enums === String ? "M1" : 1;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.low =
           options.longs === String
             ? long.toString()
@@ -55918,7 +55920,7 @@ export const ProtoOATrendbar = ($root.ProtoOATrendbar = (() => {
             : long;
       } else object.low = options.longs === String ? "0" : 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, true);
+        var long = new $util.Long(0, 0, true);
         object.deltaOpen =
           options.longs === String
             ? long.toString()
@@ -55927,7 +55929,7 @@ export const ProtoOATrendbar = ($root.ProtoOATrendbar = (() => {
             : long;
       } else object.deltaOpen = options.longs === String ? "0" : 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, true);
+        var long = new $util.Long(0, 0, true);
         object.deltaClose =
           options.longs === String
             ? long.toString()
@@ -55936,7 +55938,7 @@ export const ProtoOATrendbar = ($root.ProtoOATrendbar = (() => {
             : long;
       } else object.deltaClose = options.longs === String ? "0" : 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, true);
+        var long = new $util.Long(0, 0, true);
         object.deltaHigh =
           options.longs === String
             ? long.toString()
@@ -56047,9 +56049,9 @@ export const ProtoOATrendbar = ($root.ProtoOATrendbar = (() => {
   };
 
   return ProtoOATrendbar;
-})());
+})();
 
-export const ProtoOAExpectedMargin = ($root.ProtoOAExpectedMargin = (() => {
+$root.ProtoOAExpectedMargin = (function() {
   /**
    * Properties of a ProtoOAExpectedMargin.
    * @exports IProtoOAExpectedMargin
@@ -56069,7 +56071,7 @@ export const ProtoOAExpectedMargin = ($root.ProtoOAExpectedMargin = (() => {
    */
   function ProtoOAExpectedMargin(properties) {
     if (properties)
-      for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
 
@@ -56161,10 +56163,10 @@ export const ProtoOAExpectedMargin = ($root.ProtoOAExpectedMargin = (() => {
    */
   ProtoOAExpectedMargin.decode = function decode(reader, length) {
     if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    let end = length === undefined ? reader.len : reader.pos + length,
+    var end = length === undefined ? reader.len : reader.pos + length,
       message = new $root.ProtoOAExpectedMargin();
     while (reader.pos < end) {
-      let tag = reader.uint32();
+      var tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
           message.volume = reader.int64();
@@ -56261,7 +56263,7 @@ export const ProtoOAExpectedMargin = ($root.ProtoOAExpectedMargin = (() => {
    */
   ProtoOAExpectedMargin.fromObject = function fromObject(object) {
     if (object instanceof $root.ProtoOAExpectedMargin) return object;
-    let message = new $root.ProtoOAExpectedMargin();
+    var message = new $root.ProtoOAExpectedMargin();
     if (object.volume != null)
       if ($util.Long)
         (message.volume = $util.Long.fromValue(object.volume)).unsigned = false;
@@ -56316,10 +56318,10 @@ export const ProtoOAExpectedMargin = ($root.ProtoOAExpectedMargin = (() => {
    */
   ProtoOAExpectedMargin.toObject = function toObject(message, options) {
     if (!options) options = {};
-    let object = {};
+    var object = {};
     if (options.defaults) {
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.volume =
           options.longs === String
             ? long.toString()
@@ -56328,7 +56330,7 @@ export const ProtoOAExpectedMargin = ($root.ProtoOAExpectedMargin = (() => {
             : long;
       } else object.volume = options.longs === String ? "0" : 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.buyMargin =
           options.longs === String
             ? long.toString()
@@ -56337,7 +56339,7 @@ export const ProtoOAExpectedMargin = ($root.ProtoOAExpectedMargin = (() => {
             : long;
       } else object.buyMargin = options.longs === String ? "0" : 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.sellMargin =
           options.longs === String
             ? long.toString()
@@ -56407,7 +56409,7 @@ export const ProtoOAExpectedMargin = ($root.ProtoOAExpectedMargin = (() => {
   };
 
   return ProtoOAExpectedMargin;
-})());
+})();
 
 /**
  * Price quote type.
@@ -56417,14 +56419,14 @@ export const ProtoOAExpectedMargin = ($root.ProtoOAExpectedMargin = (() => {
  * @property {number} ASK=2 ASK value
  */
 $root.ProtoOAQuoteType = (function() {
-  const valuesById = {},
+  var valuesById = {},
     values = Object.create(valuesById);
   values[(valuesById[1] = "BID")] = 1;
   values[(valuesById[2] = "ASK")] = 2;
   return values;
 })();
 
-export const ProtoOATickData = ($root.ProtoOATickData = (() => {
+$root.ProtoOATickData = (function() {
   /**
    * Properties of a ProtoOATickData.
    * @exports IProtoOATickData
@@ -56443,7 +56445,7 @@ export const ProtoOATickData = ($root.ProtoOATickData = (() => {
    */
   function ProtoOATickData(properties) {
     if (properties)
-      for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
 
@@ -56521,10 +56523,10 @@ export const ProtoOATickData = ($root.ProtoOATickData = (() => {
    */
   ProtoOATickData.decode = function decode(reader, length) {
     if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    let end = length === undefined ? reader.len : reader.pos + length,
+    var end = length === undefined ? reader.len : reader.pos + length,
       message = new $root.ProtoOATickData();
     while (reader.pos < end) {
-      let tag = reader.uint32();
+      var tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
           message.timestamp = reader.int64();
@@ -56605,7 +56607,7 @@ export const ProtoOATickData = ($root.ProtoOATickData = (() => {
    */
   ProtoOATickData.fromObject = function fromObject(object) {
     if (object instanceof $root.ProtoOATickData) return object;
-    let message = new $root.ProtoOATickData();
+    var message = new $root.ProtoOATickData();
     if (object.timestamp != null)
       if ($util.Long)
         (message.timestamp = $util.Long.fromValue(
@@ -56645,10 +56647,10 @@ export const ProtoOATickData = ($root.ProtoOATickData = (() => {
    */
   ProtoOATickData.toObject = function toObject(message, options) {
     if (!options) options = {};
-    let object = {};
+    var object = {};
     if (options.defaults) {
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.timestamp =
           options.longs === String
             ? long.toString()
@@ -56657,7 +56659,7 @@ export const ProtoOATickData = ($root.ProtoOATickData = (() => {
             : long;
       } else object.timestamp = options.longs === String ? "0" : 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.tick =
           options.longs === String
             ? long.toString()
@@ -56711,7 +56713,7 @@ export const ProtoOATickData = ($root.ProtoOATickData = (() => {
   };
 
   return ProtoOATickData;
-})());
+})();
 
 /**
  * Open API application permission in regards to token ENUM.
@@ -56721,14 +56723,14 @@ export const ProtoOATickData = ($root.ProtoOATickData = (() => {
  * @property {number} SCOPE_TRADE=1 SCOPE_TRADE value
  */
 $root.ProtoOAClientPermissionScope = (function() {
-  const valuesById = {},
+  var valuesById = {},
     values = Object.create(valuesById);
   values[(valuesById[0] = "SCOPE_VIEW")] = 0;
   values[(valuesById[1] = "SCOPE_TRADE")] = 1;
   return values;
 })();
 
-export const ProtoOACtidProfile = ($root.ProtoOACtidProfile = (() => {
+$root.ProtoOACtidProfile = (function() {
   /**
    * Properties of a ProtoOACtidProfile.
    * @exports IProtoOACtidProfile
@@ -56746,7 +56748,7 @@ export const ProtoOACtidProfile = ($root.ProtoOACtidProfile = (() => {
    */
   function ProtoOACtidProfile(properties) {
     if (properties)
-      for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
 
@@ -56816,10 +56818,10 @@ export const ProtoOACtidProfile = ($root.ProtoOACtidProfile = (() => {
    */
   ProtoOACtidProfile.decode = function decode(reader, length) {
     if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    let end = length === undefined ? reader.len : reader.pos + length,
+    var end = length === undefined ? reader.len : reader.pos + length,
       message = new $root.ProtoOACtidProfile();
     while (reader.pos < end) {
-      let tag = reader.uint32();
+      var tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
           message.userId = reader.int64();
@@ -56884,7 +56886,7 @@ export const ProtoOACtidProfile = ($root.ProtoOACtidProfile = (() => {
    */
   ProtoOACtidProfile.fromObject = function fromObject(object) {
     if (object instanceof $root.ProtoOACtidProfile) return object;
-    let message = new $root.ProtoOACtidProfile();
+    var message = new $root.ProtoOACtidProfile();
     if (object.userId != null)
       if ($util.Long)
         (message.userId = $util.Long.fromValue(object.userId)).unsigned = false;
@@ -56911,10 +56913,10 @@ export const ProtoOACtidProfile = ($root.ProtoOACtidProfile = (() => {
    */
   ProtoOACtidProfile.toObject = function toObject(message, options) {
     if (!options) options = {};
-    let object = {};
+    var object = {};
     if (options.defaults)
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.userId =
           options.longs === String
             ? long.toString()
@@ -56951,9 +56953,9 @@ export const ProtoOACtidProfile = ($root.ProtoOACtidProfile = (() => {
   };
 
   return ProtoOACtidProfile;
-})());
+})();
 
-export const ProtoOACtidTraderAccount = ($root.ProtoOACtidTraderAccount = (() => {
+$root.ProtoOACtidTraderAccount = (function() {
   /**
    * Properties of a ProtoOACtidTraderAccount.
    * @exports IProtoOACtidTraderAccount
@@ -56973,7 +56975,7 @@ export const ProtoOACtidTraderAccount = ($root.ProtoOACtidTraderAccount = (() =>
    */
   function ProtoOACtidTraderAccount(properties) {
     if (properties)
-      for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
 
@@ -57067,10 +57069,10 @@ export const ProtoOACtidTraderAccount = ($root.ProtoOACtidTraderAccount = (() =>
    */
   ProtoOACtidTraderAccount.decode = function decode(reader, length) {
     if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    let end = length === undefined ? reader.len : reader.pos + length,
+    var end = length === undefined ? reader.len : reader.pos + length,
       message = new $root.ProtoOACtidTraderAccount();
     while (reader.pos < end) {
-      let tag = reader.uint32();
+      var tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
           message.ctidTraderAccountId = reader.uint64();
@@ -57154,7 +57156,7 @@ export const ProtoOACtidTraderAccount = ($root.ProtoOACtidTraderAccount = (() =>
    */
   ProtoOACtidTraderAccount.fromObject = function fromObject(object) {
     if (object instanceof $root.ProtoOACtidTraderAccount) return object;
-    let message = new $root.ProtoOACtidTraderAccount();
+    var message = new $root.ProtoOACtidTraderAccount();
     if (object.ctidTraderAccountId != null)
       if ($util.Long)
         (message.ctidTraderAccountId = $util.Long.fromValue(
@@ -57198,10 +57200,10 @@ export const ProtoOACtidTraderAccount = ($root.ProtoOACtidTraderAccount = (() =>
    */
   ProtoOACtidTraderAccount.toObject = function toObject(message, options) {
     if (!options) options = {};
-    let object = {};
+    var object = {};
     if (options.defaults) {
       if ($util.Long) {
-        let long = new $util.Long(0, 0, true);
+        var long = new $util.Long(0, 0, true);
         object.ctidTraderAccountId =
           options.longs === String
             ? long.toString()
@@ -57211,7 +57213,7 @@ export const ProtoOACtidTraderAccount = ($root.ProtoOACtidTraderAccount = (() =>
       } else object.ctidTraderAccountId = options.longs === String ? "0" : 0;
       object.isLive = false;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.traderLogin =
           options.longs === String
             ? long.toString()
@@ -57272,9 +57274,9 @@ export const ProtoOACtidTraderAccount = ($root.ProtoOACtidTraderAccount = (() =>
   };
 
   return ProtoOACtidTraderAccount;
-})());
+})();
 
-export const ProtoOAAssetClass = ($root.ProtoOAAssetClass = (() => {
+$root.ProtoOAAssetClass = (function() {
   /**
    * Properties of a ProtoOAAssetClass.
    * @exports IProtoOAAssetClass
@@ -57293,7 +57295,7 @@ export const ProtoOAAssetClass = ($root.ProtoOAAssetClass = (() => {
    */
   function ProtoOAAssetClass(properties) {
     if (properties)
-      for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
 
@@ -57374,10 +57376,10 @@ export const ProtoOAAssetClass = ($root.ProtoOAAssetClass = (() => {
    */
   ProtoOAAssetClass.decode = function decode(reader, length) {
     if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    let end = length === undefined ? reader.len : reader.pos + length,
+    var end = length === undefined ? reader.len : reader.pos + length,
       message = new $root.ProtoOAAssetClass();
     while (reader.pos < end) {
-      let tag = reader.uint32();
+      var tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
           message.id = reader.int64();
@@ -57444,7 +57446,7 @@ export const ProtoOAAssetClass = ($root.ProtoOAAssetClass = (() => {
    */
   ProtoOAAssetClass.fromObject = function fromObject(object) {
     if (object instanceof $root.ProtoOAAssetClass) return object;
-    let message = new $root.ProtoOAAssetClass();
+    var message = new $root.ProtoOAAssetClass();
     if (object.id != null)
       if ($util.Long)
         (message.id = $util.Long.fromValue(object.id)).unsigned = false;
@@ -57471,10 +57473,10 @@ export const ProtoOAAssetClass = ($root.ProtoOAAssetClass = (() => {
    */
   ProtoOAAssetClass.toObject = function toObject(message, options) {
     if (!options) options = {};
-    let object = {};
+    var object = {};
     if (options.defaults) {
       if ($util.Long) {
-        let long = new $util.Long(0, 0, false);
+        var long = new $util.Long(0, 0, false);
         object.id =
           options.longs === String
             ? long.toString()
@@ -57514,9 +57516,9 @@ export const ProtoOAAssetClass = ($root.ProtoOAAssetClass = (() => {
   };
 
   return ProtoOAAssetClass;
-})());
+})();
 
-export const ProtoOADepthQuote = ($root.ProtoOADepthQuote = (() => {
+$root.ProtoOADepthQuote = (function() {
   /**
    * Properties of a ProtoOADepthQuote.
    * @exports IProtoOADepthQuote
@@ -57537,7 +57539,7 @@ export const ProtoOADepthQuote = ($root.ProtoOADepthQuote = (() => {
    */
   function ProtoOADepthQuote(properties) {
     if (properties)
-      for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
 
@@ -57642,10 +57644,10 @@ export const ProtoOADepthQuote = ($root.ProtoOADepthQuote = (() => {
    */
   ProtoOADepthQuote.decode = function decode(reader, length) {
     if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
-    let end = length === undefined ? reader.len : reader.pos + length,
+    var end = length === undefined ? reader.len : reader.pos + length,
       message = new $root.ProtoOADepthQuote();
     while (reader.pos < end) {
-      let tag = reader.uint32();
+      var tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
           message.id = reader.uint64();
@@ -57750,7 +57752,7 @@ export const ProtoOADepthQuote = ($root.ProtoOADepthQuote = (() => {
    */
   ProtoOADepthQuote.fromObject = function fromObject(object) {
     if (object instanceof $root.ProtoOADepthQuote) return object;
-    let message = new $root.ProtoOADepthQuote();
+    var message = new $root.ProtoOADepthQuote();
     if (object.id != null)
       if ($util.Long)
         (message.id = $util.Long.fromValue(object.id)).unsigned = true;
@@ -57809,10 +57811,10 @@ export const ProtoOADepthQuote = ($root.ProtoOADepthQuote = (() => {
    */
   ProtoOADepthQuote.toObject = function toObject(message, options) {
     if (!options) options = {};
-    let object = {};
+    var object = {};
     if (options.defaults) {
       if ($util.Long) {
-        let long = new $util.Long(0, 0, true);
+        var long = new $util.Long(0, 0, true);
         object.id =
           options.longs === String
             ? long.toString()
@@ -57821,7 +57823,7 @@ export const ProtoOADepthQuote = ($root.ProtoOADepthQuote = (() => {
             : long;
       } else object.id = options.longs === String ? "0" : 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, true);
+        var long = new $util.Long(0, 0, true);
         object.size =
           options.longs === String
             ? long.toString()
@@ -57830,7 +57832,7 @@ export const ProtoOADepthQuote = ($root.ProtoOADepthQuote = (() => {
             : long;
       } else object.size = options.longs === String ? "0" : 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, true);
+        var long = new $util.Long(0, 0, true);
         object.bid =
           options.longs === String
             ? long.toString()
@@ -57839,7 +57841,7 @@ export const ProtoOADepthQuote = ($root.ProtoOADepthQuote = (() => {
             : long;
       } else object.bid = options.longs === String ? "0" : 0;
       if ($util.Long) {
-        let long = new $util.Long(0, 0, true);
+        var long = new $util.Long(0, 0, true);
         object.ask =
           options.longs === String
             ? long.toString()
@@ -57918,7 +57920,7 @@ export const ProtoOADepthQuote = ($root.ProtoOADepthQuote = (() => {
   };
 
   return ProtoOADepthQuote;
-})());
+})();
 
 /**
  * Error code ENUM.
@@ -57930,7 +57932,7 @@ export const ProtoOADepthQuote = ($root.ProtoOADepthQuote = (() => {
  * @property {number} CONNECTIONS_LIMIT_EXCEEDED=67 CONNECTIONS_LIMIT_EXCEEDED value
  */
 $root.ProtoOAErrorCode = (function() {
-  const valuesById = {},
+  var valuesById = {},
     values = Object.create(valuesById);
   values[(valuesById[1] = "OA_AUTH_TOKEN_EXPIRED")] = 1;
   values[(valuesById[2] = "ACCOUNT_NOT_AUTHORIZED")] = 2;
@@ -57939,4 +57941,4 @@ $root.ProtoOAErrorCode = (function() {
   return values;
 })();
 
-export { $root as default };
+module.exports = $root;
