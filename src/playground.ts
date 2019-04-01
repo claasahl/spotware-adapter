@@ -20,4 +20,5 @@ emitter.removeListener("PROTO_MESSAGE", message => {});
 
 emitter.removeAllListeners("PROTO_MESSAGE");
 emitter.listenerCount("ERROR_RES");
+emitter.listeners("PROTO_OA_APPLICATION_AUTH_RES");
 emitter.eventNames();

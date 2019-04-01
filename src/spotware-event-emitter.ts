@@ -34,8 +34,6 @@ export interface SpotwareEventEmitter extends EventEmitter {
     event: "PROTO_MESSAGE",
     listener: (message: $spotware.IProtoMessage) => void
   ): this;
-  // TODO: listeners(event: "PROTO_MESSAGE"): ((message: $spotware.IProtoMessage) => void)[];
-  // TODO: rawListeners(event: "PROTO_MESSAGE"): ((message: $spotware.IProtoMessage) => void)[];
   emit(event: "ERROR_RES", message: $spotware.IProtoErrorRes): boolean;
   on(event: "ERROR_RES", listener: Listener<$spotware.IProtoErrorRes>): this;
   off(event: "ERROR_RES", listener: Listener<$spotware.IProtoErrorRes>): this;
@@ -56,8 +54,6 @@ export interface SpotwareEventEmitter extends EventEmitter {
     event: "ERROR_RES",
     listener: Listener<$spotware.IProtoErrorRes>
   ): this;
-  // TODO: listeners(event: "ERROR_RES"): Listener<$spotware.IProtoErrorRes>[];
-  // TODO: rawListeners(event: "ERROR_RES"): Listener<$spotware.IProtoErrorRes>[];
   emit(
     event: "HEARTBEAT_EVENT",
     message: $spotware.IProtoHeartbeatEvent
@@ -90,8 +86,6 @@ export interface SpotwareEventEmitter extends EventEmitter {
     event: "HEARTBEAT_EVENT",
     listener: Listener<$spotware.IProtoHeartbeatEvent>
   ): this;
-  // TODO: listeners(event: "HEARTBEAT_EVENT"): Listener<$spotware.IProtoHeartbeatEvent>[];
-  // TODO: rawListeners(event: "HEARTBEAT_EVENT"): Listener<$spotware.IProtoHeartbeatEvent>[];
   emit(
     event: "PROTO_OA_APPLICATION_AUTH_REQ",
     message: $spotware.IProtoOAApplicationAuthReq
@@ -124,8 +118,6 @@ export interface SpotwareEventEmitter extends EventEmitter {
     event: "PROTO_OA_APPLICATION_AUTH_REQ",
     listener: Listener<$spotware.IProtoOAApplicationAuthReq>
   ): this;
-  // TODO: listeners(event: "PROTO_OA_APPLICATION_AUTH_REQ"): Listener<$spotware.IProtoOAApplicationAuthReq>[];
-  // TODO: rawListeners(event: "PROTO_OA_APPLICATION_AUTH_REQ"): Listener<$spotware.IProtoOAApplicationAuthReq>[];
   emit(
     event: "PROTO_OA_APPLICATION_AUTH_RES",
     message: $spotware.IProtoOAApplicationAuthRes
@@ -158,8 +150,6 @@ export interface SpotwareEventEmitter extends EventEmitter {
     event: "PROTO_OA_APPLICATION_AUTH_RES",
     listener: Listener<$spotware.IProtoOAApplicationAuthRes>
   ): this;
-  // TODO: listeners(event: "PROTO_OA_APPLICATION_AUTH_RES"): Listener<$spotware.IProtoOAApplicationAuthRes>[];
-  // TODO: rawListeners(event: "PROTO_OA_APPLICATION_AUTH_RES"): Listener<$spotware.IProtoOAApplicationAuthRes>[];
   emit(
     event: "PROTO_OA_ACCOUNT_AUTH_REQ",
     message: $spotware.IProtoOAAccountAuthReq
@@ -192,8 +182,6 @@ export interface SpotwareEventEmitter extends EventEmitter {
     event: "PROTO_OA_ACCOUNT_AUTH_REQ",
     listener: Listener<$spotware.IProtoOAAccountAuthReq>
   ): this;
-  // TODO: listeners(event: "PROTO_OA_ACCOUNT_AUTH_REQ"): Listener<$spotware.IProtoOAAccountAuthReq>[];
-  // TODO: rawListeners(event: "PROTO_OA_ACCOUNT_AUTH_REQ"): Listener<$spotware.IProtoOAAccountAuthReq>[];
   emit(
     event: "PROTO_OA_ACCOUNT_AUTH_RES",
     message: $spotware.IProtoOAAccountAuthRes
@@ -226,8 +214,6 @@ export interface SpotwareEventEmitter extends EventEmitter {
     event: "PROTO_OA_ACCOUNT_AUTH_RES",
     listener: Listener<$spotware.IProtoOAAccountAuthRes>
   ): this;
-  // TODO: listeners(event: "PROTO_OA_ACCOUNT_AUTH_RES"): Listener<$spotware.IProtoOAAccountAuthRes>[];
-  // TODO: rawListeners(event: "PROTO_OA_ACCOUNT_AUTH_RES"): Listener<$spotware.IProtoOAAccountAuthRes>[];
   emit(
     event: "PROTO_OA_ERROR_RES",
     message: $spotware.IProtoOAErrorRes
@@ -260,8 +246,6 @@ export interface SpotwareEventEmitter extends EventEmitter {
     event: "PROTO_OA_ERROR_RES",
     listener: Listener<$spotware.IProtoOAErrorRes>
   ): this;
-  // TODO: listeners(event: "PROTO_OA_ERROR_RES"): Listener<$spotware.IProtoOAErrorRes>[];
-  // TODO: rawListeners(event: "PROTO_OA_ERROR_RES"): Listener<$spotware.IProtoOAErrorRes>[];
   emit(
     event: "PROTO_OA_CLIENT_DISCONNECT_EVENT",
     message: $spotware.IProtoOAClientDisconnectEvent
@@ -294,8 +278,6 @@ export interface SpotwareEventEmitter extends EventEmitter {
     event: "PROTO_OA_CLIENT_DISCONNECT_EVENT",
     listener: Listener<$spotware.IProtoOAClientDisconnectEvent>
   ): this;
-  // TODO: listeners(event: "PROTO_OA_CLIENT_DISCONNECT_EVENT"): Listener<$spotware.IProtoOAClientDisconnectEvent>[];
-  // TODO: rawListeners(event: "PROTO_OA_CLIENT_DISCONNECT_EVENT"): Listener<$spotware.IProtoOAClientDisconnectEvent>[];
   emit(
     event: "PROTO_OA_ACCOUNTS_TOKEN_INVALIDATED_EVENT",
     message: $spotware.IProtoOAAccountsTokenInvalidatedEvent
@@ -328,8 +310,6 @@ export interface SpotwareEventEmitter extends EventEmitter {
     event: "PROTO_OA_ACCOUNTS_TOKEN_INVALIDATED_EVENT",
     listener: Listener<$spotware.IProtoOAAccountsTokenInvalidatedEvent>
   ): this;
-  // TODO: listeners(event: "PROTO_OA_ACCOUNTS_TOKEN_INVALIDATED_EVENT"): Listener<$spotware.IProtoOAAccountsTokenInvalidatedEvent>[];
-  // TODO: rawListeners(event: "PROTO_OA_ACCOUNTS_TOKEN_INVALIDATED_EVENT"): Listener<$spotware.IProtoOAAccountsTokenInvalidatedEvent>[];
   emit(
     event: "PROTO_OA_VERSION_REQ",
     message: $spotware.IProtoOAVersionReq
@@ -362,8 +342,6 @@ export interface SpotwareEventEmitter extends EventEmitter {
     event: "PROTO_OA_VERSION_REQ",
     listener: Listener<$spotware.IProtoOAVersionReq>
   ): this;
-  // TODO: listeners(event: "PROTO_OA_VERSION_REQ"): Listener<$spotware.IProtoOAVersionReq>[];
-  // TODO: rawListeners(event: "PROTO_OA_VERSION_REQ"): Listener<$spotware.IProtoOAVersionReq>[];
   emit(
     event: "PROTO_OA_VERSION_RES",
     message: $spotware.IProtoOAVersionRes
@@ -396,8 +374,6 @@ export interface SpotwareEventEmitter extends EventEmitter {
     event: "PROTO_OA_VERSION_RES",
     listener: Listener<$spotware.IProtoOAVersionRes>
   ): this;
-  // TODO: listeners(event: "PROTO_OA_VERSION_RES"): Listener<$spotware.IProtoOAVersionRes>[];
-  // TODO: rawListeners(event: "PROTO_OA_VERSION_RES"): Listener<$spotware.IProtoOAVersionRes>[];
   emit(
     event: "PROTO_OA_NEW_ORDER_REQ",
     message: $spotware.IProtoOANewOrderReq
@@ -430,8 +406,6 @@ export interface SpotwareEventEmitter extends EventEmitter {
     event: "PROTO_OA_NEW_ORDER_REQ",
     listener: Listener<$spotware.IProtoOANewOrderReq>
   ): this;
-  // TODO: listeners(event: "PROTO_OA_NEW_ORDER_REQ"): Listener<$spotware.IProtoOANewOrderReq>[];
-  // TODO: rawListeners(event: "PROTO_OA_NEW_ORDER_REQ"): Listener<$spotware.IProtoOANewOrderReq>[];
   emit(
     event: "PROTO_OA_EXECUTION_EVENT",
     message: $spotware.IProtoOAExecutionEvent
@@ -464,8 +438,6 @@ export interface SpotwareEventEmitter extends EventEmitter {
     event: "PROTO_OA_EXECUTION_EVENT",
     listener: Listener<$spotware.IProtoOAExecutionEvent>
   ): this;
-  // TODO: listeners(event: "PROTO_OA_EXECUTION_EVENT"): Listener<$spotware.IProtoOAExecutionEvent>[];
-  // TODO: rawListeners(event: "PROTO_OA_EXECUTION_EVENT"): Listener<$spotware.IProtoOAExecutionEvent>[];
   emit(
     event: "PROTO_OA_CANCEL_ORDER_REQ",
     message: $spotware.IProtoOACancelOrderReq
@@ -498,8 +470,6 @@ export interface SpotwareEventEmitter extends EventEmitter {
     event: "PROTO_OA_CANCEL_ORDER_REQ",
     listener: Listener<$spotware.IProtoOACancelOrderReq>
   ): this;
-  // TODO: listeners(event: "PROTO_OA_CANCEL_ORDER_REQ"): Listener<$spotware.IProtoOACancelOrderReq>[];
-  // TODO: rawListeners(event: "PROTO_OA_CANCEL_ORDER_REQ"): Listener<$spotware.IProtoOACancelOrderReq>[];
   emit(
     event: "PROTO_OA_AMEND_ORDER_REQ",
     message: $spotware.IProtoOAAmendOrderReq
@@ -532,8 +502,6 @@ export interface SpotwareEventEmitter extends EventEmitter {
     event: "PROTO_OA_AMEND_ORDER_REQ",
     listener: Listener<$spotware.IProtoOAAmendOrderReq>
   ): this;
-  // TODO: listeners(event: "PROTO_OA_AMEND_ORDER_REQ"): Listener<$spotware.IProtoOAAmendOrderReq>[];
-  // TODO: rawListeners(event: "PROTO_OA_AMEND_ORDER_REQ"): Listener<$spotware.IProtoOAAmendOrderReq>[];
   emit(
     event: "PROTO_OA_AMEND_POSITION_SLTP_REQ",
     message: $spotware.IProtoOAAmendPositionSLTPReq
@@ -566,8 +534,6 @@ export interface SpotwareEventEmitter extends EventEmitter {
     event: "PROTO_OA_AMEND_POSITION_SLTP_REQ",
     listener: Listener<$spotware.IProtoOAAmendPositionSLTPReq>
   ): this;
-  // TODO: listeners(event: "PROTO_OA_AMEND_POSITION_SLTP_REQ"): Listener<$spotware.IProtoOAAmendPositionSLTPReq>[];
-  // TODO: rawListeners(event: "PROTO_OA_AMEND_POSITION_SLTP_REQ"): Listener<$spotware.IProtoOAAmendPositionSLTPReq>[];
   emit(
     event: "PROTO_OA_CLOSE_POSITION_REQ",
     message: $spotware.IProtoOAClosePositionReq
@@ -600,8 +566,6 @@ export interface SpotwareEventEmitter extends EventEmitter {
     event: "PROTO_OA_CLOSE_POSITION_REQ",
     listener: Listener<$spotware.IProtoOAClosePositionReq>
   ): this;
-  // TODO: listeners(event: "PROTO_OA_CLOSE_POSITION_REQ"): Listener<$spotware.IProtoOAClosePositionReq>[];
-  // TODO: rawListeners(event: "PROTO_OA_CLOSE_POSITION_REQ"): Listener<$spotware.IProtoOAClosePositionReq>[];
   emit(
     event: "PROTO_OA_TRAILING_SL_CHANGED_EVENT",
     message: $spotware.IProtoOATrailingSLChangedEvent
@@ -634,8 +598,6 @@ export interface SpotwareEventEmitter extends EventEmitter {
     event: "PROTO_OA_TRAILING_SL_CHANGED_EVENT",
     listener: Listener<$spotware.IProtoOATrailingSLChangedEvent>
   ): this;
-  // TODO: listeners(event: "PROTO_OA_TRAILING_SL_CHANGED_EVENT"): Listener<$spotware.IProtoOATrailingSLChangedEvent>[];
-  // TODO: rawListeners(event: "PROTO_OA_TRAILING_SL_CHANGED_EVENT"): Listener<$spotware.IProtoOATrailingSLChangedEvent>[];
   emit(
     event: "PROTO_OA_ASSET_LIST_REQ",
     message: $spotware.IProtoOAAssetListReq
@@ -668,8 +630,6 @@ export interface SpotwareEventEmitter extends EventEmitter {
     event: "PROTO_OA_ASSET_LIST_REQ",
     listener: Listener<$spotware.IProtoOAAssetListReq>
   ): this;
-  // TODO: listeners(event: "PROTO_OA_ASSET_LIST_REQ"): Listener<$spotware.IProtoOAAssetListReq>[];
-  // TODO: rawListeners(event: "PROTO_OA_ASSET_LIST_REQ"): Listener<$spotware.IProtoOAAssetListReq>[];
   emit(
     event: "PROTO_OA_ASSET_LIST_RES",
     message: $spotware.IProtoOAAssetListRes
@@ -702,8 +662,6 @@ export interface SpotwareEventEmitter extends EventEmitter {
     event: "PROTO_OA_ASSET_LIST_RES",
     listener: Listener<$spotware.IProtoOAAssetListRes>
   ): this;
-  // TODO: listeners(event: "PROTO_OA_ASSET_LIST_RES"): Listener<$spotware.IProtoOAAssetListRes>[];
-  // TODO: rawListeners(event: "PROTO_OA_ASSET_LIST_RES"): Listener<$spotware.IProtoOAAssetListRes>[];
   emit(
     event: "PROTO_OA_SYMBOLS_LIST_REQ",
     message: $spotware.IProtoOASymbolsListReq
@@ -736,8 +694,6 @@ export interface SpotwareEventEmitter extends EventEmitter {
     event: "PROTO_OA_SYMBOLS_LIST_REQ",
     listener: Listener<$spotware.IProtoOASymbolsListReq>
   ): this;
-  // TODO: listeners(event: "PROTO_OA_SYMBOLS_LIST_REQ"): Listener<$spotware.IProtoOASymbolsListReq>[];
-  // TODO: rawListeners(event: "PROTO_OA_SYMBOLS_LIST_REQ"): Listener<$spotware.IProtoOASymbolsListReq>[];
   emit(
     event: "PROTO_OA_SYMBOLS_LIST_RES",
     message: $spotware.IProtoOASymbolsListRes
@@ -770,8 +726,6 @@ export interface SpotwareEventEmitter extends EventEmitter {
     event: "PROTO_OA_SYMBOLS_LIST_RES",
     listener: Listener<$spotware.IProtoOASymbolsListRes>
   ): this;
-  // TODO: listeners(event: "PROTO_OA_SYMBOLS_LIST_RES"): Listener<$spotware.IProtoOASymbolsListRes>[];
-  // TODO: rawListeners(event: "PROTO_OA_SYMBOLS_LIST_RES"): Listener<$spotware.IProtoOASymbolsListRes>[];
   emit(
     event: "PROTO_OA_SYMBOL_BY_ID_REQ",
     message: $spotware.IProtoOASymbolByIdReq
@@ -804,8 +758,6 @@ export interface SpotwareEventEmitter extends EventEmitter {
     event: "PROTO_OA_SYMBOL_BY_ID_REQ",
     listener: Listener<$spotware.IProtoOASymbolByIdReq>
   ): this;
-  // TODO: listeners(event: "PROTO_OA_SYMBOL_BY_ID_REQ"): Listener<$spotware.IProtoOASymbolByIdReq>[];
-  // TODO: rawListeners(event: "PROTO_OA_SYMBOL_BY_ID_REQ"): Listener<$spotware.IProtoOASymbolByIdReq>[];
   emit(
     event: "PROTO_OA_SYMBOL_BY_ID_RES",
     message: $spotware.IProtoOASymbolByIdRes
@@ -838,8 +790,6 @@ export interface SpotwareEventEmitter extends EventEmitter {
     event: "PROTO_OA_SYMBOL_BY_ID_RES",
     listener: Listener<$spotware.IProtoOASymbolByIdRes>
   ): this;
-  // TODO: listeners(event: "PROTO_OA_SYMBOL_BY_ID_RES"): Listener<$spotware.IProtoOASymbolByIdRes>[];
-  // TODO: rawListeners(event: "PROTO_OA_SYMBOL_BY_ID_RES"): Listener<$spotware.IProtoOASymbolByIdRes>[];
   emit(
     event: "PROTO_OA_SYMBOLS_FOR_CONVERSION_REQ",
     message: $spotware.IProtoOASymbolsForConversionReq
@@ -872,8 +822,6 @@ export interface SpotwareEventEmitter extends EventEmitter {
     event: "PROTO_OA_SYMBOLS_FOR_CONVERSION_REQ",
     listener: Listener<$spotware.IProtoOASymbolsForConversionReq>
   ): this;
-  // TODO: listeners(event: "PROTO_OA_SYMBOLS_FOR_CONVERSION_REQ"): Listener<$spotware.IProtoOASymbolsForConversionReq>[];
-  // TODO: rawListeners(event: "PROTO_OA_SYMBOLS_FOR_CONVERSION_REQ"): Listener<$spotware.IProtoOASymbolsForConversionReq>[];
   emit(
     event: "PROTO_OA_SYMBOLS_FOR_CONVERSION_RES",
     message: $spotware.IProtoOASymbolsForConversionRes
@@ -906,8 +854,6 @@ export interface SpotwareEventEmitter extends EventEmitter {
     event: "PROTO_OA_SYMBOLS_FOR_CONVERSION_RES",
     listener: Listener<$spotware.IProtoOASymbolsForConversionRes>
   ): this;
-  // TODO: listeners(event: "PROTO_OA_SYMBOLS_FOR_CONVERSION_RES"): Listener<$spotware.IProtoOASymbolsForConversionRes>[];
-  // TODO: rawListeners(event: "PROTO_OA_SYMBOLS_FOR_CONVERSION_RES"): Listener<$spotware.IProtoOASymbolsForConversionRes>[];
   emit(
     event: "PROTO_OA_SYMBOL_CHANGED_EVENT",
     message: $spotware.IProtoOASymbolChangedEvent
@@ -940,8 +886,6 @@ export interface SpotwareEventEmitter extends EventEmitter {
     event: "PROTO_OA_SYMBOL_CHANGED_EVENT",
     listener: Listener<$spotware.IProtoOASymbolChangedEvent>
   ): this;
-  // TODO: listeners(event: "PROTO_OA_SYMBOL_CHANGED_EVENT"): Listener<$spotware.IProtoOASymbolChangedEvent>[];
-  // TODO: rawListeners(event: "PROTO_OA_SYMBOL_CHANGED_EVENT"): Listener<$spotware.IProtoOASymbolChangedEvent>[];
   emit(
     event: "PROTO_OA_ASSET_CLASS_LIST_REQ",
     message: $spotware.IProtoOAAssetClassListReq
@@ -974,8 +918,6 @@ export interface SpotwareEventEmitter extends EventEmitter {
     event: "PROTO_OA_ASSET_CLASS_LIST_REQ",
     listener: Listener<$spotware.IProtoOAAssetClassListReq>
   ): this;
-  // TODO: listeners(event: "PROTO_OA_ASSET_CLASS_LIST_REQ"): Listener<$spotware.IProtoOAAssetClassListReq>[];
-  // TODO: rawListeners(event: "PROTO_OA_ASSET_CLASS_LIST_REQ"): Listener<$spotware.IProtoOAAssetClassListReq>[];
   emit(
     event: "PROTO_OA_ASSET_CLASS_LIST_RES",
     message: $spotware.IProtoOAAssetClassListRes
@@ -1008,8 +950,6 @@ export interface SpotwareEventEmitter extends EventEmitter {
     event: "PROTO_OA_ASSET_CLASS_LIST_RES",
     listener: Listener<$spotware.IProtoOAAssetClassListRes>
   ): this;
-  // TODO: listeners(event: "PROTO_OA_ASSET_CLASS_LIST_RES"): Listener<$spotware.IProtoOAAssetClassListRes>[];
-  // TODO: rawListeners(event: "PROTO_OA_ASSET_CLASS_LIST_RES"): Listener<$spotware.IProtoOAAssetClassListRes>[];
   emit(
     event: "PROTO_OA_TRADER_REQ",
     message: $spotware.IProtoOATraderReq
@@ -1042,8 +982,6 @@ export interface SpotwareEventEmitter extends EventEmitter {
     event: "PROTO_OA_TRADER_REQ",
     listener: Listener<$spotware.IProtoOATraderReq>
   ): this;
-  // TODO: listeners(event: "PROTO_OA_TRADER_REQ"): Listener<$spotware.IProtoOATraderReq>[];
-  // TODO: rawListeners(event: "PROTO_OA_TRADER_REQ"): Listener<$spotware.IProtoOATraderReq>[];
   emit(
     event: "PROTO_OA_TRADER_RES",
     message: $spotware.IProtoOATraderRes
@@ -1076,8 +1014,6 @@ export interface SpotwareEventEmitter extends EventEmitter {
     event: "PROTO_OA_TRADER_RES",
     listener: Listener<$spotware.IProtoOATraderRes>
   ): this;
-  // TODO: listeners(event: "PROTO_OA_TRADER_RES"): Listener<$spotware.IProtoOATraderRes>[];
-  // TODO: rawListeners(event: "PROTO_OA_TRADER_RES"): Listener<$spotware.IProtoOATraderRes>[];
   emit(
     event: "PROTO_OA_TRADER_UPDATE_EVENT",
     message: $spotware.IProtoOATraderUpdatedEvent
@@ -1110,8 +1046,6 @@ export interface SpotwareEventEmitter extends EventEmitter {
     event: "PROTO_OA_TRADER_UPDATE_EVENT",
     listener: Listener<$spotware.IProtoOATraderUpdatedEvent>
   ): this;
-  // TODO: listeners(event: "PROTO_OA_TRADER_UPDATE_EVENT"): Listener<$spotware.IProtoOATraderUpdatedEvent>[];
-  // TODO: rawListeners(event: "PROTO_OA_TRADER_UPDATE_EVENT"): Listener<$spotware.IProtoOATraderUpdatedEvent>[];
   emit(
     event: "PROTO_OA_RECONCILE_REQ",
     message: $spotware.IProtoOAReconcileReq
@@ -1144,8 +1078,6 @@ export interface SpotwareEventEmitter extends EventEmitter {
     event: "PROTO_OA_RECONCILE_REQ",
     listener: Listener<$spotware.IProtoOAReconcileReq>
   ): this;
-  // TODO: listeners(event: "PROTO_OA_RECONCILE_REQ"): Listener<$spotware.IProtoOAReconcileReq>[];
-  // TODO: rawListeners(event: "PROTO_OA_RECONCILE_REQ"): Listener<$spotware.IProtoOAReconcileReq>[];
   emit(
     event: "PROTO_OA_RECONCILE_RES",
     message: $spotware.IProtoOAReconcileRes
@@ -1178,8 +1110,6 @@ export interface SpotwareEventEmitter extends EventEmitter {
     event: "PROTO_OA_RECONCILE_RES",
     listener: Listener<$spotware.IProtoOAReconcileRes>
   ): this;
-  // TODO: listeners(event: "PROTO_OA_RECONCILE_RES"): Listener<$spotware.IProtoOAReconcileRes>[];
-  // TODO: rawListeners(event: "PROTO_OA_RECONCILE_RES"): Listener<$spotware.IProtoOAReconcileRes>[];
   emit(
     event: "PROTO_OA_ORDER_ERROR_EVENT",
     message: $spotware.IProtoOAOrderErrorEvent
@@ -1212,8 +1142,6 @@ export interface SpotwareEventEmitter extends EventEmitter {
     event: "PROTO_OA_ORDER_ERROR_EVENT",
     listener: Listener<$spotware.IProtoOAOrderErrorEvent>
   ): this;
-  // TODO: listeners(event: "PROTO_OA_ORDER_ERROR_EVENT"): Listener<$spotware.IProtoOAOrderErrorEvent>[];
-  // TODO: rawListeners(event: "PROTO_OA_ORDER_ERROR_EVENT"): Listener<$spotware.IProtoOAOrderErrorEvent>[];
   emit(
     event: "PROTO_OA_DEAL_LIST_REQ",
     message: $spotware.IProtoOADealListReq
@@ -1246,8 +1174,6 @@ export interface SpotwareEventEmitter extends EventEmitter {
     event: "PROTO_OA_DEAL_LIST_REQ",
     listener: Listener<$spotware.IProtoOADealListReq>
   ): this;
-  // TODO: listeners(event: "PROTO_OA_DEAL_LIST_REQ"): Listener<$spotware.IProtoOADealListReq>[];
-  // TODO: rawListeners(event: "PROTO_OA_DEAL_LIST_REQ"): Listener<$spotware.IProtoOADealListReq>[];
   emit(
     event: "PROTO_OA_DEAL_LIST_RES",
     message: $spotware.IProtoOADealListRes
@@ -1280,8 +1206,6 @@ export interface SpotwareEventEmitter extends EventEmitter {
     event: "PROTO_OA_DEAL_LIST_RES",
     listener: Listener<$spotware.IProtoOADealListRes>
   ): this;
-  // TODO: listeners(event: "PROTO_OA_DEAL_LIST_RES"): Listener<$spotware.IProtoOADealListRes>[];
-  // TODO: rawListeners(event: "PROTO_OA_DEAL_LIST_RES"): Listener<$spotware.IProtoOADealListRes>[];
   emit(
     event: "PROTO_OA_EXPECTED_MARGIN_REQ",
     message: $spotware.IProtoOAExpectedMarginReq
@@ -1314,8 +1238,6 @@ export interface SpotwareEventEmitter extends EventEmitter {
     event: "PROTO_OA_EXPECTED_MARGIN_REQ",
     listener: Listener<$spotware.IProtoOAExpectedMarginReq>
   ): this;
-  // TODO: listeners(event: "PROTO_OA_EXPECTED_MARGIN_REQ"): Listener<$spotware.IProtoOAExpectedMarginReq>[];
-  // TODO: rawListeners(event: "PROTO_OA_EXPECTED_MARGIN_REQ"): Listener<$spotware.IProtoOAExpectedMarginReq>[];
   emit(
     event: "PROTO_OA_EXPECTED_MARGIN_RES",
     message: $spotware.IProtoOAExpectedMarginRes
@@ -1348,8 +1270,6 @@ export interface SpotwareEventEmitter extends EventEmitter {
     event: "PROTO_OA_EXPECTED_MARGIN_RES",
     listener: Listener<$spotware.IProtoOAExpectedMarginRes>
   ): this;
-  // TODO: listeners(event: "PROTO_OA_EXPECTED_MARGIN_RES"): Listener<$spotware.IProtoOAExpectedMarginRes>[];
-  // TODO: rawListeners(event: "PROTO_OA_EXPECTED_MARGIN_RES"): Listener<$spotware.IProtoOAExpectedMarginRes>[];
   emit(
     event: "PROTO_OA_MARGIN_CHANGED_EVENT",
     message: $spotware.IProtoOAMarginChangedEvent
@@ -1382,8 +1302,6 @@ export interface SpotwareEventEmitter extends EventEmitter {
     event: "PROTO_OA_MARGIN_CHANGED_EVENT",
     listener: Listener<$spotware.IProtoOAMarginChangedEvent>
   ): this;
-  // TODO: listeners(event: "PROTO_OA_MARGIN_CHANGED_EVENT"): Listener<$spotware.IProtoOAMarginChangedEvent>[];
-  // TODO: rawListeners(event: "PROTO_OA_MARGIN_CHANGED_EVENT"): Listener<$spotware.IProtoOAMarginChangedEvent>[];
   emit(
     event: "PROTO_OA_CASH_FLOW_HISTORY_LIST_REQ",
     message: $spotware.IProtoOACashFlowHistoryListReq
@@ -1416,8 +1334,6 @@ export interface SpotwareEventEmitter extends EventEmitter {
     event: "PROTO_OA_CASH_FLOW_HISTORY_LIST_REQ",
     listener: Listener<$spotware.IProtoOACashFlowHistoryListReq>
   ): this;
-  // TODO: listeners(event: "PROTO_OA_CASH_FLOW_HISTORY_LIST_REQ"): Listener<$spotware.IProtoOACashFlowHistoryListReq>[];
-  // TODO: rawListeners(event: "PROTO_OA_CASH_FLOW_HISTORY_LIST_REQ"): Listener<$spotware.IProtoOACashFlowHistoryListReq>[];
   emit(
     event: "PROTO_OA_CASH_FLOW_HISTORY_LIST_RES",
     message: $spotware.IProtoOACashFlowHistoryListRes
@@ -1450,8 +1366,6 @@ export interface SpotwareEventEmitter extends EventEmitter {
     event: "PROTO_OA_CASH_FLOW_HISTORY_LIST_RES",
     listener: Listener<$spotware.IProtoOACashFlowHistoryListRes>
   ): this;
-  // TODO: listeners(event: "PROTO_OA_CASH_FLOW_HISTORY_LIST_RES"): Listener<$spotware.IProtoOACashFlowHistoryListRes>[];
-  // TODO: rawListeners(event: "PROTO_OA_CASH_FLOW_HISTORY_LIST_RES"): Listener<$spotware.IProtoOACashFlowHistoryListRes>[];
   emit(
     event: "PROTO_OA_GET_ACCOUNTS_BY_ACCESS_TOKEN_REQ",
     message: $spotware.IProtoOAGetAccountListByAccessTokenReq
@@ -1484,8 +1398,6 @@ export interface SpotwareEventEmitter extends EventEmitter {
     event: "PROTO_OA_GET_ACCOUNTS_BY_ACCESS_TOKEN_REQ",
     listener: Listener<$spotware.IProtoOAGetAccountListByAccessTokenReq>
   ): this;
-  // TODO: listeners(event: "PROTO_OA_GET_ACCOUNTS_BY_ACCESS_TOKEN_REQ"): Listener<$spotware.IProtoOAGetAccountListByAccessTokenReq>[];
-  // TODO: rawListeners(event: "PROTO_OA_GET_ACCOUNTS_BY_ACCESS_TOKEN_REQ"): Listener<$spotware.IProtoOAGetAccountListByAccessTokenReq>[];
   emit(
     event: "PROTO_OA_GET_ACCOUNTS_BY_ACCESS_TOKEN_RES",
     message: $spotware.IProtoOAGetAccountListByAccessTokenRes
@@ -1518,8 +1430,6 @@ export interface SpotwareEventEmitter extends EventEmitter {
     event: "PROTO_OA_GET_ACCOUNTS_BY_ACCESS_TOKEN_RES",
     listener: Listener<$spotware.IProtoOAGetAccountListByAccessTokenRes>
   ): this;
-  // TODO: listeners(event: "PROTO_OA_GET_ACCOUNTS_BY_ACCESS_TOKEN_RES"): Listener<$spotware.IProtoOAGetAccountListByAccessTokenRes>[];
-  // TODO: rawListeners(event: "PROTO_OA_GET_ACCOUNTS_BY_ACCESS_TOKEN_RES"): Listener<$spotware.IProtoOAGetAccountListByAccessTokenRes>[];
   emit(
     event: "PROTO_OA_SUBSCRIBE_SPOTS_REQ",
     message: $spotware.IProtoOASubscribeSpotsReq
@@ -1552,8 +1462,6 @@ export interface SpotwareEventEmitter extends EventEmitter {
     event: "PROTO_OA_SUBSCRIBE_SPOTS_REQ",
     listener: Listener<$spotware.IProtoOASubscribeSpotsReq>
   ): this;
-  // TODO: listeners(event: "PROTO_OA_SUBSCRIBE_SPOTS_REQ"): Listener<$spotware.IProtoOASubscribeSpotsReq>[];
-  // TODO: rawListeners(event: "PROTO_OA_SUBSCRIBE_SPOTS_REQ"): Listener<$spotware.IProtoOASubscribeSpotsReq>[];
   emit(
     event: "PROTO_OA_SUBSCRIBE_SPOTS_RES",
     message: $spotware.IProtoOASubscribeSpotsRes
@@ -1586,8 +1494,6 @@ export interface SpotwareEventEmitter extends EventEmitter {
     event: "PROTO_OA_SUBSCRIBE_SPOTS_RES",
     listener: Listener<$spotware.IProtoOASubscribeSpotsRes>
   ): this;
-  // TODO: listeners(event: "PROTO_OA_SUBSCRIBE_SPOTS_RES"): Listener<$spotware.IProtoOASubscribeSpotsRes>[];
-  // TODO: rawListeners(event: "PROTO_OA_SUBSCRIBE_SPOTS_RES"): Listener<$spotware.IProtoOASubscribeSpotsRes>[];
   emit(
     event: "PROTO_OA_UNSUBSCRIBE_SPOTS_REQ",
     message: $spotware.IProtoOAUnsubscribeSpotsReq
@@ -1620,8 +1526,6 @@ export interface SpotwareEventEmitter extends EventEmitter {
     event: "PROTO_OA_UNSUBSCRIBE_SPOTS_REQ",
     listener: Listener<$spotware.IProtoOAUnsubscribeSpotsReq>
   ): this;
-  // TODO: listeners(event: "PROTO_OA_UNSUBSCRIBE_SPOTS_REQ"): Listener<$spotware.IProtoOAUnsubscribeSpotsReq>[];
-  // TODO: rawListeners(event: "PROTO_OA_UNSUBSCRIBE_SPOTS_REQ"): Listener<$spotware.IProtoOAUnsubscribeSpotsReq>[];
   emit(
     event: "PROTO_OA_UNSUBSCRIBE_SPOTS_RES",
     message: $spotware.IProtoOAUnsubscribeSpotsRes
@@ -1654,8 +1558,6 @@ export interface SpotwareEventEmitter extends EventEmitter {
     event: "PROTO_OA_UNSUBSCRIBE_SPOTS_RES",
     listener: Listener<$spotware.IProtoOAUnsubscribeSpotsRes>
   ): this;
-  // TODO: listeners(event: "PROTO_OA_UNSUBSCRIBE_SPOTS_RES"): Listener<$spotware.IProtoOAUnsubscribeSpotsRes>[];
-  // TODO: rawListeners(event: "PROTO_OA_UNSUBSCRIBE_SPOTS_RES"): Listener<$spotware.IProtoOAUnsubscribeSpotsRes>[];
   emit(
     event: "PROTO_OA_SPOT_EVENT",
     message: $spotware.IProtoOASpotEvent
@@ -1688,8 +1590,6 @@ export interface SpotwareEventEmitter extends EventEmitter {
     event: "PROTO_OA_SPOT_EVENT",
     listener: Listener<$spotware.IProtoOASpotEvent>
   ): this;
-  // TODO: listeners(event: "PROTO_OA_SPOT_EVENT"): Listener<$spotware.IProtoOASpotEvent>[];
-  // TODO: rawListeners(event: "PROTO_OA_SPOT_EVENT"): Listener<$spotware.IProtoOASpotEvent>[];
   emit(
     event: "PROTO_OA_SUBSCRIBE_LIVE_TRENDBAR_REQ",
     message: $spotware.IProtoOASubscribeLiveTrendbarReq
@@ -1722,8 +1622,6 @@ export interface SpotwareEventEmitter extends EventEmitter {
     event: "PROTO_OA_SUBSCRIBE_LIVE_TRENDBAR_REQ",
     listener: Listener<$spotware.IProtoOASubscribeLiveTrendbarReq>
   ): this;
-  // TODO: listeners(event: "PROTO_OA_SUBSCRIBE_LIVE_TRENDBAR_REQ"): Listener<$spotware.IProtoOASubscribeLiveTrendbarReq>[];
-  // TODO: rawListeners(event: "PROTO_OA_SUBSCRIBE_LIVE_TRENDBAR_REQ"): Listener<$spotware.IProtoOASubscribeLiveTrendbarReq>[];
   emit(
     event: "PROTO_OA_UNSUBSCRIBE_LIVE_TRENDBAR_REQ",
     message: $spotware.IProtoOAUnsubscribeLiveTrendbarReq
@@ -1756,8 +1654,6 @@ export interface SpotwareEventEmitter extends EventEmitter {
     event: "PROTO_OA_UNSUBSCRIBE_LIVE_TRENDBAR_REQ",
     listener: Listener<$spotware.IProtoOAUnsubscribeLiveTrendbarReq>
   ): this;
-  // TODO: listeners(event: "PROTO_OA_UNSUBSCRIBE_LIVE_TRENDBAR_REQ"): Listener<$spotware.IProtoOAUnsubscribeLiveTrendbarReq>[];
-  // TODO: rawListeners(event: "PROTO_OA_UNSUBSCRIBE_LIVE_TRENDBAR_REQ"): Listener<$spotware.IProtoOAUnsubscribeLiveTrendbarReq>[];
   emit(
     event: "PROTO_OA_GET_TRENDBARS_REQ",
     message: $spotware.IProtoOAGetTrendbarsReq
@@ -1790,8 +1686,6 @@ export interface SpotwareEventEmitter extends EventEmitter {
     event: "PROTO_OA_GET_TRENDBARS_REQ",
     listener: Listener<$spotware.IProtoOAGetTrendbarsReq>
   ): this;
-  // TODO: listeners(event: "PROTO_OA_GET_TRENDBARS_REQ"): Listener<$spotware.IProtoOAGetTrendbarsReq>[];
-  // TODO: rawListeners(event: "PROTO_OA_GET_TRENDBARS_REQ"): Listener<$spotware.IProtoOAGetTrendbarsReq>[];
   emit(
     event: "PROTO_OA_GET_TRENDBARS_RES",
     message: $spotware.IProtoOAGetTrendbarsRes
@@ -1824,8 +1718,6 @@ export interface SpotwareEventEmitter extends EventEmitter {
     event: "PROTO_OA_GET_TRENDBARS_RES",
     listener: Listener<$spotware.IProtoOAGetTrendbarsRes>
   ): this;
-  // TODO: listeners(event: "PROTO_OA_GET_TRENDBARS_RES"): Listener<$spotware.IProtoOAGetTrendbarsRes>[];
-  // TODO: rawListeners(event: "PROTO_OA_GET_TRENDBARS_RES"): Listener<$spotware.IProtoOAGetTrendbarsRes>[];
   emit(
     event: "PROTO_OA_GET_TICKDATA_REQ",
     message: $spotware.IProtoOAGetTickDataReq
@@ -1858,8 +1750,6 @@ export interface SpotwareEventEmitter extends EventEmitter {
     event: "PROTO_OA_GET_TICKDATA_REQ",
     listener: Listener<$spotware.IProtoOAGetTickDataReq>
   ): this;
-  // TODO: listeners(event: "PROTO_OA_GET_TICKDATA_REQ"): Listener<$spotware.IProtoOAGetTickDataReq>[];
-  // TODO: rawListeners(event: "PROTO_OA_GET_TICKDATA_REQ"): Listener<$spotware.IProtoOAGetTickDataReq>[];
   emit(
     event: "PROTO_OA_GET_TICKDATA_RES",
     message: $spotware.IProtoOAGetTickDataRes
@@ -1892,8 +1782,6 @@ export interface SpotwareEventEmitter extends EventEmitter {
     event: "PROTO_OA_GET_TICKDATA_RES",
     listener: Listener<$spotware.IProtoOAGetTickDataRes>
   ): this;
-  // TODO: listeners(event: "PROTO_OA_GET_TICKDATA_RES"): Listener<$spotware.IProtoOAGetTickDataRes>[];
-  // TODO: rawListeners(event: "PROTO_OA_GET_TICKDATA_RES"): Listener<$spotware.IProtoOAGetTickDataRes>[];
   emit(
     event: "PROTO_OA_GET_CTID_PROFILE_BY_TOKEN_REQ",
     message: $spotware.IProtoOAGetCtidProfileByTokenReq
@@ -1926,8 +1814,6 @@ export interface SpotwareEventEmitter extends EventEmitter {
     event: "PROTO_OA_GET_CTID_PROFILE_BY_TOKEN_REQ",
     listener: Listener<$spotware.IProtoOAGetCtidProfileByTokenReq>
   ): this;
-  // TODO: listeners(event: "PROTO_OA_GET_CTID_PROFILE_BY_TOKEN_REQ"): Listener<$spotware.IProtoOAGetCtidProfileByTokenReq>[];
-  // TODO: rawListeners(event: "PROTO_OA_GET_CTID_PROFILE_BY_TOKEN_REQ"): Listener<$spotware.IProtoOAGetCtidProfileByTokenReq>[];
   emit(
     event: "PROTO_OA_GET_CTID_PROFILE_BY_TOKEN_RES",
     message: $spotware.IProtoOAGetCtidProfileByTokenRes
@@ -1960,8 +1846,6 @@ export interface SpotwareEventEmitter extends EventEmitter {
     event: "PROTO_OA_GET_CTID_PROFILE_BY_TOKEN_RES",
     listener: Listener<$spotware.IProtoOAGetCtidProfileByTokenRes>
   ): this;
-  // TODO: listeners(event: "PROTO_OA_GET_CTID_PROFILE_BY_TOKEN_RES"): Listener<$spotware.IProtoOAGetCtidProfileByTokenRes>[];
-  // TODO: rawListeners(event: "PROTO_OA_GET_CTID_PROFILE_BY_TOKEN_RES"): Listener<$spotware.IProtoOAGetCtidProfileByTokenRes>[];
   emit(
     event: "PROTO_OA_DEPTH_EVENT",
     message: $spotware.IProtoOADepthEvent
@@ -1994,8 +1878,6 @@ export interface SpotwareEventEmitter extends EventEmitter {
     event: "PROTO_OA_DEPTH_EVENT",
     listener: Listener<$spotware.IProtoOADepthEvent>
   ): this;
-  // TODO: listeners(event: "PROTO_OA_DEPTH_EVENT"): Listener<$spotware.IProtoOADepthEvent>[];
-  // TODO: rawListeners(event: "PROTO_OA_DEPTH_EVENT"): Listener<$spotware.IProtoOADepthEvent>[];
   emit(
     event: "PROTO_OA_SUBSCRIBE_DEPTH_QUOTES_REQ",
     message: $spotware.IProtoOASubscribeDepthQuotesReq
@@ -2028,8 +1910,6 @@ export interface SpotwareEventEmitter extends EventEmitter {
     event: "PROTO_OA_SUBSCRIBE_DEPTH_QUOTES_REQ",
     listener: Listener<$spotware.IProtoOASubscribeDepthQuotesReq>
   ): this;
-  // TODO: listeners(event: "PROTO_OA_SUBSCRIBE_DEPTH_QUOTES_REQ"): Listener<$spotware.IProtoOASubscribeDepthQuotesReq>[];
-  // TODO: rawListeners(event: "PROTO_OA_SUBSCRIBE_DEPTH_QUOTES_REQ"): Listener<$spotware.IProtoOASubscribeDepthQuotesReq>[];
   emit(
     event: "PROTO_OA_SUBSCRIBE_DEPTH_QUOTES_RES",
     message: $spotware.IProtoOASubscribeDepthQuotesRes
@@ -2062,8 +1942,6 @@ export interface SpotwareEventEmitter extends EventEmitter {
     event: "PROTO_OA_SUBSCRIBE_DEPTH_QUOTES_RES",
     listener: Listener<$spotware.IProtoOASubscribeDepthQuotesRes>
   ): this;
-  // TODO: listeners(event: "PROTO_OA_SUBSCRIBE_DEPTH_QUOTES_RES"): Listener<$spotware.IProtoOASubscribeDepthQuotesRes>[];
-  // TODO: rawListeners(event: "PROTO_OA_SUBSCRIBE_DEPTH_QUOTES_RES"): Listener<$spotware.IProtoOASubscribeDepthQuotesRes>[];
   emit(
     event: "PROTO_OA_UNSUBSCRIBE_DEPTH_QUOTES_REQ",
     message: $spotware.IProtoOAUnsubscribeDepthQuotesReq
@@ -2096,8 +1974,6 @@ export interface SpotwareEventEmitter extends EventEmitter {
     event: "PROTO_OA_UNSUBSCRIBE_DEPTH_QUOTES_REQ",
     listener: Listener<$spotware.IProtoOAUnsubscribeDepthQuotesReq>
   ): this;
-  // TODO: listeners(event: "PROTO_OA_UNSUBSCRIBE_DEPTH_QUOTES_REQ"): Listener<$spotware.IProtoOAUnsubscribeDepthQuotesReq>[];
-  // TODO: rawListeners(event: "PROTO_OA_UNSUBSCRIBE_DEPTH_QUOTES_REQ"): Listener<$spotware.IProtoOAUnsubscribeDepthQuotesReq>[];
   emit(
     event: "PROTO_OA_UNSUBSCRIBE_DEPTH_QUOTES_RES",
     message: $spotware.IProtoOAUnsubscribeDepthQuotesRes
@@ -2130,8 +2006,6 @@ export interface SpotwareEventEmitter extends EventEmitter {
     event: "PROTO_OA_UNSUBSCRIBE_DEPTH_QUOTES_RES",
     listener: Listener<$spotware.IProtoOAUnsubscribeDepthQuotesRes>
   ): this;
-  // TODO: listeners(event: "PROTO_OA_UNSUBSCRIBE_DEPTH_QUOTES_RES"): Listener<$spotware.IProtoOAUnsubscribeDepthQuotesRes>[];
-  // TODO: rawListeners(event: "PROTO_OA_UNSUBSCRIBE_DEPTH_QUOTES_RES"): Listener<$spotware.IProtoOAUnsubscribeDepthQuotesRes>[];
   emit(
     event: "PROTO_OA_SYMBOL_CATEGORY_REQ",
     message: $spotware.IProtoOASymbolCategoryListReq
@@ -2164,8 +2038,6 @@ export interface SpotwareEventEmitter extends EventEmitter {
     event: "PROTO_OA_SYMBOL_CATEGORY_REQ",
     listener: Listener<$spotware.IProtoOASymbolCategoryListReq>
   ): this;
-  // TODO: listeners(event: "PROTO_OA_SYMBOL_CATEGORY_REQ"): Listener<$spotware.IProtoOASymbolCategoryListReq>[];
-  // TODO: rawListeners(event: "PROTO_OA_SYMBOL_CATEGORY_REQ"): Listener<$spotware.IProtoOASymbolCategoryListReq>[];
   emit(
     event: "PROTO_OA_SYMBOL_CATEGORY_RES",
     message: $spotware.IProtoOASymbolCategoryListRes
@@ -2198,8 +2070,6 @@ export interface SpotwareEventEmitter extends EventEmitter {
     event: "PROTO_OA_SYMBOL_CATEGORY_RES",
     listener: Listener<$spotware.IProtoOASymbolCategoryListRes>
   ): this;
-  // TODO: listeners(event: "PROTO_OA_SYMBOL_CATEGORY_RES"): Listener<$spotware.IProtoOASymbolCategoryListRes>[];
-  // TODO: rawListeners(event: "PROTO_OA_SYMBOL_CATEGORY_RES"): Listener<$spotware.IProtoOASymbolCategoryListRes>[];
   emit(
     event: "PROTO_OA_ACCOUNT_LOGOUT_REQ",
     message: $spotware.IProtoOAAccountLogoutReq
@@ -2232,8 +2102,6 @@ export interface SpotwareEventEmitter extends EventEmitter {
     event: "PROTO_OA_ACCOUNT_LOGOUT_REQ",
     listener: Listener<$spotware.IProtoOAAccountLogoutReq>
   ): this;
-  // TODO: listeners(event: "PROTO_OA_ACCOUNT_LOGOUT_REQ"): Listener<$spotware.IProtoOAAccountLogoutReq>[];
-  // TODO: rawListeners(event: "PROTO_OA_ACCOUNT_LOGOUT_REQ"): Listener<$spotware.IProtoOAAccountLogoutReq>[];
   emit(
     event: "PROTO_OA_ACCOUNT_LOGOUT_RES",
     message: $spotware.IProtoOAAccountLogoutRes
@@ -2266,8 +2134,6 @@ export interface SpotwareEventEmitter extends EventEmitter {
     event: "PROTO_OA_ACCOUNT_LOGOUT_RES",
     listener: Listener<$spotware.IProtoOAAccountLogoutRes>
   ): this;
-  // TODO: listeners(event: "PROTO_OA_ACCOUNT_LOGOUT_RES"): Listener<$spotware.IProtoOAAccountLogoutRes>[];
-  // TODO: rawListeners(event: "PROTO_OA_ACCOUNT_LOGOUT_RES"): Listener<$spotware.IProtoOAAccountLogoutRes>[];
   emit(
     event: "PROTO_OA_ACCOUNT_DISCONNECT_EVENT",
     message: $spotware.IProtoOAAccountDisconnectEvent
@@ -2300,10 +2166,10 @@ export interface SpotwareEventEmitter extends EventEmitter {
     event: "PROTO_OA_ACCOUNT_DISCONNECT_EVENT",
     listener: Listener<$spotware.IProtoOAAccountDisconnectEvent>
   ): this;
-  // TODO: listeners(event: "PROTO_OA_ACCOUNT_DISCONNECT_EVENT"): Listener<$spotware.IProtoOAAccountDisconnectEvent>[];
-  // TODO: rawListeners(event: "PROTO_OA_ACCOUNT_DISCONNECT_EVENT"): Listener<$spotware.IProtoOAAccountDisconnectEvent>[];
   removeAllListeners(event?: SpotwareEvents): this;
   listenerCount(event: SpotwareEvents): number;
+  listeners(event: SpotwareEvents): Function[];
+  rawListeners(event: SpotwareEvents): Function[];
   // TODO: eventNames(): SpotwareEvents[];
 }
 export default SpotwareEventEmitter;
