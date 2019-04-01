@@ -7,7 +7,11 @@ function loadSchema(protoFile: fs.PathLike): Schema {
   return schema(proto);
 }
 
-type Scope = "Read" | "Write" | "Decode" | "Encode";
+type Scope =
+  | "PROTO__WRITE"
+  | "PROTO__DECODE"
+  | "EVENT__ENCODE"
+  | "EVENT__NO_ACTION";
 
 interface Type {
   type: string;
@@ -15,10 +19,10 @@ interface Type {
   scopes: Scope[];
 }
 
-const PROTO_SCOPES: Scope[] = ["Write", "Read"];
-const REQUEST_SCOPES: Scope[] = ["Encode"];
-const RESPONSE_SCOPES: Scope[] = ["Decode"];
-const EVENT_SCOPES: Scope[] = ["Decode"];
+const PROTO_SCOPES: Scope[] = [];
+const REQUEST_SCOPES: Scope[] = ["EVENT__ENCODE", "PROTO__WRITE"];
+const RESPONSE_SCOPES: Scope[] = ["EVENT__NO_ACTION", "PROTO__DECODE"];
+const EVENT_SCOPES: Scope[] = ["EVENT__NO_ACTION", "PROTO__DECODE"];
 
 function pushIf(condition: boolean, newScopes: Scope[], scopes: Scope[]): void {
   if (condition) {
