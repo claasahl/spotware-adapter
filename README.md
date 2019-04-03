@@ -182,24 +182,3 @@ This client treats Spotware messages like so.
 | `PROTO_OA_ACCOUNT_LOGOUT_REQ`               | write to socket                                            |
 | `PROTO_OA_ACCOUNT_LOGOUT_RES`               | decode as `ProtoOAAccountLogoutRes` and emit               |
 | `PROTO_OA_ACCOUNT_DISCONNECT_EVENT`         | decode as `ProtoOAAccountDisconnectEvent` and emit         |
-
-## Pitfall
-
-The `EventEmitter` class exposes several functions for managing listeners and emitting events. For your convenience, this library provides [overloads](http://www.typescriptlang.org/docs/handbook/functions.html#overloads) for spotware events, including typed parameters and listeners. While these overloads do hint at the correct types, they do not guarantee correctly typed parameters or listeners. Instead, it is recommended to use utility methods like `onMessage` or `emitMessage`.
-
-the nature of Typescript is such that it will fallback to more generic overloads if the types of.
-
-### Don't
-
-```typescript
-emitter.emit("HEARTBEAT_EVENT", {});
-
-const msg: IHeartbeat = {};
-emitter.emit("HEARTBEAT_EVENT", msg);
-```
-
-### Do
-
-```typescript
-emitter.emitMessage("HEARTBEAT_EVENT", {});
-```
