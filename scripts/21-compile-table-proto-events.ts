@@ -5,7 +5,7 @@ const stream = process.stdout;
 stream.write("### Processing of PROTO_MESSAGE Events\n");
 stream.write("\n");
 stream.write(
-  "| Payload Type                                | Action                   |\n"
+  "| Payload Type of `PROTO_MESSAGE`                                | Action                   |\n"
 );
 stream.write(
   "| ------------------------------------------- | ------------------------ |\n"
