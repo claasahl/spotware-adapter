@@ -2,7 +2,7 @@ import map from "../assets/message-map.json";
 
 const stream = process.stdout;
 
-stream.write("### Treating of PROTO_MESSAGE Events\n");
+stream.write("### Processing of PROTO_MESSAGE Events\n");
 stream.write("\n");
 stream.write(
   "| Payload Type                                | Action                   |\n"

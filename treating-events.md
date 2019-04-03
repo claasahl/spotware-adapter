@@ -1,4 +1,4 @@
-### Treating of Events
+### Processing of Events
 
 | Event (`on(EVENT, message => ACTION)`)      | Action                                       |
 | ------------------------------------------- | -------------------------------------------- |

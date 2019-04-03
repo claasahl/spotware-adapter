@@ -1,4 +1,4 @@
-### Treating of PROTO_MESSAGE Events
+### Processing of PROTO_MESSAGE Events
 
 | Payload Type                                | Action                                                     |
 | ------------------------------------------- | ---------------------------------------------------------- |

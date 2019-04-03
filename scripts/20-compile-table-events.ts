@@ -2,7 +2,7 @@ import map from "../assets/message-map.json";
 
 const stream = process.stdout;
 
-stream.write("### Treating of Events\n");
+stream.write("### Processing of Events\n");
 stream.write("\n");
 stream.write(
   "| Event (`on(EVENT, message => ACTION)`)      | Action                                         |\n"
