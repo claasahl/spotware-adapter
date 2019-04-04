@@ -1,24 +1,67 @@
-import { EventEmitter } from "events";
+import tls from "tls";
 
 import * as $spotware from "./spotware-messages";
 import SpotwareEventEmitter from "./spotware-event-emitter";
+import { ProtoOAApplicationAuthReq } from "./messages/ProtoOAApplicationAuthReq";
+import { ProtoOAApplicationAuthRes } from "./messages/ProtoOAApplicationAuthRes";
+import * as util from "./spotware-utils";
 
-const emitter: SpotwareEventEmitter = new EventEmitter();
-emitter.emit("PROTO_MESSAGE", { payloadType: 1 });
-emitter.emit("ERROR_RES", { errorCode: "" });
-emitter.emit("ERROR_RES", { errorCode: "" });
-emitter.emit("PROTO_OA_APPLICATION_AUTH_REQ", {});
-emitter
-  .on("HEARTBEAT_EVENT", message => {})
-  .once("HEARTBEAT_EVENT", message => {})
-  .off("ERROR_RES", message => {});
-emitter.addListener(
-  "PROTO_OA_APPLICATION_AUTH_REQ",
-  (message, clientMsgId) => {}
+function readProtoMessage(this: SpotwareEventEmitter, data: string) {
+  {
+    try {
+      const buffer = Buffer.from(data, "binary");
+      const message = util.deserialize(buffer);
+      this.emit("PROTO_MESSAGE", message);
+    } catch (error) {
+      console.log("could not read/parse ProtoMessage", error);
+    }
+  }
+}
+
+function connect(
+  port: number,
+  host: string,
+  options?: tls.TlsOptions
+): SpotwareEventEmitter {
+  return tls
+    .connect(port, host, options)
+    .setEncoding("binary")
+    .setDefaultEncoding("binary")
+    .on("data", readProtoMessage);
+}
+
+function onProtoMessage(
+  this: SpotwareEventEmitter & tls.TLSSocket,
+  message: $spotware.IProtoMessage
+) {
+  switch (message.payloadType) {
+    case $spotware.ProtoOAPayloadType.PROTO_OA_APPLICATION_AUTH_REQ:
+      return this.write(util.serialize(message));
+    case $spotware.ProtoOAPayloadType.PROTO_OA_APPLICATION_AUTH_RES:
+      return ProtoOAApplicationAuthRes.emitDecoded(this, message);
+  }
+}
+
+function onProtoOAApplicationAuthReq(
+  this: SpotwareEventEmitter,
+  message: $spotware.IProtoOAApplicationAuthReq,
+  clientMsgId?: string | null
+) {
+  return ProtoOAApplicationAuthReq.emitEncoded(this, message, clientMsgId);
+}
+
+const client = connect(
+  5035,
+  "live.ctraderapi.com"
 );
-emitter.removeListener("PROTO_MESSAGE", message => {});
+client.on("PROTO_OA_APPLICATION_AUTH_REQ", onProtoOAApplicationAuthReq);
+client.on("PROTO_MESSAGE", onProtoMessage);
 
-emitter.removeAllListeners("PROTO_MESSAGE");
-emitter.listenerCount("ERROR_RES");
-emitter.listeners("PROTO_OA_APPLICATION_AUTH_RES");
-emitter.eventNames();
+client.on("PROTO_MESSAGE", console.error);
+client.on("PROTO_OA_APPLICATION_AUTH_REQ", console.error);
+client.on("PROTO_OA_APPLICATION_AUTH_RES", console.error);
+const msg: $spotware.IProtoOAApplicationAuthReq = {
+  clientId: "",
+  clientSecret: ""
+};
+client.emit("PROTO_OA_APPLICATION_AUTH_REQ", msg);

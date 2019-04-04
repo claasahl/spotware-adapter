@@ -4,7 +4,7 @@ import {
   IProtoMessage,
   ProtoOAPayloadType
 } from "../spotware-messages";
-import { SpotwareEventEmitterOverloads } from "../spotware-event-emitter";
+import SpotwareEventEmitter from "../spotware-event-emitter";
 
 export namespace ProtoOAApplicationAuthRes {
   export const payloadType = ProtoOAPayloadType.PROTO_OA_APPLICATION_AUTH_RES;
@@ -24,7 +24,7 @@ export namespace ProtoOAApplicationAuthRes {
   }
 
   export function emitEncoded(
-    emitter: SpotwareEventEmitterOverloads,
+    emitter: SpotwareEventEmitter,
     message: IMessage,
     clientMsgId?: string | null
   ): void {
@@ -53,7 +53,7 @@ export namespace ProtoOAApplicationAuthRes {
   }
 
   export function emitDecoded(
-    emitter: SpotwareEventEmitterOverloads,
+    emitter: SpotwareEventEmitter,
     message: IProtoMessage
   ): void {
     const data = fromProtoMessage(message);

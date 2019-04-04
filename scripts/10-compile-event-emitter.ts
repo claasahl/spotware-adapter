@@ -40,7 +40,7 @@ for (const message of map) {
     );
   } else {
     stream.write(
-      `emit(event: "${payloadType}", message: $spotware.I${type}): boolean;\n`
+      `emit(event: "${payloadType}", message: $spotware.I${type}, clientMsgId?: string | null): boolean;\n`
     );
     stream.write(
       `on(event: "${payloadType}", listener: Listener<$spotware.I${type}>): this;\n`
