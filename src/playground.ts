@@ -6,7 +6,10 @@ import { ProtoOAApplicationAuthReq } from "./messages/ProtoOAApplicationAuthReq"
 import { ProtoOAApplicationAuthRes } from "./messages/ProtoOAApplicationAuthRes";
 import * as util from "./spotware-utils";
 
-function readProtoMessage(this: SpotwareEventEmitter, data: string) {
+function readProtoMessage(
+  this: SpotwareEventEmitter & tls.TLSSocket,
+  data: string
+) {
   {
     try {
       const buffer = Buffer.from(data, "binary");
@@ -42,19 +45,17 @@ function onProtoMessage(
   }
 }
 
-function onProtoOAApplicationAuthReq(
-  this: SpotwareEventEmitter,
-  message: $spotware.IProtoOAApplicationAuthReq,
-  clientMsgId?: string | null
-) {
-  return ProtoOAApplicationAuthReq.emitEncoded(this, message, clientMsgId);
-}
-
 const client = connect(
   5035,
   "live.ctraderapi.com"
 );
-client.on("PROTO_OA_APPLICATION_AUTH_REQ", onProtoOAApplicationAuthReq);
+client.on("PROTO_OA_APPLICATION_AUTH_REQ", function(
+  this: SpotwareEventEmitter,
+  message,
+  clientMsgId
+) {
+  return ProtoOAApplicationAuthReq.emitEncoded(this, message, clientMsgId);
+});
 client.on("PROTO_MESSAGE", onProtoMessage);
 
 client.on("PROTO_MESSAGE", console.error);
