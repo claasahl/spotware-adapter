@@ -1,13 +1,13 @@
 ﻿import {
-  IProtoOAApplicationAuthRes as IMessage,
-  ProtoOAApplicationAuthRes as Message,
+  IProtoHeartbeatEvent as IMessage,
+  ProtoHeartbeatEvent as Message,
   IProtoMessage,
-  ProtoOAPayloadType
+  ProtoPayloadType
 } from "../spotware-messages";
 import SpotwareEventEmitter from "../spotware-event-emitter";
 
-export namespace ProtoOAApplicationAuthRes {
-  export const payloadType = ProtoOAPayloadType.PROTO_OA_APPLICATION_AUTH_RES;
+export namespace ProtoHeartbeatEvent {
+  export const payloadType = ProtoPayloadType.HEARTBEAT_EVENT;
 
   export function toProtoMessage(
     message: IMessage,
@@ -46,8 +46,8 @@ export namespace ProtoOAApplicationAuthRes {
       );
     }
     throw new Error(
-      `invalid message. expected payloadType 'PROTO_OA_APPLICATION_AUTH_RES' (got '${
-        ProtoOAPayloadType[payloadType]
+      `invalid message. expected payloadType 'HEARTBEAT_EVENT' (got '${
+        ProtoPayloadType[payloadType]
       }').`
     );
   }
@@ -57,10 +57,6 @@ export namespace ProtoOAApplicationAuthRes {
     message: IProtoMessage
   ): void {
     const data = fromProtoMessage(message);
-    emitter.emit(
-      "PROTO_OA_APPLICATION_AUTH_RES",
-      data.message,
-      data.clientMsgId
-    );
+    emitter.emit("HEARTBEAT_EVENT", data.message, data.clientMsgId);
   }
 }

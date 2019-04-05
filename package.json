@@ -31,7 +31,9 @@
     "prereadme-table-events": "shx head -n 39 ./README.md > ./README.trimmed.md && shx mv -f ./README.trimmed.md ./README.md",
     "readme-table-events": "ts-node ./scripts/readme-table-events.ts >> ./README.md",
     "readme-table-proto-events": "ts-node ./scripts/readme-table-proto-events.ts >> ./README.md",
-    "postreadme-table-proto-events": "prettier --write ./README.md"
+    "postreadme-table-proto-events": "prettier --write ./README.md",
+    "generate:messages": "ts-node ./scripts/messages.ts",
+    "postgenerate:messages": "prettier --write ./src/messages/**"
   },
   "keywords": [
     "spotware",

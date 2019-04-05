@@ -1,4 +1,4 @@
-import {
+﻿import {
   IProtoOAApplicationAuthReq as IMessage,
   ProtoOAApplicationAuthReq as Message,
   IProtoMessage,

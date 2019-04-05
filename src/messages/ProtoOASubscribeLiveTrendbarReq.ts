@@ -1,13 +1,14 @@
-import {
-  I{{{type}}} as IMessage,
-  {{{type}}} as Message,
+﻿import {
+  IProtoOASubscribeLiveTrendbarReq as IMessage,
+  ProtoOASubscribeLiveTrendbarReq as Message,
   IProtoMessage,
   ProtoOAPayloadType
 } from "../spotware-messages";
 import SpotwareEventEmitter from "../spotware-event-emitter";
 
-export namespace {{{type}}} {
-  export const payloadType = ProtoOAPayloadType.{{{payloadType}}};
+export namespace ProtoOASubscribeLiveTrendbarReq {
+  export const payloadType =
+    ProtoOAPayloadType.PROTO_OA_SUBSCRIBE_LIVE_TRENDBAR_REQ;
 
   export function toProtoMessage(
     message: IMessage,
@@ -46,7 +47,7 @@ export namespace {{{type}}} {
       );
     }
     throw new Error(
-      `invalid message. expected payloadType '{{{payloadType}}}' (got '${
+      `invalid message. expected payloadType 'PROTO_OA_SUBSCRIBE_LIVE_TRENDBAR_REQ' (got '${
         ProtoOAPayloadType[payloadType]
       }').`
     );
@@ -58,7 +59,7 @@ export namespace {{{type}}} {
   ): void {
     const data = fromProtoMessage(message);
     emitter.emit(
-      "{{{payloadType}}}",
+      "PROTO_OA_SUBSCRIBE_LIVE_TRENDBAR_REQ",
       data.message,
       data.clientMsgId
     );

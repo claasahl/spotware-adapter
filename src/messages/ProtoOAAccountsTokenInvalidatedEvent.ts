@@ -1,13 +1,14 @@
 ﻿import {
-  IProtoOAApplicationAuthRes as IMessage,
-  ProtoOAApplicationAuthRes as Message,
+  IProtoOAAccountsTokenInvalidatedEvent as IMessage,
+  ProtoOAAccountsTokenInvalidatedEvent as Message,
   IProtoMessage,
   ProtoOAPayloadType
 } from "../spotware-messages";
 import SpotwareEventEmitter from "../spotware-event-emitter";
 
-export namespace ProtoOAApplicationAuthRes {
-  export const payloadType = ProtoOAPayloadType.PROTO_OA_APPLICATION_AUTH_RES;
+export namespace ProtoOAAccountsTokenInvalidatedEvent {
+  export const payloadType =
+    ProtoOAPayloadType.PROTO_OA_ACCOUNTS_TOKEN_INVALIDATED_EVENT;
 
   export function toProtoMessage(
     message: IMessage,
@@ -46,7 +47,7 @@ export namespace ProtoOAApplicationAuthRes {
       );
     }
     throw new Error(
-      `invalid message. expected payloadType 'PROTO_OA_APPLICATION_AUTH_RES' (got '${
+      `invalid message. expected payloadType 'PROTO_OA_ACCOUNTS_TOKEN_INVALIDATED_EVENT' (got '${
         ProtoOAPayloadType[payloadType]
       }').`
     );
@@ -58,7 +59,7 @@ export namespace ProtoOAApplicationAuthRes {
   ): void {
     const data = fromProtoMessage(message);
     emitter.emit(
-      "PROTO_OA_APPLICATION_AUTH_RES",
+      "PROTO_OA_ACCOUNTS_TOKEN_INVALIDATED_EVENT",
       data.message,
       data.clientMsgId
     );

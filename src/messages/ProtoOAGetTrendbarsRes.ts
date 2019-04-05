@@ -1,13 +1,13 @@
 ﻿import {
-  IProtoOAApplicationAuthRes as IMessage,
-  ProtoOAApplicationAuthRes as Message,
+  IProtoOAGetTrendbarsRes as IMessage,
+  ProtoOAGetTrendbarsRes as Message,
   IProtoMessage,
   ProtoOAPayloadType
 } from "../spotware-messages";
 import SpotwareEventEmitter from "../spotware-event-emitter";
 
-export namespace ProtoOAApplicationAuthRes {
-  export const payloadType = ProtoOAPayloadType.PROTO_OA_APPLICATION_AUTH_RES;
+export namespace ProtoOAGetTrendbarsRes {
+  export const payloadType = ProtoOAPayloadType.PROTO_OA_GET_TRENDBARS_RES;
 
   export function toProtoMessage(
     message: IMessage,
@@ -46,7 +46,7 @@ export namespace ProtoOAApplicationAuthRes {
       );
     }
     throw new Error(
-      `invalid message. expected payloadType 'PROTO_OA_APPLICATION_AUTH_RES' (got '${
+      `invalid message. expected payloadType 'PROTO_OA_GET_TRENDBARS_RES' (got '${
         ProtoOAPayloadType[payloadType]
       }').`
     );
@@ -57,10 +57,6 @@ export namespace ProtoOAApplicationAuthRes {
     message: IProtoMessage
   ): void {
     const data = fromProtoMessage(message);
-    emitter.emit(
-      "PROTO_OA_APPLICATION_AUTH_RES",
-      data.message,
-      data.clientMsgId
-    );
+    emitter.emit("PROTO_OA_GET_TRENDBARS_RES", data.message, data.clientMsgId);
   }
 }
