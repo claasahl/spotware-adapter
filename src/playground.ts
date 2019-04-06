@@ -2,8 +2,7 @@ import tls from "tls";
 
 import * as $spotware from "./spotware-messages";
 import SpotwareEventEmitter from "./spotware-event-emitter";
-import { ProtoOAApplicationAuthReq } from "./messages/ProtoOAApplicationAuthReq";
-import { ProtoOAApplicationAuthRes } from "./messages/ProtoOAApplicationAuthRes";
+import * as messages from "./messages";
 import * as util from "./spotware-utils";
 
 function readProtoMessage(this: SpotwareEventEmitter, data: string) {
@@ -38,7 +37,7 @@ function onProtoMessage(
     case $spotware.ProtoOAPayloadType.PROTO_OA_APPLICATION_AUTH_REQ:
       return this.write(util.serialize(message));
     case $spotware.ProtoOAPayloadType.PROTO_OA_APPLICATION_AUTH_RES:
-      return ProtoOAApplicationAuthRes.emitDecoded(this, message);
+      return messages.ProtoOAApplicationAuthRes.emitDecoded(this, message);
   }
 }
 
@@ -47,7 +46,11 @@ function onProtoOAApplicationAuthReq(
   message: $spotware.IProtoOAApplicationAuthReq,
   clientMsgId?: string | null
 ) {
-  return ProtoOAApplicationAuthReq.emitEncoded(this, message, clientMsgId);
+  return messages.ProtoOAApplicationAuthReq.emitEncoded(
+    this,
+    message,
+    clientMsgId
+  );
 }
 
 const client = connect(
