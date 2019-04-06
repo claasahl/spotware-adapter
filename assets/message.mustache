@@ -2,12 +2,12 @@
   I{{{type}}} as IMessage,
   {{{type}}} as Message,
   IProtoMessage,
-  ProtoOAPayloadType
+  ProtoPayloadType
 } from "../spotware-messages";
 import SpotwareEventEmitter from "../spotware-event-emitter";
 
 export namespace {{{type}}} {
-  export const payloadType = ProtoOAPayloadType.{{{payloadType}}};
+  export const payloadType = {{{payloadType}}};
 
   export function toProtoMessage(
     message: IMessage,
@@ -46,8 +46,8 @@ export namespace {{{type}}} {
       );
     }
     throw new Error(
-      `invalid message. expected payloadType '{{{payloadType}}}' (got '${
-        ProtoOAPayloadType[payloadType]
+      `invalid message. expected payloadType '{{{eventName}}}' (got '${
+        ProtoPayloadType[payloadType]
       }').`
     );
   }

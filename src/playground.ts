@@ -26,7 +26,8 @@ function connect(
     .connect(port, host, options)
     .setEncoding("binary")
     .setDefaultEncoding("binary")
-    .on("data", readProtoMessage);
+    .on("data", readProtoMessage)
+    .on("PROTO_MESSAGE", onProtoMessage);
 }
 
 function onProtoMessage(
@@ -58,7 +59,6 @@ const client = connect(
   "live.ctraderapi.com"
 );
 client.on("PROTO_OA_APPLICATION_AUTH_REQ", onProtoOAApplicationAuthReq);
-client.on("PROTO_MESSAGE", onProtoMessage);
 
 client.on("PROTO_MESSAGE", console.error);
 client.on("PROTO_OA_APPLICATION_AUTH_REQ", console.error);

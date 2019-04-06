@@ -25,7 +25,7 @@
     "something": "ts-node ./scripts/compile-message-map.ts && prettier --write ./assets/message-map.json",
     "compile": "npm run 00-map && npm run 05-events && npm run 10-event-emitter && npm run compile-readme",
     "00-map": "ts-node ./scripts/00-compile-map.ts > ./assets/message-map.json && prettier --write ./assets/message-map.json",
-    "05-events": "ts-node ./scripts/05-compile-events.ts > ./src/spotware-events.ts && prettier --write ./src/spotware-events.ts",
+    "05-events": "mustache ./assets/message-map.json ./assets/spotware-events.mustache > ./src/spotware-events.ts && prettier --write ./src/spotware-events.ts",
     "10-event-emitter": "ts-node ./scripts/10-compile-event-emitter.ts > ./src/spotware-event-emitter.ts && prettier --write ./src/spotware-event-emitter.ts",
     "compile-readme": "npm run readme-table-events && npm run readme-table-proto-events",
     "prereadme-table-events": "shx head -n 39 ./README.md > ./README.trimmed.md && shx mv -f ./README.trimmed.md ./README.md",

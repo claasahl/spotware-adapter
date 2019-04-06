@@ -9,17 +9,17 @@ stream.write(
 );
 stream.write("| - | - | - | - |\n");
 for (const message of messages) {
-  const { payloadType, type, scopes } = message;
+  const { eventName, type, scopes } = message;
   if (scopes.includes("EVENT__NO_ACTION")) {
-    stream.write(`| \`${payloadType}\` | no action | n/a | n/a |\n`);
+    stream.write(`| \`${eventName}\` | no action | n/a | n/a |\n`);
   } else if (scopes.includes("EVENT__ENCODE")) {
     stream.write(
-      `| \`${payloadType}\` | encode and emit | \`ProtoMessage\` | \`PROTO_MESSAGE\` |\n`
+      `| \`${eventName}\` | encode and emit | \`ProtoMessage\` | \`PROTO_MESSAGE\` |\n`
     );
   }
   if (type === "ProtoMessage") {
     stream.write(
-      `| \`${payloadType}\` | read from socket and emit | \`ProtoMessage\` | \`PROTO_MESSAGE\` |\n`
+      `| \`${eventName}\` | read from socket and emit | \`ProtoMessage\` | \`PROTO_MESSAGE\` |\n`
     );
   }
 }
