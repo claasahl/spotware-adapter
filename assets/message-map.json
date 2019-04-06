@@ -1,338 +1,340 @@
-[
-  { "type": "ProtoMessage", "payloadType": "PROTO_MESSAGE", "scopes": [] },
-  {
-    "type": "ProtoErrorRes",
-    "payloadType": "ERROR_RES",
-    "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"]
-  },
-  {
-    "type": "ProtoHeartbeatEvent",
-    "payloadType": "HEARTBEAT_EVENT",
-    "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"]
-  },
-  {
-    "type": "ProtoOAApplicationAuthReq",
-    "payloadType": "PROTO_OA_APPLICATION_AUTH_REQ",
-    "scopes": ["EVENT__ENCODE", "PROTO__WRITE"]
-  },
-  {
-    "type": "ProtoOAApplicationAuthRes",
-    "payloadType": "PROTO_OA_APPLICATION_AUTH_RES",
-    "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"]
-  },
-  {
-    "type": "ProtoOAAccountAuthReq",
-    "payloadType": "PROTO_OA_ACCOUNT_AUTH_REQ",
-    "scopes": ["EVENT__ENCODE", "PROTO__WRITE"]
-  },
-  {
-    "type": "ProtoOAAccountAuthRes",
-    "payloadType": "PROTO_OA_ACCOUNT_AUTH_RES",
-    "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"]
-  },
-  {
-    "type": "ProtoOAErrorRes",
-    "payloadType": "PROTO_OA_ERROR_RES",
-    "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"]
-  },
-  {
-    "type": "ProtoOAClientDisconnectEvent",
-    "payloadType": "PROTO_OA_CLIENT_DISCONNECT_EVENT",
-    "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"]
-  },
-  {
-    "type": "ProtoOAAccountsTokenInvalidatedEvent",
-    "payloadType": "PROTO_OA_ACCOUNTS_TOKEN_INVALIDATED_EVENT",
-    "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"]
-  },
-  {
-    "type": "ProtoOAVersionReq",
-    "payloadType": "PROTO_OA_VERSION_REQ",
-    "scopes": ["EVENT__ENCODE", "PROTO__WRITE"]
-  },
-  {
-    "type": "ProtoOAVersionRes",
-    "payloadType": "PROTO_OA_VERSION_RES",
-    "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"]
-  },
-  {
-    "type": "ProtoOANewOrderReq",
-    "payloadType": "PROTO_OA_NEW_ORDER_REQ",
-    "scopes": ["EVENT__ENCODE", "PROTO__WRITE"]
-  },
-  {
-    "type": "ProtoOAExecutionEvent",
-    "payloadType": "PROTO_OA_EXECUTION_EVENT",
-    "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"]
-  },
-  {
-    "type": "ProtoOACancelOrderReq",
-    "payloadType": "PROTO_OA_CANCEL_ORDER_REQ",
-    "scopes": ["EVENT__ENCODE", "PROTO__WRITE"]
-  },
-  {
-    "type": "ProtoOAAmendOrderReq",
-    "payloadType": "PROTO_OA_AMEND_ORDER_REQ",
-    "scopes": ["EVENT__ENCODE", "PROTO__WRITE"]
-  },
-  {
-    "type": "ProtoOAAmendPositionSLTPReq",
-    "payloadType": "PROTO_OA_AMEND_POSITION_SLTP_REQ",
-    "scopes": ["EVENT__ENCODE", "PROTO__WRITE"]
-  },
-  {
-    "type": "ProtoOAClosePositionReq",
-    "payloadType": "PROTO_OA_CLOSE_POSITION_REQ",
-    "scopes": ["EVENT__ENCODE", "PROTO__WRITE"]
-  },
-  {
-    "type": "ProtoOATrailingSLChangedEvent",
-    "payloadType": "PROTO_OA_TRAILING_SL_CHANGED_EVENT",
-    "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"]
-  },
-  {
-    "type": "ProtoOAAssetListReq",
-    "payloadType": "PROTO_OA_ASSET_LIST_REQ",
-    "scopes": ["EVENT__ENCODE", "PROTO__WRITE"]
-  },
-  {
-    "type": "ProtoOAAssetListRes",
-    "payloadType": "PROTO_OA_ASSET_LIST_RES",
-    "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"]
-  },
-  {
-    "type": "ProtoOASymbolsListReq",
-    "payloadType": "PROTO_OA_SYMBOLS_LIST_REQ",
-    "scopes": ["EVENT__ENCODE", "PROTO__WRITE"]
-  },
-  {
-    "type": "ProtoOASymbolsListRes",
-    "payloadType": "PROTO_OA_SYMBOLS_LIST_RES",
-    "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"]
-  },
-  {
-    "type": "ProtoOASymbolByIdReq",
-    "payloadType": "PROTO_OA_SYMBOL_BY_ID_REQ",
-    "scopes": ["EVENT__ENCODE", "PROTO__WRITE"]
-  },
-  {
-    "type": "ProtoOASymbolByIdRes",
-    "payloadType": "PROTO_OA_SYMBOL_BY_ID_RES",
-    "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"]
-  },
-  {
-    "type": "ProtoOASymbolsForConversionReq",
-    "payloadType": "PROTO_OA_SYMBOLS_FOR_CONVERSION_REQ",
-    "scopes": ["EVENT__ENCODE", "PROTO__WRITE"]
-  },
-  {
-    "type": "ProtoOASymbolsForConversionRes",
-    "payloadType": "PROTO_OA_SYMBOLS_FOR_CONVERSION_RES",
-    "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"]
-  },
-  {
-    "type": "ProtoOASymbolChangedEvent",
-    "payloadType": "PROTO_OA_SYMBOL_CHANGED_EVENT",
-    "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"]
-  },
-  {
-    "type": "ProtoOAAssetClassListReq",
-    "payloadType": "PROTO_OA_ASSET_CLASS_LIST_REQ",
-    "scopes": ["EVENT__ENCODE", "PROTO__WRITE"]
-  },
-  {
-    "type": "ProtoOAAssetClassListRes",
-    "payloadType": "PROTO_OA_ASSET_CLASS_LIST_RES",
-    "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"]
-  },
-  {
-    "type": "ProtoOATraderReq",
-    "payloadType": "PROTO_OA_TRADER_REQ",
-    "scopes": ["EVENT__ENCODE", "PROTO__WRITE"]
-  },
-  {
-    "type": "ProtoOATraderRes",
-    "payloadType": "PROTO_OA_TRADER_RES",
-    "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"]
-  },
-  {
-    "type": "ProtoOATraderUpdatedEvent",
-    "payloadType": "PROTO_OA_TRADER_UPDATE_EVENT",
-    "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"]
-  },
-  {
-    "type": "ProtoOAReconcileReq",
-    "payloadType": "PROTO_OA_RECONCILE_REQ",
-    "scopes": ["EVENT__ENCODE", "PROTO__WRITE"]
-  },
-  {
-    "type": "ProtoOAReconcileRes",
-    "payloadType": "PROTO_OA_RECONCILE_RES",
-    "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"]
-  },
-  {
-    "type": "ProtoOAOrderErrorEvent",
-    "payloadType": "PROTO_OA_ORDER_ERROR_EVENT",
-    "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"]
-  },
-  {
-    "type": "ProtoOADealListReq",
-    "payloadType": "PROTO_OA_DEAL_LIST_REQ",
-    "scopes": ["EVENT__ENCODE", "PROTO__WRITE"]
-  },
-  {
-    "type": "ProtoOADealListRes",
-    "payloadType": "PROTO_OA_DEAL_LIST_RES",
-    "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"]
-  },
-  {
-    "type": "ProtoOAExpectedMarginReq",
-    "payloadType": "PROTO_OA_EXPECTED_MARGIN_REQ",
-    "scopes": ["EVENT__ENCODE", "PROTO__WRITE"]
-  },
-  {
-    "type": "ProtoOAExpectedMarginRes",
-    "payloadType": "PROTO_OA_EXPECTED_MARGIN_RES",
-    "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"]
-  },
-  {
-    "type": "ProtoOAMarginChangedEvent",
-    "payloadType": "PROTO_OA_MARGIN_CHANGED_EVENT",
-    "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"]
-  },
-  {
-    "type": "ProtoOACashFlowHistoryListReq",
-    "payloadType": "PROTO_OA_CASH_FLOW_HISTORY_LIST_REQ",
-    "scopes": ["EVENT__ENCODE", "PROTO__WRITE"]
-  },
-  {
-    "type": "ProtoOACashFlowHistoryListRes",
-    "payloadType": "PROTO_OA_CASH_FLOW_HISTORY_LIST_RES",
-    "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"]
-  },
-  {
-    "type": "ProtoOAGetAccountListByAccessTokenReq",
-    "payloadType": "PROTO_OA_GET_ACCOUNTS_BY_ACCESS_TOKEN_REQ",
-    "scopes": ["EVENT__ENCODE", "PROTO__WRITE"]
-  },
-  {
-    "type": "ProtoOAGetAccountListByAccessTokenRes",
-    "payloadType": "PROTO_OA_GET_ACCOUNTS_BY_ACCESS_TOKEN_RES",
-    "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"]
-  },
-  {
-    "type": "ProtoOASubscribeSpotsReq",
-    "payloadType": "PROTO_OA_SUBSCRIBE_SPOTS_REQ",
-    "scopes": ["EVENT__ENCODE", "PROTO__WRITE"]
-  },
-  {
-    "type": "ProtoOASubscribeSpotsRes",
-    "payloadType": "PROTO_OA_SUBSCRIBE_SPOTS_RES",
-    "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"]
-  },
-  {
-    "type": "ProtoOAUnsubscribeSpotsReq",
-    "payloadType": "PROTO_OA_UNSUBSCRIBE_SPOTS_REQ",
-    "scopes": ["EVENT__ENCODE", "PROTO__WRITE"]
-  },
-  {
-    "type": "ProtoOAUnsubscribeSpotsRes",
-    "payloadType": "PROTO_OA_UNSUBSCRIBE_SPOTS_RES",
-    "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"]
-  },
-  {
-    "type": "ProtoOASpotEvent",
-    "payloadType": "PROTO_OA_SPOT_EVENT",
-    "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"]
-  },
-  {
-    "type": "ProtoOASubscribeLiveTrendbarReq",
-    "payloadType": "PROTO_OA_SUBSCRIBE_LIVE_TRENDBAR_REQ",
-    "scopes": ["EVENT__ENCODE", "PROTO__WRITE"]
-  },
-  {
-    "type": "ProtoOAUnsubscribeLiveTrendbarReq",
-    "payloadType": "PROTO_OA_UNSUBSCRIBE_LIVE_TRENDBAR_REQ",
-    "scopes": ["EVENT__ENCODE", "PROTO__WRITE"]
-  },
-  {
-    "type": "ProtoOAGetTrendbarsReq",
-    "payloadType": "PROTO_OA_GET_TRENDBARS_REQ",
-    "scopes": ["EVENT__ENCODE", "PROTO__WRITE"]
-  },
-  {
-    "type": "ProtoOAGetTrendbarsRes",
-    "payloadType": "PROTO_OA_GET_TRENDBARS_RES",
-    "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"]
-  },
-  {
-    "type": "ProtoOAGetTickDataReq",
-    "payloadType": "PROTO_OA_GET_TICKDATA_REQ",
-    "scopes": ["EVENT__ENCODE", "PROTO__WRITE"]
-  },
-  {
-    "type": "ProtoOAGetTickDataRes",
-    "payloadType": "PROTO_OA_GET_TICKDATA_RES",
-    "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"]
-  },
-  {
-    "type": "ProtoOAGetCtidProfileByTokenReq",
-    "payloadType": "PROTO_OA_GET_CTID_PROFILE_BY_TOKEN_REQ",
-    "scopes": ["EVENT__ENCODE", "PROTO__WRITE"]
-  },
-  {
-    "type": "ProtoOAGetCtidProfileByTokenRes",
-    "payloadType": "PROTO_OA_GET_CTID_PROFILE_BY_TOKEN_RES",
-    "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"]
-  },
-  {
-    "type": "ProtoOADepthEvent",
-    "payloadType": "PROTO_OA_DEPTH_EVENT",
-    "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"]
-  },
-  {
-    "type": "ProtoOASubscribeDepthQuotesReq",
-    "payloadType": "PROTO_OA_SUBSCRIBE_DEPTH_QUOTES_REQ",
-    "scopes": ["EVENT__ENCODE", "PROTO__WRITE"]
-  },
-  {
-    "type": "ProtoOASubscribeDepthQuotesRes",
-    "payloadType": "PROTO_OA_SUBSCRIBE_DEPTH_QUOTES_RES",
-    "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"]
-  },
-  {
-    "type": "ProtoOAUnsubscribeDepthQuotesReq",
-    "payloadType": "PROTO_OA_UNSUBSCRIBE_DEPTH_QUOTES_REQ",
-    "scopes": ["EVENT__ENCODE", "PROTO__WRITE"]
-  },
-  {
-    "type": "ProtoOAUnsubscribeDepthQuotesRes",
-    "payloadType": "PROTO_OA_UNSUBSCRIBE_DEPTH_QUOTES_RES",
-    "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"]
-  },
-  {
-    "type": "ProtoOASymbolCategoryListReq",
-    "payloadType": "PROTO_OA_SYMBOL_CATEGORY_REQ",
-    "scopes": ["EVENT__ENCODE", "PROTO__WRITE"]
-  },
-  {
-    "type": "ProtoOASymbolCategoryListRes",
-    "payloadType": "PROTO_OA_SYMBOL_CATEGORY_RES",
-    "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"]
-  },
-  {
-    "type": "ProtoOAAccountLogoutReq",
-    "payloadType": "PROTO_OA_ACCOUNT_LOGOUT_REQ",
-    "scopes": ["EVENT__ENCODE", "PROTO__WRITE"]
-  },
-  {
-    "type": "ProtoOAAccountLogoutRes",
-    "payloadType": "PROTO_OA_ACCOUNT_LOGOUT_RES",
-    "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"]
-  },
-  {
-    "type": "ProtoOAAccountDisconnectEvent",
-    "payloadType": "PROTO_OA_ACCOUNT_DISCONNECT_EVENT",
-    "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"]
-  }
-]
+{
+  "messages": [
+    { "type": "ProtoMessage", "payloadType": "PROTO_MESSAGE", "scopes": [] },
+    {
+      "type": "ProtoErrorRes",
+      "payloadType": "ERROR_RES",
+      "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"]
+    },
+    {
+      "type": "ProtoHeartbeatEvent",
+      "payloadType": "HEARTBEAT_EVENT",
+      "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"]
+    },
+    {
+      "type": "ProtoOAApplicationAuthReq",
+      "payloadType": "PROTO_OA_APPLICATION_AUTH_REQ",
+      "scopes": ["EVENT__ENCODE", "PROTO__WRITE"]
+    },
+    {
+      "type": "ProtoOAApplicationAuthRes",
+      "payloadType": "PROTO_OA_APPLICATION_AUTH_RES",
+      "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"]
+    },
+    {
+      "type": "ProtoOAAccountAuthReq",
+      "payloadType": "PROTO_OA_ACCOUNT_AUTH_REQ",
+      "scopes": ["EVENT__ENCODE", "PROTO__WRITE"]
+    },
+    {
+      "type": "ProtoOAAccountAuthRes",
+      "payloadType": "PROTO_OA_ACCOUNT_AUTH_RES",
+      "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"]
+    },
+    {
+      "type": "ProtoOAErrorRes",
+      "payloadType": "PROTO_OA_ERROR_RES",
+      "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"]
+    },
+    {
+      "type": "ProtoOAClientDisconnectEvent",
+      "payloadType": "PROTO_OA_CLIENT_DISCONNECT_EVENT",
+      "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"]
+    },
+    {
+      "type": "ProtoOAAccountsTokenInvalidatedEvent",
+      "payloadType": "PROTO_OA_ACCOUNTS_TOKEN_INVALIDATED_EVENT",
+      "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"]
+    },
+    {
+      "type": "ProtoOAVersionReq",
+      "payloadType": "PROTO_OA_VERSION_REQ",
+      "scopes": ["EVENT__ENCODE", "PROTO__WRITE"]
+    },
+    {
+      "type": "ProtoOAVersionRes",
+      "payloadType": "PROTO_OA_VERSION_RES",
+      "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"]
+    },
+    {
+      "type": "ProtoOANewOrderReq",
+      "payloadType": "PROTO_OA_NEW_ORDER_REQ",
+      "scopes": ["EVENT__ENCODE", "PROTO__WRITE"]
+    },
+    {
+      "type": "ProtoOAExecutionEvent",
+      "payloadType": "PROTO_OA_EXECUTION_EVENT",
+      "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"]
+    },
+    {
+      "type": "ProtoOACancelOrderReq",
+      "payloadType": "PROTO_OA_CANCEL_ORDER_REQ",
+      "scopes": ["EVENT__ENCODE", "PROTO__WRITE"]
+    },
+    {
+      "type": "ProtoOAAmendOrderReq",
+      "payloadType": "PROTO_OA_AMEND_ORDER_REQ",
+      "scopes": ["EVENT__ENCODE", "PROTO__WRITE"]
+    },
+    {
+      "type": "ProtoOAAmendPositionSLTPReq",
+      "payloadType": "PROTO_OA_AMEND_POSITION_SLTP_REQ",
+      "scopes": ["EVENT__ENCODE", "PROTO__WRITE"]
+    },
+    {
+      "type": "ProtoOAClosePositionReq",
+      "payloadType": "PROTO_OA_CLOSE_POSITION_REQ",
+      "scopes": ["EVENT__ENCODE", "PROTO__WRITE"]
+    },
+    {
+      "type": "ProtoOATrailingSLChangedEvent",
+      "payloadType": "PROTO_OA_TRAILING_SL_CHANGED_EVENT",
+      "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"]
+    },
+    {
+      "type": "ProtoOAAssetListReq",
+      "payloadType": "PROTO_OA_ASSET_LIST_REQ",
+      "scopes": ["EVENT__ENCODE", "PROTO__WRITE"]
+    },
+    {
+      "type": "ProtoOAAssetListRes",
+      "payloadType": "PROTO_OA_ASSET_LIST_RES",
+      "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"]
+    },
+    {
+      "type": "ProtoOASymbolsListReq",
+      "payloadType": "PROTO_OA_SYMBOLS_LIST_REQ",
+      "scopes": ["EVENT__ENCODE", "PROTO__WRITE"]
+    },
+    {
+      "type": "ProtoOASymbolsListRes",
+      "payloadType": "PROTO_OA_SYMBOLS_LIST_RES",
+      "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"]
+    },
+    {
+      "type": "ProtoOASymbolByIdReq",
+      "payloadType": "PROTO_OA_SYMBOL_BY_ID_REQ",
+      "scopes": ["EVENT__ENCODE", "PROTO__WRITE"]
+    },
+    {
+      "type": "ProtoOASymbolByIdRes",
+      "payloadType": "PROTO_OA_SYMBOL_BY_ID_RES",
+      "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"]
+    },
+    {
+      "type": "ProtoOASymbolsForConversionReq",
+      "payloadType": "PROTO_OA_SYMBOLS_FOR_CONVERSION_REQ",
+      "scopes": ["EVENT__ENCODE", "PROTO__WRITE"]
+    },
+    {
+      "type": "ProtoOASymbolsForConversionRes",
+      "payloadType": "PROTO_OA_SYMBOLS_FOR_CONVERSION_RES",
+      "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"]
+    },
+    {
+      "type": "ProtoOASymbolChangedEvent",
+      "payloadType": "PROTO_OA_SYMBOL_CHANGED_EVENT",
+      "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"]
+    },
+    {
+      "type": "ProtoOAAssetClassListReq",
+      "payloadType": "PROTO_OA_ASSET_CLASS_LIST_REQ",
+      "scopes": ["EVENT__ENCODE", "PROTO__WRITE"]
+    },
+    {
+      "type": "ProtoOAAssetClassListRes",
+      "payloadType": "PROTO_OA_ASSET_CLASS_LIST_RES",
+      "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"]
+    },
+    {
+      "type": "ProtoOATraderReq",
+      "payloadType": "PROTO_OA_TRADER_REQ",
+      "scopes": ["EVENT__ENCODE", "PROTO__WRITE"]
+    },
+    {
+      "type": "ProtoOATraderRes",
+      "payloadType": "PROTO_OA_TRADER_RES",
+      "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"]
+    },
+    {
+      "type": "ProtoOATraderUpdatedEvent",
+      "payloadType": "PROTO_OA_TRADER_UPDATE_EVENT",
+      "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"]
+    },
+    {
+      "type": "ProtoOAReconcileReq",
+      "payloadType": "PROTO_OA_RECONCILE_REQ",
+      "scopes": ["EVENT__ENCODE", "PROTO__WRITE"]
+    },
+    {
+      "type": "ProtoOAReconcileRes",
+      "payloadType": "PROTO_OA_RECONCILE_RES",
+      "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"]
+    },
+    {
+      "type": "ProtoOAOrderErrorEvent",
+      "payloadType": "PROTO_OA_ORDER_ERROR_EVENT",
+      "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"]
+    },
+    {
+      "type": "ProtoOADealListReq",
+      "payloadType": "PROTO_OA_DEAL_LIST_REQ",
+      "scopes": ["EVENT__ENCODE", "PROTO__WRITE"]
+    },
+    {
+      "type": "ProtoOADealListRes",
+      "payloadType": "PROTO_OA_DEAL_LIST_RES",
+      "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"]
+    },
+    {
+      "type": "ProtoOAExpectedMarginReq",
+      "payloadType": "PROTO_OA_EXPECTED_MARGIN_REQ",
+      "scopes": ["EVENT__ENCODE", "PROTO__WRITE"]
+    },
+    {
+      "type": "ProtoOAExpectedMarginRes",
+      "payloadType": "PROTO_OA_EXPECTED_MARGIN_RES",
+      "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"]
+    },
+    {
+      "type": "ProtoOAMarginChangedEvent",
+      "payloadType": "PROTO_OA_MARGIN_CHANGED_EVENT",
+      "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"]
+    },
+    {
+      "type": "ProtoOACashFlowHistoryListReq",
+      "payloadType": "PROTO_OA_CASH_FLOW_HISTORY_LIST_REQ",
+      "scopes": ["EVENT__ENCODE", "PROTO__WRITE"]
+    },
+    {
+      "type": "ProtoOACashFlowHistoryListRes",
+      "payloadType": "PROTO_OA_CASH_FLOW_HISTORY_LIST_RES",
+      "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"]
+    },
+    {
+      "type": "ProtoOAGetAccountListByAccessTokenReq",
+      "payloadType": "PROTO_OA_GET_ACCOUNTS_BY_ACCESS_TOKEN_REQ",
+      "scopes": ["EVENT__ENCODE", "PROTO__WRITE"]
+    },
+    {
+      "type": "ProtoOAGetAccountListByAccessTokenRes",
+      "payloadType": "PROTO_OA_GET_ACCOUNTS_BY_ACCESS_TOKEN_RES",
+      "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"]
+    },
+    {
+      "type": "ProtoOASubscribeSpotsReq",
+      "payloadType": "PROTO_OA_SUBSCRIBE_SPOTS_REQ",
+      "scopes": ["EVENT__ENCODE", "PROTO__WRITE"]
+    },
+    {
+      "type": "ProtoOASubscribeSpotsRes",
+      "payloadType": "PROTO_OA_SUBSCRIBE_SPOTS_RES",
+      "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"]
+    },
+    {
+      "type": "ProtoOAUnsubscribeSpotsReq",
+      "payloadType": "PROTO_OA_UNSUBSCRIBE_SPOTS_REQ",
+      "scopes": ["EVENT__ENCODE", "PROTO__WRITE"]
+    },
+    {
+      "type": "ProtoOAUnsubscribeSpotsRes",
+      "payloadType": "PROTO_OA_UNSUBSCRIBE_SPOTS_RES",
+      "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"]
+    },
+    {
+      "type": "ProtoOASpotEvent",
+      "payloadType": "PROTO_OA_SPOT_EVENT",
+      "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"]
+    },
+    {
+      "type": "ProtoOASubscribeLiveTrendbarReq",
+      "payloadType": "PROTO_OA_SUBSCRIBE_LIVE_TRENDBAR_REQ",
+      "scopes": ["EVENT__ENCODE", "PROTO__WRITE"]
+    },
+    {
+      "type": "ProtoOAUnsubscribeLiveTrendbarReq",
+      "payloadType": "PROTO_OA_UNSUBSCRIBE_LIVE_TRENDBAR_REQ",
+      "scopes": ["EVENT__ENCODE", "PROTO__WRITE"]
+    },
+    {
+      "type": "ProtoOAGetTrendbarsReq",
+      "payloadType": "PROTO_OA_GET_TRENDBARS_REQ",
+      "scopes": ["EVENT__ENCODE", "PROTO__WRITE"]
+    },
+    {
+      "type": "ProtoOAGetTrendbarsRes",
+      "payloadType": "PROTO_OA_GET_TRENDBARS_RES",
+      "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"]
+    },
+    {
+      "type": "ProtoOAGetTickDataReq",
+      "payloadType": "PROTO_OA_GET_TICKDATA_REQ",
+      "scopes": ["EVENT__ENCODE", "PROTO__WRITE"]
+    },
+    {
+      "type": "ProtoOAGetTickDataRes",
+      "payloadType": "PROTO_OA_GET_TICKDATA_RES",
+      "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"]
+    },
+    {
+      "type": "ProtoOAGetCtidProfileByTokenReq",
+      "payloadType": "PROTO_OA_GET_CTID_PROFILE_BY_TOKEN_REQ",
+      "scopes": ["EVENT__ENCODE", "PROTO__WRITE"]
+    },
+    {
+      "type": "ProtoOAGetCtidProfileByTokenRes",
+      "payloadType": "PROTO_OA_GET_CTID_PROFILE_BY_TOKEN_RES",
+      "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"]
+    },
+    {
+      "type": "ProtoOADepthEvent",
+      "payloadType": "PROTO_OA_DEPTH_EVENT",
+      "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"]
+    },
+    {
+      "type": "ProtoOASubscribeDepthQuotesReq",
+      "payloadType": "PROTO_OA_SUBSCRIBE_DEPTH_QUOTES_REQ",
+      "scopes": ["EVENT__ENCODE", "PROTO__WRITE"]
+    },
+    {
+      "type": "ProtoOASubscribeDepthQuotesRes",
+      "payloadType": "PROTO_OA_SUBSCRIBE_DEPTH_QUOTES_RES",
+      "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"]
+    },
+    {
+      "type": "ProtoOAUnsubscribeDepthQuotesReq",
+      "payloadType": "PROTO_OA_UNSUBSCRIBE_DEPTH_QUOTES_REQ",
+      "scopes": ["EVENT__ENCODE", "PROTO__WRITE"]
+    },
+    {
+      "type": "ProtoOAUnsubscribeDepthQuotesRes",
+      "payloadType": "PROTO_OA_UNSUBSCRIBE_DEPTH_QUOTES_RES",
+      "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"]
+    },
+    {
+      "type": "ProtoOASymbolCategoryListReq",
+      "payloadType": "PROTO_OA_SYMBOL_CATEGORY_REQ",
+      "scopes": ["EVENT__ENCODE", "PROTO__WRITE"]
+    },
+    {
+      "type": "ProtoOASymbolCategoryListRes",
+      "payloadType": "PROTO_OA_SYMBOL_CATEGORY_RES",
+      "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"]
+    },
+    {
+      "type": "ProtoOAAccountLogoutReq",
+      "payloadType": "PROTO_OA_ACCOUNT_LOGOUT_REQ",
+      "scopes": ["EVENT__ENCODE", "PROTO__WRITE"]
+    },
+    {
+      "type": "ProtoOAAccountLogoutRes",
+      "payloadType": "PROTO_OA_ACCOUNT_LOGOUT_RES",
+      "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"]
+    },
+    {
+      "type": "ProtoOAAccountDisconnectEvent",
+      "payloadType": "PROTO_OA_ACCOUNT_DISCONNECT_EVENT",
+      "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"]
+    }
+  ]
+}

@@ -61,7 +61,7 @@ function writeMessageMap() {
   for (const message of messages) {
     types.push(toType(message));
   }
-  process.stdout.write(JSON.stringify(types));
+  process.stdout.write(JSON.stringify({ messages: types }));
 }
 
 writeMessageMap();

@@ -1,4 +1,4 @@
-import map from "../assets/message-map.json";
+import { messages } from "../assets/message-map.json";
 
 const stream = process.stdout;
 
@@ -11,7 +11,7 @@ stream.write(
   "type Listener<T> = (message: T, clientMsgId?: string | null) => void;\n"
 );
 stream.write("export interface SpotwareEventEmitter extends EventEmitter {\n");
-for (const message of map) {
+for (const message of messages) {
   const { payloadType, type } = message;
   if (type === "ProtoMessage") {
     stream.write(

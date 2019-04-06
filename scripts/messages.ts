@@ -12,7 +12,9 @@ const outputDir = "./src/messages/";
 const commonTemplate = fs.readFileSync(commonMustache).toString();
 const openApiTemplate = fs.readFileSync(openApiMustache).toString();
 const indexTemplate = fs.readFileSync(indexMustache).toString();
-const messages = map.filter(message => message.type !== "ProtoMessage");
+const messages = map.messages.filter(
+  message => message.type !== "ProtoMessage"
+);
 for (const message of messages) {
   if (message.type === "ProtoMessage") {
     continue;

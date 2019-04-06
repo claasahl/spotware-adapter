@@ -1,4 +1,4 @@
-import map from "../assets/message-map.json";
+import { messages } from "../assets/message-map.json";
 
 const stream = process.stdout;
 
@@ -8,7 +8,7 @@ stream.write(
   "| Event (`on(EVENT, message => ACTION)`) | Action | Encode as ... | Emit as ... |\n"
 );
 stream.write("| - | - | - | - |\n");
-for (const message of map) {
+for (const message of messages) {
   const { payloadType, type, scopes } = message;
   if (scopes.includes("EVENT__NO_ACTION")) {
     stream.write(`| \`${payloadType}\` | no action | n/a | n/a |\n`);
