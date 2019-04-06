@@ -6,11 +6,14 @@ import map from "../assets/message-map.json";
 
 const commonMustache = "./assets/message-common.mustache";
 const openApiMustache = "./assets/message-open-api.mustache";
+const indexMustache = "./assets/message-index.mustache";
 const outputDir = "./src/messages/";
+
 const commonTemplate = fs.readFileSync(commonMustache).toString();
 const openApiTemplate = fs.readFileSync(openApiMustache).toString();
-
-for (const message of map) {
+const indexTemplate = fs.readFileSync(indexMustache).toString();
+const messages = map.filter(message => message.type !== "ProtoMessage");
+for (const message of messages) {
   if (message.type === "ProtoMessage") {
     continue;
   }
@@ -21,3 +24,7 @@ for (const message of map) {
   const sourceCode = mustache.render(template, message);
   fs.writeFileSync(sourceFile, sourceCode);
 }
+
+const sourceFile = path.join(outputDir, "index.ts");
+const sourceCode = mustache.render(indexTemplate, { messages });
+fs.writeFileSync(sourceFile, sourceCode);
