@@ -34,9 +34,10 @@ export namespace ProtoOACashFlowHistoryListRes {
     message: IProtoMessage
   ): { message: IMessage; clientMsgId?: string | null } {
     if (message.payload && message.payloadType === payloadType) {
-      const { clientMsgId } = message;
-      const msg = Message.decode(message.payload);
-      return { message: msg, clientMsgId };
+      return {
+        message: Message.decode(message.payload),
+        clientMsgId: message.clientMsgId
+      };
     }
     if (!message.payload) {
       throw new Error(
