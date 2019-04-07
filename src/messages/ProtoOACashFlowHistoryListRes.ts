@@ -15,8 +15,7 @@ export namespace ProtoOACashFlowHistoryListRes {
     clientMsgId?: string | null
   ): IProtoMessage {
     const payloadType = Message.prototype.payloadType;
-    const msg = Message.create(message);
-    const payload = Message.encode(msg).finish();
+    const payload = Message.encode(message).finish();
     return {
       payloadType,
       payload,

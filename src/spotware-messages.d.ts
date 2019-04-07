@@ -29,13 +29,6 @@ export class ProtoMessage implements IProtoMessage {
   public clientMsgId: string;
 
   /**
-   * Creates a new ProtoMessage instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoMessage instance
-   */
-  public static create(properties?: IProtoMessage): ProtoMessage;
-
-  /**
    * Encodes the specified ProtoMessage message. Does not implicitly {@link ProtoMessage.verify|verify} messages.
    * @param message ProtoMessage message or plain object to encode
    * @param [writer] Writer to encode to
@@ -96,13 +89,6 @@ export class ProtoErrorRes implements IProtoErrorRes {
   public maintenanceEndTimestamp: Long;
 
   /**
-   * Creates a new ProtoErrorRes instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoErrorRes instance
-   */
-  public static create(properties?: IProtoErrorRes): ProtoErrorRes;
-
-  /**
    * Encodes the specified ProtoErrorRes message. Does not implicitly {@link ProtoErrorRes.verify|verify} messages.
    * @param message ProtoErrorRes message or plain object to encode
    * @param [writer] Writer to encode to
@@ -143,13 +129,6 @@ export class ProtoHeartbeatEvent implements IProtoHeartbeatEvent {
 
   /** ProtoHeartbeatEvent payloadType. */
   public payloadType: ProtoPayloadType;
-
-  /**
-   * Creates a new ProtoHeartbeatEvent instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoHeartbeatEvent instance
-   */
-  public static create(properties?: IProtoHeartbeatEvent): ProtoHeartbeatEvent;
 
   /**
    * Encodes the specified ProtoHeartbeatEvent message. Does not implicitly {@link ProtoHeartbeatEvent.verify|verify} messages.
@@ -228,15 +207,6 @@ export class ProtoOAApplicationAuthReq implements IProtoOAApplicationAuthReq {
   public clientSecret: string;
 
   /**
-   * Creates a new ProtoOAApplicationAuthReq instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAApplicationAuthReq instance
-   */
-  public static create(
-    properties?: IProtoOAApplicationAuthReq
-  ): ProtoOAApplicationAuthReq;
-
-  /**
    * Encodes the specified ProtoOAApplicationAuthReq message. Does not implicitly {@link ProtoOAApplicationAuthReq.verify|verify} messages.
    * @param message ProtoOAApplicationAuthReq message or plain object to encode
    * @param [writer] Writer to encode to
@@ -277,15 +247,6 @@ export class ProtoOAApplicationAuthRes implements IProtoOAApplicationAuthRes {
 
   /** ProtoOAApplicationAuthRes payloadType. */
   public payloadType: ProtoOAPayloadType;
-
-  /**
-   * Creates a new ProtoOAApplicationAuthRes instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAApplicationAuthRes instance
-   */
-  public static create(
-    properties?: IProtoOAApplicationAuthRes
-  ): ProtoOAApplicationAuthRes;
 
   /**
    * Encodes the specified ProtoOAApplicationAuthRes message. Does not implicitly {@link ProtoOAApplicationAuthRes.verify|verify} messages.
@@ -342,15 +303,6 @@ export class ProtoOAAccountAuthReq implements IProtoOAAccountAuthReq {
   public accessToken: string;
 
   /**
-   * Creates a new ProtoOAAccountAuthReq instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAAccountAuthReq instance
-   */
-  public static create(
-    properties?: IProtoOAAccountAuthReq
-  ): ProtoOAAccountAuthReq;
-
-  /**
    * Encodes the specified ProtoOAAccountAuthReq message. Does not implicitly {@link ProtoOAAccountAuthReq.verify|verify} messages.
    * @param message ProtoOAAccountAuthReq message or plain object to encode
    * @param [writer] Writer to encode to
@@ -397,15 +349,6 @@ export class ProtoOAAccountAuthRes implements IProtoOAAccountAuthRes {
 
   /** ProtoOAAccountAuthRes ctidTraderAccountId. */
   public ctidTraderAccountId: Long;
-
-  /**
-   * Creates a new ProtoOAAccountAuthRes instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAAccountAuthRes instance
-   */
-  public static create(
-    properties?: IProtoOAAccountAuthRes
-  ): ProtoOAAccountAuthRes;
 
   /**
    * Encodes the specified ProtoOAAccountAuthRes message. Does not implicitly {@link ProtoOAAccountAuthRes.verify|verify} messages.
@@ -468,13 +411,6 @@ export class ProtoOAErrorRes implements IProtoOAErrorRes {
   public description: string;
 
   /**
-   * Creates a new ProtoOAErrorRes instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAErrorRes instance
-   */
-  public static create(properties?: IProtoOAErrorRes): ProtoOAErrorRes;
-
-  /**
    * Encodes the specified ProtoOAErrorRes message. Does not implicitly {@link ProtoOAErrorRes.verify|verify} messages.
    * @param message ProtoOAErrorRes message or plain object to encode
    * @param [writer] Writer to encode to
@@ -522,15 +458,6 @@ export class ProtoOAClientDisconnectEvent
 
   /** ProtoOAClientDisconnectEvent reason. */
   public reason: string;
-
-  /**
-   * Creates a new ProtoOAClientDisconnectEvent instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAClientDisconnectEvent instance
-   */
-  public static create(
-    properties?: IProtoOAClientDisconnectEvent
-  ): ProtoOAClientDisconnectEvent;
 
   /**
    * Encodes the specified ProtoOAClientDisconnectEvent message. Does not implicitly {@link ProtoOAClientDisconnectEvent.verify|verify} messages.
@@ -588,15 +515,6 @@ export class ProtoOAAccountsTokenInvalidatedEvent
   public reason: string;
 
   /**
-   * Creates a new ProtoOAAccountsTokenInvalidatedEvent instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAAccountsTokenInvalidatedEvent instance
-   */
-  public static create(
-    properties?: IProtoOAAccountsTokenInvalidatedEvent
-  ): ProtoOAAccountsTokenInvalidatedEvent;
-
-  /**
    * Encodes the specified ProtoOAAccountsTokenInvalidatedEvent message. Does not implicitly {@link ProtoOAAccountsTokenInvalidatedEvent.verify|verify} messages.
    * @param message ProtoOAAccountsTokenInvalidatedEvent message or plain object to encode
    * @param [writer] Writer to encode to
@@ -637,13 +555,6 @@ export class ProtoOAVersionReq implements IProtoOAVersionReq {
 
   /** ProtoOAVersionReq payloadType. */
   public payloadType: ProtoOAPayloadType;
-
-  /**
-   * Creates a new ProtoOAVersionReq instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAVersionReq instance
-   */
-  public static create(properties?: IProtoOAVersionReq): ProtoOAVersionReq;
 
   /**
    * Encodes the specified ProtoOAVersionReq message. Does not implicitly {@link ProtoOAVersionReq.verify|verify} messages.
@@ -692,13 +603,6 @@ export class ProtoOAVersionRes implements IProtoOAVersionRes {
 
   /** ProtoOAVersionRes version. */
   public version: string;
-
-  /**
-   * Creates a new ProtoOAVersionRes instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAVersionRes instance
-   */
-  public static create(properties?: IProtoOAVersionRes): ProtoOAVersionRes;
 
   /**
    * Encodes the specified ProtoOAVersionRes message. Does not implicitly {@link ProtoOAVersionRes.verify|verify} messages.
@@ -875,13 +779,6 @@ export class ProtoOANewOrderReq implements IProtoOANewOrderReq {
   public stopTriggerMethod: ProtoOAOrderTriggerMethod;
 
   /**
-   * Creates a new ProtoOANewOrderReq instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOANewOrderReq instance
-   */
-  public static create(properties?: IProtoOANewOrderReq): ProtoOANewOrderReq;
-
-  /**
    * Encodes the specified ProtoOANewOrderReq message. Does not implicitly {@link ProtoOANewOrderReq.verify|verify} messages.
    * @param message ProtoOANewOrderReq message or plain object to encode
    * @param [writer] Writer to encode to
@@ -978,15 +875,6 @@ export class ProtoOAExecutionEvent implements IProtoOAExecutionEvent {
   public isServerEvent: boolean;
 
   /**
-   * Creates a new ProtoOAExecutionEvent instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAExecutionEvent instance
-   */
-  public static create(
-    properties?: IProtoOAExecutionEvent
-  ): ProtoOAExecutionEvent;
-
-  /**
    * Encodes the specified ProtoOAExecutionEvent message. Does not implicitly {@link ProtoOAExecutionEvent.verify|verify} messages.
    * @param message ProtoOAExecutionEvent message or plain object to encode
    * @param [writer] Writer to encode to
@@ -1039,15 +927,6 @@ export class ProtoOACancelOrderReq implements IProtoOACancelOrderReq {
 
   /** ProtoOACancelOrderReq orderId. */
   public orderId: Long;
-
-  /**
-   * Creates a new ProtoOACancelOrderReq instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOACancelOrderReq instance
-   */
-  public static create(
-    properties?: IProtoOACancelOrderReq
-  ): ProtoOACancelOrderReq;
 
   /**
    * Encodes the specified ProtoOACancelOrderReq message. Does not implicitly {@link ProtoOACancelOrderReq.verify|verify} messages.
@@ -1176,15 +1055,6 @@ export class ProtoOAAmendOrderReq implements IProtoOAAmendOrderReq {
   public stopTriggerMethod: ProtoOAOrderTriggerMethod;
 
   /**
-   * Creates a new ProtoOAAmendOrderReq instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAAmendOrderReq instance
-   */
-  public static create(
-    properties?: IProtoOAAmendOrderReq
-  ): ProtoOAAmendOrderReq;
-
-  /**
    * Encodes the specified ProtoOAAmendOrderReq message. Does not implicitly {@link ProtoOAAmendOrderReq.verify|verify} messages.
    * @param message ProtoOAAmendOrderReq message or plain object to encode
    * @param [writer] Writer to encode to
@@ -1270,15 +1140,6 @@ export class ProtoOAAmendPositionSLTPReq
   public stopLossTriggerMethod: ProtoOAOrderTriggerMethod;
 
   /**
-   * Creates a new ProtoOAAmendPositionSLTPReq instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAAmendPositionSLTPReq instance
-   */
-  public static create(
-    properties?: IProtoOAAmendPositionSLTPReq
-  ): ProtoOAAmendPositionSLTPReq;
-
-  /**
    * Encodes the specified ProtoOAAmendPositionSLTPReq message. Does not implicitly {@link ProtoOAAmendPositionSLTPReq.verify|verify} messages.
    * @param message ProtoOAAmendPositionSLTPReq message or plain object to encode
    * @param [writer] Writer to encode to
@@ -1337,15 +1198,6 @@ export class ProtoOAClosePositionReq implements IProtoOAClosePositionReq {
 
   /** ProtoOAClosePositionReq volume. */
   public volume: Long;
-
-  /**
-   * Creates a new ProtoOAClosePositionReq instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAClosePositionReq instance
-   */
-  public static create(
-    properties?: IProtoOAClosePositionReq
-  ): ProtoOAClosePositionReq;
 
   /**
    * Encodes the specified ProtoOAClosePositionReq message. Does not implicitly {@link ProtoOAClosePositionReq.verify|verify} messages.
@@ -1421,15 +1273,6 @@ export class ProtoOATrailingSLChangedEvent
   public utcLastUpdateTimestamp: Long;
 
   /**
-   * Creates a new ProtoOATrailingSLChangedEvent instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOATrailingSLChangedEvent instance
-   */
-  public static create(
-    properties?: IProtoOATrailingSLChangedEvent
-  ): ProtoOATrailingSLChangedEvent;
-
-  /**
    * Encodes the specified ProtoOATrailingSLChangedEvent message. Does not implicitly {@link ProtoOATrailingSLChangedEvent.verify|verify} messages.
    * @param message ProtoOATrailingSLChangedEvent message or plain object to encode
    * @param [writer] Writer to encode to
@@ -1476,13 +1319,6 @@ export class ProtoOAAssetListReq implements IProtoOAAssetListReq {
 
   /** ProtoOAAssetListReq ctidTraderAccountId. */
   public ctidTraderAccountId: Long;
-
-  /**
-   * Creates a new ProtoOAAssetListReq instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAAssetListReq instance
-   */
-  public static create(properties?: IProtoOAAssetListReq): ProtoOAAssetListReq;
 
   /**
    * Encodes the specified ProtoOAAssetListReq message. Does not implicitly {@link ProtoOAAssetListReq.verify|verify} messages.
@@ -1539,13 +1375,6 @@ export class ProtoOAAssetListRes implements IProtoOAAssetListRes {
   public asset: IProtoOAAsset[];
 
   /**
-   * Creates a new ProtoOAAssetListRes instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAAssetListRes instance
-   */
-  public static create(properties?: IProtoOAAssetListRes): ProtoOAAssetListRes;
-
-  /**
    * Encodes the specified ProtoOAAssetListRes message. Does not implicitly {@link ProtoOAAssetListRes.verify|verify} messages.
    * @param message ProtoOAAssetListRes message or plain object to encode
    * @param [writer] Writer to encode to
@@ -1592,15 +1421,6 @@ export class ProtoOASymbolsListReq implements IProtoOASymbolsListReq {
 
   /** ProtoOASymbolsListReq ctidTraderAccountId. */
   public ctidTraderAccountId: Long;
-
-  /**
-   * Creates a new ProtoOASymbolsListReq instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOASymbolsListReq instance
-   */
-  public static create(
-    properties?: IProtoOASymbolsListReq
-  ): ProtoOASymbolsListReq;
 
   /**
    * Encodes the specified ProtoOASymbolsListReq message. Does not implicitly {@link ProtoOASymbolsListReq.verify|verify} messages.
@@ -1657,15 +1477,6 @@ export class ProtoOASymbolsListRes implements IProtoOASymbolsListRes {
   public symbol: IProtoOALightSymbol[];
 
   /**
-   * Creates a new ProtoOASymbolsListRes instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOASymbolsListRes instance
-   */
-  public static create(
-    properties?: IProtoOASymbolsListRes
-  ): ProtoOASymbolsListRes;
-
-  /**
    * Encodes the specified ProtoOASymbolsListRes message. Does not implicitly {@link ProtoOASymbolsListRes.verify|verify} messages.
    * @param message ProtoOASymbolsListRes message or plain object to encode
    * @param [writer] Writer to encode to
@@ -1720,15 +1531,6 @@ export class ProtoOASymbolByIdReq implements IProtoOASymbolByIdReq {
   public symbolId: Long[];
 
   /**
-   * Creates a new ProtoOASymbolByIdReq instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOASymbolByIdReq instance
-   */
-  public static create(
-    properties?: IProtoOASymbolByIdReq
-  ): ProtoOASymbolByIdReq;
-
-  /**
    * Encodes the specified ProtoOASymbolByIdReq message. Does not implicitly {@link ProtoOASymbolByIdReq.verify|verify} messages.
    * @param message ProtoOASymbolByIdReq message or plain object to encode
    * @param [writer] Writer to encode to
@@ -1781,15 +1583,6 @@ export class ProtoOASymbolByIdRes implements IProtoOASymbolByIdRes {
 
   /** ProtoOASymbolByIdRes symbol. */
   public symbol: IProtoOASymbol[];
-
-  /**
-   * Creates a new ProtoOASymbolByIdRes instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOASymbolByIdRes instance
-   */
-  public static create(
-    properties?: IProtoOASymbolByIdRes
-  ): ProtoOASymbolByIdRes;
 
   /**
    * Encodes the specified ProtoOASymbolByIdRes message. Does not implicitly {@link ProtoOASymbolByIdRes.verify|verify} messages.
@@ -1853,15 +1646,6 @@ export class ProtoOASymbolsForConversionReq
   public lastAssetId: Long;
 
   /**
-   * Creates a new ProtoOASymbolsForConversionReq instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOASymbolsForConversionReq instance
-   */
-  public static create(
-    properties?: IProtoOASymbolsForConversionReq
-  ): ProtoOASymbolsForConversionReq;
-
-  /**
    * Encodes the specified ProtoOASymbolsForConversionReq message. Does not implicitly {@link ProtoOASymbolsForConversionReq.verify|verify} messages.
    * @param message ProtoOASymbolsForConversionReq message or plain object to encode
    * @param [writer] Writer to encode to
@@ -1915,15 +1699,6 @@ export class ProtoOASymbolsForConversionRes
 
   /** ProtoOASymbolsForConversionRes symbol. */
   public symbol: IProtoOALightSymbol[];
-
-  /**
-   * Creates a new ProtoOASymbolsForConversionRes instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOASymbolsForConversionRes instance
-   */
-  public static create(
-    properties?: IProtoOASymbolsForConversionRes
-  ): ProtoOASymbolsForConversionRes;
 
   /**
    * Encodes the specified ProtoOASymbolsForConversionRes message. Does not implicitly {@link ProtoOASymbolsForConversionRes.verify|verify} messages.
@@ -1980,15 +1755,6 @@ export class ProtoOASymbolChangedEvent implements IProtoOASymbolChangedEvent {
   public symbolId: Long[];
 
   /**
-   * Creates a new ProtoOASymbolChangedEvent instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOASymbolChangedEvent instance
-   */
-  public static create(
-    properties?: IProtoOASymbolChangedEvent
-  ): ProtoOASymbolChangedEvent;
-
-  /**
    * Encodes the specified ProtoOASymbolChangedEvent message. Does not implicitly {@link ProtoOASymbolChangedEvent.verify|verify} messages.
    * @param message ProtoOASymbolChangedEvent message or plain object to encode
    * @param [writer] Writer to encode to
@@ -2035,15 +1801,6 @@ export class ProtoOAAssetClassListReq implements IProtoOAAssetClassListReq {
 
   /** ProtoOAAssetClassListReq ctidTraderAccountId. */
   public ctidTraderAccountId: Long;
-
-  /**
-   * Creates a new ProtoOAAssetClassListReq instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAAssetClassListReq instance
-   */
-  public static create(
-    properties?: IProtoOAAssetClassListReq
-  ): ProtoOAAssetClassListReq;
 
   /**
    * Encodes the specified ProtoOAAssetClassListReq message. Does not implicitly {@link ProtoOAAssetClassListReq.verify|verify} messages.
@@ -2100,15 +1857,6 @@ export class ProtoOAAssetClassListRes implements IProtoOAAssetClassListRes {
   public assetClass: IProtoOAAssetClass[];
 
   /**
-   * Creates a new ProtoOAAssetClassListRes instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAAssetClassListRes instance
-   */
-  public static create(
-    properties?: IProtoOAAssetClassListRes
-  ): ProtoOAAssetClassListRes;
-
-  /**
    * Encodes the specified ProtoOAAssetClassListRes message. Does not implicitly {@link ProtoOAAssetClassListRes.verify|verify} messages.
    * @param message ProtoOAAssetClassListRes message or plain object to encode
    * @param [writer] Writer to encode to
@@ -2155,13 +1903,6 @@ export class ProtoOATraderReq implements IProtoOATraderReq {
 
   /** ProtoOATraderReq ctidTraderAccountId. */
   public ctidTraderAccountId: Long;
-
-  /**
-   * Creates a new ProtoOATraderReq instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOATraderReq instance
-   */
-  public static create(properties?: IProtoOATraderReq): ProtoOATraderReq;
 
   /**
    * Encodes the specified ProtoOATraderReq message. Does not implicitly {@link ProtoOATraderReq.verify|verify} messages.
@@ -2218,13 +1959,6 @@ export class ProtoOATraderRes implements IProtoOATraderRes {
   public trader: IProtoOATrader;
 
   /**
-   * Creates a new ProtoOATraderRes instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOATraderRes instance
-   */
-  public static create(properties?: IProtoOATraderRes): ProtoOATraderRes;
-
-  /**
    * Encodes the specified ProtoOATraderRes message. Does not implicitly {@link ProtoOATraderRes.verify|verify} messages.
    * @param message ProtoOATraderRes message or plain object to encode
    * @param [writer] Writer to encode to
@@ -2279,15 +2013,6 @@ export class ProtoOATraderUpdatedEvent implements IProtoOATraderUpdatedEvent {
   public trader: IProtoOATrader;
 
   /**
-   * Creates a new ProtoOATraderUpdatedEvent instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOATraderUpdatedEvent instance
-   */
-  public static create(
-    properties?: IProtoOATraderUpdatedEvent
-  ): ProtoOATraderUpdatedEvent;
-
-  /**
    * Encodes the specified ProtoOATraderUpdatedEvent message. Does not implicitly {@link ProtoOATraderUpdatedEvent.verify|verify} messages.
    * @param message ProtoOATraderUpdatedEvent message or plain object to encode
    * @param [writer] Writer to encode to
@@ -2334,13 +2059,6 @@ export class ProtoOAReconcileReq implements IProtoOAReconcileReq {
 
   /** ProtoOAReconcileReq ctidTraderAccountId. */
   public ctidTraderAccountId: Long;
-
-  /**
-   * Creates a new ProtoOAReconcileReq instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAReconcileReq instance
-   */
-  public static create(properties?: IProtoOAReconcileReq): ProtoOAReconcileReq;
 
   /**
    * Encodes the specified ProtoOAReconcileReq message. Does not implicitly {@link ProtoOAReconcileReq.verify|verify} messages.
@@ -2401,13 +2119,6 @@ export class ProtoOAReconcileRes implements IProtoOAReconcileRes {
 
   /** ProtoOAReconcileRes order. */
   public order: IProtoOAOrder[];
-
-  /**
-   * Creates a new ProtoOAReconcileRes instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAReconcileRes instance
-   */
-  public static create(properties?: IProtoOAReconcileRes): ProtoOAReconcileRes;
 
   /**
    * Encodes the specified ProtoOAReconcileRes message. Does not implicitly {@link ProtoOAReconcileRes.verify|verify} messages.
@@ -2482,15 +2193,6 @@ export class ProtoOAOrderErrorEvent implements IProtoOAOrderErrorEvent {
   public description: string;
 
   /**
-   * Creates a new ProtoOAOrderErrorEvent instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAOrderErrorEvent instance
-   */
-  public static create(
-    properties?: IProtoOAOrderErrorEvent
-  ): ProtoOAOrderErrorEvent;
-
-  /**
    * Encodes the specified ProtoOAOrderErrorEvent message. Does not implicitly {@link ProtoOAOrderErrorEvent.verify|verify} messages.
    * @param message ProtoOAOrderErrorEvent message or plain object to encode
    * @param [writer] Writer to encode to
@@ -2557,13 +2259,6 @@ export class ProtoOADealListReq implements IProtoOADealListReq {
   public maxRows: number;
 
   /**
-   * Creates a new ProtoOADealListReq instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOADealListReq instance
-   */
-  public static create(properties?: IProtoOADealListReq): ProtoOADealListReq;
-
-  /**
    * Encodes the specified ProtoOADealListReq message. Does not implicitly {@link ProtoOADealListReq.verify|verify} messages.
    * @param message ProtoOADealListReq message or plain object to encode
    * @param [writer] Writer to encode to
@@ -2622,13 +2317,6 @@ export class ProtoOADealListRes implements IProtoOADealListRes {
 
   /** ProtoOADealListRes hasMore. */
   public hasMore: boolean;
-
-  /**
-   * Creates a new ProtoOADealListRes instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOADealListRes instance
-   */
-  public static create(properties?: IProtoOADealListRes): ProtoOADealListRes;
 
   /**
    * Encodes the specified ProtoOADealListRes message. Does not implicitly {@link ProtoOADealListRes.verify|verify} messages.
@@ -2691,15 +2379,6 @@ export class ProtoOAExpectedMarginReq implements IProtoOAExpectedMarginReq {
   public volume: Long[];
 
   /**
-   * Creates a new ProtoOAExpectedMarginReq instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAExpectedMarginReq instance
-   */
-  public static create(
-    properties?: IProtoOAExpectedMarginReq
-  ): ProtoOAExpectedMarginReq;
-
-  /**
    * Encodes the specified ProtoOAExpectedMarginReq message. Does not implicitly {@link ProtoOAExpectedMarginReq.verify|verify} messages.
    * @param message ProtoOAExpectedMarginReq message or plain object to encode
    * @param [writer] Writer to encode to
@@ -2752,15 +2431,6 @@ export class ProtoOAExpectedMarginRes implements IProtoOAExpectedMarginRes {
 
   /** ProtoOAExpectedMarginRes margin. */
   public margin: IProtoOAExpectedMargin[];
-
-  /**
-   * Creates a new ProtoOAExpectedMarginRes instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAExpectedMarginRes instance
-   */
-  public static create(
-    properties?: IProtoOAExpectedMarginRes
-  ): ProtoOAExpectedMarginRes;
 
   /**
    * Encodes the specified ProtoOAExpectedMarginRes message. Does not implicitly {@link ProtoOAExpectedMarginRes.verify|verify} messages.
@@ -2821,15 +2491,6 @@ export class ProtoOAMarginChangedEvent implements IProtoOAMarginChangedEvent {
 
   /** ProtoOAMarginChangedEvent usedMargin. */
   public usedMargin: Long;
-
-  /**
-   * Creates a new ProtoOAMarginChangedEvent instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAMarginChangedEvent instance
-   */
-  public static create(
-    properties?: IProtoOAMarginChangedEvent
-  ): ProtoOAMarginChangedEvent;
 
   /**
    * Encodes the specified ProtoOAMarginChangedEvent message. Does not implicitly {@link ProtoOAMarginChangedEvent.verify|verify} messages.
@@ -2893,15 +2554,6 @@ export class ProtoOACashFlowHistoryListReq
   public toTimestamp: Long;
 
   /**
-   * Creates a new ProtoOACashFlowHistoryListReq instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOACashFlowHistoryListReq instance
-   */
-  public static create(
-    properties?: IProtoOACashFlowHistoryListReq
-  ): ProtoOACashFlowHistoryListReq;
-
-  /**
    * Encodes the specified ProtoOACashFlowHistoryListReq message. Does not implicitly {@link ProtoOACashFlowHistoryListReq.verify|verify} messages.
    * @param message ProtoOACashFlowHistoryListReq message or plain object to encode
    * @param [writer] Writer to encode to
@@ -2957,15 +2609,6 @@ export class ProtoOACashFlowHistoryListRes
   public depositWithdraw: IProtoOADepositWithdraw[];
 
   /**
-   * Creates a new ProtoOACashFlowHistoryListRes instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOACashFlowHistoryListRes instance
-   */
-  public static create(
-    properties?: IProtoOACashFlowHistoryListRes
-  ): ProtoOACashFlowHistoryListRes;
-
-  /**
    * Encodes the specified ProtoOACashFlowHistoryListRes message. Does not implicitly {@link ProtoOACashFlowHistoryListRes.verify|verify} messages.
    * @param message ProtoOACashFlowHistoryListRes message or plain object to encode
    * @param [writer] Writer to encode to
@@ -3013,15 +2656,6 @@ export class ProtoOAGetAccountListByAccessTokenReq
 
   /** ProtoOAGetAccountListByAccessTokenReq accessToken. */
   public accessToken: string;
-
-  /**
-   * Creates a new ProtoOAGetAccountListByAccessTokenReq instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAGetAccountListByAccessTokenReq instance
-   */
-  public static create(
-    properties?: IProtoOAGetAccountListByAccessTokenReq
-  ): ProtoOAGetAccountListByAccessTokenReq;
 
   /**
    * Encodes the specified ProtoOAGetAccountListByAccessTokenReq message. Does not implicitly {@link ProtoOAGetAccountListByAccessTokenReq.verify|verify} messages.
@@ -3085,15 +2719,6 @@ export class ProtoOAGetAccountListByAccessTokenRes
   public ctidTraderAccount: IProtoOACtidTraderAccount[];
 
   /**
-   * Creates a new ProtoOAGetAccountListByAccessTokenRes instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAGetAccountListByAccessTokenRes instance
-   */
-  public static create(
-    properties?: IProtoOAGetAccountListByAccessTokenRes
-  ): ProtoOAGetAccountListByAccessTokenRes;
-
-  /**
    * Encodes the specified ProtoOAGetAccountListByAccessTokenRes message. Does not implicitly {@link ProtoOAGetAccountListByAccessTokenRes.verify|verify} messages.
    * @param message ProtoOAGetAccountListByAccessTokenRes message or plain object to encode
    * @param [writer] Writer to encode to
@@ -3148,15 +2773,6 @@ export class ProtoOASubscribeSpotsReq implements IProtoOASubscribeSpotsReq {
   public symbolId: Long[];
 
   /**
-   * Creates a new ProtoOASubscribeSpotsReq instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOASubscribeSpotsReq instance
-   */
-  public static create(
-    properties?: IProtoOASubscribeSpotsReq
-  ): ProtoOASubscribeSpotsReq;
-
-  /**
    * Encodes the specified ProtoOASubscribeSpotsReq message. Does not implicitly {@link ProtoOASubscribeSpotsReq.verify|verify} messages.
    * @param message ProtoOASubscribeSpotsReq message or plain object to encode
    * @param [writer] Writer to encode to
@@ -3203,15 +2819,6 @@ export class ProtoOASubscribeSpotsRes implements IProtoOASubscribeSpotsRes {
 
   /** ProtoOASubscribeSpotsRes ctidTraderAccountId. */
   public ctidTraderAccountId: Long;
-
-  /**
-   * Creates a new ProtoOASubscribeSpotsRes instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOASubscribeSpotsRes instance
-   */
-  public static create(
-    properties?: IProtoOASubscribeSpotsRes
-  ): ProtoOASubscribeSpotsRes;
 
   /**
    * Encodes the specified ProtoOASubscribeSpotsRes message. Does not implicitly {@link ProtoOASubscribeSpotsRes.verify|verify} messages.
@@ -3268,15 +2875,6 @@ export class ProtoOAUnsubscribeSpotsReq implements IProtoOAUnsubscribeSpotsReq {
   public symbolId: Long[];
 
   /**
-   * Creates a new ProtoOAUnsubscribeSpotsReq instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAUnsubscribeSpotsReq instance
-   */
-  public static create(
-    properties?: IProtoOAUnsubscribeSpotsReq
-  ): ProtoOAUnsubscribeSpotsReq;
-
-  /**
    * Encodes the specified ProtoOAUnsubscribeSpotsReq message. Does not implicitly {@link ProtoOAUnsubscribeSpotsReq.verify|verify} messages.
    * @param message ProtoOAUnsubscribeSpotsReq message or plain object to encode
    * @param [writer] Writer to encode to
@@ -3323,15 +2921,6 @@ export class ProtoOAUnsubscribeSpotsRes implements IProtoOAUnsubscribeSpotsRes {
 
   /** ProtoOAUnsubscribeSpotsRes ctidTraderAccountId. */
   public ctidTraderAccountId: Long;
-
-  /**
-   * Creates a new ProtoOAUnsubscribeSpotsRes instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAUnsubscribeSpotsRes instance
-   */
-  public static create(
-    properties?: IProtoOAUnsubscribeSpotsRes
-  ): ProtoOAUnsubscribeSpotsRes;
 
   /**
    * Encodes the specified ProtoOAUnsubscribeSpotsRes message. Does not implicitly {@link ProtoOAUnsubscribeSpotsRes.verify|verify} messages.
@@ -3406,13 +2995,6 @@ export class ProtoOASpotEvent implements IProtoOASpotEvent {
   public trendbar: IProtoOATrendbar[];
 
   /**
-   * Creates a new ProtoOASpotEvent instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOASpotEvent instance
-   */
-  public static create(properties?: IProtoOASpotEvent): ProtoOASpotEvent;
-
-  /**
    * Encodes the specified ProtoOASpotEvent message. Does not implicitly {@link ProtoOASpotEvent.verify|verify} messages.
    * @param message ProtoOASpotEvent message or plain object to encode
    * @param [writer] Writer to encode to
@@ -3474,15 +3056,6 @@ export class ProtoOASubscribeLiveTrendbarReq
   public symbolId: Long;
 
   /**
-   * Creates a new ProtoOASubscribeLiveTrendbarReq instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOASubscribeLiveTrendbarReq instance
-   */
-  public static create(
-    properties?: IProtoOASubscribeLiveTrendbarReq
-  ): ProtoOASubscribeLiveTrendbarReq;
-
-  /**
    * Encodes the specified ProtoOASubscribeLiveTrendbarReq message. Does not implicitly {@link ProtoOASubscribeLiveTrendbarReq.verify|verify} messages.
    * @param message ProtoOASubscribeLiveTrendbarReq message or plain object to encode
    * @param [writer] Writer to encode to
@@ -3542,15 +3115,6 @@ export class ProtoOAUnsubscribeLiveTrendbarReq
 
   /** ProtoOAUnsubscribeLiveTrendbarReq symbolId. */
   public symbolId: Long;
-
-  /**
-   * Creates a new ProtoOAUnsubscribeLiveTrendbarReq instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAUnsubscribeLiveTrendbarReq instance
-   */
-  public static create(
-    properties?: IProtoOAUnsubscribeLiveTrendbarReq
-  ): ProtoOAUnsubscribeLiveTrendbarReq;
 
   /**
    * Encodes the specified ProtoOAUnsubscribeLiveTrendbarReq message. Does not implicitly {@link ProtoOAUnsubscribeLiveTrendbarReq.verify|verify} messages.
@@ -3625,15 +3189,6 @@ export class ProtoOAGetTrendbarsReq implements IProtoOAGetTrendbarsReq {
   public symbolId: Long;
 
   /**
-   * Creates a new ProtoOAGetTrendbarsReq instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAGetTrendbarsReq instance
-   */
-  public static create(
-    properties?: IProtoOAGetTrendbarsReq
-  ): ProtoOAGetTrendbarsReq;
-
-  /**
    * Encodes the specified ProtoOAGetTrendbarsReq message. Does not implicitly {@link ProtoOAGetTrendbarsReq.verify|verify} messages.
    * @param message ProtoOAGetTrendbarsReq message or plain object to encode
    * @param [writer] Writer to encode to
@@ -3704,15 +3259,6 @@ export class ProtoOAGetTrendbarsRes implements IProtoOAGetTrendbarsRes {
 
   /** ProtoOAGetTrendbarsRes symbolId. */
   public symbolId: Long;
-
-  /**
-   * Creates a new ProtoOAGetTrendbarsRes instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAGetTrendbarsRes instance
-   */
-  public static create(
-    properties?: IProtoOAGetTrendbarsRes
-  ): ProtoOAGetTrendbarsRes;
 
   /**
    * Encodes the specified ProtoOAGetTrendbarsRes message. Does not implicitly {@link ProtoOAGetTrendbarsRes.verify|verify} messages.
@@ -3787,15 +3333,6 @@ export class ProtoOAGetTickDataReq implements IProtoOAGetTickDataReq {
   public toTimestamp: Long;
 
   /**
-   * Creates a new ProtoOAGetTickDataReq instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAGetTickDataReq instance
-   */
-  public static create(
-    properties?: IProtoOAGetTickDataReq
-  ): ProtoOAGetTickDataReq;
-
-  /**
    * Encodes the specified ProtoOAGetTickDataReq message. Does not implicitly {@link ProtoOAGetTickDataReq.verify|verify} messages.
    * @param message ProtoOAGetTickDataReq message or plain object to encode
    * @param [writer] Writer to encode to
@@ -3856,15 +3393,6 @@ export class ProtoOAGetTickDataRes implements IProtoOAGetTickDataRes {
   public hasMore: boolean;
 
   /**
-   * Creates a new ProtoOAGetTickDataRes instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAGetTickDataRes instance
-   */
-  public static create(
-    properties?: IProtoOAGetTickDataRes
-  ): ProtoOAGetTickDataRes;
-
-  /**
    * Encodes the specified ProtoOAGetTickDataRes message. Does not implicitly {@link ProtoOAGetTickDataRes.verify|verify} messages.
    * @param message ProtoOAGetTickDataRes message or plain object to encode
    * @param [writer] Writer to encode to
@@ -3914,15 +3442,6 @@ export class ProtoOAGetCtidProfileByTokenReq
   public accessToken: string;
 
   /**
-   * Creates a new ProtoOAGetCtidProfileByTokenReq instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAGetCtidProfileByTokenReq instance
-   */
-  public static create(
-    properties?: IProtoOAGetCtidProfileByTokenReq
-  ): ProtoOAGetCtidProfileByTokenReq;
-
-  /**
    * Encodes the specified ProtoOAGetCtidProfileByTokenReq message. Does not implicitly {@link ProtoOAGetCtidProfileByTokenReq.verify|verify} messages.
    * @param message ProtoOAGetCtidProfileByTokenReq message or plain object to encode
    * @param [writer] Writer to encode to
@@ -3970,15 +3489,6 @@ export class ProtoOAGetCtidProfileByTokenRes
 
   /** ProtoOAGetCtidProfileByTokenRes profile. */
   public profile: IProtoOACtidProfile;
-
-  /**
-   * Creates a new ProtoOAGetCtidProfileByTokenRes instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAGetCtidProfileByTokenRes instance
-   */
-  public static create(
-    properties?: IProtoOAGetCtidProfileByTokenRes
-  ): ProtoOAGetCtidProfileByTokenRes;
 
   /**
    * Encodes the specified ProtoOAGetCtidProfileByTokenRes message. Does not implicitly {@link ProtoOAGetCtidProfileByTokenRes.verify|verify} messages.
@@ -4047,13 +3557,6 @@ export class ProtoOADepthEvent implements IProtoOADepthEvent {
   public deletedQuotes: Long[];
 
   /**
-   * Creates a new ProtoOADepthEvent instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOADepthEvent instance
-   */
-  public static create(properties?: IProtoOADepthEvent): ProtoOADepthEvent;
-
-  /**
    * Encodes the specified ProtoOADepthEvent message. Does not implicitly {@link ProtoOADepthEvent.verify|verify} messages.
    * @param message ProtoOADepthEvent message or plain object to encode
    * @param [writer] Writer to encode to
@@ -4109,15 +3612,6 @@ export class ProtoOASubscribeDepthQuotesReq
   public symbolId: Long[];
 
   /**
-   * Creates a new ProtoOASubscribeDepthQuotesReq instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOASubscribeDepthQuotesReq instance
-   */
-  public static create(
-    properties?: IProtoOASubscribeDepthQuotesReq
-  ): ProtoOASubscribeDepthQuotesReq;
-
-  /**
    * Encodes the specified ProtoOASubscribeDepthQuotesReq message. Does not implicitly {@link ProtoOASubscribeDepthQuotesReq.verify|verify} messages.
    * @param message ProtoOASubscribeDepthQuotesReq message or plain object to encode
    * @param [writer] Writer to encode to
@@ -4165,15 +3659,6 @@ export class ProtoOASubscribeDepthQuotesRes
 
   /** ProtoOASubscribeDepthQuotesRes ctidTraderAccountId. */
   public ctidTraderAccountId: Long;
-
-  /**
-   * Creates a new ProtoOASubscribeDepthQuotesRes instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOASubscribeDepthQuotesRes instance
-   */
-  public static create(
-    properties?: IProtoOASubscribeDepthQuotesRes
-  ): ProtoOASubscribeDepthQuotesRes;
 
   /**
    * Encodes the specified ProtoOASubscribeDepthQuotesRes message. Does not implicitly {@link ProtoOASubscribeDepthQuotesRes.verify|verify} messages.
@@ -4231,15 +3716,6 @@ export class ProtoOAUnsubscribeDepthQuotesReq
   public symbolId: Long[];
 
   /**
-   * Creates a new ProtoOAUnsubscribeDepthQuotesReq instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAUnsubscribeDepthQuotesReq instance
-   */
-  public static create(
-    properties?: IProtoOAUnsubscribeDepthQuotesReq
-  ): ProtoOAUnsubscribeDepthQuotesReq;
-
-  /**
    * Encodes the specified ProtoOAUnsubscribeDepthQuotesReq message. Does not implicitly {@link ProtoOAUnsubscribeDepthQuotesReq.verify|verify} messages.
    * @param message ProtoOAUnsubscribeDepthQuotesReq message or plain object to encode
    * @param [writer] Writer to encode to
@@ -4289,15 +3765,6 @@ export class ProtoOAUnsubscribeDepthQuotesRes
   public ctidTraderAccountId: Long;
 
   /**
-   * Creates a new ProtoOAUnsubscribeDepthQuotesRes instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAUnsubscribeDepthQuotesRes instance
-   */
-  public static create(
-    properties?: IProtoOAUnsubscribeDepthQuotesRes
-  ): ProtoOAUnsubscribeDepthQuotesRes;
-
-  /**
    * Encodes the specified ProtoOAUnsubscribeDepthQuotesRes message. Does not implicitly {@link ProtoOAUnsubscribeDepthQuotesRes.verify|verify} messages.
    * @param message ProtoOAUnsubscribeDepthQuotesRes message or plain object to encode
    * @param [writer] Writer to encode to
@@ -4345,15 +3812,6 @@ export class ProtoOASymbolCategoryListReq
 
   /** ProtoOASymbolCategoryListReq ctidTraderAccountId. */
   public ctidTraderAccountId: Long;
-
-  /**
-   * Creates a new ProtoOASymbolCategoryListReq instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOASymbolCategoryListReq instance
-   */
-  public static create(
-    properties?: IProtoOASymbolCategoryListReq
-  ): ProtoOASymbolCategoryListReq;
 
   /**
    * Encodes the specified ProtoOASymbolCategoryListReq message. Does not implicitly {@link ProtoOASymbolCategoryListReq.verify|verify} messages.
@@ -4411,15 +3869,6 @@ export class ProtoOASymbolCategoryListRes
   public symbolCategory: IProtoOASymbolCategory[];
 
   /**
-   * Creates a new ProtoOASymbolCategoryListRes instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOASymbolCategoryListRes instance
-   */
-  public static create(
-    properties?: IProtoOASymbolCategoryListRes
-  ): ProtoOASymbolCategoryListRes;
-
-  /**
    * Encodes the specified ProtoOASymbolCategoryListRes message. Does not implicitly {@link ProtoOASymbolCategoryListRes.verify|verify} messages.
    * @param message ProtoOASymbolCategoryListRes message or plain object to encode
    * @param [writer] Writer to encode to
@@ -4468,15 +3917,6 @@ export class ProtoOAAccountLogoutReq implements IProtoOAAccountLogoutReq {
   public ctidTraderAccountId: Long;
 
   /**
-   * Creates a new ProtoOAAccountLogoutReq instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAAccountLogoutReq instance
-   */
-  public static create(
-    properties?: IProtoOAAccountLogoutReq
-  ): ProtoOAAccountLogoutReq;
-
-  /**
    * Encodes the specified ProtoOAAccountLogoutReq message. Does not implicitly {@link ProtoOAAccountLogoutReq.verify|verify} messages.
    * @param message ProtoOAAccountLogoutReq message or plain object to encode
    * @param [writer] Writer to encode to
@@ -4523,15 +3963,6 @@ export class ProtoOAAccountLogoutRes implements IProtoOAAccountLogoutRes {
 
   /** ProtoOAAccountLogoutRes ctidTraderAccountId. */
   public ctidTraderAccountId: Long;
-
-  /**
-   * Creates a new ProtoOAAccountLogoutRes instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAAccountLogoutRes instance
-   */
-  public static create(
-    properties?: IProtoOAAccountLogoutRes
-  ): ProtoOAAccountLogoutRes;
 
   /**
    * Encodes the specified ProtoOAAccountLogoutRes message. Does not implicitly {@link ProtoOAAccountLogoutRes.verify|verify} messages.
@@ -4584,15 +4015,6 @@ export class ProtoOAAccountDisconnectEvent
 
   /** ProtoOAAccountDisconnectEvent ctidTraderAccountId. */
   public ctidTraderAccountId: Long;
-
-  /**
-   * Creates a new ProtoOAAccountDisconnectEvent instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAAccountDisconnectEvent instance
-   */
-  public static create(
-    properties?: IProtoOAAccountDisconnectEvent
-  ): ProtoOAAccountDisconnectEvent;
 
   /**
    * Encodes the specified ProtoOAAccountDisconnectEvent message. Does not implicitly {@link ProtoOAAccountDisconnectEvent.verify|verify} messages.
@@ -4716,13 +4138,6 @@ export class ProtoOAAsset implements IProtoOAAsset {
 
   /** ProtoOAAsset displayName. */
   public displayName: string;
-
-  /**
-   * Creates a new ProtoOAAsset instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAAsset instance
-   */
-  public static create(properties?: IProtoOAAsset): ProtoOAAsset;
 
   /**
    * Encodes the specified ProtoOAAsset message. Does not implicitly {@link ProtoOAAsset.verify|verify} messages.
@@ -4929,13 +4344,6 @@ export class ProtoOASymbol implements IProtoOASymbol {
   public rolloverCommission3Days: ProtoOADayOfWeek;
 
   /**
-   * Creates a new ProtoOASymbol instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOASymbol instance
-   */
-  public static create(properties?: IProtoOASymbol): ProtoOASymbol;
-
-  /**
    * Encodes the specified ProtoOASymbol message. Does not implicitly {@link ProtoOASymbol.verify|verify} messages.
    * @param message ProtoOASymbol message or plain object to encode
    * @param [writer] Writer to encode to
@@ -5014,13 +4422,6 @@ export class ProtoOALightSymbol implements IProtoOALightSymbol {
   public description: string;
 
   /**
-   * Creates a new ProtoOALightSymbol instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOALightSymbol instance
-   */
-  public static create(properties?: IProtoOALightSymbol): ProtoOALightSymbol;
-
-  /**
    * Encodes the specified ProtoOALightSymbol message. Does not implicitly {@link ProtoOALightSymbol.verify|verify} messages.
    * @param message ProtoOALightSymbol message or plain object to encode
    * @param [writer] Writer to encode to
@@ -5073,15 +4474,6 @@ export class ProtoOASymbolCategory implements IProtoOASymbolCategory {
 
   /** ProtoOASymbolCategory name. */
   public name: string;
-
-  /**
-   * Creates a new ProtoOASymbolCategory instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOASymbolCategory instance
-   */
-  public static create(
-    properties?: IProtoOASymbolCategory
-  ): ProtoOASymbolCategory;
 
   /**
    * Encodes the specified ProtoOASymbolCategory message. Does not implicitly {@link ProtoOASymbolCategory.verify|verify} messages.
@@ -5142,13 +4534,6 @@ export class ProtoOAInterval implements IProtoOAInterval {
 
   /** ProtoOAInterval endSecond. */
   public endSecond: number;
-
-  /**
-   * Creates a new ProtoOAInterval instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAInterval instance
-   */
-  public static create(properties?: IProtoOAInterval): ProtoOAInterval;
 
   /**
    * Encodes the specified ProtoOAInterval message. Does not implicitly {@link ProtoOAInterval.verify|verify} messages.
@@ -5339,13 +4724,6 @@ export class ProtoOATrader implements IProtoOATrader {
   public registrationTimestamp: Long;
 
   /**
-   * Creates a new ProtoOATrader instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOATrader instance
-   */
-  public static create(properties?: IProtoOATrader): ProtoOATrader;
-
-  /**
    * Encodes the specified ProtoOATrader message. Does not implicitly {@link ProtoOATrader.verify|verify} messages.
    * @param message ProtoOATrader message or plain object to encode
    * @param [writer] Writer to encode to
@@ -5516,13 +4894,6 @@ export class ProtoOAPosition implements IProtoOAPosition {
   public stopLossTriggerMethod: ProtoOAOrderTriggerMethod;
 
   /**
-   * Creates a new ProtoOAPosition instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAPosition instance
-   */
-  public static create(properties?: IProtoOAPosition): ProtoOAPosition;
-
-  /**
    * Encodes the specified ProtoOAPosition message. Does not implicitly {@link ProtoOAPosition.verify|verify} messages.
    * @param message ProtoOAPosition message or plain object to encode
    * @param [writer] Writer to encode to
@@ -5593,13 +4964,6 @@ export class ProtoOATradeData implements IProtoOATradeData {
 
   /** ProtoOATradeData guaranteedStopLoss. */
   public guaranteedStopLoss: boolean;
-
-  /**
-   * Creates a new ProtoOATradeData instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOATradeData instance
-   */
-  public static create(properties?: IProtoOATradeData): ProtoOATradeData;
 
   /**
    * Encodes the specified ProtoOATradeData message. Does not implicitly {@link ProtoOATradeData.verify|verify} messages.
@@ -5776,13 +5140,6 @@ export class ProtoOAOrder implements IProtoOAOrder {
   public stopTriggerMethod: ProtoOAOrderTriggerMethod;
 
   /**
-   * Creates a new ProtoOAOrder instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAOrder instance
-   */
-  public static create(properties?: IProtoOAOrder): ProtoOAOrder;
-
-  /**
    * Encodes the specified ProtoOAOrder message. Does not implicitly {@link ProtoOAOrder.verify|verify} messages.
    * @param message ProtoOAOrder message or plain object to encode
    * @param [writer] Writer to encode to
@@ -5889,15 +5246,6 @@ export class ProtoOABonusDepositWithdraw
   public introducingBrokerId: Long;
 
   /**
-   * Creates a new ProtoOABonusDepositWithdraw instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOABonusDepositWithdraw instance
-   */
-  public static create(
-    properties?: IProtoOABonusDepositWithdraw
-  ): ProtoOABonusDepositWithdraw;
-
-  /**
    * Encodes the specified ProtoOABonusDepositWithdraw message. Does not implicitly {@link ProtoOABonusDepositWithdraw.verify|verify} messages.
    * @param message ProtoOABonusDepositWithdraw message or plain object to encode
    * @param [writer] Writer to encode to
@@ -5986,15 +5334,6 @@ export class ProtoOADepositWithdraw implements IProtoOADepositWithdraw {
 
   /** ProtoOADepositWithdraw equity. */
   public equity: Long;
-
-  /**
-   * Creates a new ProtoOADepositWithdraw instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOADepositWithdraw instance
-   */
-  public static create(
-    properties?: IProtoOADepositWithdraw
-  ): ProtoOADepositWithdraw;
 
   /**
    * Encodes the specified ProtoOADepositWithdraw message. Does not implicitly {@link ProtoOADepositWithdraw.verify|verify} messages.
@@ -6159,13 +5498,6 @@ export class ProtoOADeal implements IProtoOADeal {
   public closePositionDetail?: IProtoOAClosePositionDetail | null;
 
   /**
-   * Creates a new ProtoOADeal instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOADeal instance
-   */
-  public static create(properties?: IProtoOADeal): ProtoOADeal;
-
-  /**
    * Encodes the specified ProtoOADeal message. Does not implicitly {@link ProtoOADeal.verify|verify} messages.
    * @param message ProtoOADeal message or plain object to encode
    * @param [writer] Writer to encode to
@@ -6258,15 +5590,6 @@ export class ProtoOAClosePositionDetail implements IProtoOAClosePositionDetail {
 
   /** ProtoOAClosePositionDetail balanceVersion. */
   public balanceVersion: Long;
-
-  /**
-   * Creates a new ProtoOAClosePositionDetail instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAClosePositionDetail instance
-   */
-  public static create(
-    properties?: IProtoOAClosePositionDetail
-  ): ProtoOAClosePositionDetail;
 
   /**
    * Encodes the specified ProtoOAClosePositionDetail message. Does not implicitly {@link ProtoOAClosePositionDetail.verify|verify} messages.
@@ -6365,13 +5688,6 @@ export class ProtoOATrendbar implements IProtoOATrendbar {
   public utcTimestampInMinutes: number;
 
   /**
-   * Creates a new ProtoOATrendbar instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOATrendbar instance
-   */
-  public static create(properties?: IProtoOATrendbar): ProtoOATrendbar;
-
-  /**
    * Encodes the specified ProtoOATrendbar message. Does not implicitly {@link ProtoOATrendbar.verify|verify} messages.
    * @param message ProtoOATrendbar message or plain object to encode
    * @param [writer] Writer to encode to
@@ -6424,15 +5740,6 @@ export class ProtoOAExpectedMargin implements IProtoOAExpectedMargin {
 
   /** ProtoOAExpectedMargin sellMargin. */
   public sellMargin: Long;
-
-  /**
-   * Creates a new ProtoOAExpectedMargin instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAExpectedMargin instance
-   */
-  public static create(
-    properties?: IProtoOAExpectedMargin
-  ): ProtoOAExpectedMargin;
 
   /**
    * Encodes the specified ProtoOAExpectedMargin message. Does not implicitly {@link ProtoOAExpectedMargin.verify|verify} messages.
@@ -6489,13 +5796,6 @@ export class ProtoOATickData implements IProtoOATickData {
   public tick: Long;
 
   /**
-   * Creates a new ProtoOATickData instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOATickData instance
-   */
-  public static create(properties?: IProtoOATickData): ProtoOATickData;
-
-  /**
    * Encodes the specified ProtoOATickData message. Does not implicitly {@link ProtoOATickData.verify|verify} messages.
    * @param message ProtoOATickData message or plain object to encode
    * @param [writer] Writer to encode to
@@ -6542,13 +5842,6 @@ export class ProtoOACtidProfile implements IProtoOACtidProfile {
 
   /** ProtoOACtidProfile userId. */
   public userId: Long;
-
-  /**
-   * Creates a new ProtoOACtidProfile instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOACtidProfile instance
-   */
-  public static create(properties?: IProtoOACtidProfile): ProtoOACtidProfile;
 
   /**
    * Encodes the specified ProtoOACtidProfile message. Does not implicitly {@link ProtoOACtidProfile.verify|verify} messages.
@@ -6605,15 +5898,6 @@ export class ProtoOACtidTraderAccount implements IProtoOACtidTraderAccount {
   public traderLogin: Long;
 
   /**
-   * Creates a new ProtoOACtidTraderAccount instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOACtidTraderAccount instance
-   */
-  public static create(
-    properties?: IProtoOACtidTraderAccount
-  ): ProtoOACtidTraderAccount;
-
-  /**
    * Encodes the specified ProtoOACtidTraderAccount message. Does not implicitly {@link ProtoOACtidTraderAccount.verify|verify} messages.
    * @param message ProtoOACtidTraderAccount message or plain object to encode
    * @param [writer] Writer to encode to
@@ -6660,13 +5944,6 @@ export class ProtoOAAssetClass implements IProtoOAAssetClass {
 
   /** ProtoOAAssetClass name. */
   public name: string;
-
-  /**
-   * Creates a new ProtoOAAssetClass instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAAssetClass instance
-   */
-  public static create(properties?: IProtoOAAssetClass): ProtoOAAssetClass;
 
   /**
    * Encodes the specified ProtoOAAssetClass message. Does not implicitly {@link ProtoOAAssetClass.verify|verify} messages.
@@ -6727,13 +6004,6 @@ export class ProtoOADepthQuote implements IProtoOADepthQuote {
 
   /** ProtoOADepthQuote ask. */
   public ask: Long;
-
-  /**
-   * Creates a new ProtoOADepthQuote instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOADepthQuote instance
-   */
-  public static create(properties?: IProtoOADepthQuote): ProtoOADepthQuote;
 
   /**
    * Encodes the specified ProtoOADepthQuote message. Does not implicitly {@link ProtoOADepthQuote.verify|verify} messages.

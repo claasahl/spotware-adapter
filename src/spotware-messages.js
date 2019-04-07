@@ -60,18 +60,6 @@ $root.ProtoMessage = (function() {
   ProtoMessage.prototype.clientMsgId = "";
 
   /**
-   * Creates a new ProtoMessage instance using the specified properties.
-   * @function create
-   * @memberof ProtoMessage
-   * @static
-   * @param {IProtoMessage=} [properties] Properties to set
-   * @returns {ProtoMessage} ProtoMessage instance
-   */
-  ProtoMessage.create = function create(properties) {
-    return new ProtoMessage(properties);
-  };
-
-  /**
    * Encodes the specified ProtoMessage message. Does not implicitly {@link ProtoMessage.verify|verify} messages.
    * @function encode
    * @memberof ProtoMessage
@@ -192,18 +180,6 @@ $root.ProtoErrorRes = (function() {
     : 0;
 
   /**
-   * Creates a new ProtoErrorRes instance using the specified properties.
-   * @function create
-   * @memberof ProtoErrorRes
-   * @static
-   * @param {IProtoErrorRes=} [properties] Properties to set
-   * @returns {ProtoErrorRes} ProtoErrorRes instance
-   */
-  ProtoErrorRes.create = function create(properties) {
-    return new ProtoErrorRes(properties);
-  };
-
-  /**
    * Encodes the specified ProtoErrorRes message. Does not implicitly {@link ProtoErrorRes.verify|verify} messages.
    * @function encode
    * @memberof ProtoErrorRes
@@ -303,18 +279,6 @@ $root.ProtoHeartbeatEvent = (function() {
    * @instance
    */
   ProtoHeartbeatEvent.prototype.payloadType = 51;
-
-  /**
-   * Creates a new ProtoHeartbeatEvent instance using the specified properties.
-   * @function create
-   * @memberof ProtoHeartbeatEvent
-   * @static
-   * @param {IProtoHeartbeatEvent=} [properties] Properties to set
-   * @returns {ProtoHeartbeatEvent} ProtoHeartbeatEvent instance
-   */
-  ProtoHeartbeatEvent.create = function create(properties) {
-    return new ProtoHeartbeatEvent(properties);
-  };
 
   /**
    * Encodes the specified ProtoHeartbeatEvent message. Does not implicitly {@link ProtoHeartbeatEvent.verify|verify} messages.
@@ -463,18 +427,6 @@ $root.ProtoOAApplicationAuthReq = (function() {
   ProtoOAApplicationAuthReq.prototype.clientSecret = "";
 
   /**
-   * Creates a new ProtoOAApplicationAuthReq instance using the specified properties.
-   * @function create
-   * @memberof ProtoOAApplicationAuthReq
-   * @static
-   * @param {IProtoOAApplicationAuthReq=} [properties] Properties to set
-   * @returns {ProtoOAApplicationAuthReq} ProtoOAApplicationAuthReq instance
-   */
-  ProtoOAApplicationAuthReq.create = function create(properties) {
-    return new ProtoOAApplicationAuthReq(properties);
-  };
-
-  /**
    * Encodes the specified ProtoOAApplicationAuthReq message. Does not implicitly {@link ProtoOAApplicationAuthReq.verify|verify} messages.
    * @function encode
    * @memberof ProtoOAApplicationAuthReq
@@ -567,18 +519,6 @@ $root.ProtoOAApplicationAuthRes = (function() {
    * @instance
    */
   ProtoOAApplicationAuthRes.prototype.payloadType = 2101;
-
-  /**
-   * Creates a new ProtoOAApplicationAuthRes instance using the specified properties.
-   * @function create
-   * @memberof ProtoOAApplicationAuthRes
-   * @static
-   * @param {IProtoOAApplicationAuthRes=} [properties] Properties to set
-   * @returns {ProtoOAApplicationAuthRes} ProtoOAApplicationAuthRes instance
-   */
-  ProtoOAApplicationAuthRes.create = function create(properties) {
-    return new ProtoOAApplicationAuthRes(properties);
-  };
 
   /**
    * Encodes the specified ProtoOAApplicationAuthRes message. Does not implicitly {@link ProtoOAApplicationAuthRes.verify|verify} messages.
@@ -677,18 +617,6 @@ $root.ProtoOAAccountAuthReq = (function() {
    * @instance
    */
   ProtoOAAccountAuthReq.prototype.accessToken = "";
-
-  /**
-   * Creates a new ProtoOAAccountAuthReq instance using the specified properties.
-   * @function create
-   * @memberof ProtoOAAccountAuthReq
-   * @static
-   * @param {IProtoOAAccountAuthReq=} [properties] Properties to set
-   * @returns {ProtoOAAccountAuthReq} ProtoOAAccountAuthReq instance
-   */
-  ProtoOAAccountAuthReq.create = function create(properties) {
-    return new ProtoOAAccountAuthReq(properties);
-  };
 
   /**
    * Encodes the specified ProtoOAAccountAuthReq message. Does not implicitly {@link ProtoOAAccountAuthReq.verify|verify} messages.
@@ -796,18 +724,6 @@ $root.ProtoOAAccountAuthRes = (function() {
   ProtoOAAccountAuthRes.prototype.ctidTraderAccountId = $util.Long
     ? $util.Long.fromBits(0, 0, false)
     : 0;
-
-  /**
-   * Creates a new ProtoOAAccountAuthRes instance using the specified properties.
-   * @function create
-   * @memberof ProtoOAAccountAuthRes
-   * @static
-   * @param {IProtoOAAccountAuthRes=} [properties] Properties to set
-   * @returns {ProtoOAAccountAuthRes} ProtoOAAccountAuthRes instance
-   */
-  ProtoOAAccountAuthRes.create = function create(properties) {
-    return new ProtoOAAccountAuthRes(properties);
-  };
 
   /**
    * Encodes the specified ProtoOAAccountAuthRes message. Does not implicitly {@link ProtoOAAccountAuthRes.verify|verify} messages.
@@ -927,18 +843,6 @@ $root.ProtoOAErrorRes = (function() {
   ProtoOAErrorRes.prototype.description = "";
 
   /**
-   * Creates a new ProtoOAErrorRes instance using the specified properties.
-   * @function create
-   * @memberof ProtoOAErrorRes
-   * @static
-   * @param {IProtoOAErrorRes=} [properties] Properties to set
-   * @returns {ProtoOAErrorRes} ProtoOAErrorRes instance
-   */
-  ProtoOAErrorRes.create = function create(properties) {
-    return new ProtoOAErrorRes(properties);
-  };
-
-  /**
    * Encodes the specified ProtoOAErrorRes message. Does not implicitly {@link ProtoOAErrorRes.verify|verify} messages.
    * @function encode
    * @memberof ProtoOAErrorRes
@@ -1049,18 +953,6 @@ $root.ProtoOAClientDisconnectEvent = (function() {
   ProtoOAClientDisconnectEvent.prototype.reason = "";
 
   /**
-   * Creates a new ProtoOAClientDisconnectEvent instance using the specified properties.
-   * @function create
-   * @memberof ProtoOAClientDisconnectEvent
-   * @static
-   * @param {IProtoOAClientDisconnectEvent=} [properties] Properties to set
-   * @returns {ProtoOAClientDisconnectEvent} ProtoOAClientDisconnectEvent instance
-   */
-  ProtoOAClientDisconnectEvent.create = function create(properties) {
-    return new ProtoOAClientDisconnectEvent(properties);
-  };
-
-  /**
    * Encodes the specified ProtoOAClientDisconnectEvent message. Does not implicitly {@link ProtoOAClientDisconnectEvent.verify|verify} messages.
    * @function encode
    * @memberof ProtoOAClientDisconnectEvent
@@ -1162,18 +1054,6 @@ $root.ProtoOAAccountsTokenInvalidatedEvent = (function() {
    * @instance
    */
   ProtoOAAccountsTokenInvalidatedEvent.prototype.reason = "";
-
-  /**
-   * Creates a new ProtoOAAccountsTokenInvalidatedEvent instance using the specified properties.
-   * @function create
-   * @memberof ProtoOAAccountsTokenInvalidatedEvent
-   * @static
-   * @param {IProtoOAAccountsTokenInvalidatedEvent=} [properties] Properties to set
-   * @returns {ProtoOAAccountsTokenInvalidatedEvent} ProtoOAAccountsTokenInvalidatedEvent instance
-   */
-  ProtoOAAccountsTokenInvalidatedEvent.create = function create(properties) {
-    return new ProtoOAAccountsTokenInvalidatedEvent(properties);
-  };
 
   /**
    * Encodes the specified ProtoOAAccountsTokenInvalidatedEvent message. Does not implicitly {@link ProtoOAAccountsTokenInvalidatedEvent.verify|verify} messages.
@@ -1287,18 +1167,6 @@ $root.ProtoOAVersionReq = (function() {
   ProtoOAVersionReq.prototype.payloadType = 2104;
 
   /**
-   * Creates a new ProtoOAVersionReq instance using the specified properties.
-   * @function create
-   * @memberof ProtoOAVersionReq
-   * @static
-   * @param {IProtoOAVersionReq=} [properties] Properties to set
-   * @returns {ProtoOAVersionReq} ProtoOAVersionReq instance
-   */
-  ProtoOAVersionReq.create = function create(properties) {
-    return new ProtoOAVersionReq(properties);
-  };
-
-  /**
    * Encodes the specified ProtoOAVersionReq message. Does not implicitly {@link ProtoOAVersionReq.verify|verify} messages.
    * @function encode
    * @memberof ProtoOAVersionReq
@@ -1384,18 +1252,6 @@ $root.ProtoOAVersionRes = (function() {
    * @instance
    */
   ProtoOAVersionRes.prototype.version = "";
-
-  /**
-   * Creates a new ProtoOAVersionRes instance using the specified properties.
-   * @function create
-   * @memberof ProtoOAVersionRes
-   * @static
-   * @param {IProtoOAVersionRes=} [properties] Properties to set
-   * @returns {ProtoOAVersionRes} ProtoOAVersionRes instance
-   */
-  ProtoOAVersionRes.create = function create(properties) {
-    return new ProtoOAVersionRes(properties);
-  };
 
   /**
    * Encodes the specified ProtoOAVersionRes message. Does not implicitly {@link ProtoOAVersionRes.verify|verify} messages.
@@ -1694,18 +1550,6 @@ $root.ProtoOANewOrderReq = (function() {
    * @instance
    */
   ProtoOANewOrderReq.prototype.stopTriggerMethod = 1;
-
-  /**
-   * Creates a new ProtoOANewOrderReq instance using the specified properties.
-   * @function create
-   * @memberof ProtoOANewOrderReq
-   * @static
-   * @param {IProtoOANewOrderReq=} [properties] Properties to set
-   * @returns {ProtoOANewOrderReq} ProtoOANewOrderReq instance
-   */
-  ProtoOANewOrderReq.create = function create(properties) {
-    return new ProtoOANewOrderReq(properties);
-  };
 
   /**
    * Encodes the specified ProtoOANewOrderReq message. Does not implicitly {@link ProtoOANewOrderReq.verify|verify} messages.
@@ -2039,18 +1883,6 @@ $root.ProtoOAExecutionEvent = (function() {
   ProtoOAExecutionEvent.prototype.isServerEvent = false;
 
   /**
-   * Creates a new ProtoOAExecutionEvent instance using the specified properties.
-   * @function create
-   * @memberof ProtoOAExecutionEvent
-   * @static
-   * @param {IProtoOAExecutionEvent=} [properties] Properties to set
-   * @returns {ProtoOAExecutionEvent} ProtoOAExecutionEvent instance
-   */
-  ProtoOAExecutionEvent.create = function create(properties) {
-    return new ProtoOAExecutionEvent(properties);
-  };
-
-  /**
    * Encodes the specified ProtoOAExecutionEvent message. Does not implicitly {@link ProtoOAExecutionEvent.verify|verify} messages.
    * @function encode
    * @memberof ProtoOAExecutionEvent
@@ -2235,18 +2067,6 @@ $root.ProtoOACancelOrderReq = (function() {
   ProtoOACancelOrderReq.prototype.orderId = $util.Long
     ? $util.Long.fromBits(0, 0, false)
     : 0;
-
-  /**
-   * Creates a new ProtoOACancelOrderReq instance using the specified properties.
-   * @function create
-   * @memberof ProtoOACancelOrderReq
-   * @static
-   * @param {IProtoOACancelOrderReq=} [properties] Properties to set
-   * @returns {ProtoOACancelOrderReq} ProtoOACancelOrderReq instance
-   */
-  ProtoOACancelOrderReq.create = function create(properties) {
-    return new ProtoOACancelOrderReq(properties);
-  };
 
   /**
    * Encodes the specified ProtoOACancelOrderReq message. Does not implicitly {@link ProtoOACancelOrderReq.verify|verify} messages.
@@ -2481,18 +2301,6 @@ $root.ProtoOAAmendOrderReq = (function() {
    * @instance
    */
   ProtoOAAmendOrderReq.prototype.stopTriggerMethod = 1;
-
-  /**
-   * Creates a new ProtoOAAmendOrderReq instance using the specified properties.
-   * @function create
-   * @memberof ProtoOAAmendOrderReq
-   * @static
-   * @param {IProtoOAAmendOrderReq=} [properties] Properties to set
-   * @returns {ProtoOAAmendOrderReq} ProtoOAAmendOrderReq instance
-   */
-  ProtoOAAmendOrderReq.create = function create(properties) {
-    return new ProtoOAAmendOrderReq(properties);
-  };
 
   /**
    * Encodes the specified ProtoOAAmendOrderReq message. Does not implicitly {@link ProtoOAAmendOrderReq.verify|verify} messages.
@@ -2753,18 +2561,6 @@ $root.ProtoOAAmendPositionSLTPReq = (function() {
   ProtoOAAmendPositionSLTPReq.prototype.stopLossTriggerMethod = 1;
 
   /**
-   * Creates a new ProtoOAAmendPositionSLTPReq instance using the specified properties.
-   * @function create
-   * @memberof ProtoOAAmendPositionSLTPReq
-   * @static
-   * @param {IProtoOAAmendPositionSLTPReq=} [properties] Properties to set
-   * @returns {ProtoOAAmendPositionSLTPReq} ProtoOAAmendPositionSLTPReq instance
-   */
-  ProtoOAAmendPositionSLTPReq.create = function create(properties) {
-    return new ProtoOAAmendPositionSLTPReq(properties);
-  };
-
-  /**
    * Encodes the specified ProtoOAAmendPositionSLTPReq message. Does not implicitly {@link ProtoOAAmendPositionSLTPReq.verify|verify} messages.
    * @function encode
    * @memberof ProtoOAAmendPositionSLTPReq
@@ -2932,18 +2728,6 @@ $root.ProtoOAClosePositionReq = (function() {
     : 0;
 
   /**
-   * Creates a new ProtoOAClosePositionReq instance using the specified properties.
-   * @function create
-   * @memberof ProtoOAClosePositionReq
-   * @static
-   * @param {IProtoOAClosePositionReq=} [properties] Properties to set
-   * @returns {ProtoOAClosePositionReq} ProtoOAClosePositionReq instance
-   */
-  ProtoOAClosePositionReq.create = function create(properties) {
-    return new ProtoOAClosePositionReq(properties);
-  };
-
-  /**
    * Encodes the specified ProtoOAClosePositionReq message. Does not implicitly {@link ProtoOAClosePositionReq.verify|verify} messages.
    * @function encode
    * @memberof ProtoOAClosePositionReq
@@ -3101,18 +2885,6 @@ $root.ProtoOATrailingSLChangedEvent = (function() {
     : 0;
 
   /**
-   * Creates a new ProtoOATrailingSLChangedEvent instance using the specified properties.
-   * @function create
-   * @memberof ProtoOATrailingSLChangedEvent
-   * @static
-   * @param {IProtoOATrailingSLChangedEvent=} [properties] Properties to set
-   * @returns {ProtoOATrailingSLChangedEvent} ProtoOATrailingSLChangedEvent instance
-   */
-  ProtoOATrailingSLChangedEvent.create = function create(properties) {
-    return new ProtoOATrailingSLChangedEvent(properties);
-  };
-
-  /**
    * Encodes the specified ProtoOATrailingSLChangedEvent message. Does not implicitly {@link ProtoOATrailingSLChangedEvent.verify|verify} messages.
    * @function encode
    * @memberof ProtoOATrailingSLChangedEvent
@@ -3246,18 +3018,6 @@ $root.ProtoOAAssetListReq = (function() {
     : 0;
 
   /**
-   * Creates a new ProtoOAAssetListReq instance using the specified properties.
-   * @function create
-   * @memberof ProtoOAAssetListReq
-   * @static
-   * @param {IProtoOAAssetListReq=} [properties] Properties to set
-   * @returns {ProtoOAAssetListReq} ProtoOAAssetListReq instance
-   */
-  ProtoOAAssetListReq.create = function create(properties) {
-    return new ProtoOAAssetListReq(properties);
-  };
-
-  /**
    * Encodes the specified ProtoOAAssetListReq message. Does not implicitly {@link ProtoOAAssetListReq.verify|verify} messages.
    * @function encode
    * @memberof ProtoOAAssetListReq
@@ -3365,18 +3125,6 @@ $root.ProtoOAAssetListRes = (function() {
    * @instance
    */
   ProtoOAAssetListRes.prototype.asset = $util.emptyArray;
-
-  /**
-   * Creates a new ProtoOAAssetListRes instance using the specified properties.
-   * @function create
-   * @memberof ProtoOAAssetListRes
-   * @static
-   * @param {IProtoOAAssetListRes=} [properties] Properties to set
-   * @returns {ProtoOAAssetListRes} ProtoOAAssetListRes instance
-   */
-  ProtoOAAssetListRes.create = function create(properties) {
-    return new ProtoOAAssetListRes(properties);
-  };
 
   /**
    * Encodes the specified ProtoOAAssetListRes message. Does not implicitly {@link ProtoOAAssetListRes.verify|verify} messages.
@@ -3490,18 +3238,6 @@ $root.ProtoOASymbolsListReq = (function() {
     : 0;
 
   /**
-   * Creates a new ProtoOASymbolsListReq instance using the specified properties.
-   * @function create
-   * @memberof ProtoOASymbolsListReq
-   * @static
-   * @param {IProtoOASymbolsListReq=} [properties] Properties to set
-   * @returns {ProtoOASymbolsListReq} ProtoOASymbolsListReq instance
-   */
-  ProtoOASymbolsListReq.create = function create(properties) {
-    return new ProtoOASymbolsListReq(properties);
-  };
-
-  /**
    * Encodes the specified ProtoOASymbolsListReq message. Does not implicitly {@link ProtoOASymbolsListReq.verify|verify} messages.
    * @function encode
    * @memberof ProtoOASymbolsListReq
@@ -3609,18 +3345,6 @@ $root.ProtoOASymbolsListRes = (function() {
    * @instance
    */
   ProtoOASymbolsListRes.prototype.symbol = $util.emptyArray;
-
-  /**
-   * Creates a new ProtoOASymbolsListRes instance using the specified properties.
-   * @function create
-   * @memberof ProtoOASymbolsListRes
-   * @static
-   * @param {IProtoOASymbolsListRes=} [properties] Properties to set
-   * @returns {ProtoOASymbolsListRes} ProtoOASymbolsListRes instance
-   */
-  ProtoOASymbolsListRes.create = function create(properties) {
-    return new ProtoOASymbolsListRes(properties);
-  };
 
   /**
    * Encodes the specified ProtoOASymbolsListRes message. Does not implicitly {@link ProtoOASymbolsListRes.verify|verify} messages.
@@ -3744,18 +3468,6 @@ $root.ProtoOASymbolByIdReq = (function() {
   ProtoOASymbolByIdReq.prototype.symbolId = $util.emptyArray;
 
   /**
-   * Creates a new ProtoOASymbolByIdReq instance using the specified properties.
-   * @function create
-   * @memberof ProtoOASymbolByIdReq
-   * @static
-   * @param {IProtoOASymbolByIdReq=} [properties] Properties to set
-   * @returns {ProtoOASymbolByIdReq} ProtoOASymbolByIdReq instance
-   */
-  ProtoOASymbolByIdReq.create = function create(properties) {
-    return new ProtoOASymbolByIdReq(properties);
-  };
-
-  /**
    * Encodes the specified ProtoOASymbolByIdReq message. Does not implicitly {@link ProtoOASymbolByIdReq.verify|verify} messages.
    * @function encode
    * @memberof ProtoOASymbolByIdReq
@@ -3874,18 +3586,6 @@ $root.ProtoOASymbolByIdRes = (function() {
    * @instance
    */
   ProtoOASymbolByIdRes.prototype.symbol = $util.emptyArray;
-
-  /**
-   * Creates a new ProtoOASymbolByIdRes instance using the specified properties.
-   * @function create
-   * @memberof ProtoOASymbolByIdRes
-   * @static
-   * @param {IProtoOASymbolByIdRes=} [properties] Properties to set
-   * @returns {ProtoOASymbolByIdRes} ProtoOASymbolByIdRes instance
-   */
-  ProtoOASymbolByIdRes.create = function create(properties) {
-    return new ProtoOASymbolByIdRes(properties);
-  };
 
   /**
    * Encodes the specified ProtoOASymbolByIdRes message. Does not implicitly {@link ProtoOASymbolByIdRes.verify|verify} messages.
@@ -4021,18 +3721,6 @@ $root.ProtoOASymbolsForConversionReq = (function() {
     : 0;
 
   /**
-   * Creates a new ProtoOASymbolsForConversionReq instance using the specified properties.
-   * @function create
-   * @memberof ProtoOASymbolsForConversionReq
-   * @static
-   * @param {IProtoOASymbolsForConversionReq=} [properties] Properties to set
-   * @returns {ProtoOASymbolsForConversionReq} ProtoOASymbolsForConversionReq instance
-   */
-  ProtoOASymbolsForConversionReq.create = function create(properties) {
-    return new ProtoOASymbolsForConversionReq(properties);
-  };
-
-  /**
    * Encodes the specified ProtoOASymbolsForConversionReq message. Does not implicitly {@link ProtoOASymbolsForConversionReq.verify|verify} messages.
    * @function encode
    * @memberof ProtoOASymbolsForConversionReq
@@ -4158,18 +3846,6 @@ $root.ProtoOASymbolsForConversionRes = (function() {
   ProtoOASymbolsForConversionRes.prototype.symbol = $util.emptyArray;
 
   /**
-   * Creates a new ProtoOASymbolsForConversionRes instance using the specified properties.
-   * @function create
-   * @memberof ProtoOASymbolsForConversionRes
-   * @static
-   * @param {IProtoOASymbolsForConversionRes=} [properties] Properties to set
-   * @returns {ProtoOASymbolsForConversionRes} ProtoOASymbolsForConversionRes instance
-   */
-  ProtoOASymbolsForConversionRes.create = function create(properties) {
-    return new ProtoOASymbolsForConversionRes(properties);
-  };
-
-  /**
    * Encodes the specified ProtoOASymbolsForConversionRes message. Does not implicitly {@link ProtoOASymbolsForConversionRes.verify|verify} messages.
    * @function encode
    * @memberof ProtoOASymbolsForConversionRes
@@ -4291,18 +3967,6 @@ $root.ProtoOASymbolChangedEvent = (function() {
   ProtoOASymbolChangedEvent.prototype.symbolId = $util.emptyArray;
 
   /**
-   * Creates a new ProtoOASymbolChangedEvent instance using the specified properties.
-   * @function create
-   * @memberof ProtoOASymbolChangedEvent
-   * @static
-   * @param {IProtoOASymbolChangedEvent=} [properties] Properties to set
-   * @returns {ProtoOASymbolChangedEvent} ProtoOASymbolChangedEvent instance
-   */
-  ProtoOASymbolChangedEvent.create = function create(properties) {
-    return new ProtoOASymbolChangedEvent(properties);
-  };
-
-  /**
    * Encodes the specified ProtoOASymbolChangedEvent message. Does not implicitly {@link ProtoOASymbolChangedEvent.verify|verify} messages.
    * @function encode
    * @memberof ProtoOASymbolChangedEvent
@@ -4413,18 +4077,6 @@ $root.ProtoOAAssetClassListReq = (function() {
     : 0;
 
   /**
-   * Creates a new ProtoOAAssetClassListReq instance using the specified properties.
-   * @function create
-   * @memberof ProtoOAAssetClassListReq
-   * @static
-   * @param {IProtoOAAssetClassListReq=} [properties] Properties to set
-   * @returns {ProtoOAAssetClassListReq} ProtoOAAssetClassListReq instance
-   */
-  ProtoOAAssetClassListReq.create = function create(properties) {
-    return new ProtoOAAssetClassListReq(properties);
-  };
-
-  /**
    * Encodes the specified ProtoOAAssetClassListReq message. Does not implicitly {@link ProtoOAAssetClassListReq.verify|verify} messages.
    * @function encode
    * @memberof ProtoOAAssetClassListReq
@@ -4532,18 +4184,6 @@ $root.ProtoOAAssetClassListRes = (function() {
    * @instance
    */
   ProtoOAAssetClassListRes.prototype.assetClass = $util.emptyArray;
-
-  /**
-   * Creates a new ProtoOAAssetClassListRes instance using the specified properties.
-   * @function create
-   * @memberof ProtoOAAssetClassListRes
-   * @static
-   * @param {IProtoOAAssetClassListRes=} [properties] Properties to set
-   * @returns {ProtoOAAssetClassListRes} ProtoOAAssetClassListRes instance
-   */
-  ProtoOAAssetClassListRes.create = function create(properties) {
-    return new ProtoOAAssetClassListRes(properties);
-  };
 
   /**
    * Encodes the specified ProtoOAAssetClassListRes message. Does not implicitly {@link ProtoOAAssetClassListRes.verify|verify} messages.
@@ -4658,18 +4298,6 @@ $root.ProtoOATraderReq = (function() {
     : 0;
 
   /**
-   * Creates a new ProtoOATraderReq instance using the specified properties.
-   * @function create
-   * @memberof ProtoOATraderReq
-   * @static
-   * @param {IProtoOATraderReq=} [properties] Properties to set
-   * @returns {ProtoOATraderReq} ProtoOATraderReq instance
-   */
-  ProtoOATraderReq.create = function create(properties) {
-    return new ProtoOATraderReq(properties);
-  };
-
-  /**
    * Encodes the specified ProtoOATraderReq message. Does not implicitly {@link ProtoOATraderReq.verify|verify} messages.
    * @function encode
    * @memberof ProtoOATraderReq
@@ -4776,18 +4404,6 @@ $root.ProtoOATraderRes = (function() {
    * @instance
    */
   ProtoOATraderRes.prototype.trader = null;
-
-  /**
-   * Creates a new ProtoOATraderRes instance using the specified properties.
-   * @function create
-   * @memberof ProtoOATraderRes
-   * @static
-   * @param {IProtoOATraderRes=} [properties] Properties to set
-   * @returns {ProtoOATraderRes} ProtoOATraderRes instance
-   */
-  ProtoOATraderRes.create = function create(properties) {
-    return new ProtoOATraderRes(properties);
-  };
 
   /**
    * Encodes the specified ProtoOATraderRes message. Does not implicitly {@link ProtoOATraderRes.verify|verify} messages.
@@ -4909,18 +4525,6 @@ $root.ProtoOATraderUpdatedEvent = (function() {
   ProtoOATraderUpdatedEvent.prototype.trader = null;
 
   /**
-   * Creates a new ProtoOATraderUpdatedEvent instance using the specified properties.
-   * @function create
-   * @memberof ProtoOATraderUpdatedEvent
-   * @static
-   * @param {IProtoOATraderUpdatedEvent=} [properties] Properties to set
-   * @returns {ProtoOATraderUpdatedEvent} ProtoOATraderUpdatedEvent instance
-   */
-  ProtoOATraderUpdatedEvent.create = function create(properties) {
-    return new ProtoOATraderUpdatedEvent(properties);
-  };
-
-  /**
    * Encodes the specified ProtoOATraderUpdatedEvent message. Does not implicitly {@link ProtoOATraderUpdatedEvent.verify|verify} messages.
    * @function encode
    * @memberof ProtoOATraderUpdatedEvent
@@ -5029,18 +4633,6 @@ $root.ProtoOAReconcileReq = (function() {
   ProtoOAReconcileReq.prototype.ctidTraderAccountId = $util.Long
     ? $util.Long.fromBits(0, 0, false)
     : 0;
-
-  /**
-   * Creates a new ProtoOAReconcileReq instance using the specified properties.
-   * @function create
-   * @memberof ProtoOAReconcileReq
-   * @static
-   * @param {IProtoOAReconcileReq=} [properties] Properties to set
-   * @returns {ProtoOAReconcileReq} ProtoOAReconcileReq instance
-   */
-  ProtoOAReconcileReq.create = function create(properties) {
-    return new ProtoOAReconcileReq(properties);
-  };
 
   /**
    * Encodes the specified ProtoOAReconcileReq message. Does not implicitly {@link ProtoOAReconcileReq.verify|verify} messages.
@@ -5160,18 +4752,6 @@ $root.ProtoOAReconcileRes = (function() {
    * @instance
    */
   ProtoOAReconcileRes.prototype.order = $util.emptyArray;
-
-  /**
-   * Creates a new ProtoOAReconcileRes instance using the specified properties.
-   * @function create
-   * @memberof ProtoOAReconcileRes
-   * @static
-   * @param {IProtoOAReconcileRes=} [properties] Properties to set
-   * @returns {ProtoOAReconcileRes} ProtoOAReconcileRes instance
-   */
-  ProtoOAReconcileRes.create = function create(properties) {
-    return new ProtoOAReconcileRes(properties);
-  };
 
   /**
    * Encodes the specified ProtoOAReconcileRes message. Does not implicitly {@link ProtoOAReconcileRes.verify|verify} messages.
@@ -5338,18 +4918,6 @@ $root.ProtoOAOrderErrorEvent = (function() {
   ProtoOAOrderErrorEvent.prototype.description = "";
 
   /**
-   * Creates a new ProtoOAOrderErrorEvent instance using the specified properties.
-   * @function create
-   * @memberof ProtoOAOrderErrorEvent
-   * @static
-   * @param {IProtoOAOrderErrorEvent=} [properties] Properties to set
-   * @returns {ProtoOAOrderErrorEvent} ProtoOAOrderErrorEvent instance
-   */
-  ProtoOAOrderErrorEvent.create = function create(properties) {
-    return new ProtoOAOrderErrorEvent(properties);
-  };
-
-  /**
    * Encodes the specified ProtoOAOrderErrorEvent message. Does not implicitly {@link ProtoOAOrderErrorEvent.verify|verify} messages.
    * @function encode
    * @memberof ProtoOAOrderErrorEvent
@@ -5503,18 +5071,6 @@ $root.ProtoOADealListReq = (function() {
   ProtoOADealListReq.prototype.maxRows = 0;
 
   /**
-   * Creates a new ProtoOADealListReq instance using the specified properties.
-   * @function create
-   * @memberof ProtoOADealListReq
-   * @static
-   * @param {IProtoOADealListReq=} [properties] Properties to set
-   * @returns {ProtoOADealListReq} ProtoOADealListReq instance
-   */
-  ProtoOADealListReq.create = function create(properties) {
-    return new ProtoOADealListReq(properties);
-  };
-
-  /**
    * Encodes the specified ProtoOADealListReq message. Does not implicitly {@link ProtoOADealListReq.verify|verify} messages.
    * @function encode
    * @memberof ProtoOADealListReq
@@ -5652,18 +5208,6 @@ $root.ProtoOADealListRes = (function() {
    * @instance
    */
   ProtoOADealListRes.prototype.hasMore = false;
-
-  /**
-   * Creates a new ProtoOADealListRes instance using the specified properties.
-   * @function create
-   * @memberof ProtoOADealListRes
-   * @static
-   * @param {IProtoOADealListRes=} [properties] Properties to set
-   * @returns {ProtoOADealListRes} ProtoOADealListRes instance
-   */
-  ProtoOADealListRes.create = function create(properties) {
-    return new ProtoOADealListRes(properties);
-  };
 
   /**
    * Encodes the specified ProtoOADealListRes message. Does not implicitly {@link ProtoOADealListRes.verify|verify} messages.
@@ -5804,18 +5348,6 @@ $root.ProtoOAExpectedMarginReq = (function() {
   ProtoOAExpectedMarginReq.prototype.volume = $util.emptyArray;
 
   /**
-   * Creates a new ProtoOAExpectedMarginReq instance using the specified properties.
-   * @function create
-   * @memberof ProtoOAExpectedMarginReq
-   * @static
-   * @param {IProtoOAExpectedMarginReq=} [properties] Properties to set
-   * @returns {ProtoOAExpectedMarginReq} ProtoOAExpectedMarginReq instance
-   */
-  ProtoOAExpectedMarginReq.create = function create(properties) {
-    return new ProtoOAExpectedMarginReq(properties);
-  };
-
-  /**
    * Encodes the specified ProtoOAExpectedMarginReq message. Does not implicitly {@link ProtoOAExpectedMarginReq.verify|verify} messages.
    * @function encode
    * @memberof ProtoOAExpectedMarginReq
@@ -5941,18 +5473,6 @@ $root.ProtoOAExpectedMarginRes = (function() {
    * @instance
    */
   ProtoOAExpectedMarginRes.prototype.margin = $util.emptyArray;
-
-  /**
-   * Creates a new ProtoOAExpectedMarginRes instance using the specified properties.
-   * @function create
-   * @memberof ProtoOAExpectedMarginRes
-   * @static
-   * @param {IProtoOAExpectedMarginRes=} [properties] Properties to set
-   * @returns {ProtoOAExpectedMarginRes} ProtoOAExpectedMarginRes instance
-   */
-  ProtoOAExpectedMarginRes.create = function create(properties) {
-    return new ProtoOAExpectedMarginRes(properties);
-  };
 
   /**
    * Encodes the specified ProtoOAExpectedMarginRes message. Does not implicitly {@link ProtoOAExpectedMarginRes.verify|verify} messages.
@@ -6086,18 +5606,6 @@ $root.ProtoOAMarginChangedEvent = (function() {
   ProtoOAMarginChangedEvent.prototype.usedMargin = $util.Long
     ? $util.Long.fromBits(0, 0, true)
     : 0;
-
-  /**
-   * Creates a new ProtoOAMarginChangedEvent instance using the specified properties.
-   * @function create
-   * @memberof ProtoOAMarginChangedEvent
-   * @static
-   * @param {IProtoOAMarginChangedEvent=} [properties] Properties to set
-   * @returns {ProtoOAMarginChangedEvent} ProtoOAMarginChangedEvent instance
-   */
-  ProtoOAMarginChangedEvent.create = function create(properties) {
-    return new ProtoOAMarginChangedEvent(properties);
-  };
 
   /**
    * Encodes the specified ProtoOAMarginChangedEvent message. Does not implicitly {@link ProtoOAMarginChangedEvent.verify|verify} messages.
@@ -6237,18 +5745,6 @@ $root.ProtoOACashFlowHistoryListReq = (function() {
     : 0;
 
   /**
-   * Creates a new ProtoOACashFlowHistoryListReq instance using the specified properties.
-   * @function create
-   * @memberof ProtoOACashFlowHistoryListReq
-   * @static
-   * @param {IProtoOACashFlowHistoryListReq=} [properties] Properties to set
-   * @returns {ProtoOACashFlowHistoryListReq} ProtoOACashFlowHistoryListReq instance
-   */
-  ProtoOACashFlowHistoryListReq.create = function create(properties) {
-    return new ProtoOACashFlowHistoryListReq(properties);
-  };
-
-  /**
    * Encodes the specified ProtoOACashFlowHistoryListReq message. Does not implicitly {@link ProtoOACashFlowHistoryListReq.verify|verify} messages.
    * @function encode
    * @memberof ProtoOACashFlowHistoryListReq
@@ -6374,18 +5870,6 @@ $root.ProtoOACashFlowHistoryListRes = (function() {
   ProtoOACashFlowHistoryListRes.prototype.depositWithdraw = $util.emptyArray;
 
   /**
-   * Creates a new ProtoOACashFlowHistoryListRes instance using the specified properties.
-   * @function create
-   * @memberof ProtoOACashFlowHistoryListRes
-   * @static
-   * @param {IProtoOACashFlowHistoryListRes=} [properties] Properties to set
-   * @returns {ProtoOACashFlowHistoryListRes} ProtoOACashFlowHistoryListRes instance
-   */
-  ProtoOACashFlowHistoryListRes.create = function create(properties) {
-    return new ProtoOACashFlowHistoryListRes(properties);
-  };
-
-  /**
    * Encodes the specified ProtoOACashFlowHistoryListRes message. Does not implicitly {@link ProtoOACashFlowHistoryListRes.verify|verify} messages.
    * @function encode
    * @memberof ProtoOACashFlowHistoryListRes
@@ -6494,18 +5978,6 @@ $root.ProtoOAGetAccountListByAccessTokenReq = (function() {
    * @instance
    */
   ProtoOAGetAccountListByAccessTokenReq.prototype.accessToken = "";
-
-  /**
-   * Creates a new ProtoOAGetAccountListByAccessTokenReq instance using the specified properties.
-   * @function create
-   * @memberof ProtoOAGetAccountListByAccessTokenReq
-   * @static
-   * @param {IProtoOAGetAccountListByAccessTokenReq=} [properties] Properties to set
-   * @returns {ProtoOAGetAccountListByAccessTokenReq} ProtoOAGetAccountListByAccessTokenReq instance
-   */
-  ProtoOAGetAccountListByAccessTokenReq.create = function create(properties) {
-    return new ProtoOAGetAccountListByAccessTokenReq(properties);
-  };
 
   /**
    * Encodes the specified ProtoOAGetAccountListByAccessTokenReq message. Does not implicitly {@link ProtoOAGetAccountListByAccessTokenReq.verify|verify} messages.
@@ -6627,18 +6099,6 @@ $root.ProtoOAGetAccountListByAccessTokenRes = (function() {
    */
   ProtoOAGetAccountListByAccessTokenRes.prototype.ctidTraderAccount =
     $util.emptyArray;
-
-  /**
-   * Creates a new ProtoOAGetAccountListByAccessTokenRes instance using the specified properties.
-   * @function create
-   * @memberof ProtoOAGetAccountListByAccessTokenRes
-   * @static
-   * @param {IProtoOAGetAccountListByAccessTokenRes=} [properties] Properties to set
-   * @returns {ProtoOAGetAccountListByAccessTokenRes} ProtoOAGetAccountListByAccessTokenRes instance
-   */
-  ProtoOAGetAccountListByAccessTokenRes.create = function create(properties) {
-    return new ProtoOAGetAccountListByAccessTokenRes(properties);
-  };
 
   /**
    * Encodes the specified ProtoOAGetAccountListByAccessTokenRes message. Does not implicitly {@link ProtoOAGetAccountListByAccessTokenRes.verify|verify} messages.
@@ -6775,18 +6235,6 @@ $root.ProtoOASubscribeSpotsReq = (function() {
   ProtoOASubscribeSpotsReq.prototype.symbolId = $util.emptyArray;
 
   /**
-   * Creates a new ProtoOASubscribeSpotsReq instance using the specified properties.
-   * @function create
-   * @memberof ProtoOASubscribeSpotsReq
-   * @static
-   * @param {IProtoOASubscribeSpotsReq=} [properties] Properties to set
-   * @returns {ProtoOASubscribeSpotsReq} ProtoOASubscribeSpotsReq instance
-   */
-  ProtoOASubscribeSpotsReq.create = function create(properties) {
-    return new ProtoOASubscribeSpotsReq(properties);
-  };
-
-  /**
    * Encodes the specified ProtoOASubscribeSpotsReq message. Does not implicitly {@link ProtoOASubscribeSpotsReq.verify|verify} messages.
    * @function encode
    * @memberof ProtoOASubscribeSpotsReq
@@ -6895,18 +6343,6 @@ $root.ProtoOASubscribeSpotsRes = (function() {
   ProtoOASubscribeSpotsRes.prototype.ctidTraderAccountId = $util.Long
     ? $util.Long.fromBits(0, 0, false)
     : 0;
-
-  /**
-   * Creates a new ProtoOASubscribeSpotsRes instance using the specified properties.
-   * @function create
-   * @memberof ProtoOASubscribeSpotsRes
-   * @static
-   * @param {IProtoOASubscribeSpotsRes=} [properties] Properties to set
-   * @returns {ProtoOASubscribeSpotsRes} ProtoOASubscribeSpotsRes instance
-   */
-  ProtoOASubscribeSpotsRes.create = function create(properties) {
-    return new ProtoOASubscribeSpotsRes(properties);
-  };
 
   /**
    * Encodes the specified ProtoOASubscribeSpotsRes message. Does not implicitly {@link ProtoOASubscribeSpotsRes.verify|verify} messages.
@@ -7018,18 +6454,6 @@ $root.ProtoOAUnsubscribeSpotsReq = (function() {
   ProtoOAUnsubscribeSpotsReq.prototype.symbolId = $util.emptyArray;
 
   /**
-   * Creates a new ProtoOAUnsubscribeSpotsReq instance using the specified properties.
-   * @function create
-   * @memberof ProtoOAUnsubscribeSpotsReq
-   * @static
-   * @param {IProtoOAUnsubscribeSpotsReq=} [properties] Properties to set
-   * @returns {ProtoOAUnsubscribeSpotsReq} ProtoOAUnsubscribeSpotsReq instance
-   */
-  ProtoOAUnsubscribeSpotsReq.create = function create(properties) {
-    return new ProtoOAUnsubscribeSpotsReq(properties);
-  };
-
-  /**
    * Encodes the specified ProtoOAUnsubscribeSpotsReq message. Does not implicitly {@link ProtoOAUnsubscribeSpotsReq.verify|verify} messages.
    * @function encode
    * @memberof ProtoOAUnsubscribeSpotsReq
@@ -7138,18 +6562,6 @@ $root.ProtoOAUnsubscribeSpotsRes = (function() {
   ProtoOAUnsubscribeSpotsRes.prototype.ctidTraderAccountId = $util.Long
     ? $util.Long.fromBits(0, 0, false)
     : 0;
-
-  /**
-   * Creates a new ProtoOAUnsubscribeSpotsRes instance using the specified properties.
-   * @function create
-   * @memberof ProtoOAUnsubscribeSpotsRes
-   * @static
-   * @param {IProtoOAUnsubscribeSpotsRes=} [properties] Properties to set
-   * @returns {ProtoOAUnsubscribeSpotsRes} ProtoOAUnsubscribeSpotsRes instance
-   */
-  ProtoOAUnsubscribeSpotsRes.create = function create(properties) {
-    return new ProtoOAUnsubscribeSpotsRes(properties);
-  };
 
   /**
    * Encodes the specified ProtoOAUnsubscribeSpotsRes message. Does not implicitly {@link ProtoOAUnsubscribeSpotsRes.verify|verify} messages.
@@ -7292,18 +6704,6 @@ $root.ProtoOASpotEvent = (function() {
    * @instance
    */
   ProtoOASpotEvent.prototype.trendbar = $util.emptyArray;
-
-  /**
-   * Creates a new ProtoOASpotEvent instance using the specified properties.
-   * @function create
-   * @memberof ProtoOASpotEvent
-   * @static
-   * @param {IProtoOASpotEvent=} [properties] Properties to set
-   * @returns {ProtoOASpotEvent} ProtoOASpotEvent instance
-   */
-  ProtoOASpotEvent.create = function create(properties) {
-    return new ProtoOASpotEvent(properties);
-  };
 
   /**
    * Encodes the specified ProtoOASpotEvent message. Does not implicitly {@link ProtoOASpotEvent.verify|verify} messages.
@@ -7456,18 +6856,6 @@ $root.ProtoOASubscribeLiveTrendbarReq = (function() {
     : 0;
 
   /**
-   * Creates a new ProtoOASubscribeLiveTrendbarReq instance using the specified properties.
-   * @function create
-   * @memberof ProtoOASubscribeLiveTrendbarReq
-   * @static
-   * @param {IProtoOASubscribeLiveTrendbarReq=} [properties] Properties to set
-   * @returns {ProtoOASubscribeLiveTrendbarReq} ProtoOASubscribeLiveTrendbarReq instance
-   */
-  ProtoOASubscribeLiveTrendbarReq.create = function create(properties) {
-    return new ProtoOASubscribeLiveTrendbarReq(properties);
-  };
-
-  /**
    * Encodes the specified ProtoOASubscribeLiveTrendbarReq message. Does not implicitly {@link ProtoOASubscribeLiveTrendbarReq.verify|verify} messages.
    * @function encode
    * @memberof ProtoOASubscribeLiveTrendbarReq
@@ -7601,18 +6989,6 @@ $root.ProtoOAUnsubscribeLiveTrendbarReq = (function() {
   ProtoOAUnsubscribeLiveTrendbarReq.prototype.symbolId = $util.Long
     ? $util.Long.fromBits(0, 0, false)
     : 0;
-
-  /**
-   * Creates a new ProtoOAUnsubscribeLiveTrendbarReq instance using the specified properties.
-   * @function create
-   * @memberof ProtoOAUnsubscribeLiveTrendbarReq
-   * @static
-   * @param {IProtoOAUnsubscribeLiveTrendbarReq=} [properties] Properties to set
-   * @returns {ProtoOAUnsubscribeLiveTrendbarReq} ProtoOAUnsubscribeLiveTrendbarReq instance
-   */
-  ProtoOAUnsubscribeLiveTrendbarReq.create = function create(properties) {
-    return new ProtoOAUnsubscribeLiveTrendbarReq(properties);
-  };
 
   /**
    * Encodes the specified ProtoOAUnsubscribeLiveTrendbarReq message. Does not implicitly {@link ProtoOAUnsubscribeLiveTrendbarReq.verify|verify} messages.
@@ -7770,18 +7146,6 @@ $root.ProtoOAGetTrendbarsReq = (function() {
   ProtoOAGetTrendbarsReq.prototype.symbolId = $util.Long
     ? $util.Long.fromBits(0, 0, false)
     : 0;
-
-  /**
-   * Creates a new ProtoOAGetTrendbarsReq instance using the specified properties.
-   * @function create
-   * @memberof ProtoOAGetTrendbarsReq
-   * @static
-   * @param {IProtoOAGetTrendbarsReq=} [properties] Properties to set
-   * @returns {ProtoOAGetTrendbarsReq} ProtoOAGetTrendbarsReq instance
-   */
-  ProtoOAGetTrendbarsReq.create = function create(properties) {
-    return new ProtoOAGetTrendbarsReq(properties);
-  };
 
   /**
    * Encodes the specified ProtoOAGetTrendbarsReq message. Does not implicitly {@link ProtoOAGetTrendbarsReq.verify|verify} messages.
@@ -7954,18 +7318,6 @@ $root.ProtoOAGetTrendbarsRes = (function() {
   ProtoOAGetTrendbarsRes.prototype.symbolId = $util.Long
     ? $util.Long.fromBits(0, 0, false)
     : 0;
-
-  /**
-   * Creates a new ProtoOAGetTrendbarsRes instance using the specified properties.
-   * @function create
-   * @memberof ProtoOAGetTrendbarsRes
-   * @static
-   * @param {IProtoOAGetTrendbarsRes=} [properties] Properties to set
-   * @returns {ProtoOAGetTrendbarsRes} ProtoOAGetTrendbarsRes instance
-   */
-  ProtoOAGetTrendbarsRes.create = function create(properties) {
-    return new ProtoOAGetTrendbarsRes(properties);
-  };
 
   /**
    * Encodes the specified ProtoOAGetTrendbarsRes message. Does not implicitly {@link ProtoOAGetTrendbarsRes.verify|verify} messages.
@@ -8143,18 +7495,6 @@ $root.ProtoOAGetTickDataReq = (function() {
     : 0;
 
   /**
-   * Creates a new ProtoOAGetTickDataReq instance using the specified properties.
-   * @function create
-   * @memberof ProtoOAGetTickDataReq
-   * @static
-   * @param {IProtoOAGetTickDataReq=} [properties] Properties to set
-   * @returns {ProtoOAGetTickDataReq} ProtoOAGetTickDataReq instance
-   */
-  ProtoOAGetTickDataReq.create = function create(properties) {
-    return new ProtoOAGetTickDataReq(properties);
-  };
-
-  /**
    * Encodes the specified ProtoOAGetTickDataReq message. Does not implicitly {@link ProtoOAGetTickDataReq.verify|verify} messages.
    * @function encode
    * @memberof ProtoOAGetTickDataReq
@@ -8305,18 +7645,6 @@ $root.ProtoOAGetTickDataRes = (function() {
   ProtoOAGetTickDataRes.prototype.hasMore = false;
 
   /**
-   * Creates a new ProtoOAGetTickDataRes instance using the specified properties.
-   * @function create
-   * @memberof ProtoOAGetTickDataRes
-   * @static
-   * @param {IProtoOAGetTickDataRes=} [properties] Properties to set
-   * @returns {ProtoOAGetTickDataRes} ProtoOAGetTickDataRes instance
-   */
-  ProtoOAGetTickDataRes.create = function create(properties) {
-    return new ProtoOAGetTickDataRes(properties);
-  };
-
-  /**
    * Encodes the specified ProtoOAGetTickDataRes message. Does not implicitly {@link ProtoOAGetTickDataRes.verify|verify} messages.
    * @function encode
    * @memberof ProtoOAGetTickDataRes
@@ -8435,18 +7763,6 @@ $root.ProtoOAGetCtidProfileByTokenReq = (function() {
   ProtoOAGetCtidProfileByTokenReq.prototype.accessToken = "";
 
   /**
-   * Creates a new ProtoOAGetCtidProfileByTokenReq instance using the specified properties.
-   * @function create
-   * @memberof ProtoOAGetCtidProfileByTokenReq
-   * @static
-   * @param {IProtoOAGetCtidProfileByTokenReq=} [properties] Properties to set
-   * @returns {ProtoOAGetCtidProfileByTokenReq} ProtoOAGetCtidProfileByTokenReq instance
-   */
-  ProtoOAGetCtidProfileByTokenReq.create = function create(properties) {
-    return new ProtoOAGetCtidProfileByTokenReq(properties);
-  };
-
-  /**
    * Encodes the specified ProtoOAGetCtidProfileByTokenReq message. Does not implicitly {@link ProtoOAGetCtidProfileByTokenReq.verify|verify} messages.
    * @function encode
    * @memberof ProtoOAGetCtidProfileByTokenReq
@@ -8540,18 +7856,6 @@ $root.ProtoOAGetCtidProfileByTokenRes = (function() {
    * @instance
    */
   ProtoOAGetCtidProfileByTokenRes.prototype.profile = null;
-
-  /**
-   * Creates a new ProtoOAGetCtidProfileByTokenRes instance using the specified properties.
-   * @function create
-   * @memberof ProtoOAGetCtidProfileByTokenRes
-   * @static
-   * @param {IProtoOAGetCtidProfileByTokenRes=} [properties] Properties to set
-   * @returns {ProtoOAGetCtidProfileByTokenRes} ProtoOAGetCtidProfileByTokenRes instance
-   */
-  ProtoOAGetCtidProfileByTokenRes.create = function create(properties) {
-    return new ProtoOAGetCtidProfileByTokenRes(properties);
-  };
 
   /**
    * Encodes the specified ProtoOAGetCtidProfileByTokenRes message. Does not implicitly {@link ProtoOAGetCtidProfileByTokenRes.verify|verify} messages.
@@ -8686,18 +7990,6 @@ $root.ProtoOADepthEvent = (function() {
    * @instance
    */
   ProtoOADepthEvent.prototype.deletedQuotes = $util.emptyArray;
-
-  /**
-   * Creates a new ProtoOADepthEvent instance using the specified properties.
-   * @function create
-   * @memberof ProtoOADepthEvent
-   * @static
-   * @param {IProtoOADepthEvent=} [properties] Properties to set
-   * @returns {ProtoOADepthEvent} ProtoOADepthEvent instance
-   */
-  ProtoOADepthEvent.create = function create(properties) {
-    return new ProtoOADepthEvent(properties);
-  };
 
   /**
    * Encodes the specified ProtoOADepthEvent message. Does not implicitly {@link ProtoOADepthEvent.verify|verify} messages.
@@ -8845,18 +8137,6 @@ $root.ProtoOASubscribeDepthQuotesReq = (function() {
   ProtoOASubscribeDepthQuotesReq.prototype.symbolId = $util.emptyArray;
 
   /**
-   * Creates a new ProtoOASubscribeDepthQuotesReq instance using the specified properties.
-   * @function create
-   * @memberof ProtoOASubscribeDepthQuotesReq
-   * @static
-   * @param {IProtoOASubscribeDepthQuotesReq=} [properties] Properties to set
-   * @returns {ProtoOASubscribeDepthQuotesReq} ProtoOASubscribeDepthQuotesReq instance
-   */
-  ProtoOASubscribeDepthQuotesReq.create = function create(properties) {
-    return new ProtoOASubscribeDepthQuotesReq(properties);
-  };
-
-  /**
    * Encodes the specified ProtoOASubscribeDepthQuotesReq message. Does not implicitly {@link ProtoOASubscribeDepthQuotesReq.verify|verify} messages.
    * @function encode
    * @memberof ProtoOASubscribeDepthQuotesReq
@@ -8967,18 +8247,6 @@ $root.ProtoOASubscribeDepthQuotesRes = (function() {
     : 0;
 
   /**
-   * Creates a new ProtoOASubscribeDepthQuotesRes instance using the specified properties.
-   * @function create
-   * @memberof ProtoOASubscribeDepthQuotesRes
-   * @static
-   * @param {IProtoOASubscribeDepthQuotesRes=} [properties] Properties to set
-   * @returns {ProtoOASubscribeDepthQuotesRes} ProtoOASubscribeDepthQuotesRes instance
-   */
-  ProtoOASubscribeDepthQuotesRes.create = function create(properties) {
-    return new ProtoOASubscribeDepthQuotesRes(properties);
-  };
-
-  /**
    * Encodes the specified ProtoOASubscribeDepthQuotesRes message. Does not implicitly {@link ProtoOASubscribeDepthQuotesRes.verify|verify} messages.
    * @function encode
    * @memberof ProtoOASubscribeDepthQuotesRes
@@ -9086,18 +8354,6 @@ $root.ProtoOAUnsubscribeDepthQuotesReq = (function() {
    * @instance
    */
   ProtoOAUnsubscribeDepthQuotesReq.prototype.symbolId = $util.emptyArray;
-
-  /**
-   * Creates a new ProtoOAUnsubscribeDepthQuotesReq instance using the specified properties.
-   * @function create
-   * @memberof ProtoOAUnsubscribeDepthQuotesReq
-   * @static
-   * @param {IProtoOAUnsubscribeDepthQuotesReq=} [properties] Properties to set
-   * @returns {ProtoOAUnsubscribeDepthQuotesReq} ProtoOAUnsubscribeDepthQuotesReq instance
-   */
-  ProtoOAUnsubscribeDepthQuotesReq.create = function create(properties) {
-    return new ProtoOAUnsubscribeDepthQuotesReq(properties);
-  };
 
   /**
    * Encodes the specified ProtoOAUnsubscribeDepthQuotesReq message. Does not implicitly {@link ProtoOAUnsubscribeDepthQuotesReq.verify|verify} messages.
@@ -9210,18 +8466,6 @@ $root.ProtoOAUnsubscribeDepthQuotesRes = (function() {
     : 0;
 
   /**
-   * Creates a new ProtoOAUnsubscribeDepthQuotesRes instance using the specified properties.
-   * @function create
-   * @memberof ProtoOAUnsubscribeDepthQuotesRes
-   * @static
-   * @param {IProtoOAUnsubscribeDepthQuotesRes=} [properties] Properties to set
-   * @returns {ProtoOAUnsubscribeDepthQuotesRes} ProtoOAUnsubscribeDepthQuotesRes instance
-   */
-  ProtoOAUnsubscribeDepthQuotesRes.create = function create(properties) {
-    return new ProtoOAUnsubscribeDepthQuotesRes(properties);
-  };
-
-  /**
    * Encodes the specified ProtoOAUnsubscribeDepthQuotesRes message. Does not implicitly {@link ProtoOAUnsubscribeDepthQuotesRes.verify|verify} messages.
    * @function encode
    * @memberof ProtoOAUnsubscribeDepthQuotesRes
@@ -9319,18 +8563,6 @@ $root.ProtoOASymbolCategoryListReq = (function() {
   ProtoOASymbolCategoryListReq.prototype.ctidTraderAccountId = $util.Long
     ? $util.Long.fromBits(0, 0, false)
     : 0;
-
-  /**
-   * Creates a new ProtoOASymbolCategoryListReq instance using the specified properties.
-   * @function create
-   * @memberof ProtoOASymbolCategoryListReq
-   * @static
-   * @param {IProtoOASymbolCategoryListReq=} [properties] Properties to set
-   * @returns {ProtoOASymbolCategoryListReq} ProtoOASymbolCategoryListReq instance
-   */
-  ProtoOASymbolCategoryListReq.create = function create(properties) {
-    return new ProtoOASymbolCategoryListReq(properties);
-  };
 
   /**
    * Encodes the specified ProtoOASymbolCategoryListReq message. Does not implicitly {@link ProtoOASymbolCategoryListReq.verify|verify} messages.
@@ -9440,18 +8672,6 @@ $root.ProtoOASymbolCategoryListRes = (function() {
    * @instance
    */
   ProtoOASymbolCategoryListRes.prototype.symbolCategory = $util.emptyArray;
-
-  /**
-   * Creates a new ProtoOASymbolCategoryListRes instance using the specified properties.
-   * @function create
-   * @memberof ProtoOASymbolCategoryListRes
-   * @static
-   * @param {IProtoOASymbolCategoryListRes=} [properties] Properties to set
-   * @returns {ProtoOASymbolCategoryListRes} ProtoOASymbolCategoryListRes instance
-   */
-  ProtoOASymbolCategoryListRes.create = function create(properties) {
-    return new ProtoOASymbolCategoryListRes(properties);
-  };
 
   /**
    * Encodes the specified ProtoOASymbolCategoryListRes message. Does not implicitly {@link ProtoOASymbolCategoryListRes.verify|verify} messages.
@@ -9566,18 +8786,6 @@ $root.ProtoOAAccountLogoutReq = (function() {
     : 0;
 
   /**
-   * Creates a new ProtoOAAccountLogoutReq instance using the specified properties.
-   * @function create
-   * @memberof ProtoOAAccountLogoutReq
-   * @static
-   * @param {IProtoOAAccountLogoutReq=} [properties] Properties to set
-   * @returns {ProtoOAAccountLogoutReq} ProtoOAAccountLogoutReq instance
-   */
-  ProtoOAAccountLogoutReq.create = function create(properties) {
-    return new ProtoOAAccountLogoutReq(properties);
-  };
-
-  /**
    * Encodes the specified ProtoOAAccountLogoutReq message. Does not implicitly {@link ProtoOAAccountLogoutReq.verify|verify} messages.
    * @function encode
    * @memberof ProtoOAAccountLogoutReq
@@ -9675,18 +8883,6 @@ $root.ProtoOAAccountLogoutRes = (function() {
   ProtoOAAccountLogoutRes.prototype.ctidTraderAccountId = $util.Long
     ? $util.Long.fromBits(0, 0, false)
     : 0;
-
-  /**
-   * Creates a new ProtoOAAccountLogoutRes instance using the specified properties.
-   * @function create
-   * @memberof ProtoOAAccountLogoutRes
-   * @static
-   * @param {IProtoOAAccountLogoutRes=} [properties] Properties to set
-   * @returns {ProtoOAAccountLogoutRes} ProtoOAAccountLogoutRes instance
-   */
-  ProtoOAAccountLogoutRes.create = function create(properties) {
-    return new ProtoOAAccountLogoutRes(properties);
-  };
 
   /**
    * Encodes the specified ProtoOAAccountLogoutRes message. Does not implicitly {@link ProtoOAAccountLogoutRes.verify|verify} messages.
@@ -9787,18 +8983,6 @@ $root.ProtoOAAccountDisconnectEvent = (function() {
   ProtoOAAccountDisconnectEvent.prototype.ctidTraderAccountId = $util.Long
     ? $util.Long.fromBits(0, 0, false)
     : 0;
-
-  /**
-   * Creates a new ProtoOAAccountDisconnectEvent instance using the specified properties.
-   * @function create
-   * @memberof ProtoOAAccountDisconnectEvent
-   * @static
-   * @param {IProtoOAAccountDisconnectEvent=} [properties] Properties to set
-   * @returns {ProtoOAAccountDisconnectEvent} ProtoOAAccountDisconnectEvent instance
-   */
-  ProtoOAAccountDisconnectEvent.create = function create(properties) {
-    return new ProtoOAAccountDisconnectEvent(properties);
-  };
 
   /**
    * Encodes the specified ProtoOAAccountDisconnectEvent message. Does not implicitly {@link ProtoOAAccountDisconnectEvent.verify|verify} messages.
@@ -10054,18 +9238,6 @@ $root.ProtoOAAsset = (function() {
    * @instance
    */
   ProtoOAAsset.prototype.displayName = "";
-
-  /**
-   * Creates a new ProtoOAAsset instance using the specified properties.
-   * @function create
-   * @memberof ProtoOAAsset
-   * @static
-   * @param {IProtoOAAsset=} [properties] Properties to set
-   * @returns {ProtoOAAsset} ProtoOAAsset instance
-   */
-  ProtoOAAsset.create = function create(properties) {
-    return new ProtoOAAsset(properties);
-  };
 
   /**
    * Encodes the specified ProtoOAAsset message. Does not implicitly {@link ProtoOAAsset.verify|verify} messages.
@@ -10424,18 +9596,6 @@ $root.ProtoOASymbol = (function() {
   ProtoOASymbol.prototype.rolloverCommission3Days = 1;
 
   /**
-   * Creates a new ProtoOASymbol instance using the specified properties.
-   * @function create
-   * @memberof ProtoOASymbol
-   * @static
-   * @param {IProtoOASymbol=} [properties] Properties to set
-   * @returns {ProtoOASymbol} ProtoOASymbol instance
-   */
-  ProtoOASymbol.create = function create(properties) {
-    return new ProtoOASymbol(properties);
-  };
-
-  /**
    * Encodes the specified ProtoOASymbol message. Does not implicitly {@link ProtoOASymbol.verify|verify} messages.
    * @function encode
    * @memberof ProtoOASymbol
@@ -10785,18 +9945,6 @@ $root.ProtoOALightSymbol = (function() {
   ProtoOALightSymbol.prototype.description = "";
 
   /**
-   * Creates a new ProtoOALightSymbol instance using the specified properties.
-   * @function create
-   * @memberof ProtoOALightSymbol
-   * @static
-   * @param {IProtoOALightSymbol=} [properties] Properties to set
-   * @returns {ProtoOALightSymbol} ProtoOALightSymbol instance
-   */
-  ProtoOALightSymbol.create = function create(properties) {
-    return new ProtoOALightSymbol(properties);
-  };
-
-  /**
    * Encodes the specified ProtoOALightSymbol message. Does not implicitly {@link ProtoOALightSymbol.verify|verify} messages.
    * @function encode
    * @memberof ProtoOALightSymbol
@@ -10933,18 +10081,6 @@ $root.ProtoOASymbolCategory = (function() {
   ProtoOASymbolCategory.prototype.name = "";
 
   /**
-   * Creates a new ProtoOASymbolCategory instance using the specified properties.
-   * @function create
-   * @memberof ProtoOASymbolCategory
-   * @static
-   * @param {IProtoOASymbolCategory=} [properties] Properties to set
-   * @returns {ProtoOASymbolCategory} ProtoOASymbolCategory instance
-   */
-  ProtoOASymbolCategory.create = function create(properties) {
-    return new ProtoOASymbolCategory(properties);
-  };
-
-  /**
    * Encodes the specified ProtoOASymbolCategory message. Does not implicitly {@link ProtoOASymbolCategory.verify|verify} messages.
    * @function encode
    * @memberof ProtoOASymbolCategory
@@ -11074,18 +10210,6 @@ $root.ProtoOAInterval = (function() {
    * @instance
    */
   ProtoOAInterval.prototype.endSecond = 0;
-
-  /**
-   * Creates a new ProtoOAInterval instance using the specified properties.
-   * @function create
-   * @memberof ProtoOAInterval
-   * @static
-   * @param {IProtoOAInterval=} [properties] Properties to set
-   * @returns {ProtoOAInterval} ProtoOAInterval instance
-   */
-  ProtoOAInterval.create = function create(properties) {
-    return new ProtoOAInterval(properties);
-  };
 
   /**
    * Encodes the specified ProtoOAInterval message. Does not implicitly {@link ProtoOAInterval.verify|verify} messages.
@@ -11458,18 +10582,6 @@ $root.ProtoOATrader = (function() {
   ProtoOATrader.prototype.registrationTimestamp = $util.Long
     ? $util.Long.fromBits(0, 0, false)
     : 0;
-
-  /**
-   * Creates a new ProtoOATrader instance using the specified properties.
-   * @function create
-   * @memberof ProtoOATrader
-   * @static
-   * @param {IProtoOATrader=} [properties] Properties to set
-   * @returns {ProtoOATrader} ProtoOATrader instance
-   */
-  ProtoOATrader.create = function create(properties) {
-    return new ProtoOATrader(properties);
-  };
 
   /**
    * Encodes the specified ProtoOATrader message. Does not implicitly {@link ProtoOATrader.verify|verify} messages.
@@ -11909,18 +11021,6 @@ $root.ProtoOAPosition = (function() {
   ProtoOAPosition.prototype.stopLossTriggerMethod = 1;
 
   /**
-   * Creates a new ProtoOAPosition instance using the specified properties.
-   * @function create
-   * @memberof ProtoOAPosition
-   * @static
-   * @param {IProtoOAPosition=} [properties] Properties to set
-   * @returns {ProtoOAPosition} ProtoOAPosition instance
-   */
-  ProtoOAPosition.create = function create(properties) {
-    return new ProtoOAPosition(properties);
-  };
-
-  /**
    * Encodes the specified ProtoOAPosition message. Does not implicitly {@link ProtoOAPosition.verify|verify} messages.
    * @function encode
    * @memberof ProtoOAPosition
@@ -12151,18 +11251,6 @@ $root.ProtoOATradeData = (function() {
    * @instance
    */
   ProtoOATradeData.prototype.guaranteedStopLoss = false;
-
-  /**
-   * Creates a new ProtoOATradeData instance using the specified properties.
-   * @function create
-   * @memberof ProtoOATradeData
-   * @static
-   * @param {IProtoOATradeData=} [properties] Properties to set
-   * @returns {ProtoOATradeData} ProtoOATradeData instance
-   */
-  ProtoOATradeData.create = function create(properties) {
-    return new ProtoOATradeData(properties);
-  };
 
   /**
    * Encodes the specified ProtoOATradeData message. Does not implicitly {@link ProtoOATradeData.verify|verify} messages.
@@ -12497,18 +11585,6 @@ $root.ProtoOAOrder = (function() {
    * @instance
    */
   ProtoOAOrder.prototype.stopTriggerMethod = 1;
-
-  /**
-   * Creates a new ProtoOAOrder instance using the specified properties.
-   * @function create
-   * @memberof ProtoOAOrder
-   * @static
-   * @param {IProtoOAOrder=} [properties] Properties to set
-   * @returns {ProtoOAOrder} ProtoOAOrder instance
-   */
-  ProtoOAOrder.create = function create(properties) {
-    return new ProtoOAOrder(properties);
-  };
 
   /**
    * Encodes the specified ProtoOAOrder message. Does not implicitly {@link ProtoOAOrder.verify|verify} messages.
@@ -12885,18 +11961,6 @@ $root.ProtoOABonusDepositWithdraw = (function() {
     : 0;
 
   /**
-   * Creates a new ProtoOABonusDepositWithdraw instance using the specified properties.
-   * @function create
-   * @memberof ProtoOABonusDepositWithdraw
-   * @static
-   * @param {IProtoOABonusDepositWithdraw=} [properties] Properties to set
-   * @returns {ProtoOABonusDepositWithdraw} ProtoOABonusDepositWithdraw instance
-   */
-  ProtoOABonusDepositWithdraw.create = function create(properties) {
-    return new ProtoOABonusDepositWithdraw(properties);
-  };
-
-  /**
    * Encodes the specified ProtoOABonusDepositWithdraw message. Does not implicitly {@link ProtoOABonusDepositWithdraw.verify|verify} messages.
    * @function encode
    * @memberof ProtoOABonusDepositWithdraw
@@ -13131,18 +12195,6 @@ $root.ProtoOADepositWithdraw = (function() {
   ProtoOADepositWithdraw.prototype.equity = $util.Long
     ? $util.Long.fromBits(0, 0, false)
     : 0;
-
-  /**
-   * Creates a new ProtoOADepositWithdraw instance using the specified properties.
-   * @function create
-   * @memberof ProtoOADepositWithdraw
-   * @static
-   * @param {IProtoOADepositWithdraw=} [properties] Properties to set
-   * @returns {ProtoOADepositWithdraw} ProtoOADepositWithdraw instance
-   */
-  ProtoOADepositWithdraw.create = function create(properties) {
-    return new ProtoOADepositWithdraw(properties);
-  };
 
   /**
    * Encodes the specified ProtoOADepositWithdraw message. Does not implicitly {@link ProtoOADepositWithdraw.verify|verify} messages.
@@ -13502,18 +12554,6 @@ $root.ProtoOADeal = (function() {
   ProtoOADeal.prototype.closePositionDetail = null;
 
   /**
-   * Creates a new ProtoOADeal instance using the specified properties.
-   * @function create
-   * @memberof ProtoOADeal
-   * @static
-   * @param {IProtoOADeal=} [properties] Properties to set
-   * @returns {ProtoOADeal} ProtoOADeal instance
-   */
-  ProtoOADeal.create = function create(properties) {
-    return new ProtoOADeal(properties);
-  };
-
-  /**
    * Encodes the specified ProtoOADeal message. Does not implicitly {@link ProtoOADeal.verify|verify} messages.
    * @function encode
    * @memberof ProtoOADeal
@@ -13817,18 +12857,6 @@ $root.ProtoOAClosePositionDetail = (function() {
     : 0;
 
   /**
-   * Creates a new ProtoOAClosePositionDetail instance using the specified properties.
-   * @function create
-   * @memberof ProtoOAClosePositionDetail
-   * @static
-   * @param {IProtoOAClosePositionDetail=} [properties] Properties to set
-   * @returns {ProtoOAClosePositionDetail} ProtoOAClosePositionDetail instance
-   */
-  ProtoOAClosePositionDetail.create = function create(properties) {
-    return new ProtoOAClosePositionDetail(properties);
-  };
-
-  /**
    * Encodes the specified ProtoOAClosePositionDetail message. Does not implicitly {@link ProtoOAClosePositionDetail.verify|verify} messages.
    * @function encode
    * @memberof ProtoOAClosePositionDetail
@@ -14068,18 +13096,6 @@ $root.ProtoOATrendbar = (function() {
   ProtoOATrendbar.prototype.utcTimestampInMinutes = 0;
 
   /**
-   * Creates a new ProtoOATrendbar instance using the specified properties.
-   * @function create
-   * @memberof ProtoOATrendbar
-   * @static
-   * @param {IProtoOATrendbar=} [properties] Properties to set
-   * @returns {ProtoOATrendbar} ProtoOATrendbar instance
-   */
-  ProtoOATrendbar.create = function create(properties) {
-    return new ProtoOATrendbar(properties);
-  };
-
-  /**
    * Encodes the specified ProtoOATrendbar message. Does not implicitly {@link ProtoOATrendbar.verify|verify} messages.
    * @function encode
    * @memberof ProtoOATrendbar
@@ -14220,18 +13236,6 @@ $root.ProtoOAExpectedMargin = (function() {
     : 0;
 
   /**
-   * Creates a new ProtoOAExpectedMargin instance using the specified properties.
-   * @function create
-   * @memberof ProtoOAExpectedMargin
-   * @static
-   * @param {IProtoOAExpectedMargin=} [properties] Properties to set
-   * @returns {ProtoOAExpectedMargin} ProtoOAExpectedMargin instance
-   */
-  ProtoOAExpectedMargin.create = function create(properties) {
-    return new ProtoOAExpectedMargin(properties);
-  };
-
-  /**
    * Encodes the specified ProtoOAExpectedMargin message. Does not implicitly {@link ProtoOAExpectedMargin.verify|verify} messages.
    * @function encode
    * @memberof ProtoOAExpectedMargin
@@ -14357,18 +13361,6 @@ $root.ProtoOATickData = (function() {
     : 0;
 
   /**
-   * Creates a new ProtoOATickData instance using the specified properties.
-   * @function create
-   * @memberof ProtoOATickData
-   * @static
-   * @param {IProtoOATickData=} [properties] Properties to set
-   * @returns {ProtoOATickData} ProtoOATickData instance
-   */
-  ProtoOATickData.create = function create(properties) {
-    return new ProtoOATickData(properties);
-  };
-
-  /**
    * Encodes the specified ProtoOATickData message. Does not implicitly {@link ProtoOATickData.verify|verify} messages.
    * @function encode
    * @memberof ProtoOATickData
@@ -14475,18 +13467,6 @@ $root.ProtoOACtidProfile = (function() {
     : 0;
 
   /**
-   * Creates a new ProtoOACtidProfile instance using the specified properties.
-   * @function create
-   * @memberof ProtoOACtidProfile
-   * @static
-   * @param {IProtoOACtidProfile=} [properties] Properties to set
-   * @returns {ProtoOACtidProfile} ProtoOACtidProfile instance
-   */
-  ProtoOACtidProfile.create = function create(properties) {
-    return new ProtoOACtidProfile(properties);
-  };
-
-  /**
    * Encodes the specified ProtoOACtidProfile message. Does not implicitly {@link ProtoOACtidProfile.verify|verify} messages.
    * @function encode
    * @memberof ProtoOACtidProfile
@@ -14588,18 +13568,6 @@ $root.ProtoOACtidTraderAccount = (function() {
   ProtoOACtidTraderAccount.prototype.traderLogin = $util.Long
     ? $util.Long.fromBits(0, 0, false)
     : 0;
-
-  /**
-   * Creates a new ProtoOACtidTraderAccount instance using the specified properties.
-   * @function create
-   * @memberof ProtoOACtidTraderAccount
-   * @static
-   * @param {IProtoOACtidTraderAccount=} [properties] Properties to set
-   * @returns {ProtoOACtidTraderAccount} ProtoOACtidTraderAccount instance
-   */
-  ProtoOACtidTraderAccount.create = function create(properties) {
-    return new ProtoOACtidTraderAccount(properties);
-  };
 
   /**
    * Encodes the specified ProtoOACtidTraderAccount message. Does not implicitly {@link ProtoOACtidTraderAccount.verify|verify} messages.
@@ -14704,18 +13672,6 @@ $root.ProtoOAAssetClass = (function() {
    * @instance
    */
   ProtoOAAssetClass.prototype.name = "";
-
-  /**
-   * Creates a new ProtoOAAssetClass instance using the specified properties.
-   * @function create
-   * @memberof ProtoOAAssetClass
-   * @static
-   * @param {IProtoOAAssetClass=} [properties] Properties to set
-   * @returns {ProtoOAAssetClass} ProtoOAAssetClass instance
-   */
-  ProtoOAAssetClass.create = function create(properties) {
-    return new ProtoOAAssetClass(properties);
-  };
 
   /**
    * Encodes the specified ProtoOAAssetClass message. Does not implicitly {@link ProtoOAAssetClass.verify|verify} messages.
@@ -14834,18 +13790,6 @@ $root.ProtoOADepthQuote = (function() {
   ProtoOADepthQuote.prototype.ask = $util.Long
     ? $util.Long.fromBits(0, 0, true)
     : 0;
-
-  /**
-   * Creates a new ProtoOADepthQuote instance using the specified properties.
-   * @function create
-   * @memberof ProtoOADepthQuote
-   * @static
-   * @param {IProtoOADepthQuote=} [properties] Properties to set
-   * @returns {ProtoOADepthQuote} ProtoOADepthQuote instance
-   */
-  ProtoOADepthQuote.create = function create(properties) {
-    return new ProtoOADepthQuote(properties);
-  };
 
   /**
    * Encodes the specified ProtoOADepthQuote message. Does not implicitly {@link ProtoOADepthQuote.verify|verify} messages.
