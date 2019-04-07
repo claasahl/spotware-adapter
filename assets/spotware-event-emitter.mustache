@@ -1,0 +1,85 @@
+import { EventEmitter } from "events";
+
+import * as $spotware from "./spotware-messages";
+import SpotwareEvents from "./spotware-events";
+
+type Listener<T> = (message: T, clientMsgId?: string | null) => void;
+export interface SpotwareEventEmitter extends EventEmitter {
+{{#messages}}
+  {{#isProtoMessage}}
+  emit(
+    event: "{{{eventName}}}",
+    message: $spotware.I{{{type}}}
+  ): boolean;
+  on(
+    event: "{{{eventName}}}",
+    listener: (message: $spotware.I{{{type}}}) => void
+  ): this;
+  off(
+    event: "{{{eventName}}}",
+    listener: (message: $spotware.I{{{type}}}) => void
+  ): this;
+  once(
+    event: "{{{eventName}}}",
+    listener: (message: $spotware.I{{{type}}}) => void
+  ): this;
+  addListener(
+    event: "{{{eventName}}}",
+    listener: (message: $spotware.I{{{type}}}) => void
+  ): this;
+  removeListener(
+    event: "{{{eventName}}}",
+    listener: (message: $spotware.I{{{type}}}) => void
+  ): this;
+  prependListener(
+    event: "{{{eventName}}}",
+    listener: (message: $spotware.I{{{type}}}) => void
+  ): this;
+  prependOnceListener(
+    event: "{{{eventName}}}",
+    listener: (message: $spotware.I{{{type}}}) => void
+  ): this;
+  {{/isProtoMessage}}
+  {{^isProtoMessage}}
+  emit(
+    event: "{{{eventName}}}",
+    message: $spotware.I{{{type}}},
+    clientMsgId?: string | null
+  ): boolean;
+  on(
+    event: "{{{eventName}}}",
+    listener: Listener<$spotware.I{{{type}}}>
+  ): this;
+  off(
+    event: "{{{eventName}}}",
+    listener: Listener<$spotware.I{{{type}}}>
+  ): this;
+  once(
+    event: "{{{eventName}}}",
+    listener: Listener<$spotware.I{{{type}}}>
+  ): this;
+  addListener(
+    event: "{{{eventName}}}",
+    listener: Listener<$spotware.I{{{type}}}>
+  ): this;
+  removeListener(
+    event: "{{{eventName}}}",
+    listener: Listener<$spotware.I{{{type}}}>
+  ): this;
+  prependListener(
+    event: "{{{eventName}}}",
+    listener: Listener<$spotware.I{{{type}}}>
+  ): this;
+  prependOnceListener(
+    event: "{{{eventName}}}",
+    listener: Listener<$spotware.I{{{type}}}>
+  ): this;
+  {{/isProtoMessage}}
+{{/messages}}
+  removeAllListeners(event?: SpotwareEvents): this;
+  listenerCount(event: SpotwareEvents): number;
+  listeners(event: SpotwareEvents): Function[];
+  rawListeners(event: SpotwareEvents): Function[];
+  // TODO: eventNames(): SpotwareEvents[];
+}
+export default SpotwareEventEmitter;
