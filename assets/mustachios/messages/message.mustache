@@ -2,7 +2,7 @@
   I{{{type}}} as IMessage,
   {{{type}}} as Message,
   IProtoMessage,
-  ProtoPayloadType
+  {{#isCommonMessage}}ProtoPayloadType{{/isCommonMessage}}{{#isOpenApiMessage}}ProtoOAPayloadType{{/isOpenApiMessage}}
 } from "../spotware-messages";
 import SpotwareEventEmitter from "../spotware-event-emitter";
 
@@ -47,7 +47,7 @@ export namespace {{{type}}} {
     }
     throw new Error(
       `invalid message. expected payloadType '{{{eventName}}}' (got '${
-        ProtoPayloadType[payloadType]
+        {{#isCommonMessage}}ProtoPayloadType{{/isCommonMessage}}{{#isOpenApiMessage}}ProtoOAPayloadType{{/isOpenApiMessage}}[payloadType]
       }').`
     );
   }
@@ -58,7 +58,7 @@ export namespace {{{type}}} {
   ): void {
     const data = fromProtoMessage(message);
     emitter.emit(
-      "{{{payloadType}}}",
+      "{{{eventName}}}",
       data.message,
       data.clientMsgId
     );

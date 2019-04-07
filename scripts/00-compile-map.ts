@@ -19,6 +19,8 @@ interface Type {
   eventName: string;
   scopes: Scope[];
   isProtoMessage: boolean;
+  isOpenApiMessage: boolean;
+  isCommonMessage: boolean;
 }
 
 const PROTO_SCOPES: Scope[] = [];
@@ -40,7 +42,12 @@ function toPayloadType(message: Message) {
   );
 }
 
-function toType(message: Message, payloadTypeRef: string): Type {
+function toType(
+  message: Message,
+  payloadTypeRef: string,
+  isCommonMessage: boolean,
+  isOpenApiMessage: boolean
+): Type {
   const type = message.name;
   const payloadType = toPayloadType(message);
   const scopes: Scope[] = [];
@@ -53,7 +60,9 @@ function toType(message: Message, payloadTypeRef: string): Type {
     payloadType: `${payloadTypeRef}.${payloadType}`,
     eventName: payloadType,
     scopes,
-    isProtoMessage: type === "ProtoMessage"
+    isProtoMessage: type === "ProtoMessage",
+    isCommonMessage,
+    isOpenApiMessage
   };
 }
 
@@ -62,10 +71,10 @@ function writeMessageMap() {
   const openApi = loadSchema("./assets/OpenApiMessages.proto");
   const types: Type[] = [];
   for (const message of common.messages) {
-    types.push(toType(message, "ProtoPayloadType"));
+    types.push(toType(message, "ProtoPayloadType", true, false));
   }
   for (const message of openApi.messages) {
-    types.push(toType(message, "ProtoOAPayloadType"));
+    types.push(toType(message, "ProtoOAPayloadType", false, true));
   }
   process.stdout.write(JSON.stringify({ messages: types }));
 }
