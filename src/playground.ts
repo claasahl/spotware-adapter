@@ -4,6 +4,7 @@ import * as $spotware from "./spotware-messages";
 import SpotwareEventEmitter from "./spotware-event-emitter";
 import * as messages from "./messages";
 import * as util from "./spotware-utils";
+import { onProtoMessage as handler } from "./spotware-message-handler";
 
 function readProtoMessage(this: SpotwareEventEmitter, data: string) {
   {
@@ -34,12 +35,7 @@ function onProtoMessage(
   this: SpotwareEventEmitter & tls.TLSSocket,
   message: $spotware.IProtoMessage
 ) {
-  switch (message.payloadType) {
-    case $spotware.ProtoOAPayloadType.PROTO_OA_APPLICATION_AUTH_REQ:
-      return this.write(util.serialize(message));
-    case $spotware.ProtoOAPayloadType.PROTO_OA_APPLICATION_AUTH_RES:
-      return messages.ProtoOAApplicationAuthRes.emitDecoded(this, message);
-  }
+  return handler(this, message);
 }
 
 function onProtoOAApplicationAuthReq(
