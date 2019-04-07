@@ -4,8 +4,8 @@ import path from "path";
 
 import map from "../assets/message-map.json";
 
-const mustacheTemplate = "./assets/message.mustache";
-const indexMustache = "./assets/message-index.mustache";
+const mustacheTemplate = "./assets/mustachios/messages/message.mustache";
+const indexMustache = "./assets/mustachios/messages/index.mustache";
 const outputDir = "./src/messages/";
 
 const template = fs.readFileSync(mustacheTemplate).toString();
