@@ -33,3 +33,32 @@ for (const message of messages) {
 stream.write("}\n");
 stream.write("}\n");
 stream.write("\n");
+stream.write("\n");
+stream.write("----- CUT AND PASTE ----");
+stream.write("\n");
+
+for (const message of messages) {
+  const { type, scopes } = message;
+  if (scopes.includes("PROTO__WRITE")) {
+    stream.write(`function on${type}(\n`);
+    stream.write(`  this: SpotwareEventEmitter,\n`);
+    stream.write(`  message: $spotware.I${type},\n`);
+    stream.write(`  clientMsgId?: string | null\n`);
+    stream.write(`) {\n`);
+    stream.write(`  return messages.${type}.emitEncoded(\n`);
+    stream.write(`    this,\n`);
+    stream.write(`    message,\n`);
+    stream.write(`    clientMsgId\n`);
+    stream.write(`  );\n`);
+    stream.write(`}\n`);
+    stream.write("\n");
+  }
+}
+
+for (const message of messages) {
+  const { type, scopes, eventName } = message;
+  if (scopes.includes("PROTO__WRITE")) {
+    stream.write(`.on("${eventName}", on${type})\n`);
+  }
+}
+stream.write(";\n");
