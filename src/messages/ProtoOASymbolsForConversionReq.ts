@@ -14,11 +14,9 @@ export namespace ProtoOASymbolsForConversionReq {
     message: IMessage,
     clientMsgId?: string | null
   ): IProtoMessage {
-    const payloadType = Message.prototype.payloadType;
-    const payload = Message.encode(message).finish();
     return {
-      payloadType,
-      payload,
+      payloadType: Message.prototype.payloadType,
+      payload: Message.encode(message).finish(),
       clientMsgId
     };
   }
