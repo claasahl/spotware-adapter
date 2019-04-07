@@ -19,7 +19,7 @@ for (const message of messages) {
   }
   if (type === "ProtoMessage") {
     stream.write(
-      `| \`${eventName}\` | see [table](#processing_of_proto_message_events) | see [table](#processing_of_proto_message_events)  |\n`
+      `| \`${eventName}\` | see [table](#processing-of-proto_message-events) | see [table](#processing-of-proto_message-events)  |\n`
     );
   }
 }

@@ -41,7 +41,7 @@ This client treats Spotware messages like so.
 
 | Event (`on(EVENT, message => ACTION)`)      | Encode as ...                                    | Emit as ...                                      |
 | ------------------------------------------- | ------------------------------------------------ | ------------------------------------------------ |
-| `PROTO_MESSAGE`                             | see [table](#processing_of_proto_message_events) | see [table](#processing_of_proto_message_events) |
+| `PROTO_MESSAGE`                             | see [table](#processing-of-proto_message-events) | see [table](#processing-of-proto_message-events) |
 | `ERROR_RES`                                 | n/a                                              | n/a                                              |
 | `HEARTBEAT_EVENT`                           | n/a                                              | n/a                                              |
 | `PROTO_OA_APPLICATION_AUTH_REQ`             | `ProtoMessage`                                   | `PROTO_MESSAGE`                                  |
