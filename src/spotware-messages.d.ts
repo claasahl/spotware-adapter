@@ -29,30 +29,12 @@ export class ProtoMessage implements IProtoMessage {
   public clientMsgId: string;
 
   /**
-   * Creates a new ProtoMessage instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoMessage instance
-   */
-  public static create(properties?: IProtoMessage): ProtoMessage;
-
-  /**
    * Encodes the specified ProtoMessage message. Does not implicitly {@link ProtoMessage.verify|verify} messages.
    * @param message ProtoMessage message or plain object to encode
    * @param [writer] Writer to encode to
    * @returns Writer
    */
   public static encode(
-    message: IProtoMessage,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoMessage message, length delimited. Does not implicitly {@link ProtoMessage.verify|verify} messages.
-   * @param message ProtoMessage message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
     message: IProtoMessage,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
@@ -69,48 +51,6 @@ export class ProtoMessage implements IProtoMessage {
     reader: $protobuf.Reader | Uint8Array,
     length?: number
   ): ProtoMessage;
-
-  /**
-   * Decodes a ProtoMessage message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoMessage
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoMessage;
-
-  /**
-   * Verifies a ProtoMessage message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoMessage message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoMessage
-   */
-  public static fromObject(object: { [k: string]: any }): ProtoMessage;
-
-  /**
-   * Creates a plain object from a ProtoMessage message. Also converts values to other types if specified.
-   * @param message ProtoMessage
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoMessage,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoMessage to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
 }
 
 /** Properties of a ProtoErrorRes. */
@@ -125,7 +65,7 @@ export interface IProtoErrorRes {
   description?: string | null;
 
   /** ProtoErrorRes maintenanceEndTimestamp */
-  maintenanceEndTimestamp?: number | Long | null;
+  maintenanceEndTimestamp?: Long | null;
 }
 
 /** Represents a ProtoErrorRes. */
@@ -146,14 +86,7 @@ export class ProtoErrorRes implements IProtoErrorRes {
   public description: string;
 
   /** ProtoErrorRes maintenanceEndTimestamp. */
-  public maintenanceEndTimestamp: number | Long;
-
-  /**
-   * Creates a new ProtoErrorRes instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoErrorRes instance
-   */
-  public static create(properties?: IProtoErrorRes): ProtoErrorRes;
+  public maintenanceEndTimestamp: Long;
 
   /**
    * Encodes the specified ProtoErrorRes message. Does not implicitly {@link ProtoErrorRes.verify|verify} messages.
@@ -162,17 +95,6 @@ export class ProtoErrorRes implements IProtoErrorRes {
    * @returns Writer
    */
   public static encode(
-    message: IProtoErrorRes,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoErrorRes message, length delimited. Does not implicitly {@link ProtoErrorRes.verify|verify} messages.
-   * @param message ProtoErrorRes message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
     message: IProtoErrorRes,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
@@ -189,48 +111,6 @@ export class ProtoErrorRes implements IProtoErrorRes {
     reader: $protobuf.Reader | Uint8Array,
     length?: number
   ): ProtoErrorRes;
-
-  /**
-   * Decodes a ProtoErrorRes message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoErrorRes
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoErrorRes;
-
-  /**
-   * Verifies a ProtoErrorRes message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoErrorRes message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoErrorRes
-   */
-  public static fromObject(object: { [k: string]: any }): ProtoErrorRes;
-
-  /**
-   * Creates a plain object from a ProtoErrorRes message. Also converts values to other types if specified.
-   * @param message ProtoErrorRes
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoErrorRes,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoErrorRes to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
 }
 
 /** Properties of a ProtoHeartbeatEvent. */
@@ -251,30 +131,12 @@ export class ProtoHeartbeatEvent implements IProtoHeartbeatEvent {
   public payloadType: ProtoPayloadType;
 
   /**
-   * Creates a new ProtoHeartbeatEvent instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoHeartbeatEvent instance
-   */
-  public static create(properties?: IProtoHeartbeatEvent): ProtoHeartbeatEvent;
-
-  /**
    * Encodes the specified ProtoHeartbeatEvent message. Does not implicitly {@link ProtoHeartbeatEvent.verify|verify} messages.
    * @param message ProtoHeartbeatEvent message or plain object to encode
    * @param [writer] Writer to encode to
    * @returns Writer
    */
   public static encode(
-    message: IProtoHeartbeatEvent,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoHeartbeatEvent message, length delimited. Does not implicitly {@link ProtoHeartbeatEvent.verify|verify} messages.
-   * @param message ProtoHeartbeatEvent message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
     message: IProtoHeartbeatEvent,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
@@ -291,48 +153,6 @@ export class ProtoHeartbeatEvent implements IProtoHeartbeatEvent {
     reader: $protobuf.Reader | Uint8Array,
     length?: number
   ): ProtoHeartbeatEvent;
-
-  /**
-   * Decodes a ProtoHeartbeatEvent message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoHeartbeatEvent
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoHeartbeatEvent;
-
-  /**
-   * Verifies a ProtoHeartbeatEvent message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoHeartbeatEvent message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoHeartbeatEvent
-   */
-  public static fromObject(object: { [k: string]: any }): ProtoHeartbeatEvent;
-
-  /**
-   * Creates a plain object from a ProtoHeartbeatEvent message. Also converts values to other types if specified.
-   * @param message ProtoHeartbeatEvent
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoHeartbeatEvent,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoHeartbeatEvent to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
 }
 
 /** ProtoPayloadType enum. */
@@ -387,32 +207,12 @@ export class ProtoOAApplicationAuthReq implements IProtoOAApplicationAuthReq {
   public clientSecret: string;
 
   /**
-   * Creates a new ProtoOAApplicationAuthReq instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAApplicationAuthReq instance
-   */
-  public static create(
-    properties?: IProtoOAApplicationAuthReq
-  ): ProtoOAApplicationAuthReq;
-
-  /**
    * Encodes the specified ProtoOAApplicationAuthReq message. Does not implicitly {@link ProtoOAApplicationAuthReq.verify|verify} messages.
    * @param message ProtoOAApplicationAuthReq message or plain object to encode
    * @param [writer] Writer to encode to
    * @returns Writer
    */
   public static encode(
-    message: IProtoOAApplicationAuthReq,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoOAApplicationAuthReq message, length delimited. Does not implicitly {@link ProtoOAApplicationAuthReq.verify|verify} messages.
-   * @param message ProtoOAApplicationAuthReq message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
     message: IProtoOAApplicationAuthReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
@@ -429,50 +229,6 @@ export class ProtoOAApplicationAuthReq implements IProtoOAApplicationAuthReq {
     reader: $protobuf.Reader | Uint8Array,
     length?: number
   ): ProtoOAApplicationAuthReq;
-
-  /**
-   * Decodes a ProtoOAApplicationAuthReq message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoOAApplicationAuthReq
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoOAApplicationAuthReq;
-
-  /**
-   * Verifies a ProtoOAApplicationAuthReq message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoOAApplicationAuthReq message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoOAApplicationAuthReq
-   */
-  public static fromObject(object: {
-    [k: string]: any;
-  }): ProtoOAApplicationAuthReq;
-
-  /**
-   * Creates a plain object from a ProtoOAApplicationAuthReq message. Also converts values to other types if specified.
-   * @param message ProtoOAApplicationAuthReq
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoOAApplicationAuthReq,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoOAApplicationAuthReq to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
 }
 
 /** Properties of a ProtoOAApplicationAuthRes. */
@@ -493,32 +249,12 @@ export class ProtoOAApplicationAuthRes implements IProtoOAApplicationAuthRes {
   public payloadType: ProtoOAPayloadType;
 
   /**
-   * Creates a new ProtoOAApplicationAuthRes instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAApplicationAuthRes instance
-   */
-  public static create(
-    properties?: IProtoOAApplicationAuthRes
-  ): ProtoOAApplicationAuthRes;
-
-  /**
    * Encodes the specified ProtoOAApplicationAuthRes message. Does not implicitly {@link ProtoOAApplicationAuthRes.verify|verify} messages.
    * @param message ProtoOAApplicationAuthRes message or plain object to encode
    * @param [writer] Writer to encode to
    * @returns Writer
    */
   public static encode(
-    message: IProtoOAApplicationAuthRes,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoOAApplicationAuthRes message, length delimited. Does not implicitly {@link ProtoOAApplicationAuthRes.verify|verify} messages.
-   * @param message ProtoOAApplicationAuthRes message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
     message: IProtoOAApplicationAuthRes,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
@@ -535,50 +271,6 @@ export class ProtoOAApplicationAuthRes implements IProtoOAApplicationAuthRes {
     reader: $protobuf.Reader | Uint8Array,
     length?: number
   ): ProtoOAApplicationAuthRes;
-
-  /**
-   * Decodes a ProtoOAApplicationAuthRes message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoOAApplicationAuthRes
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoOAApplicationAuthRes;
-
-  /**
-   * Verifies a ProtoOAApplicationAuthRes message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoOAApplicationAuthRes message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoOAApplicationAuthRes
-   */
-  public static fromObject(object: {
-    [k: string]: any;
-  }): ProtoOAApplicationAuthRes;
-
-  /**
-   * Creates a plain object from a ProtoOAApplicationAuthRes message. Also converts values to other types if specified.
-   * @param message ProtoOAApplicationAuthRes
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoOAApplicationAuthRes,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoOAApplicationAuthRes to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
 }
 
 /** Properties of a ProtoOAAccountAuthReq. */
@@ -587,7 +279,7 @@ export interface IProtoOAAccountAuthReq {
   payloadType?: ProtoOAPayloadType | null;
 
   /** ProtoOAAccountAuthReq ctidTraderAccountId */
-  ctidTraderAccountId: number | Long;
+  ctidTraderAccountId: Long;
 
   /** ProtoOAAccountAuthReq accessToken */
   accessToken: string;
@@ -605,19 +297,10 @@ export class ProtoOAAccountAuthReq implements IProtoOAAccountAuthReq {
   public payloadType: ProtoOAPayloadType;
 
   /** ProtoOAAccountAuthReq ctidTraderAccountId. */
-  public ctidTraderAccountId: number | Long;
+  public ctidTraderAccountId: Long;
 
   /** ProtoOAAccountAuthReq accessToken. */
   public accessToken: string;
-
-  /**
-   * Creates a new ProtoOAAccountAuthReq instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAAccountAuthReq instance
-   */
-  public static create(
-    properties?: IProtoOAAccountAuthReq
-  ): ProtoOAAccountAuthReq;
 
   /**
    * Encodes the specified ProtoOAAccountAuthReq message. Does not implicitly {@link ProtoOAAccountAuthReq.verify|verify} messages.
@@ -626,17 +309,6 @@ export class ProtoOAAccountAuthReq implements IProtoOAAccountAuthReq {
    * @returns Writer
    */
   public static encode(
-    message: IProtoOAAccountAuthReq,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoOAAccountAuthReq message, length delimited. Does not implicitly {@link ProtoOAAccountAuthReq.verify|verify} messages.
-   * @param message ProtoOAAccountAuthReq message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
     message: IProtoOAAccountAuthReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
@@ -653,48 +325,6 @@ export class ProtoOAAccountAuthReq implements IProtoOAAccountAuthReq {
     reader: $protobuf.Reader | Uint8Array,
     length?: number
   ): ProtoOAAccountAuthReq;
-
-  /**
-   * Decodes a ProtoOAAccountAuthReq message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoOAAccountAuthReq
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoOAAccountAuthReq;
-
-  /**
-   * Verifies a ProtoOAAccountAuthReq message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoOAAccountAuthReq message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoOAAccountAuthReq
-   */
-  public static fromObject(object: { [k: string]: any }): ProtoOAAccountAuthReq;
-
-  /**
-   * Creates a plain object from a ProtoOAAccountAuthReq message. Also converts values to other types if specified.
-   * @param message ProtoOAAccountAuthReq
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoOAAccountAuthReq,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoOAAccountAuthReq to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
 }
 
 /** Properties of a ProtoOAAccountAuthRes. */
@@ -703,7 +333,7 @@ export interface IProtoOAAccountAuthRes {
   payloadType?: ProtoOAPayloadType | null;
 
   /** ProtoOAAccountAuthRes ctidTraderAccountId */
-  ctidTraderAccountId: number | Long;
+  ctidTraderAccountId: Long;
 }
 
 /** Response to the ProtoOAApplicationAuthRes request. */
@@ -718,16 +348,7 @@ export class ProtoOAAccountAuthRes implements IProtoOAAccountAuthRes {
   public payloadType: ProtoOAPayloadType;
 
   /** ProtoOAAccountAuthRes ctidTraderAccountId. */
-  public ctidTraderAccountId: number | Long;
-
-  /**
-   * Creates a new ProtoOAAccountAuthRes instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAAccountAuthRes instance
-   */
-  public static create(
-    properties?: IProtoOAAccountAuthRes
-  ): ProtoOAAccountAuthRes;
+  public ctidTraderAccountId: Long;
 
   /**
    * Encodes the specified ProtoOAAccountAuthRes message. Does not implicitly {@link ProtoOAAccountAuthRes.verify|verify} messages.
@@ -736,17 +357,6 @@ export class ProtoOAAccountAuthRes implements IProtoOAAccountAuthRes {
    * @returns Writer
    */
   public static encode(
-    message: IProtoOAAccountAuthRes,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoOAAccountAuthRes message, length delimited. Does not implicitly {@link ProtoOAAccountAuthRes.verify|verify} messages.
-   * @param message ProtoOAAccountAuthRes message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
     message: IProtoOAAccountAuthRes,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
@@ -763,48 +373,6 @@ export class ProtoOAAccountAuthRes implements IProtoOAAccountAuthRes {
     reader: $protobuf.Reader | Uint8Array,
     length?: number
   ): ProtoOAAccountAuthRes;
-
-  /**
-   * Decodes a ProtoOAAccountAuthRes message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoOAAccountAuthRes
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoOAAccountAuthRes;
-
-  /**
-   * Verifies a ProtoOAAccountAuthRes message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoOAAccountAuthRes message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoOAAccountAuthRes
-   */
-  public static fromObject(object: { [k: string]: any }): ProtoOAAccountAuthRes;
-
-  /**
-   * Creates a plain object from a ProtoOAAccountAuthRes message. Also converts values to other types if specified.
-   * @param message ProtoOAAccountAuthRes
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoOAAccountAuthRes,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoOAAccountAuthRes to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
 }
 
 /** Properties of a ProtoOAErrorRes. */
@@ -813,7 +381,7 @@ export interface IProtoOAErrorRes {
   payloadType?: ProtoOAPayloadType | null;
 
   /** ProtoOAErrorRes ctidTraderAccountId */
-  ctidTraderAccountId?: number | Long | null;
+  ctidTraderAccountId?: Long | null;
 
   /** ProtoOAErrorRes errorCode */
   errorCode: string;
@@ -834,7 +402,7 @@ export class ProtoOAErrorRes implements IProtoOAErrorRes {
   public payloadType: ProtoOAPayloadType;
 
   /** ProtoOAErrorRes ctidTraderAccountId. */
-  public ctidTraderAccountId: number | Long;
+  public ctidTraderAccountId: Long;
 
   /** ProtoOAErrorRes errorCode. */
   public errorCode: string;
@@ -843,30 +411,12 @@ export class ProtoOAErrorRes implements IProtoOAErrorRes {
   public description: string;
 
   /**
-   * Creates a new ProtoOAErrorRes instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAErrorRes instance
-   */
-  public static create(properties?: IProtoOAErrorRes): ProtoOAErrorRes;
-
-  /**
    * Encodes the specified ProtoOAErrorRes message. Does not implicitly {@link ProtoOAErrorRes.verify|verify} messages.
    * @param message ProtoOAErrorRes message or plain object to encode
    * @param [writer] Writer to encode to
    * @returns Writer
    */
   public static encode(
-    message: IProtoOAErrorRes,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoOAErrorRes message, length delimited. Does not implicitly {@link ProtoOAErrorRes.verify|verify} messages.
-   * @param message ProtoOAErrorRes message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
     message: IProtoOAErrorRes,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
@@ -883,48 +433,6 @@ export class ProtoOAErrorRes implements IProtoOAErrorRes {
     reader: $protobuf.Reader | Uint8Array,
     length?: number
   ): ProtoOAErrorRes;
-
-  /**
-   * Decodes a ProtoOAErrorRes message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoOAErrorRes
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoOAErrorRes;
-
-  /**
-   * Verifies a ProtoOAErrorRes message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoOAErrorRes message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoOAErrorRes
-   */
-  public static fromObject(object: { [k: string]: any }): ProtoOAErrorRes;
-
-  /**
-   * Creates a plain object from a ProtoOAErrorRes message. Also converts values to other types if specified.
-   * @param message ProtoOAErrorRes
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoOAErrorRes,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoOAErrorRes to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
 }
 
 /** Properties of a ProtoOAClientDisconnectEvent. */
@@ -952,32 +460,12 @@ export class ProtoOAClientDisconnectEvent
   public reason: string;
 
   /**
-   * Creates a new ProtoOAClientDisconnectEvent instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAClientDisconnectEvent instance
-   */
-  public static create(
-    properties?: IProtoOAClientDisconnectEvent
-  ): ProtoOAClientDisconnectEvent;
-
-  /**
    * Encodes the specified ProtoOAClientDisconnectEvent message. Does not implicitly {@link ProtoOAClientDisconnectEvent.verify|verify} messages.
    * @param message ProtoOAClientDisconnectEvent message or plain object to encode
    * @param [writer] Writer to encode to
    * @returns Writer
    */
   public static encode(
-    message: IProtoOAClientDisconnectEvent,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoOAClientDisconnectEvent message, length delimited. Does not implicitly {@link ProtoOAClientDisconnectEvent.verify|verify} messages.
-   * @param message ProtoOAClientDisconnectEvent message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
     message: IProtoOAClientDisconnectEvent,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
@@ -994,50 +482,6 @@ export class ProtoOAClientDisconnectEvent
     reader: $protobuf.Reader | Uint8Array,
     length?: number
   ): ProtoOAClientDisconnectEvent;
-
-  /**
-   * Decodes a ProtoOAClientDisconnectEvent message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoOAClientDisconnectEvent
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoOAClientDisconnectEvent;
-
-  /**
-   * Verifies a ProtoOAClientDisconnectEvent message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoOAClientDisconnectEvent message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoOAClientDisconnectEvent
-   */
-  public static fromObject(object: {
-    [k: string]: any;
-  }): ProtoOAClientDisconnectEvent;
-
-  /**
-   * Creates a plain object from a ProtoOAClientDisconnectEvent message. Also converts values to other types if specified.
-   * @param message ProtoOAClientDisconnectEvent
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoOAClientDisconnectEvent,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoOAClientDisconnectEvent to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
 }
 
 /** Properties of a ProtoOAAccountsTokenInvalidatedEvent. */
@@ -1046,7 +490,7 @@ export interface IProtoOAAccountsTokenInvalidatedEvent {
   payloadType?: ProtoOAPayloadType | null;
 
   /** ProtoOAAccountsTokenInvalidatedEvent ctidTraderAccountIds */
-  ctidTraderAccountIds?: (number | Long)[] | null;
+  ctidTraderAccountIds?: Long[] | null;
 
   /** ProtoOAAccountsTokenInvalidatedEvent reason */
   reason?: string | null;
@@ -1065,19 +509,10 @@ export class ProtoOAAccountsTokenInvalidatedEvent
   public payloadType: ProtoOAPayloadType;
 
   /** ProtoOAAccountsTokenInvalidatedEvent ctidTraderAccountIds. */
-  public ctidTraderAccountIds: (number | Long)[];
+  public ctidTraderAccountIds: Long[];
 
   /** ProtoOAAccountsTokenInvalidatedEvent reason. */
   public reason: string;
-
-  /**
-   * Creates a new ProtoOAAccountsTokenInvalidatedEvent instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAAccountsTokenInvalidatedEvent instance
-   */
-  public static create(
-    properties?: IProtoOAAccountsTokenInvalidatedEvent
-  ): ProtoOAAccountsTokenInvalidatedEvent;
 
   /**
    * Encodes the specified ProtoOAAccountsTokenInvalidatedEvent message. Does not implicitly {@link ProtoOAAccountsTokenInvalidatedEvent.verify|verify} messages.
@@ -1086,17 +521,6 @@ export class ProtoOAAccountsTokenInvalidatedEvent
    * @returns Writer
    */
   public static encode(
-    message: IProtoOAAccountsTokenInvalidatedEvent,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoOAAccountsTokenInvalidatedEvent message, length delimited. Does not implicitly {@link ProtoOAAccountsTokenInvalidatedEvent.verify|verify} messages.
-   * @param message ProtoOAAccountsTokenInvalidatedEvent message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
     message: IProtoOAAccountsTokenInvalidatedEvent,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
@@ -1113,50 +537,6 @@ export class ProtoOAAccountsTokenInvalidatedEvent
     reader: $protobuf.Reader | Uint8Array,
     length?: number
   ): ProtoOAAccountsTokenInvalidatedEvent;
-
-  /**
-   * Decodes a ProtoOAAccountsTokenInvalidatedEvent message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoOAAccountsTokenInvalidatedEvent
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoOAAccountsTokenInvalidatedEvent;
-
-  /**
-   * Verifies a ProtoOAAccountsTokenInvalidatedEvent message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoOAAccountsTokenInvalidatedEvent message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoOAAccountsTokenInvalidatedEvent
-   */
-  public static fromObject(object: {
-    [k: string]: any;
-  }): ProtoOAAccountsTokenInvalidatedEvent;
-
-  /**
-   * Creates a plain object from a ProtoOAAccountsTokenInvalidatedEvent message. Also converts values to other types if specified.
-   * @param message ProtoOAAccountsTokenInvalidatedEvent
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoOAAccountsTokenInvalidatedEvent,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoOAAccountsTokenInvalidatedEvent to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
 }
 
 /** Properties of a ProtoOAVersionReq. */
@@ -1177,30 +557,12 @@ export class ProtoOAVersionReq implements IProtoOAVersionReq {
   public payloadType: ProtoOAPayloadType;
 
   /**
-   * Creates a new ProtoOAVersionReq instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAVersionReq instance
-   */
-  public static create(properties?: IProtoOAVersionReq): ProtoOAVersionReq;
-
-  /**
    * Encodes the specified ProtoOAVersionReq message. Does not implicitly {@link ProtoOAVersionReq.verify|verify} messages.
    * @param message ProtoOAVersionReq message or plain object to encode
    * @param [writer] Writer to encode to
    * @returns Writer
    */
   public static encode(
-    message: IProtoOAVersionReq,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoOAVersionReq message, length delimited. Does not implicitly {@link ProtoOAVersionReq.verify|verify} messages.
-   * @param message ProtoOAVersionReq message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
     message: IProtoOAVersionReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
@@ -1217,48 +579,6 @@ export class ProtoOAVersionReq implements IProtoOAVersionReq {
     reader: $protobuf.Reader | Uint8Array,
     length?: number
   ): ProtoOAVersionReq;
-
-  /**
-   * Decodes a ProtoOAVersionReq message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoOAVersionReq
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoOAVersionReq;
-
-  /**
-   * Verifies a ProtoOAVersionReq message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoOAVersionReq message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoOAVersionReq
-   */
-  public static fromObject(object: { [k: string]: any }): ProtoOAVersionReq;
-
-  /**
-   * Creates a plain object from a ProtoOAVersionReq message. Also converts values to other types if specified.
-   * @param message ProtoOAVersionReq
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoOAVersionReq,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoOAVersionReq to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
 }
 
 /** Properties of a ProtoOAVersionRes. */
@@ -1285,30 +605,12 @@ export class ProtoOAVersionRes implements IProtoOAVersionRes {
   public version: string;
 
   /**
-   * Creates a new ProtoOAVersionRes instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAVersionRes instance
-   */
-  public static create(properties?: IProtoOAVersionRes): ProtoOAVersionRes;
-
-  /**
    * Encodes the specified ProtoOAVersionRes message. Does not implicitly {@link ProtoOAVersionRes.verify|verify} messages.
    * @param message ProtoOAVersionRes message or plain object to encode
    * @param [writer] Writer to encode to
    * @returns Writer
    */
   public static encode(
-    message: IProtoOAVersionRes,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoOAVersionRes message, length delimited. Does not implicitly {@link ProtoOAVersionRes.verify|verify} messages.
-   * @param message ProtoOAVersionRes message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
     message: IProtoOAVersionRes,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
@@ -1325,48 +627,6 @@ export class ProtoOAVersionRes implements IProtoOAVersionRes {
     reader: $protobuf.Reader | Uint8Array,
     length?: number
   ): ProtoOAVersionRes;
-
-  /**
-   * Decodes a ProtoOAVersionRes message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoOAVersionRes
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoOAVersionRes;
-
-  /**
-   * Verifies a ProtoOAVersionRes message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoOAVersionRes message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoOAVersionRes
-   */
-  public static fromObject(object: { [k: string]: any }): ProtoOAVersionRes;
-
-  /**
-   * Creates a plain object from a ProtoOAVersionRes message. Also converts values to other types if specified.
-   * @param message ProtoOAVersionRes
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoOAVersionRes,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoOAVersionRes to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
 }
 
 /** Properties of a ProtoOANewOrderReq. */
@@ -1375,10 +635,10 @@ export interface IProtoOANewOrderReq {
   payloadType?: ProtoOAPayloadType | null;
 
   /** ProtoOANewOrderReq ctidTraderAccountId */
-  ctidTraderAccountId: number | Long;
+  ctidTraderAccountId: Long;
 
   /** ProtoOANewOrderReq symbolId */
-  symbolId: number | Long;
+  symbolId: Long;
 
   /** ProtoOANewOrderReq orderType */
   orderType: ProtoOAOrderType;
@@ -1387,7 +647,7 @@ export interface IProtoOANewOrderReq {
   tradeSide: ProtoOATradeSide;
 
   /** ProtoOANewOrderReq volume */
-  volume: number | Long;
+  volume: Long;
 
   /** ProtoOANewOrderReq limitPrice */
   limitPrice?: number | null;
@@ -1399,7 +659,7 @@ export interface IProtoOANewOrderReq {
   timeInForce?: ProtoOATimeInForce | null;
 
   /** ProtoOANewOrderReq expirationTimestamp */
-  expirationTimestamp?: number | Long | null;
+  expirationTimestamp?: Long | null;
 
   /** ProtoOANewOrderReq stopLoss */
   stopLoss?: number | null;
@@ -1420,16 +680,16 @@ export interface IProtoOANewOrderReq {
   label?: string | null;
 
   /** ProtoOANewOrderReq positionId */
-  positionId?: number | Long | null;
+  positionId?: Long | null;
 
   /** ProtoOANewOrderReq clientOrderId */
   clientOrderId?: string | null;
 
   /** ProtoOANewOrderReq relativeStopLoss */
-  relativeStopLoss?: number | Long | null;
+  relativeStopLoss?: Long | null;
 
   /** ProtoOANewOrderReq relativeTakeProfit */
-  relativeTakeProfit?: number | Long | null;
+  relativeTakeProfit?: Long | null;
 
   /** ProtoOANewOrderReq guaranteedStopLoss */
   guaranteedStopLoss?: boolean | null;
@@ -1453,10 +713,10 @@ export class ProtoOANewOrderReq implements IProtoOANewOrderReq {
   public payloadType: ProtoOAPayloadType;
 
   /** ProtoOANewOrderReq ctidTraderAccountId. */
-  public ctidTraderAccountId: number | Long;
+  public ctidTraderAccountId: Long;
 
   /** ProtoOANewOrderReq symbolId. */
-  public symbolId: number | Long;
+  public symbolId: Long;
 
   /** ProtoOANewOrderReq orderType. */
   public orderType: ProtoOAOrderType;
@@ -1465,7 +725,7 @@ export class ProtoOANewOrderReq implements IProtoOANewOrderReq {
   public tradeSide: ProtoOATradeSide;
 
   /** ProtoOANewOrderReq volume. */
-  public volume: number | Long;
+  public volume: Long;
 
   /** ProtoOANewOrderReq limitPrice. */
   public limitPrice: number;
@@ -1477,7 +737,7 @@ export class ProtoOANewOrderReq implements IProtoOANewOrderReq {
   public timeInForce: ProtoOATimeInForce;
 
   /** ProtoOANewOrderReq expirationTimestamp. */
-  public expirationTimestamp: number | Long;
+  public expirationTimestamp: Long;
 
   /** ProtoOANewOrderReq stopLoss. */
   public stopLoss: number;
@@ -1498,16 +758,16 @@ export class ProtoOANewOrderReq implements IProtoOANewOrderReq {
   public label: string;
 
   /** ProtoOANewOrderReq positionId. */
-  public positionId: number | Long;
+  public positionId: Long;
 
   /** ProtoOANewOrderReq clientOrderId. */
   public clientOrderId: string;
 
   /** ProtoOANewOrderReq relativeStopLoss. */
-  public relativeStopLoss: number | Long;
+  public relativeStopLoss: Long;
 
   /** ProtoOANewOrderReq relativeTakeProfit. */
-  public relativeTakeProfit: number | Long;
+  public relativeTakeProfit: Long;
 
   /** ProtoOANewOrderReq guaranteedStopLoss. */
   public guaranteedStopLoss: boolean;
@@ -1519,30 +779,12 @@ export class ProtoOANewOrderReq implements IProtoOANewOrderReq {
   public stopTriggerMethod: ProtoOAOrderTriggerMethod;
 
   /**
-   * Creates a new ProtoOANewOrderReq instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOANewOrderReq instance
-   */
-  public static create(properties?: IProtoOANewOrderReq): ProtoOANewOrderReq;
-
-  /**
    * Encodes the specified ProtoOANewOrderReq message. Does not implicitly {@link ProtoOANewOrderReq.verify|verify} messages.
    * @param message ProtoOANewOrderReq message or plain object to encode
    * @param [writer] Writer to encode to
    * @returns Writer
    */
   public static encode(
-    message: IProtoOANewOrderReq,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoOANewOrderReq message, length delimited. Does not implicitly {@link ProtoOANewOrderReq.verify|verify} messages.
-   * @param message ProtoOANewOrderReq message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
     message: IProtoOANewOrderReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
@@ -1559,48 +801,6 @@ export class ProtoOANewOrderReq implements IProtoOANewOrderReq {
     reader: $protobuf.Reader | Uint8Array,
     length?: number
   ): ProtoOANewOrderReq;
-
-  /**
-   * Decodes a ProtoOANewOrderReq message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoOANewOrderReq
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoOANewOrderReq;
-
-  /**
-   * Verifies a ProtoOANewOrderReq message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoOANewOrderReq message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoOANewOrderReq
-   */
-  public static fromObject(object: { [k: string]: any }): ProtoOANewOrderReq;
-
-  /**
-   * Creates a plain object from a ProtoOANewOrderReq message. Also converts values to other types if specified.
-   * @param message ProtoOANewOrderReq
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoOANewOrderReq,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoOANewOrderReq to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
 }
 
 /** Properties of a ProtoOAExecutionEvent. */
@@ -1609,7 +809,7 @@ export interface IProtoOAExecutionEvent {
   payloadType?: ProtoOAPayloadType | null;
 
   /** ProtoOAExecutionEvent ctidTraderAccountId */
-  ctidTraderAccountId: number | Long;
+  ctidTraderAccountId: Long;
 
   /** ProtoOAExecutionEvent executionType */
   executionType: ProtoOAExecutionType;
@@ -1648,7 +848,7 @@ export class ProtoOAExecutionEvent implements IProtoOAExecutionEvent {
   public payloadType: ProtoOAPayloadType;
 
   /** ProtoOAExecutionEvent ctidTraderAccountId. */
-  public ctidTraderAccountId: number | Long;
+  public ctidTraderAccountId: Long;
 
   /** ProtoOAExecutionEvent executionType. */
   public executionType: ProtoOAExecutionType;
@@ -1675,32 +875,12 @@ export class ProtoOAExecutionEvent implements IProtoOAExecutionEvent {
   public isServerEvent: boolean;
 
   /**
-   * Creates a new ProtoOAExecutionEvent instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAExecutionEvent instance
-   */
-  public static create(
-    properties?: IProtoOAExecutionEvent
-  ): ProtoOAExecutionEvent;
-
-  /**
    * Encodes the specified ProtoOAExecutionEvent message. Does not implicitly {@link ProtoOAExecutionEvent.verify|verify} messages.
    * @param message ProtoOAExecutionEvent message or plain object to encode
    * @param [writer] Writer to encode to
    * @returns Writer
    */
   public static encode(
-    message: IProtoOAExecutionEvent,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoOAExecutionEvent message, length delimited. Does not implicitly {@link ProtoOAExecutionEvent.verify|verify} messages.
-   * @param message ProtoOAExecutionEvent message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
     message: IProtoOAExecutionEvent,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
@@ -1717,48 +897,6 @@ export class ProtoOAExecutionEvent implements IProtoOAExecutionEvent {
     reader: $protobuf.Reader | Uint8Array,
     length?: number
   ): ProtoOAExecutionEvent;
-
-  /**
-   * Decodes a ProtoOAExecutionEvent message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoOAExecutionEvent
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoOAExecutionEvent;
-
-  /**
-   * Verifies a ProtoOAExecutionEvent message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoOAExecutionEvent message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoOAExecutionEvent
-   */
-  public static fromObject(object: { [k: string]: any }): ProtoOAExecutionEvent;
-
-  /**
-   * Creates a plain object from a ProtoOAExecutionEvent message. Also converts values to other types if specified.
-   * @param message ProtoOAExecutionEvent
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoOAExecutionEvent,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoOAExecutionEvent to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
 }
 
 /** Properties of a ProtoOACancelOrderReq. */
@@ -1767,10 +905,10 @@ export interface IProtoOACancelOrderReq {
   payloadType?: ProtoOAPayloadType | null;
 
   /** ProtoOACancelOrderReq ctidTraderAccountId */
-  ctidTraderAccountId: number | Long;
+  ctidTraderAccountId: Long;
 
   /** ProtoOACancelOrderReq orderId */
-  orderId: number | Long;
+  orderId: Long;
 }
 
 /** Request for cancelling existing pending order. Allowed only if the accessToken has "trade" permissions for the trading account. */
@@ -1785,19 +923,10 @@ export class ProtoOACancelOrderReq implements IProtoOACancelOrderReq {
   public payloadType: ProtoOAPayloadType;
 
   /** ProtoOACancelOrderReq ctidTraderAccountId. */
-  public ctidTraderAccountId: number | Long;
+  public ctidTraderAccountId: Long;
 
   /** ProtoOACancelOrderReq orderId. */
-  public orderId: number | Long;
-
-  /**
-   * Creates a new ProtoOACancelOrderReq instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOACancelOrderReq instance
-   */
-  public static create(
-    properties?: IProtoOACancelOrderReq
-  ): ProtoOACancelOrderReq;
+  public orderId: Long;
 
   /**
    * Encodes the specified ProtoOACancelOrderReq message. Does not implicitly {@link ProtoOACancelOrderReq.verify|verify} messages.
@@ -1806,17 +935,6 @@ export class ProtoOACancelOrderReq implements IProtoOACancelOrderReq {
    * @returns Writer
    */
   public static encode(
-    message: IProtoOACancelOrderReq,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoOACancelOrderReq message, length delimited. Does not implicitly {@link ProtoOACancelOrderReq.verify|verify} messages.
-   * @param message ProtoOACancelOrderReq message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
     message: IProtoOACancelOrderReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
@@ -1833,48 +951,6 @@ export class ProtoOACancelOrderReq implements IProtoOACancelOrderReq {
     reader: $protobuf.Reader | Uint8Array,
     length?: number
   ): ProtoOACancelOrderReq;
-
-  /**
-   * Decodes a ProtoOACancelOrderReq message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoOACancelOrderReq
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoOACancelOrderReq;
-
-  /**
-   * Verifies a ProtoOACancelOrderReq message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoOACancelOrderReq message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoOACancelOrderReq
-   */
-  public static fromObject(object: { [k: string]: any }): ProtoOACancelOrderReq;
-
-  /**
-   * Creates a plain object from a ProtoOACancelOrderReq message. Also converts values to other types if specified.
-   * @param message ProtoOACancelOrderReq
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoOACancelOrderReq,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoOACancelOrderReq to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
 }
 
 /** Properties of a ProtoOAAmendOrderReq. */
@@ -1883,13 +959,13 @@ export interface IProtoOAAmendOrderReq {
   payloadType?: ProtoOAPayloadType | null;
 
   /** ProtoOAAmendOrderReq ctidTraderAccountId */
-  ctidTraderAccountId: number | Long;
+  ctidTraderAccountId: Long;
 
   /** ProtoOAAmendOrderReq orderId */
-  orderId: number | Long;
+  orderId: Long;
 
   /** ProtoOAAmendOrderReq volume */
-  volume?: number | Long | null;
+  volume?: Long | null;
 
   /** ProtoOAAmendOrderReq limitPrice */
   limitPrice?: number | null;
@@ -1898,7 +974,7 @@ export interface IProtoOAAmendOrderReq {
   stopPrice?: number | null;
 
   /** ProtoOAAmendOrderReq expirationTimestamp */
-  expirationTimestamp?: number | Long | null;
+  expirationTimestamp?: Long | null;
 
   /** ProtoOAAmendOrderReq stopLoss */
   stopLoss?: number | null;
@@ -1910,10 +986,10 @@ export interface IProtoOAAmendOrderReq {
   slippageInPoints?: number | null;
 
   /** ProtoOAAmendOrderReq relativeStopLoss */
-  relativeStopLoss?: number | Long | null;
+  relativeStopLoss?: Long | null;
 
   /** ProtoOAAmendOrderReq relativeTakeProfit */
-  relativeTakeProfit?: number | Long | null;
+  relativeTakeProfit?: Long | null;
 
   /** ProtoOAAmendOrderReq guaranteedStopLoss */
   guaranteedStopLoss?: boolean | null;
@@ -1937,13 +1013,13 @@ export class ProtoOAAmendOrderReq implements IProtoOAAmendOrderReq {
   public payloadType: ProtoOAPayloadType;
 
   /** ProtoOAAmendOrderReq ctidTraderAccountId. */
-  public ctidTraderAccountId: number | Long;
+  public ctidTraderAccountId: Long;
 
   /** ProtoOAAmendOrderReq orderId. */
-  public orderId: number | Long;
+  public orderId: Long;
 
   /** ProtoOAAmendOrderReq volume. */
-  public volume: number | Long;
+  public volume: Long;
 
   /** ProtoOAAmendOrderReq limitPrice. */
   public limitPrice: number;
@@ -1952,7 +1028,7 @@ export class ProtoOAAmendOrderReq implements IProtoOAAmendOrderReq {
   public stopPrice: number;
 
   /** ProtoOAAmendOrderReq expirationTimestamp. */
-  public expirationTimestamp: number | Long;
+  public expirationTimestamp: Long;
 
   /** ProtoOAAmendOrderReq stopLoss. */
   public stopLoss: number;
@@ -1964,10 +1040,10 @@ export class ProtoOAAmendOrderReq implements IProtoOAAmendOrderReq {
   public slippageInPoints: number;
 
   /** ProtoOAAmendOrderReq relativeStopLoss. */
-  public relativeStopLoss: number | Long;
+  public relativeStopLoss: Long;
 
   /** ProtoOAAmendOrderReq relativeTakeProfit. */
-  public relativeTakeProfit: number | Long;
+  public relativeTakeProfit: Long;
 
   /** ProtoOAAmendOrderReq guaranteedStopLoss. */
   public guaranteedStopLoss: boolean;
@@ -1979,32 +1055,12 @@ export class ProtoOAAmendOrderReq implements IProtoOAAmendOrderReq {
   public stopTriggerMethod: ProtoOAOrderTriggerMethod;
 
   /**
-   * Creates a new ProtoOAAmendOrderReq instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAAmendOrderReq instance
-   */
-  public static create(
-    properties?: IProtoOAAmendOrderReq
-  ): ProtoOAAmendOrderReq;
-
-  /**
    * Encodes the specified ProtoOAAmendOrderReq message. Does not implicitly {@link ProtoOAAmendOrderReq.verify|verify} messages.
    * @param message ProtoOAAmendOrderReq message or plain object to encode
    * @param [writer] Writer to encode to
    * @returns Writer
    */
   public static encode(
-    message: IProtoOAAmendOrderReq,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoOAAmendOrderReq message, length delimited. Does not implicitly {@link ProtoOAAmendOrderReq.verify|verify} messages.
-   * @param message ProtoOAAmendOrderReq message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
     message: IProtoOAAmendOrderReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
@@ -2021,48 +1077,6 @@ export class ProtoOAAmendOrderReq implements IProtoOAAmendOrderReq {
     reader: $protobuf.Reader | Uint8Array,
     length?: number
   ): ProtoOAAmendOrderReq;
-
-  /**
-   * Decodes a ProtoOAAmendOrderReq message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoOAAmendOrderReq
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoOAAmendOrderReq;
-
-  /**
-   * Verifies a ProtoOAAmendOrderReq message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoOAAmendOrderReq message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoOAAmendOrderReq
-   */
-  public static fromObject(object: { [k: string]: any }): ProtoOAAmendOrderReq;
-
-  /**
-   * Creates a plain object from a ProtoOAAmendOrderReq message. Also converts values to other types if specified.
-   * @param message ProtoOAAmendOrderReq
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoOAAmendOrderReq,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoOAAmendOrderReq to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
 }
 
 /** Properties of a ProtoOAAmendPositionSLTPReq. */
@@ -2071,10 +1085,10 @@ export interface IProtoOAAmendPositionSLTPReq {
   payloadType?: ProtoOAPayloadType | null;
 
   /** ProtoOAAmendPositionSLTPReq ctidTraderAccountId */
-  ctidTraderAccountId: number | Long;
+  ctidTraderAccountId: Long;
 
   /** ProtoOAAmendPositionSLTPReq positionId */
-  positionId: number | Long;
+  positionId: Long;
 
   /** ProtoOAAmendPositionSLTPReq stopLoss */
   stopLoss?: number | null;
@@ -2105,10 +1119,10 @@ export class ProtoOAAmendPositionSLTPReq
   public payloadType: ProtoOAPayloadType;
 
   /** ProtoOAAmendPositionSLTPReq ctidTraderAccountId. */
-  public ctidTraderAccountId: number | Long;
+  public ctidTraderAccountId: Long;
 
   /** ProtoOAAmendPositionSLTPReq positionId. */
-  public positionId: number | Long;
+  public positionId: Long;
 
   /** ProtoOAAmendPositionSLTPReq stopLoss. */
   public stopLoss: number;
@@ -2126,32 +1140,12 @@ export class ProtoOAAmendPositionSLTPReq
   public stopLossTriggerMethod: ProtoOAOrderTriggerMethod;
 
   /**
-   * Creates a new ProtoOAAmendPositionSLTPReq instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAAmendPositionSLTPReq instance
-   */
-  public static create(
-    properties?: IProtoOAAmendPositionSLTPReq
-  ): ProtoOAAmendPositionSLTPReq;
-
-  /**
    * Encodes the specified ProtoOAAmendPositionSLTPReq message. Does not implicitly {@link ProtoOAAmendPositionSLTPReq.verify|verify} messages.
    * @param message ProtoOAAmendPositionSLTPReq message or plain object to encode
    * @param [writer] Writer to encode to
    * @returns Writer
    */
   public static encode(
-    message: IProtoOAAmendPositionSLTPReq,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoOAAmendPositionSLTPReq message, length delimited. Does not implicitly {@link ProtoOAAmendPositionSLTPReq.verify|verify} messages.
-   * @param message ProtoOAAmendPositionSLTPReq message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
     message: IProtoOAAmendPositionSLTPReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
@@ -2168,50 +1162,6 @@ export class ProtoOAAmendPositionSLTPReq
     reader: $protobuf.Reader | Uint8Array,
     length?: number
   ): ProtoOAAmendPositionSLTPReq;
-
-  /**
-   * Decodes a ProtoOAAmendPositionSLTPReq message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoOAAmendPositionSLTPReq
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoOAAmendPositionSLTPReq;
-
-  /**
-   * Verifies a ProtoOAAmendPositionSLTPReq message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoOAAmendPositionSLTPReq message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoOAAmendPositionSLTPReq
-   */
-  public static fromObject(object: {
-    [k: string]: any;
-  }): ProtoOAAmendPositionSLTPReq;
-
-  /**
-   * Creates a plain object from a ProtoOAAmendPositionSLTPReq message. Also converts values to other types if specified.
-   * @param message ProtoOAAmendPositionSLTPReq
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoOAAmendPositionSLTPReq,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoOAAmendPositionSLTPReq to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
 }
 
 /** Properties of a ProtoOAClosePositionReq. */
@@ -2220,13 +1170,13 @@ export interface IProtoOAClosePositionReq {
   payloadType?: ProtoOAPayloadType | null;
 
   /** ProtoOAClosePositionReq ctidTraderAccountId */
-  ctidTraderAccountId: number | Long;
+  ctidTraderAccountId: Long;
 
   /** ProtoOAClosePositionReq positionId */
-  positionId: number | Long;
+  positionId: Long;
 
   /** ProtoOAClosePositionReq volume */
-  volume: number | Long;
+  volume: Long;
 }
 
 /** Request for closing or partially closing of an existing position. Allowed only if the accessToken has "trade" permissions for the trading account. */
@@ -2241,22 +1191,13 @@ export class ProtoOAClosePositionReq implements IProtoOAClosePositionReq {
   public payloadType: ProtoOAPayloadType;
 
   /** ProtoOAClosePositionReq ctidTraderAccountId. */
-  public ctidTraderAccountId: number | Long;
+  public ctidTraderAccountId: Long;
 
   /** ProtoOAClosePositionReq positionId. */
-  public positionId: number | Long;
+  public positionId: Long;
 
   /** ProtoOAClosePositionReq volume. */
-  public volume: number | Long;
-
-  /**
-   * Creates a new ProtoOAClosePositionReq instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAClosePositionReq instance
-   */
-  public static create(
-    properties?: IProtoOAClosePositionReq
-  ): ProtoOAClosePositionReq;
+  public volume: Long;
 
   /**
    * Encodes the specified ProtoOAClosePositionReq message. Does not implicitly {@link ProtoOAClosePositionReq.verify|verify} messages.
@@ -2265,17 +1206,6 @@ export class ProtoOAClosePositionReq implements IProtoOAClosePositionReq {
    * @returns Writer
    */
   public static encode(
-    message: IProtoOAClosePositionReq,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoOAClosePositionReq message, length delimited. Does not implicitly {@link ProtoOAClosePositionReq.verify|verify} messages.
-   * @param message ProtoOAClosePositionReq message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
     message: IProtoOAClosePositionReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
@@ -2292,50 +1222,6 @@ export class ProtoOAClosePositionReq implements IProtoOAClosePositionReq {
     reader: $protobuf.Reader | Uint8Array,
     length?: number
   ): ProtoOAClosePositionReq;
-
-  /**
-   * Decodes a ProtoOAClosePositionReq message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoOAClosePositionReq
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoOAClosePositionReq;
-
-  /**
-   * Verifies a ProtoOAClosePositionReq message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoOAClosePositionReq message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoOAClosePositionReq
-   */
-  public static fromObject(object: {
-    [k: string]: any;
-  }): ProtoOAClosePositionReq;
-
-  /**
-   * Creates a plain object from a ProtoOAClosePositionReq message. Also converts values to other types if specified.
-   * @param message ProtoOAClosePositionReq
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoOAClosePositionReq,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoOAClosePositionReq to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
 }
 
 /** Properties of a ProtoOATrailingSLChangedEvent. */
@@ -2344,19 +1230,19 @@ export interface IProtoOATrailingSLChangedEvent {
   payloadType?: ProtoOAPayloadType | null;
 
   /** ProtoOATrailingSLChangedEvent ctidTraderAccountId */
-  ctidTraderAccountId: number | Long;
+  ctidTraderAccountId: Long;
 
   /** ProtoOATrailingSLChangedEvent positionId */
-  positionId: number | Long;
+  positionId: Long;
 
   /** ProtoOATrailingSLChangedEvent orderId */
-  orderId: number | Long;
+  orderId: Long;
 
   /** ProtoOATrailingSLChangedEvent stopPrice */
   stopPrice: number;
 
   /** ProtoOATrailingSLChangedEvent utcLastUpdateTimestamp */
-  utcLastUpdateTimestamp: number | Long;
+  utcLastUpdateTimestamp: Long;
 }
 
 /** Event that is sent when the level of the Trailing Stop Loss is changed due to the price level changes. */
@@ -2372,28 +1258,19 @@ export class ProtoOATrailingSLChangedEvent
   public payloadType: ProtoOAPayloadType;
 
   /** ProtoOATrailingSLChangedEvent ctidTraderAccountId. */
-  public ctidTraderAccountId: number | Long;
+  public ctidTraderAccountId: Long;
 
   /** ProtoOATrailingSLChangedEvent positionId. */
-  public positionId: number | Long;
+  public positionId: Long;
 
   /** ProtoOATrailingSLChangedEvent orderId. */
-  public orderId: number | Long;
+  public orderId: Long;
 
   /** ProtoOATrailingSLChangedEvent stopPrice. */
   public stopPrice: number;
 
   /** ProtoOATrailingSLChangedEvent utcLastUpdateTimestamp. */
-  public utcLastUpdateTimestamp: number | Long;
-
-  /**
-   * Creates a new ProtoOATrailingSLChangedEvent instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOATrailingSLChangedEvent instance
-   */
-  public static create(
-    properties?: IProtoOATrailingSLChangedEvent
-  ): ProtoOATrailingSLChangedEvent;
+  public utcLastUpdateTimestamp: Long;
 
   /**
    * Encodes the specified ProtoOATrailingSLChangedEvent message. Does not implicitly {@link ProtoOATrailingSLChangedEvent.verify|verify} messages.
@@ -2402,17 +1279,6 @@ export class ProtoOATrailingSLChangedEvent
    * @returns Writer
    */
   public static encode(
-    message: IProtoOATrailingSLChangedEvent,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoOATrailingSLChangedEvent message, length delimited. Does not implicitly {@link ProtoOATrailingSLChangedEvent.verify|verify} messages.
-   * @param message ProtoOATrailingSLChangedEvent message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
     message: IProtoOATrailingSLChangedEvent,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
@@ -2429,50 +1295,6 @@ export class ProtoOATrailingSLChangedEvent
     reader: $protobuf.Reader | Uint8Array,
     length?: number
   ): ProtoOATrailingSLChangedEvent;
-
-  /**
-   * Decodes a ProtoOATrailingSLChangedEvent message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoOATrailingSLChangedEvent
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoOATrailingSLChangedEvent;
-
-  /**
-   * Verifies a ProtoOATrailingSLChangedEvent message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoOATrailingSLChangedEvent message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoOATrailingSLChangedEvent
-   */
-  public static fromObject(object: {
-    [k: string]: any;
-  }): ProtoOATrailingSLChangedEvent;
-
-  /**
-   * Creates a plain object from a ProtoOATrailingSLChangedEvent message. Also converts values to other types if specified.
-   * @param message ProtoOATrailingSLChangedEvent
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoOATrailingSLChangedEvent,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoOATrailingSLChangedEvent to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
 }
 
 /** Properties of a ProtoOAAssetListReq. */
@@ -2481,7 +1303,7 @@ export interface IProtoOAAssetListReq {
   payloadType?: ProtoOAPayloadType | null;
 
   /** ProtoOAAssetListReq ctidTraderAccountId */
-  ctidTraderAccountId: number | Long;
+  ctidTraderAccountId: Long;
 }
 
 /** Request for the list of assets available for a trader's account. */
@@ -2496,14 +1318,7 @@ export class ProtoOAAssetListReq implements IProtoOAAssetListReq {
   public payloadType: ProtoOAPayloadType;
 
   /** ProtoOAAssetListReq ctidTraderAccountId. */
-  public ctidTraderAccountId: number | Long;
-
-  /**
-   * Creates a new ProtoOAAssetListReq instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAAssetListReq instance
-   */
-  public static create(properties?: IProtoOAAssetListReq): ProtoOAAssetListReq;
+  public ctidTraderAccountId: Long;
 
   /**
    * Encodes the specified ProtoOAAssetListReq message. Does not implicitly {@link ProtoOAAssetListReq.verify|verify} messages.
@@ -2512,17 +1327,6 @@ export class ProtoOAAssetListReq implements IProtoOAAssetListReq {
    * @returns Writer
    */
   public static encode(
-    message: IProtoOAAssetListReq,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoOAAssetListReq message, length delimited. Does not implicitly {@link ProtoOAAssetListReq.verify|verify} messages.
-   * @param message ProtoOAAssetListReq message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
     message: IProtoOAAssetListReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
@@ -2539,48 +1343,6 @@ export class ProtoOAAssetListReq implements IProtoOAAssetListReq {
     reader: $protobuf.Reader | Uint8Array,
     length?: number
   ): ProtoOAAssetListReq;
-
-  /**
-   * Decodes a ProtoOAAssetListReq message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoOAAssetListReq
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoOAAssetListReq;
-
-  /**
-   * Verifies a ProtoOAAssetListReq message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoOAAssetListReq message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoOAAssetListReq
-   */
-  public static fromObject(object: { [k: string]: any }): ProtoOAAssetListReq;
-
-  /**
-   * Creates a plain object from a ProtoOAAssetListReq message. Also converts values to other types if specified.
-   * @param message ProtoOAAssetListReq
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoOAAssetListReq,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoOAAssetListReq to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
 }
 
 /** Properties of a ProtoOAAssetListRes. */
@@ -2589,7 +1351,7 @@ export interface IProtoOAAssetListRes {
   payloadType?: ProtoOAPayloadType | null;
 
   /** ProtoOAAssetListRes ctidTraderAccountId */
-  ctidTraderAccountId: number | Long;
+  ctidTraderAccountId: Long;
 
   /** ProtoOAAssetListRes asset */
   asset?: IProtoOAAsset[] | null;
@@ -2607,17 +1369,10 @@ export class ProtoOAAssetListRes implements IProtoOAAssetListRes {
   public payloadType: ProtoOAPayloadType;
 
   /** ProtoOAAssetListRes ctidTraderAccountId. */
-  public ctidTraderAccountId: number | Long;
+  public ctidTraderAccountId: Long;
 
   /** ProtoOAAssetListRes asset. */
   public asset: IProtoOAAsset[];
-
-  /**
-   * Creates a new ProtoOAAssetListRes instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAAssetListRes instance
-   */
-  public static create(properties?: IProtoOAAssetListRes): ProtoOAAssetListRes;
 
   /**
    * Encodes the specified ProtoOAAssetListRes message. Does not implicitly {@link ProtoOAAssetListRes.verify|verify} messages.
@@ -2626,17 +1381,6 @@ export class ProtoOAAssetListRes implements IProtoOAAssetListRes {
    * @returns Writer
    */
   public static encode(
-    message: IProtoOAAssetListRes,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoOAAssetListRes message, length delimited. Does not implicitly {@link ProtoOAAssetListRes.verify|verify} messages.
-   * @param message ProtoOAAssetListRes message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
     message: IProtoOAAssetListRes,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
@@ -2653,48 +1397,6 @@ export class ProtoOAAssetListRes implements IProtoOAAssetListRes {
     reader: $protobuf.Reader | Uint8Array,
     length?: number
   ): ProtoOAAssetListRes;
-
-  /**
-   * Decodes a ProtoOAAssetListRes message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoOAAssetListRes
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoOAAssetListRes;
-
-  /**
-   * Verifies a ProtoOAAssetListRes message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoOAAssetListRes message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoOAAssetListRes
-   */
-  public static fromObject(object: { [k: string]: any }): ProtoOAAssetListRes;
-
-  /**
-   * Creates a plain object from a ProtoOAAssetListRes message. Also converts values to other types if specified.
-   * @param message ProtoOAAssetListRes
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoOAAssetListRes,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoOAAssetListRes to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
 }
 
 /** Properties of a ProtoOASymbolsListReq. */
@@ -2703,7 +1405,7 @@ export interface IProtoOASymbolsListReq {
   payloadType?: ProtoOAPayloadType | null;
 
   /** ProtoOASymbolsListReq ctidTraderAccountId */
-  ctidTraderAccountId: number | Long;
+  ctidTraderAccountId: Long;
 }
 
 /** Request for a list of symbols available for a trading account. Symbol entries are returned with the limited set of fields. */
@@ -2718,16 +1420,7 @@ export class ProtoOASymbolsListReq implements IProtoOASymbolsListReq {
   public payloadType: ProtoOAPayloadType;
 
   /** ProtoOASymbolsListReq ctidTraderAccountId. */
-  public ctidTraderAccountId: number | Long;
-
-  /**
-   * Creates a new ProtoOASymbolsListReq instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOASymbolsListReq instance
-   */
-  public static create(
-    properties?: IProtoOASymbolsListReq
-  ): ProtoOASymbolsListReq;
+  public ctidTraderAccountId: Long;
 
   /**
    * Encodes the specified ProtoOASymbolsListReq message. Does not implicitly {@link ProtoOASymbolsListReq.verify|verify} messages.
@@ -2736,17 +1429,6 @@ export class ProtoOASymbolsListReq implements IProtoOASymbolsListReq {
    * @returns Writer
    */
   public static encode(
-    message: IProtoOASymbolsListReq,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoOASymbolsListReq message, length delimited. Does not implicitly {@link ProtoOASymbolsListReq.verify|verify} messages.
-   * @param message ProtoOASymbolsListReq message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
     message: IProtoOASymbolsListReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
@@ -2763,48 +1445,6 @@ export class ProtoOASymbolsListReq implements IProtoOASymbolsListReq {
     reader: $protobuf.Reader | Uint8Array,
     length?: number
   ): ProtoOASymbolsListReq;
-
-  /**
-   * Decodes a ProtoOASymbolsListReq message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoOASymbolsListReq
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoOASymbolsListReq;
-
-  /**
-   * Verifies a ProtoOASymbolsListReq message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoOASymbolsListReq message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoOASymbolsListReq
-   */
-  public static fromObject(object: { [k: string]: any }): ProtoOASymbolsListReq;
-
-  /**
-   * Creates a plain object from a ProtoOASymbolsListReq message. Also converts values to other types if specified.
-   * @param message ProtoOASymbolsListReq
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoOASymbolsListReq,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoOASymbolsListReq to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
 }
 
 /** Properties of a ProtoOASymbolsListRes. */
@@ -2813,7 +1453,7 @@ export interface IProtoOASymbolsListRes {
   payloadType?: ProtoOAPayloadType | null;
 
   /** ProtoOASymbolsListRes ctidTraderAccountId */
-  ctidTraderAccountId: number | Long;
+  ctidTraderAccountId: Long;
 
   /** ProtoOASymbolsListRes symbol */
   symbol?: IProtoOALightSymbol[] | null;
@@ -2831,19 +1471,10 @@ export class ProtoOASymbolsListRes implements IProtoOASymbolsListRes {
   public payloadType: ProtoOAPayloadType;
 
   /** ProtoOASymbolsListRes ctidTraderAccountId. */
-  public ctidTraderAccountId: number | Long;
+  public ctidTraderAccountId: Long;
 
   /** ProtoOASymbolsListRes symbol. */
   public symbol: IProtoOALightSymbol[];
-
-  /**
-   * Creates a new ProtoOASymbolsListRes instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOASymbolsListRes instance
-   */
-  public static create(
-    properties?: IProtoOASymbolsListRes
-  ): ProtoOASymbolsListRes;
 
   /**
    * Encodes the specified ProtoOASymbolsListRes message. Does not implicitly {@link ProtoOASymbolsListRes.verify|verify} messages.
@@ -2852,17 +1483,6 @@ export class ProtoOASymbolsListRes implements IProtoOASymbolsListRes {
    * @returns Writer
    */
   public static encode(
-    message: IProtoOASymbolsListRes,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoOASymbolsListRes message, length delimited. Does not implicitly {@link ProtoOASymbolsListRes.verify|verify} messages.
-   * @param message ProtoOASymbolsListRes message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
     message: IProtoOASymbolsListRes,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
@@ -2879,48 +1499,6 @@ export class ProtoOASymbolsListRes implements IProtoOASymbolsListRes {
     reader: $protobuf.Reader | Uint8Array,
     length?: number
   ): ProtoOASymbolsListRes;
-
-  /**
-   * Decodes a ProtoOASymbolsListRes message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoOASymbolsListRes
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoOASymbolsListRes;
-
-  /**
-   * Verifies a ProtoOASymbolsListRes message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoOASymbolsListRes message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoOASymbolsListRes
-   */
-  public static fromObject(object: { [k: string]: any }): ProtoOASymbolsListRes;
-
-  /**
-   * Creates a plain object from a ProtoOASymbolsListRes message. Also converts values to other types if specified.
-   * @param message ProtoOASymbolsListRes
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoOASymbolsListRes,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoOASymbolsListRes to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
 }
 
 /** Properties of a ProtoOASymbolByIdReq. */
@@ -2929,10 +1507,10 @@ export interface IProtoOASymbolByIdReq {
   payloadType?: ProtoOAPayloadType | null;
 
   /** ProtoOASymbolByIdReq ctidTraderAccountId */
-  ctidTraderAccountId: number | Long;
+  ctidTraderAccountId: Long;
 
   /** ProtoOASymbolByIdReq symbolId */
-  symbolId?: (number | Long)[] | null;
+  symbolId?: Long[] | null;
 }
 
 /** Request for getting a full symbol entity. */
@@ -2947,19 +1525,10 @@ export class ProtoOASymbolByIdReq implements IProtoOASymbolByIdReq {
   public payloadType: ProtoOAPayloadType;
 
   /** ProtoOASymbolByIdReq ctidTraderAccountId. */
-  public ctidTraderAccountId: number | Long;
+  public ctidTraderAccountId: Long;
 
   /** ProtoOASymbolByIdReq symbolId. */
-  public symbolId: (number | Long)[];
-
-  /**
-   * Creates a new ProtoOASymbolByIdReq instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOASymbolByIdReq instance
-   */
-  public static create(
-    properties?: IProtoOASymbolByIdReq
-  ): ProtoOASymbolByIdReq;
+  public symbolId: Long[];
 
   /**
    * Encodes the specified ProtoOASymbolByIdReq message. Does not implicitly {@link ProtoOASymbolByIdReq.verify|verify} messages.
@@ -2968,17 +1537,6 @@ export class ProtoOASymbolByIdReq implements IProtoOASymbolByIdReq {
    * @returns Writer
    */
   public static encode(
-    message: IProtoOASymbolByIdReq,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoOASymbolByIdReq message, length delimited. Does not implicitly {@link ProtoOASymbolByIdReq.verify|verify} messages.
-   * @param message ProtoOASymbolByIdReq message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
     message: IProtoOASymbolByIdReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
@@ -2995,48 +1553,6 @@ export class ProtoOASymbolByIdReq implements IProtoOASymbolByIdReq {
     reader: $protobuf.Reader | Uint8Array,
     length?: number
   ): ProtoOASymbolByIdReq;
-
-  /**
-   * Decodes a ProtoOASymbolByIdReq message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoOASymbolByIdReq
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoOASymbolByIdReq;
-
-  /**
-   * Verifies a ProtoOASymbolByIdReq message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoOASymbolByIdReq message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoOASymbolByIdReq
-   */
-  public static fromObject(object: { [k: string]: any }): ProtoOASymbolByIdReq;
-
-  /**
-   * Creates a plain object from a ProtoOASymbolByIdReq message. Also converts values to other types if specified.
-   * @param message ProtoOASymbolByIdReq
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoOASymbolByIdReq,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoOASymbolByIdReq to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
 }
 
 /** Properties of a ProtoOASymbolByIdRes. */
@@ -3045,7 +1561,7 @@ export interface IProtoOASymbolByIdRes {
   payloadType?: ProtoOAPayloadType | null;
 
   /** ProtoOASymbolByIdRes ctidTraderAccountId */
-  ctidTraderAccountId: number | Long;
+  ctidTraderAccountId: Long;
 
   /** ProtoOASymbolByIdRes symbol */
   symbol?: IProtoOASymbol[] | null;
@@ -3063,19 +1579,10 @@ export class ProtoOASymbolByIdRes implements IProtoOASymbolByIdRes {
   public payloadType: ProtoOAPayloadType;
 
   /** ProtoOASymbolByIdRes ctidTraderAccountId. */
-  public ctidTraderAccountId: number | Long;
+  public ctidTraderAccountId: Long;
 
   /** ProtoOASymbolByIdRes symbol. */
   public symbol: IProtoOASymbol[];
-
-  /**
-   * Creates a new ProtoOASymbolByIdRes instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOASymbolByIdRes instance
-   */
-  public static create(
-    properties?: IProtoOASymbolByIdRes
-  ): ProtoOASymbolByIdRes;
 
   /**
    * Encodes the specified ProtoOASymbolByIdRes message. Does not implicitly {@link ProtoOASymbolByIdRes.verify|verify} messages.
@@ -3084,17 +1591,6 @@ export class ProtoOASymbolByIdRes implements IProtoOASymbolByIdRes {
    * @returns Writer
    */
   public static encode(
-    message: IProtoOASymbolByIdRes,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoOASymbolByIdRes message, length delimited. Does not implicitly {@link ProtoOASymbolByIdRes.verify|verify} messages.
-   * @param message ProtoOASymbolByIdRes message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
     message: IProtoOASymbolByIdRes,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
@@ -3111,48 +1607,6 @@ export class ProtoOASymbolByIdRes implements IProtoOASymbolByIdRes {
     reader: $protobuf.Reader | Uint8Array,
     length?: number
   ): ProtoOASymbolByIdRes;
-
-  /**
-   * Decodes a ProtoOASymbolByIdRes message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoOASymbolByIdRes
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoOASymbolByIdRes;
-
-  /**
-   * Verifies a ProtoOASymbolByIdRes message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoOASymbolByIdRes message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoOASymbolByIdRes
-   */
-  public static fromObject(object: { [k: string]: any }): ProtoOASymbolByIdRes;
-
-  /**
-   * Creates a plain object from a ProtoOASymbolByIdRes message. Also converts values to other types if specified.
-   * @param message ProtoOASymbolByIdRes
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoOASymbolByIdRes,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoOASymbolByIdRes to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
 }
 
 /** Properties of a ProtoOASymbolsForConversionReq. */
@@ -3161,13 +1615,13 @@ export interface IProtoOASymbolsForConversionReq {
   payloadType?: ProtoOAPayloadType | null;
 
   /** ProtoOASymbolsForConversionReq ctidTraderAccountId */
-  ctidTraderAccountId: number | Long;
+  ctidTraderAccountId: Long;
 
   /** ProtoOASymbolsForConversionReq firstAssetId */
-  firstAssetId: number | Long;
+  firstAssetId: Long;
 
   /** ProtoOASymbolsForConversionReq lastAssetId */
-  lastAssetId: number | Long;
+  lastAssetId: Long;
 }
 
 /** Request for getting a conversion chain between two assets that consists of several symbols. Use when no direct quote is available */
@@ -3183,22 +1637,13 @@ export class ProtoOASymbolsForConversionReq
   public payloadType: ProtoOAPayloadType;
 
   /** ProtoOASymbolsForConversionReq ctidTraderAccountId. */
-  public ctidTraderAccountId: number | Long;
+  public ctidTraderAccountId: Long;
 
   /** ProtoOASymbolsForConversionReq firstAssetId. */
-  public firstAssetId: number | Long;
+  public firstAssetId: Long;
 
   /** ProtoOASymbolsForConversionReq lastAssetId. */
-  public lastAssetId: number | Long;
-
-  /**
-   * Creates a new ProtoOASymbolsForConversionReq instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOASymbolsForConversionReq instance
-   */
-  public static create(
-    properties?: IProtoOASymbolsForConversionReq
-  ): ProtoOASymbolsForConversionReq;
+  public lastAssetId: Long;
 
   /**
    * Encodes the specified ProtoOASymbolsForConversionReq message. Does not implicitly {@link ProtoOASymbolsForConversionReq.verify|verify} messages.
@@ -3207,17 +1652,6 @@ export class ProtoOASymbolsForConversionReq
    * @returns Writer
    */
   public static encode(
-    message: IProtoOASymbolsForConversionReq,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoOASymbolsForConversionReq message, length delimited. Does not implicitly {@link ProtoOASymbolsForConversionReq.verify|verify} messages.
-   * @param message ProtoOASymbolsForConversionReq message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
     message: IProtoOASymbolsForConversionReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
@@ -3234,50 +1668,6 @@ export class ProtoOASymbolsForConversionReq
     reader: $protobuf.Reader | Uint8Array,
     length?: number
   ): ProtoOASymbolsForConversionReq;
-
-  /**
-   * Decodes a ProtoOASymbolsForConversionReq message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoOASymbolsForConversionReq
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoOASymbolsForConversionReq;
-
-  /**
-   * Verifies a ProtoOASymbolsForConversionReq message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoOASymbolsForConversionReq message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoOASymbolsForConversionReq
-   */
-  public static fromObject(object: {
-    [k: string]: any;
-  }): ProtoOASymbolsForConversionReq;
-
-  /**
-   * Creates a plain object from a ProtoOASymbolsForConversionReq message. Also converts values to other types if specified.
-   * @param message ProtoOASymbolsForConversionReq
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoOASymbolsForConversionReq,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoOASymbolsForConversionReq to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
 }
 
 /** Properties of a ProtoOASymbolsForConversionRes. */
@@ -3286,7 +1676,7 @@ export interface IProtoOASymbolsForConversionRes {
   payloadType?: ProtoOAPayloadType | null;
 
   /** ProtoOASymbolsForConversionRes ctidTraderAccountId */
-  ctidTraderAccountId: number | Long;
+  ctidTraderAccountId: Long;
 
   /** ProtoOASymbolsForConversionRes symbol */
   symbol?: IProtoOALightSymbol[] | null;
@@ -3305,19 +1695,10 @@ export class ProtoOASymbolsForConversionRes
   public payloadType: ProtoOAPayloadType;
 
   /** ProtoOASymbolsForConversionRes ctidTraderAccountId. */
-  public ctidTraderAccountId: number | Long;
+  public ctidTraderAccountId: Long;
 
   /** ProtoOASymbolsForConversionRes symbol. */
   public symbol: IProtoOALightSymbol[];
-
-  /**
-   * Creates a new ProtoOASymbolsForConversionRes instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOASymbolsForConversionRes instance
-   */
-  public static create(
-    properties?: IProtoOASymbolsForConversionRes
-  ): ProtoOASymbolsForConversionRes;
 
   /**
    * Encodes the specified ProtoOASymbolsForConversionRes message. Does not implicitly {@link ProtoOASymbolsForConversionRes.verify|verify} messages.
@@ -3326,17 +1707,6 @@ export class ProtoOASymbolsForConversionRes
    * @returns Writer
    */
   public static encode(
-    message: IProtoOASymbolsForConversionRes,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoOASymbolsForConversionRes message, length delimited. Does not implicitly {@link ProtoOASymbolsForConversionRes.verify|verify} messages.
-   * @param message ProtoOASymbolsForConversionRes message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
     message: IProtoOASymbolsForConversionRes,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
@@ -3353,50 +1723,6 @@ export class ProtoOASymbolsForConversionRes
     reader: $protobuf.Reader | Uint8Array,
     length?: number
   ): ProtoOASymbolsForConversionRes;
-
-  /**
-   * Decodes a ProtoOASymbolsForConversionRes message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoOASymbolsForConversionRes
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoOASymbolsForConversionRes;
-
-  /**
-   * Verifies a ProtoOASymbolsForConversionRes message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoOASymbolsForConversionRes message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoOASymbolsForConversionRes
-   */
-  public static fromObject(object: {
-    [k: string]: any;
-  }): ProtoOASymbolsForConversionRes;
-
-  /**
-   * Creates a plain object from a ProtoOASymbolsForConversionRes message. Also converts values to other types if specified.
-   * @param message ProtoOASymbolsForConversionRes
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoOASymbolsForConversionRes,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoOASymbolsForConversionRes to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
 }
 
 /** Properties of a ProtoOASymbolChangedEvent. */
@@ -3405,10 +1731,10 @@ export interface IProtoOASymbolChangedEvent {
   payloadType?: ProtoOAPayloadType | null;
 
   /** ProtoOASymbolChangedEvent ctidTraderAccountId */
-  ctidTraderAccountId: number | Long;
+  ctidTraderAccountId: Long;
 
   /** ProtoOASymbolChangedEvent symbolId */
-  symbolId?: (number | Long)[] | null;
+  symbolId?: Long[] | null;
 }
 
 /** Event that is sent when the symbol is changed on the Server side. */
@@ -3423,19 +1749,10 @@ export class ProtoOASymbolChangedEvent implements IProtoOASymbolChangedEvent {
   public payloadType: ProtoOAPayloadType;
 
   /** ProtoOASymbolChangedEvent ctidTraderAccountId. */
-  public ctidTraderAccountId: number | Long;
+  public ctidTraderAccountId: Long;
 
   /** ProtoOASymbolChangedEvent symbolId. */
-  public symbolId: (number | Long)[];
-
-  /**
-   * Creates a new ProtoOASymbolChangedEvent instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOASymbolChangedEvent instance
-   */
-  public static create(
-    properties?: IProtoOASymbolChangedEvent
-  ): ProtoOASymbolChangedEvent;
+  public symbolId: Long[];
 
   /**
    * Encodes the specified ProtoOASymbolChangedEvent message. Does not implicitly {@link ProtoOASymbolChangedEvent.verify|verify} messages.
@@ -3444,17 +1761,6 @@ export class ProtoOASymbolChangedEvent implements IProtoOASymbolChangedEvent {
    * @returns Writer
    */
   public static encode(
-    message: IProtoOASymbolChangedEvent,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoOASymbolChangedEvent message, length delimited. Does not implicitly {@link ProtoOASymbolChangedEvent.verify|verify} messages.
-   * @param message ProtoOASymbolChangedEvent message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
     message: IProtoOASymbolChangedEvent,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
@@ -3471,50 +1777,6 @@ export class ProtoOASymbolChangedEvent implements IProtoOASymbolChangedEvent {
     reader: $protobuf.Reader | Uint8Array,
     length?: number
   ): ProtoOASymbolChangedEvent;
-
-  /**
-   * Decodes a ProtoOASymbolChangedEvent message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoOASymbolChangedEvent
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoOASymbolChangedEvent;
-
-  /**
-   * Verifies a ProtoOASymbolChangedEvent message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoOASymbolChangedEvent message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoOASymbolChangedEvent
-   */
-  public static fromObject(object: {
-    [k: string]: any;
-  }): ProtoOASymbolChangedEvent;
-
-  /**
-   * Creates a plain object from a ProtoOASymbolChangedEvent message. Also converts values to other types if specified.
-   * @param message ProtoOASymbolChangedEvent
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoOASymbolChangedEvent,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoOASymbolChangedEvent to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
 }
 
 /** Properties of a ProtoOAAssetClassListReq. */
@@ -3523,7 +1785,7 @@ export interface IProtoOAAssetClassListReq {
   payloadType?: ProtoOAPayloadType | null;
 
   /** ProtoOAAssetClassListReq ctidTraderAccountId */
-  ctidTraderAccountId: number | Long;
+  ctidTraderAccountId: Long;
 }
 
 /** Request for a list of asset classes available for the trader's account. */
@@ -3538,16 +1800,7 @@ export class ProtoOAAssetClassListReq implements IProtoOAAssetClassListReq {
   public payloadType: ProtoOAPayloadType;
 
   /** ProtoOAAssetClassListReq ctidTraderAccountId. */
-  public ctidTraderAccountId: number | Long;
-
-  /**
-   * Creates a new ProtoOAAssetClassListReq instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAAssetClassListReq instance
-   */
-  public static create(
-    properties?: IProtoOAAssetClassListReq
-  ): ProtoOAAssetClassListReq;
+  public ctidTraderAccountId: Long;
 
   /**
    * Encodes the specified ProtoOAAssetClassListReq message. Does not implicitly {@link ProtoOAAssetClassListReq.verify|verify} messages.
@@ -3556,17 +1809,6 @@ export class ProtoOAAssetClassListReq implements IProtoOAAssetClassListReq {
    * @returns Writer
    */
   public static encode(
-    message: IProtoOAAssetClassListReq,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoOAAssetClassListReq message, length delimited. Does not implicitly {@link ProtoOAAssetClassListReq.verify|verify} messages.
-   * @param message ProtoOAAssetClassListReq message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
     message: IProtoOAAssetClassListReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
@@ -3583,50 +1825,6 @@ export class ProtoOAAssetClassListReq implements IProtoOAAssetClassListReq {
     reader: $protobuf.Reader | Uint8Array,
     length?: number
   ): ProtoOAAssetClassListReq;
-
-  /**
-   * Decodes a ProtoOAAssetClassListReq message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoOAAssetClassListReq
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoOAAssetClassListReq;
-
-  /**
-   * Verifies a ProtoOAAssetClassListReq message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoOAAssetClassListReq message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoOAAssetClassListReq
-   */
-  public static fromObject(object: {
-    [k: string]: any;
-  }): ProtoOAAssetClassListReq;
-
-  /**
-   * Creates a plain object from a ProtoOAAssetClassListReq message. Also converts values to other types if specified.
-   * @param message ProtoOAAssetClassListReq
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoOAAssetClassListReq,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoOAAssetClassListReq to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
 }
 
 /** Properties of a ProtoOAAssetClassListRes. */
@@ -3635,7 +1833,7 @@ export interface IProtoOAAssetClassListRes {
   payloadType?: ProtoOAPayloadType | null;
 
   /** ProtoOAAssetClassListRes ctidTraderAccountId */
-  ctidTraderAccountId: number | Long;
+  ctidTraderAccountId: Long;
 
   /** ProtoOAAssetClassListRes assetClass */
   assetClass?: IProtoOAAssetClass[] | null;
@@ -3653,19 +1851,10 @@ export class ProtoOAAssetClassListRes implements IProtoOAAssetClassListRes {
   public payloadType: ProtoOAPayloadType;
 
   /** ProtoOAAssetClassListRes ctidTraderAccountId. */
-  public ctidTraderAccountId: number | Long;
+  public ctidTraderAccountId: Long;
 
   /** ProtoOAAssetClassListRes assetClass. */
   public assetClass: IProtoOAAssetClass[];
-
-  /**
-   * Creates a new ProtoOAAssetClassListRes instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAAssetClassListRes instance
-   */
-  public static create(
-    properties?: IProtoOAAssetClassListRes
-  ): ProtoOAAssetClassListRes;
 
   /**
    * Encodes the specified ProtoOAAssetClassListRes message. Does not implicitly {@link ProtoOAAssetClassListRes.verify|verify} messages.
@@ -3674,17 +1863,6 @@ export class ProtoOAAssetClassListRes implements IProtoOAAssetClassListRes {
    * @returns Writer
    */
   public static encode(
-    message: IProtoOAAssetClassListRes,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoOAAssetClassListRes message, length delimited. Does not implicitly {@link ProtoOAAssetClassListRes.verify|verify} messages.
-   * @param message ProtoOAAssetClassListRes message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
     message: IProtoOAAssetClassListRes,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
@@ -3701,50 +1879,6 @@ export class ProtoOAAssetClassListRes implements IProtoOAAssetClassListRes {
     reader: $protobuf.Reader | Uint8Array,
     length?: number
   ): ProtoOAAssetClassListRes;
-
-  /**
-   * Decodes a ProtoOAAssetClassListRes message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoOAAssetClassListRes
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoOAAssetClassListRes;
-
-  /**
-   * Verifies a ProtoOAAssetClassListRes message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoOAAssetClassListRes message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoOAAssetClassListRes
-   */
-  public static fromObject(object: {
-    [k: string]: any;
-  }): ProtoOAAssetClassListRes;
-
-  /**
-   * Creates a plain object from a ProtoOAAssetClassListRes message. Also converts values to other types if specified.
-   * @param message ProtoOAAssetClassListRes
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoOAAssetClassListRes,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoOAAssetClassListRes to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
 }
 
 /** Properties of a ProtoOATraderReq. */
@@ -3753,7 +1887,7 @@ export interface IProtoOATraderReq {
   payloadType?: ProtoOAPayloadType | null;
 
   /** ProtoOATraderReq ctidTraderAccountId */
-  ctidTraderAccountId: number | Long;
+  ctidTraderAccountId: Long;
 }
 
 /** Request for getting data of Trader's Account. */
@@ -3768,14 +1902,7 @@ export class ProtoOATraderReq implements IProtoOATraderReq {
   public payloadType: ProtoOAPayloadType;
 
   /** ProtoOATraderReq ctidTraderAccountId. */
-  public ctidTraderAccountId: number | Long;
-
-  /**
-   * Creates a new ProtoOATraderReq instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOATraderReq instance
-   */
-  public static create(properties?: IProtoOATraderReq): ProtoOATraderReq;
+  public ctidTraderAccountId: Long;
 
   /**
    * Encodes the specified ProtoOATraderReq message. Does not implicitly {@link ProtoOATraderReq.verify|verify} messages.
@@ -3784,17 +1911,6 @@ export class ProtoOATraderReq implements IProtoOATraderReq {
    * @returns Writer
    */
   public static encode(
-    message: IProtoOATraderReq,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoOATraderReq message, length delimited. Does not implicitly {@link ProtoOATraderReq.verify|verify} messages.
-   * @param message ProtoOATraderReq message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
     message: IProtoOATraderReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
@@ -3811,48 +1927,6 @@ export class ProtoOATraderReq implements IProtoOATraderReq {
     reader: $protobuf.Reader | Uint8Array,
     length?: number
   ): ProtoOATraderReq;
-
-  /**
-   * Decodes a ProtoOATraderReq message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoOATraderReq
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoOATraderReq;
-
-  /**
-   * Verifies a ProtoOATraderReq message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoOATraderReq message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoOATraderReq
-   */
-  public static fromObject(object: { [k: string]: any }): ProtoOATraderReq;
-
-  /**
-   * Creates a plain object from a ProtoOATraderReq message. Also converts values to other types if specified.
-   * @param message ProtoOATraderReq
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoOATraderReq,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoOATraderReq to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
 }
 
 /** Properties of a ProtoOATraderRes. */
@@ -3861,7 +1935,7 @@ export interface IProtoOATraderRes {
   payloadType?: ProtoOAPayloadType | null;
 
   /** ProtoOATraderRes ctidTraderAccountId */
-  ctidTraderAccountId: number | Long;
+  ctidTraderAccountId: Long;
 
   /** ProtoOATraderRes trader */
   trader: IProtoOATrader;
@@ -3879,17 +1953,10 @@ export class ProtoOATraderRes implements IProtoOATraderRes {
   public payloadType: ProtoOAPayloadType;
 
   /** ProtoOATraderRes ctidTraderAccountId. */
-  public ctidTraderAccountId: number | Long;
+  public ctidTraderAccountId: Long;
 
   /** ProtoOATraderRes trader. */
   public trader: IProtoOATrader;
-
-  /**
-   * Creates a new ProtoOATraderRes instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOATraderRes instance
-   */
-  public static create(properties?: IProtoOATraderRes): ProtoOATraderRes;
 
   /**
    * Encodes the specified ProtoOATraderRes message. Does not implicitly {@link ProtoOATraderRes.verify|verify} messages.
@@ -3898,17 +1965,6 @@ export class ProtoOATraderRes implements IProtoOATraderRes {
    * @returns Writer
    */
   public static encode(
-    message: IProtoOATraderRes,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoOATraderRes message, length delimited. Does not implicitly {@link ProtoOATraderRes.verify|verify} messages.
-   * @param message ProtoOATraderRes message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
     message: IProtoOATraderRes,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
@@ -3925,48 +1981,6 @@ export class ProtoOATraderRes implements IProtoOATraderRes {
     reader: $protobuf.Reader | Uint8Array,
     length?: number
   ): ProtoOATraderRes;
-
-  /**
-   * Decodes a ProtoOATraderRes message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoOATraderRes
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoOATraderRes;
-
-  /**
-   * Verifies a ProtoOATraderRes message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoOATraderRes message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoOATraderRes
-   */
-  public static fromObject(object: { [k: string]: any }): ProtoOATraderRes;
-
-  /**
-   * Creates a plain object from a ProtoOATraderRes message. Also converts values to other types if specified.
-   * @param message ProtoOATraderRes
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoOATraderRes,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoOATraderRes to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
 }
 
 /** Properties of a ProtoOATraderUpdatedEvent. */
@@ -3975,7 +1989,7 @@ export interface IProtoOATraderUpdatedEvent {
   payloadType?: ProtoOAPayloadType | null;
 
   /** ProtoOATraderUpdatedEvent ctidTraderAccountId */
-  ctidTraderAccountId: number | Long;
+  ctidTraderAccountId: Long;
 
   /** ProtoOATraderUpdatedEvent trader */
   trader: IProtoOATrader;
@@ -3993,19 +2007,10 @@ export class ProtoOATraderUpdatedEvent implements IProtoOATraderUpdatedEvent {
   public payloadType: ProtoOAPayloadType;
 
   /** ProtoOATraderUpdatedEvent ctidTraderAccountId. */
-  public ctidTraderAccountId: number | Long;
+  public ctidTraderAccountId: Long;
 
   /** ProtoOATraderUpdatedEvent trader. */
   public trader: IProtoOATrader;
-
-  /**
-   * Creates a new ProtoOATraderUpdatedEvent instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOATraderUpdatedEvent instance
-   */
-  public static create(
-    properties?: IProtoOATraderUpdatedEvent
-  ): ProtoOATraderUpdatedEvent;
 
   /**
    * Encodes the specified ProtoOATraderUpdatedEvent message. Does not implicitly {@link ProtoOATraderUpdatedEvent.verify|verify} messages.
@@ -4014,17 +2019,6 @@ export class ProtoOATraderUpdatedEvent implements IProtoOATraderUpdatedEvent {
    * @returns Writer
    */
   public static encode(
-    message: IProtoOATraderUpdatedEvent,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoOATraderUpdatedEvent message, length delimited. Does not implicitly {@link ProtoOATraderUpdatedEvent.verify|verify} messages.
-   * @param message ProtoOATraderUpdatedEvent message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
     message: IProtoOATraderUpdatedEvent,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
@@ -4041,50 +2035,6 @@ export class ProtoOATraderUpdatedEvent implements IProtoOATraderUpdatedEvent {
     reader: $protobuf.Reader | Uint8Array,
     length?: number
   ): ProtoOATraderUpdatedEvent;
-
-  /**
-   * Decodes a ProtoOATraderUpdatedEvent message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoOATraderUpdatedEvent
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoOATraderUpdatedEvent;
-
-  /**
-   * Verifies a ProtoOATraderUpdatedEvent message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoOATraderUpdatedEvent message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoOATraderUpdatedEvent
-   */
-  public static fromObject(object: {
-    [k: string]: any;
-  }): ProtoOATraderUpdatedEvent;
-
-  /**
-   * Creates a plain object from a ProtoOATraderUpdatedEvent message. Also converts values to other types if specified.
-   * @param message ProtoOATraderUpdatedEvent
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoOATraderUpdatedEvent,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoOATraderUpdatedEvent to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
 }
 
 /** Properties of a ProtoOAReconcileReq. */
@@ -4093,7 +2043,7 @@ export interface IProtoOAReconcileReq {
   payloadType?: ProtoOAPayloadType | null;
 
   /** ProtoOAReconcileReq ctidTraderAccountId */
-  ctidTraderAccountId: number | Long;
+  ctidTraderAccountId: Long;
 }
 
 /** Request for getting Trader's current open positions and pending orders data. */
@@ -4108,14 +2058,7 @@ export class ProtoOAReconcileReq implements IProtoOAReconcileReq {
   public payloadType: ProtoOAPayloadType;
 
   /** ProtoOAReconcileReq ctidTraderAccountId. */
-  public ctidTraderAccountId: number | Long;
-
-  /**
-   * Creates a new ProtoOAReconcileReq instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAReconcileReq instance
-   */
-  public static create(properties?: IProtoOAReconcileReq): ProtoOAReconcileReq;
+  public ctidTraderAccountId: Long;
 
   /**
    * Encodes the specified ProtoOAReconcileReq message. Does not implicitly {@link ProtoOAReconcileReq.verify|verify} messages.
@@ -4124,17 +2067,6 @@ export class ProtoOAReconcileReq implements IProtoOAReconcileReq {
    * @returns Writer
    */
   public static encode(
-    message: IProtoOAReconcileReq,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoOAReconcileReq message, length delimited. Does not implicitly {@link ProtoOAReconcileReq.verify|verify} messages.
-   * @param message ProtoOAReconcileReq message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
     message: IProtoOAReconcileReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
@@ -4151,48 +2083,6 @@ export class ProtoOAReconcileReq implements IProtoOAReconcileReq {
     reader: $protobuf.Reader | Uint8Array,
     length?: number
   ): ProtoOAReconcileReq;
-
-  /**
-   * Decodes a ProtoOAReconcileReq message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoOAReconcileReq
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoOAReconcileReq;
-
-  /**
-   * Verifies a ProtoOAReconcileReq message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoOAReconcileReq message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoOAReconcileReq
-   */
-  public static fromObject(object: { [k: string]: any }): ProtoOAReconcileReq;
-
-  /**
-   * Creates a plain object from a ProtoOAReconcileReq message. Also converts values to other types if specified.
-   * @param message ProtoOAReconcileReq
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoOAReconcileReq,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoOAReconcileReq to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
 }
 
 /** Properties of a ProtoOAReconcileRes. */
@@ -4201,7 +2091,7 @@ export interface IProtoOAReconcileRes {
   payloadType?: ProtoOAPayloadType | null;
 
   /** ProtoOAReconcileRes ctidTraderAccountId */
-  ctidTraderAccountId: number | Long;
+  ctidTraderAccountId: Long;
 
   /** ProtoOAReconcileRes position */
   position?: IProtoOAPosition[] | null;
@@ -4222,7 +2112,7 @@ export class ProtoOAReconcileRes implements IProtoOAReconcileRes {
   public payloadType: ProtoOAPayloadType;
 
   /** ProtoOAReconcileRes ctidTraderAccountId. */
-  public ctidTraderAccountId: number | Long;
+  public ctidTraderAccountId: Long;
 
   /** ProtoOAReconcileRes position. */
   public position: IProtoOAPosition[];
@@ -4231,30 +2121,12 @@ export class ProtoOAReconcileRes implements IProtoOAReconcileRes {
   public order: IProtoOAOrder[];
 
   /**
-   * Creates a new ProtoOAReconcileRes instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAReconcileRes instance
-   */
-  public static create(properties?: IProtoOAReconcileRes): ProtoOAReconcileRes;
-
-  /**
    * Encodes the specified ProtoOAReconcileRes message. Does not implicitly {@link ProtoOAReconcileRes.verify|verify} messages.
    * @param message ProtoOAReconcileRes message or plain object to encode
    * @param [writer] Writer to encode to
    * @returns Writer
    */
   public static encode(
-    message: IProtoOAReconcileRes,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoOAReconcileRes message, length delimited. Does not implicitly {@link ProtoOAReconcileRes.verify|verify} messages.
-   * @param message ProtoOAReconcileRes message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
     message: IProtoOAReconcileRes,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
@@ -4271,48 +2143,6 @@ export class ProtoOAReconcileRes implements IProtoOAReconcileRes {
     reader: $protobuf.Reader | Uint8Array,
     length?: number
   ): ProtoOAReconcileRes;
-
-  /**
-   * Decodes a ProtoOAReconcileRes message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoOAReconcileRes
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoOAReconcileRes;
-
-  /**
-   * Verifies a ProtoOAReconcileRes message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoOAReconcileRes message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoOAReconcileRes
-   */
-  public static fromObject(object: { [k: string]: any }): ProtoOAReconcileRes;
-
-  /**
-   * Creates a plain object from a ProtoOAReconcileRes message. Also converts values to other types if specified.
-   * @param message ProtoOAReconcileRes
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoOAReconcileRes,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoOAReconcileRes to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
 }
 
 /** Properties of a ProtoOAOrderErrorEvent. */
@@ -4321,16 +2151,16 @@ export interface IProtoOAOrderErrorEvent {
   payloadType?: ProtoOAPayloadType | null;
 
   /** ProtoOAOrderErrorEvent ctidTraderAccountId */
-  ctidTraderAccountId: number | Long;
+  ctidTraderAccountId: Long;
 
   /** ProtoOAOrderErrorEvent errorCode */
   errorCode: string;
 
   /** ProtoOAOrderErrorEvent orderId */
-  orderId?: number | Long | null;
+  orderId?: Long | null;
 
   /** ProtoOAOrderErrorEvent positionId */
-  positionId?: number | Long | null;
+  positionId?: Long | null;
 
   /** ProtoOAOrderErrorEvent description */
   description?: string | null;
@@ -4348,28 +2178,19 @@ export class ProtoOAOrderErrorEvent implements IProtoOAOrderErrorEvent {
   public payloadType: ProtoOAPayloadType;
 
   /** ProtoOAOrderErrorEvent ctidTraderAccountId. */
-  public ctidTraderAccountId: number | Long;
+  public ctidTraderAccountId: Long;
 
   /** ProtoOAOrderErrorEvent errorCode. */
   public errorCode: string;
 
   /** ProtoOAOrderErrorEvent orderId. */
-  public orderId: number | Long;
+  public orderId: Long;
 
   /** ProtoOAOrderErrorEvent positionId. */
-  public positionId: number | Long;
+  public positionId: Long;
 
   /** ProtoOAOrderErrorEvent description. */
   public description: string;
-
-  /**
-   * Creates a new ProtoOAOrderErrorEvent instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAOrderErrorEvent instance
-   */
-  public static create(
-    properties?: IProtoOAOrderErrorEvent
-  ): ProtoOAOrderErrorEvent;
 
   /**
    * Encodes the specified ProtoOAOrderErrorEvent message. Does not implicitly {@link ProtoOAOrderErrorEvent.verify|verify} messages.
@@ -4378,17 +2199,6 @@ export class ProtoOAOrderErrorEvent implements IProtoOAOrderErrorEvent {
    * @returns Writer
    */
   public static encode(
-    message: IProtoOAOrderErrorEvent,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoOAOrderErrorEvent message, length delimited. Does not implicitly {@link ProtoOAOrderErrorEvent.verify|verify} messages.
-   * @param message ProtoOAOrderErrorEvent message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
     message: IProtoOAOrderErrorEvent,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
@@ -4405,50 +2215,6 @@ export class ProtoOAOrderErrorEvent implements IProtoOAOrderErrorEvent {
     reader: $protobuf.Reader | Uint8Array,
     length?: number
   ): ProtoOAOrderErrorEvent;
-
-  /**
-   * Decodes a ProtoOAOrderErrorEvent message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoOAOrderErrorEvent
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoOAOrderErrorEvent;
-
-  /**
-   * Verifies a ProtoOAOrderErrorEvent message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoOAOrderErrorEvent message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoOAOrderErrorEvent
-   */
-  public static fromObject(object: {
-    [k: string]: any;
-  }): ProtoOAOrderErrorEvent;
-
-  /**
-   * Creates a plain object from a ProtoOAOrderErrorEvent message. Also converts values to other types if specified.
-   * @param message ProtoOAOrderErrorEvent
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoOAOrderErrorEvent,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoOAOrderErrorEvent to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
 }
 
 /** Properties of a ProtoOADealListReq. */
@@ -4457,13 +2223,13 @@ export interface IProtoOADealListReq {
   payloadType?: ProtoOAPayloadType | null;
 
   /** ProtoOADealListReq ctidTraderAccountId */
-  ctidTraderAccountId: number | Long;
+  ctidTraderAccountId: Long;
 
   /** ProtoOADealListReq fromTimestamp */
-  fromTimestamp: number | Long;
+  fromTimestamp: Long;
 
   /** ProtoOADealListReq toTimestamp */
-  toTimestamp: number | Long;
+  toTimestamp: Long;
 
   /** ProtoOADealListReq maxRows */
   maxRows?: number | null;
@@ -4481,23 +2247,16 @@ export class ProtoOADealListReq implements IProtoOADealListReq {
   public payloadType: ProtoOAPayloadType;
 
   /** ProtoOADealListReq ctidTraderAccountId. */
-  public ctidTraderAccountId: number | Long;
+  public ctidTraderAccountId: Long;
 
   /** ProtoOADealListReq fromTimestamp. */
-  public fromTimestamp: number | Long;
+  public fromTimestamp: Long;
 
   /** ProtoOADealListReq toTimestamp. */
-  public toTimestamp: number | Long;
+  public toTimestamp: Long;
 
   /** ProtoOADealListReq maxRows. */
   public maxRows: number;
-
-  /**
-   * Creates a new ProtoOADealListReq instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOADealListReq instance
-   */
-  public static create(properties?: IProtoOADealListReq): ProtoOADealListReq;
 
   /**
    * Encodes the specified ProtoOADealListReq message. Does not implicitly {@link ProtoOADealListReq.verify|verify} messages.
@@ -4506,17 +2265,6 @@ export class ProtoOADealListReq implements IProtoOADealListReq {
    * @returns Writer
    */
   public static encode(
-    message: IProtoOADealListReq,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoOADealListReq message, length delimited. Does not implicitly {@link ProtoOADealListReq.verify|verify} messages.
-   * @param message ProtoOADealListReq message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
     message: IProtoOADealListReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
@@ -4533,48 +2281,6 @@ export class ProtoOADealListReq implements IProtoOADealListReq {
     reader: $protobuf.Reader | Uint8Array,
     length?: number
   ): ProtoOADealListReq;
-
-  /**
-   * Decodes a ProtoOADealListReq message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoOADealListReq
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoOADealListReq;
-
-  /**
-   * Verifies a ProtoOADealListReq message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoOADealListReq message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoOADealListReq
-   */
-  public static fromObject(object: { [k: string]: any }): ProtoOADealListReq;
-
-  /**
-   * Creates a plain object from a ProtoOADealListReq message. Also converts values to other types if specified.
-   * @param message ProtoOADealListReq
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoOADealListReq,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoOADealListReq to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
 }
 
 /** Properties of a ProtoOADealListRes. */
@@ -4583,7 +2289,7 @@ export interface IProtoOADealListRes {
   payloadType?: ProtoOAPayloadType | null;
 
   /** ProtoOADealListRes ctidTraderAccountId */
-  ctidTraderAccountId: number | Long;
+  ctidTraderAccountId: Long;
 
   /** ProtoOADealListRes deal */
   deal?: IProtoOADeal[] | null;
@@ -4604,7 +2310,7 @@ export class ProtoOADealListRes implements IProtoOADealListRes {
   public payloadType: ProtoOAPayloadType;
 
   /** ProtoOADealListRes ctidTraderAccountId. */
-  public ctidTraderAccountId: number | Long;
+  public ctidTraderAccountId: Long;
 
   /** ProtoOADealListRes deal. */
   public deal: IProtoOADeal[];
@@ -4613,30 +2319,12 @@ export class ProtoOADealListRes implements IProtoOADealListRes {
   public hasMore: boolean;
 
   /**
-   * Creates a new ProtoOADealListRes instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOADealListRes instance
-   */
-  public static create(properties?: IProtoOADealListRes): ProtoOADealListRes;
-
-  /**
    * Encodes the specified ProtoOADealListRes message. Does not implicitly {@link ProtoOADealListRes.verify|verify} messages.
    * @param message ProtoOADealListRes message or plain object to encode
    * @param [writer] Writer to encode to
    * @returns Writer
    */
   public static encode(
-    message: IProtoOADealListRes,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoOADealListRes message, length delimited. Does not implicitly {@link ProtoOADealListRes.verify|verify} messages.
-   * @param message ProtoOADealListRes message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
     message: IProtoOADealListRes,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
@@ -4653,48 +2341,6 @@ export class ProtoOADealListRes implements IProtoOADealListRes {
     reader: $protobuf.Reader | Uint8Array,
     length?: number
   ): ProtoOADealListRes;
-
-  /**
-   * Decodes a ProtoOADealListRes message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoOADealListRes
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoOADealListRes;
-
-  /**
-   * Verifies a ProtoOADealListRes message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoOADealListRes message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoOADealListRes
-   */
-  public static fromObject(object: { [k: string]: any }): ProtoOADealListRes;
-
-  /**
-   * Creates a plain object from a ProtoOADealListRes message. Also converts values to other types if specified.
-   * @param message ProtoOADealListRes
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoOADealListRes,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoOADealListRes to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
 }
 
 /** Properties of a ProtoOAExpectedMarginReq. */
@@ -4703,13 +2349,13 @@ export interface IProtoOAExpectedMarginReq {
   payloadType?: ProtoOAPayloadType | null;
 
   /** ProtoOAExpectedMarginReq ctidTraderAccountId */
-  ctidTraderAccountId: number | Long;
+  ctidTraderAccountId: Long;
 
   /** ProtoOAExpectedMarginReq symbolId */
-  symbolId: number | Long;
+  symbolId: Long;
 
   /** ProtoOAExpectedMarginReq volume */
-  volume?: (number | Long)[] | null;
+  volume?: Long[] | null;
 }
 
 /** Request for getting the margin estimate. Can be used before sending a new order request. */
@@ -4724,22 +2370,13 @@ export class ProtoOAExpectedMarginReq implements IProtoOAExpectedMarginReq {
   public payloadType: ProtoOAPayloadType;
 
   /** ProtoOAExpectedMarginReq ctidTraderAccountId. */
-  public ctidTraderAccountId: number | Long;
+  public ctidTraderAccountId: Long;
 
   /** ProtoOAExpectedMarginReq symbolId. */
-  public symbolId: number | Long;
+  public symbolId: Long;
 
   /** ProtoOAExpectedMarginReq volume. */
-  public volume: (number | Long)[];
-
-  /**
-   * Creates a new ProtoOAExpectedMarginReq instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAExpectedMarginReq instance
-   */
-  public static create(
-    properties?: IProtoOAExpectedMarginReq
-  ): ProtoOAExpectedMarginReq;
+  public volume: Long[];
 
   /**
    * Encodes the specified ProtoOAExpectedMarginReq message. Does not implicitly {@link ProtoOAExpectedMarginReq.verify|verify} messages.
@@ -4748,17 +2385,6 @@ export class ProtoOAExpectedMarginReq implements IProtoOAExpectedMarginReq {
    * @returns Writer
    */
   public static encode(
-    message: IProtoOAExpectedMarginReq,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoOAExpectedMarginReq message, length delimited. Does not implicitly {@link ProtoOAExpectedMarginReq.verify|verify} messages.
-   * @param message ProtoOAExpectedMarginReq message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
     message: IProtoOAExpectedMarginReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
@@ -4775,50 +2401,6 @@ export class ProtoOAExpectedMarginReq implements IProtoOAExpectedMarginReq {
     reader: $protobuf.Reader | Uint8Array,
     length?: number
   ): ProtoOAExpectedMarginReq;
-
-  /**
-   * Decodes a ProtoOAExpectedMarginReq message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoOAExpectedMarginReq
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoOAExpectedMarginReq;
-
-  /**
-   * Verifies a ProtoOAExpectedMarginReq message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoOAExpectedMarginReq message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoOAExpectedMarginReq
-   */
-  public static fromObject(object: {
-    [k: string]: any;
-  }): ProtoOAExpectedMarginReq;
-
-  /**
-   * Creates a plain object from a ProtoOAExpectedMarginReq message. Also converts values to other types if specified.
-   * @param message ProtoOAExpectedMarginReq
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoOAExpectedMarginReq,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoOAExpectedMarginReq to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
 }
 
 /** Properties of a ProtoOAExpectedMarginRes. */
@@ -4827,7 +2409,7 @@ export interface IProtoOAExpectedMarginRes {
   payloadType?: ProtoOAPayloadType | null;
 
   /** ProtoOAExpectedMarginRes ctidTraderAccountId */
-  ctidTraderAccountId: number | Long;
+  ctidTraderAccountId: Long;
 
   /** ProtoOAExpectedMarginRes margin */
   margin?: IProtoOAExpectedMargin[] | null;
@@ -4845,19 +2427,10 @@ export class ProtoOAExpectedMarginRes implements IProtoOAExpectedMarginRes {
   public payloadType: ProtoOAPayloadType;
 
   /** ProtoOAExpectedMarginRes ctidTraderAccountId. */
-  public ctidTraderAccountId: number | Long;
+  public ctidTraderAccountId: Long;
 
   /** ProtoOAExpectedMarginRes margin. */
   public margin: IProtoOAExpectedMargin[];
-
-  /**
-   * Creates a new ProtoOAExpectedMarginRes instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAExpectedMarginRes instance
-   */
-  public static create(
-    properties?: IProtoOAExpectedMarginRes
-  ): ProtoOAExpectedMarginRes;
 
   /**
    * Encodes the specified ProtoOAExpectedMarginRes message. Does not implicitly {@link ProtoOAExpectedMarginRes.verify|verify} messages.
@@ -4866,17 +2439,6 @@ export class ProtoOAExpectedMarginRes implements IProtoOAExpectedMarginRes {
    * @returns Writer
    */
   public static encode(
-    message: IProtoOAExpectedMarginRes,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoOAExpectedMarginRes message, length delimited. Does not implicitly {@link ProtoOAExpectedMarginRes.verify|verify} messages.
-   * @param message ProtoOAExpectedMarginRes message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
     message: IProtoOAExpectedMarginRes,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
@@ -4893,50 +2455,6 @@ export class ProtoOAExpectedMarginRes implements IProtoOAExpectedMarginRes {
     reader: $protobuf.Reader | Uint8Array,
     length?: number
   ): ProtoOAExpectedMarginRes;
-
-  /**
-   * Decodes a ProtoOAExpectedMarginRes message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoOAExpectedMarginRes
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoOAExpectedMarginRes;
-
-  /**
-   * Verifies a ProtoOAExpectedMarginRes message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoOAExpectedMarginRes message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoOAExpectedMarginRes
-   */
-  public static fromObject(object: {
-    [k: string]: any;
-  }): ProtoOAExpectedMarginRes;
-
-  /**
-   * Creates a plain object from a ProtoOAExpectedMarginRes message. Also converts values to other types if specified.
-   * @param message ProtoOAExpectedMarginRes
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoOAExpectedMarginRes,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoOAExpectedMarginRes to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
 }
 
 /** Properties of a ProtoOAMarginChangedEvent. */
@@ -4945,13 +2463,13 @@ export interface IProtoOAMarginChangedEvent {
   payloadType?: ProtoOAPayloadType | null;
 
   /** ProtoOAMarginChangedEvent ctidTraderAccountId */
-  ctidTraderAccountId: number | Long;
+  ctidTraderAccountId: Long;
 
   /** ProtoOAMarginChangedEvent positionId */
-  positionId: number | Long;
+  positionId: Long;
 
   /** ProtoOAMarginChangedEvent usedMargin */
-  usedMargin: number | Long;
+  usedMargin: Long;
 }
 
 /** Event that is sent when the margin allocated to a specific position is changed. */
@@ -4966,22 +2484,13 @@ export class ProtoOAMarginChangedEvent implements IProtoOAMarginChangedEvent {
   public payloadType: ProtoOAPayloadType;
 
   /** ProtoOAMarginChangedEvent ctidTraderAccountId. */
-  public ctidTraderAccountId: number | Long;
+  public ctidTraderAccountId: Long;
 
   /** ProtoOAMarginChangedEvent positionId. */
-  public positionId: number | Long;
+  public positionId: Long;
 
   /** ProtoOAMarginChangedEvent usedMargin. */
-  public usedMargin: number | Long;
-
-  /**
-   * Creates a new ProtoOAMarginChangedEvent instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAMarginChangedEvent instance
-   */
-  public static create(
-    properties?: IProtoOAMarginChangedEvent
-  ): ProtoOAMarginChangedEvent;
+  public usedMargin: Long;
 
   /**
    * Encodes the specified ProtoOAMarginChangedEvent message. Does not implicitly {@link ProtoOAMarginChangedEvent.verify|verify} messages.
@@ -4990,17 +2499,6 @@ export class ProtoOAMarginChangedEvent implements IProtoOAMarginChangedEvent {
    * @returns Writer
    */
   public static encode(
-    message: IProtoOAMarginChangedEvent,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoOAMarginChangedEvent message, length delimited. Does not implicitly {@link ProtoOAMarginChangedEvent.verify|verify} messages.
-   * @param message ProtoOAMarginChangedEvent message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
     message: IProtoOAMarginChangedEvent,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
@@ -5017,50 +2515,6 @@ export class ProtoOAMarginChangedEvent implements IProtoOAMarginChangedEvent {
     reader: $protobuf.Reader | Uint8Array,
     length?: number
   ): ProtoOAMarginChangedEvent;
-
-  /**
-   * Decodes a ProtoOAMarginChangedEvent message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoOAMarginChangedEvent
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoOAMarginChangedEvent;
-
-  /**
-   * Verifies a ProtoOAMarginChangedEvent message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoOAMarginChangedEvent message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoOAMarginChangedEvent
-   */
-  public static fromObject(object: {
-    [k: string]: any;
-  }): ProtoOAMarginChangedEvent;
-
-  /**
-   * Creates a plain object from a ProtoOAMarginChangedEvent message. Also converts values to other types if specified.
-   * @param message ProtoOAMarginChangedEvent
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoOAMarginChangedEvent,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoOAMarginChangedEvent to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
 }
 
 /** Properties of a ProtoOACashFlowHistoryListReq. */
@@ -5069,13 +2523,13 @@ export interface IProtoOACashFlowHistoryListReq {
   payloadType?: ProtoOAPayloadType | null;
 
   /** ProtoOACashFlowHistoryListReq ctidTraderAccountId */
-  ctidTraderAccountId: number | Long;
+  ctidTraderAccountId: Long;
 
   /** ProtoOACashFlowHistoryListReq fromTimestamp */
-  fromTimestamp: number | Long;
+  fromTimestamp: Long;
 
   /** ProtoOACashFlowHistoryListReq toTimestamp */
-  toTimestamp: number | Long;
+  toTimestamp: Long;
 }
 
 /** Request for getting Trader's historical data of deposits and withdrawals. */
@@ -5091,22 +2545,13 @@ export class ProtoOACashFlowHistoryListReq
   public payloadType: ProtoOAPayloadType;
 
   /** ProtoOACashFlowHistoryListReq ctidTraderAccountId. */
-  public ctidTraderAccountId: number | Long;
+  public ctidTraderAccountId: Long;
 
   /** ProtoOACashFlowHistoryListReq fromTimestamp. */
-  public fromTimestamp: number | Long;
+  public fromTimestamp: Long;
 
   /** ProtoOACashFlowHistoryListReq toTimestamp. */
-  public toTimestamp: number | Long;
-
-  /**
-   * Creates a new ProtoOACashFlowHistoryListReq instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOACashFlowHistoryListReq instance
-   */
-  public static create(
-    properties?: IProtoOACashFlowHistoryListReq
-  ): ProtoOACashFlowHistoryListReq;
+  public toTimestamp: Long;
 
   /**
    * Encodes the specified ProtoOACashFlowHistoryListReq message. Does not implicitly {@link ProtoOACashFlowHistoryListReq.verify|verify} messages.
@@ -5115,17 +2560,6 @@ export class ProtoOACashFlowHistoryListReq
    * @returns Writer
    */
   public static encode(
-    message: IProtoOACashFlowHistoryListReq,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoOACashFlowHistoryListReq message, length delimited. Does not implicitly {@link ProtoOACashFlowHistoryListReq.verify|verify} messages.
-   * @param message ProtoOACashFlowHistoryListReq message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
     message: IProtoOACashFlowHistoryListReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
@@ -5142,50 +2576,6 @@ export class ProtoOACashFlowHistoryListReq
     reader: $protobuf.Reader | Uint8Array,
     length?: number
   ): ProtoOACashFlowHistoryListReq;
-
-  /**
-   * Decodes a ProtoOACashFlowHistoryListReq message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoOACashFlowHistoryListReq
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoOACashFlowHistoryListReq;
-
-  /**
-   * Verifies a ProtoOACashFlowHistoryListReq message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoOACashFlowHistoryListReq message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoOACashFlowHistoryListReq
-   */
-  public static fromObject(object: {
-    [k: string]: any;
-  }): ProtoOACashFlowHistoryListReq;
-
-  /**
-   * Creates a plain object from a ProtoOACashFlowHistoryListReq message. Also converts values to other types if specified.
-   * @param message ProtoOACashFlowHistoryListReq
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoOACashFlowHistoryListReq,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoOACashFlowHistoryListReq to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
 }
 
 /** Properties of a ProtoOACashFlowHistoryListRes. */
@@ -5194,7 +2584,7 @@ export interface IProtoOACashFlowHistoryListRes {
   payloadType?: ProtoOAPayloadType | null;
 
   /** ProtoOACashFlowHistoryListRes ctidTraderAccountId */
-  ctidTraderAccountId: number | Long;
+  ctidTraderAccountId: Long;
 
   /** ProtoOACashFlowHistoryListRes depositWithdraw */
   depositWithdraw?: IProtoOADepositWithdraw[] | null;
@@ -5213,19 +2603,10 @@ export class ProtoOACashFlowHistoryListRes
   public payloadType: ProtoOAPayloadType;
 
   /** ProtoOACashFlowHistoryListRes ctidTraderAccountId. */
-  public ctidTraderAccountId: number | Long;
+  public ctidTraderAccountId: Long;
 
   /** ProtoOACashFlowHistoryListRes depositWithdraw. */
   public depositWithdraw: IProtoOADepositWithdraw[];
-
-  /**
-   * Creates a new ProtoOACashFlowHistoryListRes instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOACashFlowHistoryListRes instance
-   */
-  public static create(
-    properties?: IProtoOACashFlowHistoryListRes
-  ): ProtoOACashFlowHistoryListRes;
 
   /**
    * Encodes the specified ProtoOACashFlowHistoryListRes message. Does not implicitly {@link ProtoOACashFlowHistoryListRes.verify|verify} messages.
@@ -5234,17 +2615,6 @@ export class ProtoOACashFlowHistoryListRes
    * @returns Writer
    */
   public static encode(
-    message: IProtoOACashFlowHistoryListRes,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoOACashFlowHistoryListRes message, length delimited. Does not implicitly {@link ProtoOACashFlowHistoryListRes.verify|verify} messages.
-   * @param message ProtoOACashFlowHistoryListRes message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
     message: IProtoOACashFlowHistoryListRes,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
@@ -5261,50 +2631,6 @@ export class ProtoOACashFlowHistoryListRes
     reader: $protobuf.Reader | Uint8Array,
     length?: number
   ): ProtoOACashFlowHistoryListRes;
-
-  /**
-   * Decodes a ProtoOACashFlowHistoryListRes message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoOACashFlowHistoryListRes
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoOACashFlowHistoryListRes;
-
-  /**
-   * Verifies a ProtoOACashFlowHistoryListRes message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoOACashFlowHistoryListRes message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoOACashFlowHistoryListRes
-   */
-  public static fromObject(object: {
-    [k: string]: any;
-  }): ProtoOACashFlowHistoryListRes;
-
-  /**
-   * Creates a plain object from a ProtoOACashFlowHistoryListRes message. Also converts values to other types if specified.
-   * @param message ProtoOACashFlowHistoryListRes
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoOACashFlowHistoryListRes,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoOACashFlowHistoryListRes to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
 }
 
 /** Properties of a ProtoOAGetAccountListByAccessTokenReq. */
@@ -5332,32 +2658,12 @@ export class ProtoOAGetAccountListByAccessTokenReq
   public accessToken: string;
 
   /**
-   * Creates a new ProtoOAGetAccountListByAccessTokenReq instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAGetAccountListByAccessTokenReq instance
-   */
-  public static create(
-    properties?: IProtoOAGetAccountListByAccessTokenReq
-  ): ProtoOAGetAccountListByAccessTokenReq;
-
-  /**
    * Encodes the specified ProtoOAGetAccountListByAccessTokenReq message. Does not implicitly {@link ProtoOAGetAccountListByAccessTokenReq.verify|verify} messages.
    * @param message ProtoOAGetAccountListByAccessTokenReq message or plain object to encode
    * @param [writer] Writer to encode to
    * @returns Writer
    */
   public static encode(
-    message: IProtoOAGetAccountListByAccessTokenReq,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoOAGetAccountListByAccessTokenReq message, length delimited. Does not implicitly {@link ProtoOAGetAccountListByAccessTokenReq.verify|verify} messages.
-   * @param message ProtoOAGetAccountListByAccessTokenReq message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
     message: IProtoOAGetAccountListByAccessTokenReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
@@ -5374,50 +2680,6 @@ export class ProtoOAGetAccountListByAccessTokenReq
     reader: $protobuf.Reader | Uint8Array,
     length?: number
   ): ProtoOAGetAccountListByAccessTokenReq;
-
-  /**
-   * Decodes a ProtoOAGetAccountListByAccessTokenReq message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoOAGetAccountListByAccessTokenReq
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoOAGetAccountListByAccessTokenReq;
-
-  /**
-   * Verifies a ProtoOAGetAccountListByAccessTokenReq message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoOAGetAccountListByAccessTokenReq message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoOAGetAccountListByAccessTokenReq
-   */
-  public static fromObject(object: {
-    [k: string]: any;
-  }): ProtoOAGetAccountListByAccessTokenReq;
-
-  /**
-   * Creates a plain object from a ProtoOAGetAccountListByAccessTokenReq message. Also converts values to other types if specified.
-   * @param message ProtoOAGetAccountListByAccessTokenReq
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoOAGetAccountListByAccessTokenReq,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoOAGetAccountListByAccessTokenReq to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
 }
 
 /** Properties of a ProtoOAGetAccountListByAccessTokenRes. */
@@ -5457,32 +2719,12 @@ export class ProtoOAGetAccountListByAccessTokenRes
   public ctidTraderAccount: IProtoOACtidTraderAccount[];
 
   /**
-   * Creates a new ProtoOAGetAccountListByAccessTokenRes instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAGetAccountListByAccessTokenRes instance
-   */
-  public static create(
-    properties?: IProtoOAGetAccountListByAccessTokenRes
-  ): ProtoOAGetAccountListByAccessTokenRes;
-
-  /**
    * Encodes the specified ProtoOAGetAccountListByAccessTokenRes message. Does not implicitly {@link ProtoOAGetAccountListByAccessTokenRes.verify|verify} messages.
    * @param message ProtoOAGetAccountListByAccessTokenRes message or plain object to encode
    * @param [writer] Writer to encode to
    * @returns Writer
    */
   public static encode(
-    message: IProtoOAGetAccountListByAccessTokenRes,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoOAGetAccountListByAccessTokenRes message, length delimited. Does not implicitly {@link ProtoOAGetAccountListByAccessTokenRes.verify|verify} messages.
-   * @param message ProtoOAGetAccountListByAccessTokenRes message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
     message: IProtoOAGetAccountListByAccessTokenRes,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
@@ -5499,50 +2741,6 @@ export class ProtoOAGetAccountListByAccessTokenRes
     reader: $protobuf.Reader | Uint8Array,
     length?: number
   ): ProtoOAGetAccountListByAccessTokenRes;
-
-  /**
-   * Decodes a ProtoOAGetAccountListByAccessTokenRes message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoOAGetAccountListByAccessTokenRes
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoOAGetAccountListByAccessTokenRes;
-
-  /**
-   * Verifies a ProtoOAGetAccountListByAccessTokenRes message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoOAGetAccountListByAccessTokenRes message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoOAGetAccountListByAccessTokenRes
-   */
-  public static fromObject(object: {
-    [k: string]: any;
-  }): ProtoOAGetAccountListByAccessTokenRes;
-
-  /**
-   * Creates a plain object from a ProtoOAGetAccountListByAccessTokenRes message. Also converts values to other types if specified.
-   * @param message ProtoOAGetAccountListByAccessTokenRes
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoOAGetAccountListByAccessTokenRes,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoOAGetAccountListByAccessTokenRes to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
 }
 
 /** Properties of a ProtoOASubscribeSpotsReq. */
@@ -5551,10 +2749,10 @@ export interface IProtoOASubscribeSpotsReq {
   payloadType?: ProtoOAPayloadType | null;
 
   /** ProtoOASubscribeSpotsReq ctidTraderAccountId */
-  ctidTraderAccountId: number | Long;
+  ctidTraderAccountId: Long;
 
   /** ProtoOASubscribeSpotsReq symbolId */
-  symbolId?: (number | Long)[] | null;
+  symbolId?: Long[] | null;
 }
 
 /** Request for subscribing on spot events of the specified symbol. */
@@ -5569,19 +2767,10 @@ export class ProtoOASubscribeSpotsReq implements IProtoOASubscribeSpotsReq {
   public payloadType: ProtoOAPayloadType;
 
   /** ProtoOASubscribeSpotsReq ctidTraderAccountId. */
-  public ctidTraderAccountId: number | Long;
+  public ctidTraderAccountId: Long;
 
   /** ProtoOASubscribeSpotsReq symbolId. */
-  public symbolId: (number | Long)[];
-
-  /**
-   * Creates a new ProtoOASubscribeSpotsReq instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOASubscribeSpotsReq instance
-   */
-  public static create(
-    properties?: IProtoOASubscribeSpotsReq
-  ): ProtoOASubscribeSpotsReq;
+  public symbolId: Long[];
 
   /**
    * Encodes the specified ProtoOASubscribeSpotsReq message. Does not implicitly {@link ProtoOASubscribeSpotsReq.verify|verify} messages.
@@ -5590,17 +2779,6 @@ export class ProtoOASubscribeSpotsReq implements IProtoOASubscribeSpotsReq {
    * @returns Writer
    */
   public static encode(
-    message: IProtoOASubscribeSpotsReq,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoOASubscribeSpotsReq message, length delimited. Does not implicitly {@link ProtoOASubscribeSpotsReq.verify|verify} messages.
-   * @param message ProtoOASubscribeSpotsReq message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
     message: IProtoOASubscribeSpotsReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
@@ -5617,50 +2795,6 @@ export class ProtoOASubscribeSpotsReq implements IProtoOASubscribeSpotsReq {
     reader: $protobuf.Reader | Uint8Array,
     length?: number
   ): ProtoOASubscribeSpotsReq;
-
-  /**
-   * Decodes a ProtoOASubscribeSpotsReq message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoOASubscribeSpotsReq
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoOASubscribeSpotsReq;
-
-  /**
-   * Verifies a ProtoOASubscribeSpotsReq message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoOASubscribeSpotsReq message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoOASubscribeSpotsReq
-   */
-  public static fromObject(object: {
-    [k: string]: any;
-  }): ProtoOASubscribeSpotsReq;
-
-  /**
-   * Creates a plain object from a ProtoOASubscribeSpotsReq message. Also converts values to other types if specified.
-   * @param message ProtoOASubscribeSpotsReq
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoOASubscribeSpotsReq,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoOASubscribeSpotsReq to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
 }
 
 /** Properties of a ProtoOASubscribeSpotsRes. */
@@ -5669,7 +2803,7 @@ export interface IProtoOASubscribeSpotsRes {
   payloadType?: ProtoOAPayloadType | null;
 
   /** ProtoOASubscribeSpotsRes ctidTraderAccountId */
-  ctidTraderAccountId: number | Long;
+  ctidTraderAccountId: Long;
 }
 
 /** Response to the ProtoOASubscribeSpotsReq request. */
@@ -5684,16 +2818,7 @@ export class ProtoOASubscribeSpotsRes implements IProtoOASubscribeSpotsRes {
   public payloadType: ProtoOAPayloadType;
 
   /** ProtoOASubscribeSpotsRes ctidTraderAccountId. */
-  public ctidTraderAccountId: number | Long;
-
-  /**
-   * Creates a new ProtoOASubscribeSpotsRes instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOASubscribeSpotsRes instance
-   */
-  public static create(
-    properties?: IProtoOASubscribeSpotsRes
-  ): ProtoOASubscribeSpotsRes;
+  public ctidTraderAccountId: Long;
 
   /**
    * Encodes the specified ProtoOASubscribeSpotsRes message. Does not implicitly {@link ProtoOASubscribeSpotsRes.verify|verify} messages.
@@ -5702,17 +2827,6 @@ export class ProtoOASubscribeSpotsRes implements IProtoOASubscribeSpotsRes {
    * @returns Writer
    */
   public static encode(
-    message: IProtoOASubscribeSpotsRes,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoOASubscribeSpotsRes message, length delimited. Does not implicitly {@link ProtoOASubscribeSpotsRes.verify|verify} messages.
-   * @param message ProtoOASubscribeSpotsRes message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
     message: IProtoOASubscribeSpotsRes,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
@@ -5729,50 +2843,6 @@ export class ProtoOASubscribeSpotsRes implements IProtoOASubscribeSpotsRes {
     reader: $protobuf.Reader | Uint8Array,
     length?: number
   ): ProtoOASubscribeSpotsRes;
-
-  /**
-   * Decodes a ProtoOASubscribeSpotsRes message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoOASubscribeSpotsRes
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoOASubscribeSpotsRes;
-
-  /**
-   * Verifies a ProtoOASubscribeSpotsRes message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoOASubscribeSpotsRes message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoOASubscribeSpotsRes
-   */
-  public static fromObject(object: {
-    [k: string]: any;
-  }): ProtoOASubscribeSpotsRes;
-
-  /**
-   * Creates a plain object from a ProtoOASubscribeSpotsRes message. Also converts values to other types if specified.
-   * @param message ProtoOASubscribeSpotsRes
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoOASubscribeSpotsRes,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoOASubscribeSpotsRes to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
 }
 
 /** Properties of a ProtoOAUnsubscribeSpotsReq. */
@@ -5781,10 +2851,10 @@ export interface IProtoOAUnsubscribeSpotsReq {
   payloadType?: ProtoOAPayloadType | null;
 
   /** ProtoOAUnsubscribeSpotsReq ctidTraderAccountId */
-  ctidTraderAccountId: number | Long;
+  ctidTraderAccountId: Long;
 
   /** ProtoOAUnsubscribeSpotsReq symbolId */
-  symbolId?: (number | Long)[] | null;
+  symbolId?: Long[] | null;
 }
 
 /** Request for unsubscribing from the spot events of the specified symbol. */
@@ -5799,19 +2869,10 @@ export class ProtoOAUnsubscribeSpotsReq implements IProtoOAUnsubscribeSpotsReq {
   public payloadType: ProtoOAPayloadType;
 
   /** ProtoOAUnsubscribeSpotsReq ctidTraderAccountId. */
-  public ctidTraderAccountId: number | Long;
+  public ctidTraderAccountId: Long;
 
   /** ProtoOAUnsubscribeSpotsReq symbolId. */
-  public symbolId: (number | Long)[];
-
-  /**
-   * Creates a new ProtoOAUnsubscribeSpotsReq instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAUnsubscribeSpotsReq instance
-   */
-  public static create(
-    properties?: IProtoOAUnsubscribeSpotsReq
-  ): ProtoOAUnsubscribeSpotsReq;
+  public symbolId: Long[];
 
   /**
    * Encodes the specified ProtoOAUnsubscribeSpotsReq message. Does not implicitly {@link ProtoOAUnsubscribeSpotsReq.verify|verify} messages.
@@ -5820,17 +2881,6 @@ export class ProtoOAUnsubscribeSpotsReq implements IProtoOAUnsubscribeSpotsReq {
    * @returns Writer
    */
   public static encode(
-    message: IProtoOAUnsubscribeSpotsReq,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoOAUnsubscribeSpotsReq message, length delimited. Does not implicitly {@link ProtoOAUnsubscribeSpotsReq.verify|verify} messages.
-   * @param message ProtoOAUnsubscribeSpotsReq message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
     message: IProtoOAUnsubscribeSpotsReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
@@ -5847,50 +2897,6 @@ export class ProtoOAUnsubscribeSpotsReq implements IProtoOAUnsubscribeSpotsReq {
     reader: $protobuf.Reader | Uint8Array,
     length?: number
   ): ProtoOAUnsubscribeSpotsReq;
-
-  /**
-   * Decodes a ProtoOAUnsubscribeSpotsReq message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoOAUnsubscribeSpotsReq
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoOAUnsubscribeSpotsReq;
-
-  /**
-   * Verifies a ProtoOAUnsubscribeSpotsReq message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoOAUnsubscribeSpotsReq message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoOAUnsubscribeSpotsReq
-   */
-  public static fromObject(object: {
-    [k: string]: any;
-  }): ProtoOAUnsubscribeSpotsReq;
-
-  /**
-   * Creates a plain object from a ProtoOAUnsubscribeSpotsReq message. Also converts values to other types if specified.
-   * @param message ProtoOAUnsubscribeSpotsReq
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoOAUnsubscribeSpotsReq,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoOAUnsubscribeSpotsReq to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
 }
 
 /** Properties of a ProtoOAUnsubscribeSpotsRes. */
@@ -5899,7 +2905,7 @@ export interface IProtoOAUnsubscribeSpotsRes {
   payloadType?: ProtoOAPayloadType | null;
 
   /** ProtoOAUnsubscribeSpotsRes ctidTraderAccountId */
-  ctidTraderAccountId: number | Long;
+  ctidTraderAccountId: Long;
 }
 
 /** Response to the ProtoOASubscribeSpotsRes request. */
@@ -5914,16 +2920,7 @@ export class ProtoOAUnsubscribeSpotsRes implements IProtoOAUnsubscribeSpotsRes {
   public payloadType: ProtoOAPayloadType;
 
   /** ProtoOAUnsubscribeSpotsRes ctidTraderAccountId. */
-  public ctidTraderAccountId: number | Long;
-
-  /**
-   * Creates a new ProtoOAUnsubscribeSpotsRes instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAUnsubscribeSpotsRes instance
-   */
-  public static create(
-    properties?: IProtoOAUnsubscribeSpotsRes
-  ): ProtoOAUnsubscribeSpotsRes;
+  public ctidTraderAccountId: Long;
 
   /**
    * Encodes the specified ProtoOAUnsubscribeSpotsRes message. Does not implicitly {@link ProtoOAUnsubscribeSpotsRes.verify|verify} messages.
@@ -5932,17 +2929,6 @@ export class ProtoOAUnsubscribeSpotsRes implements IProtoOAUnsubscribeSpotsRes {
    * @returns Writer
    */
   public static encode(
-    message: IProtoOAUnsubscribeSpotsRes,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoOAUnsubscribeSpotsRes message, length delimited. Does not implicitly {@link ProtoOAUnsubscribeSpotsRes.verify|verify} messages.
-   * @param message ProtoOAUnsubscribeSpotsRes message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
     message: IProtoOAUnsubscribeSpotsRes,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
@@ -5959,50 +2945,6 @@ export class ProtoOAUnsubscribeSpotsRes implements IProtoOAUnsubscribeSpotsRes {
     reader: $protobuf.Reader | Uint8Array,
     length?: number
   ): ProtoOAUnsubscribeSpotsRes;
-
-  /**
-   * Decodes a ProtoOAUnsubscribeSpotsRes message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoOAUnsubscribeSpotsRes
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoOAUnsubscribeSpotsRes;
-
-  /**
-   * Verifies a ProtoOAUnsubscribeSpotsRes message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoOAUnsubscribeSpotsRes message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoOAUnsubscribeSpotsRes
-   */
-  public static fromObject(object: {
-    [k: string]: any;
-  }): ProtoOAUnsubscribeSpotsRes;
-
-  /**
-   * Creates a plain object from a ProtoOAUnsubscribeSpotsRes message. Also converts values to other types if specified.
-   * @param message ProtoOAUnsubscribeSpotsRes
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoOAUnsubscribeSpotsRes,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoOAUnsubscribeSpotsRes to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
 }
 
 /** Properties of a ProtoOASpotEvent. */
@@ -6011,16 +2953,16 @@ export interface IProtoOASpotEvent {
   payloadType?: ProtoOAPayloadType | null;
 
   /** ProtoOASpotEvent ctidTraderAccountId */
-  ctidTraderAccountId: number | Long;
+  ctidTraderAccountId: Long;
 
   /** ProtoOASpotEvent symbolId */
-  symbolId: number | Long;
+  symbolId: Long;
 
   /** ProtoOASpotEvent bid */
-  bid?: number | Long | null;
+  bid?: Long | null;
 
   /** ProtoOASpotEvent ask */
-  ask?: number | Long | null;
+  ask?: Long | null;
 
   /** ProtoOASpotEvent trendbar */
   trendbar?: IProtoOATrendbar[] | null;
@@ -6038,26 +2980,19 @@ export class ProtoOASpotEvent implements IProtoOASpotEvent {
   public payloadType: ProtoOAPayloadType;
 
   /** ProtoOASpotEvent ctidTraderAccountId. */
-  public ctidTraderAccountId: number | Long;
+  public ctidTraderAccountId: Long;
 
   /** ProtoOASpotEvent symbolId. */
-  public symbolId: number | Long;
+  public symbolId: Long;
 
   /** ProtoOASpotEvent bid. */
-  public bid: number | Long;
+  public bid: Long;
 
   /** ProtoOASpotEvent ask. */
-  public ask: number | Long;
+  public ask: Long;
 
   /** ProtoOASpotEvent trendbar. */
   public trendbar: IProtoOATrendbar[];
-
-  /**
-   * Creates a new ProtoOASpotEvent instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOASpotEvent instance
-   */
-  public static create(properties?: IProtoOASpotEvent): ProtoOASpotEvent;
 
   /**
    * Encodes the specified ProtoOASpotEvent message. Does not implicitly {@link ProtoOASpotEvent.verify|verify} messages.
@@ -6066,17 +3001,6 @@ export class ProtoOASpotEvent implements IProtoOASpotEvent {
    * @returns Writer
    */
   public static encode(
-    message: IProtoOASpotEvent,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoOASpotEvent message, length delimited. Does not implicitly {@link ProtoOASpotEvent.verify|verify} messages.
-   * @param message ProtoOASpotEvent message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
     message: IProtoOASpotEvent,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
@@ -6093,48 +3017,6 @@ export class ProtoOASpotEvent implements IProtoOASpotEvent {
     reader: $protobuf.Reader | Uint8Array,
     length?: number
   ): ProtoOASpotEvent;
-
-  /**
-   * Decodes a ProtoOASpotEvent message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoOASpotEvent
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoOASpotEvent;
-
-  /**
-   * Verifies a ProtoOASpotEvent message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoOASpotEvent message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoOASpotEvent
-   */
-  public static fromObject(object: { [k: string]: any }): ProtoOASpotEvent;
-
-  /**
-   * Creates a plain object from a ProtoOASpotEvent message. Also converts values to other types if specified.
-   * @param message ProtoOASpotEvent
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoOASpotEvent,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoOASpotEvent to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
 }
 
 /** Properties of a ProtoOASubscribeLiveTrendbarReq. */
@@ -6143,13 +3025,13 @@ export interface IProtoOASubscribeLiveTrendbarReq {
   payloadType?: ProtoOAPayloadType | null;
 
   /** ProtoOASubscribeLiveTrendbarReq ctidTraderAccountId */
-  ctidTraderAccountId: number | Long;
+  ctidTraderAccountId: Long;
 
   /** ProtoOASubscribeLiveTrendbarReq period */
   period: ProtoOATrendbarPeriod;
 
   /** ProtoOASubscribeLiveTrendbarReq symbolId */
-  symbolId: number | Long;
+  symbolId: Long;
 }
 
 /** Request for subscribing for live trend bars. Requires subscription on the spot events, see ProtoOASubscribeSpotsReq. */
@@ -6165,22 +3047,13 @@ export class ProtoOASubscribeLiveTrendbarReq
   public payloadType: ProtoOAPayloadType;
 
   /** ProtoOASubscribeLiveTrendbarReq ctidTraderAccountId. */
-  public ctidTraderAccountId: number | Long;
+  public ctidTraderAccountId: Long;
 
   /** ProtoOASubscribeLiveTrendbarReq period. */
   public period: ProtoOATrendbarPeriod;
 
   /** ProtoOASubscribeLiveTrendbarReq symbolId. */
-  public symbolId: number | Long;
-
-  /**
-   * Creates a new ProtoOASubscribeLiveTrendbarReq instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOASubscribeLiveTrendbarReq instance
-   */
-  public static create(
-    properties?: IProtoOASubscribeLiveTrendbarReq
-  ): ProtoOASubscribeLiveTrendbarReq;
+  public symbolId: Long;
 
   /**
    * Encodes the specified ProtoOASubscribeLiveTrendbarReq message. Does not implicitly {@link ProtoOASubscribeLiveTrendbarReq.verify|verify} messages.
@@ -6189,17 +3062,6 @@ export class ProtoOASubscribeLiveTrendbarReq
    * @returns Writer
    */
   public static encode(
-    message: IProtoOASubscribeLiveTrendbarReq,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoOASubscribeLiveTrendbarReq message, length delimited. Does not implicitly {@link ProtoOASubscribeLiveTrendbarReq.verify|verify} messages.
-   * @param message ProtoOASubscribeLiveTrendbarReq message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
     message: IProtoOASubscribeLiveTrendbarReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
@@ -6216,50 +3078,6 @@ export class ProtoOASubscribeLiveTrendbarReq
     reader: $protobuf.Reader | Uint8Array,
     length?: number
   ): ProtoOASubscribeLiveTrendbarReq;
-
-  /**
-   * Decodes a ProtoOASubscribeLiveTrendbarReq message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoOASubscribeLiveTrendbarReq
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoOASubscribeLiveTrendbarReq;
-
-  /**
-   * Verifies a ProtoOASubscribeLiveTrendbarReq message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoOASubscribeLiveTrendbarReq message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoOASubscribeLiveTrendbarReq
-   */
-  public static fromObject(object: {
-    [k: string]: any;
-  }): ProtoOASubscribeLiveTrendbarReq;
-
-  /**
-   * Creates a plain object from a ProtoOASubscribeLiveTrendbarReq message. Also converts values to other types if specified.
-   * @param message ProtoOASubscribeLiveTrendbarReq
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoOASubscribeLiveTrendbarReq,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoOASubscribeLiveTrendbarReq to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
 }
 
 /** Properties of a ProtoOAUnsubscribeLiveTrendbarReq. */
@@ -6268,13 +3086,13 @@ export interface IProtoOAUnsubscribeLiveTrendbarReq {
   payloadType?: ProtoOAPayloadType | null;
 
   /** ProtoOAUnsubscribeLiveTrendbarReq ctidTraderAccountId */
-  ctidTraderAccountId: number | Long;
+  ctidTraderAccountId: Long;
 
   /** ProtoOAUnsubscribeLiveTrendbarReq period */
   period: ProtoOATrendbarPeriod;
 
   /** ProtoOAUnsubscribeLiveTrendbarReq symbolId */
-  symbolId: number | Long;
+  symbolId: Long;
 }
 
 /** Request for unsubscribing from the live trend bars. */
@@ -6290,22 +3108,13 @@ export class ProtoOAUnsubscribeLiveTrendbarReq
   public payloadType: ProtoOAPayloadType;
 
   /** ProtoOAUnsubscribeLiveTrendbarReq ctidTraderAccountId. */
-  public ctidTraderAccountId: number | Long;
+  public ctidTraderAccountId: Long;
 
   /** ProtoOAUnsubscribeLiveTrendbarReq period. */
   public period: ProtoOATrendbarPeriod;
 
   /** ProtoOAUnsubscribeLiveTrendbarReq symbolId. */
-  public symbolId: number | Long;
-
-  /**
-   * Creates a new ProtoOAUnsubscribeLiveTrendbarReq instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAUnsubscribeLiveTrendbarReq instance
-   */
-  public static create(
-    properties?: IProtoOAUnsubscribeLiveTrendbarReq
-  ): ProtoOAUnsubscribeLiveTrendbarReq;
+  public symbolId: Long;
 
   /**
    * Encodes the specified ProtoOAUnsubscribeLiveTrendbarReq message. Does not implicitly {@link ProtoOAUnsubscribeLiveTrendbarReq.verify|verify} messages.
@@ -6314,17 +3123,6 @@ export class ProtoOAUnsubscribeLiveTrendbarReq
    * @returns Writer
    */
   public static encode(
-    message: IProtoOAUnsubscribeLiveTrendbarReq,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoOAUnsubscribeLiveTrendbarReq message, length delimited. Does not implicitly {@link ProtoOAUnsubscribeLiveTrendbarReq.verify|verify} messages.
-   * @param message ProtoOAUnsubscribeLiveTrendbarReq message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
     message: IProtoOAUnsubscribeLiveTrendbarReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
@@ -6341,50 +3139,6 @@ export class ProtoOAUnsubscribeLiveTrendbarReq
     reader: $protobuf.Reader | Uint8Array,
     length?: number
   ): ProtoOAUnsubscribeLiveTrendbarReq;
-
-  /**
-   * Decodes a ProtoOAUnsubscribeLiveTrendbarReq message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoOAUnsubscribeLiveTrendbarReq
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoOAUnsubscribeLiveTrendbarReq;
-
-  /**
-   * Verifies a ProtoOAUnsubscribeLiveTrendbarReq message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoOAUnsubscribeLiveTrendbarReq message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoOAUnsubscribeLiveTrendbarReq
-   */
-  public static fromObject(object: {
-    [k: string]: any;
-  }): ProtoOAUnsubscribeLiveTrendbarReq;
-
-  /**
-   * Creates a plain object from a ProtoOAUnsubscribeLiveTrendbarReq message. Also converts values to other types if specified.
-   * @param message ProtoOAUnsubscribeLiveTrendbarReq
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoOAUnsubscribeLiveTrendbarReq,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoOAUnsubscribeLiveTrendbarReq to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
 }
 
 /** Properties of a ProtoOAGetTrendbarsReq. */
@@ -6393,19 +3147,19 @@ export interface IProtoOAGetTrendbarsReq {
   payloadType?: ProtoOAPayloadType | null;
 
   /** ProtoOAGetTrendbarsReq ctidTraderAccountId */
-  ctidTraderAccountId: number | Long;
+  ctidTraderAccountId: Long;
 
   /** ProtoOAGetTrendbarsReq fromTimestamp */
-  fromTimestamp: number | Long;
+  fromTimestamp: Long;
 
   /** ProtoOAGetTrendbarsReq toTimestamp */
-  toTimestamp: number | Long;
+  toTimestamp: Long;
 
   /** ProtoOAGetTrendbarsReq period */
   period: ProtoOATrendbarPeriod;
 
   /** ProtoOAGetTrendbarsReq symbolId */
-  symbolId: number | Long;
+  symbolId: Long;
 }
 
 /** Request for getting historical trend bars for the symbol. */
@@ -6420,28 +3174,19 @@ export class ProtoOAGetTrendbarsReq implements IProtoOAGetTrendbarsReq {
   public payloadType: ProtoOAPayloadType;
 
   /** ProtoOAGetTrendbarsReq ctidTraderAccountId. */
-  public ctidTraderAccountId: number | Long;
+  public ctidTraderAccountId: Long;
 
   /** ProtoOAGetTrendbarsReq fromTimestamp. */
-  public fromTimestamp: number | Long;
+  public fromTimestamp: Long;
 
   /** ProtoOAGetTrendbarsReq toTimestamp. */
-  public toTimestamp: number | Long;
+  public toTimestamp: Long;
 
   /** ProtoOAGetTrendbarsReq period. */
   public period: ProtoOATrendbarPeriod;
 
   /** ProtoOAGetTrendbarsReq symbolId. */
-  public symbolId: number | Long;
-
-  /**
-   * Creates a new ProtoOAGetTrendbarsReq instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAGetTrendbarsReq instance
-   */
-  public static create(
-    properties?: IProtoOAGetTrendbarsReq
-  ): ProtoOAGetTrendbarsReq;
+  public symbolId: Long;
 
   /**
    * Encodes the specified ProtoOAGetTrendbarsReq message. Does not implicitly {@link ProtoOAGetTrendbarsReq.verify|verify} messages.
@@ -6450,17 +3195,6 @@ export class ProtoOAGetTrendbarsReq implements IProtoOAGetTrendbarsReq {
    * @returns Writer
    */
   public static encode(
-    message: IProtoOAGetTrendbarsReq,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoOAGetTrendbarsReq message, length delimited. Does not implicitly {@link ProtoOAGetTrendbarsReq.verify|verify} messages.
-   * @param message ProtoOAGetTrendbarsReq message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
     message: IProtoOAGetTrendbarsReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
@@ -6477,50 +3211,6 @@ export class ProtoOAGetTrendbarsReq implements IProtoOAGetTrendbarsReq {
     reader: $protobuf.Reader | Uint8Array,
     length?: number
   ): ProtoOAGetTrendbarsReq;
-
-  /**
-   * Decodes a ProtoOAGetTrendbarsReq message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoOAGetTrendbarsReq
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoOAGetTrendbarsReq;
-
-  /**
-   * Verifies a ProtoOAGetTrendbarsReq message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoOAGetTrendbarsReq message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoOAGetTrendbarsReq
-   */
-  public static fromObject(object: {
-    [k: string]: any;
-  }): ProtoOAGetTrendbarsReq;
-
-  /**
-   * Creates a plain object from a ProtoOAGetTrendbarsReq message. Also converts values to other types if specified.
-   * @param message ProtoOAGetTrendbarsReq
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoOAGetTrendbarsReq,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoOAGetTrendbarsReq to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
 }
 
 /** Properties of a ProtoOAGetTrendbarsRes. */
@@ -6529,19 +3219,19 @@ export interface IProtoOAGetTrendbarsRes {
   payloadType?: ProtoOAPayloadType | null;
 
   /** ProtoOAGetTrendbarsRes ctidTraderAccountId */
-  ctidTraderAccountId: number | Long;
+  ctidTraderAccountId: Long;
 
   /** ProtoOAGetTrendbarsRes period */
   period: ProtoOATrendbarPeriod;
 
   /** ProtoOAGetTrendbarsRes timestamp */
-  timestamp: number | Long;
+  timestamp: Long;
 
   /** ProtoOAGetTrendbarsRes trendbar */
   trendbar?: IProtoOATrendbar[] | null;
 
   /** ProtoOAGetTrendbarsRes symbolId */
-  symbolId?: number | Long | null;
+  symbolId?: Long | null;
 }
 
 /** Response to the ProtoOAGetTrendbarsReq request. */
@@ -6556,28 +3246,19 @@ export class ProtoOAGetTrendbarsRes implements IProtoOAGetTrendbarsRes {
   public payloadType: ProtoOAPayloadType;
 
   /** ProtoOAGetTrendbarsRes ctidTraderAccountId. */
-  public ctidTraderAccountId: number | Long;
+  public ctidTraderAccountId: Long;
 
   /** ProtoOAGetTrendbarsRes period. */
   public period: ProtoOATrendbarPeriod;
 
   /** ProtoOAGetTrendbarsRes timestamp. */
-  public timestamp: number | Long;
+  public timestamp: Long;
 
   /** ProtoOAGetTrendbarsRes trendbar. */
   public trendbar: IProtoOATrendbar[];
 
   /** ProtoOAGetTrendbarsRes symbolId. */
-  public symbolId: number | Long;
-
-  /**
-   * Creates a new ProtoOAGetTrendbarsRes instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAGetTrendbarsRes instance
-   */
-  public static create(
-    properties?: IProtoOAGetTrendbarsRes
-  ): ProtoOAGetTrendbarsRes;
+  public symbolId: Long;
 
   /**
    * Encodes the specified ProtoOAGetTrendbarsRes message. Does not implicitly {@link ProtoOAGetTrendbarsRes.verify|verify} messages.
@@ -6586,17 +3267,6 @@ export class ProtoOAGetTrendbarsRes implements IProtoOAGetTrendbarsRes {
    * @returns Writer
    */
   public static encode(
-    message: IProtoOAGetTrendbarsRes,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoOAGetTrendbarsRes message, length delimited. Does not implicitly {@link ProtoOAGetTrendbarsRes.verify|verify} messages.
-   * @param message ProtoOAGetTrendbarsRes message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
     message: IProtoOAGetTrendbarsRes,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
@@ -6613,50 +3283,6 @@ export class ProtoOAGetTrendbarsRes implements IProtoOAGetTrendbarsRes {
     reader: $protobuf.Reader | Uint8Array,
     length?: number
   ): ProtoOAGetTrendbarsRes;
-
-  /**
-   * Decodes a ProtoOAGetTrendbarsRes message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoOAGetTrendbarsRes
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoOAGetTrendbarsRes;
-
-  /**
-   * Verifies a ProtoOAGetTrendbarsRes message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoOAGetTrendbarsRes message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoOAGetTrendbarsRes
-   */
-  public static fromObject(object: {
-    [k: string]: any;
-  }): ProtoOAGetTrendbarsRes;
-
-  /**
-   * Creates a plain object from a ProtoOAGetTrendbarsRes message. Also converts values to other types if specified.
-   * @param message ProtoOAGetTrendbarsRes
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoOAGetTrendbarsRes,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoOAGetTrendbarsRes to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
 }
 
 /** Properties of a ProtoOAGetTickDataReq. */
@@ -6665,19 +3291,19 @@ export interface IProtoOAGetTickDataReq {
   payloadType?: ProtoOAPayloadType | null;
 
   /** ProtoOAGetTickDataReq ctidTraderAccountId */
-  ctidTraderAccountId: number | Long;
+  ctidTraderAccountId: Long;
 
   /** ProtoOAGetTickDataReq symbolId */
-  symbolId: number | Long;
+  symbolId: Long;
 
   /** ProtoOAGetTickDataReq type */
   type: ProtoOAQuoteType;
 
   /** ProtoOAGetTickDataReq fromTimestamp */
-  fromTimestamp: number | Long;
+  fromTimestamp: Long;
 
   /** ProtoOAGetTickDataReq toTimestamp */
-  toTimestamp: number | Long;
+  toTimestamp: Long;
 }
 
 /** Request for getting historical tick data for the symbol. */
@@ -6692,28 +3318,19 @@ export class ProtoOAGetTickDataReq implements IProtoOAGetTickDataReq {
   public payloadType: ProtoOAPayloadType;
 
   /** ProtoOAGetTickDataReq ctidTraderAccountId. */
-  public ctidTraderAccountId: number | Long;
+  public ctidTraderAccountId: Long;
 
   /** ProtoOAGetTickDataReq symbolId. */
-  public symbolId: number | Long;
+  public symbolId: Long;
 
   /** ProtoOAGetTickDataReq type. */
   public type: ProtoOAQuoteType;
 
   /** ProtoOAGetTickDataReq fromTimestamp. */
-  public fromTimestamp: number | Long;
+  public fromTimestamp: Long;
 
   /** ProtoOAGetTickDataReq toTimestamp. */
-  public toTimestamp: number | Long;
-
-  /**
-   * Creates a new ProtoOAGetTickDataReq instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAGetTickDataReq instance
-   */
-  public static create(
-    properties?: IProtoOAGetTickDataReq
-  ): ProtoOAGetTickDataReq;
+  public toTimestamp: Long;
 
   /**
    * Encodes the specified ProtoOAGetTickDataReq message. Does not implicitly {@link ProtoOAGetTickDataReq.verify|verify} messages.
@@ -6722,17 +3339,6 @@ export class ProtoOAGetTickDataReq implements IProtoOAGetTickDataReq {
    * @returns Writer
    */
   public static encode(
-    message: IProtoOAGetTickDataReq,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoOAGetTickDataReq message, length delimited. Does not implicitly {@link ProtoOAGetTickDataReq.verify|verify} messages.
-   * @param message ProtoOAGetTickDataReq message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
     message: IProtoOAGetTickDataReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
@@ -6749,48 +3355,6 @@ export class ProtoOAGetTickDataReq implements IProtoOAGetTickDataReq {
     reader: $protobuf.Reader | Uint8Array,
     length?: number
   ): ProtoOAGetTickDataReq;
-
-  /**
-   * Decodes a ProtoOAGetTickDataReq message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoOAGetTickDataReq
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoOAGetTickDataReq;
-
-  /**
-   * Verifies a ProtoOAGetTickDataReq message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoOAGetTickDataReq message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoOAGetTickDataReq
-   */
-  public static fromObject(object: { [k: string]: any }): ProtoOAGetTickDataReq;
-
-  /**
-   * Creates a plain object from a ProtoOAGetTickDataReq message. Also converts values to other types if specified.
-   * @param message ProtoOAGetTickDataReq
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoOAGetTickDataReq,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoOAGetTickDataReq to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
 }
 
 /** Properties of a ProtoOAGetTickDataRes. */
@@ -6799,7 +3363,7 @@ export interface IProtoOAGetTickDataRes {
   payloadType?: ProtoOAPayloadType | null;
 
   /** ProtoOAGetTickDataRes ctidTraderAccountId */
-  ctidTraderAccountId: number | Long;
+  ctidTraderAccountId: Long;
 
   /** ProtoOAGetTickDataRes tickData */
   tickData?: IProtoOATickData[] | null;
@@ -6820,7 +3384,7 @@ export class ProtoOAGetTickDataRes implements IProtoOAGetTickDataRes {
   public payloadType: ProtoOAPayloadType;
 
   /** ProtoOAGetTickDataRes ctidTraderAccountId. */
-  public ctidTraderAccountId: number | Long;
+  public ctidTraderAccountId: Long;
 
   /** ProtoOAGetTickDataRes tickData. */
   public tickData: IProtoOATickData[];
@@ -6829,32 +3393,12 @@ export class ProtoOAGetTickDataRes implements IProtoOAGetTickDataRes {
   public hasMore: boolean;
 
   /**
-   * Creates a new ProtoOAGetTickDataRes instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAGetTickDataRes instance
-   */
-  public static create(
-    properties?: IProtoOAGetTickDataRes
-  ): ProtoOAGetTickDataRes;
-
-  /**
    * Encodes the specified ProtoOAGetTickDataRes message. Does not implicitly {@link ProtoOAGetTickDataRes.verify|verify} messages.
    * @param message ProtoOAGetTickDataRes message or plain object to encode
    * @param [writer] Writer to encode to
    * @returns Writer
    */
   public static encode(
-    message: IProtoOAGetTickDataRes,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoOAGetTickDataRes message, length delimited. Does not implicitly {@link ProtoOAGetTickDataRes.verify|verify} messages.
-   * @param message ProtoOAGetTickDataRes message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
     message: IProtoOAGetTickDataRes,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
@@ -6871,48 +3415,6 @@ export class ProtoOAGetTickDataRes implements IProtoOAGetTickDataRes {
     reader: $protobuf.Reader | Uint8Array,
     length?: number
   ): ProtoOAGetTickDataRes;
-
-  /**
-   * Decodes a ProtoOAGetTickDataRes message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoOAGetTickDataRes
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoOAGetTickDataRes;
-
-  /**
-   * Verifies a ProtoOAGetTickDataRes message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoOAGetTickDataRes message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoOAGetTickDataRes
-   */
-  public static fromObject(object: { [k: string]: any }): ProtoOAGetTickDataRes;
-
-  /**
-   * Creates a plain object from a ProtoOAGetTickDataRes message. Also converts values to other types if specified.
-   * @param message ProtoOAGetTickDataRes
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoOAGetTickDataRes,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoOAGetTickDataRes to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
 }
 
 /** Properties of a ProtoOAGetCtidProfileByTokenReq. */
@@ -6940,32 +3442,12 @@ export class ProtoOAGetCtidProfileByTokenReq
   public accessToken: string;
 
   /**
-   * Creates a new ProtoOAGetCtidProfileByTokenReq instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAGetCtidProfileByTokenReq instance
-   */
-  public static create(
-    properties?: IProtoOAGetCtidProfileByTokenReq
-  ): ProtoOAGetCtidProfileByTokenReq;
-
-  /**
    * Encodes the specified ProtoOAGetCtidProfileByTokenReq message. Does not implicitly {@link ProtoOAGetCtidProfileByTokenReq.verify|verify} messages.
    * @param message ProtoOAGetCtidProfileByTokenReq message or plain object to encode
    * @param [writer] Writer to encode to
    * @returns Writer
    */
   public static encode(
-    message: IProtoOAGetCtidProfileByTokenReq,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoOAGetCtidProfileByTokenReq message, length delimited. Does not implicitly {@link ProtoOAGetCtidProfileByTokenReq.verify|verify} messages.
-   * @param message ProtoOAGetCtidProfileByTokenReq message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
     message: IProtoOAGetCtidProfileByTokenReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
@@ -6982,50 +3464,6 @@ export class ProtoOAGetCtidProfileByTokenReq
     reader: $protobuf.Reader | Uint8Array,
     length?: number
   ): ProtoOAGetCtidProfileByTokenReq;
-
-  /**
-   * Decodes a ProtoOAGetCtidProfileByTokenReq message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoOAGetCtidProfileByTokenReq
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoOAGetCtidProfileByTokenReq;
-
-  /**
-   * Verifies a ProtoOAGetCtidProfileByTokenReq message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoOAGetCtidProfileByTokenReq message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoOAGetCtidProfileByTokenReq
-   */
-  public static fromObject(object: {
-    [k: string]: any;
-  }): ProtoOAGetCtidProfileByTokenReq;
-
-  /**
-   * Creates a plain object from a ProtoOAGetCtidProfileByTokenReq message. Also converts values to other types if specified.
-   * @param message ProtoOAGetCtidProfileByTokenReq
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoOAGetCtidProfileByTokenReq,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoOAGetCtidProfileByTokenReq to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
 }
 
 /** Properties of a ProtoOAGetCtidProfileByTokenRes. */
@@ -7053,32 +3491,12 @@ export class ProtoOAGetCtidProfileByTokenRes
   public profile: IProtoOACtidProfile;
 
   /**
-   * Creates a new ProtoOAGetCtidProfileByTokenRes instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAGetCtidProfileByTokenRes instance
-   */
-  public static create(
-    properties?: IProtoOAGetCtidProfileByTokenRes
-  ): ProtoOAGetCtidProfileByTokenRes;
-
-  /**
    * Encodes the specified ProtoOAGetCtidProfileByTokenRes message. Does not implicitly {@link ProtoOAGetCtidProfileByTokenRes.verify|verify} messages.
    * @param message ProtoOAGetCtidProfileByTokenRes message or plain object to encode
    * @param [writer] Writer to encode to
    * @returns Writer
    */
   public static encode(
-    message: IProtoOAGetCtidProfileByTokenRes,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoOAGetCtidProfileByTokenRes message, length delimited. Does not implicitly {@link ProtoOAGetCtidProfileByTokenRes.verify|verify} messages.
-   * @param message ProtoOAGetCtidProfileByTokenRes message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
     message: IProtoOAGetCtidProfileByTokenRes,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
@@ -7095,50 +3513,6 @@ export class ProtoOAGetCtidProfileByTokenRes
     reader: $protobuf.Reader | Uint8Array,
     length?: number
   ): ProtoOAGetCtidProfileByTokenRes;
-
-  /**
-   * Decodes a ProtoOAGetCtidProfileByTokenRes message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoOAGetCtidProfileByTokenRes
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoOAGetCtidProfileByTokenRes;
-
-  /**
-   * Verifies a ProtoOAGetCtidProfileByTokenRes message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoOAGetCtidProfileByTokenRes message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoOAGetCtidProfileByTokenRes
-   */
-  public static fromObject(object: {
-    [k: string]: any;
-  }): ProtoOAGetCtidProfileByTokenRes;
-
-  /**
-   * Creates a plain object from a ProtoOAGetCtidProfileByTokenRes message. Also converts values to other types if specified.
-   * @param message ProtoOAGetCtidProfileByTokenRes
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoOAGetCtidProfileByTokenRes,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoOAGetCtidProfileByTokenRes to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
 }
 
 /** Properties of a ProtoOADepthEvent. */
@@ -7147,16 +3521,16 @@ export interface IProtoOADepthEvent {
   payloadType?: ProtoOAPayloadType | null;
 
   /** ProtoOADepthEvent ctidTraderAccountId */
-  ctidTraderAccountId: number | Long;
+  ctidTraderAccountId: Long;
 
   /** ProtoOADepthEvent symbolId */
-  symbolId: number | Long;
+  symbolId: Long;
 
   /** ProtoOADepthEvent newQuotes */
   newQuotes?: IProtoOADepthQuote[] | null;
 
   /** ProtoOADepthEvent deletedQuotes */
-  deletedQuotes?: (number | Long)[] | null;
+  deletedQuotes?: Long[] | null;
 }
 
 /** Event that is sent when the structure of depth of market is changed. Requires subscription on the depth of markets for the symbol, see ProtoOASubscribeDepthQuotesReq. */
@@ -7171,23 +3545,16 @@ export class ProtoOADepthEvent implements IProtoOADepthEvent {
   public payloadType: ProtoOAPayloadType;
 
   /** ProtoOADepthEvent ctidTraderAccountId. */
-  public ctidTraderAccountId: number | Long;
+  public ctidTraderAccountId: Long;
 
   /** ProtoOADepthEvent symbolId. */
-  public symbolId: number | Long;
+  public symbolId: Long;
 
   /** ProtoOADepthEvent newQuotes. */
   public newQuotes: IProtoOADepthQuote[];
 
   /** ProtoOADepthEvent deletedQuotes. */
-  public deletedQuotes: (number | Long)[];
-
-  /**
-   * Creates a new ProtoOADepthEvent instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOADepthEvent instance
-   */
-  public static create(properties?: IProtoOADepthEvent): ProtoOADepthEvent;
+  public deletedQuotes: Long[];
 
   /**
    * Encodes the specified ProtoOADepthEvent message. Does not implicitly {@link ProtoOADepthEvent.verify|verify} messages.
@@ -7196,17 +3563,6 @@ export class ProtoOADepthEvent implements IProtoOADepthEvent {
    * @returns Writer
    */
   public static encode(
-    message: IProtoOADepthEvent,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoOADepthEvent message, length delimited. Does not implicitly {@link ProtoOADepthEvent.verify|verify} messages.
-   * @param message ProtoOADepthEvent message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
     message: IProtoOADepthEvent,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
@@ -7223,48 +3579,6 @@ export class ProtoOADepthEvent implements IProtoOADepthEvent {
     reader: $protobuf.Reader | Uint8Array,
     length?: number
   ): ProtoOADepthEvent;
-
-  /**
-   * Decodes a ProtoOADepthEvent message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoOADepthEvent
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoOADepthEvent;
-
-  /**
-   * Verifies a ProtoOADepthEvent message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoOADepthEvent message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoOADepthEvent
-   */
-  public static fromObject(object: { [k: string]: any }): ProtoOADepthEvent;
-
-  /**
-   * Creates a plain object from a ProtoOADepthEvent message. Also converts values to other types if specified.
-   * @param message ProtoOADepthEvent
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoOADepthEvent,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoOADepthEvent to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
 }
 
 /** Properties of a ProtoOASubscribeDepthQuotesReq. */
@@ -7273,10 +3587,10 @@ export interface IProtoOASubscribeDepthQuotesReq {
   payloadType?: ProtoOAPayloadType | null;
 
   /** ProtoOASubscribeDepthQuotesReq ctidTraderAccountId */
-  ctidTraderAccountId: number | Long;
+  ctidTraderAccountId: Long;
 
   /** ProtoOASubscribeDepthQuotesReq symbolId */
-  symbolId?: (number | Long)[] | null;
+  symbolId?: Long[] | null;
 }
 
 /** Request for subscribing on depth of market of the specified symbol. */
@@ -7292,19 +3606,10 @@ export class ProtoOASubscribeDepthQuotesReq
   public payloadType: ProtoOAPayloadType;
 
   /** ProtoOASubscribeDepthQuotesReq ctidTraderAccountId. */
-  public ctidTraderAccountId: number | Long;
+  public ctidTraderAccountId: Long;
 
   /** ProtoOASubscribeDepthQuotesReq symbolId. */
-  public symbolId: (number | Long)[];
-
-  /**
-   * Creates a new ProtoOASubscribeDepthQuotesReq instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOASubscribeDepthQuotesReq instance
-   */
-  public static create(
-    properties?: IProtoOASubscribeDepthQuotesReq
-  ): ProtoOASubscribeDepthQuotesReq;
+  public symbolId: Long[];
 
   /**
    * Encodes the specified ProtoOASubscribeDepthQuotesReq message. Does not implicitly {@link ProtoOASubscribeDepthQuotesReq.verify|verify} messages.
@@ -7313,17 +3618,6 @@ export class ProtoOASubscribeDepthQuotesReq
    * @returns Writer
    */
   public static encode(
-    message: IProtoOASubscribeDepthQuotesReq,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoOASubscribeDepthQuotesReq message, length delimited. Does not implicitly {@link ProtoOASubscribeDepthQuotesReq.verify|verify} messages.
-   * @param message ProtoOASubscribeDepthQuotesReq message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
     message: IProtoOASubscribeDepthQuotesReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
@@ -7340,50 +3634,6 @@ export class ProtoOASubscribeDepthQuotesReq
     reader: $protobuf.Reader | Uint8Array,
     length?: number
   ): ProtoOASubscribeDepthQuotesReq;
-
-  /**
-   * Decodes a ProtoOASubscribeDepthQuotesReq message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoOASubscribeDepthQuotesReq
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoOASubscribeDepthQuotesReq;
-
-  /**
-   * Verifies a ProtoOASubscribeDepthQuotesReq message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoOASubscribeDepthQuotesReq message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoOASubscribeDepthQuotesReq
-   */
-  public static fromObject(object: {
-    [k: string]: any;
-  }): ProtoOASubscribeDepthQuotesReq;
-
-  /**
-   * Creates a plain object from a ProtoOASubscribeDepthQuotesReq message. Also converts values to other types if specified.
-   * @param message ProtoOASubscribeDepthQuotesReq
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoOASubscribeDepthQuotesReq,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoOASubscribeDepthQuotesReq to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
 }
 
 /** Properties of a ProtoOASubscribeDepthQuotesRes. */
@@ -7392,7 +3642,7 @@ export interface IProtoOASubscribeDepthQuotesRes {
   payloadType?: ProtoOAPayloadType | null;
 
   /** ProtoOASubscribeDepthQuotesRes ctidTraderAccountId */
-  ctidTraderAccountId: number | Long;
+  ctidTraderAccountId: Long;
 }
 
 /** Response to the ProtoOASubscribeDepthQuotesReq request. */
@@ -7408,16 +3658,7 @@ export class ProtoOASubscribeDepthQuotesRes
   public payloadType: ProtoOAPayloadType;
 
   /** ProtoOASubscribeDepthQuotesRes ctidTraderAccountId. */
-  public ctidTraderAccountId: number | Long;
-
-  /**
-   * Creates a new ProtoOASubscribeDepthQuotesRes instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOASubscribeDepthQuotesRes instance
-   */
-  public static create(
-    properties?: IProtoOASubscribeDepthQuotesRes
-  ): ProtoOASubscribeDepthQuotesRes;
+  public ctidTraderAccountId: Long;
 
   /**
    * Encodes the specified ProtoOASubscribeDepthQuotesRes message. Does not implicitly {@link ProtoOASubscribeDepthQuotesRes.verify|verify} messages.
@@ -7426,17 +3667,6 @@ export class ProtoOASubscribeDepthQuotesRes
    * @returns Writer
    */
   public static encode(
-    message: IProtoOASubscribeDepthQuotesRes,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoOASubscribeDepthQuotesRes message, length delimited. Does not implicitly {@link ProtoOASubscribeDepthQuotesRes.verify|verify} messages.
-   * @param message ProtoOASubscribeDepthQuotesRes message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
     message: IProtoOASubscribeDepthQuotesRes,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
@@ -7453,50 +3683,6 @@ export class ProtoOASubscribeDepthQuotesRes
     reader: $protobuf.Reader | Uint8Array,
     length?: number
   ): ProtoOASubscribeDepthQuotesRes;
-
-  /**
-   * Decodes a ProtoOASubscribeDepthQuotesRes message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoOASubscribeDepthQuotesRes
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoOASubscribeDepthQuotesRes;
-
-  /**
-   * Verifies a ProtoOASubscribeDepthQuotesRes message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoOASubscribeDepthQuotesRes message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoOASubscribeDepthQuotesRes
-   */
-  public static fromObject(object: {
-    [k: string]: any;
-  }): ProtoOASubscribeDepthQuotesRes;
-
-  /**
-   * Creates a plain object from a ProtoOASubscribeDepthQuotesRes message. Also converts values to other types if specified.
-   * @param message ProtoOASubscribeDepthQuotesRes
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoOASubscribeDepthQuotesRes,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoOASubscribeDepthQuotesRes to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
 }
 
 /** Properties of a ProtoOAUnsubscribeDepthQuotesReq. */
@@ -7505,10 +3691,10 @@ export interface IProtoOAUnsubscribeDepthQuotesReq {
   payloadType?: ProtoOAPayloadType | null;
 
   /** ProtoOAUnsubscribeDepthQuotesReq ctidTraderAccountId */
-  ctidTraderAccountId: number | Long;
+  ctidTraderAccountId: Long;
 
   /** ProtoOAUnsubscribeDepthQuotesReq symbolId */
-  symbolId?: (number | Long)[] | null;
+  symbolId?: Long[] | null;
 }
 
 /** Request for unsubscribing from the depth of market of the specified symbol. */
@@ -7524,19 +3710,10 @@ export class ProtoOAUnsubscribeDepthQuotesReq
   public payloadType: ProtoOAPayloadType;
 
   /** ProtoOAUnsubscribeDepthQuotesReq ctidTraderAccountId. */
-  public ctidTraderAccountId: number | Long;
+  public ctidTraderAccountId: Long;
 
   /** ProtoOAUnsubscribeDepthQuotesReq symbolId. */
-  public symbolId: (number | Long)[];
-
-  /**
-   * Creates a new ProtoOAUnsubscribeDepthQuotesReq instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAUnsubscribeDepthQuotesReq instance
-   */
-  public static create(
-    properties?: IProtoOAUnsubscribeDepthQuotesReq
-  ): ProtoOAUnsubscribeDepthQuotesReq;
+  public symbolId: Long[];
 
   /**
    * Encodes the specified ProtoOAUnsubscribeDepthQuotesReq message. Does not implicitly {@link ProtoOAUnsubscribeDepthQuotesReq.verify|verify} messages.
@@ -7545,17 +3722,6 @@ export class ProtoOAUnsubscribeDepthQuotesReq
    * @returns Writer
    */
   public static encode(
-    message: IProtoOAUnsubscribeDepthQuotesReq,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoOAUnsubscribeDepthQuotesReq message, length delimited. Does not implicitly {@link ProtoOAUnsubscribeDepthQuotesReq.verify|verify} messages.
-   * @param message ProtoOAUnsubscribeDepthQuotesReq message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
     message: IProtoOAUnsubscribeDepthQuotesReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
@@ -7572,50 +3738,6 @@ export class ProtoOAUnsubscribeDepthQuotesReq
     reader: $protobuf.Reader | Uint8Array,
     length?: number
   ): ProtoOAUnsubscribeDepthQuotesReq;
-
-  /**
-   * Decodes a ProtoOAUnsubscribeDepthQuotesReq message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoOAUnsubscribeDepthQuotesReq
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoOAUnsubscribeDepthQuotesReq;
-
-  /**
-   * Verifies a ProtoOAUnsubscribeDepthQuotesReq message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoOAUnsubscribeDepthQuotesReq message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoOAUnsubscribeDepthQuotesReq
-   */
-  public static fromObject(object: {
-    [k: string]: any;
-  }): ProtoOAUnsubscribeDepthQuotesReq;
-
-  /**
-   * Creates a plain object from a ProtoOAUnsubscribeDepthQuotesReq message. Also converts values to other types if specified.
-   * @param message ProtoOAUnsubscribeDepthQuotesReq
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoOAUnsubscribeDepthQuotesReq,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoOAUnsubscribeDepthQuotesReq to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
 }
 
 /** Properties of a ProtoOAUnsubscribeDepthQuotesRes. */
@@ -7624,7 +3746,7 @@ export interface IProtoOAUnsubscribeDepthQuotesRes {
   payloadType?: ProtoOAPayloadType | null;
 
   /** ProtoOAUnsubscribeDepthQuotesRes ctidTraderAccountId */
-  ctidTraderAccountId: number | Long;
+  ctidTraderAccountId: Long;
 }
 
 /** Response to the ProtoOAUnsubscribeDepthQuotesReq request. */
@@ -7640,16 +3762,7 @@ export class ProtoOAUnsubscribeDepthQuotesRes
   public payloadType: ProtoOAPayloadType;
 
   /** ProtoOAUnsubscribeDepthQuotesRes ctidTraderAccountId. */
-  public ctidTraderAccountId: number | Long;
-
-  /**
-   * Creates a new ProtoOAUnsubscribeDepthQuotesRes instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAUnsubscribeDepthQuotesRes instance
-   */
-  public static create(
-    properties?: IProtoOAUnsubscribeDepthQuotesRes
-  ): ProtoOAUnsubscribeDepthQuotesRes;
+  public ctidTraderAccountId: Long;
 
   /**
    * Encodes the specified ProtoOAUnsubscribeDepthQuotesRes message. Does not implicitly {@link ProtoOAUnsubscribeDepthQuotesRes.verify|verify} messages.
@@ -7658,17 +3771,6 @@ export class ProtoOAUnsubscribeDepthQuotesRes
    * @returns Writer
    */
   public static encode(
-    message: IProtoOAUnsubscribeDepthQuotesRes,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoOAUnsubscribeDepthQuotesRes message, length delimited. Does not implicitly {@link ProtoOAUnsubscribeDepthQuotesRes.verify|verify} messages.
-   * @param message ProtoOAUnsubscribeDepthQuotesRes message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
     message: IProtoOAUnsubscribeDepthQuotesRes,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
@@ -7685,50 +3787,6 @@ export class ProtoOAUnsubscribeDepthQuotesRes
     reader: $protobuf.Reader | Uint8Array,
     length?: number
   ): ProtoOAUnsubscribeDepthQuotesRes;
-
-  /**
-   * Decodes a ProtoOAUnsubscribeDepthQuotesRes message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoOAUnsubscribeDepthQuotesRes
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoOAUnsubscribeDepthQuotesRes;
-
-  /**
-   * Verifies a ProtoOAUnsubscribeDepthQuotesRes message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoOAUnsubscribeDepthQuotesRes message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoOAUnsubscribeDepthQuotesRes
-   */
-  public static fromObject(object: {
-    [k: string]: any;
-  }): ProtoOAUnsubscribeDepthQuotesRes;
-
-  /**
-   * Creates a plain object from a ProtoOAUnsubscribeDepthQuotesRes message. Also converts values to other types if specified.
-   * @param message ProtoOAUnsubscribeDepthQuotesRes
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoOAUnsubscribeDepthQuotesRes,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoOAUnsubscribeDepthQuotesRes to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
 }
 
 /** Properties of a ProtoOASymbolCategoryListReq. */
@@ -7737,7 +3795,7 @@ export interface IProtoOASymbolCategoryListReq {
   payloadType?: ProtoOAPayloadType | null;
 
   /** ProtoOASymbolCategoryListReq ctidTraderAccountId */
-  ctidTraderAccountId: number | Long;
+  ctidTraderAccountId: Long;
 }
 
 /** Request for a list of symbol categories available for a trading account. */
@@ -7753,16 +3811,7 @@ export class ProtoOASymbolCategoryListReq
   public payloadType: ProtoOAPayloadType;
 
   /** ProtoOASymbolCategoryListReq ctidTraderAccountId. */
-  public ctidTraderAccountId: number | Long;
-
-  /**
-   * Creates a new ProtoOASymbolCategoryListReq instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOASymbolCategoryListReq instance
-   */
-  public static create(
-    properties?: IProtoOASymbolCategoryListReq
-  ): ProtoOASymbolCategoryListReq;
+  public ctidTraderAccountId: Long;
 
   /**
    * Encodes the specified ProtoOASymbolCategoryListReq message. Does not implicitly {@link ProtoOASymbolCategoryListReq.verify|verify} messages.
@@ -7771,17 +3820,6 @@ export class ProtoOASymbolCategoryListReq
    * @returns Writer
    */
   public static encode(
-    message: IProtoOASymbolCategoryListReq,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoOASymbolCategoryListReq message, length delimited. Does not implicitly {@link ProtoOASymbolCategoryListReq.verify|verify} messages.
-   * @param message ProtoOASymbolCategoryListReq message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
     message: IProtoOASymbolCategoryListReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
@@ -7798,50 +3836,6 @@ export class ProtoOASymbolCategoryListReq
     reader: $protobuf.Reader | Uint8Array,
     length?: number
   ): ProtoOASymbolCategoryListReq;
-
-  /**
-   * Decodes a ProtoOASymbolCategoryListReq message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoOASymbolCategoryListReq
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoOASymbolCategoryListReq;
-
-  /**
-   * Verifies a ProtoOASymbolCategoryListReq message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoOASymbolCategoryListReq message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoOASymbolCategoryListReq
-   */
-  public static fromObject(object: {
-    [k: string]: any;
-  }): ProtoOASymbolCategoryListReq;
-
-  /**
-   * Creates a plain object from a ProtoOASymbolCategoryListReq message. Also converts values to other types if specified.
-   * @param message ProtoOASymbolCategoryListReq
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoOASymbolCategoryListReq,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoOASymbolCategoryListReq to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
 }
 
 /** Properties of a ProtoOASymbolCategoryListRes. */
@@ -7850,7 +3844,7 @@ export interface IProtoOASymbolCategoryListRes {
   payloadType?: ProtoOAPayloadType | null;
 
   /** ProtoOASymbolCategoryListRes ctidTraderAccountId */
-  ctidTraderAccountId: number | Long;
+  ctidTraderAccountId: Long;
 
   /** ProtoOASymbolCategoryListRes symbolCategory */
   symbolCategory?: IProtoOASymbolCategory[] | null;
@@ -7869,19 +3863,10 @@ export class ProtoOASymbolCategoryListRes
   public payloadType: ProtoOAPayloadType;
 
   /** ProtoOASymbolCategoryListRes ctidTraderAccountId. */
-  public ctidTraderAccountId: number | Long;
+  public ctidTraderAccountId: Long;
 
   /** ProtoOASymbolCategoryListRes symbolCategory. */
   public symbolCategory: IProtoOASymbolCategory[];
-
-  /**
-   * Creates a new ProtoOASymbolCategoryListRes instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOASymbolCategoryListRes instance
-   */
-  public static create(
-    properties?: IProtoOASymbolCategoryListRes
-  ): ProtoOASymbolCategoryListRes;
 
   /**
    * Encodes the specified ProtoOASymbolCategoryListRes message. Does not implicitly {@link ProtoOASymbolCategoryListRes.verify|verify} messages.
@@ -7890,17 +3875,6 @@ export class ProtoOASymbolCategoryListRes
    * @returns Writer
    */
   public static encode(
-    message: IProtoOASymbolCategoryListRes,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoOASymbolCategoryListRes message, length delimited. Does not implicitly {@link ProtoOASymbolCategoryListRes.verify|verify} messages.
-   * @param message ProtoOASymbolCategoryListRes message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
     message: IProtoOASymbolCategoryListRes,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
@@ -7917,50 +3891,6 @@ export class ProtoOASymbolCategoryListRes
     reader: $protobuf.Reader | Uint8Array,
     length?: number
   ): ProtoOASymbolCategoryListRes;
-
-  /**
-   * Decodes a ProtoOASymbolCategoryListRes message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoOASymbolCategoryListRes
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoOASymbolCategoryListRes;
-
-  /**
-   * Verifies a ProtoOASymbolCategoryListRes message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoOASymbolCategoryListRes message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoOASymbolCategoryListRes
-   */
-  public static fromObject(object: {
-    [k: string]: any;
-  }): ProtoOASymbolCategoryListRes;
-
-  /**
-   * Creates a plain object from a ProtoOASymbolCategoryListRes message. Also converts values to other types if specified.
-   * @param message ProtoOASymbolCategoryListRes
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoOASymbolCategoryListRes,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoOASymbolCategoryListRes to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
 }
 
 /** Properties of a ProtoOAAccountLogoutReq. */
@@ -7969,7 +3899,7 @@ export interface IProtoOAAccountLogoutReq {
   payloadType?: ProtoOAPayloadType | null;
 
   /** ProtoOAAccountLogoutReq ctidTraderAccountId */
-  ctidTraderAccountId: number | Long;
+  ctidTraderAccountId: Long;
 }
 
 /** Request for logout of  trading account session. */
@@ -7984,16 +3914,7 @@ export class ProtoOAAccountLogoutReq implements IProtoOAAccountLogoutReq {
   public payloadType: ProtoOAPayloadType;
 
   /** ProtoOAAccountLogoutReq ctidTraderAccountId. */
-  public ctidTraderAccountId: number | Long;
-
-  /**
-   * Creates a new ProtoOAAccountLogoutReq instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAAccountLogoutReq instance
-   */
-  public static create(
-    properties?: IProtoOAAccountLogoutReq
-  ): ProtoOAAccountLogoutReq;
+  public ctidTraderAccountId: Long;
 
   /**
    * Encodes the specified ProtoOAAccountLogoutReq message. Does not implicitly {@link ProtoOAAccountLogoutReq.verify|verify} messages.
@@ -8002,17 +3923,6 @@ export class ProtoOAAccountLogoutReq implements IProtoOAAccountLogoutReq {
    * @returns Writer
    */
   public static encode(
-    message: IProtoOAAccountLogoutReq,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoOAAccountLogoutReq message, length delimited. Does not implicitly {@link ProtoOAAccountLogoutReq.verify|verify} messages.
-   * @param message ProtoOAAccountLogoutReq message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
     message: IProtoOAAccountLogoutReq,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
@@ -8029,50 +3939,6 @@ export class ProtoOAAccountLogoutReq implements IProtoOAAccountLogoutReq {
     reader: $protobuf.Reader | Uint8Array,
     length?: number
   ): ProtoOAAccountLogoutReq;
-
-  /**
-   * Decodes a ProtoOAAccountLogoutReq message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoOAAccountLogoutReq
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoOAAccountLogoutReq;
-
-  /**
-   * Verifies a ProtoOAAccountLogoutReq message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoOAAccountLogoutReq message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoOAAccountLogoutReq
-   */
-  public static fromObject(object: {
-    [k: string]: any;
-  }): ProtoOAAccountLogoutReq;
-
-  /**
-   * Creates a plain object from a ProtoOAAccountLogoutReq message. Also converts values to other types if specified.
-   * @param message ProtoOAAccountLogoutReq
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoOAAccountLogoutReq,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoOAAccountLogoutReq to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
 }
 
 /** Properties of a ProtoOAAccountLogoutRes. */
@@ -8081,7 +3947,7 @@ export interface IProtoOAAccountLogoutRes {
   payloadType?: ProtoOAPayloadType | null;
 
   /** ProtoOAAccountLogoutRes ctidTraderAccountId */
-  ctidTraderAccountId: number | Long;
+  ctidTraderAccountId: Long;
 }
 
 /** Response to the ProtoOATraderLogoutReq request. */
@@ -8096,16 +3962,7 @@ export class ProtoOAAccountLogoutRes implements IProtoOAAccountLogoutRes {
   public payloadType: ProtoOAPayloadType;
 
   /** ProtoOAAccountLogoutRes ctidTraderAccountId. */
-  public ctidTraderAccountId: number | Long;
-
-  /**
-   * Creates a new ProtoOAAccountLogoutRes instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAAccountLogoutRes instance
-   */
-  public static create(
-    properties?: IProtoOAAccountLogoutRes
-  ): ProtoOAAccountLogoutRes;
+  public ctidTraderAccountId: Long;
 
   /**
    * Encodes the specified ProtoOAAccountLogoutRes message. Does not implicitly {@link ProtoOAAccountLogoutRes.verify|verify} messages.
@@ -8114,17 +3971,6 @@ export class ProtoOAAccountLogoutRes implements IProtoOAAccountLogoutRes {
    * @returns Writer
    */
   public static encode(
-    message: IProtoOAAccountLogoutRes,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoOAAccountLogoutRes message, length delimited. Does not implicitly {@link ProtoOAAccountLogoutRes.verify|verify} messages.
-   * @param message ProtoOAAccountLogoutRes message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
     message: IProtoOAAccountLogoutRes,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
@@ -8141,50 +3987,6 @@ export class ProtoOAAccountLogoutRes implements IProtoOAAccountLogoutRes {
     reader: $protobuf.Reader | Uint8Array,
     length?: number
   ): ProtoOAAccountLogoutRes;
-
-  /**
-   * Decodes a ProtoOAAccountLogoutRes message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoOAAccountLogoutRes
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoOAAccountLogoutRes;
-
-  /**
-   * Verifies a ProtoOAAccountLogoutRes message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoOAAccountLogoutRes message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoOAAccountLogoutRes
-   */
-  public static fromObject(object: {
-    [k: string]: any;
-  }): ProtoOAAccountLogoutRes;
-
-  /**
-   * Creates a plain object from a ProtoOAAccountLogoutRes message. Also converts values to other types if specified.
-   * @param message ProtoOAAccountLogoutRes
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoOAAccountLogoutRes,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoOAAccountLogoutRes to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
 }
 
 /** Properties of a ProtoOAAccountDisconnectEvent. */
@@ -8193,7 +3995,7 @@ export interface IProtoOAAccountDisconnectEvent {
   payloadType?: ProtoOAPayloadType | null;
 
   /** ProtoOAAccountDisconnectEvent ctidTraderAccountId */
-  ctidTraderAccountId: number | Long;
+  ctidTraderAccountId: Long;
 }
 
 /**
@@ -8212,16 +4014,7 @@ export class ProtoOAAccountDisconnectEvent
   public payloadType: ProtoOAPayloadType;
 
   /** ProtoOAAccountDisconnectEvent ctidTraderAccountId. */
-  public ctidTraderAccountId: number | Long;
-
-  /**
-   * Creates a new ProtoOAAccountDisconnectEvent instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAAccountDisconnectEvent instance
-   */
-  public static create(
-    properties?: IProtoOAAccountDisconnectEvent
-  ): ProtoOAAccountDisconnectEvent;
+  public ctidTraderAccountId: Long;
 
   /**
    * Encodes the specified ProtoOAAccountDisconnectEvent message. Does not implicitly {@link ProtoOAAccountDisconnectEvent.verify|verify} messages.
@@ -8230,17 +4023,6 @@ export class ProtoOAAccountDisconnectEvent
    * @returns Writer
    */
   public static encode(
-    message: IProtoOAAccountDisconnectEvent,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoOAAccountDisconnectEvent message, length delimited. Does not implicitly {@link ProtoOAAccountDisconnectEvent.verify|verify} messages.
-   * @param message ProtoOAAccountDisconnectEvent message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
     message: IProtoOAAccountDisconnectEvent,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
@@ -8257,50 +4039,6 @@ export class ProtoOAAccountDisconnectEvent
     reader: $protobuf.Reader | Uint8Array,
     length?: number
   ): ProtoOAAccountDisconnectEvent;
-
-  /**
-   * Decodes a ProtoOAAccountDisconnectEvent message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoOAAccountDisconnectEvent
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoOAAccountDisconnectEvent;
-
-  /**
-   * Verifies a ProtoOAAccountDisconnectEvent message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoOAAccountDisconnectEvent message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoOAAccountDisconnectEvent
-   */
-  public static fromObject(object: {
-    [k: string]: any;
-  }): ProtoOAAccountDisconnectEvent;
-
-  /**
-   * Creates a plain object from a ProtoOAAccountDisconnectEvent message. Also converts values to other types if specified.
-   * @param message ProtoOAAccountDisconnectEvent
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoOAAccountDisconnectEvent,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoOAAccountDisconnectEvent to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
 }
 
 /** ProtoOAPayloadType enum. */
@@ -8375,7 +4113,7 @@ export enum ProtoOAPayloadType {
 /** Properties of a ProtoOAAsset. */
 export interface IProtoOAAsset {
   /** ProtoOAAsset assetId */
-  assetId: number | Long;
+  assetId: Long;
 
   /** ProtoOAAsset name */
   name: string;
@@ -8393,7 +4131,7 @@ export class ProtoOAAsset implements IProtoOAAsset {
   constructor(properties?: IProtoOAAsset);
 
   /** ProtoOAAsset assetId. */
-  public assetId: number | Long;
+  public assetId: Long;
 
   /** ProtoOAAsset name. */
   public name: string;
@@ -8402,30 +4140,12 @@ export class ProtoOAAsset implements IProtoOAAsset {
   public displayName: string;
 
   /**
-   * Creates a new ProtoOAAsset instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAAsset instance
-   */
-  public static create(properties?: IProtoOAAsset): ProtoOAAsset;
-
-  /**
    * Encodes the specified ProtoOAAsset message. Does not implicitly {@link ProtoOAAsset.verify|verify} messages.
    * @param message ProtoOAAsset message or plain object to encode
    * @param [writer] Writer to encode to
    * @returns Writer
    */
   public static encode(
-    message: IProtoOAAsset,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoOAAsset message, length delimited. Does not implicitly {@link ProtoOAAsset.verify|verify} messages.
-   * @param message ProtoOAAsset message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
     message: IProtoOAAsset,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
@@ -8442,54 +4162,12 @@ export class ProtoOAAsset implements IProtoOAAsset {
     reader: $protobuf.Reader | Uint8Array,
     length?: number
   ): ProtoOAAsset;
-
-  /**
-   * Decodes a ProtoOAAsset message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoOAAsset
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoOAAsset;
-
-  /**
-   * Verifies a ProtoOAAsset message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoOAAsset message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoOAAsset
-   */
-  public static fromObject(object: { [k: string]: any }): ProtoOAAsset;
-
-  /**
-   * Creates a plain object from a ProtoOAAsset message. Also converts values to other types if specified.
-   * @param message ProtoOAAsset
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoOAAsset,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoOAAsset to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
 }
 
 /** Properties of a ProtoOASymbol. */
 export interface IProtoOASymbol {
   /** ProtoOASymbol symbolId */
-  symbolId: number | Long;
+  symbolId: Long;
 
   /** ProtoOASymbol digits */
   digits: number;
@@ -8513,22 +4191,22 @@ export interface IProtoOASymbol {
   swapShort?: number | null;
 
   /** ProtoOASymbol maxVolume */
-  maxVolume?: number | Long | null;
+  maxVolume?: Long | null;
 
   /** ProtoOASymbol minVolume */
-  minVolume?: number | Long | null;
+  minVolume?: Long | null;
 
   /** ProtoOASymbol stepVolume */
-  stepVolume?: number | Long | null;
+  stepVolume?: Long | null;
 
   /** ProtoOASymbol maxExposure */
-  maxExposure?: number | Long | null;
+  maxExposure?: Long | null;
 
   /** ProtoOASymbol schedule */
   schedule?: IProtoOAInterval[] | null;
 
   /** ProtoOASymbol commission */
-  commission: number | Long;
+  commission: Long;
 
   /** ProtoOASymbol commissionType */
   commissionType?: ProtoOACommissionType | null;
@@ -8543,13 +4221,13 @@ export interface IProtoOASymbol {
   gslDistance?: number | null;
 
   /** ProtoOASymbol gslCharge */
-  gslCharge?: number | Long | null;
+  gslCharge?: Long | null;
 
   /** ProtoOASymbol distanceSetIn */
   distanceSetIn?: ProtoOASymbolDistanceType | null;
 
   /** ProtoOASymbol minCommission */
-  minCommission?: number | Long | null;
+  minCommission?: Long | null;
 
   /** ProtoOASymbol minCommissionType */
   minCommissionType?: ProtoOAMinCommissionType | null;
@@ -8558,7 +4236,7 @@ export interface IProtoOASymbol {
   minCommissionAsset?: string | null;
 
   /** ProtoOASymbol rolloverCommission */
-  rolloverCommission?: number | Long | null;
+  rolloverCommission?: Long | null;
 
   /** ProtoOASymbol skipRolloverDays */
   skipRolloverDays?: number | null;
@@ -8582,7 +4260,7 @@ export class ProtoOASymbol implements IProtoOASymbol {
   constructor(properties?: IProtoOASymbol);
 
   /** ProtoOASymbol symbolId. */
-  public symbolId: number | Long;
+  public symbolId: Long;
 
   /** ProtoOASymbol digits. */
   public digits: number;
@@ -8606,22 +4284,22 @@ export class ProtoOASymbol implements IProtoOASymbol {
   public swapShort: number;
 
   /** ProtoOASymbol maxVolume. */
-  public maxVolume: number | Long;
+  public maxVolume: Long;
 
   /** ProtoOASymbol minVolume. */
-  public minVolume: number | Long;
+  public minVolume: Long;
 
   /** ProtoOASymbol stepVolume. */
-  public stepVolume: number | Long;
+  public stepVolume: Long;
 
   /** ProtoOASymbol maxExposure. */
-  public maxExposure: number | Long;
+  public maxExposure: Long;
 
   /** ProtoOASymbol schedule. */
   public schedule: IProtoOAInterval[];
 
   /** ProtoOASymbol commission. */
-  public commission: number | Long;
+  public commission: Long;
 
   /** ProtoOASymbol commissionType. */
   public commissionType: ProtoOACommissionType;
@@ -8636,13 +4314,13 @@ export class ProtoOASymbol implements IProtoOASymbol {
   public gslDistance: number;
 
   /** ProtoOASymbol gslCharge. */
-  public gslCharge: number | Long;
+  public gslCharge: Long;
 
   /** ProtoOASymbol distanceSetIn. */
   public distanceSetIn: ProtoOASymbolDistanceType;
 
   /** ProtoOASymbol minCommission. */
-  public minCommission: number | Long;
+  public minCommission: Long;
 
   /** ProtoOASymbol minCommissionType. */
   public minCommissionType: ProtoOAMinCommissionType;
@@ -8651,7 +4329,7 @@ export class ProtoOASymbol implements IProtoOASymbol {
   public minCommissionAsset: string;
 
   /** ProtoOASymbol rolloverCommission. */
-  public rolloverCommission: number | Long;
+  public rolloverCommission: Long;
 
   /** ProtoOASymbol skipRolloverDays. */
   public skipRolloverDays: number;
@@ -8666,30 +4344,12 @@ export class ProtoOASymbol implements IProtoOASymbol {
   public rolloverCommission3Days: ProtoOADayOfWeek;
 
   /**
-   * Creates a new ProtoOASymbol instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOASymbol instance
-   */
-  public static create(properties?: IProtoOASymbol): ProtoOASymbol;
-
-  /**
    * Encodes the specified ProtoOASymbol message. Does not implicitly {@link ProtoOASymbol.verify|verify} messages.
    * @param message ProtoOASymbol message or plain object to encode
    * @param [writer] Writer to encode to
    * @returns Writer
    */
   public static encode(
-    message: IProtoOASymbol,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoOASymbol message, length delimited. Does not implicitly {@link ProtoOASymbol.verify|verify} messages.
-   * @param message ProtoOASymbol message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
     message: IProtoOASymbol,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
@@ -8706,54 +4366,12 @@ export class ProtoOASymbol implements IProtoOASymbol {
     reader: $protobuf.Reader | Uint8Array,
     length?: number
   ): ProtoOASymbol;
-
-  /**
-   * Decodes a ProtoOASymbol message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoOASymbol
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoOASymbol;
-
-  /**
-   * Verifies a ProtoOASymbol message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoOASymbol message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoOASymbol
-   */
-  public static fromObject(object: { [k: string]: any }): ProtoOASymbol;
-
-  /**
-   * Creates a plain object from a ProtoOASymbol message. Also converts values to other types if specified.
-   * @param message ProtoOASymbol
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoOASymbol,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoOASymbol to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
 }
 
 /** Properties of a ProtoOALightSymbol. */
 export interface IProtoOALightSymbol {
   /** ProtoOALightSymbol symbolId */
-  symbolId: number | Long;
+  symbolId: Long;
 
   /** ProtoOALightSymbol symbolName */
   symbolName?: string | null;
@@ -8762,13 +4380,13 @@ export interface IProtoOALightSymbol {
   enabled?: boolean | null;
 
   /** ProtoOALightSymbol baseAssetId */
-  baseAssetId?: number | Long | null;
+  baseAssetId?: Long | null;
 
   /** ProtoOALightSymbol quoteAssetId */
-  quoteAssetId?: number | Long | null;
+  quoteAssetId?: Long | null;
 
   /** ProtoOALightSymbol symbolCategoryId */
-  symbolCategoryId?: number | Long | null;
+  symbolCategoryId?: Long | null;
 
   /** ProtoOALightSymbol description */
   description?: string | null;
@@ -8783,7 +4401,7 @@ export class ProtoOALightSymbol implements IProtoOALightSymbol {
   constructor(properties?: IProtoOALightSymbol);
 
   /** ProtoOALightSymbol symbolId. */
-  public symbolId: number | Long;
+  public symbolId: Long;
 
   /** ProtoOALightSymbol symbolName. */
   public symbolName: string;
@@ -8792,23 +4410,16 @@ export class ProtoOALightSymbol implements IProtoOALightSymbol {
   public enabled: boolean;
 
   /** ProtoOALightSymbol baseAssetId. */
-  public baseAssetId: number | Long;
+  public baseAssetId: Long;
 
   /** ProtoOALightSymbol quoteAssetId. */
-  public quoteAssetId: number | Long;
+  public quoteAssetId: Long;
 
   /** ProtoOALightSymbol symbolCategoryId. */
-  public symbolCategoryId: number | Long;
+  public symbolCategoryId: Long;
 
   /** ProtoOALightSymbol description. */
   public description: string;
-
-  /**
-   * Creates a new ProtoOALightSymbol instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOALightSymbol instance
-   */
-  public static create(properties?: IProtoOALightSymbol): ProtoOALightSymbol;
 
   /**
    * Encodes the specified ProtoOALightSymbol message. Does not implicitly {@link ProtoOALightSymbol.verify|verify} messages.
@@ -8817,17 +4428,6 @@ export class ProtoOALightSymbol implements IProtoOALightSymbol {
    * @returns Writer
    */
   public static encode(
-    message: IProtoOALightSymbol,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoOALightSymbol message, length delimited. Does not implicitly {@link ProtoOALightSymbol.verify|verify} messages.
-   * @param message ProtoOALightSymbol message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
     message: IProtoOALightSymbol,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
@@ -8844,57 +4444,15 @@ export class ProtoOALightSymbol implements IProtoOALightSymbol {
     reader: $protobuf.Reader | Uint8Array,
     length?: number
   ): ProtoOALightSymbol;
-
-  /**
-   * Decodes a ProtoOALightSymbol message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoOALightSymbol
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoOALightSymbol;
-
-  /**
-   * Verifies a ProtoOALightSymbol message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoOALightSymbol message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoOALightSymbol
-   */
-  public static fromObject(object: { [k: string]: any }): ProtoOALightSymbol;
-
-  /**
-   * Creates a plain object from a ProtoOALightSymbol message. Also converts values to other types if specified.
-   * @param message ProtoOALightSymbol
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoOALightSymbol,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoOALightSymbol to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
 }
 
 /** Properties of a ProtoOASymbolCategory. */
 export interface IProtoOASymbolCategory {
   /** ProtoOASymbolCategory id */
-  id: number | Long;
+  id: Long;
 
   /** ProtoOASymbolCategory assetClassId */
-  assetClassId: number | Long;
+  assetClassId: Long;
 
   /** ProtoOASymbolCategory name */
   name: string;
@@ -8909,22 +4467,13 @@ export class ProtoOASymbolCategory implements IProtoOASymbolCategory {
   constructor(properties?: IProtoOASymbolCategory);
 
   /** ProtoOASymbolCategory id. */
-  public id: number | Long;
+  public id: Long;
 
   /** ProtoOASymbolCategory assetClassId. */
-  public assetClassId: number | Long;
+  public assetClassId: Long;
 
   /** ProtoOASymbolCategory name. */
   public name: string;
-
-  /**
-   * Creates a new ProtoOASymbolCategory instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOASymbolCategory instance
-   */
-  public static create(
-    properties?: IProtoOASymbolCategory
-  ): ProtoOASymbolCategory;
 
   /**
    * Encodes the specified ProtoOASymbolCategory message. Does not implicitly {@link ProtoOASymbolCategory.verify|verify} messages.
@@ -8933,17 +4482,6 @@ export class ProtoOASymbolCategory implements IProtoOASymbolCategory {
    * @returns Writer
    */
   public static encode(
-    message: IProtoOASymbolCategory,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoOASymbolCategory message, length delimited. Does not implicitly {@link ProtoOASymbolCategory.verify|verify} messages.
-   * @param message ProtoOASymbolCategory message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
     message: IProtoOASymbolCategory,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
@@ -8960,48 +4498,6 @@ export class ProtoOASymbolCategory implements IProtoOASymbolCategory {
     reader: $protobuf.Reader | Uint8Array,
     length?: number
   ): ProtoOASymbolCategory;
-
-  /**
-   * Decodes a ProtoOASymbolCategory message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoOASymbolCategory
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoOASymbolCategory;
-
-  /**
-   * Verifies a ProtoOASymbolCategory message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoOASymbolCategory message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoOASymbolCategory
-   */
-  public static fromObject(object: { [k: string]: any }): ProtoOASymbolCategory;
-
-  /**
-   * Creates a plain object from a ProtoOASymbolCategory message. Also converts values to other types if specified.
-   * @param message ProtoOASymbolCategory
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoOASymbolCategory,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoOASymbolCategory to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
 }
 
 /** ProtoOADayOfWeek enum. */
@@ -9040,30 +4536,12 @@ export class ProtoOAInterval implements IProtoOAInterval {
   public endSecond: number;
 
   /**
-   * Creates a new ProtoOAInterval instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAInterval instance
-   */
-  public static create(properties?: IProtoOAInterval): ProtoOAInterval;
-
-  /**
    * Encodes the specified ProtoOAInterval message. Does not implicitly {@link ProtoOAInterval.verify|verify} messages.
    * @param message ProtoOAInterval message or plain object to encode
    * @param [writer] Writer to encode to
    * @returns Writer
    */
   public static encode(
-    message: IProtoOAInterval,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoOAInterval message, length delimited. Does not implicitly {@link ProtoOAInterval.verify|verify} messages.
-   * @param message ProtoOAInterval message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
     message: IProtoOAInterval,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
@@ -9080,48 +4558,6 @@ export class ProtoOAInterval implements IProtoOAInterval {
     reader: $protobuf.Reader | Uint8Array,
     length?: number
   ): ProtoOAInterval;
-
-  /**
-   * Decodes a ProtoOAInterval message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoOAInterval
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoOAInterval;
-
-  /**
-   * Verifies a ProtoOAInterval message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoOAInterval message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoOAInterval
-   */
-  public static fromObject(object: { [k: string]: any }): ProtoOAInterval;
-
-  /**
-   * Creates a plain object from a ProtoOAInterval message. Also converts values to other types if specified.
-   * @param message ProtoOAInterval
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoOAInterval,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoOAInterval to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
 }
 
 /** Enum for specifying type of trading commission. */
@@ -9177,28 +4613,28 @@ export enum ProtoOAAccountType {
 /** Properties of a ProtoOATrader. */
 export interface IProtoOATrader {
   /** ProtoOATrader ctidTraderAccountId */
-  ctidTraderAccountId: number | Long;
+  ctidTraderAccountId: Long;
 
   /** ProtoOATrader balance */
-  balance: number | Long;
+  balance: Long;
 
   /** ProtoOATrader balanceVersion */
-  balanceVersion?: number | Long | null;
+  balanceVersion?: Long | null;
 
   /** ProtoOATrader managerBonus */
-  managerBonus?: number | Long | null;
+  managerBonus?: Long | null;
 
   /** ProtoOATrader ibBonus */
-  ibBonus?: number | Long | null;
+  ibBonus?: Long | null;
 
   /** ProtoOATrader nonWithdrawableBonus */
-  nonWithdrawableBonus?: number | Long | null;
+  nonWithdrawableBonus?: Long | null;
 
   /** ProtoOATrader accessRights */
   accessRights?: ProtoOAAccessRights | null;
 
   /** ProtoOATrader depositAssetId */
-  depositAssetId: number | Long;
+  depositAssetId: Long;
 
   /** ProtoOATrader swapFree */
   swapFree?: boolean | null;
@@ -9216,7 +4652,7 @@ export interface IProtoOATrader {
   frenchRisk?: boolean | null;
 
   /** ProtoOATrader traderLogin */
-  traderLogin?: number | Long | null;
+  traderLogin?: Long | null;
 
   /** ProtoOATrader accountType */
   accountType?: ProtoOAAccountType | null;
@@ -9225,7 +4661,7 @@ export interface IProtoOATrader {
   brokerName?: string | null;
 
   /** ProtoOATrader registrationTimestamp */
-  registrationTimestamp?: number | Long | null;
+  registrationTimestamp?: Long | null;
 }
 
 /** Trading account entity. */
@@ -9237,28 +4673,28 @@ export class ProtoOATrader implements IProtoOATrader {
   constructor(properties?: IProtoOATrader);
 
   /** ProtoOATrader ctidTraderAccountId. */
-  public ctidTraderAccountId: number | Long;
+  public ctidTraderAccountId: Long;
 
   /** ProtoOATrader balance. */
-  public balance: number | Long;
+  public balance: Long;
 
   /** ProtoOATrader balanceVersion. */
-  public balanceVersion: number | Long;
+  public balanceVersion: Long;
 
   /** ProtoOATrader managerBonus. */
-  public managerBonus: number | Long;
+  public managerBonus: Long;
 
   /** ProtoOATrader ibBonus. */
-  public ibBonus: number | Long;
+  public ibBonus: Long;
 
   /** ProtoOATrader nonWithdrawableBonus. */
-  public nonWithdrawableBonus: number | Long;
+  public nonWithdrawableBonus: Long;
 
   /** ProtoOATrader accessRights. */
   public accessRights: ProtoOAAccessRights;
 
   /** ProtoOATrader depositAssetId. */
-  public depositAssetId: number | Long;
+  public depositAssetId: Long;
 
   /** ProtoOATrader swapFree. */
   public swapFree: boolean;
@@ -9276,7 +4712,7 @@ export class ProtoOATrader implements IProtoOATrader {
   public frenchRisk: boolean;
 
   /** ProtoOATrader traderLogin. */
-  public traderLogin: number | Long;
+  public traderLogin: Long;
 
   /** ProtoOATrader accountType. */
   public accountType: ProtoOAAccountType;
@@ -9285,14 +4721,7 @@ export class ProtoOATrader implements IProtoOATrader {
   public brokerName: string;
 
   /** ProtoOATrader registrationTimestamp. */
-  public registrationTimestamp: number | Long;
-
-  /**
-   * Creates a new ProtoOATrader instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOATrader instance
-   */
-  public static create(properties?: IProtoOATrader): ProtoOATrader;
+  public registrationTimestamp: Long;
 
   /**
    * Encodes the specified ProtoOATrader message. Does not implicitly {@link ProtoOATrader.verify|verify} messages.
@@ -9301,17 +4730,6 @@ export class ProtoOATrader implements IProtoOATrader {
    * @returns Writer
    */
   public static encode(
-    message: IProtoOATrader,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoOATrader message, length delimited. Does not implicitly {@link ProtoOATrader.verify|verify} messages.
-   * @param message ProtoOATrader message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
     message: IProtoOATrader,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
@@ -9328,48 +4746,6 @@ export class ProtoOATrader implements IProtoOATrader {
     reader: $protobuf.Reader | Uint8Array,
     length?: number
   ): ProtoOATrader;
-
-  /**
-   * Decodes a ProtoOATrader message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoOATrader
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoOATrader;
-
-  /**
-   * Verifies a ProtoOATrader message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoOATrader message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoOATrader
-   */
-  public static fromObject(object: { [k: string]: any }): ProtoOATrader;
-
-  /**
-   * Creates a plain object from a ProtoOATrader message. Also converts values to other types if specified.
-   * @param message ProtoOATrader
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoOATrader,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoOATrader to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
 }
 
 /** Position status ENUM. */
@@ -9425,7 +4801,7 @@ export enum ProtoOAOrderTriggerMethod {
 /** Properties of a ProtoOAPosition. */
 export interface IProtoOAPosition {
   /** ProtoOAPosition positionId */
-  positionId: number | Long;
+  positionId: Long;
 
   /** ProtoOAPosition tradeData */
   tradeData: IProtoOATradeData;
@@ -9434,7 +4810,7 @@ export interface IProtoOAPosition {
   positionStatus: ProtoOAPositionStatus;
 
   /** ProtoOAPosition swap */
-  swap: number | Long;
+  swap: Long;
 
   /** ProtoOAPosition price */
   price?: number | null;
@@ -9446,22 +4822,22 @@ export interface IProtoOAPosition {
   takeProfit?: number | null;
 
   /** ProtoOAPosition utcLastUpdateTimestamp */
-  utcLastUpdateTimestamp?: number | Long | null;
+  utcLastUpdateTimestamp?: Long | null;
 
   /** ProtoOAPosition commission */
-  commission?: number | Long | null;
+  commission?: Long | null;
 
   /** ProtoOAPosition marginRate */
   marginRate?: number | null;
 
   /** ProtoOAPosition mirroringCommission */
-  mirroringCommission?: number | Long | null;
+  mirroringCommission?: Long | null;
 
   /** ProtoOAPosition guaranteedStopLoss */
   guaranteedStopLoss?: boolean | null;
 
   /** ProtoOAPosition usedMargin */
-  usedMargin?: number | Long | null;
+  usedMargin?: Long | null;
 
   /** ProtoOAPosition stopLossTriggerMethod */
   stopLossTriggerMethod?: ProtoOAOrderTriggerMethod | null;
@@ -9476,7 +4852,7 @@ export class ProtoOAPosition implements IProtoOAPosition {
   constructor(properties?: IProtoOAPosition);
 
   /** ProtoOAPosition positionId. */
-  public positionId: number | Long;
+  public positionId: Long;
 
   /** ProtoOAPosition tradeData. */
   public tradeData: IProtoOATradeData;
@@ -9485,7 +4861,7 @@ export class ProtoOAPosition implements IProtoOAPosition {
   public positionStatus: ProtoOAPositionStatus;
 
   /** ProtoOAPosition swap. */
-  public swap: number | Long;
+  public swap: Long;
 
   /** ProtoOAPosition price. */
   public price: number;
@@ -9497,32 +4873,25 @@ export class ProtoOAPosition implements IProtoOAPosition {
   public takeProfit: number;
 
   /** ProtoOAPosition utcLastUpdateTimestamp. */
-  public utcLastUpdateTimestamp: number | Long;
+  public utcLastUpdateTimestamp: Long;
 
   /** ProtoOAPosition commission. */
-  public commission: number | Long;
+  public commission: Long;
 
   /** ProtoOAPosition marginRate. */
   public marginRate: number;
 
   /** ProtoOAPosition mirroringCommission. */
-  public mirroringCommission: number | Long;
+  public mirroringCommission: Long;
 
   /** ProtoOAPosition guaranteedStopLoss. */
   public guaranteedStopLoss: boolean;
 
   /** ProtoOAPosition usedMargin. */
-  public usedMargin: number | Long;
+  public usedMargin: Long;
 
   /** ProtoOAPosition stopLossTriggerMethod. */
   public stopLossTriggerMethod: ProtoOAOrderTriggerMethod;
-
-  /**
-   * Creates a new ProtoOAPosition instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAPosition instance
-   */
-  public static create(properties?: IProtoOAPosition): ProtoOAPosition;
 
   /**
    * Encodes the specified ProtoOAPosition message. Does not implicitly {@link ProtoOAPosition.verify|verify} messages.
@@ -9531,17 +4900,6 @@ export class ProtoOAPosition implements IProtoOAPosition {
    * @returns Writer
    */
   public static encode(
-    message: IProtoOAPosition,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoOAPosition message, length delimited. Does not implicitly {@link ProtoOAPosition.verify|verify} messages.
-   * @param message ProtoOAPosition message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
     message: IProtoOAPosition,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
@@ -9558,63 +4916,21 @@ export class ProtoOAPosition implements IProtoOAPosition {
     reader: $protobuf.Reader | Uint8Array,
     length?: number
   ): ProtoOAPosition;
-
-  /**
-   * Decodes a ProtoOAPosition message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoOAPosition
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoOAPosition;
-
-  /**
-   * Verifies a ProtoOAPosition message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoOAPosition message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoOAPosition
-   */
-  public static fromObject(object: { [k: string]: any }): ProtoOAPosition;
-
-  /**
-   * Creates a plain object from a ProtoOAPosition message. Also converts values to other types if specified.
-   * @param message ProtoOAPosition
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoOAPosition,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoOAPosition to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
 }
 
 /** Properties of a ProtoOATradeData. */
 export interface IProtoOATradeData {
   /** ProtoOATradeData symbolId */
-  symbolId: number | Long;
+  symbolId: Long;
 
   /** ProtoOATradeData volume */
-  volume: number | Long;
+  volume: Long;
 
   /** ProtoOATradeData tradeSide */
   tradeSide: ProtoOATradeSide;
 
   /** ProtoOATradeData openTimestamp */
-  openTimestamp?: number | Long | null;
+  openTimestamp?: Long | null;
 
   /** ProtoOATradeData label */
   label?: string | null;
@@ -9632,16 +4948,16 @@ export class ProtoOATradeData implements IProtoOATradeData {
   constructor(properties?: IProtoOATradeData);
 
   /** ProtoOATradeData symbolId. */
-  public symbolId: number | Long;
+  public symbolId: Long;
 
   /** ProtoOATradeData volume. */
-  public volume: number | Long;
+  public volume: Long;
 
   /** ProtoOATradeData tradeSide. */
   public tradeSide: ProtoOATradeSide;
 
   /** ProtoOATradeData openTimestamp. */
-  public openTimestamp: number | Long;
+  public openTimestamp: Long;
 
   /** ProtoOATradeData label. */
   public label: string;
@@ -9650,30 +4966,12 @@ export class ProtoOATradeData implements IProtoOATradeData {
   public guaranteedStopLoss: boolean;
 
   /**
-   * Creates a new ProtoOATradeData instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOATradeData instance
-   */
-  public static create(properties?: IProtoOATradeData): ProtoOATradeData;
-
-  /**
    * Encodes the specified ProtoOATradeData message. Does not implicitly {@link ProtoOATradeData.verify|verify} messages.
    * @param message ProtoOATradeData message or plain object to encode
    * @param [writer] Writer to encode to
    * @returns Writer
    */
   public static encode(
-    message: IProtoOATradeData,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoOATradeData message, length delimited. Does not implicitly {@link ProtoOATradeData.verify|verify} messages.
-   * @param message ProtoOATradeData message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
     message: IProtoOATradeData,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
@@ -9690,54 +4988,12 @@ export class ProtoOATradeData implements IProtoOATradeData {
     reader: $protobuf.Reader | Uint8Array,
     length?: number
   ): ProtoOATradeData;
-
-  /**
-   * Decodes a ProtoOATradeData message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoOATradeData
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoOATradeData;
-
-  /**
-   * Verifies a ProtoOATradeData message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoOATradeData message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoOATradeData
-   */
-  public static fromObject(object: { [k: string]: any }): ProtoOATradeData;
-
-  /**
-   * Creates a plain object from a ProtoOATradeData message. Also converts values to other types if specified.
-   * @param message ProtoOATradeData
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoOATradeData,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoOATradeData to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
 }
 
 /** Properties of a ProtoOAOrder. */
 export interface IProtoOAOrder {
   /** ProtoOAOrder orderId */
-  orderId: number | Long;
+  orderId: Long;
 
   /** ProtoOAOrder tradeData */
   tradeData: IProtoOATradeData;
@@ -9749,22 +5005,22 @@ export interface IProtoOAOrder {
   orderStatus: ProtoOAOrderStatus;
 
   /** ProtoOAOrder expirationTimestamp */
-  expirationTimestamp?: number | Long | null;
+  expirationTimestamp?: Long | null;
 
   /** ProtoOAOrder executionPrice */
   executionPrice?: number | null;
 
   /** ProtoOAOrder executedVolume */
-  executedVolume?: number | Long | null;
+  executedVolume?: Long | null;
 
   /** ProtoOAOrder utcLastUpdateTimestamp */
-  utcLastUpdateTimestamp?: number | Long | null;
+  utcLastUpdateTimestamp?: Long | null;
 
   /** ProtoOAOrder baseSlippagePrice */
   baseSlippagePrice?: number | null;
 
   /** ProtoOAOrder slippageInPoints */
-  slippageInPoints?: number | Long | null;
+  slippageInPoints?: Long | null;
 
   /** ProtoOAOrder closingOrder */
   closingOrder?: boolean | null;
@@ -9788,13 +5044,13 @@ export interface IProtoOAOrder {
   timeInForce?: ProtoOATimeInForce | null;
 
   /** ProtoOAOrder positionId */
-  positionId?: number | Long | null;
+  positionId?: Long | null;
 
   /** ProtoOAOrder relativeStopLoss */
-  relativeStopLoss?: number | Long | null;
+  relativeStopLoss?: Long | null;
 
   /** ProtoOAOrder relativeTakeProfit */
-  relativeTakeProfit?: number | Long | null;
+  relativeTakeProfit?: Long | null;
 
   /** ProtoOAOrder isStopOut */
   isStopOut?: boolean | null;
@@ -9815,7 +5071,7 @@ export class ProtoOAOrder implements IProtoOAOrder {
   constructor(properties?: IProtoOAOrder);
 
   /** ProtoOAOrder orderId. */
-  public orderId: number | Long;
+  public orderId: Long;
 
   /** ProtoOAOrder tradeData. */
   public tradeData: IProtoOATradeData;
@@ -9827,22 +5083,22 @@ export class ProtoOAOrder implements IProtoOAOrder {
   public orderStatus: ProtoOAOrderStatus;
 
   /** ProtoOAOrder expirationTimestamp. */
-  public expirationTimestamp: number | Long;
+  public expirationTimestamp: Long;
 
   /** ProtoOAOrder executionPrice. */
   public executionPrice: number;
 
   /** ProtoOAOrder executedVolume. */
-  public executedVolume: number | Long;
+  public executedVolume: Long;
 
   /** ProtoOAOrder utcLastUpdateTimestamp. */
-  public utcLastUpdateTimestamp: number | Long;
+  public utcLastUpdateTimestamp: Long;
 
   /** ProtoOAOrder baseSlippagePrice. */
   public baseSlippagePrice: number;
 
   /** ProtoOAOrder slippageInPoints. */
-  public slippageInPoints: number | Long;
+  public slippageInPoints: Long;
 
   /** ProtoOAOrder closingOrder. */
   public closingOrder: boolean;
@@ -9866,13 +5122,13 @@ export class ProtoOAOrder implements IProtoOAOrder {
   public timeInForce: ProtoOATimeInForce;
 
   /** ProtoOAOrder positionId. */
-  public positionId: number | Long;
+  public positionId: Long;
 
   /** ProtoOAOrder relativeStopLoss. */
-  public relativeStopLoss: number | Long;
+  public relativeStopLoss: Long;
 
   /** ProtoOAOrder relativeTakeProfit. */
-  public relativeTakeProfit: number | Long;
+  public relativeTakeProfit: Long;
 
   /** ProtoOAOrder isStopOut. */
   public isStopOut: boolean;
@@ -9884,30 +5140,12 @@ export class ProtoOAOrder implements IProtoOAOrder {
   public stopTriggerMethod: ProtoOAOrderTriggerMethod;
 
   /**
-   * Creates a new ProtoOAOrder instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAOrder instance
-   */
-  public static create(properties?: IProtoOAOrder): ProtoOAOrder;
-
-  /**
    * Encodes the specified ProtoOAOrder message. Does not implicitly {@link ProtoOAOrder.verify|verify} messages.
    * @param message ProtoOAOrder message or plain object to encode
    * @param [writer] Writer to encode to
    * @returns Writer
    */
   public static encode(
-    message: IProtoOAOrder,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoOAOrder message, length delimited. Does not implicitly {@link ProtoOAOrder.verify|verify} messages.
-   * @param message ProtoOAOrder message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
     message: IProtoOAOrder,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
@@ -9924,48 +5162,6 @@ export class ProtoOAOrder implements IProtoOAOrder {
     reader: $protobuf.Reader | Uint8Array,
     length?: number
   ): ProtoOAOrder;
-
-  /**
-   * Decodes a ProtoOAOrder message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoOAOrder
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoOAOrder;
-
-  /**
-   * Verifies a ProtoOAOrder message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoOAOrder message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoOAOrder
-   */
-  public static fromObject(object: { [k: string]: any }): ProtoOAOrder;
-
-  /**
-   * Creates a plain object from a ProtoOAOrder message. Also converts values to other types if specified.
-   * @param message ProtoOAOrder
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoOAOrder,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoOAOrder to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
 }
 
 /** Execution event type ENUM. */
@@ -9989,28 +5185,28 @@ export interface IProtoOABonusDepositWithdraw {
   operationType: ProtoOAChangeBonusType;
 
   /** ProtoOABonusDepositWithdraw bonusHistoryId */
-  bonusHistoryId: number | Long;
+  bonusHistoryId: Long;
 
   /** ProtoOABonusDepositWithdraw managerBonus */
-  managerBonus: number | Long;
+  managerBonus: Long;
 
   /** ProtoOABonusDepositWithdraw managerDelta */
-  managerDelta: number | Long;
+  managerDelta: Long;
 
   /** ProtoOABonusDepositWithdraw ibBonus */
-  ibBonus: number | Long;
+  ibBonus: Long;
 
   /** ProtoOABonusDepositWithdraw ibDelta */
-  ibDelta: number | Long;
+  ibDelta: Long;
 
   /** ProtoOABonusDepositWithdraw changeBonusTimestamp */
-  changeBonusTimestamp: number | Long;
+  changeBonusTimestamp: Long;
 
   /** ProtoOABonusDepositWithdraw externalNote */
   externalNote?: string | null;
 
   /** ProtoOABonusDepositWithdraw introducingBrokerId */
-  introducingBrokerId?: number | Long | null;
+  introducingBrokerId?: Long | null;
 }
 
 /** Bonus deposit/withdrawal entity. */
@@ -10026,37 +5222,28 @@ export class ProtoOABonusDepositWithdraw
   public operationType: ProtoOAChangeBonusType;
 
   /** ProtoOABonusDepositWithdraw bonusHistoryId. */
-  public bonusHistoryId: number | Long;
+  public bonusHistoryId: Long;
 
   /** ProtoOABonusDepositWithdraw managerBonus. */
-  public managerBonus: number | Long;
+  public managerBonus: Long;
 
   /** ProtoOABonusDepositWithdraw managerDelta. */
-  public managerDelta: number | Long;
+  public managerDelta: Long;
 
   /** ProtoOABonusDepositWithdraw ibBonus. */
-  public ibBonus: number | Long;
+  public ibBonus: Long;
 
   /** ProtoOABonusDepositWithdraw ibDelta. */
-  public ibDelta: number | Long;
+  public ibDelta: Long;
 
   /** ProtoOABonusDepositWithdraw changeBonusTimestamp. */
-  public changeBonusTimestamp: number | Long;
+  public changeBonusTimestamp: Long;
 
   /** ProtoOABonusDepositWithdraw externalNote. */
   public externalNote: string;
 
   /** ProtoOABonusDepositWithdraw introducingBrokerId. */
-  public introducingBrokerId: number | Long;
-
-  /**
-   * Creates a new ProtoOABonusDepositWithdraw instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOABonusDepositWithdraw instance
-   */
-  public static create(
-    properties?: IProtoOABonusDepositWithdraw
-  ): ProtoOABonusDepositWithdraw;
+  public introducingBrokerId: Long;
 
   /**
    * Encodes the specified ProtoOABonusDepositWithdraw message. Does not implicitly {@link ProtoOABonusDepositWithdraw.verify|verify} messages.
@@ -10065,17 +5252,6 @@ export class ProtoOABonusDepositWithdraw
    * @returns Writer
    */
   public static encode(
-    message: IProtoOABonusDepositWithdraw,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoOABonusDepositWithdraw message, length delimited. Does not implicitly {@link ProtoOABonusDepositWithdraw.verify|verify} messages.
-   * @param message ProtoOABonusDepositWithdraw message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
     message: IProtoOABonusDepositWithdraw,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
@@ -10092,50 +5268,6 @@ export class ProtoOABonusDepositWithdraw
     reader: $protobuf.Reader | Uint8Array,
     length?: number
   ): ProtoOABonusDepositWithdraw;
-
-  /**
-   * Decodes a ProtoOABonusDepositWithdraw message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoOABonusDepositWithdraw
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoOABonusDepositWithdraw;
-
-  /**
-   * Verifies a ProtoOABonusDepositWithdraw message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoOABonusDepositWithdraw message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoOABonusDepositWithdraw
-   */
-  public static fromObject(object: {
-    [k: string]: any;
-  }): ProtoOABonusDepositWithdraw;
-
-  /**
-   * Creates a plain object from a ProtoOABonusDepositWithdraw message. Also converts values to other types if specified.
-   * @param message ProtoOABonusDepositWithdraw
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoOABonusDepositWithdraw,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoOABonusDepositWithdraw to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
 }
 
 /** Bonus operation type ENUM. */
@@ -10150,25 +5282,25 @@ export interface IProtoOADepositWithdraw {
   operationType: ProtoOAChangeBalanceType;
 
   /** ProtoOADepositWithdraw balanceHistoryId */
-  balanceHistoryId: number | Long;
+  balanceHistoryId: Long;
 
   /** ProtoOADepositWithdraw balance */
-  balance: number | Long;
+  balance: Long;
 
   /** ProtoOADepositWithdraw delta */
-  delta: number | Long;
+  delta: Long;
 
   /** ProtoOADepositWithdraw changeBalanceTimestamp */
-  changeBalanceTimestamp: number | Long;
+  changeBalanceTimestamp: Long;
 
   /** ProtoOADepositWithdraw externalNote */
   externalNote?: string | null;
 
   /** ProtoOADepositWithdraw balanceVersion */
-  balanceVersion?: number | Long | null;
+  balanceVersion?: Long | null;
 
   /** ProtoOADepositWithdraw equity */
-  equity?: number | Long | null;
+  equity?: Long | null;
 }
 
 /** Account deposit/withdrawal operation entity. */
@@ -10183,34 +5315,25 @@ export class ProtoOADepositWithdraw implements IProtoOADepositWithdraw {
   public operationType: ProtoOAChangeBalanceType;
 
   /** ProtoOADepositWithdraw balanceHistoryId. */
-  public balanceHistoryId: number | Long;
+  public balanceHistoryId: Long;
 
   /** ProtoOADepositWithdraw balance. */
-  public balance: number | Long;
+  public balance: Long;
 
   /** ProtoOADepositWithdraw delta. */
-  public delta: number | Long;
+  public delta: Long;
 
   /** ProtoOADepositWithdraw changeBalanceTimestamp. */
-  public changeBalanceTimestamp: number | Long;
+  public changeBalanceTimestamp: Long;
 
   /** ProtoOADepositWithdraw externalNote. */
   public externalNote: string;
 
   /** ProtoOADepositWithdraw balanceVersion. */
-  public balanceVersion: number | Long;
+  public balanceVersion: Long;
 
   /** ProtoOADepositWithdraw equity. */
-  public equity: number | Long;
-
-  /**
-   * Creates a new ProtoOADepositWithdraw instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOADepositWithdraw instance
-   */
-  public static create(
-    properties?: IProtoOADepositWithdraw
-  ): ProtoOADepositWithdraw;
+  public equity: Long;
 
   /**
    * Encodes the specified ProtoOADepositWithdraw message. Does not implicitly {@link ProtoOADepositWithdraw.verify|verify} messages.
@@ -10219,17 +5342,6 @@ export class ProtoOADepositWithdraw implements IProtoOADepositWithdraw {
    * @returns Writer
    */
   public static encode(
-    message: IProtoOADepositWithdraw,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoOADepositWithdraw message, length delimited. Does not implicitly {@link ProtoOADepositWithdraw.verify|verify} messages.
-   * @param message ProtoOADepositWithdraw message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
     message: IProtoOADepositWithdraw,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
@@ -10246,50 +5358,6 @@ export class ProtoOADepositWithdraw implements IProtoOADepositWithdraw {
     reader: $protobuf.Reader | Uint8Array,
     length?: number
   ): ProtoOADepositWithdraw;
-
-  /**
-   * Decodes a ProtoOADepositWithdraw message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoOADepositWithdraw
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoOADepositWithdraw;
-
-  /**
-   * Verifies a ProtoOADepositWithdraw message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoOADepositWithdraw message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoOADepositWithdraw
-   */
-  public static fromObject(object: {
-    [k: string]: any;
-  }): ProtoOADepositWithdraw;
-
-  /**
-   * Creates a plain object from a ProtoOADepositWithdraw message. Also converts values to other types if specified.
-   * @param message ProtoOADepositWithdraw
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoOADepositWithdraw,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoOADepositWithdraw to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
 }
 
 /** Balance operation entity. Covers all cash movement operations related to account, trading, IB operations, mirroring, etc. */
@@ -10325,31 +5393,31 @@ export enum ProtoOAChangeBalanceType {
 /** Properties of a ProtoOADeal. */
 export interface IProtoOADeal {
   /** ProtoOADeal dealId */
-  dealId: number | Long;
+  dealId: Long;
 
   /** ProtoOADeal orderId */
-  orderId: number | Long;
+  orderId: Long;
 
   /** ProtoOADeal positionId */
-  positionId: number | Long;
+  positionId: Long;
 
   /** ProtoOADeal volume */
-  volume: number | Long;
+  volume: Long;
 
   /** ProtoOADeal filledVolume */
-  filledVolume: number | Long;
+  filledVolume: Long;
 
   /** ProtoOADeal symbolId */
-  symbolId: number | Long;
+  symbolId: Long;
 
   /** ProtoOADeal createTimestamp */
-  createTimestamp: number | Long;
+  createTimestamp: Long;
 
   /** ProtoOADeal executionTimestamp */
-  executionTimestamp: number | Long;
+  executionTimestamp: Long;
 
   /** ProtoOADeal utcLastUpdateTimestamp */
-  utcLastUpdateTimestamp?: number | Long | null;
+  utcLastUpdateTimestamp?: Long | null;
 
   /** ProtoOADeal executionPrice */
   executionPrice?: number | null;
@@ -10364,7 +5432,7 @@ export interface IProtoOADeal {
   marginRate?: number | null;
 
   /** ProtoOADeal commission */
-  commission?: number | Long | null;
+  commission?: Long | null;
 
   /** ProtoOADeal baseToUsdConversionRate */
   baseToUsdConversionRate?: number | null;
@@ -10382,31 +5450,31 @@ export class ProtoOADeal implements IProtoOADeal {
   constructor(properties?: IProtoOADeal);
 
   /** ProtoOADeal dealId. */
-  public dealId: number | Long;
+  public dealId: Long;
 
   /** ProtoOADeal orderId. */
-  public orderId: number | Long;
+  public orderId: Long;
 
   /** ProtoOADeal positionId. */
-  public positionId: number | Long;
+  public positionId: Long;
 
   /** ProtoOADeal volume. */
-  public volume: number | Long;
+  public volume: Long;
 
   /** ProtoOADeal filledVolume. */
-  public filledVolume: number | Long;
+  public filledVolume: Long;
 
   /** ProtoOADeal symbolId. */
-  public symbolId: number | Long;
+  public symbolId: Long;
 
   /** ProtoOADeal createTimestamp. */
-  public createTimestamp: number | Long;
+  public createTimestamp: Long;
 
   /** ProtoOADeal executionTimestamp. */
-  public executionTimestamp: number | Long;
+  public executionTimestamp: Long;
 
   /** ProtoOADeal utcLastUpdateTimestamp. */
-  public utcLastUpdateTimestamp: number | Long;
+  public utcLastUpdateTimestamp: Long;
 
   /** ProtoOADeal executionPrice. */
   public executionPrice: number;
@@ -10421,7 +5489,7 @@ export class ProtoOADeal implements IProtoOADeal {
   public marginRate: number;
 
   /** ProtoOADeal commission. */
-  public commission: number | Long;
+  public commission: Long;
 
   /** ProtoOADeal baseToUsdConversionRate. */
   public baseToUsdConversionRate: number;
@@ -10430,30 +5498,12 @@ export class ProtoOADeal implements IProtoOADeal {
   public closePositionDetail?: IProtoOAClosePositionDetail | null;
 
   /**
-   * Creates a new ProtoOADeal instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOADeal instance
-   */
-  public static create(properties?: IProtoOADeal): ProtoOADeal;
-
-  /**
    * Encodes the specified ProtoOADeal message. Does not implicitly {@link ProtoOADeal.verify|verify} messages.
    * @param message ProtoOADeal message or plain object to encode
    * @param [writer] Writer to encode to
    * @returns Writer
    */
   public static encode(
-    message: IProtoOADeal,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoOADeal message, length delimited. Does not implicitly {@link ProtoOADeal.verify|verify} messages.
-   * @param message ProtoOADeal message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
     message: IProtoOADeal,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
@@ -10470,48 +5520,6 @@ export class ProtoOADeal implements IProtoOADeal {
     reader: $protobuf.Reader | Uint8Array,
     length?: number
   ): ProtoOADeal;
-
-  /**
-   * Decodes a ProtoOADeal message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoOADeal
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoOADeal;
-
-  /**
-   * Verifies a ProtoOADeal message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoOADeal message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoOADeal
-   */
-  public static fromObject(object: { [k: string]: any }): ProtoOADeal;
-
-  /**
-   * Creates a plain object from a ProtoOADeal message. Also converts values to other types if specified.
-   * @param message ProtoOADeal
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoOADeal,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoOADeal to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
 }
 
 /** Deal status ENUM. */
@@ -10530,25 +5538,25 @@ export interface IProtoOAClosePositionDetail {
   entryPrice: number;
 
   /** ProtoOAClosePositionDetail grossProfit */
-  grossProfit: number | Long;
+  grossProfit: Long;
 
   /** ProtoOAClosePositionDetail swap */
-  swap: number | Long;
+  swap: Long;
 
   /** ProtoOAClosePositionDetail commission */
-  commission: number | Long;
+  commission: Long;
 
   /** ProtoOAClosePositionDetail balance */
-  balance: number | Long;
+  balance: Long;
 
   /** ProtoOAClosePositionDetail quoteToDepositConversionRate */
   quoteToDepositConversionRate?: number | null;
 
   /** ProtoOAClosePositionDetail closedVolume */
-  closedVolume?: number | Long | null;
+  closedVolume?: Long | null;
 
   /** ProtoOAClosePositionDetail balanceVersion */
-  balanceVersion?: number | Long | null;
+  balanceVersion?: Long | null;
 }
 
 /** Trading details for closing deal. */
@@ -10563,34 +5571,25 @@ export class ProtoOAClosePositionDetail implements IProtoOAClosePositionDetail {
   public entryPrice: number;
 
   /** ProtoOAClosePositionDetail grossProfit. */
-  public grossProfit: number | Long;
+  public grossProfit: Long;
 
   /** ProtoOAClosePositionDetail swap. */
-  public swap: number | Long;
+  public swap: Long;
 
   /** ProtoOAClosePositionDetail commission. */
-  public commission: number | Long;
+  public commission: Long;
 
   /** ProtoOAClosePositionDetail balance. */
-  public balance: number | Long;
+  public balance: Long;
 
   /** ProtoOAClosePositionDetail quoteToDepositConversionRate. */
   public quoteToDepositConversionRate: number;
 
   /** ProtoOAClosePositionDetail closedVolume. */
-  public closedVolume: number | Long;
+  public closedVolume: Long;
 
   /** ProtoOAClosePositionDetail balanceVersion. */
-  public balanceVersion: number | Long;
-
-  /**
-   * Creates a new ProtoOAClosePositionDetail instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAClosePositionDetail instance
-   */
-  public static create(
-    properties?: IProtoOAClosePositionDetail
-  ): ProtoOAClosePositionDetail;
+  public balanceVersion: Long;
 
   /**
    * Encodes the specified ProtoOAClosePositionDetail message. Does not implicitly {@link ProtoOAClosePositionDetail.verify|verify} messages.
@@ -10599,17 +5598,6 @@ export class ProtoOAClosePositionDetail implements IProtoOAClosePositionDetail {
    * @returns Writer
    */
   public static encode(
-    message: IProtoOAClosePositionDetail,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoOAClosePositionDetail message, length delimited. Does not implicitly {@link ProtoOAClosePositionDetail.verify|verify} messages.
-   * @param message ProtoOAClosePositionDetail message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
     message: IProtoOAClosePositionDetail,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
@@ -10626,50 +5614,6 @@ export class ProtoOAClosePositionDetail implements IProtoOAClosePositionDetail {
     reader: $protobuf.Reader | Uint8Array,
     length?: number
   ): ProtoOAClosePositionDetail;
-
-  /**
-   * Decodes a ProtoOAClosePositionDetail message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoOAClosePositionDetail
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoOAClosePositionDetail;
-
-  /**
-   * Verifies a ProtoOAClosePositionDetail message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoOAClosePositionDetail message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoOAClosePositionDetail
-   */
-  public static fromObject(object: {
-    [k: string]: any;
-  }): ProtoOAClosePositionDetail;
-
-  /**
-   * Creates a plain object from a ProtoOAClosePositionDetail message. Also converts values to other types if specified.
-   * @param message ProtoOAClosePositionDetail
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoOAClosePositionDetail,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoOAClosePositionDetail to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
 }
 
 /** Trendbar period ENUM. */
@@ -10693,22 +5637,22 @@ export enum ProtoOATrendbarPeriod {
 /** Properties of a ProtoOATrendbar. */
 export interface IProtoOATrendbar {
   /** ProtoOATrendbar volume */
-  volume: number | Long;
+  volume: Long;
 
   /** ProtoOATrendbar period */
   period?: ProtoOATrendbarPeriod | null;
 
   /** ProtoOATrendbar low */
-  low?: number | Long | null;
+  low?: Long | null;
 
   /** ProtoOATrendbar deltaOpen */
-  deltaOpen?: number | Long | null;
+  deltaOpen?: Long | null;
 
   /** ProtoOATrendbar deltaClose */
-  deltaClose?: number | Long | null;
+  deltaClose?: Long | null;
 
   /** ProtoOATrendbar deltaHigh */
-  deltaHigh?: number | Long | null;
+  deltaHigh?: Long | null;
 
   /** ProtoOATrendbar utcTimestampInMinutes */
   utcTimestampInMinutes?: number | null;
@@ -10723,32 +5667,25 @@ export class ProtoOATrendbar implements IProtoOATrendbar {
   constructor(properties?: IProtoOATrendbar);
 
   /** ProtoOATrendbar volume. */
-  public volume: number | Long;
+  public volume: Long;
 
   /** ProtoOATrendbar period. */
   public period: ProtoOATrendbarPeriod;
 
   /** ProtoOATrendbar low. */
-  public low: number | Long;
+  public low: Long;
 
   /** ProtoOATrendbar deltaOpen. */
-  public deltaOpen: number | Long;
+  public deltaOpen: Long;
 
   /** ProtoOATrendbar deltaClose. */
-  public deltaClose: number | Long;
+  public deltaClose: Long;
 
   /** ProtoOATrendbar deltaHigh. */
-  public deltaHigh: number | Long;
+  public deltaHigh: Long;
 
   /** ProtoOATrendbar utcTimestampInMinutes. */
   public utcTimestampInMinutes: number;
-
-  /**
-   * Creates a new ProtoOATrendbar instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOATrendbar instance
-   */
-  public static create(properties?: IProtoOATrendbar): ProtoOATrendbar;
 
   /**
    * Encodes the specified ProtoOATrendbar message. Does not implicitly {@link ProtoOATrendbar.verify|verify} messages.
@@ -10757,17 +5694,6 @@ export class ProtoOATrendbar implements IProtoOATrendbar {
    * @returns Writer
    */
   public static encode(
-    message: IProtoOATrendbar,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoOATrendbar message, length delimited. Does not implicitly {@link ProtoOATrendbar.verify|verify} messages.
-   * @param message ProtoOATrendbar message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
     message: IProtoOATrendbar,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
@@ -10784,60 +5710,18 @@ export class ProtoOATrendbar implements IProtoOATrendbar {
     reader: $protobuf.Reader | Uint8Array,
     length?: number
   ): ProtoOATrendbar;
-
-  /**
-   * Decodes a ProtoOATrendbar message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoOATrendbar
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoOATrendbar;
-
-  /**
-   * Verifies a ProtoOATrendbar message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoOATrendbar message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoOATrendbar
-   */
-  public static fromObject(object: { [k: string]: any }): ProtoOATrendbar;
-
-  /**
-   * Creates a plain object from a ProtoOATrendbar message. Also converts values to other types if specified.
-   * @param message ProtoOATrendbar
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoOATrendbar,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoOATrendbar to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
 }
 
 /** Properties of a ProtoOAExpectedMargin. */
 export interface IProtoOAExpectedMargin {
   /** ProtoOAExpectedMargin volume */
-  volume: number | Long;
+  volume: Long;
 
   /** ProtoOAExpectedMargin buyMargin */
-  buyMargin: number | Long;
+  buyMargin: Long;
 
   /** ProtoOAExpectedMargin sellMargin */
-  sellMargin: number | Long;
+  sellMargin: Long;
 }
 
 /** Expected margin computation entity. */
@@ -10849,22 +5733,13 @@ export class ProtoOAExpectedMargin implements IProtoOAExpectedMargin {
   constructor(properties?: IProtoOAExpectedMargin);
 
   /** ProtoOAExpectedMargin volume. */
-  public volume: number | Long;
+  public volume: Long;
 
   /** ProtoOAExpectedMargin buyMargin. */
-  public buyMargin: number | Long;
+  public buyMargin: Long;
 
   /** ProtoOAExpectedMargin sellMargin. */
-  public sellMargin: number | Long;
-
-  /**
-   * Creates a new ProtoOAExpectedMargin instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAExpectedMargin instance
-   */
-  public static create(
-    properties?: IProtoOAExpectedMargin
-  ): ProtoOAExpectedMargin;
+  public sellMargin: Long;
 
   /**
    * Encodes the specified ProtoOAExpectedMargin message. Does not implicitly {@link ProtoOAExpectedMargin.verify|verify} messages.
@@ -10873,17 +5748,6 @@ export class ProtoOAExpectedMargin implements IProtoOAExpectedMargin {
    * @returns Writer
    */
   public static encode(
-    message: IProtoOAExpectedMargin,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoOAExpectedMargin message, length delimited. Does not implicitly {@link ProtoOAExpectedMargin.verify|verify} messages.
-   * @param message ProtoOAExpectedMargin message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
     message: IProtoOAExpectedMargin,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
@@ -10900,48 +5764,6 @@ export class ProtoOAExpectedMargin implements IProtoOAExpectedMargin {
     reader: $protobuf.Reader | Uint8Array,
     length?: number
   ): ProtoOAExpectedMargin;
-
-  /**
-   * Decodes a ProtoOAExpectedMargin message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoOAExpectedMargin
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoOAExpectedMargin;
-
-  /**
-   * Verifies a ProtoOAExpectedMargin message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoOAExpectedMargin message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoOAExpectedMargin
-   */
-  public static fromObject(object: { [k: string]: any }): ProtoOAExpectedMargin;
-
-  /**
-   * Creates a plain object from a ProtoOAExpectedMargin message. Also converts values to other types if specified.
-   * @param message ProtoOAExpectedMargin
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoOAExpectedMargin,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoOAExpectedMargin to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
 }
 
 /** Price quote type. */
@@ -10953,10 +5775,10 @@ export enum ProtoOAQuoteType {
 /** Properties of a ProtoOATickData. */
 export interface IProtoOATickData {
   /** ProtoOATickData timestamp */
-  timestamp: number | Long;
+  timestamp: Long;
 
   /** ProtoOATickData tick */
-  tick: number | Long;
+  tick: Long;
 }
 
 /** Historical tick data type. */
@@ -10968,17 +5790,10 @@ export class ProtoOATickData implements IProtoOATickData {
   constructor(properties?: IProtoOATickData);
 
   /** ProtoOATickData timestamp. */
-  public timestamp: number | Long;
+  public timestamp: Long;
 
   /** ProtoOATickData tick. */
-  public tick: number | Long;
-
-  /**
-   * Creates a new ProtoOATickData instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOATickData instance
-   */
-  public static create(properties?: IProtoOATickData): ProtoOATickData;
+  public tick: Long;
 
   /**
    * Encodes the specified ProtoOATickData message. Does not implicitly {@link ProtoOATickData.verify|verify} messages.
@@ -10987,17 +5802,6 @@ export class ProtoOATickData implements IProtoOATickData {
    * @returns Writer
    */
   public static encode(
-    message: IProtoOATickData,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoOATickData message, length delimited. Does not implicitly {@link ProtoOATickData.verify|verify} messages.
-   * @param message ProtoOATickData message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
     message: IProtoOATickData,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
@@ -11014,48 +5818,6 @@ export class ProtoOATickData implements IProtoOATickData {
     reader: $protobuf.Reader | Uint8Array,
     length?: number
   ): ProtoOATickData;
-
-  /**
-   * Decodes a ProtoOATickData message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoOATickData
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoOATickData;
-
-  /**
-   * Verifies a ProtoOATickData message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoOATickData message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoOATickData
-   */
-  public static fromObject(object: { [k: string]: any }): ProtoOATickData;
-
-  /**
-   * Creates a plain object from a ProtoOATickData message. Also converts values to other types if specified.
-   * @param message ProtoOATickData
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoOATickData,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoOATickData to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
 }
 
 /** Open API application permission in regards to token ENUM. */
@@ -11067,7 +5829,7 @@ export enum ProtoOAClientPermissionScope {
 /** Properties of a ProtoOACtidProfile. */
 export interface IProtoOACtidProfile {
   /** ProtoOACtidProfile userId */
-  userId: number | Long;
+  userId: Long;
 }
 
 /** Trader profile entity. Empty due to GDPR. */
@@ -11079,14 +5841,7 @@ export class ProtoOACtidProfile implements IProtoOACtidProfile {
   constructor(properties?: IProtoOACtidProfile);
 
   /** ProtoOACtidProfile userId. */
-  public userId: number | Long;
-
-  /**
-   * Creates a new ProtoOACtidProfile instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOACtidProfile instance
-   */
-  public static create(properties?: IProtoOACtidProfile): ProtoOACtidProfile;
+  public userId: Long;
 
   /**
    * Encodes the specified ProtoOACtidProfile message. Does not implicitly {@link ProtoOACtidProfile.verify|verify} messages.
@@ -11095,17 +5850,6 @@ export class ProtoOACtidProfile implements IProtoOACtidProfile {
    * @returns Writer
    */
   public static encode(
-    message: IProtoOACtidProfile,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoOACtidProfile message, length delimited. Does not implicitly {@link ProtoOACtidProfile.verify|verify} messages.
-   * @param message ProtoOACtidProfile message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
     message: IProtoOACtidProfile,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
@@ -11122,60 +5866,18 @@ export class ProtoOACtidProfile implements IProtoOACtidProfile {
     reader: $protobuf.Reader | Uint8Array,
     length?: number
   ): ProtoOACtidProfile;
-
-  /**
-   * Decodes a ProtoOACtidProfile message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoOACtidProfile
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoOACtidProfile;
-
-  /**
-   * Verifies a ProtoOACtidProfile message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoOACtidProfile message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoOACtidProfile
-   */
-  public static fromObject(object: { [k: string]: any }): ProtoOACtidProfile;
-
-  /**
-   * Creates a plain object from a ProtoOACtidProfile message. Also converts values to other types if specified.
-   * @param message ProtoOACtidProfile
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoOACtidProfile,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoOACtidProfile to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
 }
 
 /** Properties of a ProtoOACtidTraderAccount. */
 export interface IProtoOACtidTraderAccount {
   /** ProtoOACtidTraderAccount ctidTraderAccountId */
-  ctidTraderAccountId: number | Long;
+  ctidTraderAccountId: Long;
 
   /** ProtoOACtidTraderAccount isLive */
   isLive?: boolean | null;
 
   /** ProtoOACtidTraderAccount traderLogin */
-  traderLogin?: number | Long | null;
+  traderLogin?: Long | null;
 }
 
 /** Trader account entity. */
@@ -11187,22 +5889,13 @@ export class ProtoOACtidTraderAccount implements IProtoOACtidTraderAccount {
   constructor(properties?: IProtoOACtidTraderAccount);
 
   /** ProtoOACtidTraderAccount ctidTraderAccountId. */
-  public ctidTraderAccountId: number | Long;
+  public ctidTraderAccountId: Long;
 
   /** ProtoOACtidTraderAccount isLive. */
   public isLive: boolean;
 
   /** ProtoOACtidTraderAccount traderLogin. */
-  public traderLogin: number | Long;
-
-  /**
-   * Creates a new ProtoOACtidTraderAccount instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOACtidTraderAccount instance
-   */
-  public static create(
-    properties?: IProtoOACtidTraderAccount
-  ): ProtoOACtidTraderAccount;
+  public traderLogin: Long;
 
   /**
    * Encodes the specified ProtoOACtidTraderAccount message. Does not implicitly {@link ProtoOACtidTraderAccount.verify|verify} messages.
@@ -11211,17 +5904,6 @@ export class ProtoOACtidTraderAccount implements IProtoOACtidTraderAccount {
    * @returns Writer
    */
   public static encode(
-    message: IProtoOACtidTraderAccount,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoOACtidTraderAccount message, length delimited. Does not implicitly {@link ProtoOACtidTraderAccount.verify|verify} messages.
-   * @param message ProtoOACtidTraderAccount message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
     message: IProtoOACtidTraderAccount,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
@@ -11238,56 +5920,12 @@ export class ProtoOACtidTraderAccount implements IProtoOACtidTraderAccount {
     reader: $protobuf.Reader | Uint8Array,
     length?: number
   ): ProtoOACtidTraderAccount;
-
-  /**
-   * Decodes a ProtoOACtidTraderAccount message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoOACtidTraderAccount
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoOACtidTraderAccount;
-
-  /**
-   * Verifies a ProtoOACtidTraderAccount message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoOACtidTraderAccount message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoOACtidTraderAccount
-   */
-  public static fromObject(object: {
-    [k: string]: any;
-  }): ProtoOACtidTraderAccount;
-
-  /**
-   * Creates a plain object from a ProtoOACtidTraderAccount message. Also converts values to other types if specified.
-   * @param message ProtoOACtidTraderAccount
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoOACtidTraderAccount,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoOACtidTraderAccount to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
 }
 
 /** Properties of a ProtoOAAssetClass. */
 export interface IProtoOAAssetClass {
   /** ProtoOAAssetClass id */
-  id?: number | Long | null;
+  id?: Long | null;
 
   /** ProtoOAAssetClass name */
   name?: string | null;
@@ -11302,17 +5940,10 @@ export class ProtoOAAssetClass implements IProtoOAAssetClass {
   constructor(properties?: IProtoOAAssetClass);
 
   /** ProtoOAAssetClass id. */
-  public id: number | Long;
+  public id: Long;
 
   /** ProtoOAAssetClass name. */
   public name: string;
-
-  /**
-   * Creates a new ProtoOAAssetClass instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOAAssetClass instance
-   */
-  public static create(properties?: IProtoOAAssetClass): ProtoOAAssetClass;
 
   /**
    * Encodes the specified ProtoOAAssetClass message. Does not implicitly {@link ProtoOAAssetClass.verify|verify} messages.
@@ -11321,17 +5952,6 @@ export class ProtoOAAssetClass implements IProtoOAAssetClass {
    * @returns Writer
    */
   public static encode(
-    message: IProtoOAAssetClass,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoOAAssetClass message, length delimited. Does not implicitly {@link ProtoOAAssetClass.verify|verify} messages.
-   * @param message ProtoOAAssetClass message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
     message: IProtoOAAssetClass,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
@@ -11348,63 +5968,21 @@ export class ProtoOAAssetClass implements IProtoOAAssetClass {
     reader: $protobuf.Reader | Uint8Array,
     length?: number
   ): ProtoOAAssetClass;
-
-  /**
-   * Decodes a ProtoOAAssetClass message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoOAAssetClass
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoOAAssetClass;
-
-  /**
-   * Verifies a ProtoOAAssetClass message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoOAAssetClass message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoOAAssetClass
-   */
-  public static fromObject(object: { [k: string]: any }): ProtoOAAssetClass;
-
-  /**
-   * Creates a plain object from a ProtoOAAssetClass message. Also converts values to other types if specified.
-   * @param message ProtoOAAssetClass
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoOAAssetClass,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoOAAssetClass to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
 }
 
 /** Properties of a ProtoOADepthQuote. */
 export interface IProtoOADepthQuote {
   /** ProtoOADepthQuote id */
-  id: number | Long;
+  id: Long;
 
   /** ProtoOADepthQuote size */
-  size: number | Long;
+  size: Long;
 
   /** ProtoOADepthQuote bid */
-  bid?: number | Long | null;
+  bid?: Long | null;
 
   /** ProtoOADepthQuote ask */
-  ask?: number | Long | null;
+  ask?: Long | null;
 }
 
 /** Depth of market entity. */
@@ -11416,23 +5994,16 @@ export class ProtoOADepthQuote implements IProtoOADepthQuote {
   constructor(properties?: IProtoOADepthQuote);
 
   /** ProtoOADepthQuote id. */
-  public id: number | Long;
+  public id: Long;
 
   /** ProtoOADepthQuote size. */
-  public size: number | Long;
+  public size: Long;
 
   /** ProtoOADepthQuote bid. */
-  public bid: number | Long;
+  public bid: Long;
 
   /** ProtoOADepthQuote ask. */
-  public ask: number | Long;
-
-  /**
-   * Creates a new ProtoOADepthQuote instance using the specified properties.
-   * @param [properties] Properties to set
-   * @returns ProtoOADepthQuote instance
-   */
-  public static create(properties?: IProtoOADepthQuote): ProtoOADepthQuote;
+  public ask: Long;
 
   /**
    * Encodes the specified ProtoOADepthQuote message. Does not implicitly {@link ProtoOADepthQuote.verify|verify} messages.
@@ -11441,17 +6012,6 @@ export class ProtoOADepthQuote implements IProtoOADepthQuote {
    * @returns Writer
    */
   public static encode(
-    message: IProtoOADepthQuote,
-    writer?: $protobuf.Writer
-  ): $protobuf.Writer;
-
-  /**
-   * Encodes the specified ProtoOADepthQuote message, length delimited. Does not implicitly {@link ProtoOADepthQuote.verify|verify} messages.
-   * @param message ProtoOADepthQuote message or plain object to encode
-   * @param [writer] Writer to encode to
-   * @returns Writer
-   */
-  public static encodeDelimited(
     message: IProtoOADepthQuote,
     writer?: $protobuf.Writer
   ): $protobuf.Writer;
@@ -11468,48 +6028,6 @@ export class ProtoOADepthQuote implements IProtoOADepthQuote {
     reader: $protobuf.Reader | Uint8Array,
     length?: number
   ): ProtoOADepthQuote;
-
-  /**
-   * Decodes a ProtoOADepthQuote message from the specified reader or buffer, length delimited.
-   * @param reader Reader or buffer to decode from
-   * @returns ProtoOADepthQuote
-   * @throws {Error} If the payload is not a reader or valid buffer
-   * @throws {$protobuf.util.ProtocolError} If required fields are missing
-   */
-  public static decodeDelimited(
-    reader: $protobuf.Reader | Uint8Array
-  ): ProtoOADepthQuote;
-
-  /**
-   * Verifies a ProtoOADepthQuote message.
-   * @param message Plain object to verify
-   * @returns `null` if valid, otherwise the reason why it is not
-   */
-  public static verify(message: { [k: string]: any }): string | null;
-
-  /**
-   * Creates a ProtoOADepthQuote message from a plain object. Also converts values to their respective internal types.
-   * @param object Plain object
-   * @returns ProtoOADepthQuote
-   */
-  public static fromObject(object: { [k: string]: any }): ProtoOADepthQuote;
-
-  /**
-   * Creates a plain object from a ProtoOADepthQuote message. Also converts values to other types if specified.
-   * @param message ProtoOADepthQuote
-   * @param [options] Conversion options
-   * @returns Plain object
-   */
-  public static toObject(
-    message: ProtoOADepthQuote,
-    options?: $protobuf.IConversionOptions
-  ): { [k: string]: any };
-
-  /**
-   * Converts this ProtoOADepthQuote to JSON.
-   * @returns JSON object
-   */
-  public toJSON(): { [k: string]: any };
 }
 
 /** Error code ENUM. */

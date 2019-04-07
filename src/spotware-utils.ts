@@ -8,8 +8,7 @@ function length(length: number): Buffer {
 }
 
 export function serialize(message: IProtoMessage): Buffer {
-  const pm = ProtoMessage.create(message);
-  const data = ProtoMessage.encode(pm).finish();
+  const data = ProtoMessage.encode(message).finish();
   const len = length(data.length);
   const totalLength = len.length + data.length;
   return Buffer.concat([len, data], totalLength);

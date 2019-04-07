@@ -14,12 +14,9 @@ export namespace ProtoOASymbolsForConversionRes {
     message: IMessage,
     clientMsgId?: string | null
   ): IProtoMessage {
-    const payloadType = Message.prototype.payloadType;
-    const msg = Message.create(message);
-    const payload = Message.encode(msg).finish();
     return {
-      payloadType,
-      payload,
+      payloadType: Message.prototype.payloadType,
+      payload: Message.encode(message).finish(),
       clientMsgId
     };
   }
@@ -37,9 +34,10 @@ export namespace ProtoOASymbolsForConversionRes {
     message: IProtoMessage
   ): { message: IMessage; clientMsgId?: string | null } {
     if (message.payload && message.payloadType === payloadType) {
-      const { clientMsgId } = message;
-      const msg = Message.decode(message.payload);
-      return { message: msg, clientMsgId };
+      return {
+        message: Message.decode(message.payload),
+        clientMsgId: message.clientMsgId
+      };
     }
     if (!message.payload) {
       throw new Error(

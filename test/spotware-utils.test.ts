@@ -12,8 +12,7 @@ const DESERIALIZED = {
 
 describe("de-/serialize ProtoMessages", () => {
   test("serialize", () => {
-    const protoMessage = ProtoMessage.create(DESERIALIZED);
-    const buffer = util.serialize(protoMessage);
+    const buffer = util.serialize(DESERIALIZED);
     expect(buffer).toEqual(Buffer.from(SERIALIAZED, "hex"));
   });
   test("deserialize without offset", () => {
@@ -37,8 +36,7 @@ describe("de-/serialize ProtoMessages", () => {
     expect(actual).toThrow("buffer not large enough");
   });
   test("serialize + deserialize + serialize", () => {
-    const protoMessage = ProtoMessage.create(DESERIALIZED);
-    const buffer1 = util.serialize(protoMessage);
+    const buffer1 = util.serialize(DESERIALIZED);
 
     const TMP = util.deserialize(buffer1);
     const buffer2 = util.serialize(TMP);

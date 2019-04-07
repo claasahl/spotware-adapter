@@ -1,6 +1,6 @@
 {
   "name": "@claasahl/spotware-connect-api",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Protocol Buffers and Data Models for Spotware Open API 2.0",
   "main": "./build/index.js",
   "scripts": {
@@ -14,7 +14,7 @@
     "postimport": "shx cp ./spotware-messages/*.proto ./assets && shx rm -rf ./spotware-messages",
     "pregenerate": "shx mkdir ./build",
     "generate": "npm run generate:js && npm run generate:ts && npm run generate:messages:map && npm run generate:event-enum && npm run generate:event-emitter && npm run compile-readme && npm run generate:messages && npm run generate:messages:index",
-    "generate:js": "pbjs --target static-module --wrap commonjs --out ./src/spotware-messages.js ./assets/*.proto",
+    "generate:js": "pbjs --no-delimited --no-verify --no-create --no-convert --force-long --target static-module --wrap commonjs --out ./src/spotware-messages.js ./assets/*.proto",
     "postgenerate:js": "prettier --write ./src/spotware-messages.js && shx cp ./src/spotware-messages.js ./build/",
     "generate:ts": "pbts --out ./src/spotware-messages.d.ts ./src/spotware-messages.js",
     "postgenerate:ts": "prettier --write ./src/spotware-messages.d.ts && shx cp ./src/spotware-messages.d.ts ./build/",
@@ -59,6 +59,7 @@
   },
   "devDependencies": {
     "@types/jest": "^24.0.11",
+    "@types/long": "^4.0.0",
     "@types/mustache": "^0.8.32",
     "@types/node": "^11.12.2",
     "@types/protocol-buffers-schema": "^3.3.0",
@@ -78,5 +79,8 @@
   "engines": {
     "node": ">= 10.5.0",
     "npm": ">= 6.4.1"
+  },
+  "dependencies": {
+    "long": "^4.0.0"
   }
 }
