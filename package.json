@@ -51,6 +51,10 @@
     "email": "claasahl@gmail.com",
     "url": "https://github.com/claasahl"
   },
+  "repository": "github:claasahl/spotware-connect-api",
+  "bugs": {
+    "url": "https://github.com/claasahl/spotware-connect-api/issues"
+  },
   "license": "MIT",
   "husky": {
     "hooks": {
