@@ -1,6 +1,6 @@
 {
   "name": "@claasahl/spotware-connect-api",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Protocol Buffers and Data Models for Spotware Open API 2.0",
   "main": "./build/index.js",
   "scripts": {
@@ -50,6 +50,10 @@
     "name": "Claas Ahlrichs",
     "email": "claasahl@gmail.com",
     "url": "https://github.com/claasahl"
+  },
+  "repository": "github:claasahl/spotware-connect-api",
+  "bugs": {
+    "url": "https://github.com/claasahl/spotware-connect-api/issues"
   },
   "license": "MIT",
   "husky": {
