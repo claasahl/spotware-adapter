@@ -14,7 +14,7 @@ export namespace ProtoOAAmendOrderReq {
     clientMsgId?: string | null
   ): IProtoMessage {
     return {
-      payloadType: Message.prototype.payloadType,
+      payloadType,
       payload: Message.encode(message).finish(),
       clientMsgId
     };
@@ -37,8 +37,7 @@ export namespace ProtoOAAmendOrderReq {
         message: Message.decode(message.payload),
         clientMsgId: message.clientMsgId
       };
-    }
-    if (!message.payload) {
+    } else if (!message.payload) {
       throw new Error(
         "invalid message. expected payload, but payload was empty."
       );

@@ -15,7 +15,7 @@ export namespace ProtoOAClientDisconnectEvent {
     clientMsgId?: string | null
   ): IProtoMessage {
     return {
-      payloadType: Message.prototype.payloadType,
+      payloadType,
       payload: Message.encode(message).finish(),
       clientMsgId
     };
@@ -38,8 +38,7 @@ export namespace ProtoOAClientDisconnectEvent {
         message: Message.decode(message.payload),
         clientMsgId: message.clientMsgId
       };
-    }
-    if (!message.payload) {
+    } else if (!message.payload) {
       throw new Error(
         "invalid message. expected payload, but payload was empty."
       );
