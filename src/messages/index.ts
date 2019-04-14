@@ -141,145 +141,152 @@ export * from "./ProtoOAAccountLogoutReq";
 export * from "./ProtoOAAccountLogoutRes";
 export * from "./ProtoOAAccountDisconnectEvent";
 
-interface Decoders {
-  [index: number]: (
-    emitter: SpotwareEventEmitter,
-    message: IProtoMessage
-  ) => void;
-}
-const decoders: Decoders = {};
-decoders[ProtoPayloadType.ERROR_RES] = ProtoErrorRes.emitDecoded;
-decoders[ProtoPayloadType.HEARTBEAT_EVENT] = ProtoHeartbeatEvent.emitDecoded;
-decoders[ProtoOAPayloadType.PROTO_OA_APPLICATION_AUTH_REQ] =
-  ProtoOAApplicationAuthReq.emitDecoded;
-decoders[ProtoOAPayloadType.PROTO_OA_APPLICATION_AUTH_RES] =
-  ProtoOAApplicationAuthRes.emitDecoded;
-decoders[ProtoOAPayloadType.PROTO_OA_ACCOUNT_AUTH_REQ] =
-  ProtoOAAccountAuthReq.emitDecoded;
-decoders[ProtoOAPayloadType.PROTO_OA_ACCOUNT_AUTH_RES] =
-  ProtoOAAccountAuthRes.emitDecoded;
-decoders[ProtoOAPayloadType.PROTO_OA_ERROR_RES] = ProtoOAErrorRes.emitDecoded;
-decoders[ProtoOAPayloadType.PROTO_OA_CLIENT_DISCONNECT_EVENT] =
-  ProtoOAClientDisconnectEvent.emitDecoded;
-decoders[ProtoOAPayloadType.PROTO_OA_ACCOUNTS_TOKEN_INVALIDATED_EVENT] =
-  ProtoOAAccountsTokenInvalidatedEvent.emitDecoded;
-decoders[ProtoOAPayloadType.PROTO_OA_VERSION_REQ] =
-  ProtoOAVersionReq.emitDecoded;
-decoders[ProtoOAPayloadType.PROTO_OA_VERSION_RES] =
-  ProtoOAVersionRes.emitDecoded;
-decoders[ProtoOAPayloadType.PROTO_OA_NEW_ORDER_REQ] =
-  ProtoOANewOrderReq.emitDecoded;
-decoders[ProtoOAPayloadType.PROTO_OA_EXECUTION_EVENT] =
-  ProtoOAExecutionEvent.emitDecoded;
-decoders[ProtoOAPayloadType.PROTO_OA_CANCEL_ORDER_REQ] =
-  ProtoOACancelOrderReq.emitDecoded;
-decoders[ProtoOAPayloadType.PROTO_OA_AMEND_ORDER_REQ] =
-  ProtoOAAmendOrderReq.emitDecoded;
-decoders[ProtoOAPayloadType.PROTO_OA_AMEND_POSITION_SLTP_REQ] =
-  ProtoOAAmendPositionSLTPReq.emitDecoded;
-decoders[ProtoOAPayloadType.PROTO_OA_CLOSE_POSITION_REQ] =
-  ProtoOAClosePositionReq.emitDecoded;
-decoders[ProtoOAPayloadType.PROTO_OA_TRAILING_SL_CHANGED_EVENT] =
-  ProtoOATrailingSLChangedEvent.emitDecoded;
-decoders[ProtoOAPayloadType.PROTO_OA_ASSET_LIST_REQ] =
-  ProtoOAAssetListReq.emitDecoded;
-decoders[ProtoOAPayloadType.PROTO_OA_ASSET_LIST_RES] =
-  ProtoOAAssetListRes.emitDecoded;
-decoders[ProtoOAPayloadType.PROTO_OA_SYMBOLS_LIST_REQ] =
-  ProtoOASymbolsListReq.emitDecoded;
-decoders[ProtoOAPayloadType.PROTO_OA_SYMBOLS_LIST_RES] =
-  ProtoOASymbolsListRes.emitDecoded;
-decoders[ProtoOAPayloadType.PROTO_OA_SYMBOL_BY_ID_REQ] =
-  ProtoOASymbolByIdReq.emitDecoded;
-decoders[ProtoOAPayloadType.PROTO_OA_SYMBOL_BY_ID_RES] =
-  ProtoOASymbolByIdRes.emitDecoded;
-decoders[ProtoOAPayloadType.PROTO_OA_SYMBOLS_FOR_CONVERSION_REQ] =
-  ProtoOASymbolsForConversionReq.emitDecoded;
-decoders[ProtoOAPayloadType.PROTO_OA_SYMBOLS_FOR_CONVERSION_RES] =
-  ProtoOASymbolsForConversionRes.emitDecoded;
-decoders[ProtoOAPayloadType.PROTO_OA_SYMBOL_CHANGED_EVENT] =
-  ProtoOASymbolChangedEvent.emitDecoded;
-decoders[ProtoOAPayloadType.PROTO_OA_ASSET_CLASS_LIST_REQ] =
-  ProtoOAAssetClassListReq.emitDecoded;
-decoders[ProtoOAPayloadType.PROTO_OA_ASSET_CLASS_LIST_RES] =
-  ProtoOAAssetClassListRes.emitDecoded;
-decoders[ProtoOAPayloadType.PROTO_OA_TRADER_REQ] = ProtoOATraderReq.emitDecoded;
-decoders[ProtoOAPayloadType.PROTO_OA_TRADER_RES] = ProtoOATraderRes.emitDecoded;
-decoders[ProtoOAPayloadType.PROTO_OA_TRADER_UPDATE_EVENT] =
-  ProtoOATraderUpdatedEvent.emitDecoded;
-decoders[ProtoOAPayloadType.PROTO_OA_RECONCILE_REQ] =
-  ProtoOAReconcileReq.emitDecoded;
-decoders[ProtoOAPayloadType.PROTO_OA_RECONCILE_RES] =
-  ProtoOAReconcileRes.emitDecoded;
-decoders[ProtoOAPayloadType.PROTO_OA_ORDER_ERROR_EVENT] =
-  ProtoOAOrderErrorEvent.emitDecoded;
-decoders[ProtoOAPayloadType.PROTO_OA_DEAL_LIST_REQ] =
-  ProtoOADealListReq.emitDecoded;
-decoders[ProtoOAPayloadType.PROTO_OA_DEAL_LIST_RES] =
-  ProtoOADealListRes.emitDecoded;
-decoders[ProtoOAPayloadType.PROTO_OA_EXPECTED_MARGIN_REQ] =
-  ProtoOAExpectedMarginReq.emitDecoded;
-decoders[ProtoOAPayloadType.PROTO_OA_EXPECTED_MARGIN_RES] =
-  ProtoOAExpectedMarginRes.emitDecoded;
-decoders[ProtoOAPayloadType.PROTO_OA_MARGIN_CHANGED_EVENT] =
-  ProtoOAMarginChangedEvent.emitDecoded;
-decoders[ProtoOAPayloadType.PROTO_OA_CASH_FLOW_HISTORY_LIST_REQ] =
-  ProtoOACashFlowHistoryListReq.emitDecoded;
-decoders[ProtoOAPayloadType.PROTO_OA_CASH_FLOW_HISTORY_LIST_RES] =
-  ProtoOACashFlowHistoryListRes.emitDecoded;
-decoders[ProtoOAPayloadType.PROTO_OA_GET_ACCOUNTS_BY_ACCESS_TOKEN_REQ] =
-  ProtoOAGetAccountListByAccessTokenReq.emitDecoded;
-decoders[ProtoOAPayloadType.PROTO_OA_GET_ACCOUNTS_BY_ACCESS_TOKEN_RES] =
-  ProtoOAGetAccountListByAccessTokenRes.emitDecoded;
-decoders[ProtoOAPayloadType.PROTO_OA_SUBSCRIBE_SPOTS_REQ] =
-  ProtoOASubscribeSpotsReq.emitDecoded;
-decoders[ProtoOAPayloadType.PROTO_OA_SUBSCRIBE_SPOTS_RES] =
-  ProtoOASubscribeSpotsRes.emitDecoded;
-decoders[ProtoOAPayloadType.PROTO_OA_UNSUBSCRIBE_SPOTS_REQ] =
-  ProtoOAUnsubscribeSpotsReq.emitDecoded;
-decoders[ProtoOAPayloadType.PROTO_OA_UNSUBSCRIBE_SPOTS_RES] =
-  ProtoOAUnsubscribeSpotsRes.emitDecoded;
-decoders[ProtoOAPayloadType.PROTO_OA_SPOT_EVENT] = ProtoOASpotEvent.emitDecoded;
-decoders[ProtoOAPayloadType.PROTO_OA_SUBSCRIBE_LIVE_TRENDBAR_REQ] =
-  ProtoOASubscribeLiveTrendbarReq.emitDecoded;
-decoders[ProtoOAPayloadType.PROTO_OA_UNSUBSCRIBE_LIVE_TRENDBAR_REQ] =
-  ProtoOAUnsubscribeLiveTrendbarReq.emitDecoded;
-decoders[ProtoOAPayloadType.PROTO_OA_GET_TRENDBARS_REQ] =
-  ProtoOAGetTrendbarsReq.emitDecoded;
-decoders[ProtoOAPayloadType.PROTO_OA_GET_TRENDBARS_RES] =
-  ProtoOAGetTrendbarsRes.emitDecoded;
-decoders[ProtoOAPayloadType.PROTO_OA_GET_TICKDATA_REQ] =
-  ProtoOAGetTickDataReq.emitDecoded;
-decoders[ProtoOAPayloadType.PROTO_OA_GET_TICKDATA_RES] =
-  ProtoOAGetTickDataRes.emitDecoded;
-decoders[ProtoOAPayloadType.PROTO_OA_GET_CTID_PROFILE_BY_TOKEN_REQ] =
-  ProtoOAGetCtidProfileByTokenReq.emitDecoded;
-decoders[ProtoOAPayloadType.PROTO_OA_GET_CTID_PROFILE_BY_TOKEN_RES] =
-  ProtoOAGetCtidProfileByTokenRes.emitDecoded;
-decoders[ProtoOAPayloadType.PROTO_OA_DEPTH_EVENT] =
-  ProtoOADepthEvent.emitDecoded;
-decoders[ProtoOAPayloadType.PROTO_OA_SUBSCRIBE_DEPTH_QUOTES_REQ] =
-  ProtoOASubscribeDepthQuotesReq.emitDecoded;
-decoders[ProtoOAPayloadType.PROTO_OA_SUBSCRIBE_DEPTH_QUOTES_RES] =
-  ProtoOASubscribeDepthQuotesRes.emitDecoded;
-decoders[ProtoOAPayloadType.PROTO_OA_UNSUBSCRIBE_DEPTH_QUOTES_REQ] =
-  ProtoOAUnsubscribeDepthQuotesReq.emitDecoded;
-decoders[ProtoOAPayloadType.PROTO_OA_UNSUBSCRIBE_DEPTH_QUOTES_RES] =
-  ProtoOAUnsubscribeDepthQuotesRes.emitDecoded;
-decoders[ProtoOAPayloadType.PROTO_OA_SYMBOL_CATEGORY_REQ] =
-  ProtoOASymbolCategoryListReq.emitDecoded;
-decoders[ProtoOAPayloadType.PROTO_OA_SYMBOL_CATEGORY_RES] =
-  ProtoOASymbolCategoryListRes.emitDecoded;
-decoders[ProtoOAPayloadType.PROTO_OA_ACCOUNT_LOGOUT_REQ] =
-  ProtoOAAccountLogoutReq.emitDecoded;
-decoders[ProtoOAPayloadType.PROTO_OA_ACCOUNT_LOGOUT_RES] =
-  ProtoOAAccountLogoutRes.emitDecoded;
-decoders[ProtoOAPayloadType.PROTO_OA_ACCOUNT_DISCONNECT_EVENT] =
-  ProtoOAAccountDisconnectEvent.emitDecoded;
-
 export function emitDecoded(
   emitter: SpotwareEventEmitter,
   message: IProtoMessage
 ): void {
-  decoders[message.payloadType](emitter, message);
+  switch (message.payloadType as ProtoPayloadType | ProtoOAPayloadType) {
+    case ProtoPayloadType.ERROR_RES:
+      return ProtoErrorRes.emitDecoded(emitter, message);
+    case ProtoPayloadType.HEARTBEAT_EVENT:
+      return ProtoHeartbeatEvent.emitDecoded(emitter, message);
+    case ProtoOAPayloadType.PROTO_OA_APPLICATION_AUTH_REQ:
+      return ProtoOAApplicationAuthReq.emitDecoded(emitter, message);
+    case ProtoOAPayloadType.PROTO_OA_APPLICATION_AUTH_RES:
+      return ProtoOAApplicationAuthRes.emitDecoded(emitter, message);
+    case ProtoOAPayloadType.PROTO_OA_ACCOUNT_AUTH_REQ:
+      return ProtoOAAccountAuthReq.emitDecoded(emitter, message);
+    case ProtoOAPayloadType.PROTO_OA_ACCOUNT_AUTH_RES:
+      return ProtoOAAccountAuthRes.emitDecoded(emitter, message);
+    case ProtoOAPayloadType.PROTO_OA_ERROR_RES:
+      return ProtoOAErrorRes.emitDecoded(emitter, message);
+    case ProtoOAPayloadType.PROTO_OA_CLIENT_DISCONNECT_EVENT:
+      return ProtoOAClientDisconnectEvent.emitDecoded(emitter, message);
+    case ProtoOAPayloadType.PROTO_OA_ACCOUNTS_TOKEN_INVALIDATED_EVENT:
+      return ProtoOAAccountsTokenInvalidatedEvent.emitDecoded(emitter, message);
+    case ProtoOAPayloadType.PROTO_OA_VERSION_REQ:
+      return ProtoOAVersionReq.emitDecoded(emitter, message);
+    case ProtoOAPayloadType.PROTO_OA_VERSION_RES:
+      return ProtoOAVersionRes.emitDecoded(emitter, message);
+    case ProtoOAPayloadType.PROTO_OA_NEW_ORDER_REQ:
+      return ProtoOANewOrderReq.emitDecoded(emitter, message);
+    case ProtoOAPayloadType.PROTO_OA_EXECUTION_EVENT:
+      return ProtoOAExecutionEvent.emitDecoded(emitter, message);
+    case ProtoOAPayloadType.PROTO_OA_CANCEL_ORDER_REQ:
+      return ProtoOACancelOrderReq.emitDecoded(emitter, message);
+    case ProtoOAPayloadType.PROTO_OA_AMEND_ORDER_REQ:
+      return ProtoOAAmendOrderReq.emitDecoded(emitter, message);
+    case ProtoOAPayloadType.PROTO_OA_AMEND_POSITION_SLTP_REQ:
+      return ProtoOAAmendPositionSLTPReq.emitDecoded(emitter, message);
+    case ProtoOAPayloadType.PROTO_OA_CLOSE_POSITION_REQ:
+      return ProtoOAClosePositionReq.emitDecoded(emitter, message);
+    case ProtoOAPayloadType.PROTO_OA_TRAILING_SL_CHANGED_EVENT:
+      return ProtoOATrailingSLChangedEvent.emitDecoded(emitter, message);
+    case ProtoOAPayloadType.PROTO_OA_ASSET_LIST_REQ:
+      return ProtoOAAssetListReq.emitDecoded(emitter, message);
+    case ProtoOAPayloadType.PROTO_OA_ASSET_LIST_RES:
+      return ProtoOAAssetListRes.emitDecoded(emitter, message);
+    case ProtoOAPayloadType.PROTO_OA_SYMBOLS_LIST_REQ:
+      return ProtoOASymbolsListReq.emitDecoded(emitter, message);
+    case ProtoOAPayloadType.PROTO_OA_SYMBOLS_LIST_RES:
+      return ProtoOASymbolsListRes.emitDecoded(emitter, message);
+    case ProtoOAPayloadType.PROTO_OA_SYMBOL_BY_ID_REQ:
+      return ProtoOASymbolByIdReq.emitDecoded(emitter, message);
+    case ProtoOAPayloadType.PROTO_OA_SYMBOL_BY_ID_RES:
+      return ProtoOASymbolByIdRes.emitDecoded(emitter, message);
+    case ProtoOAPayloadType.PROTO_OA_SYMBOLS_FOR_CONVERSION_REQ:
+      return ProtoOASymbolsForConversionReq.emitDecoded(emitter, message);
+    case ProtoOAPayloadType.PROTO_OA_SYMBOLS_FOR_CONVERSION_RES:
+      return ProtoOASymbolsForConversionRes.emitDecoded(emitter, message);
+    case ProtoOAPayloadType.PROTO_OA_SYMBOL_CHANGED_EVENT:
+      return ProtoOASymbolChangedEvent.emitDecoded(emitter, message);
+    case ProtoOAPayloadType.PROTO_OA_ASSET_CLASS_LIST_REQ:
+      return ProtoOAAssetClassListReq.emitDecoded(emitter, message);
+    case ProtoOAPayloadType.PROTO_OA_ASSET_CLASS_LIST_RES:
+      return ProtoOAAssetClassListRes.emitDecoded(emitter, message);
+    case ProtoOAPayloadType.PROTO_OA_TRADER_REQ:
+      return ProtoOATraderReq.emitDecoded(emitter, message);
+    case ProtoOAPayloadType.PROTO_OA_TRADER_RES:
+      return ProtoOATraderRes.emitDecoded(emitter, message);
+    case ProtoOAPayloadType.PROTO_OA_TRADER_UPDATE_EVENT:
+      return ProtoOATraderUpdatedEvent.emitDecoded(emitter, message);
+    case ProtoOAPayloadType.PROTO_OA_RECONCILE_REQ:
+      return ProtoOAReconcileReq.emitDecoded(emitter, message);
+    case ProtoOAPayloadType.PROTO_OA_RECONCILE_RES:
+      return ProtoOAReconcileRes.emitDecoded(emitter, message);
+    case ProtoOAPayloadType.PROTO_OA_ORDER_ERROR_EVENT:
+      return ProtoOAOrderErrorEvent.emitDecoded(emitter, message);
+    case ProtoOAPayloadType.PROTO_OA_DEAL_LIST_REQ:
+      return ProtoOADealListReq.emitDecoded(emitter, message);
+    case ProtoOAPayloadType.PROTO_OA_DEAL_LIST_RES:
+      return ProtoOADealListRes.emitDecoded(emitter, message);
+    case ProtoOAPayloadType.PROTO_OA_EXPECTED_MARGIN_REQ:
+      return ProtoOAExpectedMarginReq.emitDecoded(emitter, message);
+    case ProtoOAPayloadType.PROTO_OA_EXPECTED_MARGIN_RES:
+      return ProtoOAExpectedMarginRes.emitDecoded(emitter, message);
+    case ProtoOAPayloadType.PROTO_OA_MARGIN_CHANGED_EVENT:
+      return ProtoOAMarginChangedEvent.emitDecoded(emitter, message);
+    case ProtoOAPayloadType.PROTO_OA_CASH_FLOW_HISTORY_LIST_REQ:
+      return ProtoOACashFlowHistoryListReq.emitDecoded(emitter, message);
+    case ProtoOAPayloadType.PROTO_OA_CASH_FLOW_HISTORY_LIST_RES:
+      return ProtoOACashFlowHistoryListRes.emitDecoded(emitter, message);
+    case ProtoOAPayloadType.PROTO_OA_GET_ACCOUNTS_BY_ACCESS_TOKEN_REQ:
+      return ProtoOAGetAccountListByAccessTokenReq.emitDecoded(
+        emitter,
+        message
+      );
+    case ProtoOAPayloadType.PROTO_OA_GET_ACCOUNTS_BY_ACCESS_TOKEN_RES:
+      return ProtoOAGetAccountListByAccessTokenRes.emitDecoded(
+        emitter,
+        message
+      );
+    case ProtoOAPayloadType.PROTO_OA_SUBSCRIBE_SPOTS_REQ:
+      return ProtoOASubscribeSpotsReq.emitDecoded(emitter, message);
+    case ProtoOAPayloadType.PROTO_OA_SUBSCRIBE_SPOTS_RES:
+      return ProtoOASubscribeSpotsRes.emitDecoded(emitter, message);
+    case ProtoOAPayloadType.PROTO_OA_UNSUBSCRIBE_SPOTS_REQ:
+      return ProtoOAUnsubscribeSpotsReq.emitDecoded(emitter, message);
+    case ProtoOAPayloadType.PROTO_OA_UNSUBSCRIBE_SPOTS_RES:
+      return ProtoOAUnsubscribeSpotsRes.emitDecoded(emitter, message);
+    case ProtoOAPayloadType.PROTO_OA_SPOT_EVENT:
+      return ProtoOASpotEvent.emitDecoded(emitter, message);
+    case ProtoOAPayloadType.PROTO_OA_SUBSCRIBE_LIVE_TRENDBAR_REQ:
+      return ProtoOASubscribeLiveTrendbarReq.emitDecoded(emitter, message);
+    case ProtoOAPayloadType.PROTO_OA_UNSUBSCRIBE_LIVE_TRENDBAR_REQ:
+      return ProtoOAUnsubscribeLiveTrendbarReq.emitDecoded(emitter, message);
+    case ProtoOAPayloadType.PROTO_OA_GET_TRENDBARS_REQ:
+      return ProtoOAGetTrendbarsReq.emitDecoded(emitter, message);
+    case ProtoOAPayloadType.PROTO_OA_GET_TRENDBARS_RES:
+      return ProtoOAGetTrendbarsRes.emitDecoded(emitter, message);
+    case ProtoOAPayloadType.PROTO_OA_GET_TICKDATA_REQ:
+      return ProtoOAGetTickDataReq.emitDecoded(emitter, message);
+    case ProtoOAPayloadType.PROTO_OA_GET_TICKDATA_RES:
+      return ProtoOAGetTickDataRes.emitDecoded(emitter, message);
+    case ProtoOAPayloadType.PROTO_OA_GET_CTID_PROFILE_BY_TOKEN_REQ:
+      return ProtoOAGetCtidProfileByTokenReq.emitDecoded(emitter, message);
+    case ProtoOAPayloadType.PROTO_OA_GET_CTID_PROFILE_BY_TOKEN_RES:
+      return ProtoOAGetCtidProfileByTokenRes.emitDecoded(emitter, message);
+    case ProtoOAPayloadType.PROTO_OA_DEPTH_EVENT:
+      return ProtoOADepthEvent.emitDecoded(emitter, message);
+    case ProtoOAPayloadType.PROTO_OA_SUBSCRIBE_DEPTH_QUOTES_REQ:
+      return ProtoOASubscribeDepthQuotesReq.emitDecoded(emitter, message);
+    case ProtoOAPayloadType.PROTO_OA_SUBSCRIBE_DEPTH_QUOTES_RES:
+      return ProtoOASubscribeDepthQuotesRes.emitDecoded(emitter, message);
+    case ProtoOAPayloadType.PROTO_OA_UNSUBSCRIBE_DEPTH_QUOTES_REQ:
+      return ProtoOAUnsubscribeDepthQuotesReq.emitDecoded(emitter, message);
+    case ProtoOAPayloadType.PROTO_OA_UNSUBSCRIBE_DEPTH_QUOTES_RES:
+      return ProtoOAUnsubscribeDepthQuotesRes.emitDecoded(emitter, message);
+    case ProtoOAPayloadType.PROTO_OA_SYMBOL_CATEGORY_REQ:
+      return ProtoOASymbolCategoryListReq.emitDecoded(emitter, message);
+    case ProtoOAPayloadType.PROTO_OA_SYMBOL_CATEGORY_RES:
+      return ProtoOASymbolCategoryListRes.emitDecoded(emitter, message);
+    case ProtoOAPayloadType.PROTO_OA_ACCOUNT_LOGOUT_REQ:
+      return ProtoOAAccountLogoutReq.emitDecoded(emitter, message);
+    case ProtoOAPayloadType.PROTO_OA_ACCOUNT_LOGOUT_RES:
+      return ProtoOAAccountLogoutRes.emitDecoded(emitter, message);
+    case ProtoOAPayloadType.PROTO_OA_ACCOUNT_DISCONNECT_EVENT:
+      return ProtoOAAccountDisconnectEvent.emitDecoded(emitter, message);
+    default:
+      throw new Error(`got unknown 'payloadType' (${message.payloadType})`);
+  }
 }

@@ -13,20 +13,18 @@ export * from "./{{{type}}}";
 {{/isProtoMessage}}
 {{/messages}}
 
-
-interface Decoders {
-  [index: number]: (emitter: SpotwareEventEmitter, message: IProtoMessage) => void
-}
-const decoders: Decoders = {};
-{{#messages}}
-{{^isProtoMessage}}
-decoders[{{{payloadType}}}]= {{{type}}}.emitDecoded;
-{{/isProtoMessage}}
-{{/messages}}
-
 export function emitDecoded(
   emitter: SpotwareEventEmitter,
   message: IProtoMessage
 ): void {
-  decoders[message.payloadType](emitter, message);
+  switch(message.payloadType as ProtoPayloadType | ProtoOAPayloadType) {
+{{#messages}}
+{{^isProtoMessage}}
+    case {{{payloadType}}}:
+      return {{{type}}}.emitDecoded(emitter, message);
+{{/isProtoMessage}}
+{{/messages}}
+    default:
+    throw new Error(`got unknown 'payloadType' (${message.payloadType})`);
+  }
 }
