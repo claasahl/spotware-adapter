@@ -1,4 +1,6 @@
-﻿import {IProtoMessage, ProtoPayloadType, ProtoOAPayloadType} from "../spotware-messages";
+﻿import * as $spotware from "../spotware-messages"
+import Events from "../spotware-events"
+import {IProtoMessage, ProtoPayloadType, ProtoOAPayloadType} from "../spotware-messages";
 import {SpotwareEventEmitter} from "../spotware-event-emitter"
 
 {{#messages}}
@@ -12,6 +14,41 @@ import {{{type}}} from "./{{{type}}}";
 export * from "./{{{type}}}";
 {{/isProtoMessage}}
 {{/messages}}
+
+type E = Exclude<Events, "PROTO_MESSAGE">;
+type Message<M> = { message: M; clientMsgId?: string | null };
+
+{{#messages}}
+{{^isProtoMessage}}
+export function to(event: "{{{eventName}}}", message: $spotware.I{{{type}}}, clientMsgId?: string | null): IProtoMessage;
+{{/isProtoMessage}}
+{{/messages}}
+export function to(event: E, message: any, clientMsgId?: string | null): IProtoMessage {
+  switch(event) {
+{{#messages}}
+{{^isProtoMessage}}
+    case "{{{eventName}}}":
+      return {{{type}}}.toProtoMessage(message, clientMsgId);
+{{/isProtoMessage}}
+{{/messages}}
+  }
+}
+
+{{#messages}}
+{{^isProtoMessage}}
+export function from(event: "{{{eventName}}}", message: IProtoMessage): Message<$spotware.I{{{type}}}>;
+{{/isProtoMessage}}
+{{/messages}}
+export function from(event: E, message: IProtoMessage): Message<any> {
+  switch(event) {
+{{#messages}}
+{{^isProtoMessage}}
+    case "{{{eventName}}}":
+      return {{{type}}}.fromProtoMessage(message);
+{{/isProtoMessage}}
+{{/messages}}
+  }
+}
 
 export function emitDecoded(
   emitter: SpotwareEventEmitter,
