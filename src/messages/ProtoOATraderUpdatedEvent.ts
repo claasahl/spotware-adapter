@@ -61,3 +61,4 @@ export namespace ProtoOATraderUpdatedEvent {
     );
   }
 }
+export default ProtoOATraderUpdatedEvent;

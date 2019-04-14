@@ -61,3 +61,4 @@ export namespace ProtoOAAssetClassListReq {
     );
   }
 }
+export default ProtoOAAssetClassListReq;

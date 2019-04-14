@@ -62,3 +62,4 @@ export namespace ProtoOAAmendPositionSLTPReq {
     );
   }
 }
+export default ProtoOAAmendPositionSLTPReq;

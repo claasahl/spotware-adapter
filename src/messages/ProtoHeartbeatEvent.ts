@@ -57,3 +57,4 @@ export namespace ProtoHeartbeatEvent {
     emitter.emit("HEARTBEAT_EVENT", data.message, data.clientMsgId);
   }
 }
+export default ProtoHeartbeatEvent;

@@ -57,3 +57,4 @@ export namespace ProtoErrorRes {
     emitter.emit("ERROR_RES", data.message, data.clientMsgId);
   }
 }
+export default ProtoErrorRes;

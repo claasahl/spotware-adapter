@@ -62,3 +62,4 @@ export namespace ProtoOAGetAccountListByAccessTokenReq {
     );
   }
 }
+export default ProtoOAGetAccountListByAccessTokenReq;

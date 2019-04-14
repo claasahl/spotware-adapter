@@ -61,3 +61,4 @@ export namespace ProtoOAExpectedMarginRes {
     );
   }
 }
+export default ProtoOAExpectedMarginRes;

@@ -57,3 +57,4 @@ export namespace ProtoOAErrorRes {
     emitter.emit("PROTO_OA_ERROR_RES", data.message, data.clientMsgId);
   }
 }
+export default ProtoOAErrorRes;

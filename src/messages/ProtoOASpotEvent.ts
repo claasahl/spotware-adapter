@@ -57,3 +57,4 @@ export namespace ProtoOASpotEvent {
     emitter.emit("PROTO_OA_SPOT_EVENT", data.message, data.clientMsgId);
   }
 }
+export default ProtoOASpotEvent;

@@ -62,3 +62,4 @@ export namespace ProtoOASubscribeDepthQuotesRes {
     );
   }
 }
+export default ProtoOASubscribeDepthQuotesRes;

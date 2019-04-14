@@ -57,3 +57,4 @@ export namespace ProtoOAAccountAuthReq {
     emitter.emit("PROTO_OA_ACCOUNT_AUTH_REQ", data.message, data.clientMsgId);
   }
 }
+export default ProtoOAAccountAuthReq;

@@ -4,7 +4,6 @@ import * as $spotware from "./spotware-messages";
 import SpotwareEventEmitter from "./spotware-event-emitter";
 import * as messages from "./messages";
 import * as util from "./spotware-utils";
-import * as handlers from "./spotware-message-handler";
 
 function readProtoMessage(this: SpotwareEventEmitter, data: string) {
   {
@@ -22,7 +21,7 @@ function onProtoMessage(
   this: SpotwareEventEmitter & tls.TLSSocket,
   message: $spotware.IProtoMessage
 ) {
-  return handlers.onProtoMessage(this, message);
+  return messages.emitDecoded(this, message);
 }
 
 function onProtoOAApplicationAuthReq(

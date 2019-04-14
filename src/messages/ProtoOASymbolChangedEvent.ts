@@ -61,3 +61,4 @@ export namespace ProtoOASymbolChangedEvent {
     );
   }
 }
+export default ProtoOASymbolChangedEvent;

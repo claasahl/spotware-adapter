@@ -62,3 +62,4 @@ export namespace ProtoOAUnsubscribeDepthQuotesReq {
     );
   }
 }
+export default ProtoOAUnsubscribeDepthQuotesReq;

@@ -62,3 +62,4 @@ export namespace ProtoOASymbolsForConversionReq {
     );
   }
 }
+export default ProtoOASymbolsForConversionReq;

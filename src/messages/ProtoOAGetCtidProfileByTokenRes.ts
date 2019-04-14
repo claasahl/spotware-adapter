@@ -62,3 +62,4 @@ export namespace ProtoOAGetCtidProfileByTokenRes {
     );
   }
 }
+export default ProtoOAGetCtidProfileByTokenRes;

@@ -61,3 +61,4 @@ export namespace ProtoOAApplicationAuthReq {
     );
   }
 }
+export default ProtoOAApplicationAuthReq;

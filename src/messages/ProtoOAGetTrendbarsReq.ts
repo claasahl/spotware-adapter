@@ -57,3 +57,4 @@ export namespace ProtoOAGetTrendbarsReq {
     emitter.emit("PROTO_OA_GET_TRENDBARS_REQ", data.message, data.clientMsgId);
   }
 }
+export default ProtoOAGetTrendbarsReq;

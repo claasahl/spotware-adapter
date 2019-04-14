@@ -57,3 +57,4 @@ export namespace ProtoOAGetTickDataReq {
     emitter.emit("PROTO_OA_GET_TICKDATA_REQ", data.message, data.clientMsgId);
   }
 }
+export default ProtoOAGetTickDataReq;

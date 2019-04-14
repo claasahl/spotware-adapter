@@ -62,3 +62,4 @@ export namespace ProtoOATrailingSLChangedEvent {
     );
   }
 }
+export default ProtoOATrailingSLChangedEvent;

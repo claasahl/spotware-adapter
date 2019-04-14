@@ -61,3 +61,4 @@ export namespace ProtoOASymbolCategoryListRes {
     );
   }
 }
+export default ProtoOASymbolCategoryListRes;

@@ -57,3 +57,4 @@ export namespace ProtoOACancelOrderReq {
     emitter.emit("PROTO_OA_CANCEL_ORDER_REQ", data.message, data.clientMsgId);
   }
 }
+export default ProtoOACancelOrderReq;

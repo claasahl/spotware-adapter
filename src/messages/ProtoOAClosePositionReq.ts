@@ -57,3 +57,4 @@ export namespace ProtoOAClosePositionReq {
     emitter.emit("PROTO_OA_CLOSE_POSITION_REQ", data.message, data.clientMsgId);
   }
 }
+export default ProtoOAClosePositionReq;

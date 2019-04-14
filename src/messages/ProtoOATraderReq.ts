@@ -57,3 +57,4 @@ export namespace ProtoOATraderReq {
     emitter.emit("PROTO_OA_TRADER_REQ", data.message, data.clientMsgId);
   }
 }
+export default ProtoOATraderReq;

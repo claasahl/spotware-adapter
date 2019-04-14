@@ -57,3 +57,4 @@ export namespace ProtoOAAccountLogoutRes {
     emitter.emit("PROTO_OA_ACCOUNT_LOGOUT_RES", data.message, data.clientMsgId);
   }
 }
+export default ProtoOAAccountLogoutRes;

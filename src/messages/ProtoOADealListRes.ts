@@ -57,3 +57,4 @@ export namespace ProtoOADealListRes {
     emitter.emit("PROTO_OA_DEAL_LIST_RES", data.message, data.clientMsgId);
   }
 }
+export default ProtoOADealListRes;

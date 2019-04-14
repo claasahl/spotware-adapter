@@ -57,3 +57,4 @@ export namespace ProtoOAAssetListRes {
     emitter.emit("PROTO_OA_ASSET_LIST_RES", data.message, data.clientMsgId);
   }
 }
+export default ProtoOAAssetListRes;

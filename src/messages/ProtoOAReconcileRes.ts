@@ -57,3 +57,4 @@ export namespace ProtoOAReconcileRes {
     emitter.emit("PROTO_OA_RECONCILE_RES", data.message, data.clientMsgId);
   }
 }
+export default ProtoOAReconcileRes;

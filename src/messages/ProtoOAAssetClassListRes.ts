@@ -61,3 +61,4 @@ export namespace ProtoOAAssetClassListRes {
     );
   }
 }
+export default ProtoOAAssetClassListRes;

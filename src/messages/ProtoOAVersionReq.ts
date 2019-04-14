@@ -57,3 +57,4 @@ export namespace ProtoOAVersionReq {
     emitter.emit("PROTO_OA_VERSION_REQ", data.message, data.clientMsgId);
   }
 }
+export default ProtoOAVersionReq;

@@ -57,3 +57,4 @@ export namespace ProtoOAOrderErrorEvent {
     emitter.emit("PROTO_OA_ORDER_ERROR_EVENT", data.message, data.clientMsgId);
   }
 }
+export default ProtoOAOrderErrorEvent;

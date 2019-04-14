@@ -57,3 +57,4 @@ export namespace ProtoOAExecutionEvent {
     emitter.emit("PROTO_OA_EXECUTION_EVENT", data.message, data.clientMsgId);
   }
 }
+export default ProtoOAExecutionEvent;

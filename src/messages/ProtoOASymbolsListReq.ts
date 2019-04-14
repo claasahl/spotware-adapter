@@ -57,3 +57,4 @@ export namespace ProtoOASymbolsListReq {
     emitter.emit("PROTO_OA_SYMBOLS_LIST_REQ", data.message, data.clientMsgId);
   }
 }
+export default ProtoOASymbolsListReq;

@@ -62,3 +62,4 @@ export namespace ProtoOACashFlowHistoryListReq {
     );
   }
 }
+export default ProtoOACashFlowHistoryListReq;

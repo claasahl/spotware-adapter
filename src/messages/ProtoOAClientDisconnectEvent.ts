@@ -62,3 +62,4 @@ export namespace ProtoOAClientDisconnectEvent {
     );
   }
 }
+export default ProtoOAClientDisconnectEvent;

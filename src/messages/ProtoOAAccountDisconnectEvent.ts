@@ -62,3 +62,4 @@ export namespace ProtoOAAccountDisconnectEvent {
     );
   }
 }
+export default ProtoOAAccountDisconnectEvent;

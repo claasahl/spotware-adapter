@@ -61,3 +61,4 @@ export namespace ProtoOAMarginChangedEvent {
     );
   }
 }
+export default ProtoOAMarginChangedEvent;

@@ -61,3 +61,4 @@ export namespace ProtoOAUnsubscribeSpotsRes {
     );
   }
 }
+export default ProtoOAUnsubscribeSpotsRes;

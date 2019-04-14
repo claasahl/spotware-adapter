@@ -62,3 +62,4 @@ export namespace ProtoOASubscribeLiveTrendbarReq {
     );
   }
 }
+export default ProtoOASubscribeLiveTrendbarReq;

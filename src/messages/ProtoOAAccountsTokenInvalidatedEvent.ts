@@ -62,3 +62,4 @@ export namespace ProtoOAAccountsTokenInvalidatedEvent {
     );
   }
 }
+export default ProtoOAAccountsTokenInvalidatedEvent;

@@ -1,5 +1,32 @@
-﻿{{#messages}}
+﻿import {IProtoMessage, ProtoPayloadType, ProtoOAPayloadType} from "../spotware-messages";
+import {SpotwareEventEmitter} from "../spotware-event-emitter"
+
+{{#messages}}
+{{^isProtoMessage}}
+import {{{type}}} from "./{{{type}}}";
+{{/isProtoMessage}}
+{{/messages}}
+
+{{#messages}}
 {{^isProtoMessage}}
 export * from "./{{{type}}}";
 {{/isProtoMessage}}
 {{/messages}}
+
+
+interface Decoders {
+  [index: number]: (emitter: SpotwareEventEmitter, message: IProtoMessage) => void
+}
+const decoders: Decoders = {};
+{{#messages}}
+{{^isProtoMessage}}
+decoders[{{{payloadType}}}]= {{{type}}}.emitDecoded;
+{{/isProtoMessage}}
+{{/messages}}
+
+export function emitDecoded(
+  emitter: SpotwareEventEmitter,
+  message: IProtoMessage
+): void {
+  decoders[message.payloadType](emitter, message);
+}

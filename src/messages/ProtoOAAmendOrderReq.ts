@@ -57,3 +57,4 @@ export namespace ProtoOAAmendOrderReq {
     emitter.emit("PROTO_OA_AMEND_ORDER_REQ", data.message, data.clientMsgId);
   }
 }
+export default ProtoOAAmendOrderReq;

@@ -57,3 +57,4 @@ export namespace ProtoOADepthEvent {
     emitter.emit("PROTO_OA_DEPTH_EVENT", data.message, data.clientMsgId);
   }
 }
+export default ProtoOADepthEvent;

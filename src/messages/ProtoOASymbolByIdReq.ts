@@ -57,3 +57,4 @@ export namespace ProtoOASymbolByIdReq {
     emitter.emit("PROTO_OA_SYMBOL_BY_ID_REQ", data.message, data.clientMsgId);
   }
 }
+export default ProtoOASymbolByIdReq;
