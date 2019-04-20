@@ -341,87 +341,112 @@ export function connect(
   host: string,
   options?: tls.TlsOptions
 ): SpotwareEventEmitter {
-  return (
-    tls
-      .connect(port, host, options)
-      .setEncoding("binary")
-      .setDefaultEncoding("binary")
+  const a: tls.TLSSocket & SpotwareEventEmitter = tls
+    .connect(port, host, options)
+    .setEncoding("binary")
+    .setDefaultEncoding("binary")
 
-      // tls.TLSSocket
-      .on("OCSPResponse", response => console.log("OCSPResponse", response))
-      .on("secureConnect", () => console.log("secureConnect"))
-      .on("session", session => console.log("session", session))
+    // tls.TLSSocket
+    .on("OCSPResponse", response => console.log("OCSPResponse", response))
+    .on("secureConnect", () => console.log("secureConnect"))
+    .on("session", session => console.log("session", session))
 
-      // net.Socket
-      .on("close", (had_error: boolean) => console.log("close", had_error))
-      .on("connect", () => console.log("connect"))
-      .on("data", (data: Buffer) => console.log("data", data))
-      .on("drain", () => console.log("drain"))
-      .on("end", () => console.log("end"))
-      .on("error", (err: Error) => console.log("error", err))
-      .on(
-        "lookup",
-        (err: Error, address: string, family: string | number, host: string) =>
-          console.log("lookup", err, address, family, host)
-      )
-      .on("timeout", () => console.log("timeout"))
+    // net.Socket
+    .on("close", (had_error: boolean) => console.log("close", had_error))
+    .on("connect", () => console.log("connect"))
+    .on("data", (data: Buffer) => console.log("data", data))
+    .on("drain", () => console.log("drain"))
+    .on("end", () => console.log("end"))
+    .on("error", (err: Error) => console.log("error", err))
+    .on(
+      "lookup",
+      (err: Error, address: string, family: string | number, host: string) =>
+        console.log("lookup", err, address, family, host)
+    )
+    .on("timeout", () => console.log("timeout"))
 
-      // Spotware
-      .on("data", readProtoMessage)
-      .on("PROTO_MESSAGE", onProtoMessage)
-      .on("PROTO_OA_APPLICATION_AUTH_REQ", onProtoOAApplicationAuthReq)
-      .on("PROTO_OA_ACCOUNT_AUTH_REQ", onProtoOAAccountAuthReq)
-      .on("PROTO_OA_VERSION_REQ", onProtoOAVersionReq)
-      .on("PROTO_OA_NEW_ORDER_REQ", onProtoOANewOrderReq)
-      .on("PROTO_OA_CANCEL_ORDER_REQ", onProtoOACancelOrderReq)
-      .on("PROTO_OA_AMEND_ORDER_REQ", onProtoOAAmendOrderReq)
-      .on("PROTO_OA_AMEND_POSITION_SLTP_REQ", onProtoOAAmendPositionSLTPReq)
-      .on("PROTO_OA_CLOSE_POSITION_REQ", onProtoOAClosePositionReq)
-      .on("PROTO_OA_ASSET_LIST_REQ", onProtoOAAssetListReq)
-      .on("PROTO_OA_SYMBOLS_LIST_REQ", onProtoOASymbolsListReq)
-      .on("PROTO_OA_SYMBOL_BY_ID_REQ", onProtoOASymbolByIdReq)
-      .on(
-        "PROTO_OA_SYMBOLS_FOR_CONVERSION_REQ",
-        onProtoOASymbolsForConversionReq
-      )
-      .on("PROTO_OA_ASSET_CLASS_LIST_REQ", onProtoOAAssetClassListReq)
-      .on("PROTO_OA_TRADER_REQ", onProtoOATraderReq)
-      .on("PROTO_OA_RECONCILE_REQ", onProtoOAReconcileReq)
-      .on("PROTO_OA_DEAL_LIST_REQ", onProtoOADealListReq)
-      .on("PROTO_OA_EXPECTED_MARGIN_REQ", onProtoOAExpectedMarginReq)
-      .on(
-        "PROTO_OA_CASH_FLOW_HISTORY_LIST_REQ",
-        onProtoOACashFlowHistoryListReq
-      )
-      .on(
-        "PROTO_OA_GET_ACCOUNTS_BY_ACCESS_TOKEN_REQ",
-        onProtoOAGetAccountListByAccessTokenReq
-      )
-      .on("PROTO_OA_SUBSCRIBE_SPOTS_REQ", onProtoOASubscribeSpotsReq)
-      .on("PROTO_OA_UNSUBSCRIBE_SPOTS_REQ", onProtoOAUnsubscribeSpotsReq)
-      .on(
-        "PROTO_OA_SUBSCRIBE_LIVE_TRENDBAR_REQ",
-        onProtoOASubscribeLiveTrendbarReq
-      )
-      .on(
-        "PROTO_OA_UNSUBSCRIBE_LIVE_TRENDBAR_REQ",
-        onProtoOAUnsubscribeLiveTrendbarReq
-      )
-      .on("PROTO_OA_GET_TRENDBARS_REQ", onProtoOAGetTrendbarsReq)
-      .on("PROTO_OA_GET_TICKDATA_REQ", onProtoOAGetTickDataReq)
-      .on(
-        "PROTO_OA_GET_CTID_PROFILE_BY_TOKEN_REQ",
-        onProtoOAGetCtidProfileByTokenReq
-      )
-      .on(
-        "PROTO_OA_SUBSCRIBE_DEPTH_QUOTES_REQ",
-        onProtoOASubscribeDepthQuotesReq
-      )
-      .on(
-        "PROTO_OA_UNSUBSCRIBE_DEPTH_QUOTES_REQ",
-        onProtoOAUnsubscribeDepthQuotesReq
-      )
-      .on("PROTO_OA_SYMBOL_CATEGORY_REQ", onProtoOASymbolCategoryListReq)
-      .on("PROTO_OA_ACCOUNT_LOGOUT_REQ", onProtoOAAccountLogoutReq)
-  );
+    // Spotware
+    .on("data", readProtoMessage)
+    .on("PROTO_MESSAGE", onProtoMessage)
+    .on("PROTO_OA_APPLICATION_AUTH_REQ", onProtoOAApplicationAuthReq)
+    .on("PROTO_OA_ACCOUNT_AUTH_REQ", onProtoOAAccountAuthReq)
+    .on("PROTO_OA_VERSION_REQ", onProtoOAVersionReq)
+    .on("PROTO_OA_NEW_ORDER_REQ", onProtoOANewOrderReq)
+    .on("PROTO_OA_CANCEL_ORDER_REQ", onProtoOACancelOrderReq)
+    .on("PROTO_OA_AMEND_ORDER_REQ", onProtoOAAmendOrderReq)
+    .on("PROTO_OA_AMEND_POSITION_SLTP_REQ", onProtoOAAmendPositionSLTPReq)
+    .on("PROTO_OA_CLOSE_POSITION_REQ", onProtoOAClosePositionReq)
+    .on("PROTO_OA_ASSET_LIST_REQ", onProtoOAAssetListReq)
+    .on("PROTO_OA_SYMBOLS_LIST_REQ", onProtoOASymbolsListReq)
+    .on("PROTO_OA_SYMBOL_BY_ID_REQ", onProtoOASymbolByIdReq)
+    .on("PROTO_OA_SYMBOLS_FOR_CONVERSION_REQ", onProtoOASymbolsForConversionReq)
+    .on("PROTO_OA_ASSET_CLASS_LIST_REQ", onProtoOAAssetClassListReq)
+    .on("PROTO_OA_TRADER_REQ", onProtoOATraderReq)
+    .on("PROTO_OA_RECONCILE_REQ", onProtoOAReconcileReq)
+    .on("PROTO_OA_DEAL_LIST_REQ", onProtoOADealListReq)
+    .on("PROTO_OA_EXPECTED_MARGIN_REQ", onProtoOAExpectedMarginReq)
+    .on("PROTO_OA_CASH_FLOW_HISTORY_LIST_REQ", onProtoOACashFlowHistoryListReq)
+    .on(
+      "PROTO_OA_GET_ACCOUNTS_BY_ACCESS_TOKEN_REQ",
+      onProtoOAGetAccountListByAccessTokenReq
+    )
+    .on("PROTO_OA_SUBSCRIBE_SPOTS_REQ", onProtoOASubscribeSpotsReq)
+    .on("PROTO_OA_UNSUBSCRIBE_SPOTS_REQ", onProtoOAUnsubscribeSpotsReq)
+    .on(
+      "PROTO_OA_SUBSCRIBE_LIVE_TRENDBAR_REQ",
+      onProtoOASubscribeLiveTrendbarReq
+    )
+    .on(
+      "PROTO_OA_UNSUBSCRIBE_LIVE_TRENDBAR_REQ",
+      onProtoOAUnsubscribeLiveTrendbarReq
+    )
+    .on("PROTO_OA_GET_TRENDBARS_REQ", onProtoOAGetTrendbarsReq)
+    .on("PROTO_OA_GET_TICKDATA_REQ", onProtoOAGetTickDataReq)
+    .on(
+      "PROTO_OA_GET_CTID_PROFILE_BY_TOKEN_REQ",
+      onProtoOAGetCtidProfileByTokenReq
+    )
+    .on("PROTO_OA_SUBSCRIBE_DEPTH_QUOTES_REQ", onProtoOASubscribeDepthQuotesReq)
+    .on(
+      "PROTO_OA_UNSUBSCRIBE_DEPTH_QUOTES_REQ",
+      onProtoOAUnsubscribeDepthQuotesReq
+    )
+    .on("PROTO_OA_SYMBOL_CATEGORY_REQ", onProtoOASymbolCategoryListReq)
+    .on("PROTO_OA_ACCOUNT_LOGOUT_REQ", onProtoOAAccountLogoutReq);
+  function write111(
+    event: "PROTO_OA_CLOSE_POSITION_REQ",
+    message: $spotware.IProtoOAClosePositionReq,
+    clientMsgId?: string | null
+  ): boolean {
+    const protoMessage = messages.ProtoOAClosePositionReq.toProtoMessage(
+      message,
+      clientMsgId
+    );
+    const buffer = util.serialize(protoMessage);
+    return a.write(buffer, err => {
+      if (err) {
+        a.emit("error", err);
+      } else {
+        a.emit(event, message);
+        a.emit("PROTO_MESSAGE", protoMessage);
+      }
+    });
+  }
+  function write(
+    event: "PROTO_OA_CLOSE_POSITION_REQ",
+    message: $spotware.IProtoOAClosePositionReq,
+    clientMsgId?: string | null
+  ): boolean {
+    const protoMessage = messages.to(event, message, clientMsgId);
+    const buffer = util.serialize(protoMessage);
+    return a.write(buffer, err => {
+      if (err) {
+        a.emit("error", err);
+      } else {
+        a.emit(event, message);
+        a.emit("PROTO_MESSAGE", protoMessage);
+      }
+    });
+  }
+  return a;
 }
