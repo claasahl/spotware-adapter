@@ -4,7 +4,6 @@
   IProtoMessage,
   ProtoOAPayloadType
 } from "../spotware-messages";
-import SpotwareEventEmitter from "../spotware-event-emitter";
 
 export namespace ProtoOAApplicationAuthReq {
   export const payloadType = ProtoOAPayloadType.PROTO_OA_APPLICATION_AUTH_REQ;
@@ -18,15 +17,6 @@ export namespace ProtoOAApplicationAuthReq {
       payload: Message.encode(message).finish(),
       clientMsgId
     };
-  }
-
-  export function emitEncoded(
-    emitter: SpotwareEventEmitter,
-    message: IMessage,
-    clientMsgId?: string | null
-  ): void {
-    const data = toProtoMessage(message, clientMsgId);
-    emitter.emit("PROTO_MESSAGE", data);
   }
 
   export function fromProtoMessage(
@@ -46,18 +36,6 @@ export namespace ProtoOAApplicationAuthReq {
       `invalid message. expected payloadType 'PROTO_OA_APPLICATION_AUTH_REQ' (got '${
         ProtoOAPayloadType[payloadType]
       }').`
-    );
-  }
-
-  export function emitDecoded(
-    emitter: SpotwareEventEmitter,
-    message: IProtoMessage
-  ): void {
-    const data = fromProtoMessage(message);
-    emitter.emit(
-      "PROTO_OA_APPLICATION_AUTH_REQ",
-      data.message,
-      data.clientMsgId
     );
   }
 }

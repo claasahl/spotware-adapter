@@ -4,7 +4,6 @@
   IProtoMessage,
   ProtoPayloadType
 } from "../spotware-messages";
-import SpotwareEventEmitter from "../spotware-event-emitter";
 
 export namespace ProtoHeartbeatEvent {
   export const payloadType = ProtoPayloadType.HEARTBEAT_EVENT;
@@ -18,15 +17,6 @@ export namespace ProtoHeartbeatEvent {
       payload: Message.encode(message).finish(),
       clientMsgId
     };
-  }
-
-  export function emitEncoded(
-    emitter: SpotwareEventEmitter,
-    message: IMessage,
-    clientMsgId?: string | null
-  ): void {
-    const data = toProtoMessage(message, clientMsgId);
-    emitter.emit("PROTO_MESSAGE", data);
   }
 
   export function fromProtoMessage(
@@ -47,14 +37,6 @@ export namespace ProtoHeartbeatEvent {
         ProtoPayloadType[payloadType]
       }').`
     );
-  }
-
-  export function emitDecoded(
-    emitter: SpotwareEventEmitter,
-    message: IProtoMessage
-  ): void {
-    const data = fromProtoMessage(message);
-    emitter.emit("HEARTBEAT_EVENT", data.message, data.clientMsgId);
   }
 }
 export default ProtoHeartbeatEvent;

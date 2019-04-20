@@ -1,11 +1,4 @@
 ﻿import * as $spotware from "../spotware-messages";
-import Events from "../spotware-events";
-import {
-  IProtoMessage,
-  ProtoPayloadType,
-  ProtoOAPayloadType
-} from "../spotware-messages";
-import { SpotwareEventEmitter } from "../spotware-event-emitter";
 
 import ProtoErrorRes from "./ProtoErrorRes";
 import ProtoHeartbeatEvent from "./ProtoHeartbeatEvent";
@@ -143,349 +136,348 @@ export * from "./ProtoOAAccountLogoutReq";
 export * from "./ProtoOAAccountLogoutRes";
 export * from "./ProtoOAAccountDisconnectEvent";
 
-type E = Exclude<Events, "PROTO_MESSAGE">;
 type Message<M> = { message: M; clientMsgId?: string | null };
 
 export function to(
   event: "ERROR_RES",
   message: $spotware.IProtoErrorRes,
   clientMsgId?: string | null
-): IProtoMessage;
+): $spotware.IProtoMessage;
 export function to(
   event: "HEARTBEAT_EVENT",
   message: $spotware.IProtoHeartbeatEvent,
   clientMsgId?: string | null
-): IProtoMessage;
+): $spotware.IProtoMessage;
 export function to(
   event: "PROTO_OA_APPLICATION_AUTH_REQ",
   message: $spotware.IProtoOAApplicationAuthReq,
   clientMsgId?: string | null
-): IProtoMessage;
+): $spotware.IProtoMessage;
 export function to(
   event: "PROTO_OA_APPLICATION_AUTH_RES",
   message: $spotware.IProtoOAApplicationAuthRes,
   clientMsgId?: string | null
-): IProtoMessage;
+): $spotware.IProtoMessage;
 export function to(
   event: "PROTO_OA_ACCOUNT_AUTH_REQ",
   message: $spotware.IProtoOAAccountAuthReq,
   clientMsgId?: string | null
-): IProtoMessage;
+): $spotware.IProtoMessage;
 export function to(
   event: "PROTO_OA_ACCOUNT_AUTH_RES",
   message: $spotware.IProtoOAAccountAuthRes,
   clientMsgId?: string | null
-): IProtoMessage;
+): $spotware.IProtoMessage;
 export function to(
   event: "PROTO_OA_ERROR_RES",
   message: $spotware.IProtoOAErrorRes,
   clientMsgId?: string | null
-): IProtoMessage;
+): $spotware.IProtoMessage;
 export function to(
   event: "PROTO_OA_CLIENT_DISCONNECT_EVENT",
   message: $spotware.IProtoOAClientDisconnectEvent,
   clientMsgId?: string | null
-): IProtoMessage;
+): $spotware.IProtoMessage;
 export function to(
   event: "PROTO_OA_ACCOUNTS_TOKEN_INVALIDATED_EVENT",
   message: $spotware.IProtoOAAccountsTokenInvalidatedEvent,
   clientMsgId?: string | null
-): IProtoMessage;
+): $spotware.IProtoMessage;
 export function to(
   event: "PROTO_OA_VERSION_REQ",
   message: $spotware.IProtoOAVersionReq,
   clientMsgId?: string | null
-): IProtoMessage;
+): $spotware.IProtoMessage;
 export function to(
   event: "PROTO_OA_VERSION_RES",
   message: $spotware.IProtoOAVersionRes,
   clientMsgId?: string | null
-): IProtoMessage;
+): $spotware.IProtoMessage;
 export function to(
   event: "PROTO_OA_NEW_ORDER_REQ",
   message: $spotware.IProtoOANewOrderReq,
   clientMsgId?: string | null
-): IProtoMessage;
+): $spotware.IProtoMessage;
 export function to(
   event: "PROTO_OA_EXECUTION_EVENT",
   message: $spotware.IProtoOAExecutionEvent,
   clientMsgId?: string | null
-): IProtoMessage;
+): $spotware.IProtoMessage;
 export function to(
   event: "PROTO_OA_CANCEL_ORDER_REQ",
   message: $spotware.IProtoOACancelOrderReq,
   clientMsgId?: string | null
-): IProtoMessage;
+): $spotware.IProtoMessage;
 export function to(
   event: "PROTO_OA_AMEND_ORDER_REQ",
   message: $spotware.IProtoOAAmendOrderReq,
   clientMsgId?: string | null
-): IProtoMessage;
+): $spotware.IProtoMessage;
 export function to(
   event: "PROTO_OA_AMEND_POSITION_SLTP_REQ",
   message: $spotware.IProtoOAAmendPositionSLTPReq,
   clientMsgId?: string | null
-): IProtoMessage;
+): $spotware.IProtoMessage;
 export function to(
   event: "PROTO_OA_CLOSE_POSITION_REQ",
   message: $spotware.IProtoOAClosePositionReq,
   clientMsgId?: string | null
-): IProtoMessage;
+): $spotware.IProtoMessage;
 export function to(
   event: "PROTO_OA_TRAILING_SL_CHANGED_EVENT",
   message: $spotware.IProtoOATrailingSLChangedEvent,
   clientMsgId?: string | null
-): IProtoMessage;
+): $spotware.IProtoMessage;
 export function to(
   event: "PROTO_OA_ASSET_LIST_REQ",
   message: $spotware.IProtoOAAssetListReq,
   clientMsgId?: string | null
-): IProtoMessage;
+): $spotware.IProtoMessage;
 export function to(
   event: "PROTO_OA_ASSET_LIST_RES",
   message: $spotware.IProtoOAAssetListRes,
   clientMsgId?: string | null
-): IProtoMessage;
+): $spotware.IProtoMessage;
 export function to(
   event: "PROTO_OA_SYMBOLS_LIST_REQ",
   message: $spotware.IProtoOASymbolsListReq,
   clientMsgId?: string | null
-): IProtoMessage;
+): $spotware.IProtoMessage;
 export function to(
   event: "PROTO_OA_SYMBOLS_LIST_RES",
   message: $spotware.IProtoOASymbolsListRes,
   clientMsgId?: string | null
-): IProtoMessage;
+): $spotware.IProtoMessage;
 export function to(
   event: "PROTO_OA_SYMBOL_BY_ID_REQ",
   message: $spotware.IProtoOASymbolByIdReq,
   clientMsgId?: string | null
-): IProtoMessage;
+): $spotware.IProtoMessage;
 export function to(
   event: "PROTO_OA_SYMBOL_BY_ID_RES",
   message: $spotware.IProtoOASymbolByIdRes,
   clientMsgId?: string | null
-): IProtoMessage;
+): $spotware.IProtoMessage;
 export function to(
   event: "PROTO_OA_SYMBOLS_FOR_CONVERSION_REQ",
   message: $spotware.IProtoOASymbolsForConversionReq,
   clientMsgId?: string | null
-): IProtoMessage;
+): $spotware.IProtoMessage;
 export function to(
   event: "PROTO_OA_SYMBOLS_FOR_CONVERSION_RES",
   message: $spotware.IProtoOASymbolsForConversionRes,
   clientMsgId?: string | null
-): IProtoMessage;
+): $spotware.IProtoMessage;
 export function to(
   event: "PROTO_OA_SYMBOL_CHANGED_EVENT",
   message: $spotware.IProtoOASymbolChangedEvent,
   clientMsgId?: string | null
-): IProtoMessage;
+): $spotware.IProtoMessage;
 export function to(
   event: "PROTO_OA_ASSET_CLASS_LIST_REQ",
   message: $spotware.IProtoOAAssetClassListReq,
   clientMsgId?: string | null
-): IProtoMessage;
+): $spotware.IProtoMessage;
 export function to(
   event: "PROTO_OA_ASSET_CLASS_LIST_RES",
   message: $spotware.IProtoOAAssetClassListRes,
   clientMsgId?: string | null
-): IProtoMessage;
+): $spotware.IProtoMessage;
 export function to(
   event: "PROTO_OA_TRADER_REQ",
   message: $spotware.IProtoOATraderReq,
   clientMsgId?: string | null
-): IProtoMessage;
+): $spotware.IProtoMessage;
 export function to(
   event: "PROTO_OA_TRADER_RES",
   message: $spotware.IProtoOATraderRes,
   clientMsgId?: string | null
-): IProtoMessage;
+): $spotware.IProtoMessage;
 export function to(
   event: "PROTO_OA_TRADER_UPDATE_EVENT",
   message: $spotware.IProtoOATraderUpdatedEvent,
   clientMsgId?: string | null
-): IProtoMessage;
+): $spotware.IProtoMessage;
 export function to(
   event: "PROTO_OA_RECONCILE_REQ",
   message: $spotware.IProtoOAReconcileReq,
   clientMsgId?: string | null
-): IProtoMessage;
+): $spotware.IProtoMessage;
 export function to(
   event: "PROTO_OA_RECONCILE_RES",
   message: $spotware.IProtoOAReconcileRes,
   clientMsgId?: string | null
-): IProtoMessage;
+): $spotware.IProtoMessage;
 export function to(
   event: "PROTO_OA_ORDER_ERROR_EVENT",
   message: $spotware.IProtoOAOrderErrorEvent,
   clientMsgId?: string | null
-): IProtoMessage;
+): $spotware.IProtoMessage;
 export function to(
   event: "PROTO_OA_DEAL_LIST_REQ",
   message: $spotware.IProtoOADealListReq,
   clientMsgId?: string | null
-): IProtoMessage;
+): $spotware.IProtoMessage;
 export function to(
   event: "PROTO_OA_DEAL_LIST_RES",
   message: $spotware.IProtoOADealListRes,
   clientMsgId?: string | null
-): IProtoMessage;
+): $spotware.IProtoMessage;
 export function to(
   event: "PROTO_OA_EXPECTED_MARGIN_REQ",
   message: $spotware.IProtoOAExpectedMarginReq,
   clientMsgId?: string | null
-): IProtoMessage;
+): $spotware.IProtoMessage;
 export function to(
   event: "PROTO_OA_EXPECTED_MARGIN_RES",
   message: $spotware.IProtoOAExpectedMarginRes,
   clientMsgId?: string | null
-): IProtoMessage;
+): $spotware.IProtoMessage;
 export function to(
   event: "PROTO_OA_MARGIN_CHANGED_EVENT",
   message: $spotware.IProtoOAMarginChangedEvent,
   clientMsgId?: string | null
-): IProtoMessage;
+): $spotware.IProtoMessage;
 export function to(
   event: "PROTO_OA_CASH_FLOW_HISTORY_LIST_REQ",
   message: $spotware.IProtoOACashFlowHistoryListReq,
   clientMsgId?: string | null
-): IProtoMessage;
+): $spotware.IProtoMessage;
 export function to(
   event: "PROTO_OA_CASH_FLOW_HISTORY_LIST_RES",
   message: $spotware.IProtoOACashFlowHistoryListRes,
   clientMsgId?: string | null
-): IProtoMessage;
+): $spotware.IProtoMessage;
 export function to(
   event: "PROTO_OA_GET_ACCOUNTS_BY_ACCESS_TOKEN_REQ",
   message: $spotware.IProtoOAGetAccountListByAccessTokenReq,
   clientMsgId?: string | null
-): IProtoMessage;
+): $spotware.IProtoMessage;
 export function to(
   event: "PROTO_OA_GET_ACCOUNTS_BY_ACCESS_TOKEN_RES",
   message: $spotware.IProtoOAGetAccountListByAccessTokenRes,
   clientMsgId?: string | null
-): IProtoMessage;
+): $spotware.IProtoMessage;
 export function to(
   event: "PROTO_OA_SUBSCRIBE_SPOTS_REQ",
   message: $spotware.IProtoOASubscribeSpotsReq,
   clientMsgId?: string | null
-): IProtoMessage;
+): $spotware.IProtoMessage;
 export function to(
   event: "PROTO_OA_SUBSCRIBE_SPOTS_RES",
   message: $spotware.IProtoOASubscribeSpotsRes,
   clientMsgId?: string | null
-): IProtoMessage;
+): $spotware.IProtoMessage;
 export function to(
   event: "PROTO_OA_UNSUBSCRIBE_SPOTS_REQ",
   message: $spotware.IProtoOAUnsubscribeSpotsReq,
   clientMsgId?: string | null
-): IProtoMessage;
+): $spotware.IProtoMessage;
 export function to(
   event: "PROTO_OA_UNSUBSCRIBE_SPOTS_RES",
   message: $spotware.IProtoOAUnsubscribeSpotsRes,
   clientMsgId?: string | null
-): IProtoMessage;
+): $spotware.IProtoMessage;
 export function to(
   event: "PROTO_OA_SPOT_EVENT",
   message: $spotware.IProtoOASpotEvent,
   clientMsgId?: string | null
-): IProtoMessage;
+): $spotware.IProtoMessage;
 export function to(
   event: "PROTO_OA_SUBSCRIBE_LIVE_TRENDBAR_REQ",
   message: $spotware.IProtoOASubscribeLiveTrendbarReq,
   clientMsgId?: string | null
-): IProtoMessage;
+): $spotware.IProtoMessage;
 export function to(
   event: "PROTO_OA_UNSUBSCRIBE_LIVE_TRENDBAR_REQ",
   message: $spotware.IProtoOAUnsubscribeLiveTrendbarReq,
   clientMsgId?: string | null
-): IProtoMessage;
+): $spotware.IProtoMessage;
 export function to(
   event: "PROTO_OA_GET_TRENDBARS_REQ",
   message: $spotware.IProtoOAGetTrendbarsReq,
   clientMsgId?: string | null
-): IProtoMessage;
+): $spotware.IProtoMessage;
 export function to(
   event: "PROTO_OA_GET_TRENDBARS_RES",
   message: $spotware.IProtoOAGetTrendbarsRes,
   clientMsgId?: string | null
-): IProtoMessage;
+): $spotware.IProtoMessage;
 export function to(
   event: "PROTO_OA_GET_TICKDATA_REQ",
   message: $spotware.IProtoOAGetTickDataReq,
   clientMsgId?: string | null
-): IProtoMessage;
+): $spotware.IProtoMessage;
 export function to(
   event: "PROTO_OA_GET_TICKDATA_RES",
   message: $spotware.IProtoOAGetTickDataRes,
   clientMsgId?: string | null
-): IProtoMessage;
+): $spotware.IProtoMessage;
 export function to(
   event: "PROTO_OA_GET_CTID_PROFILE_BY_TOKEN_REQ",
   message: $spotware.IProtoOAGetCtidProfileByTokenReq,
   clientMsgId?: string | null
-): IProtoMessage;
+): $spotware.IProtoMessage;
 export function to(
   event: "PROTO_OA_GET_CTID_PROFILE_BY_TOKEN_RES",
   message: $spotware.IProtoOAGetCtidProfileByTokenRes,
   clientMsgId?: string | null
-): IProtoMessage;
+): $spotware.IProtoMessage;
 export function to(
   event: "PROTO_OA_DEPTH_EVENT",
   message: $spotware.IProtoOADepthEvent,
   clientMsgId?: string | null
-): IProtoMessage;
+): $spotware.IProtoMessage;
 export function to(
   event: "PROTO_OA_SUBSCRIBE_DEPTH_QUOTES_REQ",
   message: $spotware.IProtoOASubscribeDepthQuotesReq,
   clientMsgId?: string | null
-): IProtoMessage;
+): $spotware.IProtoMessage;
 export function to(
   event: "PROTO_OA_SUBSCRIBE_DEPTH_QUOTES_RES",
   message: $spotware.IProtoOASubscribeDepthQuotesRes,
   clientMsgId?: string | null
-): IProtoMessage;
+): $spotware.IProtoMessage;
 export function to(
   event: "PROTO_OA_UNSUBSCRIBE_DEPTH_QUOTES_REQ",
   message: $spotware.IProtoOAUnsubscribeDepthQuotesReq,
   clientMsgId?: string | null
-): IProtoMessage;
+): $spotware.IProtoMessage;
 export function to(
   event: "PROTO_OA_UNSUBSCRIBE_DEPTH_QUOTES_RES",
   message: $spotware.IProtoOAUnsubscribeDepthQuotesRes,
   clientMsgId?: string | null
-): IProtoMessage;
+): $spotware.IProtoMessage;
 export function to(
   event: "PROTO_OA_SYMBOL_CATEGORY_REQ",
   message: $spotware.IProtoOASymbolCategoryListReq,
   clientMsgId?: string | null
-): IProtoMessage;
+): $spotware.IProtoMessage;
 export function to(
   event: "PROTO_OA_SYMBOL_CATEGORY_RES",
   message: $spotware.IProtoOASymbolCategoryListRes,
   clientMsgId?: string | null
-): IProtoMessage;
+): $spotware.IProtoMessage;
 export function to(
   event: "PROTO_OA_ACCOUNT_LOGOUT_REQ",
   message: $spotware.IProtoOAAccountLogoutReq,
   clientMsgId?: string | null
-): IProtoMessage;
+): $spotware.IProtoMessage;
 export function to(
   event: "PROTO_OA_ACCOUNT_LOGOUT_RES",
   message: $spotware.IProtoOAAccountLogoutRes,
   clientMsgId?: string | null
-): IProtoMessage;
+): $spotware.IProtoMessage;
 export function to(
   event: "PROTO_OA_ACCOUNT_DISCONNECT_EVENT",
   message: $spotware.IProtoOAAccountDisconnectEvent,
   clientMsgId?: string | null
-): IProtoMessage;
+): $spotware.IProtoMessage;
 export function to(
-  event: E,
+  event: string,
   message: any,
   clientMsgId?: string | null
-): IProtoMessage {
+): $spotware.IProtoMessage {
   switch (event) {
     case "ERROR_RES":
       return ProtoErrorRes.toProtoMessage(message, clientMsgId);
@@ -661,277 +653,281 @@ export function to(
     case "PROTO_OA_ACCOUNT_DISCONNECT_EVENT":
       return ProtoOAAccountDisconnectEvent.toProtoMessage(message, clientMsgId);
   }
+  throw new Error(`unknown event ${event}`);
 }
 
 export function from(
   event: "ERROR_RES",
-  message: IProtoMessage
+  message: $spotware.IProtoMessage
 ): Message<$spotware.IProtoErrorRes>;
 export function from(
   event: "HEARTBEAT_EVENT",
-  message: IProtoMessage
+  message: $spotware.IProtoMessage
 ): Message<$spotware.IProtoHeartbeatEvent>;
 export function from(
   event: "PROTO_OA_APPLICATION_AUTH_REQ",
-  message: IProtoMessage
+  message: $spotware.IProtoMessage
 ): Message<$spotware.IProtoOAApplicationAuthReq>;
 export function from(
   event: "PROTO_OA_APPLICATION_AUTH_RES",
-  message: IProtoMessage
+  message: $spotware.IProtoMessage
 ): Message<$spotware.IProtoOAApplicationAuthRes>;
 export function from(
   event: "PROTO_OA_ACCOUNT_AUTH_REQ",
-  message: IProtoMessage
+  message: $spotware.IProtoMessage
 ): Message<$spotware.IProtoOAAccountAuthReq>;
 export function from(
   event: "PROTO_OA_ACCOUNT_AUTH_RES",
-  message: IProtoMessage
+  message: $spotware.IProtoMessage
 ): Message<$spotware.IProtoOAAccountAuthRes>;
 export function from(
   event: "PROTO_OA_ERROR_RES",
-  message: IProtoMessage
+  message: $spotware.IProtoMessage
 ): Message<$spotware.IProtoOAErrorRes>;
 export function from(
   event: "PROTO_OA_CLIENT_DISCONNECT_EVENT",
-  message: IProtoMessage
+  message: $spotware.IProtoMessage
 ): Message<$spotware.IProtoOAClientDisconnectEvent>;
 export function from(
   event: "PROTO_OA_ACCOUNTS_TOKEN_INVALIDATED_EVENT",
-  message: IProtoMessage
+  message: $spotware.IProtoMessage
 ): Message<$spotware.IProtoOAAccountsTokenInvalidatedEvent>;
 export function from(
   event: "PROTO_OA_VERSION_REQ",
-  message: IProtoMessage
+  message: $spotware.IProtoMessage
 ): Message<$spotware.IProtoOAVersionReq>;
 export function from(
   event: "PROTO_OA_VERSION_RES",
-  message: IProtoMessage
+  message: $spotware.IProtoMessage
 ): Message<$spotware.IProtoOAVersionRes>;
 export function from(
   event: "PROTO_OA_NEW_ORDER_REQ",
-  message: IProtoMessage
+  message: $spotware.IProtoMessage
 ): Message<$spotware.IProtoOANewOrderReq>;
 export function from(
   event: "PROTO_OA_EXECUTION_EVENT",
-  message: IProtoMessage
+  message: $spotware.IProtoMessage
 ): Message<$spotware.IProtoOAExecutionEvent>;
 export function from(
   event: "PROTO_OA_CANCEL_ORDER_REQ",
-  message: IProtoMessage
+  message: $spotware.IProtoMessage
 ): Message<$spotware.IProtoOACancelOrderReq>;
 export function from(
   event: "PROTO_OA_AMEND_ORDER_REQ",
-  message: IProtoMessage
+  message: $spotware.IProtoMessage
 ): Message<$spotware.IProtoOAAmendOrderReq>;
 export function from(
   event: "PROTO_OA_AMEND_POSITION_SLTP_REQ",
-  message: IProtoMessage
+  message: $spotware.IProtoMessage
 ): Message<$spotware.IProtoOAAmendPositionSLTPReq>;
 export function from(
   event: "PROTO_OA_CLOSE_POSITION_REQ",
-  message: IProtoMessage
+  message: $spotware.IProtoMessage
 ): Message<$spotware.IProtoOAClosePositionReq>;
 export function from(
   event: "PROTO_OA_TRAILING_SL_CHANGED_EVENT",
-  message: IProtoMessage
+  message: $spotware.IProtoMessage
 ): Message<$spotware.IProtoOATrailingSLChangedEvent>;
 export function from(
   event: "PROTO_OA_ASSET_LIST_REQ",
-  message: IProtoMessage
+  message: $spotware.IProtoMessage
 ): Message<$spotware.IProtoOAAssetListReq>;
 export function from(
   event: "PROTO_OA_ASSET_LIST_RES",
-  message: IProtoMessage
+  message: $spotware.IProtoMessage
 ): Message<$spotware.IProtoOAAssetListRes>;
 export function from(
   event: "PROTO_OA_SYMBOLS_LIST_REQ",
-  message: IProtoMessage
+  message: $spotware.IProtoMessage
 ): Message<$spotware.IProtoOASymbolsListReq>;
 export function from(
   event: "PROTO_OA_SYMBOLS_LIST_RES",
-  message: IProtoMessage
+  message: $spotware.IProtoMessage
 ): Message<$spotware.IProtoOASymbolsListRes>;
 export function from(
   event: "PROTO_OA_SYMBOL_BY_ID_REQ",
-  message: IProtoMessage
+  message: $spotware.IProtoMessage
 ): Message<$spotware.IProtoOASymbolByIdReq>;
 export function from(
   event: "PROTO_OA_SYMBOL_BY_ID_RES",
-  message: IProtoMessage
+  message: $spotware.IProtoMessage
 ): Message<$spotware.IProtoOASymbolByIdRes>;
 export function from(
   event: "PROTO_OA_SYMBOLS_FOR_CONVERSION_REQ",
-  message: IProtoMessage
+  message: $spotware.IProtoMessage
 ): Message<$spotware.IProtoOASymbolsForConversionReq>;
 export function from(
   event: "PROTO_OA_SYMBOLS_FOR_CONVERSION_RES",
-  message: IProtoMessage
+  message: $spotware.IProtoMessage
 ): Message<$spotware.IProtoOASymbolsForConversionRes>;
 export function from(
   event: "PROTO_OA_SYMBOL_CHANGED_EVENT",
-  message: IProtoMessage
+  message: $spotware.IProtoMessage
 ): Message<$spotware.IProtoOASymbolChangedEvent>;
 export function from(
   event: "PROTO_OA_ASSET_CLASS_LIST_REQ",
-  message: IProtoMessage
+  message: $spotware.IProtoMessage
 ): Message<$spotware.IProtoOAAssetClassListReq>;
 export function from(
   event: "PROTO_OA_ASSET_CLASS_LIST_RES",
-  message: IProtoMessage
+  message: $spotware.IProtoMessage
 ): Message<$spotware.IProtoOAAssetClassListRes>;
 export function from(
   event: "PROTO_OA_TRADER_REQ",
-  message: IProtoMessage
+  message: $spotware.IProtoMessage
 ): Message<$spotware.IProtoOATraderReq>;
 export function from(
   event: "PROTO_OA_TRADER_RES",
-  message: IProtoMessage
+  message: $spotware.IProtoMessage
 ): Message<$spotware.IProtoOATraderRes>;
 export function from(
   event: "PROTO_OA_TRADER_UPDATE_EVENT",
-  message: IProtoMessage
+  message: $spotware.IProtoMessage
 ): Message<$spotware.IProtoOATraderUpdatedEvent>;
 export function from(
   event: "PROTO_OA_RECONCILE_REQ",
-  message: IProtoMessage
+  message: $spotware.IProtoMessage
 ): Message<$spotware.IProtoOAReconcileReq>;
 export function from(
   event: "PROTO_OA_RECONCILE_RES",
-  message: IProtoMessage
+  message: $spotware.IProtoMessage
 ): Message<$spotware.IProtoOAReconcileRes>;
 export function from(
   event: "PROTO_OA_ORDER_ERROR_EVENT",
-  message: IProtoMessage
+  message: $spotware.IProtoMessage
 ): Message<$spotware.IProtoOAOrderErrorEvent>;
 export function from(
   event: "PROTO_OA_DEAL_LIST_REQ",
-  message: IProtoMessage
+  message: $spotware.IProtoMessage
 ): Message<$spotware.IProtoOADealListReq>;
 export function from(
   event: "PROTO_OA_DEAL_LIST_RES",
-  message: IProtoMessage
+  message: $spotware.IProtoMessage
 ): Message<$spotware.IProtoOADealListRes>;
 export function from(
   event: "PROTO_OA_EXPECTED_MARGIN_REQ",
-  message: IProtoMessage
+  message: $spotware.IProtoMessage
 ): Message<$spotware.IProtoOAExpectedMarginReq>;
 export function from(
   event: "PROTO_OA_EXPECTED_MARGIN_RES",
-  message: IProtoMessage
+  message: $spotware.IProtoMessage
 ): Message<$spotware.IProtoOAExpectedMarginRes>;
 export function from(
   event: "PROTO_OA_MARGIN_CHANGED_EVENT",
-  message: IProtoMessage
+  message: $spotware.IProtoMessage
 ): Message<$spotware.IProtoOAMarginChangedEvent>;
 export function from(
   event: "PROTO_OA_CASH_FLOW_HISTORY_LIST_REQ",
-  message: IProtoMessage
+  message: $spotware.IProtoMessage
 ): Message<$spotware.IProtoOACashFlowHistoryListReq>;
 export function from(
   event: "PROTO_OA_CASH_FLOW_HISTORY_LIST_RES",
-  message: IProtoMessage
+  message: $spotware.IProtoMessage
 ): Message<$spotware.IProtoOACashFlowHistoryListRes>;
 export function from(
   event: "PROTO_OA_GET_ACCOUNTS_BY_ACCESS_TOKEN_REQ",
-  message: IProtoMessage
+  message: $spotware.IProtoMessage
 ): Message<$spotware.IProtoOAGetAccountListByAccessTokenReq>;
 export function from(
   event: "PROTO_OA_GET_ACCOUNTS_BY_ACCESS_TOKEN_RES",
-  message: IProtoMessage
+  message: $spotware.IProtoMessage
 ): Message<$spotware.IProtoOAGetAccountListByAccessTokenRes>;
 export function from(
   event: "PROTO_OA_SUBSCRIBE_SPOTS_REQ",
-  message: IProtoMessage
+  message: $spotware.IProtoMessage
 ): Message<$spotware.IProtoOASubscribeSpotsReq>;
 export function from(
   event: "PROTO_OA_SUBSCRIBE_SPOTS_RES",
-  message: IProtoMessage
+  message: $spotware.IProtoMessage
 ): Message<$spotware.IProtoOASubscribeSpotsRes>;
 export function from(
   event: "PROTO_OA_UNSUBSCRIBE_SPOTS_REQ",
-  message: IProtoMessage
+  message: $spotware.IProtoMessage
 ): Message<$spotware.IProtoOAUnsubscribeSpotsReq>;
 export function from(
   event: "PROTO_OA_UNSUBSCRIBE_SPOTS_RES",
-  message: IProtoMessage
+  message: $spotware.IProtoMessage
 ): Message<$spotware.IProtoOAUnsubscribeSpotsRes>;
 export function from(
   event: "PROTO_OA_SPOT_EVENT",
-  message: IProtoMessage
+  message: $spotware.IProtoMessage
 ): Message<$spotware.IProtoOASpotEvent>;
 export function from(
   event: "PROTO_OA_SUBSCRIBE_LIVE_TRENDBAR_REQ",
-  message: IProtoMessage
+  message: $spotware.IProtoMessage
 ): Message<$spotware.IProtoOASubscribeLiveTrendbarReq>;
 export function from(
   event: "PROTO_OA_UNSUBSCRIBE_LIVE_TRENDBAR_REQ",
-  message: IProtoMessage
+  message: $spotware.IProtoMessage
 ): Message<$spotware.IProtoOAUnsubscribeLiveTrendbarReq>;
 export function from(
   event: "PROTO_OA_GET_TRENDBARS_REQ",
-  message: IProtoMessage
+  message: $spotware.IProtoMessage
 ): Message<$spotware.IProtoOAGetTrendbarsReq>;
 export function from(
   event: "PROTO_OA_GET_TRENDBARS_RES",
-  message: IProtoMessage
+  message: $spotware.IProtoMessage
 ): Message<$spotware.IProtoOAGetTrendbarsRes>;
 export function from(
   event: "PROTO_OA_GET_TICKDATA_REQ",
-  message: IProtoMessage
+  message: $spotware.IProtoMessage
 ): Message<$spotware.IProtoOAGetTickDataReq>;
 export function from(
   event: "PROTO_OA_GET_TICKDATA_RES",
-  message: IProtoMessage
+  message: $spotware.IProtoMessage
 ): Message<$spotware.IProtoOAGetTickDataRes>;
 export function from(
   event: "PROTO_OA_GET_CTID_PROFILE_BY_TOKEN_REQ",
-  message: IProtoMessage
+  message: $spotware.IProtoMessage
 ): Message<$spotware.IProtoOAGetCtidProfileByTokenReq>;
 export function from(
   event: "PROTO_OA_GET_CTID_PROFILE_BY_TOKEN_RES",
-  message: IProtoMessage
+  message: $spotware.IProtoMessage
 ): Message<$spotware.IProtoOAGetCtidProfileByTokenRes>;
 export function from(
   event: "PROTO_OA_DEPTH_EVENT",
-  message: IProtoMessage
+  message: $spotware.IProtoMessage
 ): Message<$spotware.IProtoOADepthEvent>;
 export function from(
   event: "PROTO_OA_SUBSCRIBE_DEPTH_QUOTES_REQ",
-  message: IProtoMessage
+  message: $spotware.IProtoMessage
 ): Message<$spotware.IProtoOASubscribeDepthQuotesReq>;
 export function from(
   event: "PROTO_OA_SUBSCRIBE_DEPTH_QUOTES_RES",
-  message: IProtoMessage
+  message: $spotware.IProtoMessage
 ): Message<$spotware.IProtoOASubscribeDepthQuotesRes>;
 export function from(
   event: "PROTO_OA_UNSUBSCRIBE_DEPTH_QUOTES_REQ",
-  message: IProtoMessage
+  message: $spotware.IProtoMessage
 ): Message<$spotware.IProtoOAUnsubscribeDepthQuotesReq>;
 export function from(
   event: "PROTO_OA_UNSUBSCRIBE_DEPTH_QUOTES_RES",
-  message: IProtoMessage
+  message: $spotware.IProtoMessage
 ): Message<$spotware.IProtoOAUnsubscribeDepthQuotesRes>;
 export function from(
   event: "PROTO_OA_SYMBOL_CATEGORY_REQ",
-  message: IProtoMessage
+  message: $spotware.IProtoMessage
 ): Message<$spotware.IProtoOASymbolCategoryListReq>;
 export function from(
   event: "PROTO_OA_SYMBOL_CATEGORY_RES",
-  message: IProtoMessage
+  message: $spotware.IProtoMessage
 ): Message<$spotware.IProtoOASymbolCategoryListRes>;
 export function from(
   event: "PROTO_OA_ACCOUNT_LOGOUT_REQ",
-  message: IProtoMessage
+  message: $spotware.IProtoMessage
 ): Message<$spotware.IProtoOAAccountLogoutReq>;
 export function from(
   event: "PROTO_OA_ACCOUNT_LOGOUT_RES",
-  message: IProtoMessage
+  message: $spotware.IProtoMessage
 ): Message<$spotware.IProtoOAAccountLogoutRes>;
 export function from(
   event: "PROTO_OA_ACCOUNT_DISCONNECT_EVENT",
-  message: IProtoMessage
+  message: $spotware.IProtoMessage
 ): Message<$spotware.IProtoOAAccountDisconnectEvent>;
-export function from(event: E, message: IProtoMessage): Message<any> {
+export function from(
+  event: string,
+  message: $spotware.IProtoMessage
+): Message<any> {
   switch (event) {
     case "ERROR_RES":
       return ProtoErrorRes.fromProtoMessage(message);
@@ -1068,154 +1064,5 @@ export function from(event: E, message: IProtoMessage): Message<any> {
     case "PROTO_OA_ACCOUNT_DISCONNECT_EVENT":
       return ProtoOAAccountDisconnectEvent.fromProtoMessage(message);
   }
-}
-
-export function emitDecoded(
-  emitter: SpotwareEventEmitter,
-  message: IProtoMessage
-): void {
-  switch (message.payloadType as ProtoPayloadType | ProtoOAPayloadType) {
-    case ProtoPayloadType.ERROR_RES:
-      return ProtoErrorRes.emitDecoded(emitter, message);
-    case ProtoPayloadType.HEARTBEAT_EVENT:
-      return ProtoHeartbeatEvent.emitDecoded(emitter, message);
-    case ProtoOAPayloadType.PROTO_OA_APPLICATION_AUTH_REQ:
-      return ProtoOAApplicationAuthReq.emitDecoded(emitter, message);
-    case ProtoOAPayloadType.PROTO_OA_APPLICATION_AUTH_RES:
-      return ProtoOAApplicationAuthRes.emitDecoded(emitter, message);
-    case ProtoOAPayloadType.PROTO_OA_ACCOUNT_AUTH_REQ:
-      return ProtoOAAccountAuthReq.emitDecoded(emitter, message);
-    case ProtoOAPayloadType.PROTO_OA_ACCOUNT_AUTH_RES:
-      return ProtoOAAccountAuthRes.emitDecoded(emitter, message);
-    case ProtoOAPayloadType.PROTO_OA_ERROR_RES:
-      return ProtoOAErrorRes.emitDecoded(emitter, message);
-    case ProtoOAPayloadType.PROTO_OA_CLIENT_DISCONNECT_EVENT:
-      return ProtoOAClientDisconnectEvent.emitDecoded(emitter, message);
-    case ProtoOAPayloadType.PROTO_OA_ACCOUNTS_TOKEN_INVALIDATED_EVENT:
-      return ProtoOAAccountsTokenInvalidatedEvent.emitDecoded(emitter, message);
-    case ProtoOAPayloadType.PROTO_OA_VERSION_REQ:
-      return ProtoOAVersionReq.emitDecoded(emitter, message);
-    case ProtoOAPayloadType.PROTO_OA_VERSION_RES:
-      return ProtoOAVersionRes.emitDecoded(emitter, message);
-    case ProtoOAPayloadType.PROTO_OA_NEW_ORDER_REQ:
-      return ProtoOANewOrderReq.emitDecoded(emitter, message);
-    case ProtoOAPayloadType.PROTO_OA_EXECUTION_EVENT:
-      return ProtoOAExecutionEvent.emitDecoded(emitter, message);
-    case ProtoOAPayloadType.PROTO_OA_CANCEL_ORDER_REQ:
-      return ProtoOACancelOrderReq.emitDecoded(emitter, message);
-    case ProtoOAPayloadType.PROTO_OA_AMEND_ORDER_REQ:
-      return ProtoOAAmendOrderReq.emitDecoded(emitter, message);
-    case ProtoOAPayloadType.PROTO_OA_AMEND_POSITION_SLTP_REQ:
-      return ProtoOAAmendPositionSLTPReq.emitDecoded(emitter, message);
-    case ProtoOAPayloadType.PROTO_OA_CLOSE_POSITION_REQ:
-      return ProtoOAClosePositionReq.emitDecoded(emitter, message);
-    case ProtoOAPayloadType.PROTO_OA_TRAILING_SL_CHANGED_EVENT:
-      return ProtoOATrailingSLChangedEvent.emitDecoded(emitter, message);
-    case ProtoOAPayloadType.PROTO_OA_ASSET_LIST_REQ:
-      return ProtoOAAssetListReq.emitDecoded(emitter, message);
-    case ProtoOAPayloadType.PROTO_OA_ASSET_LIST_RES:
-      return ProtoOAAssetListRes.emitDecoded(emitter, message);
-    case ProtoOAPayloadType.PROTO_OA_SYMBOLS_LIST_REQ:
-      return ProtoOASymbolsListReq.emitDecoded(emitter, message);
-    case ProtoOAPayloadType.PROTO_OA_SYMBOLS_LIST_RES:
-      return ProtoOASymbolsListRes.emitDecoded(emitter, message);
-    case ProtoOAPayloadType.PROTO_OA_SYMBOL_BY_ID_REQ:
-      return ProtoOASymbolByIdReq.emitDecoded(emitter, message);
-    case ProtoOAPayloadType.PROTO_OA_SYMBOL_BY_ID_RES:
-      return ProtoOASymbolByIdRes.emitDecoded(emitter, message);
-    case ProtoOAPayloadType.PROTO_OA_SYMBOLS_FOR_CONVERSION_REQ:
-      return ProtoOASymbolsForConversionReq.emitDecoded(emitter, message);
-    case ProtoOAPayloadType.PROTO_OA_SYMBOLS_FOR_CONVERSION_RES:
-      return ProtoOASymbolsForConversionRes.emitDecoded(emitter, message);
-    case ProtoOAPayloadType.PROTO_OA_SYMBOL_CHANGED_EVENT:
-      return ProtoOASymbolChangedEvent.emitDecoded(emitter, message);
-    case ProtoOAPayloadType.PROTO_OA_ASSET_CLASS_LIST_REQ:
-      return ProtoOAAssetClassListReq.emitDecoded(emitter, message);
-    case ProtoOAPayloadType.PROTO_OA_ASSET_CLASS_LIST_RES:
-      return ProtoOAAssetClassListRes.emitDecoded(emitter, message);
-    case ProtoOAPayloadType.PROTO_OA_TRADER_REQ:
-      return ProtoOATraderReq.emitDecoded(emitter, message);
-    case ProtoOAPayloadType.PROTO_OA_TRADER_RES:
-      return ProtoOATraderRes.emitDecoded(emitter, message);
-    case ProtoOAPayloadType.PROTO_OA_TRADER_UPDATE_EVENT:
-      return ProtoOATraderUpdatedEvent.emitDecoded(emitter, message);
-    case ProtoOAPayloadType.PROTO_OA_RECONCILE_REQ:
-      return ProtoOAReconcileReq.emitDecoded(emitter, message);
-    case ProtoOAPayloadType.PROTO_OA_RECONCILE_RES:
-      return ProtoOAReconcileRes.emitDecoded(emitter, message);
-    case ProtoOAPayloadType.PROTO_OA_ORDER_ERROR_EVENT:
-      return ProtoOAOrderErrorEvent.emitDecoded(emitter, message);
-    case ProtoOAPayloadType.PROTO_OA_DEAL_LIST_REQ:
-      return ProtoOADealListReq.emitDecoded(emitter, message);
-    case ProtoOAPayloadType.PROTO_OA_DEAL_LIST_RES:
-      return ProtoOADealListRes.emitDecoded(emitter, message);
-    case ProtoOAPayloadType.PROTO_OA_EXPECTED_MARGIN_REQ:
-      return ProtoOAExpectedMarginReq.emitDecoded(emitter, message);
-    case ProtoOAPayloadType.PROTO_OA_EXPECTED_MARGIN_RES:
-      return ProtoOAExpectedMarginRes.emitDecoded(emitter, message);
-    case ProtoOAPayloadType.PROTO_OA_MARGIN_CHANGED_EVENT:
-      return ProtoOAMarginChangedEvent.emitDecoded(emitter, message);
-    case ProtoOAPayloadType.PROTO_OA_CASH_FLOW_HISTORY_LIST_REQ:
-      return ProtoOACashFlowHistoryListReq.emitDecoded(emitter, message);
-    case ProtoOAPayloadType.PROTO_OA_CASH_FLOW_HISTORY_LIST_RES:
-      return ProtoOACashFlowHistoryListRes.emitDecoded(emitter, message);
-    case ProtoOAPayloadType.PROTO_OA_GET_ACCOUNTS_BY_ACCESS_TOKEN_REQ:
-      return ProtoOAGetAccountListByAccessTokenReq.emitDecoded(
-        emitter,
-        message
-      );
-    case ProtoOAPayloadType.PROTO_OA_GET_ACCOUNTS_BY_ACCESS_TOKEN_RES:
-      return ProtoOAGetAccountListByAccessTokenRes.emitDecoded(
-        emitter,
-        message
-      );
-    case ProtoOAPayloadType.PROTO_OA_SUBSCRIBE_SPOTS_REQ:
-      return ProtoOASubscribeSpotsReq.emitDecoded(emitter, message);
-    case ProtoOAPayloadType.PROTO_OA_SUBSCRIBE_SPOTS_RES:
-      return ProtoOASubscribeSpotsRes.emitDecoded(emitter, message);
-    case ProtoOAPayloadType.PROTO_OA_UNSUBSCRIBE_SPOTS_REQ:
-      return ProtoOAUnsubscribeSpotsReq.emitDecoded(emitter, message);
-    case ProtoOAPayloadType.PROTO_OA_UNSUBSCRIBE_SPOTS_RES:
-      return ProtoOAUnsubscribeSpotsRes.emitDecoded(emitter, message);
-    case ProtoOAPayloadType.PROTO_OA_SPOT_EVENT:
-      return ProtoOASpotEvent.emitDecoded(emitter, message);
-    case ProtoOAPayloadType.PROTO_OA_SUBSCRIBE_LIVE_TRENDBAR_REQ:
-      return ProtoOASubscribeLiveTrendbarReq.emitDecoded(emitter, message);
-    case ProtoOAPayloadType.PROTO_OA_UNSUBSCRIBE_LIVE_TRENDBAR_REQ:
-      return ProtoOAUnsubscribeLiveTrendbarReq.emitDecoded(emitter, message);
-    case ProtoOAPayloadType.PROTO_OA_GET_TRENDBARS_REQ:
-      return ProtoOAGetTrendbarsReq.emitDecoded(emitter, message);
-    case ProtoOAPayloadType.PROTO_OA_GET_TRENDBARS_RES:
-      return ProtoOAGetTrendbarsRes.emitDecoded(emitter, message);
-    case ProtoOAPayloadType.PROTO_OA_GET_TICKDATA_REQ:
-      return ProtoOAGetTickDataReq.emitDecoded(emitter, message);
-    case ProtoOAPayloadType.PROTO_OA_GET_TICKDATA_RES:
-      return ProtoOAGetTickDataRes.emitDecoded(emitter, message);
-    case ProtoOAPayloadType.PROTO_OA_GET_CTID_PROFILE_BY_TOKEN_REQ:
-      return ProtoOAGetCtidProfileByTokenReq.emitDecoded(emitter, message);
-    case ProtoOAPayloadType.PROTO_OA_GET_CTID_PROFILE_BY_TOKEN_RES:
-      return ProtoOAGetCtidProfileByTokenRes.emitDecoded(emitter, message);
-    case ProtoOAPayloadType.PROTO_OA_DEPTH_EVENT:
-      return ProtoOADepthEvent.emitDecoded(emitter, message);
-    case ProtoOAPayloadType.PROTO_OA_SUBSCRIBE_DEPTH_QUOTES_REQ:
-      return ProtoOASubscribeDepthQuotesReq.emitDecoded(emitter, message);
-    case ProtoOAPayloadType.PROTO_OA_SUBSCRIBE_DEPTH_QUOTES_RES:
-      return ProtoOASubscribeDepthQuotesRes.emitDecoded(emitter, message);
-    case ProtoOAPayloadType.PROTO_OA_UNSUBSCRIBE_DEPTH_QUOTES_REQ:
-      return ProtoOAUnsubscribeDepthQuotesReq.emitDecoded(emitter, message);
-    case ProtoOAPayloadType.PROTO_OA_UNSUBSCRIBE_DEPTH_QUOTES_RES:
-      return ProtoOAUnsubscribeDepthQuotesRes.emitDecoded(emitter, message);
-    case ProtoOAPayloadType.PROTO_OA_SYMBOL_CATEGORY_REQ:
-      return ProtoOASymbolCategoryListReq.emitDecoded(emitter, message);
-    case ProtoOAPayloadType.PROTO_OA_SYMBOL_CATEGORY_RES:
-      return ProtoOASymbolCategoryListRes.emitDecoded(emitter, message);
-    case ProtoOAPayloadType.PROTO_OA_ACCOUNT_LOGOUT_REQ:
-      return ProtoOAAccountLogoutReq.emitDecoded(emitter, message);
-    case ProtoOAPayloadType.PROTO_OA_ACCOUNT_LOGOUT_RES:
-      return ProtoOAAccountLogoutRes.emitDecoded(emitter, message);
-    case ProtoOAPayloadType.PROTO_OA_ACCOUNT_DISCONNECT_EVENT:
-      return ProtoOAAccountDisconnectEvent.emitDecoded(emitter, message);
-    default:
-      throw new Error(`got unknown 'payloadType' (${message.payloadType})`);
-  }
+  throw new Error(`unknown event ${event}`);
 }

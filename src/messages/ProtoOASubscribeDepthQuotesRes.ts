@@ -4,7 +4,6 @@
   IProtoMessage,
   ProtoOAPayloadType
 } from "../spotware-messages";
-import SpotwareEventEmitter from "../spotware-event-emitter";
 
 export namespace ProtoOASubscribeDepthQuotesRes {
   export const payloadType =
@@ -19,15 +18,6 @@ export namespace ProtoOASubscribeDepthQuotesRes {
       payload: Message.encode(message).finish(),
       clientMsgId
     };
-  }
-
-  export function emitEncoded(
-    emitter: SpotwareEventEmitter,
-    message: IMessage,
-    clientMsgId?: string | null
-  ): void {
-    const data = toProtoMessage(message, clientMsgId);
-    emitter.emit("PROTO_MESSAGE", data);
   }
 
   export function fromProtoMessage(
@@ -47,18 +37,6 @@ export namespace ProtoOASubscribeDepthQuotesRes {
       `invalid message. expected payloadType 'PROTO_OA_SUBSCRIBE_DEPTH_QUOTES_RES' (got '${
         ProtoOAPayloadType[payloadType]
       }').`
-    );
-  }
-
-  export function emitDecoded(
-    emitter: SpotwareEventEmitter,
-    message: IProtoMessage
-  ): void {
-    const data = fromProtoMessage(message);
-    emitter.emit(
-      "PROTO_OA_SUBSCRIBE_DEPTH_QUOTES_RES",
-      data.message,
-      data.clientMsgId
     );
   }
 }
