@@ -1,18 +1,28 @@
-import { connect } from "./spotware-client";
-console.log("start");
+import * as $spotware from "./spotware-messages";
+import * as messages from "./messages";
+import { writeProtoMessage, connect } from "./spotware-client";
+
 const client = connect(
   5035,
   "live.ctraderapi.com"
 );
-
-client.on("PROTO_MESSAGE", console.error);
-client.on("PROTO_OA_APPLICATION_AUTH_REQ", console.error);
-client.on("PROTO_OA_APPLICATION_AUTH_RES", console.error);
-client.on("PROTO_OA_ERROR_RES", console.error);
-client.on("HEARTBEAT_EVENT", console.error);
-setInterval(() => client.emit("HEARTBEAT_EVENT", {}), 10000);
-// const msg: $spotware.IProtoOAApplicationAuthReq = {
-//   clientId: "",
-//   clientSecret: ""
-// };
-// client.emit("PROTO_OA_APPLICATION_AUTH_REQ", msg);
+client.on("PROTO_MESSAGE", message => {
+  console.log(
+    $spotware.ProtoPayloadType[message.payloadType] ||
+      $spotware.ProtoOAPayloadType[message.payloadType]
+  );
+  switch (message.payloadType) {
+    case $spotware.ProtoPayloadType.ERROR_RES: {
+      const msg = messages.from("ERROR_RES", message);
+      break;
+    }
+    case $spotware.ProtoOAPayloadType.PROTO_OA_VERSION_REQ: {
+      const msg = messages.from("PROTO_OA_VERSION_REQ", message);
+      break;
+    }
+  }
+});
+setInterval(() => {
+  const message = messages.to("HEARTBEAT_EVENT", {});
+  writeProtoMessage(client, message);
+}, 10000);
