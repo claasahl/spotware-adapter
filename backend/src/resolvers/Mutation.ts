@@ -5,7 +5,7 @@ import {
   toProtoMessage
 } from "@claasahl/spotware-connect-api";
 
-export const mutation: Required<MutationResolvers.Resolvers> = {
+export const mutation: Required<MutationResolvers> = {
   tokens: async (_parent, args) => {
     const { code } = args;
     const tokenUri = process.env.SPOTWARE__TOKEN_URI;

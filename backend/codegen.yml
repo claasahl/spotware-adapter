@@ -6,6 +6,6 @@ generates:
     config:
       contextType: ../resolvers/Context#IContext
     plugins:
-      - "typescript-common"
-      - "typescript-server"
+      - "typescript"
+      - "typescript-operations"
       - "typescript-resolvers"
