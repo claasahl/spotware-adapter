@@ -16,10 +16,10 @@ type Message<M> = { message: M; clientMsgId?: string | null };
 
 {{#messages}}
 {{^isProtoMessage}}
-export function to(event: "{{{eventName}}}", message: $spotware.I{{{type}}}, clientMsgId?: string | null): $spotware.IProtoMessage;
+export function toProtoMessage(event: "{{{eventName}}}", message: $spotware.I{{{type}}}, clientMsgId?: string | null): $spotware.IProtoMessage;
 {{/isProtoMessage}}
 {{/messages}}
-export function to(event: string, message: any, clientMsgId?: string | null): $spotware.IProtoMessage {
+export function toProtoMessage(event: string, message: any, clientMsgId?: string | null): $spotware.IProtoMessage {
   switch(event) {
 {{#messages}}
 {{^isProtoMessage}}
@@ -33,10 +33,10 @@ export function to(event: string, message: any, clientMsgId?: string | null): $s
 
 {{#messages}}
 {{^isProtoMessage}}
-export function from(event: "{{{eventName}}}", message: $spotware.IProtoMessage): Message<$spotware.I{{{type}}}>;
+export function fromProtoMessage(event: "{{{eventName}}}", message: $spotware.IProtoMessage): Message<$spotware.I{{{type}}}>;
 {{/isProtoMessage}}
 {{/messages}}
-export function from(event: string, message: $spotware.IProtoMessage): Message<any> {
+export function fromProtoMessage(event: string, message: $spotware.IProtoMessage): Message<any> {
   switch(event) {
 {{#messages}}
 {{^isProtoMessage}}
