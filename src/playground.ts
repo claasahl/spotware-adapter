@@ -1,5 +1,9 @@
-import { toProtoMessage, fromProtoMessage } from "./messages";
-import { writeProtoMessage, connect } from "./spotware-client";
+import {
+  connect,
+  fromProtoMessage,
+  toProtoMessage,
+  writeProtoMessage
+} from ".";
 
 const client = connect(
   5035,
