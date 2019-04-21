@@ -5,7 +5,7 @@ import * as util from "./spotware-utils";
 import SpotwarePayloadTypes from "./spotware-payload-types";
 import SpotwareEventEmitter from "./spotware-event-emitter";
 
-type SpotwareClient = tls.TLSSocket & SpotwareEventEmitter;
+export type SpotwareSocket = tls.TLSSocket & SpotwareEventEmitter;
 
 export function toPayloadType(
   payloadType: $spotware.ProtoPayloadType | $spotware.ProtoOAPayloadType
@@ -16,7 +16,7 @@ export function toPayloadType(
   );
 }
 
-function readProtoMessage(this: SpotwareClient, data: string) {
+function readProtoMessage(this: SpotwareSocket, data: string) {
   {
     try {
       const buffer = Buffer.from(data, "binary");
@@ -30,7 +30,7 @@ function readProtoMessage(this: SpotwareClient, data: string) {
 }
 
 export function writeProtoMessage(
-  socket: SpotwareClient,
+  socket: SpotwareSocket,
   message: $spotware.IProtoMessage
 ) {
   const payloadType = toPayloadType(message.payloadType);
@@ -48,7 +48,7 @@ export function connect(
   port: number,
   host: string,
   options?: tls.TlsOptions
-): SpotwareClient {
+): SpotwareSocket {
   const socket = tls
     .connect(port, host, options)
     .setEncoding("binary")
