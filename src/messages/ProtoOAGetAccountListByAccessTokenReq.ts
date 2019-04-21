@@ -4,7 +4,6 @@
   IProtoMessage,
   ProtoOAPayloadType
 } from "../spotware-messages";
-import SpotwareEventEmitter from "../spotware-event-emitter";
 
 export namespace ProtoOAGetAccountListByAccessTokenReq {
   export const payloadType =
@@ -19,15 +18,6 @@ export namespace ProtoOAGetAccountListByAccessTokenReq {
       payload: Message.encode(message).finish(),
       clientMsgId
     };
-  }
-
-  export function emitEncoded(
-    emitter: SpotwareEventEmitter,
-    message: IMessage,
-    clientMsgId?: string | null
-  ): void {
-    const data = toProtoMessage(message, clientMsgId);
-    emitter.emit("PROTO_MESSAGE", data);
   }
 
   export function fromProtoMessage(
@@ -49,16 +39,5 @@ export namespace ProtoOAGetAccountListByAccessTokenReq {
       }').`
     );
   }
-
-  export function emitDecoded(
-    emitter: SpotwareEventEmitter,
-    message: IProtoMessage
-  ): void {
-    const data = fromProtoMessage(message);
-    emitter.emit(
-      "PROTO_OA_GET_ACCOUNTS_BY_ACCESS_TOKEN_REQ",
-      data.message,
-      data.clientMsgId
-    );
-  }
 }
+export default ProtoOAGetAccountListByAccessTokenReq;

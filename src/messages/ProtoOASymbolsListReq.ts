@@ -4,7 +4,6 @@
   IProtoMessage,
   ProtoOAPayloadType
 } from "../spotware-messages";
-import SpotwareEventEmitter from "../spotware-event-emitter";
 
 export namespace ProtoOASymbolsListReq {
   export const payloadType = ProtoOAPayloadType.PROTO_OA_SYMBOLS_LIST_REQ;
@@ -18,15 +17,6 @@ export namespace ProtoOASymbolsListReq {
       payload: Message.encode(message).finish(),
       clientMsgId
     };
-  }
-
-  export function emitEncoded(
-    emitter: SpotwareEventEmitter,
-    message: IMessage,
-    clientMsgId?: string | null
-  ): void {
-    const data = toProtoMessage(message, clientMsgId);
-    emitter.emit("PROTO_MESSAGE", data);
   }
 
   export function fromProtoMessage(
@@ -48,12 +38,5 @@ export namespace ProtoOASymbolsListReq {
       }').`
     );
   }
-
-  export function emitDecoded(
-    emitter: SpotwareEventEmitter,
-    message: IProtoMessage
-  ): void {
-    const data = fromProtoMessage(message);
-    emitter.emit("PROTO_OA_SYMBOLS_LIST_REQ", data.message, data.clientMsgId);
-  }
 }
+export default ProtoOASymbolsListReq;

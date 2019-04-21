@@ -1,5 +1,4 @@
-export type SpotwareEvents =
-  | "PROTO_MESSAGE"
+export type SpotwarePayloadTypes =
   | "ERROR_RES"
   | "HEARTBEAT_EVENT"
   | "PROTO_OA_APPLICATION_AUTH_REQ"
@@ -67,4 +66,4 @@ export type SpotwareEvents =
   | "PROTO_OA_ACCOUNT_LOGOUT_REQ"
   | "PROTO_OA_ACCOUNT_LOGOUT_RES"
   | "PROTO_OA_ACCOUNT_DISCONNECT_EVENT";
-export default SpotwareEvents;
+export default SpotwarePayloadTypes;

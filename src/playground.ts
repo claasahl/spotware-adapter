@@ -1,18 +1,42 @@
-import { connect } from "./spotware-client";
-console.log("start");
+import {
+  connect,
+  fromProtoMessage,
+  toProtoMessage,
+  writeProtoMessage
+} from ".";
+
+// establish connection
 const client = connect(
   5035,
   "live.ctraderapi.com"
 );
 
-client.on("PROTO_MESSAGE", console.error);
-client.on("PROTO_OA_APPLICATION_AUTH_REQ", console.error);
-client.on("PROTO_OA_APPLICATION_AUTH_RES", console.error);
-client.on("PROTO_OA_ERROR_RES", console.error);
-client.on("HEARTBEAT_EVENT", console.error);
-setInterval(() => client.emit("HEARTBEAT_EVENT", {}), 10000);
-// const msg: $spotware.IProtoOAApplicationAuthReq = {
-//   clientId: "",
-//   clientSecret: ""
-// };
-// client.emit("PROTO_OA_APPLICATION_AUTH_REQ", msg);
+// handle (incoming) proto messages
+client.on("PROTO_MESSAGE", (message, payloadType) => {
+  console.log(payloadType);
+  switch (payloadType) {
+    case "ERROR_RES": {
+      const msg = fromProtoMessage("ERROR_RES", message);
+      console.log(msg);
+      break;
+    }
+    case "PROTO_OA_VERSION_REQ": {
+      const msg = fromProtoMessage("PROTO_OA_VERSION_REQ", message);
+      console.log(msg);
+      break;
+    }
+    case "PROTO_OA_VERSION_RES": {
+      const msg = fromProtoMessage("PROTO_OA_VERSION_RES", message);
+      console.log(msg);
+      break;
+    }
+  }
+});
+
+// write (outgoing) proto messages
+setInterval(() => {
+  const message = toProtoMessage("HEARTBEAT_EVENT", {});
+  writeProtoMessage(client, message);
+}, 10000);
+
+writeProtoMessage(client, toProtoMessage("PROTO_OA_VERSION_REQ", {}));

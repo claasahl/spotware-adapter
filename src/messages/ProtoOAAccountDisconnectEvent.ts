@@ -4,7 +4,6 @@
   IProtoMessage,
   ProtoOAPayloadType
 } from "../spotware-messages";
-import SpotwareEventEmitter from "../spotware-event-emitter";
 
 export namespace ProtoOAAccountDisconnectEvent {
   export const payloadType =
@@ -19,15 +18,6 @@ export namespace ProtoOAAccountDisconnectEvent {
       payload: Message.encode(message).finish(),
       clientMsgId
     };
-  }
-
-  export function emitEncoded(
-    emitter: SpotwareEventEmitter,
-    message: IMessage,
-    clientMsgId?: string | null
-  ): void {
-    const data = toProtoMessage(message, clientMsgId);
-    emitter.emit("PROTO_MESSAGE", data);
   }
 
   export function fromProtoMessage(
@@ -49,16 +39,5 @@ export namespace ProtoOAAccountDisconnectEvent {
       }').`
     );
   }
-
-  export function emitDecoded(
-    emitter: SpotwareEventEmitter,
-    message: IProtoMessage
-  ): void {
-    const data = fromProtoMessage(message);
-    emitter.emit(
-      "PROTO_OA_ACCOUNT_DISCONNECT_EVENT",
-      data.message,
-      data.clientMsgId
-    );
-  }
 }
+export default ProtoOAAccountDisconnectEvent;

@@ -7,31 +7,13 @@ function loadSchema(protoFile: fs.PathLike): Schema {
   return schema(proto);
 }
 
-type Scope =
-  | "PROTO__WRITE"
-  | "PROTO__DECODE"
-  | "EVENT__ENCODE"
-  | "EVENT__NO_ACTION";
-
 interface Type {
   type: string;
   payloadType: string;
   eventName: string;
-  scopes: Scope[];
   isProtoMessage: boolean;
   isOpenApiMessage: boolean;
   isCommonMessage: boolean;
-}
-
-const PROTO_SCOPES: Scope[] = [];
-const REQUEST_SCOPES: Scope[] = ["EVENT__ENCODE", "PROTO__WRITE"];
-const RESPONSE_SCOPES: Scope[] = ["EVENT__NO_ACTION", "PROTO__DECODE"];
-const EVENT_SCOPES: Scope[] = ["EVENT__NO_ACTION", "PROTO__DECODE"];
-
-function pushIf(condition: boolean, newScopes: Scope[], scopes: Scope[]): void {
-  if (condition) {
-    scopes.push(...newScopes);
-  }
 }
 
 function toPayloadType(message: Message) {
@@ -50,16 +32,10 @@ function toType(
 ): Type {
   const type = message.name;
   const payloadType = toPayloadType(message);
-  const scopes: Scope[] = [];
-  pushIf(type.endsWith("Req"), REQUEST_SCOPES, scopes);
-  pushIf(type.endsWith("Res"), RESPONSE_SCOPES, scopes);
-  pushIf(type.endsWith("Event"), EVENT_SCOPES, scopes);
-  pushIf(type === "ProtoMessage", PROTO_SCOPES, scopes);
   return {
     type,
     payloadType: `${payloadTypeRef}.${payloadType}`,
     eventName: payloadType,
-    scopes,
     isProtoMessage: type === "ProtoMessage",
     isCommonMessage,
     isOpenApiMessage
