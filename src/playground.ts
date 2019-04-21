@@ -5,6 +5,7 @@ import {
   writeProtoMessage
 } from ".";
 
+// establish connection
 const client = connect(
   5035,
   "live.ctraderapi.com"

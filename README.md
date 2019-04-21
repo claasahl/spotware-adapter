@@ -26,11 +26,48 @@ The backbone of this client for the Spotware Open API V2 is a NodeJS `EventEmitt
 One can listen and react to Spotware messages (i.e. any request being sent, any received response and any received/emitted event) by registering a listener.
 
 ```typescript
-// runkit
-const client = ???;
-client.on("HEARTBEAT_EVENT", (message, clientMsgId) => {
-    console.log("this is a heartbeat and message ID", message, clientMsgId);
-})
+import {
+  connect,
+  fromProtoMessage,
+  toProtoMessage,
+  writeProtoMessage
+} from "@claasahl/spotware-connecti-api";
+
+// establish connection
+const client = connect(
+  5035,
+  "live.ctraderapi.com"
+);
+
+// handle (incoming) proto messages
+client.on("PROTO_MESSAGE", (message, payloadType) => {
+  console.log(payloadType);
+  switch (payloadType) {
+    case "ERROR_RES": {
+      const msg = fromProtoMessage("ERROR_RES", message);
+      console.log(msg);
+      break;
+    }
+    case "PROTO_OA_VERSION_REQ": {
+      const msg = fromProtoMessage("PROTO_OA_VERSION_REQ", message);
+      console.log(msg);
+      break;
+    }
+    case "PROTO_OA_VERSION_RES": {
+      const msg = fromProtoMessage("PROTO_OA_VERSION_RES", message);
+      console.log(msg);
+      break;
+    }
+  }
+});
+
+// write (outgoing) proto messages
+setInterval(() => {
+  const message = toProtoMessage("HEARTBEAT_EVENT", {});
+  writeProtoMessage(client, message);
+}, 10000);
+
+writeProtoMessage(client, toProtoMessage("PROTO_OA_VERSION_REQ", {}));
 ```
 
 The `EventEmitter`-interface has been specialized to accept only Spotware messages.
