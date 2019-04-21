@@ -2,16 +2,27 @@ import tls from "tls";
 
 import * as $spotware from "./spotware-messages";
 import * as util from "./spotware-utils";
+import SpotwarePayloadTypes from "./spotware-payload-types";
 import SpotwareEventEmitter from "./spotware-event-emitter";
 
 type SpotwareClient = tls.TLSSocket & SpotwareEventEmitter;
+
+export function toPayloadType(
+  payloadType: $spotware.ProtoPayloadType | $spotware.ProtoOAPayloadType
+): SpotwarePayloadTypes {
+  return (
+    $spotware.ProtoPayloadType[payloadType] ||
+    ($spotware.ProtoOAPayloadType[payloadType] as any)
+  );
+}
 
 function readProtoMessage(this: SpotwareClient, data: string) {
   {
     try {
       const buffer = Buffer.from(data, "binary");
       const message = util.deserialize(buffer);
-      this.emit("PROTO_MESSAGE", message);
+      const payloadType = toPayloadType(message.payloadType);
+      this.emit("PROTO_MESSAGE", message, payloadType);
     } catch (error) {
       console.log("could not read/parse ProtoMessage", error);
     }
@@ -22,12 +33,13 @@ export function writeProtoMessage(
   socket: SpotwareClient,
   message: $spotware.IProtoMessage
 ) {
+  const payloadType = toPayloadType(message.payloadType);
   const buffer = util.serialize(message);
   return socket.write(buffer, err => {
     if (err) {
-      socket.emit("error", err, message);
+      socket.emit("error", err, message, payloadType);
     } else {
-      socket.emit("PROTO_MESSAGE", message);
+      socket.emit("PROTO_MESSAGE", message, payloadType);
     }
   });
 }
