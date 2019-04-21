@@ -4,7 +4,6 @@
       "type": "ProtoMessage",
       "payloadType": "ProtoPayloadType.PROTO_MESSAGE",
       "eventName": "PROTO_MESSAGE",
-      "scopes": [],
       "isProtoMessage": true,
       "isCommonMessage": true,
       "isOpenApiMessage": false
@@ -13,7 +12,6 @@
       "type": "ProtoErrorRes",
       "payloadType": "ProtoPayloadType.ERROR_RES",
       "eventName": "ERROR_RES",
-      "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"],
       "isProtoMessage": false,
       "isCommonMessage": true,
       "isOpenApiMessage": false
@@ -22,7 +20,6 @@
       "type": "ProtoHeartbeatEvent",
       "payloadType": "ProtoPayloadType.HEARTBEAT_EVENT",
       "eventName": "HEARTBEAT_EVENT",
-      "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"],
       "isProtoMessage": false,
       "isCommonMessage": true,
       "isOpenApiMessage": false
@@ -31,7 +28,6 @@
       "type": "ProtoOAApplicationAuthReq",
       "payloadType": "ProtoOAPayloadType.PROTO_OA_APPLICATION_AUTH_REQ",
       "eventName": "PROTO_OA_APPLICATION_AUTH_REQ",
-      "scopes": ["EVENT__ENCODE", "PROTO__WRITE"],
       "isProtoMessage": false,
       "isCommonMessage": false,
       "isOpenApiMessage": true
@@ -40,7 +36,6 @@
       "type": "ProtoOAApplicationAuthRes",
       "payloadType": "ProtoOAPayloadType.PROTO_OA_APPLICATION_AUTH_RES",
       "eventName": "PROTO_OA_APPLICATION_AUTH_RES",
-      "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"],
       "isProtoMessage": false,
       "isCommonMessage": false,
       "isOpenApiMessage": true
@@ -49,7 +44,6 @@
       "type": "ProtoOAAccountAuthReq",
       "payloadType": "ProtoOAPayloadType.PROTO_OA_ACCOUNT_AUTH_REQ",
       "eventName": "PROTO_OA_ACCOUNT_AUTH_REQ",
-      "scopes": ["EVENT__ENCODE", "PROTO__WRITE"],
       "isProtoMessage": false,
       "isCommonMessage": false,
       "isOpenApiMessage": true
@@ -58,7 +52,6 @@
       "type": "ProtoOAAccountAuthRes",
       "payloadType": "ProtoOAPayloadType.PROTO_OA_ACCOUNT_AUTH_RES",
       "eventName": "PROTO_OA_ACCOUNT_AUTH_RES",
-      "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"],
       "isProtoMessage": false,
       "isCommonMessage": false,
       "isOpenApiMessage": true
@@ -67,7 +60,6 @@
       "type": "ProtoOAErrorRes",
       "payloadType": "ProtoOAPayloadType.PROTO_OA_ERROR_RES",
       "eventName": "PROTO_OA_ERROR_RES",
-      "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"],
       "isProtoMessage": false,
       "isCommonMessage": false,
       "isOpenApiMessage": true
@@ -76,7 +68,6 @@
       "type": "ProtoOAClientDisconnectEvent",
       "payloadType": "ProtoOAPayloadType.PROTO_OA_CLIENT_DISCONNECT_EVENT",
       "eventName": "PROTO_OA_CLIENT_DISCONNECT_EVENT",
-      "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"],
       "isProtoMessage": false,
       "isCommonMessage": false,
       "isOpenApiMessage": true
@@ -85,7 +76,6 @@
       "type": "ProtoOAAccountsTokenInvalidatedEvent",
       "payloadType": "ProtoOAPayloadType.PROTO_OA_ACCOUNTS_TOKEN_INVALIDATED_EVENT",
       "eventName": "PROTO_OA_ACCOUNTS_TOKEN_INVALIDATED_EVENT",
-      "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"],
       "isProtoMessage": false,
       "isCommonMessage": false,
       "isOpenApiMessage": true
@@ -94,7 +84,6 @@
       "type": "ProtoOAVersionReq",
       "payloadType": "ProtoOAPayloadType.PROTO_OA_VERSION_REQ",
       "eventName": "PROTO_OA_VERSION_REQ",
-      "scopes": ["EVENT__ENCODE", "PROTO__WRITE"],
       "isProtoMessage": false,
       "isCommonMessage": false,
       "isOpenApiMessage": true
@@ -103,7 +92,6 @@
       "type": "ProtoOAVersionRes",
       "payloadType": "ProtoOAPayloadType.PROTO_OA_VERSION_RES",
       "eventName": "PROTO_OA_VERSION_RES",
-      "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"],
       "isProtoMessage": false,
       "isCommonMessage": false,
       "isOpenApiMessage": true
@@ -112,7 +100,6 @@
       "type": "ProtoOANewOrderReq",
       "payloadType": "ProtoOAPayloadType.PROTO_OA_NEW_ORDER_REQ",
       "eventName": "PROTO_OA_NEW_ORDER_REQ",
-      "scopes": ["EVENT__ENCODE", "PROTO__WRITE"],
       "isProtoMessage": false,
       "isCommonMessage": false,
       "isOpenApiMessage": true
@@ -121,7 +108,6 @@
       "type": "ProtoOAExecutionEvent",
       "payloadType": "ProtoOAPayloadType.PROTO_OA_EXECUTION_EVENT",
       "eventName": "PROTO_OA_EXECUTION_EVENT",
-      "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"],
       "isProtoMessage": false,
       "isCommonMessage": false,
       "isOpenApiMessage": true
@@ -130,7 +116,6 @@
       "type": "ProtoOACancelOrderReq",
       "payloadType": "ProtoOAPayloadType.PROTO_OA_CANCEL_ORDER_REQ",
       "eventName": "PROTO_OA_CANCEL_ORDER_REQ",
-      "scopes": ["EVENT__ENCODE", "PROTO__WRITE"],
       "isProtoMessage": false,
       "isCommonMessage": false,
       "isOpenApiMessage": true
@@ -139,7 +124,6 @@
       "type": "ProtoOAAmendOrderReq",
       "payloadType": "ProtoOAPayloadType.PROTO_OA_AMEND_ORDER_REQ",
       "eventName": "PROTO_OA_AMEND_ORDER_REQ",
-      "scopes": ["EVENT__ENCODE", "PROTO__WRITE"],
       "isProtoMessage": false,
       "isCommonMessage": false,
       "isOpenApiMessage": true
@@ -148,7 +132,6 @@
       "type": "ProtoOAAmendPositionSLTPReq",
       "payloadType": "ProtoOAPayloadType.PROTO_OA_AMEND_POSITION_SLTP_REQ",
       "eventName": "PROTO_OA_AMEND_POSITION_SLTP_REQ",
-      "scopes": ["EVENT__ENCODE", "PROTO__WRITE"],
       "isProtoMessage": false,
       "isCommonMessage": false,
       "isOpenApiMessage": true
@@ -157,7 +140,6 @@
       "type": "ProtoOAClosePositionReq",
       "payloadType": "ProtoOAPayloadType.PROTO_OA_CLOSE_POSITION_REQ",
       "eventName": "PROTO_OA_CLOSE_POSITION_REQ",
-      "scopes": ["EVENT__ENCODE", "PROTO__WRITE"],
       "isProtoMessage": false,
       "isCommonMessage": false,
       "isOpenApiMessage": true
@@ -166,7 +148,6 @@
       "type": "ProtoOATrailingSLChangedEvent",
       "payloadType": "ProtoOAPayloadType.PROTO_OA_TRAILING_SL_CHANGED_EVENT",
       "eventName": "PROTO_OA_TRAILING_SL_CHANGED_EVENT",
-      "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"],
       "isProtoMessage": false,
       "isCommonMessage": false,
       "isOpenApiMessage": true
@@ -175,7 +156,6 @@
       "type": "ProtoOAAssetListReq",
       "payloadType": "ProtoOAPayloadType.PROTO_OA_ASSET_LIST_REQ",
       "eventName": "PROTO_OA_ASSET_LIST_REQ",
-      "scopes": ["EVENT__ENCODE", "PROTO__WRITE"],
       "isProtoMessage": false,
       "isCommonMessage": false,
       "isOpenApiMessage": true
@@ -184,7 +164,6 @@
       "type": "ProtoOAAssetListRes",
       "payloadType": "ProtoOAPayloadType.PROTO_OA_ASSET_LIST_RES",
       "eventName": "PROTO_OA_ASSET_LIST_RES",
-      "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"],
       "isProtoMessage": false,
       "isCommonMessage": false,
       "isOpenApiMessage": true
@@ -193,7 +172,6 @@
       "type": "ProtoOASymbolsListReq",
       "payloadType": "ProtoOAPayloadType.PROTO_OA_SYMBOLS_LIST_REQ",
       "eventName": "PROTO_OA_SYMBOLS_LIST_REQ",
-      "scopes": ["EVENT__ENCODE", "PROTO__WRITE"],
       "isProtoMessage": false,
       "isCommonMessage": false,
       "isOpenApiMessage": true
@@ -202,7 +180,6 @@
       "type": "ProtoOASymbolsListRes",
       "payloadType": "ProtoOAPayloadType.PROTO_OA_SYMBOLS_LIST_RES",
       "eventName": "PROTO_OA_SYMBOLS_LIST_RES",
-      "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"],
       "isProtoMessage": false,
       "isCommonMessage": false,
       "isOpenApiMessage": true
@@ -211,7 +188,6 @@
       "type": "ProtoOASymbolByIdReq",
       "payloadType": "ProtoOAPayloadType.PROTO_OA_SYMBOL_BY_ID_REQ",
       "eventName": "PROTO_OA_SYMBOL_BY_ID_REQ",
-      "scopes": ["EVENT__ENCODE", "PROTO__WRITE"],
       "isProtoMessage": false,
       "isCommonMessage": false,
       "isOpenApiMessage": true
@@ -220,7 +196,6 @@
       "type": "ProtoOASymbolByIdRes",
       "payloadType": "ProtoOAPayloadType.PROTO_OA_SYMBOL_BY_ID_RES",
       "eventName": "PROTO_OA_SYMBOL_BY_ID_RES",
-      "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"],
       "isProtoMessage": false,
       "isCommonMessage": false,
       "isOpenApiMessage": true
@@ -229,7 +204,6 @@
       "type": "ProtoOASymbolsForConversionReq",
       "payloadType": "ProtoOAPayloadType.PROTO_OA_SYMBOLS_FOR_CONVERSION_REQ",
       "eventName": "PROTO_OA_SYMBOLS_FOR_CONVERSION_REQ",
-      "scopes": ["EVENT__ENCODE", "PROTO__WRITE"],
       "isProtoMessage": false,
       "isCommonMessage": false,
       "isOpenApiMessage": true
@@ -238,7 +212,6 @@
       "type": "ProtoOASymbolsForConversionRes",
       "payloadType": "ProtoOAPayloadType.PROTO_OA_SYMBOLS_FOR_CONVERSION_RES",
       "eventName": "PROTO_OA_SYMBOLS_FOR_CONVERSION_RES",
-      "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"],
       "isProtoMessage": false,
       "isCommonMessage": false,
       "isOpenApiMessage": true
@@ -247,7 +220,6 @@
       "type": "ProtoOASymbolChangedEvent",
       "payloadType": "ProtoOAPayloadType.PROTO_OA_SYMBOL_CHANGED_EVENT",
       "eventName": "PROTO_OA_SYMBOL_CHANGED_EVENT",
-      "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"],
       "isProtoMessage": false,
       "isCommonMessage": false,
       "isOpenApiMessage": true
@@ -256,7 +228,6 @@
       "type": "ProtoOAAssetClassListReq",
       "payloadType": "ProtoOAPayloadType.PROTO_OA_ASSET_CLASS_LIST_REQ",
       "eventName": "PROTO_OA_ASSET_CLASS_LIST_REQ",
-      "scopes": ["EVENT__ENCODE", "PROTO__WRITE"],
       "isProtoMessage": false,
       "isCommonMessage": false,
       "isOpenApiMessage": true
@@ -265,7 +236,6 @@
       "type": "ProtoOAAssetClassListRes",
       "payloadType": "ProtoOAPayloadType.PROTO_OA_ASSET_CLASS_LIST_RES",
       "eventName": "PROTO_OA_ASSET_CLASS_LIST_RES",
-      "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"],
       "isProtoMessage": false,
       "isCommonMessage": false,
       "isOpenApiMessage": true
@@ -274,7 +244,6 @@
       "type": "ProtoOATraderReq",
       "payloadType": "ProtoOAPayloadType.PROTO_OA_TRADER_REQ",
       "eventName": "PROTO_OA_TRADER_REQ",
-      "scopes": ["EVENT__ENCODE", "PROTO__WRITE"],
       "isProtoMessage": false,
       "isCommonMessage": false,
       "isOpenApiMessage": true
@@ -283,7 +252,6 @@
       "type": "ProtoOATraderRes",
       "payloadType": "ProtoOAPayloadType.PROTO_OA_TRADER_RES",
       "eventName": "PROTO_OA_TRADER_RES",
-      "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"],
       "isProtoMessage": false,
       "isCommonMessage": false,
       "isOpenApiMessage": true
@@ -292,7 +260,6 @@
       "type": "ProtoOATraderUpdatedEvent",
       "payloadType": "ProtoOAPayloadType.PROTO_OA_TRADER_UPDATE_EVENT",
       "eventName": "PROTO_OA_TRADER_UPDATE_EVENT",
-      "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"],
       "isProtoMessage": false,
       "isCommonMessage": false,
       "isOpenApiMessage": true
@@ -301,7 +268,6 @@
       "type": "ProtoOAReconcileReq",
       "payloadType": "ProtoOAPayloadType.PROTO_OA_RECONCILE_REQ",
       "eventName": "PROTO_OA_RECONCILE_REQ",
-      "scopes": ["EVENT__ENCODE", "PROTO__WRITE"],
       "isProtoMessage": false,
       "isCommonMessage": false,
       "isOpenApiMessage": true
@@ -310,7 +276,6 @@
       "type": "ProtoOAReconcileRes",
       "payloadType": "ProtoOAPayloadType.PROTO_OA_RECONCILE_RES",
       "eventName": "PROTO_OA_RECONCILE_RES",
-      "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"],
       "isProtoMessage": false,
       "isCommonMessage": false,
       "isOpenApiMessage": true
@@ -319,7 +284,6 @@
       "type": "ProtoOAOrderErrorEvent",
       "payloadType": "ProtoOAPayloadType.PROTO_OA_ORDER_ERROR_EVENT",
       "eventName": "PROTO_OA_ORDER_ERROR_EVENT",
-      "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"],
       "isProtoMessage": false,
       "isCommonMessage": false,
       "isOpenApiMessage": true
@@ -328,7 +292,6 @@
       "type": "ProtoOADealListReq",
       "payloadType": "ProtoOAPayloadType.PROTO_OA_DEAL_LIST_REQ",
       "eventName": "PROTO_OA_DEAL_LIST_REQ",
-      "scopes": ["EVENT__ENCODE", "PROTO__WRITE"],
       "isProtoMessage": false,
       "isCommonMessage": false,
       "isOpenApiMessage": true
@@ -337,7 +300,6 @@
       "type": "ProtoOADealListRes",
       "payloadType": "ProtoOAPayloadType.PROTO_OA_DEAL_LIST_RES",
       "eventName": "PROTO_OA_DEAL_LIST_RES",
-      "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"],
       "isProtoMessage": false,
       "isCommonMessage": false,
       "isOpenApiMessage": true
@@ -346,7 +308,6 @@
       "type": "ProtoOAExpectedMarginReq",
       "payloadType": "ProtoOAPayloadType.PROTO_OA_EXPECTED_MARGIN_REQ",
       "eventName": "PROTO_OA_EXPECTED_MARGIN_REQ",
-      "scopes": ["EVENT__ENCODE", "PROTO__WRITE"],
       "isProtoMessage": false,
       "isCommonMessage": false,
       "isOpenApiMessage": true
@@ -355,7 +316,6 @@
       "type": "ProtoOAExpectedMarginRes",
       "payloadType": "ProtoOAPayloadType.PROTO_OA_EXPECTED_MARGIN_RES",
       "eventName": "PROTO_OA_EXPECTED_MARGIN_RES",
-      "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"],
       "isProtoMessage": false,
       "isCommonMessage": false,
       "isOpenApiMessage": true
@@ -364,7 +324,6 @@
       "type": "ProtoOAMarginChangedEvent",
       "payloadType": "ProtoOAPayloadType.PROTO_OA_MARGIN_CHANGED_EVENT",
       "eventName": "PROTO_OA_MARGIN_CHANGED_EVENT",
-      "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"],
       "isProtoMessage": false,
       "isCommonMessage": false,
       "isOpenApiMessage": true
@@ -373,7 +332,6 @@
       "type": "ProtoOACashFlowHistoryListReq",
       "payloadType": "ProtoOAPayloadType.PROTO_OA_CASH_FLOW_HISTORY_LIST_REQ",
       "eventName": "PROTO_OA_CASH_FLOW_HISTORY_LIST_REQ",
-      "scopes": ["EVENT__ENCODE", "PROTO__WRITE"],
       "isProtoMessage": false,
       "isCommonMessage": false,
       "isOpenApiMessage": true
@@ -382,7 +340,6 @@
       "type": "ProtoOACashFlowHistoryListRes",
       "payloadType": "ProtoOAPayloadType.PROTO_OA_CASH_FLOW_HISTORY_LIST_RES",
       "eventName": "PROTO_OA_CASH_FLOW_HISTORY_LIST_RES",
-      "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"],
       "isProtoMessage": false,
       "isCommonMessage": false,
       "isOpenApiMessage": true
@@ -391,7 +348,6 @@
       "type": "ProtoOAGetAccountListByAccessTokenReq",
       "payloadType": "ProtoOAPayloadType.PROTO_OA_GET_ACCOUNTS_BY_ACCESS_TOKEN_REQ",
       "eventName": "PROTO_OA_GET_ACCOUNTS_BY_ACCESS_TOKEN_REQ",
-      "scopes": ["EVENT__ENCODE", "PROTO__WRITE"],
       "isProtoMessage": false,
       "isCommonMessage": false,
       "isOpenApiMessage": true
@@ -400,7 +356,6 @@
       "type": "ProtoOAGetAccountListByAccessTokenRes",
       "payloadType": "ProtoOAPayloadType.PROTO_OA_GET_ACCOUNTS_BY_ACCESS_TOKEN_RES",
       "eventName": "PROTO_OA_GET_ACCOUNTS_BY_ACCESS_TOKEN_RES",
-      "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"],
       "isProtoMessage": false,
       "isCommonMessage": false,
       "isOpenApiMessage": true
@@ -409,7 +364,6 @@
       "type": "ProtoOASubscribeSpotsReq",
       "payloadType": "ProtoOAPayloadType.PROTO_OA_SUBSCRIBE_SPOTS_REQ",
       "eventName": "PROTO_OA_SUBSCRIBE_SPOTS_REQ",
-      "scopes": ["EVENT__ENCODE", "PROTO__WRITE"],
       "isProtoMessage": false,
       "isCommonMessage": false,
       "isOpenApiMessage": true
@@ -418,7 +372,6 @@
       "type": "ProtoOASubscribeSpotsRes",
       "payloadType": "ProtoOAPayloadType.PROTO_OA_SUBSCRIBE_SPOTS_RES",
       "eventName": "PROTO_OA_SUBSCRIBE_SPOTS_RES",
-      "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"],
       "isProtoMessage": false,
       "isCommonMessage": false,
       "isOpenApiMessage": true
@@ -427,7 +380,6 @@
       "type": "ProtoOAUnsubscribeSpotsReq",
       "payloadType": "ProtoOAPayloadType.PROTO_OA_UNSUBSCRIBE_SPOTS_REQ",
       "eventName": "PROTO_OA_UNSUBSCRIBE_SPOTS_REQ",
-      "scopes": ["EVENT__ENCODE", "PROTO__WRITE"],
       "isProtoMessage": false,
       "isCommonMessage": false,
       "isOpenApiMessage": true
@@ -436,7 +388,6 @@
       "type": "ProtoOAUnsubscribeSpotsRes",
       "payloadType": "ProtoOAPayloadType.PROTO_OA_UNSUBSCRIBE_SPOTS_RES",
       "eventName": "PROTO_OA_UNSUBSCRIBE_SPOTS_RES",
-      "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"],
       "isProtoMessage": false,
       "isCommonMessage": false,
       "isOpenApiMessage": true
@@ -445,7 +396,6 @@
       "type": "ProtoOASpotEvent",
       "payloadType": "ProtoOAPayloadType.PROTO_OA_SPOT_EVENT",
       "eventName": "PROTO_OA_SPOT_EVENT",
-      "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"],
       "isProtoMessage": false,
       "isCommonMessage": false,
       "isOpenApiMessage": true
@@ -454,7 +404,6 @@
       "type": "ProtoOASubscribeLiveTrendbarReq",
       "payloadType": "ProtoOAPayloadType.PROTO_OA_SUBSCRIBE_LIVE_TRENDBAR_REQ",
       "eventName": "PROTO_OA_SUBSCRIBE_LIVE_TRENDBAR_REQ",
-      "scopes": ["EVENT__ENCODE", "PROTO__WRITE"],
       "isProtoMessage": false,
       "isCommonMessage": false,
       "isOpenApiMessage": true
@@ -463,7 +412,6 @@
       "type": "ProtoOAUnsubscribeLiveTrendbarReq",
       "payloadType": "ProtoOAPayloadType.PROTO_OA_UNSUBSCRIBE_LIVE_TRENDBAR_REQ",
       "eventName": "PROTO_OA_UNSUBSCRIBE_LIVE_TRENDBAR_REQ",
-      "scopes": ["EVENT__ENCODE", "PROTO__WRITE"],
       "isProtoMessage": false,
       "isCommonMessage": false,
       "isOpenApiMessage": true
@@ -472,7 +420,6 @@
       "type": "ProtoOAGetTrendbarsReq",
       "payloadType": "ProtoOAPayloadType.PROTO_OA_GET_TRENDBARS_REQ",
       "eventName": "PROTO_OA_GET_TRENDBARS_REQ",
-      "scopes": ["EVENT__ENCODE", "PROTO__WRITE"],
       "isProtoMessage": false,
       "isCommonMessage": false,
       "isOpenApiMessage": true
@@ -481,7 +428,6 @@
       "type": "ProtoOAGetTrendbarsRes",
       "payloadType": "ProtoOAPayloadType.PROTO_OA_GET_TRENDBARS_RES",
       "eventName": "PROTO_OA_GET_TRENDBARS_RES",
-      "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"],
       "isProtoMessage": false,
       "isCommonMessage": false,
       "isOpenApiMessage": true
@@ -490,7 +436,6 @@
       "type": "ProtoOAGetTickDataReq",
       "payloadType": "ProtoOAPayloadType.PROTO_OA_GET_TICKDATA_REQ",
       "eventName": "PROTO_OA_GET_TICKDATA_REQ",
-      "scopes": ["EVENT__ENCODE", "PROTO__WRITE"],
       "isProtoMessage": false,
       "isCommonMessage": false,
       "isOpenApiMessage": true
@@ -499,7 +444,6 @@
       "type": "ProtoOAGetTickDataRes",
       "payloadType": "ProtoOAPayloadType.PROTO_OA_GET_TICKDATA_RES",
       "eventName": "PROTO_OA_GET_TICKDATA_RES",
-      "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"],
       "isProtoMessage": false,
       "isCommonMessage": false,
       "isOpenApiMessage": true
@@ -508,7 +452,6 @@
       "type": "ProtoOAGetCtidProfileByTokenReq",
       "payloadType": "ProtoOAPayloadType.PROTO_OA_GET_CTID_PROFILE_BY_TOKEN_REQ",
       "eventName": "PROTO_OA_GET_CTID_PROFILE_BY_TOKEN_REQ",
-      "scopes": ["EVENT__ENCODE", "PROTO__WRITE"],
       "isProtoMessage": false,
       "isCommonMessage": false,
       "isOpenApiMessage": true
@@ -517,7 +460,6 @@
       "type": "ProtoOAGetCtidProfileByTokenRes",
       "payloadType": "ProtoOAPayloadType.PROTO_OA_GET_CTID_PROFILE_BY_TOKEN_RES",
       "eventName": "PROTO_OA_GET_CTID_PROFILE_BY_TOKEN_RES",
-      "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"],
       "isProtoMessage": false,
       "isCommonMessage": false,
       "isOpenApiMessage": true
@@ -526,7 +468,6 @@
       "type": "ProtoOADepthEvent",
       "payloadType": "ProtoOAPayloadType.PROTO_OA_DEPTH_EVENT",
       "eventName": "PROTO_OA_DEPTH_EVENT",
-      "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"],
       "isProtoMessage": false,
       "isCommonMessage": false,
       "isOpenApiMessage": true
@@ -535,7 +476,6 @@
       "type": "ProtoOASubscribeDepthQuotesReq",
       "payloadType": "ProtoOAPayloadType.PROTO_OA_SUBSCRIBE_DEPTH_QUOTES_REQ",
       "eventName": "PROTO_OA_SUBSCRIBE_DEPTH_QUOTES_REQ",
-      "scopes": ["EVENT__ENCODE", "PROTO__WRITE"],
       "isProtoMessage": false,
       "isCommonMessage": false,
       "isOpenApiMessage": true
@@ -544,7 +484,6 @@
       "type": "ProtoOASubscribeDepthQuotesRes",
       "payloadType": "ProtoOAPayloadType.PROTO_OA_SUBSCRIBE_DEPTH_QUOTES_RES",
       "eventName": "PROTO_OA_SUBSCRIBE_DEPTH_QUOTES_RES",
-      "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"],
       "isProtoMessage": false,
       "isCommonMessage": false,
       "isOpenApiMessage": true
@@ -553,7 +492,6 @@
       "type": "ProtoOAUnsubscribeDepthQuotesReq",
       "payloadType": "ProtoOAPayloadType.PROTO_OA_UNSUBSCRIBE_DEPTH_QUOTES_REQ",
       "eventName": "PROTO_OA_UNSUBSCRIBE_DEPTH_QUOTES_REQ",
-      "scopes": ["EVENT__ENCODE", "PROTO__WRITE"],
       "isProtoMessage": false,
       "isCommonMessage": false,
       "isOpenApiMessage": true
@@ -562,7 +500,6 @@
       "type": "ProtoOAUnsubscribeDepthQuotesRes",
       "payloadType": "ProtoOAPayloadType.PROTO_OA_UNSUBSCRIBE_DEPTH_QUOTES_RES",
       "eventName": "PROTO_OA_UNSUBSCRIBE_DEPTH_QUOTES_RES",
-      "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"],
       "isProtoMessage": false,
       "isCommonMessage": false,
       "isOpenApiMessage": true
@@ -571,7 +508,6 @@
       "type": "ProtoOASymbolCategoryListReq",
       "payloadType": "ProtoOAPayloadType.PROTO_OA_SYMBOL_CATEGORY_REQ",
       "eventName": "PROTO_OA_SYMBOL_CATEGORY_REQ",
-      "scopes": ["EVENT__ENCODE", "PROTO__WRITE"],
       "isProtoMessage": false,
       "isCommonMessage": false,
       "isOpenApiMessage": true
@@ -580,7 +516,6 @@
       "type": "ProtoOASymbolCategoryListRes",
       "payloadType": "ProtoOAPayloadType.PROTO_OA_SYMBOL_CATEGORY_RES",
       "eventName": "PROTO_OA_SYMBOL_CATEGORY_RES",
-      "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"],
       "isProtoMessage": false,
       "isCommonMessage": false,
       "isOpenApiMessage": true
@@ -589,7 +524,6 @@
       "type": "ProtoOAAccountLogoutReq",
       "payloadType": "ProtoOAPayloadType.PROTO_OA_ACCOUNT_LOGOUT_REQ",
       "eventName": "PROTO_OA_ACCOUNT_LOGOUT_REQ",
-      "scopes": ["EVENT__ENCODE", "PROTO__WRITE"],
       "isProtoMessage": false,
       "isCommonMessage": false,
       "isOpenApiMessage": true
@@ -598,7 +532,6 @@
       "type": "ProtoOAAccountLogoutRes",
       "payloadType": "ProtoOAPayloadType.PROTO_OA_ACCOUNT_LOGOUT_RES",
       "eventName": "PROTO_OA_ACCOUNT_LOGOUT_RES",
-      "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"],
       "isProtoMessage": false,
       "isCommonMessage": false,
       "isOpenApiMessage": true
@@ -607,7 +540,6 @@
       "type": "ProtoOAAccountDisconnectEvent",
       "payloadType": "ProtoOAPayloadType.PROTO_OA_ACCOUNT_DISCONNECT_EVENT",
       "eventName": "PROTO_OA_ACCOUNT_DISCONNECT_EVENT",
-      "scopes": ["EVENT__NO_ACTION", "PROTO__DECODE"],
       "isProtoMessage": false,
       "isCommonMessage": false,
       "isOpenApiMessage": true
