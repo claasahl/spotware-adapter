@@ -4,6 +4,8 @@ documents: null
 generates:
   src/generated/graphql-types.ts:
     config:
+      scalars:
+        Long: Long
       contextType: ../resolvers/Context#IContext
     plugins:
       - "typescript"
