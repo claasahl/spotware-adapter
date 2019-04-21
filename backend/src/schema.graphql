@@ -1,3 +1,5 @@
+scalar Long
+
 type Query {
   hello(name: String): String!
 }
@@ -8,7 +10,7 @@ type Mutation {
   applicationAuth(clientMsgId: String): Boolean
   # accountAuth(ctidTraderAccountId: Int64!, clientMsgId: String): Boolean
   accountAuth(
-    ctidTraderAccountId: Int!
+    ctidTraderAccountId: Long!
     accessToken: String!
     clientMsgId: String
   ): Boolean

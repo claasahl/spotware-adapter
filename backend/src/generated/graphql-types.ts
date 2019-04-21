@@ -6,6 +6,12 @@ export enum Direction {
   None = "NONE"
 }
 
+export type Long = any;
+
+// ====================================================
+// Scalars
+// ====================================================
+
 // ====================================================
 // Types
 // ====================================================
@@ -57,7 +63,7 @@ export interface ApplicationAuthMutationArgs {
   clientMsgId?: Maybe<string>;
 }
 export interface AccountAuthMutationArgs {
-  ctidTraderAccountId: number;
+  ctidTraderAccountId: Long;
 
   accessToken: string;
 
@@ -77,7 +83,11 @@ export interface GetCtidProfileByTokenMutationArgs {
   clientMsgId?: Maybe<string>;
 }
 
-import { GraphQLResolveInfo } from "graphql";
+import {
+  GraphQLResolveInfo,
+  GraphQLScalarType,
+  GraphQLScalarTypeConfig
+} from "graphql";
 
 import { IContext } from "../resolvers/Context";
 
@@ -207,7 +217,7 @@ export namespace MutationResolvers {
     TContext = IContext
   > = Resolver<R, Parent, TContext, AccountAuthArgs>;
   export interface AccountAuthArgs {
-    ctidTraderAccountId: number;
+    ctidTraderAccountId: Long;
 
     accessToken: string;
 
@@ -314,11 +324,17 @@ export interface DeprecatedDirectiveArgs {
   reason?: string;
 }
 
+export interface LongScalarConfig
+  extends GraphQLScalarTypeConfig<Long, String> {
+  name: "Long";
+}
+
 export interface IResolvers<TContext = IContext> {
   Query?: QueryResolvers.Resolvers<TContext>;
   Mutation?: MutationResolvers.Resolvers<TContext>;
   Subscription?: SubscriptionResolvers.Resolvers<TContext>;
   Result?: ResultResolvers.Resolvers<TContext>;
+  Long?: GraphQLScalarType;
 }
 
 export interface IDirectiveResolvers<Result> {
