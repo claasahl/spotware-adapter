@@ -4,6 +4,7 @@ node_js:
   - "10"
   - "8"
   - "lts/*"
+before_install: "cd ./connect-api"
 before_script: "cd ./connect-api"
 before_deploy: "cd ./connect-api"
 deploy:
