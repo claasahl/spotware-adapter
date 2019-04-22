@@ -24,16 +24,14 @@
           "id": 3,
           "comment": "Serialized protobuf message that corresponds to payloadType"
         }
-      },
-      "comment": null
+      }
     },
     "ProtoErrorRes": {
       "fields": {
         "payloadType": {
           "type": "ProtoPayloadType",
           "id": 1,
-          "options": { "default": "ERROR_RES" },
-          "comment": null
+          "options": { "default": "ERROR_RES" }
         },
         "errorCode": {
           "rule": "required",
@@ -51,16 +49,14 @@
           "id": 4,
           "comment": "Error description"
         }
-      },
-      "comment": null
+      }
     },
     "ProtoHeartbeatEvent": {
       "fields": {
         "payloadType": {
           "type": "ProtoPayloadType",
           "id": 1,
-          "options": { "default": "HEARTBEAT_EVENT" },
-          "comment": null
+          "options": { "default": "HEARTBEAT_EVENT" }
         }
       },
       "comment": "Event that is sent from Open API proxy and can be used as criteria that connection is healthy when no other messages are sent by cTrader platform. Open API client can send this message when he needs to keep the connection open for a period without other messages longer than 30 seconds"

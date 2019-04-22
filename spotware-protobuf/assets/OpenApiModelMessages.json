@@ -74,7 +74,6 @@
         "PROTO_OA_ACCOUNT_LOGOUT_RES": 2163,
         "PROTO_OA_ACCOUNT_DISCONNECT_EVENT": 2164
       },
-      "comment": null,
       "comments": {
         "PROTO_OA_APPLICATION_AUTH_REQ": null,
         "PROTO_OA_APPLICATION_AUTH_RES": null,
@@ -394,7 +393,6 @@
         "SATURDAY": 6,
         "SUNDAY": 7
       },
-      "comment": null,
       "comments": {
         "NONE": null,
         "MONDAY": null,
@@ -1412,14 +1410,7 @@
       }
     },
     "ProtoOACtidProfile": {
-      "fields": {
-        "userId": {
-          "rule": "required",
-          "type": "int64",
-          "id": 1,
-          "comment": null
-        }
-      },
+      "fields": { "userId": { "rule": "required", "type": "int64", "id": 1 } },
       "comment": "Trader profile entity. Empty due to GDPR."
     },
     "ProtoOACtidTraderAccount": {

@@ -43,6 +43,13 @@ function toJsonFilename(file: string): string {
 
 function writeJsonFile(file: string, root: Root) {
   const data = root.toJSON({ keepComments: true });
-  const jsonData = JSON.stringify(data);
+  const jsonData = JSON.stringify(data, stripNullComments);
   fs.writeFileSync(file, jsonData);
+}
+
+function stripNullComments(key: string, value: any): any {
+  if (key === "comment" && !!!value) {
+    return undefined;
+  }
+  return value;
 }
