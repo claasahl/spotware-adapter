@@ -74,6 +74,7 @@
     "npm": ">= 6.4.1"
   },
   "dependencies": {
+    "@claasahl/spotware-protobuf": "^0.1.4",
     "long": "^4.0.0"
   }
 }
