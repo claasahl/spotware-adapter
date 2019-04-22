@@ -4,7 +4,6 @@ node_js:
   - "10"
   - "8"
   - "lts/*"
-before_install: "cd ./connect-api"
 deploy:
   provider: npm
   email: $DEPLOY_NPM_EMAIL
