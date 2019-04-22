@@ -32,9 +32,7 @@
         "payloadType": {
           "type": "ProtoPayloadType",
           "id": 1,
-          "options": {
-            "default": "ERROR_RES"
-          },
+          "options": { "default": "ERROR_RES" },
           "comment": null
         },
         "errorCode": {
@@ -61,9 +59,7 @@
         "payloadType": {
           "type": "ProtoPayloadType",
           "id": 1,
-          "options": {
-            "default": "HEARTBEAT_EVENT"
-          },
+          "options": { "default": "HEARTBEAT_EVENT" },
           "comment": null
         }
       },

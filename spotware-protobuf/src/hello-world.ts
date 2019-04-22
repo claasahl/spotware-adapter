@@ -43,6 +43,6 @@ function toJsonFilename(file: string): string {
 
 function writeJsonFile(file: string, root: Root) {
   const data = root.toJSON({ keepComments: true });
-  const jsonData = JSON.stringify(data, null, 2);
+  const jsonData = JSON.stringify(data);
   fs.writeFileSync(file, jsonData);
 }

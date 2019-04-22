@@ -10,7 +10,8 @@
     "preimport": "shx rm -rf ./assets/*.proto",
     "import": "shx mkdir ./spotware-messages && cd ./spotware-messages && isogit clone --url=https://github.com/spotware/Open-API-2.0-protobuf-messages --singleBranch",
     "postimport": "shx cp ./spotware-messages/*.proto ./assets && shx rm -rf ./spotware-messages",
-    "start": "ts-node src/hello-world.ts ./assets/*.proto"
+    "start": "ts-node src/hello-world.ts ./assets/*.proto",
+    "poststart": "prettier --write ./assets/**.json"
   },
   "keywords": [],
   "author": "",

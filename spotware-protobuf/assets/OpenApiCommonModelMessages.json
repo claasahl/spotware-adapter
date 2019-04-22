@@ -7,11 +7,7 @@
   },
   "nested": {
     "ProtoPayloadType": {
-      "values": {
-        "PROTO_MESSAGE": 5,
-        "ERROR_RES": 50,
-        "HEARTBEAT_EVENT": 51
-      },
+      "values": { "PROTO_MESSAGE": 5, "ERROR_RES": 50, "HEARTBEAT_EVENT": 51 },
       "comment": "--- INTENSIVE COMMANDS 1 - 49\n--- COMMON API 50 - 69",
       "comments": {
         "PROTO_MESSAGE": "common intensive",

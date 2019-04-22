@@ -11,9 +11,7 @@
         "payloadType": {
           "type": "ProtoOAPayloadType",
           "id": 1,
-          "options": {
-            "default": "PROTO_OA_APPLICATION_AUTH_REQ"
-          },
+          "options": { "default": "PROTO_OA_APPLICATION_AUTH_REQ" },
           "comment": null
         },
         "clientId": {
@@ -36,9 +34,7 @@
         "payloadType": {
           "type": "ProtoOAPayloadType",
           "id": 1,
-          "options": {
-            "default": "PROTO_OA_APPLICATION_AUTH_RES"
-          },
+          "options": { "default": "PROTO_OA_APPLICATION_AUTH_RES" },
           "comment": null
         }
       },
@@ -49,9 +45,7 @@
         "payloadType": {
           "type": "ProtoOAPayloadType",
           "id": 1,
-          "options": {
-            "default": "PROTO_OA_ACCOUNT_AUTH_REQ"
-          },
+          "options": { "default": "PROTO_OA_ACCOUNT_AUTH_REQ" },
           "comment": null
         },
         "ctidTraderAccountId": {
@@ -74,9 +68,7 @@
         "payloadType": {
           "type": "ProtoOAPayloadType",
           "id": 1,
-          "options": {
-            "default": "PROTO_OA_ACCOUNT_AUTH_RES"
-          },
+          "options": { "default": "PROTO_OA_ACCOUNT_AUTH_RES" },
           "comment": null
         },
         "ctidTraderAccountId": {
@@ -93,9 +85,7 @@
         "payloadType": {
           "type": "ProtoOAPayloadType",
           "id": 1,
-          "options": {
-            "default": "PROTO_OA_ERROR_RES"
-          },
+          "options": { "default": "PROTO_OA_ERROR_RES" },
           "comment": null
         },
         "ctidTraderAccountId": {
@@ -122,9 +112,7 @@
         "payloadType": {
           "type": "ProtoOAPayloadType",
           "id": 1,
-          "options": {
-            "default": "PROTO_OA_CLIENT_DISCONNECT_EVENT"
-          },
+          "options": { "default": "PROTO_OA_CLIENT_DISCONNECT_EVENT" },
           "comment": null
         },
         "reason": {
@@ -140,18 +128,14 @@
         "payloadType": {
           "type": "ProtoOAPayloadType",
           "id": 1,
-          "options": {
-            "default": "PROTO_OA_ACCOUNTS_TOKEN_INVALIDATED_EVENT"
-          },
+          "options": { "default": "PROTO_OA_ACCOUNTS_TOKEN_INVALIDATED_EVENT" },
           "comment": null
         },
         "ctidTraderAccountIds": {
           "rule": "repeated",
           "type": "int64",
           "id": 2,
-          "options": {
-            "packed": false
-          },
+          "options": { "packed": false },
           "comment": "The unique identifier of the trader's account in cTrader platform."
         },
         "reason": {
@@ -167,9 +151,7 @@
         "payloadType": {
           "type": "ProtoOAPayloadType",
           "id": 1,
-          "options": {
-            "default": "PROTO_OA_VERSION_REQ"
-          },
+          "options": { "default": "PROTO_OA_VERSION_REQ" },
           "comment": null
         }
       },
@@ -180,9 +162,7 @@
         "payloadType": {
           "type": "ProtoOAPayloadType",
           "id": 1,
-          "options": {
-            "default": "PROTO_OA_VERSION_RES"
-          },
+          "options": { "default": "PROTO_OA_VERSION_RES" },
           "comment": null
         },
         "version": {
@@ -199,9 +179,7 @@
         "payloadType": {
           "type": "ProtoOAPayloadType",
           "id": 1,
-          "options": {
-            "default": "PROTO_OA_NEW_ORDER_REQ"
-          },
+          "options": { "default": "PROTO_OA_NEW_ORDER_REQ" },
           "comment": null
         },
         "ctidTraderAccountId": {
@@ -247,9 +225,7 @@
         "timeInForce": {
           "type": "ProtoOATimeInForce",
           "id": 9,
-          "options": {
-            "default": "GOOD_TILL_CANCEL"
-          },
+          "options": { "default": "GOOD_TILL_CANCEL" },
           "comment": "Stop Price, can be specified for the STOP and the STOP_LIMIT orders only."
         },
         "expirationTimestamp": {
@@ -320,9 +296,7 @@
         "stopTriggerMethod": {
           "type": "ProtoOAOrderTriggerMethod",
           "id": 23,
-          "options": {
-            "default": "TRADE"
-          },
+          "options": { "default": "TRADE" },
           "comment": "If TRUE then the Stop Loss is Trailing."
         }
       },
@@ -333,9 +307,7 @@
         "payloadType": {
           "type": "ProtoOAPayloadType",
           "id": 1,
-          "options": {
-            "default": "PROTO_OA_EXECUTION_EVENT"
-          },
+          "options": { "default": "PROTO_OA_EXECUTION_EVENT" },
           "comment": null
         },
         "ctidTraderAccountId": {
@@ -393,9 +365,7 @@
         "payloadType": {
           "type": "ProtoOAPayloadType",
           "id": 1,
-          "options": {
-            "default": "PROTO_OA_CANCEL_ORDER_REQ"
-          },
+          "options": { "default": "PROTO_OA_CANCEL_ORDER_REQ" },
           "comment": null
         },
         "ctidTraderAccountId": {
@@ -418,9 +388,7 @@
         "payloadType": {
           "type": "ProtoOAPayloadType",
           "id": 1,
-          "options": {
-            "default": "PROTO_OA_AMEND_ORDER_REQ"
-          },
+          "options": { "default": "PROTO_OA_AMEND_ORDER_REQ" },
           "comment": null
         },
         "ctidTraderAccountId": {
@@ -493,9 +461,7 @@
         "stopTriggerMethod": {
           "type": "ProtoOAOrderTriggerMethod",
           "id": 15,
-          "options": {
-            "default": "TRADE"
-          },
+          "options": { "default": "TRADE" },
           "comment": "If TRUE then the Trailing Stop Loss is applied."
         }
       },
@@ -506,9 +472,7 @@
         "payloadType": {
           "type": "ProtoOAPayloadType",
           "id": 1,
-          "options": {
-            "default": "PROTO_OA_AMEND_POSITION_SLTP_REQ"
-          },
+          "options": { "default": "PROTO_OA_AMEND_POSITION_SLTP_REQ" },
           "comment": null
         },
         "ctidTraderAccountId": {
@@ -546,9 +510,7 @@
         "stopLossTriggerMethod": {
           "type": "ProtoOAOrderTriggerMethod",
           "id": 9,
-          "options": {
-            "default": "TRADE"
-          },
+          "options": { "default": "TRADE" },
           "comment": "If TRUE then the Trailing Stop Loss is applied."
         }
       },
@@ -559,9 +521,7 @@
         "payloadType": {
           "type": "ProtoOAPayloadType",
           "id": 1,
-          "options": {
-            "default": "PROTO_OA_CLOSE_POSITION_REQ"
-          },
+          "options": { "default": "PROTO_OA_CLOSE_POSITION_REQ" },
           "comment": null
         },
         "ctidTraderAccountId": {
@@ -590,9 +550,7 @@
         "payloadType": {
           "type": "ProtoOAPayloadType",
           "id": 1,
-          "options": {
-            "default": "PROTO_OA_TRAILING_SL_CHANGED_EVENT"
-          },
+          "options": { "default": "PROTO_OA_TRAILING_SL_CHANGED_EVENT" },
           "comment": null
         },
         "ctidTraderAccountId": {
@@ -633,9 +591,7 @@
         "payloadType": {
           "type": "ProtoOAPayloadType",
           "id": 1,
-          "options": {
-            "default": "PROTO_OA_ASSET_LIST_REQ"
-          },
+          "options": { "default": "PROTO_OA_ASSET_LIST_REQ" },
           "comment": null
         },
         "ctidTraderAccountId": {
@@ -652,9 +608,7 @@
         "payloadType": {
           "type": "ProtoOAPayloadType",
           "id": 1,
-          "options": {
-            "default": "PROTO_OA_ASSET_LIST_RES"
-          },
+          "options": { "default": "PROTO_OA_ASSET_LIST_RES" },
           "comment": null
         },
         "ctidTraderAccountId": {
@@ -667,9 +621,7 @@
           "rule": "repeated",
           "type": "ProtoOAAsset",
           "id": 3,
-          "options": {
-            "packed": false
-          },
+          "options": { "packed": false },
           "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
         }
       },
@@ -680,9 +632,7 @@
         "payloadType": {
           "type": "ProtoOAPayloadType",
           "id": 1,
-          "options": {
-            "default": "PROTO_OA_SYMBOLS_LIST_REQ"
-          },
+          "options": { "default": "PROTO_OA_SYMBOLS_LIST_REQ" },
           "comment": null
         },
         "ctidTraderAccountId": {
@@ -699,9 +649,7 @@
         "payloadType": {
           "type": "ProtoOAPayloadType",
           "id": 1,
-          "options": {
-            "default": "PROTO_OA_SYMBOLS_LIST_RES"
-          },
+          "options": { "default": "PROTO_OA_SYMBOLS_LIST_RES" },
           "comment": null
         },
         "ctidTraderAccountId": {
@@ -714,9 +662,7 @@
           "rule": "repeated",
           "type": "ProtoOALightSymbol",
           "id": 3,
-          "options": {
-            "packed": false
-          },
+          "options": { "packed": false },
           "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
         }
       },
@@ -727,9 +673,7 @@
         "payloadType": {
           "type": "ProtoOAPayloadType",
           "id": 1,
-          "options": {
-            "default": "PROTO_OA_SYMBOL_BY_ID_REQ"
-          },
+          "options": { "default": "PROTO_OA_SYMBOL_BY_ID_REQ" },
           "comment": null
         },
         "ctidTraderAccountId": {
@@ -742,9 +686,7 @@
           "rule": "repeated",
           "type": "int64",
           "id": 3,
-          "options": {
-            "packed": false
-          },
+          "options": { "packed": false },
           "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
         }
       },
@@ -755,9 +697,7 @@
         "payloadType": {
           "type": "ProtoOAPayloadType",
           "id": 1,
-          "options": {
-            "default": "PROTO_OA_SYMBOL_BY_ID_RES"
-          },
+          "options": { "default": "PROTO_OA_SYMBOL_BY_ID_RES" },
           "comment": null
         },
         "ctidTraderAccountId": {
@@ -770,9 +710,7 @@
           "rule": "repeated",
           "type": "ProtoOASymbol",
           "id": 3,
-          "options": {
-            "packed": false
-          },
+          "options": { "packed": false },
           "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
         }
       },
@@ -783,9 +721,7 @@
         "payloadType": {
           "type": "ProtoOAPayloadType",
           "id": 1,
-          "options": {
-            "default": "PROTO_OA_SYMBOLS_FOR_CONVERSION_REQ"
-          },
+          "options": { "default": "PROTO_OA_SYMBOLS_FOR_CONVERSION_REQ" },
           "comment": null
         },
         "ctidTraderAccountId": {
@@ -814,9 +750,7 @@
         "payloadType": {
           "type": "ProtoOAPayloadType",
           "id": 1,
-          "options": {
-            "default": "PROTO_OA_SYMBOLS_FOR_CONVERSION_RES"
-          },
+          "options": { "default": "PROTO_OA_SYMBOLS_FOR_CONVERSION_RES" },
           "comment": null
         },
         "ctidTraderAccountId": {
@@ -829,9 +763,7 @@
           "rule": "repeated",
           "type": "ProtoOALightSymbol",
           "id": 3,
-          "options": {
-            "packed": false
-          },
+          "options": { "packed": false },
           "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
         }
       },
@@ -842,9 +774,7 @@
         "payloadType": {
           "type": "ProtoOAPayloadType",
           "id": 1,
-          "options": {
-            "default": "PROTO_OA_SYMBOL_CHANGED_EVENT"
-          },
+          "options": { "default": "PROTO_OA_SYMBOL_CHANGED_EVENT" },
           "comment": null
         },
         "ctidTraderAccountId": {
@@ -857,9 +787,7 @@
           "rule": "repeated",
           "type": "int64",
           "id": 3,
-          "options": {
-            "packed": false
-          },
+          "options": { "packed": false },
           "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
         }
       },
@@ -870,9 +798,7 @@
         "payloadType": {
           "type": "ProtoOAPayloadType",
           "id": 1,
-          "options": {
-            "default": "PROTO_OA_ASSET_CLASS_LIST_REQ"
-          },
+          "options": { "default": "PROTO_OA_ASSET_CLASS_LIST_REQ" },
           "comment": null
         },
         "ctidTraderAccountId": {
@@ -889,9 +815,7 @@
         "payloadType": {
           "type": "ProtoOAPayloadType",
           "id": 1,
-          "options": {
-            "default": "PROTO_OA_ASSET_CLASS_LIST_RES"
-          },
+          "options": { "default": "PROTO_OA_ASSET_CLASS_LIST_RES" },
           "comment": null
         },
         "ctidTraderAccountId": {
@@ -904,9 +828,7 @@
           "rule": "repeated",
           "type": "ProtoOAAssetClass",
           "id": 3,
-          "options": {
-            "packed": false
-          },
+          "options": { "packed": false },
           "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
         }
       },
@@ -917,9 +839,7 @@
         "payloadType": {
           "type": "ProtoOAPayloadType",
           "id": 1,
-          "options": {
-            "default": "PROTO_OA_TRADER_REQ"
-          },
+          "options": { "default": "PROTO_OA_TRADER_REQ" },
           "comment": null
         },
         "ctidTraderAccountId": {
@@ -936,9 +856,7 @@
         "payloadType": {
           "type": "ProtoOAPayloadType",
           "id": 1,
-          "options": {
-            "default": "PROTO_OA_TRADER_RES"
-          },
+          "options": { "default": "PROTO_OA_TRADER_RES" },
           "comment": null
         },
         "ctidTraderAccountId": {
@@ -961,9 +879,7 @@
         "payloadType": {
           "type": "ProtoOAPayloadType",
           "id": 1,
-          "options": {
-            "default": "PROTO_OA_TRADER_UPDATE_EVENT"
-          },
+          "options": { "default": "PROTO_OA_TRADER_UPDATE_EVENT" },
           "comment": null
         },
         "ctidTraderAccountId": {
@@ -986,9 +902,7 @@
         "payloadType": {
           "type": "ProtoOAPayloadType",
           "id": 1,
-          "options": {
-            "default": "PROTO_OA_RECONCILE_REQ"
-          },
+          "options": { "default": "PROTO_OA_RECONCILE_REQ" },
           "comment": null
         },
         "ctidTraderAccountId": {
@@ -1005,9 +919,7 @@
         "payloadType": {
           "type": "ProtoOAPayloadType",
           "id": 1,
-          "options": {
-            "default": "PROTO_OA_RECONCILE_RES"
-          },
+          "options": { "default": "PROTO_OA_RECONCILE_RES" },
           "comment": null
         },
         "ctidTraderAccountId": {
@@ -1020,18 +932,14 @@
           "rule": "repeated",
           "type": "ProtoOAPosition",
           "id": 3,
-          "options": {
-            "packed": false
-          },
+          "options": { "packed": false },
           "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
         },
         "order": {
           "rule": "repeated",
           "type": "ProtoOAOrder",
           "id": 4,
-          "options": {
-            "packed": false
-          },
+          "options": { "packed": false },
           "comment": "The list of trader's account open positions."
         }
       },
@@ -1042,9 +950,7 @@
         "payloadType": {
           "type": "ProtoOAPayloadType",
           "id": 1,
-          "options": {
-            "default": "PROTO_OA_ORDER_ERROR_EVENT"
-          },
+          "options": { "default": "PROTO_OA_ORDER_ERROR_EVENT" },
           "comment": null
         },
         "ctidTraderAccountId": {
@@ -1082,9 +988,7 @@
         "payloadType": {
           "type": "ProtoOAPayloadType",
           "id": 1,
-          "options": {
-            "default": "PROTO_OA_DEAL_LIST_REQ"
-          },
+          "options": { "default": "PROTO_OA_DEAL_LIST_REQ" },
           "comment": null
         },
         "ctidTraderAccountId": {
@@ -1118,9 +1022,7 @@
         "payloadType": {
           "type": "ProtoOAPayloadType",
           "id": 1,
-          "options": {
-            "default": "PROTO_OA_DEAL_LIST_RES"
-          },
+          "options": { "default": "PROTO_OA_DEAL_LIST_RES" },
           "comment": null
         },
         "ctidTraderAccountId": {
@@ -1133,9 +1035,7 @@
           "rule": "repeated",
           "type": "ProtoOADeal",
           "id": 3,
-          "options": {
-            "packed": false
-          },
+          "options": { "packed": false },
           "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
         },
         "hasMore": {
@@ -1152,9 +1052,7 @@
         "payloadType": {
           "type": "ProtoOAPayloadType",
           "id": 1,
-          "options": {
-            "default": "PROTO_OA_EXPECTED_MARGIN_REQ"
-          },
+          "options": { "default": "PROTO_OA_EXPECTED_MARGIN_REQ" },
           "comment": null
         },
         "ctidTraderAccountId": {
@@ -1173,9 +1071,7 @@
           "rule": "repeated",
           "type": "int64",
           "id": 4,
-          "options": {
-            "packed": false
-          },
+          "options": { "packed": false },
           "comment": "Unique identifier of the Symbol in cTrader platform."
         }
       },
@@ -1186,9 +1082,7 @@
         "payloadType": {
           "type": "ProtoOAPayloadType",
           "id": 1,
-          "options": {
-            "default": "PROTO_OA_EXPECTED_MARGIN_RES"
-          },
+          "options": { "default": "PROTO_OA_EXPECTED_MARGIN_RES" },
           "comment": null
         },
         "ctidTraderAccountId": {
@@ -1201,9 +1095,7 @@
           "rule": "repeated",
           "type": "ProtoOAExpectedMargin",
           "id": 3,
-          "options": {
-            "packed": false
-          },
+          "options": { "packed": false },
           "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
         }
       },
@@ -1214,9 +1106,7 @@
         "payloadType": {
           "type": "ProtoOAPayloadType",
           "id": 1,
-          "options": {
-            "default": "PROTO_OA_MARGIN_CHANGED_EVENT"
-          },
+          "options": { "default": "PROTO_OA_MARGIN_CHANGED_EVENT" },
           "comment": null
         },
         "ctidTraderAccountId": {
@@ -1245,9 +1135,7 @@
         "payloadType": {
           "type": "ProtoOAPayloadType",
           "id": 1,
-          "options": {
-            "default": "PROTO_OA_CASH_FLOW_HISTORY_LIST_REQ"
-          },
+          "options": { "default": "PROTO_OA_CASH_FLOW_HISTORY_LIST_REQ" },
           "comment": null
         },
         "ctidTraderAccountId": {
@@ -1276,9 +1164,7 @@
         "payloadType": {
           "type": "ProtoOAPayloadType",
           "id": 1,
-          "options": {
-            "default": "PROTO_OA_CASH_FLOW_HISTORY_LIST_RES"
-          },
+          "options": { "default": "PROTO_OA_CASH_FLOW_HISTORY_LIST_RES" },
           "comment": null
         },
         "ctidTraderAccountId": {
@@ -1291,9 +1177,7 @@
           "rule": "repeated",
           "type": "ProtoOADepositWithdraw",
           "id": 3,
-          "options": {
-            "packed": false
-          },
+          "options": { "packed": false },
           "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
         }
       },
@@ -1304,9 +1188,7 @@
         "payloadType": {
           "type": "ProtoOAPayloadType",
           "id": 1,
-          "options": {
-            "default": "PROTO_OA_GET_ACCOUNTS_BY_ACCESS_TOKEN_REQ"
-          },
+          "options": { "default": "PROTO_OA_GET_ACCOUNTS_BY_ACCESS_TOKEN_REQ" },
           "comment": null
         },
         "accessToken": {
@@ -1323,9 +1205,7 @@
         "payloadType": {
           "type": "ProtoOAPayloadType",
           "id": 1,
-          "options": {
-            "default": "PROTO_OA_GET_ACCOUNTS_BY_ACCESS_TOKEN_RES"
-          },
+          "options": { "default": "PROTO_OA_GET_ACCOUNTS_BY_ACCESS_TOKEN_RES" },
           "comment": null
         },
         "accessToken": {
@@ -1343,9 +1223,7 @@
           "rule": "repeated",
           "type": "ProtoOACtidTraderAccount",
           "id": 4,
-          "options": {
-            "packed": false
-          },
+          "options": { "packed": false },
           "comment": "SCOPE_VIEW, SCOPE_TRADE."
         }
       },
@@ -1356,9 +1234,7 @@
         "payloadType": {
           "type": "ProtoOAPayloadType",
           "id": 1,
-          "options": {
-            "default": "PROTO_OA_SUBSCRIBE_SPOTS_REQ"
-          },
+          "options": { "default": "PROTO_OA_SUBSCRIBE_SPOTS_REQ" },
           "comment": null
         },
         "ctidTraderAccountId": {
@@ -1371,9 +1247,7 @@
           "rule": "repeated",
           "type": "int64",
           "id": 3,
-          "options": {
-            "packed": false
-          },
+          "options": { "packed": false },
           "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
         }
       },
@@ -1384,9 +1258,7 @@
         "payloadType": {
           "type": "ProtoOAPayloadType",
           "id": 1,
-          "options": {
-            "default": "PROTO_OA_SUBSCRIBE_SPOTS_RES"
-          },
+          "options": { "default": "PROTO_OA_SUBSCRIBE_SPOTS_RES" },
           "comment": null
         },
         "ctidTraderAccountId": {
@@ -1403,9 +1275,7 @@
         "payloadType": {
           "type": "ProtoOAPayloadType",
           "id": 1,
-          "options": {
-            "default": "PROTO_OA_UNSUBSCRIBE_SPOTS_REQ"
-          },
+          "options": { "default": "PROTO_OA_UNSUBSCRIBE_SPOTS_REQ" },
           "comment": null
         },
         "ctidTraderAccountId": {
@@ -1418,9 +1288,7 @@
           "rule": "repeated",
           "type": "int64",
           "id": 3,
-          "options": {
-            "packed": false
-          },
+          "options": { "packed": false },
           "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
         }
       },
@@ -1431,9 +1299,7 @@
         "payloadType": {
           "type": "ProtoOAPayloadType",
           "id": 1,
-          "options": {
-            "default": "PROTO_OA_UNSUBSCRIBE_SPOTS_RES"
-          },
+          "options": { "default": "PROTO_OA_UNSUBSCRIBE_SPOTS_RES" },
           "comment": null
         },
         "ctidTraderAccountId": {
@@ -1450,9 +1316,7 @@
         "payloadType": {
           "type": "ProtoOAPayloadType",
           "id": 1,
-          "options": {
-            "default": "PROTO_OA_SPOT_EVENT"
-          },
+          "options": { "default": "PROTO_OA_SPOT_EVENT" },
           "comment": null
         },
         "ctidTraderAccountId": {
@@ -1472,18 +1336,12 @@
           "id": 4,
           "comment": "Unique identifier of the Symbol in cTrader platform."
         },
-        "ask": {
-          "type": "uint64",
-          "id": 5,
-          "comment": "Bid price."
-        },
+        "ask": { "type": "uint64", "id": 5, "comment": "Bid price." },
         "trendbar": {
           "rule": "repeated",
           "type": "ProtoOATrendbar",
           "id": 6,
-          "options": {
-            "packed": false
-          },
+          "options": { "packed": false },
           "comment": "Ask price."
         }
       },
@@ -1494,9 +1352,7 @@
         "payloadType": {
           "type": "ProtoOAPayloadType",
           "id": 1,
-          "options": {
-            "default": "PROTO_OA_SUBSCRIBE_LIVE_TRENDBAR_REQ"
-          },
+          "options": { "default": "PROTO_OA_SUBSCRIBE_LIVE_TRENDBAR_REQ" },
           "comment": null
         },
         "ctidTraderAccountId": {
@@ -1525,9 +1381,7 @@
         "payloadType": {
           "type": "ProtoOAPayloadType",
           "id": 1,
-          "options": {
-            "default": "PROTO_OA_UNSUBSCRIBE_LIVE_TRENDBAR_REQ"
-          },
+          "options": { "default": "PROTO_OA_UNSUBSCRIBE_LIVE_TRENDBAR_REQ" },
           "comment": null
         },
         "ctidTraderAccountId": {
@@ -1556,9 +1410,7 @@
         "payloadType": {
           "type": "ProtoOAPayloadType",
           "id": 1,
-          "options": {
-            "default": "PROTO_OA_GET_TRENDBARS_REQ"
-          },
+          "options": { "default": "PROTO_OA_GET_TRENDBARS_REQ" },
           "comment": null
         },
         "ctidTraderAccountId": {
@@ -1599,9 +1451,7 @@
         "payloadType": {
           "type": "ProtoOAPayloadType",
           "id": 1,
-          "options": {
-            "default": "PROTO_OA_GET_TRENDBARS_RES"
-          },
+          "options": { "default": "PROTO_OA_GET_TRENDBARS_RES" },
           "comment": null
         },
         "ctidTraderAccountId": {
@@ -1626,9 +1476,7 @@
           "rule": "repeated",
           "type": "ProtoOATrendbar",
           "id": 5,
-          "options": {
-            "packed": false
-          },
+          "options": { "packed": false },
           "comment": "Equals to toTimestamp from the request."
         },
         "symbolId": {
@@ -1644,9 +1492,7 @@
         "payloadType": {
           "type": "ProtoOAPayloadType",
           "id": 1,
-          "options": {
-            "default": "PROTO_OA_GET_TICKDATA_REQ"
-          },
+          "options": { "default": "PROTO_OA_GET_TICKDATA_REQ" },
           "comment": null
         },
         "ctidTraderAccountId": {
@@ -1687,9 +1533,7 @@
         "payloadType": {
           "type": "ProtoOAPayloadType",
           "id": 1,
-          "options": {
-            "default": "PROTO_OA_GET_TICKDATA_RES"
-          },
+          "options": { "default": "PROTO_OA_GET_TICKDATA_RES" },
           "comment": null
         },
         "ctidTraderAccountId": {
@@ -1702,9 +1546,7 @@
           "rule": "repeated",
           "type": "ProtoOATickData",
           "id": 3,
-          "options": {
-            "packed": false
-          },
+          "options": { "packed": false },
           "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
         },
         "hasMore": {
@@ -1721,9 +1563,7 @@
         "payloadType": {
           "type": "ProtoOAPayloadType",
           "id": 1,
-          "options": {
-            "default": "PROTO_OA_GET_CTID_PROFILE_BY_TOKEN_REQ"
-          },
+          "options": { "default": "PROTO_OA_GET_CTID_PROFILE_BY_TOKEN_REQ" },
           "comment": null
         },
         "accessToken": {
@@ -1740,9 +1580,7 @@
         "payloadType": {
           "type": "ProtoOAPayloadType",
           "id": 1,
-          "options": {
-            "default": "PROTO_OA_GET_CTID_PROFILE_BY_TOKEN_RES"
-          },
+          "options": { "default": "PROTO_OA_GET_CTID_PROFILE_BY_TOKEN_RES" },
           "comment": null
         },
         "profile": {
@@ -1759,9 +1597,7 @@
         "payloadType": {
           "type": "ProtoOAPayloadType",
           "id": 1,
-          "options": {
-            "default": "PROTO_OA_DEPTH_EVENT"
-          },
+          "options": { "default": "PROTO_OA_DEPTH_EVENT" },
           "comment": null
         },
         "ctidTraderAccountId": {
@@ -1780,18 +1616,14 @@
           "rule": "repeated",
           "type": "ProtoOADepthQuote",
           "id": 4,
-          "options": {
-            "packed": false
-          },
+          "options": { "packed": false },
           "comment": "Unique identifier of the Symbol in cTrader platform."
         },
         "deletedQuotes": {
           "rule": "repeated",
           "type": "uint64",
           "id": 5,
-          "options": {
-            "packed": true
-          },
+          "options": { "packed": true },
           "comment": "The list of changes in the depth of market quotes."
         }
       },
@@ -1802,9 +1634,7 @@
         "payloadType": {
           "type": "ProtoOAPayloadType",
           "id": 1,
-          "options": {
-            "default": "PROTO_OA_SUBSCRIBE_DEPTH_QUOTES_REQ"
-          },
+          "options": { "default": "PROTO_OA_SUBSCRIBE_DEPTH_QUOTES_REQ" },
           "comment": null
         },
         "ctidTraderAccountId": {
@@ -1817,9 +1647,7 @@
           "rule": "repeated",
           "type": "int64",
           "id": 3,
-          "options": {
-            "packed": false
-          },
+          "options": { "packed": false },
           "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
         }
       },
@@ -1830,9 +1658,7 @@
         "payloadType": {
           "type": "ProtoOAPayloadType",
           "id": 1,
-          "options": {
-            "default": "PROTO_OA_SUBSCRIBE_DEPTH_QUOTES_RES"
-          },
+          "options": { "default": "PROTO_OA_SUBSCRIBE_DEPTH_QUOTES_RES" },
           "comment": null
         },
         "ctidTraderAccountId": {
@@ -1849,9 +1675,7 @@
         "payloadType": {
           "type": "ProtoOAPayloadType",
           "id": 1,
-          "options": {
-            "default": "PROTO_OA_UNSUBSCRIBE_DEPTH_QUOTES_REQ"
-          },
+          "options": { "default": "PROTO_OA_UNSUBSCRIBE_DEPTH_QUOTES_REQ" },
           "comment": null
         },
         "ctidTraderAccountId": {
@@ -1864,9 +1688,7 @@
           "rule": "repeated",
           "type": "int64",
           "id": 3,
-          "options": {
-            "packed": false
-          },
+          "options": { "packed": false },
           "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
         }
       },
@@ -1877,9 +1699,7 @@
         "payloadType": {
           "type": "ProtoOAPayloadType",
           "id": 1,
-          "options": {
-            "default": "PROTO_OA_UNSUBSCRIBE_DEPTH_QUOTES_RES"
-          },
+          "options": { "default": "PROTO_OA_UNSUBSCRIBE_DEPTH_QUOTES_RES" },
           "comment": null
         },
         "ctidTraderAccountId": {
@@ -1896,9 +1716,7 @@
         "payloadType": {
           "type": "ProtoOAPayloadType",
           "id": 1,
-          "options": {
-            "default": "PROTO_OA_SYMBOL_CATEGORY_REQ"
-          },
+          "options": { "default": "PROTO_OA_SYMBOL_CATEGORY_REQ" },
           "comment": null
         },
         "ctidTraderAccountId": {
@@ -1915,9 +1733,7 @@
         "payloadType": {
           "type": "ProtoOAPayloadType",
           "id": 1,
-          "options": {
-            "default": "PROTO_OA_SYMBOL_CATEGORY_RES"
-          },
+          "options": { "default": "PROTO_OA_SYMBOL_CATEGORY_RES" },
           "comment": null
         },
         "ctidTraderAccountId": {
@@ -1930,9 +1746,7 @@
           "rule": "repeated",
           "type": "ProtoOASymbolCategory",
           "id": 3,
-          "options": {
-            "packed": false
-          },
+          "options": { "packed": false },
           "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
         }
       },
@@ -1943,9 +1757,7 @@
         "payloadType": {
           "type": "ProtoOAPayloadType",
           "id": 1,
-          "options": {
-            "default": "PROTO_OA_ACCOUNT_LOGOUT_REQ"
-          },
+          "options": { "default": "PROTO_OA_ACCOUNT_LOGOUT_REQ" },
           "comment": null
         },
         "ctidTraderAccountId": {
@@ -1962,9 +1774,7 @@
         "payloadType": {
           "type": "ProtoOAPayloadType",
           "id": 1,
-          "options": {
-            "default": "PROTO_OA_ACCOUNT_LOGOUT_RES"
-          },
+          "options": { "default": "PROTO_OA_ACCOUNT_LOGOUT_RES" },
           "comment": null
         },
         "ctidTraderAccountId": {
@@ -1981,9 +1791,7 @@
         "payloadType": {
           "type": "ProtoOAPayloadType",
           "id": 1,
-          "options": {
-            "default": "PROTO_OA_ACCOUNT_DISCONNECT_EVENT"
-          },
+          "options": { "default": "PROTO_OA_ACCOUNT_DISCONNECT_EVENT" },
           "comment": null
         },
         "ctidTraderAccountId": {

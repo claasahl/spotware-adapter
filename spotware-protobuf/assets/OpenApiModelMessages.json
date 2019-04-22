@@ -198,9 +198,7 @@
         "swapRollover3Days": {
           "type": "ProtoOADayOfWeek",
           "id": 6,
-          "options": {
-            "default": "MONDAY"
-          },
+          "options": { "default": "MONDAY" },
           "comment": "If TRUE then setting of guaranteedStopLoss is available for limited risk accounts."
         },
         "swapLong": {
@@ -237,9 +235,7 @@
           "rule": "repeated",
           "type": "ProtoOAInterval",
           "id": 13,
-          "options": {
-            "packed": false
-          },
+          "options": { "packed": false },
           "comment": "Value of max exposure per symbol, per account. Blocks execution if breached."
         },
         "commission": {
@@ -251,9 +247,7 @@
         "commissionType": {
           "type": "ProtoOACommissionType",
           "id": 15,
-          "options": {
-            "default": "USD_PER_MIL_USD"
-          },
+          "options": { "default": "USD_PER_MIL_USD" },
           "comment": "Commission base amount. Total commission depends on commissionType."
         },
         "slDistance": {
@@ -279,9 +273,7 @@
         "distanceSetIn": {
           "type": "ProtoOASymbolDistanceType",
           "id": 20,
-          "options": {
-            "default": "SYMBOL_DISTANCE_IN_POINTS"
-          },
+          "options": { "default": "SYMBOL_DISTANCE_IN_POINTS" },
           "comment": "Guaranteed stop loss fee."
         },
         "minCommission": {
@@ -292,17 +284,13 @@
         "minCommissionType": {
           "type": "ProtoOAMinCommissionType",
           "id": 22,
-          "options": {
-            "default": "CURRENCY"
-          },
+          "options": { "default": "CURRENCY" },
           "comment": "Minimum commission amount per trade."
         },
         "minCommissionAsset": {
           "type": "string",
           "id": 23,
-          "options": {
-            "default": "USD"
-          },
+          "options": { "default": "USD" },
           "comment": "Minimum commission Type. See ProtoOAMinCommissionType for details."
         },
         "rolloverCommission": {
@@ -323,17 +311,13 @@
         "tradingMode": {
           "type": "ProtoOATradingMode",
           "id": 27,
-          "options": {
-            "default": "ENABLED"
-          },
+          "options": { "default": "ENABLED" },
           "comment": "Time zone for the symbol trading intervals."
         },
         "rolloverCommission3Days": {
           "type": "ProtoOADayOfWeek",
           "id": 28,
-          "options": {
-            "default": "MONDAY"
-          },
+          "options": { "default": "MONDAY" },
           "comment": "Rules for trading with the symbol. See ProtoOATradingMode for details."
         }
       },
@@ -362,11 +346,7 @@
           "id": 4,
           "comment": "If TRUE then symbol is visible for traders."
         },
-        "quoteAssetId": {
-          "type": "int64",
-          "id": 5,
-          "comment": "Base asset."
-        },
+        "quoteAssetId": { "type": "int64", "id": 5, "comment": "Base asset." },
         "symbolCategoryId": {
           "type": "int64",
           "id": 6,
@@ -470,15 +450,9 @@
       }
     },
     "ProtoOAMinCommissionType": {
-      "values": {
-        "CURRENCY": 1,
-        "QUOTE_CURRENCY": 2
-      },
+      "values": { "CURRENCY": 1, "QUOTE_CURRENCY": 2 },
       "comment": "Enum for specifying type of minimum trading commission.",
-      "comments": {
-        "CURRENCY": null,
-        "QUOTE_CURRENCY": null
-      }
+      "comments": { "CURRENCY": null, "QUOTE_CURRENCY": null }
     },
     "ProtoOATradingMode": {
       "values": {
@@ -511,24 +485,12 @@
       }
     },
     "ProtoOATotalMarginCalculationType": {
-      "values": {
-        "MAX": 0,
-        "SUM": 1,
-        "NET": 2
-      },
+      "values": { "MAX": 0, "SUM": 1, "NET": 2 },
       "comment": "Enum for specifying margin calculation type for an account.",
-      "comments": {
-        "MAX": null,
-        "SUM": null,
-        "NET": null
-      }
+      "comments": { "MAX": null, "SUM": null, "NET": null }
     },
     "ProtoOAAccountType": {
-      "values": {
-        "HEDGED": 0,
-        "NETTED": 1,
-        "SPREAD_BETTING": 2
-      },
+      "values": { "HEDGED": 0, "NETTED": 1, "SPREAD_BETTING": 2 },
       "comment": "Enum for specifying type of an account.",
       "comments": {
         "HEDGED": "Allows multiple positions on a trading account for a symbol.",
@@ -573,9 +535,7 @@
         "accessRights": {
           "type": "ProtoOAAccessRights",
           "id": 7,
-          "options": {
-            "default": "FULL_ACCESS"
-          },
+          "options": { "default": "FULL_ACCESS" },
           "comment": "Broker's bonus that cannot be withdrew from the account as cash."
         },
         "depositAssetId": {
@@ -617,9 +577,7 @@
         "accountType": {
           "type": "ProtoOAAccountType",
           "id": 15,
-          "options": {
-            "default": "HEDGED"
-          },
+          "options": { "default": "HEDGED" },
           "comment": "ID of the account that is unique per server (Broker)."
         },
         "brokerName": {
@@ -651,15 +609,9 @@
       }
     },
     "ProtoOATradeSide": {
-      "values": {
-        "BUY": 1,
-        "SELL": 2
-      },
+      "values": { "BUY": 1, "SELL": 2 },
       "comment": "Trader side ENUM. Used for order, position, deal.",
-      "comments": {
-        "BUY": null,
-        "SELL": null
-      }
+      "comments": { "BUY": null, "SELL": null }
     },
     "ProtoOAOrderType": {
       "values": {
@@ -803,9 +755,7 @@
         "stopLossTriggerMethod": {
           "type": "ProtoOAOrderTriggerMethod",
           "id": 14,
-          "options": {
-            "default": "TRADE"
-          },
+          "options": { "default": "TRADE" },
           "comment": "Amount of margin used for the position in deposit currency."
         }
       },
@@ -831,11 +781,7 @@
           "id": 3,
           "comment": "Volume in cents."
         },
-        "openTimestamp": {
-          "type": "int64",
-          "id": 4,
-          "comment": "Buy, Sell."
-        },
+        "openTimestamp": { "type": "int64", "id": 4, "comment": "Buy, Sell." },
         "label": {
           "type": "string",
           "id": 5,
@@ -938,9 +884,7 @@
         "timeInForce": {
           "type": "ProtoOATimeInForce",
           "id": 18,
-          "options": {
-            "default": "IMMEDIATE_OR_CANCEL"
-          },
+          "options": { "default": "IMMEDIATE_OR_CANCEL" },
           "comment": "Optional ClientOrderId. Max Length = 50 chars."
         },
         "positionId": {
@@ -971,9 +915,7 @@
         "stopTriggerMethod": {
           "type": "ProtoOAOrderTriggerMethod",
           "id": 24,
-          "options": {
-            "default": "TRADE"
-          },
+          "options": { "default": "TRADE" },
           "comment": "If TRUE then order is trailingStopLoss. Valid for STOP_LOSS_TAKE_PROFIT order."
         }
       },
@@ -1066,15 +1008,9 @@
       "comment": "Bonus deposit/withdrawal entity."
     },
     "ProtoOAChangeBonusType": {
-      "values": {
-        "BONUS_DEPOSIT": 0,
-        "BONUS_WITHDRAW": 1
-      },
+      "values": { "BONUS_DEPOSIT": 0, "BONUS_WITHDRAW": 1 },
       "comment": "Bonus operation type ENUM.",
-      "comments": {
-        "BONUS_DEPOSIT": null,
-        "BONUS_WITHDRAW": null
-      }
+      "comments": { "BONUS_DEPOSIT": null, "BONUS_WITHDRAW": null }
     },
     "ProtoOADepositWithdraw": {
       "fields": {
@@ -1395,16 +1331,10 @@
         "period": {
           "type": "ProtoOATrendbarPeriod",
           "id": 4,
-          "options": {
-            "default": "M1"
-          },
+          "options": { "default": "M1" },
           "comment": "Bar volume in ticks."
         },
-        "low": {
-          "type": "int64",
-          "id": 5,
-          "comment": "Bar period."
-        },
+        "low": { "type": "int64", "id": 5, "comment": "Bar period." },
         "deltaOpen": {
           "type": "uint64",
           "id": 6,
@@ -1452,15 +1382,9 @@
       "comment": "Expected margin computation entity."
     },
     "ProtoOAQuoteType": {
-      "values": {
-        "BID": 1,
-        "ASK": 2
-      },
+      "values": { "BID": 1, "ASK": 2 },
       "comment": "Price quote type.",
-      "comments": {
-        "BID": null,
-        "ASK": null
-      }
+      "comments": { "BID": null, "ASK": null }
     },
     "ProtoOATickData": {
       "fields": {
@@ -1480,10 +1404,7 @@
       "comment": "Historical tick data type."
     },
     "ProtoOAClientPermissionScope": {
-      "values": {
-        "SCOPE_VIEW": 0,
-        "SCOPE_TRADE": 1
-      },
+      "values": { "SCOPE_VIEW": 0, "SCOPE_TRADE": 1 },
       "comment": "Open API application permission in regards to token ENUM.",
       "comments": {
         "SCOPE_VIEW": "Allows to use only view commends. Trade is prohibited.",
@@ -1524,16 +1445,8 @@
     },
     "ProtoOAAssetClass": {
       "fields": {
-        "id": {
-          "type": "int64",
-          "id": 1,
-          "comment": "Unique asset ID."
-        },
-        "name": {
-          "type": "string",
-          "id": 2,
-          "comment": "Unique asset ID."
-        }
+        "id": { "type": "int64", "id": 1, "comment": "Unique asset ID." },
+        "name": { "type": "string", "id": 2, "comment": "Unique asset ID." }
       },
       "comment": "Asset class entity."
     },
@@ -1551,11 +1464,7 @@
           "id": 3,
           "comment": "Quote ID."
         },
-        "bid": {
-          "type": "uint64",
-          "id": 4,
-          "comment": "Quote size in cents."
-        },
+        "bid": { "type": "uint64", "id": 4, "comment": "Quote size in cents." },
         "ask": {
           "type": "uint64",
           "id": 5,
