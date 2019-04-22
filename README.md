@@ -1,3 +1,9 @@
+# @claasahl/spotware-adapter
+
+![NPM - version](https://img.shields.io/npm/dw/@claasahl/spotware-adapter.svg)
+![NPM - downloads](https://img.shields.io/npm/v/@claasahl/spotware-adapter.svg)
+
+
 # ALPHA VERSION
 
 Currently, the most juicy bits and peaces of this package are:
