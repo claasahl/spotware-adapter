@@ -32,8 +32,6 @@
     "spotware",
     "ctrader",
     "typescript",
-    "ts",
-    "api",
     "protobuf"
   ],
   "author": {
@@ -41,9 +39,9 @@
     "email": "claasahl@gmail.com",
     "url": "https://github.com/claasahl"
   },
-  "repository": "github:claasahl/spotware-connect-api",
+  "repository": "github:claasahl/spotware-adapter",
   "bugs": {
-    "url": "https://github.com/claasahl/spotware-connect-api/issues"
+    "url": "https://github.com/claasahl/spotware-adapter/issues"
   },
   "license": "MIT",
   "husky": {
