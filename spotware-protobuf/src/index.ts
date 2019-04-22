@@ -4,9 +4,9 @@ import messages from "../assets/OpenApiMessages.json";
 import modelMessages from "../assets/OpenApiModelMessages.json";
 
 export const types = {
-  commonMessages,
-  commonModelMessages,
-  messages,
-  modelMessages
+  commonMessages: commonMessages.nested,
+  commonModelMessages: commonModelMessages.nested,
+  messages: messages.nested,
+  modelMessages: modelMessages.nested
 };
 export default types;
