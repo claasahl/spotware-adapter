@@ -1,0 +1,52 @@
+{
+  "options": {
+    "java_multiple_files": true,
+    "java_generate_equals_and_hash": true,
+    "java_package": "com.xtrader.protocol.proto.commons.model",
+    "java_outer_classname": "ContainerCommonModelMessages"
+  },
+  "nested": {
+    "ProtoPayloadType": {
+      "values": {
+        "PROTO_MESSAGE": 5,
+        "ERROR_RES": 50,
+        "HEARTBEAT_EVENT": 51
+      },
+      "comment": "--- INTENSIVE COMMANDS 1 - 49\n--- COMMON API 50 - 69",
+      "comments": {
+        "PROTO_MESSAGE": "common intensive",
+        "ERROR_RES": "common commands",
+        "HEARTBEAT_EVENT": null
+      }
+    },
+    "ProtoErrorCode": {
+      "values": {
+        "UNKNOWN_ERROR": 1,
+        "UNSUPPORTED_MESSAGE": 2,
+        "INVALID_REQUEST": 3,
+        "WRONG_PASSWORD": 4,
+        "TIMEOUT_ERROR": 5,
+        "ENTITY_NOT_FOUND": 6,
+        "CANT_ROUTE_REQUEST": 7,
+        "FRAME_TOO_LONG": 8,
+        "MARKET_CLOSED": 9,
+        "CONCURRENT_MODIFICATION": 10,
+        "BLOCKED_PAYLOAD_TYPE": 11
+      },
+      "comment": "COMMON error codes 1 - 99",
+      "comments": {
+        "UNKNOWN_ERROR": null,
+        "UNSUPPORTED_MESSAGE": null,
+        "INVALID_REQUEST": null,
+        "WRONG_PASSWORD": null,
+        "TIMEOUT_ERROR": null,
+        "ENTITY_NOT_FOUND": null,
+        "CANT_ROUTE_REQUEST": null,
+        "FRAME_TOO_LONG": null,
+        "MARKET_CLOSED": null,
+        "CONCURRENT_MODIFICATION": null,
+        "BLOCKED_PAYLOAD_TYPE": null
+      }
+    }
+  }
+}

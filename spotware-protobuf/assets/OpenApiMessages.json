@@ -1,0 +1,1999 @@
+{
+  "options": {
+    "java_multiple_files": true,
+    "java_generate_equals_and_hash": true,
+    "java_package": "com.xtrader.protocol.openapi.v2",
+    "java_outer_classname": "ContainerOpenApiV2Messages"
+  },
+  "nested": {
+    "ProtoOAApplicationAuthReq": {
+      "fields": {
+        "payloadType": {
+          "type": "ProtoOAPayloadType",
+          "id": 1,
+          "options": {
+            "default": "PROTO_OA_APPLICATION_AUTH_REQ"
+          },
+          "comment": null
+        },
+        "clientId": {
+          "rule": "required",
+          "type": "string",
+          "id": 2,
+          "comment": "The unique Client ID provided during the registration."
+        },
+        "clientSecret": {
+          "rule": "required",
+          "type": "string",
+          "id": 3,
+          "comment": "The unique Client ID provided during the registration."
+        }
+      },
+      "comment": "Request for the authorizing an application to work with the cTrader platform Proxies."
+    },
+    "ProtoOAApplicationAuthRes": {
+      "fields": {
+        "payloadType": {
+          "type": "ProtoOAPayloadType",
+          "id": 1,
+          "options": {
+            "default": "PROTO_OA_APPLICATION_AUTH_RES"
+          },
+          "comment": null
+        }
+      },
+      "comment": "Response to the ProtoOAApplicationAuthReq request."
+    },
+    "ProtoOAAccountAuthReq": {
+      "fields": {
+        "payloadType": {
+          "type": "ProtoOAPayloadType",
+          "id": 1,
+          "options": {
+            "default": "PROTO_OA_ACCOUNT_AUTH_REQ"
+          },
+          "comment": null
+        },
+        "ctidTraderAccountId": {
+          "rule": "required",
+          "type": "int64",
+          "id": 2,
+          "comment": "The unique identifier of the trader's account in cTrader platform."
+        },
+        "accessToken": {
+          "rule": "required",
+          "type": "string",
+          "id": 3,
+          "comment": "The unique identifier of the trader's account in cTrader platform."
+        }
+      },
+      "comment": "Request for the authorizing trading account session. Requires established authorized connection with the client application using ProtoOAApplicationAuthReq."
+    },
+    "ProtoOAAccountAuthRes": {
+      "fields": {
+        "payloadType": {
+          "type": "ProtoOAPayloadType",
+          "id": 1,
+          "options": {
+            "default": "PROTO_OA_ACCOUNT_AUTH_RES"
+          },
+          "comment": null
+        },
+        "ctidTraderAccountId": {
+          "rule": "required",
+          "type": "int64",
+          "id": 2,
+          "comment": "The unique identifier of the trader's account in cTrader platform."
+        }
+      },
+      "comment": "Response to the ProtoOAApplicationAuthRes request."
+    },
+    "ProtoOAErrorRes": {
+      "fields": {
+        "payloadType": {
+          "type": "ProtoOAPayloadType",
+          "id": 1,
+          "options": {
+            "default": "PROTO_OA_ERROR_RES"
+          },
+          "comment": null
+        },
+        "ctidTraderAccountId": {
+          "type": "int64",
+          "id": 2,
+          "comment": "The unique identifier of the trader's account in cTrader platform."
+        },
+        "errorCode": {
+          "rule": "required",
+          "type": "string",
+          "id": 3,
+          "comment": "The unique identifier of the trader's account in cTrader platform."
+        },
+        "description": {
+          "type": "string",
+          "id": 4,
+          "comment": "The name of the ProtoErrorCode or the other custom ErrorCodes (e.g. ProtoCHErrorCode)."
+        }
+      },
+      "comment": "Generic response when an ERROR occurred."
+    },
+    "ProtoOAClientDisconnectEvent": {
+      "fields": {
+        "payloadType": {
+          "type": "ProtoOAPayloadType",
+          "id": 1,
+          "options": {
+            "default": "PROTO_OA_CLIENT_DISCONNECT_EVENT"
+          },
+          "comment": null
+        },
+        "reason": {
+          "type": "string",
+          "id": 2,
+          "comment": "The disconnection reason explained. For example: The application access was blocked by cTrader Administrator."
+        }
+      },
+      "comment": "The event that is sent when the connection with the client application is cancelled by the server. All the sessions for the traders' accounts will be terminated."
+    },
+    "ProtoOAAccountsTokenInvalidatedEvent": {
+      "fields": {
+        "payloadType": {
+          "type": "ProtoOAPayloadType",
+          "id": 1,
+          "options": {
+            "default": "PROTO_OA_ACCOUNTS_TOKEN_INVALIDATED_EVENT"
+          },
+          "comment": null
+        },
+        "ctidTraderAccountIds": {
+          "rule": "repeated",
+          "type": "int64",
+          "id": 2,
+          "options": {
+            "packed": false
+          },
+          "comment": "The unique identifier of the trader's account in cTrader platform."
+        },
+        "reason": {
+          "type": "string",
+          "id": 3,
+          "comment": "The unique identifier of the trader's account in cTrader platform."
+        }
+      },
+      "comment": "Event that is sent when a session to a specific trader's account is terminated by the server but the existing connections with the other trader's accounts are maintained."
+    },
+    "ProtoOAVersionReq": {
+      "fields": {
+        "payloadType": {
+          "type": "ProtoOAPayloadType",
+          "id": 1,
+          "options": {
+            "default": "PROTO_OA_VERSION_REQ"
+          },
+          "comment": null
+        }
+      },
+      "comment": "Request for getting the proxy version. Can be used to check the current version of the Open API scheme."
+    },
+    "ProtoOAVersionRes": {
+      "fields": {
+        "payloadType": {
+          "type": "ProtoOAPayloadType",
+          "id": 1,
+          "options": {
+            "default": "PROTO_OA_VERSION_RES"
+          },
+          "comment": null
+        },
+        "version": {
+          "rule": "required",
+          "type": "string",
+          "id": 2,
+          "comment": "The current version of the server application."
+        }
+      },
+      "comment": "Response to the ProtoOAVersionReq request."
+    },
+    "ProtoOANewOrderReq": {
+      "fields": {
+        "payloadType": {
+          "type": "ProtoOAPayloadType",
+          "id": 1,
+          "options": {
+            "default": "PROTO_OA_NEW_ORDER_REQ"
+          },
+          "comment": null
+        },
+        "ctidTraderAccountId": {
+          "rule": "required",
+          "type": "int64",
+          "id": 2,
+          "comment": "The unique identifier of the trader's account in cTrader platform."
+        },
+        "symbolId": {
+          "rule": "required",
+          "type": "int64",
+          "id": 3,
+          "comment": "The unique identifier of the trader's account in cTrader platform."
+        },
+        "orderType": {
+          "rule": "required",
+          "type": "ProtoOAOrderType",
+          "id": 4,
+          "comment": "The unique identifier of a symbol in cTrader platform."
+        },
+        "tradeSide": {
+          "rule": "required",
+          "type": "ProtoOATradeSide",
+          "id": 5,
+          "comment": "The type of an order - MARKET, LIMIT, STOP, MARKET_RANGE, STOP_LIMIT."
+        },
+        "volume": {
+          "rule": "required",
+          "type": "int64",
+          "id": 6,
+          "comment": "The trade direction - BUY or SELL."
+        },
+        "limitPrice": {
+          "type": "double",
+          "id": 7,
+          "comment": "The volume represented in 0.01 of a unit (e.g. US$ 10.00 = 1000)."
+        },
+        "stopPrice": {
+          "type": "double",
+          "id": 8,
+          "comment": "The limit price, can be specified for the LIMIT order only."
+        },
+        "timeInForce": {
+          "type": "ProtoOATimeInForce",
+          "id": 9,
+          "options": {
+            "default": "GOOD_TILL_CANCEL"
+          },
+          "comment": "Stop Price, can be specified for the STOP and the STOP_LIMIT orders only."
+        },
+        "expirationTimestamp": {
+          "type": "int64",
+          "id": 10,
+          "comment": "The specific order execution or expiration instruction - GOOD_TILL_DATE, GOOD_TILL_CANCEL, IMMEDIATE_OR_CANCEL, FILL_OR_KILL, MARKET_ON_OPEN."
+        },
+        "stopLoss": {
+          "type": "double",
+          "id": 11,
+          "comment": "The exact Order expiration time. Should be set for the Good Till Date orders."
+        },
+        "takeProfit": {
+          "type": "double",
+          "id": 12,
+          "comment": "The absolute Stop Loss price (1.23456 for example). Not supported for the MARKER orders."
+        },
+        "comment": {
+          "type": "string",
+          "id": 13,
+          "comment": "The absolute Take Profit price (1.23456 for example). Unsupported for the MARKER orders."
+        },
+        "baseSlippagePrice": {
+          "type": "double",
+          "id": 14,
+          "comment": "User-specified comment. MaxLength = 512."
+        },
+        "slippageInPoints": {
+          "type": "int32",
+          "id": 15,
+          "comment": "Base price to calculate relative slippage price for MARKET_RANGE order."
+        },
+        "label": {
+          "type": "string",
+          "id": 16,
+          "comment": "Slippage distance for MARKET_RANGE and STOP_LIMIT order."
+        },
+        "positionId": {
+          "type": "int64",
+          "id": 17,
+          "comment": "User-specified label. MaxLength = 100."
+        },
+        "clientOrderId": {
+          "type": "string",
+          "id": 18,
+          "comment": "Reference to the existing position if the Order is intended to modify it."
+        },
+        "relativeStopLoss": {
+          "type": "int64",
+          "id": 19,
+          "comment": "Optional user-specific clientOrderId (similar to FIX ClOrderID). MaxLength = 50."
+        },
+        "relativeTakeProfit": {
+          "type": "int64",
+          "id": 20,
+          "comment": "Relative Stop Loss that can be specified instead of the absolute as one. Specified in 1/100000 of unit of a price. For BUY stopLoss = entryPrice - relativeStopLoss, for SELL stopLoss = entryPrice + relativeStopLoss."
+        },
+        "guaranteedStopLoss": {
+          "type": "bool",
+          "id": 21,
+          "comment": "Relative Take Profit that can be specified instead of the absolute one. Specified in 1/100000 of unit of a price. For BUY takeProfit = entryPrice + relativeTakeProfit, for SELL takeProfit = entryPrice - relativeTakeProfit."
+        },
+        "trailingStopLoss": {
+          "type": "bool",
+          "id": 22,
+          "comment": "If TRUE then stopLoss is guaranteed. Available for the French Risk or the Guaranteed Stop Loss Accounts."
+        },
+        "stopTriggerMethod": {
+          "type": "ProtoOAOrderTriggerMethod",
+          "id": 23,
+          "options": {
+            "default": "TRADE"
+          },
+          "comment": "If TRUE then the Stop Loss is Trailing."
+        }
+      },
+      "comment": "Request for sending a new trading order. Allowed only if the accessToken has the \"trade\" permissions for the trading account."
+    },
+    "ProtoOAExecutionEvent": {
+      "fields": {
+        "payloadType": {
+          "type": "ProtoOAPayloadType",
+          "id": 1,
+          "options": {
+            "default": "PROTO_OA_EXECUTION_EVENT"
+          },
+          "comment": null
+        },
+        "ctidTraderAccountId": {
+          "rule": "required",
+          "type": "int64",
+          "id": 2,
+          "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
+        },
+        "executionType": {
+          "rule": "required",
+          "type": "ProtoOAExecutionType",
+          "id": 3,
+          "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
+        },
+        "position": {
+          "type": "ProtoOAPosition",
+          "id": 4,
+          "comment": "Type of the order operation. For example: ACCEPTED, FILLED, etc."
+        },
+        "order": {
+          "type": "ProtoOAOrder",
+          "id": 5,
+          "comment": "Reference to the position linked with the execution"
+        },
+        "deal": {
+          "type": "ProtoOADeal",
+          "id": 6,
+          "comment": "Reference to the initial order."
+        },
+        "bonusDepositWithdraw": {
+          "type": "ProtoOABonusDepositWithdraw",
+          "id": 7,
+          "comment": "Reference to the deal (execution)."
+        },
+        "depositWithdraw": {
+          "type": "ProtoOADepositWithdraw",
+          "id": 8,
+          "comment": "Reference to the Bonus Deposit or Withdrawal operation."
+        },
+        "errorCode": {
+          "type": "string",
+          "id": 9,
+          "comment": "Reference to the Deposit or Withdrawal operation."
+        },
+        "isServerEvent": {
+          "type": "bool",
+          "id": 10,
+          "comment": "The name of the ProtoErrorCode or the other custom ErrorCodes (e.g. ProtoCHErrorCode)."
+        }
+      },
+      "comment": "The event that is sent following the successful order acceptance or execution by the server. Acts as response to the ProtoOANewOrderReq, ProtoOACancelOrderReq, ProtoOAAmendOrderReq, ProtoOAAmendPositionSLTPReq, ProtoOAClosePositionReq requests. Also, the event is sent when a Deposit/Withdrawal took place."
+    },
+    "ProtoOACancelOrderReq": {
+      "fields": {
+        "payloadType": {
+          "type": "ProtoOAPayloadType",
+          "id": 1,
+          "options": {
+            "default": "PROTO_OA_CANCEL_ORDER_REQ"
+          },
+          "comment": null
+        },
+        "ctidTraderAccountId": {
+          "rule": "required",
+          "type": "int64",
+          "id": 2,
+          "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
+        },
+        "orderId": {
+          "rule": "required",
+          "type": "int64",
+          "id": 3,
+          "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
+        }
+      },
+      "comment": "Request for cancelling existing pending order. Allowed only if the accessToken has \"trade\" permissions for the trading account."
+    },
+    "ProtoOAAmendOrderReq": {
+      "fields": {
+        "payloadType": {
+          "type": "ProtoOAPayloadType",
+          "id": 1,
+          "options": {
+            "default": "PROTO_OA_AMEND_ORDER_REQ"
+          },
+          "comment": null
+        },
+        "ctidTraderAccountId": {
+          "rule": "required",
+          "type": "int64",
+          "id": 2,
+          "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
+        },
+        "orderId": {
+          "rule": "required",
+          "type": "int64",
+          "id": 3,
+          "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
+        },
+        "volume": {
+          "type": "int64",
+          "id": 4,
+          "comment": "The unique ID of the order."
+        },
+        "limitPrice": {
+          "type": "double",
+          "id": 5,
+          "comment": "Volume, represented in 0.01 of a unit (e.g. cents)."
+        },
+        "stopPrice": {
+          "type": "double",
+          "id": 6,
+          "comment": "The Limit Price, can be specified for the LIMIT order only."
+        },
+        "expirationTimestamp": {
+          "type": "int64",
+          "id": 7,
+          "comment": "The Stop Price, can be specified for the STOP and the STOP_LIMIT orders."
+        },
+        "stopLoss": {
+          "type": "double",
+          "id": 8,
+          "comment": "The exact Order expiration time. Should be set for the Good Till Date orders."
+        },
+        "takeProfit": {
+          "type": "double",
+          "id": 9,
+          "comment": "The absolute Stop Loss price (e.g. 1.23456). Not supported for the MARKER orders."
+        },
+        "slippageInPoints": {
+          "type": "int32",
+          "id": 10,
+          "comment": "The absolute Take Profit price (e.g. 1.23456). Not supported for the MARKER orders."
+        },
+        "relativeStopLoss": {
+          "type": "int64",
+          "id": 11,
+          "comment": "Slippage distance for the MARKET_RANGE and the STOP_LIMIT orders."
+        },
+        "relativeTakeProfit": {
+          "type": "int64",
+          "id": 12,
+          "comment": "The relative Stop Loss can be specified instead of the absolute one. Specified in 1/100000 of a unit of price. For BUY stopLoss = entryPrice - relativeStopLoss, for SELL stopLoss = entryPrice + relativeStopLoss."
+        },
+        "guaranteedStopLoss": {
+          "type": "bool",
+          "id": 13,
+          "comment": "The relative Take Profit can be specified instead of the absolute one. Specified in 1/100000 of a unit of price. For BUY takeProfit = entryPrice + relativeTakeProfit, for SELL takeProfit = entryPrice - relativeTakeProfit."
+        },
+        "trailingStopLoss": {
+          "type": "bool",
+          "id": 14,
+          "comment": "If TRUE then the Stop Loss is guaranteed. Available for the French Risk or the Guaranteed Stop Loss Accounts."
+        },
+        "stopTriggerMethod": {
+          "type": "ProtoOAOrderTriggerMethod",
+          "id": 15,
+          "options": {
+            "default": "TRADE"
+          },
+          "comment": "If TRUE then the Trailing Stop Loss is applied."
+        }
+      },
+      "comment": "Request for amending the existing pending order. Allowed only if the Access Token has \"trade\" permissions for the trading account."
+    },
+    "ProtoOAAmendPositionSLTPReq": {
+      "fields": {
+        "payloadType": {
+          "type": "ProtoOAPayloadType",
+          "id": 1,
+          "options": {
+            "default": "PROTO_OA_AMEND_POSITION_SLTP_REQ"
+          },
+          "comment": null
+        },
+        "ctidTraderAccountId": {
+          "rule": "required",
+          "type": "int64",
+          "id": 2,
+          "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
+        },
+        "positionId": {
+          "rule": "required",
+          "type": "int64",
+          "id": 3,
+          "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
+        },
+        "stopLoss": {
+          "type": "double",
+          "id": 4,
+          "comment": "The unique ID of the position to amend."
+        },
+        "takeProfit": {
+          "type": "double",
+          "id": 5,
+          "comment": "Absolute Stop Loss price (1.23456 for example)."
+        },
+        "guaranteedStopLoss": {
+          "type": "bool",
+          "id": 7,
+          "comment": "Absolute Take Profit price (1.26543 for example)."
+        },
+        "trailingStopLoss": {
+          "type": "bool",
+          "id": 8,
+          "comment": "If TRUE then the Stop Loss is guaranteed. Available for the French Risk or the Guaranteed Stop Loss Accounts."
+        },
+        "stopLossTriggerMethod": {
+          "type": "ProtoOAOrderTriggerMethod",
+          "id": 9,
+          "options": {
+            "default": "TRADE"
+          },
+          "comment": "If TRUE then the Trailing Stop Loss is applied."
+        }
+      },
+      "comment": "Request for amending StopLoss and TakeProfit of existing position. Allowed only if the accessToken has \"trade\" permissions for the trading account."
+    },
+    "ProtoOAClosePositionReq": {
+      "fields": {
+        "payloadType": {
+          "type": "ProtoOAPayloadType",
+          "id": 1,
+          "options": {
+            "default": "PROTO_OA_CLOSE_POSITION_REQ"
+          },
+          "comment": null
+        },
+        "ctidTraderAccountId": {
+          "rule": "required",
+          "type": "int64",
+          "id": 2,
+          "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
+        },
+        "positionId": {
+          "rule": "required",
+          "type": "int64",
+          "id": 3,
+          "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
+        },
+        "volume": {
+          "rule": "required",
+          "type": "int64",
+          "id": 4,
+          "comment": "The unique ID of the position to close."
+        }
+      },
+      "comment": "Request for closing or partially closing of an existing position. Allowed only if the accessToken has \"trade\" permissions for the trading account."
+    },
+    "ProtoOATrailingSLChangedEvent": {
+      "fields": {
+        "payloadType": {
+          "type": "ProtoOAPayloadType",
+          "id": 1,
+          "options": {
+            "default": "PROTO_OA_TRAILING_SL_CHANGED_EVENT"
+          },
+          "comment": null
+        },
+        "ctidTraderAccountId": {
+          "rule": "required",
+          "type": "int64",
+          "id": 2,
+          "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
+        },
+        "positionId": {
+          "rule": "required",
+          "type": "int64",
+          "id": 3,
+          "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
+        },
+        "orderId": {
+          "rule": "required",
+          "type": "int64",
+          "id": 4,
+          "comment": "The unique ID of the position."
+        },
+        "stopPrice": {
+          "rule": "required",
+          "type": "double",
+          "id": 5,
+          "comment": "The unique ID of the order."
+        },
+        "utcLastUpdateTimestamp": {
+          "rule": "required",
+          "type": "int64",
+          "id": 6,
+          "comment": "New value of the Stop Loss price."
+        }
+      },
+      "comment": "Event that is sent when the level of the Trailing Stop Loss is changed due to the price level changes."
+    },
+    "ProtoOAAssetListReq": {
+      "fields": {
+        "payloadType": {
+          "type": "ProtoOAPayloadType",
+          "id": 1,
+          "options": {
+            "default": "PROTO_OA_ASSET_LIST_REQ"
+          },
+          "comment": null
+        },
+        "ctidTraderAccountId": {
+          "rule": "required",
+          "type": "int64",
+          "id": 2,
+          "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
+        }
+      },
+      "comment": "Request for the list of assets available for a trader's account."
+    },
+    "ProtoOAAssetListRes": {
+      "fields": {
+        "payloadType": {
+          "type": "ProtoOAPayloadType",
+          "id": 1,
+          "options": {
+            "default": "PROTO_OA_ASSET_LIST_RES"
+          },
+          "comment": null
+        },
+        "ctidTraderAccountId": {
+          "rule": "required",
+          "type": "int64",
+          "id": 2,
+          "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
+        },
+        "asset": {
+          "rule": "repeated",
+          "type": "ProtoOAAsset",
+          "id": 3,
+          "options": {
+            "packed": false
+          },
+          "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
+        }
+      },
+      "comment": "Response to the ProtoOAAssetListReq request."
+    },
+    "ProtoOASymbolsListReq": {
+      "fields": {
+        "payloadType": {
+          "type": "ProtoOAPayloadType",
+          "id": 1,
+          "options": {
+            "default": "PROTO_OA_SYMBOLS_LIST_REQ"
+          },
+          "comment": null
+        },
+        "ctidTraderAccountId": {
+          "rule": "required",
+          "type": "int64",
+          "id": 2,
+          "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
+        }
+      },
+      "comment": "Request for a list of symbols available for a trading account. Symbol entries are returned with the limited set of fields."
+    },
+    "ProtoOASymbolsListRes": {
+      "fields": {
+        "payloadType": {
+          "type": "ProtoOAPayloadType",
+          "id": 1,
+          "options": {
+            "default": "PROTO_OA_SYMBOLS_LIST_RES"
+          },
+          "comment": null
+        },
+        "ctidTraderAccountId": {
+          "rule": "required",
+          "type": "int64",
+          "id": 2,
+          "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
+        },
+        "symbol": {
+          "rule": "repeated",
+          "type": "ProtoOALightSymbol",
+          "id": 3,
+          "options": {
+            "packed": false
+          },
+          "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
+        }
+      },
+      "comment": "Response to the ProtoOASymbolsListReq request."
+    },
+    "ProtoOASymbolByIdReq": {
+      "fields": {
+        "payloadType": {
+          "type": "ProtoOAPayloadType",
+          "id": 1,
+          "options": {
+            "default": "PROTO_OA_SYMBOL_BY_ID_REQ"
+          },
+          "comment": null
+        },
+        "ctidTraderAccountId": {
+          "rule": "required",
+          "type": "int64",
+          "id": 2,
+          "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
+        },
+        "symbolId": {
+          "rule": "repeated",
+          "type": "int64",
+          "id": 3,
+          "options": {
+            "packed": false
+          },
+          "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
+        }
+      },
+      "comment": "Request for getting a full symbol entity."
+    },
+    "ProtoOASymbolByIdRes": {
+      "fields": {
+        "payloadType": {
+          "type": "ProtoOAPayloadType",
+          "id": 1,
+          "options": {
+            "default": "PROTO_OA_SYMBOL_BY_ID_RES"
+          },
+          "comment": null
+        },
+        "ctidTraderAccountId": {
+          "rule": "required",
+          "type": "int64",
+          "id": 2,
+          "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
+        },
+        "symbol": {
+          "rule": "repeated",
+          "type": "ProtoOASymbol",
+          "id": 3,
+          "options": {
+            "packed": false
+          },
+          "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
+        }
+      },
+      "comment": "Response to the ProtoOASymbolByIdReq request."
+    },
+    "ProtoOASymbolsForConversionReq": {
+      "fields": {
+        "payloadType": {
+          "type": "ProtoOAPayloadType",
+          "id": 1,
+          "options": {
+            "default": "PROTO_OA_SYMBOLS_FOR_CONVERSION_REQ"
+          },
+          "comment": null
+        },
+        "ctidTraderAccountId": {
+          "rule": "required",
+          "type": "int64",
+          "id": 2,
+          "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
+        },
+        "firstAssetId": {
+          "rule": "required",
+          "type": "int64",
+          "id": 3,
+          "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
+        },
+        "lastAssetId": {
+          "rule": "required",
+          "type": "int64",
+          "id": 4,
+          "comment": "The ID of the firs asset in the conversation chain. e.g.: for EUR/USD the firstAssetId is EUR ID and lastAssetId is USD ID."
+        }
+      },
+      "comment": "Request for getting a conversion chain between two assets that consists of several symbols. Use when no direct quote is available"
+    },
+    "ProtoOASymbolsForConversionRes": {
+      "fields": {
+        "payloadType": {
+          "type": "ProtoOAPayloadType",
+          "id": 1,
+          "options": {
+            "default": "PROTO_OA_SYMBOLS_FOR_CONVERSION_RES"
+          },
+          "comment": null
+        },
+        "ctidTraderAccountId": {
+          "rule": "required",
+          "type": "int64",
+          "id": 2,
+          "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
+        },
+        "symbol": {
+          "rule": "repeated",
+          "type": "ProtoOALightSymbol",
+          "id": 3,
+          "options": {
+            "packed": false
+          },
+          "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
+        }
+      },
+      "comment": "Response to the ProtoOASymbolsForConversionReq request."
+    },
+    "ProtoOASymbolChangedEvent": {
+      "fields": {
+        "payloadType": {
+          "type": "ProtoOAPayloadType",
+          "id": 1,
+          "options": {
+            "default": "PROTO_OA_SYMBOL_CHANGED_EVENT"
+          },
+          "comment": null
+        },
+        "ctidTraderAccountId": {
+          "rule": "required",
+          "type": "int64",
+          "id": 2,
+          "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
+        },
+        "symbolId": {
+          "rule": "repeated",
+          "type": "int64",
+          "id": 3,
+          "options": {
+            "packed": false
+          },
+          "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
+        }
+      },
+      "comment": "Event that is sent when the symbol is changed on the Server side."
+    },
+    "ProtoOAAssetClassListReq": {
+      "fields": {
+        "payloadType": {
+          "type": "ProtoOAPayloadType",
+          "id": 1,
+          "options": {
+            "default": "PROTO_OA_ASSET_CLASS_LIST_REQ"
+          },
+          "comment": null
+        },
+        "ctidTraderAccountId": {
+          "rule": "required",
+          "type": "int64",
+          "id": 2,
+          "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
+        }
+      },
+      "comment": "Request for a list of asset classes available for the trader's account."
+    },
+    "ProtoOAAssetClassListRes": {
+      "fields": {
+        "payloadType": {
+          "type": "ProtoOAPayloadType",
+          "id": 1,
+          "options": {
+            "default": "PROTO_OA_ASSET_CLASS_LIST_RES"
+          },
+          "comment": null
+        },
+        "ctidTraderAccountId": {
+          "rule": "required",
+          "type": "int64",
+          "id": 2,
+          "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
+        },
+        "assetClass": {
+          "rule": "repeated",
+          "type": "ProtoOAAssetClass",
+          "id": 3,
+          "options": {
+            "packed": false
+          },
+          "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
+        }
+      },
+      "comment": "Response to the ProtoOAAssetListReq request."
+    },
+    "ProtoOATraderReq": {
+      "fields": {
+        "payloadType": {
+          "type": "ProtoOAPayloadType",
+          "id": 1,
+          "options": {
+            "default": "PROTO_OA_TRADER_REQ"
+          },
+          "comment": null
+        },
+        "ctidTraderAccountId": {
+          "rule": "required",
+          "type": "int64",
+          "id": 2,
+          "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
+        }
+      },
+      "comment": "Request for getting data of Trader's Account."
+    },
+    "ProtoOATraderRes": {
+      "fields": {
+        "payloadType": {
+          "type": "ProtoOAPayloadType",
+          "id": 1,
+          "options": {
+            "default": "PROTO_OA_TRADER_RES"
+          },
+          "comment": null
+        },
+        "ctidTraderAccountId": {
+          "rule": "required",
+          "type": "int64",
+          "id": 2,
+          "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
+        },
+        "trader": {
+          "rule": "required",
+          "type": "ProtoOATrader",
+          "id": 3,
+          "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
+        }
+      },
+      "comment": "Response to the ProtoOATraderReq request."
+    },
+    "ProtoOATraderUpdatedEvent": {
+      "fields": {
+        "payloadType": {
+          "type": "ProtoOAPayloadType",
+          "id": 1,
+          "options": {
+            "default": "PROTO_OA_TRADER_UPDATE_EVENT"
+          },
+          "comment": null
+        },
+        "ctidTraderAccountId": {
+          "rule": "required",
+          "type": "int64",
+          "id": 2,
+          "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
+        },
+        "trader": {
+          "rule": "required",
+          "type": "ProtoOATrader",
+          "id": 3,
+          "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
+        }
+      },
+      "comment": "Event that is sent when a Trader is updated on Server side."
+    },
+    "ProtoOAReconcileReq": {
+      "fields": {
+        "payloadType": {
+          "type": "ProtoOAPayloadType",
+          "id": 1,
+          "options": {
+            "default": "PROTO_OA_RECONCILE_REQ"
+          },
+          "comment": null
+        },
+        "ctidTraderAccountId": {
+          "rule": "required",
+          "type": "int64",
+          "id": 2,
+          "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
+        }
+      },
+      "comment": "Request for getting Trader's current open positions and pending orders data."
+    },
+    "ProtoOAReconcileRes": {
+      "fields": {
+        "payloadType": {
+          "type": "ProtoOAPayloadType",
+          "id": 1,
+          "options": {
+            "default": "PROTO_OA_RECONCILE_RES"
+          },
+          "comment": null
+        },
+        "ctidTraderAccountId": {
+          "rule": "required",
+          "type": "int64",
+          "id": 2,
+          "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
+        },
+        "position": {
+          "rule": "repeated",
+          "type": "ProtoOAPosition",
+          "id": 3,
+          "options": {
+            "packed": false
+          },
+          "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
+        },
+        "order": {
+          "rule": "repeated",
+          "type": "ProtoOAOrder",
+          "id": 4,
+          "options": {
+            "packed": false
+          },
+          "comment": "The list of trader's account open positions."
+        }
+      },
+      "comment": "The response to the ProtoOAReconcileReq request."
+    },
+    "ProtoOAOrderErrorEvent": {
+      "fields": {
+        "payloadType": {
+          "type": "ProtoOAPayloadType",
+          "id": 1,
+          "options": {
+            "default": "PROTO_OA_ORDER_ERROR_EVENT"
+          },
+          "comment": null
+        },
+        "ctidTraderAccountId": {
+          "rule": "required",
+          "type": "int64",
+          "id": 5,
+          "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
+        },
+        "errorCode": {
+          "rule": "required",
+          "type": "string",
+          "id": 2,
+          "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
+        },
+        "orderId": {
+          "type": "int64",
+          "id": 3,
+          "comment": "The name of the ProtoErrorCode or the other custom ErrorCodes (e.g. ProtoCHErrorCode)."
+        },
+        "positionId": {
+          "type": "int64",
+          "id": 6,
+          "comment": "The unique ID of the order."
+        },
+        "description": {
+          "type": "string",
+          "id": 7,
+          "comment": "The unique ID of the position."
+        }
+      },
+      "comment": "Event that is sent when errors occur during the order requests."
+    },
+    "ProtoOADealListReq": {
+      "fields": {
+        "payloadType": {
+          "type": "ProtoOAPayloadType",
+          "id": 1,
+          "options": {
+            "default": "PROTO_OA_DEAL_LIST_REQ"
+          },
+          "comment": null
+        },
+        "ctidTraderAccountId": {
+          "rule": "required",
+          "type": "int64",
+          "id": 2,
+          "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
+        },
+        "fromTimestamp": {
+          "rule": "required",
+          "type": "int64",
+          "id": 3,
+          "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
+        },
+        "toTimestamp": {
+          "rule": "required",
+          "type": "int64",
+          "id": 4,
+          "comment": "The UNIX time from which the search starts >=0 (1-1-1970). Validation: toTimestamp - fromTimestamp <= 604800000 (1 week)."
+        },
+        "maxRows": {
+          "type": "int32",
+          "id": 5,
+          "comment": "The UNIX time where to stop searching <= 2147483646000 (19-1-2038)."
+        }
+      },
+      "comment": "Request for getting Trader's deals historical data (execution details)."
+    },
+    "ProtoOADealListRes": {
+      "fields": {
+        "payloadType": {
+          "type": "ProtoOAPayloadType",
+          "id": 1,
+          "options": {
+            "default": "PROTO_OA_DEAL_LIST_RES"
+          },
+          "comment": null
+        },
+        "ctidTraderAccountId": {
+          "rule": "required",
+          "type": "int64",
+          "id": 2,
+          "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
+        },
+        "deal": {
+          "rule": "repeated",
+          "type": "ProtoOADeal",
+          "id": 3,
+          "options": {
+            "packed": false
+          },
+          "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
+        },
+        "hasMore": {
+          "rule": "required",
+          "type": "bool",
+          "id": 4,
+          "comment": "The list of the deals."
+        }
+      },
+      "comment": "The response to the ProtoOADealListRes request."
+    },
+    "ProtoOAExpectedMarginReq": {
+      "fields": {
+        "payloadType": {
+          "type": "ProtoOAPayloadType",
+          "id": 1,
+          "options": {
+            "default": "PROTO_OA_EXPECTED_MARGIN_REQ"
+          },
+          "comment": null
+        },
+        "ctidTraderAccountId": {
+          "rule": "required",
+          "type": "int64",
+          "id": 2,
+          "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
+        },
+        "symbolId": {
+          "rule": "required",
+          "type": "int64",
+          "id": 3,
+          "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
+        },
+        "volume": {
+          "rule": "repeated",
+          "type": "int64",
+          "id": 4,
+          "options": {
+            "packed": false
+          },
+          "comment": "Unique identifier of the Symbol in cTrader platform."
+        }
+      },
+      "comment": "Request for getting the margin estimate. Can be used before sending a new order request."
+    },
+    "ProtoOAExpectedMarginRes": {
+      "fields": {
+        "payloadType": {
+          "type": "ProtoOAPayloadType",
+          "id": 1,
+          "options": {
+            "default": "PROTO_OA_EXPECTED_MARGIN_RES"
+          },
+          "comment": null
+        },
+        "ctidTraderAccountId": {
+          "rule": "required",
+          "type": "int64",
+          "id": 2,
+          "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
+        },
+        "margin": {
+          "rule": "repeated",
+          "type": "ProtoOAExpectedMargin",
+          "id": 3,
+          "options": {
+            "packed": false
+          },
+          "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
+        }
+      },
+      "comment": "The response to the ProtoOAExpectedMarginReq request."
+    },
+    "ProtoOAMarginChangedEvent": {
+      "fields": {
+        "payloadType": {
+          "type": "ProtoOAPayloadType",
+          "id": 1,
+          "options": {
+            "default": "PROTO_OA_MARGIN_CHANGED_EVENT"
+          },
+          "comment": null
+        },
+        "ctidTraderAccountId": {
+          "rule": "required",
+          "type": "int64",
+          "id": 2,
+          "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
+        },
+        "positionId": {
+          "rule": "required",
+          "type": "uint64",
+          "id": 3,
+          "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
+        },
+        "usedMargin": {
+          "rule": "required",
+          "type": "uint64",
+          "id": 4,
+          "comment": "The unique ID of the position."
+        }
+      },
+      "comment": "Event that is sent when the margin allocated to a specific position is changed."
+    },
+    "ProtoOACashFlowHistoryListReq": {
+      "fields": {
+        "payloadType": {
+          "type": "ProtoOAPayloadType",
+          "id": 1,
+          "options": {
+            "default": "PROTO_OA_CASH_FLOW_HISTORY_LIST_REQ"
+          },
+          "comment": null
+        },
+        "ctidTraderAccountId": {
+          "rule": "required",
+          "type": "int64",
+          "id": 2,
+          "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
+        },
+        "fromTimestamp": {
+          "rule": "required",
+          "type": "int64",
+          "id": 3,
+          "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
+        },
+        "toTimestamp": {
+          "rule": "required",
+          "type": "int64",
+          "id": 4,
+          "comment": "The UNIX time from which the search starts >=0 (1-1-1970). Validation: toTimestamp - fromTimestamp <= 604800000 (1 week)."
+        }
+      },
+      "comment": "Request for getting Trader's historical data of deposits and withdrawals."
+    },
+    "ProtoOACashFlowHistoryListRes": {
+      "fields": {
+        "payloadType": {
+          "type": "ProtoOAPayloadType",
+          "id": 1,
+          "options": {
+            "default": "PROTO_OA_CASH_FLOW_HISTORY_LIST_RES"
+          },
+          "comment": null
+        },
+        "ctidTraderAccountId": {
+          "rule": "required",
+          "type": "int64",
+          "id": 2,
+          "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
+        },
+        "depositWithdraw": {
+          "rule": "repeated",
+          "type": "ProtoOADepositWithdraw",
+          "id": 3,
+          "options": {
+            "packed": false
+          },
+          "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
+        }
+      },
+      "comment": "Response to the ProtoOACashFlowHistoryListReq request."
+    },
+    "ProtoOAGetAccountListByAccessTokenReq": {
+      "fields": {
+        "payloadType": {
+          "type": "ProtoOAPayloadType",
+          "id": 1,
+          "options": {
+            "default": "PROTO_OA_GET_ACCOUNTS_BY_ACCESS_TOKEN_REQ"
+          },
+          "comment": null
+        },
+        "accessToken": {
+          "rule": "required",
+          "type": "string",
+          "id": 2,
+          "comment": "The Access Token issued for providing access to the Trader's Account."
+        }
+      },
+      "comment": "Request for getting the list of granted trader's account for the access token."
+    },
+    "ProtoOAGetAccountListByAccessTokenRes": {
+      "fields": {
+        "payloadType": {
+          "type": "ProtoOAPayloadType",
+          "id": 1,
+          "options": {
+            "default": "PROTO_OA_GET_ACCOUNTS_BY_ACCESS_TOKEN_RES"
+          },
+          "comment": null
+        },
+        "accessToken": {
+          "rule": "required",
+          "type": "string",
+          "id": 2,
+          "comment": "The Access Token issued for providing access to the Trader's Account."
+        },
+        "permissionScope": {
+          "type": "ProtoOAClientPermissionScope",
+          "id": 3,
+          "comment": "The Access Token issued for providing access to the Trader's Account."
+        },
+        "ctidTraderAccount": {
+          "rule": "repeated",
+          "type": "ProtoOACtidTraderAccount",
+          "id": 4,
+          "options": {
+            "packed": false
+          },
+          "comment": "SCOPE_VIEW, SCOPE_TRADE."
+        }
+      },
+      "comment": "Response to the ProtoOAGetAccountListByAccessTokenReq request."
+    },
+    "ProtoOASubscribeSpotsReq": {
+      "fields": {
+        "payloadType": {
+          "type": "ProtoOAPayloadType",
+          "id": 1,
+          "options": {
+            "default": "PROTO_OA_SUBSCRIBE_SPOTS_REQ"
+          },
+          "comment": null
+        },
+        "ctidTraderAccountId": {
+          "rule": "required",
+          "type": "int64",
+          "id": 2,
+          "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
+        },
+        "symbolId": {
+          "rule": "repeated",
+          "type": "int64",
+          "id": 3,
+          "options": {
+            "packed": false
+          },
+          "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
+        }
+      },
+      "comment": "+------------------------------------------------------------------+\n|                              Quotes                              |\n+------------------------------------------------------------------+\n** Request for subscribing on spot events of the specified symbol. */"
+    },
+    "ProtoOASubscribeSpotsRes": {
+      "fields": {
+        "payloadType": {
+          "type": "ProtoOAPayloadType",
+          "id": 1,
+          "options": {
+            "default": "PROTO_OA_SUBSCRIBE_SPOTS_RES"
+          },
+          "comment": null
+        },
+        "ctidTraderAccountId": {
+          "rule": "required",
+          "type": "int64",
+          "id": 2,
+          "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
+        }
+      },
+      "comment": "Response to the ProtoOASubscribeSpotsReq request."
+    },
+    "ProtoOAUnsubscribeSpotsReq": {
+      "fields": {
+        "payloadType": {
+          "type": "ProtoOAPayloadType",
+          "id": 1,
+          "options": {
+            "default": "PROTO_OA_UNSUBSCRIBE_SPOTS_REQ"
+          },
+          "comment": null
+        },
+        "ctidTraderAccountId": {
+          "rule": "required",
+          "type": "int64",
+          "id": 2,
+          "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
+        },
+        "symbolId": {
+          "rule": "repeated",
+          "type": "int64",
+          "id": 3,
+          "options": {
+            "packed": false
+          },
+          "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
+        }
+      },
+      "comment": "Request for unsubscribing from the spot events of the specified symbol."
+    },
+    "ProtoOAUnsubscribeSpotsRes": {
+      "fields": {
+        "payloadType": {
+          "type": "ProtoOAPayloadType",
+          "id": 1,
+          "options": {
+            "default": "PROTO_OA_UNSUBSCRIBE_SPOTS_RES"
+          },
+          "comment": null
+        },
+        "ctidTraderAccountId": {
+          "rule": "required",
+          "type": "int64",
+          "id": 2,
+          "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
+        }
+      },
+      "comment": "Response to the ProtoOASubscribeSpotsRes request."
+    },
+    "ProtoOASpotEvent": {
+      "fields": {
+        "payloadType": {
+          "type": "ProtoOAPayloadType",
+          "id": 1,
+          "options": {
+            "default": "PROTO_OA_SPOT_EVENT"
+          },
+          "comment": null
+        },
+        "ctidTraderAccountId": {
+          "rule": "required",
+          "type": "int64",
+          "id": 2,
+          "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
+        },
+        "symbolId": {
+          "rule": "required",
+          "type": "int64",
+          "id": 3,
+          "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
+        },
+        "bid": {
+          "type": "uint64",
+          "id": 4,
+          "comment": "Unique identifier of the Symbol in cTrader platform."
+        },
+        "ask": {
+          "type": "uint64",
+          "id": 5,
+          "comment": "Bid price."
+        },
+        "trendbar": {
+          "rule": "repeated",
+          "type": "ProtoOATrendbar",
+          "id": 6,
+          "options": {
+            "packed": false
+          },
+          "comment": "Ask price."
+        }
+      },
+      "comment": "Event that is sent when a new spot event is generated on the server side. Requires subscription on the spot events, see ProtoOASubscribeSpotsReq."
+    },
+    "ProtoOASubscribeLiveTrendbarReq": {
+      "fields": {
+        "payloadType": {
+          "type": "ProtoOAPayloadType",
+          "id": 1,
+          "options": {
+            "default": "PROTO_OA_SUBSCRIBE_LIVE_TRENDBAR_REQ"
+          },
+          "comment": null
+        },
+        "ctidTraderAccountId": {
+          "rule": "required",
+          "type": "int64",
+          "id": 2,
+          "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
+        },
+        "period": {
+          "rule": "required",
+          "type": "ProtoOATrendbarPeriod",
+          "id": 3,
+          "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
+        },
+        "symbolId": {
+          "rule": "required",
+          "type": "int64",
+          "id": 4,
+          "comment": "Specifies period of trend bar series (e.g. M1, M10, etc.)."
+        }
+      },
+      "comment": "Request for subscribing for live trend bars. Requires subscription on the spot events, see ProtoOASubscribeSpotsReq."
+    },
+    "ProtoOAUnsubscribeLiveTrendbarReq": {
+      "fields": {
+        "payloadType": {
+          "type": "ProtoOAPayloadType",
+          "id": 1,
+          "options": {
+            "default": "PROTO_OA_UNSUBSCRIBE_LIVE_TRENDBAR_REQ"
+          },
+          "comment": null
+        },
+        "ctidTraderAccountId": {
+          "rule": "required",
+          "type": "int64",
+          "id": 2,
+          "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
+        },
+        "period": {
+          "rule": "required",
+          "type": "ProtoOATrendbarPeriod",
+          "id": 3,
+          "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
+        },
+        "symbolId": {
+          "rule": "required",
+          "type": "int64",
+          "id": 4,
+          "comment": "Specifies period of trend bar series (e.g. M1, M10, etc.)."
+        }
+      },
+      "comment": "Request for unsubscribing from the live trend bars."
+    },
+    "ProtoOAGetTrendbarsReq": {
+      "fields": {
+        "payloadType": {
+          "type": "ProtoOAPayloadType",
+          "id": 1,
+          "options": {
+            "default": "PROTO_OA_GET_TRENDBARS_REQ"
+          },
+          "comment": null
+        },
+        "ctidTraderAccountId": {
+          "rule": "required",
+          "type": "int64",
+          "id": 2,
+          "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
+        },
+        "fromTimestamp": {
+          "rule": "required",
+          "type": "int64",
+          "id": 3,
+          "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
+        },
+        "toTimestamp": {
+          "rule": "required",
+          "type": "int64",
+          "id": 4,
+          "comment": "The exact time of starting the search in milliseconds. Must be bigger or equal to zero (1-1-1970). Validation: toTimestamp - fromTimestamp <= X, where X depends on series period: M1, M2, M3, M4, M5: 302400000 (5 weeks); M10, M15, M30, H1: 21168000000 (35 weeks), H4, H12, D1: 31622400000 (1 year); W1, MN1: 158112000000 (5 years)."
+        },
+        "period": {
+          "rule": "required",
+          "type": "ProtoOATrendbarPeriod",
+          "id": 5,
+          "comment": "The exact time of finishing the search in milliseconds. Smaller or equal to 2147483646000 (19-1-2038)."
+        },
+        "symbolId": {
+          "rule": "required",
+          "type": "int64",
+          "id": 6,
+          "comment": "Specifies period of trend bar series (e.g. M1, M10, etc.)."
+        }
+      },
+      "comment": "Request for getting historical trend bars for the symbol."
+    },
+    "ProtoOAGetTrendbarsRes": {
+      "fields": {
+        "payloadType": {
+          "type": "ProtoOAPayloadType",
+          "id": 1,
+          "options": {
+            "default": "PROTO_OA_GET_TRENDBARS_RES"
+          },
+          "comment": null
+        },
+        "ctidTraderAccountId": {
+          "rule": "required",
+          "type": "int64",
+          "id": 2,
+          "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
+        },
+        "period": {
+          "rule": "required",
+          "type": "ProtoOATrendbarPeriod",
+          "id": 3,
+          "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
+        },
+        "timestamp": {
+          "rule": "required",
+          "type": "int64",
+          "id": 4,
+          "comment": "Specifies period of trend bar series (e.g. M1, M10, etc.)."
+        },
+        "trendbar": {
+          "rule": "repeated",
+          "type": "ProtoOATrendbar",
+          "id": 5,
+          "options": {
+            "packed": false
+          },
+          "comment": "Equals to toTimestamp from the request."
+        },
+        "symbolId": {
+          "type": "int64",
+          "id": 6,
+          "comment": "The list of trend bars."
+        }
+      },
+      "comment": "Response to the ProtoOAGetTrendbarsReq request."
+    },
+    "ProtoOAGetTickDataReq": {
+      "fields": {
+        "payloadType": {
+          "type": "ProtoOAPayloadType",
+          "id": 1,
+          "options": {
+            "default": "PROTO_OA_GET_TICKDATA_REQ"
+          },
+          "comment": null
+        },
+        "ctidTraderAccountId": {
+          "rule": "required",
+          "type": "int64",
+          "id": 2,
+          "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
+        },
+        "symbolId": {
+          "rule": "required",
+          "type": "int64",
+          "id": 3,
+          "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
+        },
+        "type": {
+          "rule": "required",
+          "type": "ProtoOAQuoteType",
+          "id": 4,
+          "comment": "Unique identifier of the Symbol in cTrader platform."
+        },
+        "fromTimestamp": {
+          "rule": "required",
+          "type": "int64",
+          "id": 5,
+          "comment": "Bid/Ask (1/2)."
+        },
+        "toTimestamp": {
+          "rule": "required",
+          "type": "int64",
+          "id": 6,
+          "comment": "The exact time of starting the search in milliseconds. Must be bigger of equal to zero (1-1-1970). Validation: toTimestamp - fromTimestamp <= 604800000 (1 week)."
+        }
+      },
+      "comment": "Request for getting historical tick data for the symbol."
+    },
+    "ProtoOAGetTickDataRes": {
+      "fields": {
+        "payloadType": {
+          "type": "ProtoOAPayloadType",
+          "id": 1,
+          "options": {
+            "default": "PROTO_OA_GET_TICKDATA_RES"
+          },
+          "comment": null
+        },
+        "ctidTraderAccountId": {
+          "rule": "required",
+          "type": "int64",
+          "id": 2,
+          "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
+        },
+        "tickData": {
+          "rule": "repeated",
+          "type": "ProtoOATickData",
+          "id": 3,
+          "options": {
+            "packed": false
+          },
+          "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
+        },
+        "hasMore": {
+          "rule": "required",
+          "type": "bool",
+          "id": 4,
+          "comment": "The list of ticks."
+        }
+      },
+      "comment": "Response to the ProtoOAGetTickDataReq request."
+    },
+    "ProtoOAGetCtidProfileByTokenReq": {
+      "fields": {
+        "payloadType": {
+          "type": "ProtoOAPayloadType",
+          "id": 1,
+          "options": {
+            "default": "PROTO_OA_GET_CTID_PROFILE_BY_TOKEN_REQ"
+          },
+          "comment": null
+        },
+        "accessToken": {
+          "rule": "required",
+          "type": "string",
+          "id": 2,
+          "comment": "The Access Token issued for providing access to the Trader's Account."
+        }
+      },
+      "comment": "Request for getting details of Trader's profile. Limited due to GDRP requirements."
+    },
+    "ProtoOAGetCtidProfileByTokenRes": {
+      "fields": {
+        "payloadType": {
+          "type": "ProtoOAPayloadType",
+          "id": 1,
+          "options": {
+            "default": "PROTO_OA_GET_CTID_PROFILE_BY_TOKEN_RES"
+          },
+          "comment": null
+        },
+        "profile": {
+          "rule": "required",
+          "type": "ProtoOACtidProfile",
+          "id": 2,
+          "comment": "Trader's profile."
+        }
+      },
+      "comment": "Response to the ProtoOAGetCtidProfileByTokenReq request."
+    },
+    "ProtoOADepthEvent": {
+      "fields": {
+        "payloadType": {
+          "type": "ProtoOAPayloadType",
+          "id": 1,
+          "options": {
+            "default": "PROTO_OA_DEPTH_EVENT"
+          },
+          "comment": null
+        },
+        "ctidTraderAccountId": {
+          "rule": "required",
+          "type": "int64",
+          "id": 2,
+          "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
+        },
+        "symbolId": {
+          "rule": "required",
+          "type": "uint64",
+          "id": 3,
+          "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
+        },
+        "newQuotes": {
+          "rule": "repeated",
+          "type": "ProtoOADepthQuote",
+          "id": 4,
+          "options": {
+            "packed": false
+          },
+          "comment": "Unique identifier of the Symbol in cTrader platform."
+        },
+        "deletedQuotes": {
+          "rule": "repeated",
+          "type": "uint64",
+          "id": 5,
+          "options": {
+            "packed": true
+          },
+          "comment": "The list of changes in the depth of market quotes."
+        }
+      },
+      "comment": "Event that is sent when the structure of depth of market is changed. Requires subscription on the depth of markets for the symbol, see ProtoOASubscribeDepthQuotesReq."
+    },
+    "ProtoOASubscribeDepthQuotesReq": {
+      "fields": {
+        "payloadType": {
+          "type": "ProtoOAPayloadType",
+          "id": 1,
+          "options": {
+            "default": "PROTO_OA_SUBSCRIBE_DEPTH_QUOTES_REQ"
+          },
+          "comment": null
+        },
+        "ctidTraderAccountId": {
+          "rule": "required",
+          "type": "int64",
+          "id": 2,
+          "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
+        },
+        "symbolId": {
+          "rule": "repeated",
+          "type": "int64",
+          "id": 3,
+          "options": {
+            "packed": false
+          },
+          "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
+        }
+      },
+      "comment": "Request for subscribing on depth of market of the specified symbol."
+    },
+    "ProtoOASubscribeDepthQuotesRes": {
+      "fields": {
+        "payloadType": {
+          "type": "ProtoOAPayloadType",
+          "id": 1,
+          "options": {
+            "default": "PROTO_OA_SUBSCRIBE_DEPTH_QUOTES_RES"
+          },
+          "comment": null
+        },
+        "ctidTraderAccountId": {
+          "rule": "required",
+          "type": "int64",
+          "id": 2,
+          "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
+        }
+      },
+      "comment": "Response to the ProtoOASubscribeDepthQuotesReq request."
+    },
+    "ProtoOAUnsubscribeDepthQuotesReq": {
+      "fields": {
+        "payloadType": {
+          "type": "ProtoOAPayloadType",
+          "id": 1,
+          "options": {
+            "default": "PROTO_OA_UNSUBSCRIBE_DEPTH_QUOTES_REQ"
+          },
+          "comment": null
+        },
+        "ctidTraderAccountId": {
+          "rule": "required",
+          "type": "int64",
+          "id": 2,
+          "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
+        },
+        "symbolId": {
+          "rule": "repeated",
+          "type": "int64",
+          "id": 3,
+          "options": {
+            "packed": false
+          },
+          "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
+        }
+      },
+      "comment": "Request for unsubscribing from the depth of market of the specified symbol."
+    },
+    "ProtoOAUnsubscribeDepthQuotesRes": {
+      "fields": {
+        "payloadType": {
+          "type": "ProtoOAPayloadType",
+          "id": 1,
+          "options": {
+            "default": "PROTO_OA_UNSUBSCRIBE_DEPTH_QUOTES_RES"
+          },
+          "comment": null
+        },
+        "ctidTraderAccountId": {
+          "rule": "required",
+          "type": "int64",
+          "id": 2,
+          "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
+        }
+      },
+      "comment": "Response to the ProtoOAUnsubscribeDepthQuotesReq request."
+    },
+    "ProtoOASymbolCategoryListReq": {
+      "fields": {
+        "payloadType": {
+          "type": "ProtoOAPayloadType",
+          "id": 1,
+          "options": {
+            "default": "PROTO_OA_SYMBOL_CATEGORY_REQ"
+          },
+          "comment": null
+        },
+        "ctidTraderAccountId": {
+          "rule": "required",
+          "type": "int64",
+          "id": 2,
+          "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
+        }
+      },
+      "comment": "Request for a list of symbol categories available for a trading account."
+    },
+    "ProtoOASymbolCategoryListRes": {
+      "fields": {
+        "payloadType": {
+          "type": "ProtoOAPayloadType",
+          "id": 1,
+          "options": {
+            "default": "PROTO_OA_SYMBOL_CATEGORY_RES"
+          },
+          "comment": null
+        },
+        "ctidTraderAccountId": {
+          "rule": "required",
+          "type": "int64",
+          "id": 2,
+          "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
+        },
+        "symbolCategory": {
+          "rule": "repeated",
+          "type": "ProtoOASymbolCategory",
+          "id": 3,
+          "options": {
+            "packed": false
+          },
+          "comment": "Unique identifier of the trader's account. Used to match responses to trader's accounts."
+        }
+      },
+      "comment": "Response to the ProtoSymbolCategoryListReq request."
+    },
+    "ProtoOAAccountLogoutReq": {
+      "fields": {
+        "payloadType": {
+          "type": "ProtoOAPayloadType",
+          "id": 1,
+          "options": {
+            "default": "PROTO_OA_ACCOUNT_LOGOUT_REQ"
+          },
+          "comment": null
+        },
+        "ctidTraderAccountId": {
+          "rule": "required",
+          "type": "int64",
+          "id": 2,
+          "comment": "The unique identifier of the trader's account in cTrader platform."
+        }
+      },
+      "comment": "Request for logout of  trading account session."
+    },
+    "ProtoOAAccountLogoutRes": {
+      "fields": {
+        "payloadType": {
+          "type": "ProtoOAPayloadType",
+          "id": 1,
+          "options": {
+            "default": "PROTO_OA_ACCOUNT_LOGOUT_RES"
+          },
+          "comment": null
+        },
+        "ctidTraderAccountId": {
+          "rule": "required",
+          "type": "int64",
+          "id": 2,
+          "comment": "The unique identifier of the trader's account in cTrader platform."
+        }
+      },
+      "comment": "Response to the ProtoOATraderLogoutReq request."
+    },
+    "ProtoOAAccountDisconnectEvent": {
+      "fields": {
+        "payloadType": {
+          "type": "ProtoOAPayloadType",
+          "id": 1,
+          "options": {
+            "default": "PROTO_OA_ACCOUNT_DISCONNECT_EVENT"
+          },
+          "comment": null
+        },
+        "ctidTraderAccountId": {
+          "rule": "required",
+          "type": "int64",
+          "id": 2,
+          "comment": "The unique identifier of the trader's account in cTrader platform."
+        }
+      },
+      "comment": "Event that is sent when the established session for an account is dropped on the server side.\nA new session must be authorized for the account."
+    }
+  }
+}
