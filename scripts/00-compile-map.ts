@@ -43,8 +43,12 @@ function toType(
 }
 
 function writeMessageMap() {
-  const common = loadSchema("./assets/OpenApiCommonMessages.proto");
-  const openApi = loadSchema("./assets/OpenApiMessages.proto");
+  const common = loadSchema(
+    "./node_modules/@claasahl/spotware-protobuf/assets/OpenApiCommonMessages.proto"
+  );
+  const openApi = loadSchema(
+    "./node_modules/@claasahl/spotware-protobuf/assets/OpenApiMessages.proto"
+  );
   const types: Type[] = [];
   for (const message of common.messages) {
     types.push(toType(message, "ProtoPayloadType", true, false));
