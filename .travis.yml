@@ -1,12 +1,28 @@
-language: node_js
-node_js:
-  - "node"
-  - "10"
-  - "8"
-  - "lts/*"
-before_install: "cd ./connect-api"
-deploy:
-  provider: npm
-  email: $DEPLOY_NPM_EMAIL
-  api_key: $DEPLOY_NPM_API_KEY
-  skip_cleanup: true
+jobs:
+  - include:
+      - stage: spotware-protobuf
+        language: node_js
+        node_js:
+          - "node"
+          - "10"
+          - "8"
+          - "lts/*"
+        before_install: "cd ./spotware-protobuf"
+        deploy:
+          provider: npm
+          email: $DEPLOY_NPM_EMAIL
+          api_key: $DEPLOY_NPM_API_KEY
+          skip_cleanup: true
+      - stage: spotware-adapter
+        language: node_js
+        node_js:
+          - "node"
+          - "10"
+          - "8"
+          - "lts/*"
+        before_install: "cd ./connect-api"
+        deploy:
+          provider: npm
+          email: $DEPLOY_NPM_EMAIL
+          api_key: $DEPLOY_NPM_API_KEY
+          skip_cleanup: true
