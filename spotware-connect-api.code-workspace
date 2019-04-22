@@ -8,9 +8,6 @@
 		},
 		{
 			"path": "."
-		},
-		{
-			"path": "spotware-protobuf"
 		}
 	],
 	"settings": {}
