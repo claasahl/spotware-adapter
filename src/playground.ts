@@ -34,9 +34,10 @@ client.on("PROTO_MESSAGE", (message, payloadType) => {
 });
 
 // write (outgoing) proto messages
-setInterval(() => {
+const heartbeats = setInterval(() => {
   const message = toProtoMessage("HEARTBEAT_EVENT", {});
   writeProtoMessage(client, message);
 }, 10000);
+client.on("end", () => clearInterval(heartbeats));
 
 writeProtoMessage(client, toProtoMessage("PROTO_OA_VERSION_REQ", {}));
