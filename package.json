@@ -59,7 +59,6 @@
     "mustache": "^3.0.1",
     "prettier": "^1.17.0",
     "pretty-quick": "^1.10.0",
-    "protobufjs": "^6.8.8",
     "shx": "^0.3.2",
     "ts-jest": "^24.0.2",
     "ts-node": "^8.1.0",
@@ -71,6 +70,7 @@
   },
   "dependencies": {
     "@claasahl/spotware-protobuf": "^0.1.7",
-    "long": "^4.0.0"
+    "long": "^4.0.0",
+    "protobufjs": "^6.8.8"
   }
 }
