@@ -3,7 +3,6 @@
 ![NPM - version](https://img.shields.io/npm/dw/@claasahl/spotware-adapter.svg)
 ![NPM - downloads](https://img.shields.io/npm/v/@claasahl/spotware-adapter.svg)
 
-
 # ALPHA VERSION
 
 Currently, the most juicy bits and peaces of this package are:
@@ -37,7 +36,7 @@ import {
   fromProtoMessage,
   toProtoMessage,
   writeProtoMessage
-} from "@claasahl/spotware-connecti-api";
+} from "@claasahl/spotware-adapter";
 
 // establish connection
 const client = connect(
@@ -79,6 +78,7 @@ writeProtoMessage(client, toProtoMessage("PROTO_OA_VERSION_REQ", {}));
 The `EventEmitter`-interface has been specialized to accept only Spotware messages.
 
 This client treats Spotware messages like so.
+
 # [Open API v2](https://connect.spotware.com/docs/open_api_2)
 
 ## Important Links
