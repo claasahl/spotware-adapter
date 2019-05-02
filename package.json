@@ -1,6 +1,6 @@
 {
   "name": "@claasahl/spotware-adapter",
-  "version": "0.4.7",
+  "version": "0.4.8",
   "description": "Protocol Buffers and Data Models for Spotware Open API 2.0",
   "main": "./build/index.js",
   "private": false,
