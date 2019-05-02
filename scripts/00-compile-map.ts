@@ -1,11 +1,4 @@
-import schema from "protocol-buffers-schema";
-import { Schema, Message } from "protocol-buffers-schema/types";
-import fs from "fs";
-
-function loadSchema(protoFile: fs.PathLike): Schema {
-  const proto = fs.readFileSync(protoFile);
-  return schema(proto);
-}
+import { types, IType } from "@claasahl/spotware-protobuf";
 
 interface Type {
   type: string;
@@ -16,21 +9,26 @@ interface Type {
   isCommonMessage: boolean;
 }
 
-function toPayloadType(message: Message) {
-  return (
-    message.fields
-      .filter(field => field.name == "payloadType")
-      .map(field => field.options.default)[0] || "PROTO_MESSAGE"
-  );
+function toPayloadType(message: IType): string {
+  if (message.fields.hasOwnProperty("payloadType")) {
+    const payloadType = message.fields.payloadType;
+    if (payloadType.hasOwnProperty("options")) {
+      return (
+        (payloadType && payloadType.options && payloadType.options.default) ||
+        "PROTO_MESSAGE"
+      );
+    }
+  }
+  return "PROTO_MESSAGE";
 }
 
 function toType(
-  message: Message,
+  type: string,
+  message: IType,
   payloadTypeRef: string,
   isCommonMessage: boolean,
   isOpenApiMessage: boolean
 ): Type {
-  const type = message.name;
   const payloadType = toPayloadType(message);
   return {
     type,
@@ -43,16 +41,14 @@ function toType(
 }
 
 function writeMessageMap() {
-  const common = loadSchema("./assets/OpenApiCommonMessages.proto");
-  const openApi = loadSchema("./assets/OpenApiMessages.proto");
-  const types: Type[] = [];
-  for (const message of common.messages) {
-    types.push(toType(message, "ProtoPayloadType", true, false));
-  }
-  for (const message of openApi.messages) {
-    types.push(toType(message, "ProtoOAPayloadType", false, true));
-  }
-  process.stdout.write(JSON.stringify({ messages: types }));
+  const messages: Type[] = [];
+  types.commonMessages.types.forEach((message, type) =>
+    messages.push(toType(type, message, "ProtoPayloadType", true, false))
+  );
+  types.messages.types.forEach((message, type) =>
+    messages.push(toType(type, message, "ProtoOAPayloadType", false, true))
+  );
+  process.stdout.write(JSON.stringify({ messages }));
 }
 
 writeMessageMap();
