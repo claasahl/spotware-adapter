@@ -1,3 +1,5 @@
+import Long from "long";
+
 import {
   connect,
   fromProtoMessage,
@@ -9,7 +11,8 @@ const config = {
   host: process.env.SPOTWARE__HOST || "live.ctraderapi.com",
   port: Number(process.env.SPOTWARE__PORT) || 5035,
   clientId: process.env.SPOTWARE__CLIENT_ID || "",
-  clientSecret: process.env.SPOTWARE__CLIENT_SECRET || ""
+  clientSecret: process.env.SPOTWARE__CLIENT_SECRET || "",
+  accessToken: process.env.access_token || ""
 };
 
 // establish connection
@@ -42,6 +45,14 @@ client.on("PROTO_MESSAGE", (message, payloadType) => {
       console.log(msg);
       break;
     }
+    case "PROTO_OA_GET_ACCOUNTS_BY_ACCESS_TOKEN_RES": {
+      const msg = fromProtoMessage(
+        "PROTO_OA_GET_ACCOUNTS_BY_ACCESS_TOKEN_RES",
+        message
+      );
+      console.log(JSON.stringify(msg, null, 2));
+      break;
+    }
   }
 });
 
@@ -60,3 +71,18 @@ writeProtoMessage(
     clientSecret: config.clientSecret
   })
 );
+setTimeout(() => {
+  // writeProtoMessage(
+  //   client,
+  //   toProtoMessage("PROTO_OA_GET_ACCOUNTS_BY_ACCESS_TOKEN_REQ", {
+  //     accessToken: config.accessToken
+  //   })
+  // );
+  writeProtoMessage(
+    client,
+    toProtoMessage("PROTO_OA_ACCOUNT_AUTH_REQ", {
+      ctidTraderAccountId: Long.fromString("5291983"),
+      accessToken: config.accessToken
+    })
+  );
+}, 2000);
