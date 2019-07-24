@@ -8,7 +8,8 @@
     "test": "jest",
     "prepare": "npm run build",
     "build": "tsc",
-    "playground": "ts-node -r dotenv/config src/playground.ts"
+    "playground": "ts-node -r dotenv/config src/playground.ts",
+    "precommit": "pretty-quick --staged"
   },
   "keywords": [
     "spotware",
@@ -26,35 +27,18 @@
     "url": "https://github.com/claasahl/spotware-adapter/issues"
   },
   "license": "MIT",
-  "husky": {
-    "hooks": {
-      "pre-commit": "pretty-quick --staged"
-    }
-  },
   "devDependencies": {
     "@types/jest": "^24.0.11",
-    "@types/long": "^4.0.0",
-    "@types/mustache": "^0.8.32",
-    "@types/node": "^11.13.6",
+    "@types/pbf": "^3.0.1",
+    "create-typescript-project-dependencies": "^10.0.4",
     "dotenv": "^7.0.0",
-    "husky": "^1.3.1",
-    "isomorphic-git": "^0.53.0",
-    "jest": "^24.7.1",
-    "mustache": "^3.0.1",
-    "prettier": "^1.17.0",
-    "pretty-quick": "^1.10.0",
-    "shx": "^0.3.2",
-    "ts-jest": "^24.0.2",
-    "ts-node": "^8.1.0",
-    "typescript": "^3.4.4"
+    "jest": "^24.7.1"
   },
   "engines": {
     "node": ">= 10.5.0",
     "npm": ">= 6.4.1"
   },
   "dependencies": {
-    "@claasahl/spotware-protobuf": "^0.1.7",
-    "long": "^4.0.0",
-    "protobufjs": "^6.8.8"
+    "@claasahl/spotware-protobuf": "^1.0.5"
   }
 }
