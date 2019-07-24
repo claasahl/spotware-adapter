@@ -7,24 +7,8 @@
   "scripts": {
     "test": "jest",
     "prepare": "npm run build",
-    "prebuild": "shx rm -rf ./build",
-    "build": "npm run generate && tsc",
-    "playground": "ts-node -r dotenv/config src/playground.ts",
-    "pregenerate": "shx mkdir ./build",
-    "generate": "npm run generate:js && npm run generate:ts && npm run generate:messages:map && npm run generate:payload-types && npm run generate:messages && npm run generate:messages:index",
-    "generate:js": "pbjs --no-delimited --no-verify --no-create --no-convert --force-long --target static-module --wrap commonjs --out ./src/spotware-messages.js ./node_modules/@claasahl/spotware-protobuf/assets/*.proto",
-    "postgenerate:js": "prettier --write ./src/spotware-messages.js && shx cp ./src/spotware-messages.js ./build/",
-    "generate:ts": "pbts --out ./src/spotware-messages.d.ts ./src/spotware-messages.js",
-    "postgenerate:ts": "prettier --write ./src/spotware-messages.d.ts && shx cp ./src/spotware-messages.d.ts ./build/",
-    "generate:messages:map": "ts-node ./scripts/00-compile-map.ts > ./assets/message-map.json && prettier --write ./assets/message-map.json",
-    "generate:messages": "ts-node ./scripts/messages.ts",
-    "generate:payload-types": "mustache ./assets/message-map.json ./assets/mustachios/spotware-payload-types.mustache > ./src/spotware-payload-types.ts",
-    "postgenerate:payload-types": "prettier --write ./src/spotware-payload-types.ts",
-    "postgenerate:messages": "prettier --write ./src/messages/**",
-    "generate:messages:index": "mustache ./assets/message-map.json ./assets/mustachios/messages/index.mustache > ./src/messages/index.ts",
-    "postgenerate:messages:index": "prettier --write ./src/messages/index.ts",
-    "generate:messages:handler": "mustache ./assets/message-map.json ./assets/mustachios/spotware-message-handler.mustache > ./src/spotware-message-handler.ts",
-    "postgenerate:messages:handler": "prettier --write ./src/spotware-message-handler.ts"
+    "build": "tsc",
+    "playground": "ts-node -r dotenv/config src/playground.ts"
   },
   "keywords": [
     "spotware",
