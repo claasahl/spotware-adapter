@@ -12,7 +12,7 @@ function readProtoMessage(socket: tls.TLSSocket, data: string) {
     const message = util.deserialize(buffer);
     socket.emit("PROTO_MESSAGE", message);
   } catch (error) {
-    socket.emit("error", error);
+    // FIXME socket.emit("error", error);
   }
 }
 
