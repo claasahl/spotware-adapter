@@ -5,7 +5,6 @@
   "main": "./build/index.js",
   "private": false,
   "scripts": {
-    "test": "jest",
     "prepare": "npm run build",
     "build": "tsc",
     "playground": "ts-node -r dotenv/config src/playground.ts",
@@ -28,11 +27,9 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@types/jest": "^24.0.11",
     "@types/pbf": "^3.0.1",
     "create-typescript-project-dependencies": "^10.0.4",
-    "dotenv": "^7.0.0",
-    "jest": "^24.7.1"
+    "dotenv": "^7.0.0"
   },
   "engines": {
     "node": ">= 10.5.0",
