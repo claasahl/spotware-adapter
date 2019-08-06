@@ -36,6 +36,6 @@
     "npm": ">= 6.4.1"
   },
   "dependencies": {
-    "@claasahl/spotware-protobuf": "^1.0.5"
+    "@claasahl/spotware-protobuf": "^1.1.0"
   }
 }
