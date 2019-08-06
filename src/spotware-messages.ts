@@ -91,6 +91,17 @@ export type ProtoMessage2161 = Message<$.ProtoOASymbolCategoryListRes, 2161>;
 export type ProtoMessage2162 = Message<$.ProtoOAAccountLogoutReq, 2162>;
 export type ProtoMessage2163 = Message<$.ProtoOAAccountLogoutRes, 2163>;
 export type ProtoMessage2164 = Message<$.ProtoOAAccountDisconnectEvent, 2164>;
+export type ProtoMessage2165 = Message<$.ProtoOASubscribeLiveTrendbarRes, 2165>;
+export type ProtoMessage2166 = Message<
+  $.ProtoOAUnsubscribeLiveTrendbarRes,
+  2166
+>;
+export type ProtoMessage2167 = Message<$.ProtoOAMarginCallListReq, 2167>;
+export type ProtoMessage2168 = Message<$.ProtoOAMarginCallListRes, 2168>;
+export type ProtoMessage2169 = Message<$.ProtoOAMarginCallUpdateReq, 2169>;
+export type ProtoMessage2170 = Message<$.ProtoOAMarginCallUpdateRes, 2170>;
+export type ProtoMessage2171 = Message<$.ProtoOAMarginCallUpdateEvent, 2171>;
+export type ProtoMessage2172 = Message<$.ProtoOAMarginCallTriggerEvent, 2172>;
 
 export type ProtoMessages =
   | ProtoMessage5
@@ -160,4 +171,12 @@ export type ProtoMessages =
   | ProtoMessage2161
   | ProtoMessage2162
   | ProtoMessage2163
-  | ProtoMessage2164;
+  | ProtoMessage2164
+  | ProtoMessage2165
+  | ProtoMessage2166
+  | ProtoMessage2167
+  | ProtoMessage2168
+  | ProtoMessage2169
+  | ProtoMessage2170
+  | ProtoMessage2171
+  | ProtoMessage2172;
