@@ -4,7 +4,8 @@ import * as $ from "@claasahl/spotware-protobuf";
 
 export default function readProtoMessage(
   socket: tls.TLSSocket,
-  message: $.ProtoMessage
+  message: $.ProtoMessage,
+  namespace?: string
 ): void {
   const msg: {
     clientMsgId?: string;
@@ -303,4 +304,8 @@ export default function readProtoMessage(
   }
   socket.emit("PROTO_MESSAGE.*", msg);
   socket.emit(`PROTO_MESSAGE.${message.payloadType}`, msg);
+  if (namespace) {
+    socket.emit(`PROTO_MESSAGE.${namespace}.*`, msg);
+    socket.emit(`PROTO_MESSAGE.${namespace}.${message.payloadType}`, msg);
+  }
 }

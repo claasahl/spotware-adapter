@@ -11,6 +11,7 @@ function readProtoMessage(socket: tls.TLSSocket, data: string) {
     const buffer = Buffer.from(data, "binary");
     const message = util.deserialize(buffer);
     socket.emit("PROTO_MESSAGE", message);
+    socket.emit("PROTO_MESSAGE.INPUT", message);
   } catch (error) {
     // FIXME socket.emit("error", error);
   }
@@ -23,6 +24,7 @@ function writeProtoMessage(socket: tls.TLSSocket, message: $.ProtoMessage) {
       socket.emit("error", err, message);
     } else {
       socket.emit("PROTO_MESSAGE", message);
+      socket.emit("PROTO_MESSAGE.OUTPUT", message);
     }
   });
 }
@@ -46,5 +48,11 @@ export function connect(
     .setDefaultEncoding("binary");
   socket.on("data", data => readProtoMessage(socket, data));
   socket.on("PROTO_MESSAGE", message => readProtoMessages(socket, message));
+  socket.on("PROTO_MESSAGE.INPUT", message =>
+    readProtoMessages(socket, message, "INPUT")
+  );
+  socket.on("PROTO_MESSAGE.OUTPUT", message =>
+    readProtoMessages(socket, message, "OUTPUT")
+  );
   return socket;
 }
