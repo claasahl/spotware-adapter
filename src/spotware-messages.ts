@@ -102,6 +102,8 @@ export type ProtoMessage2169 = Message<$.ProtoOAMarginCallUpdateReq, 2169>;
 export type ProtoMessage2170 = Message<$.ProtoOAMarginCallUpdateRes, 2170>;
 export type ProtoMessage2171 = Message<$.ProtoOAMarginCallUpdateEvent, 2171>;
 export type ProtoMessage2172 = Message<$.ProtoOAMarginCallTriggerEvent, 2172>;
+export type ProtoMessage2173 = Message<$.ProtoOARefreshTokenReq, 2173>;
+export type ProtoMessage2174 = Message<$.ProtoOARefreshTokenRes, 2174>;
 
 export type ProtoMessages =
   | ProtoMessage5
@@ -179,4 +181,6 @@ export type ProtoMessages =
   | ProtoMessage2169
   | ProtoMessage2170
   | ProtoMessage2171
-  | ProtoMessage2172;
+  | ProtoMessage2172
+  | ProtoMessage2173
+  | ProtoMessage2174;

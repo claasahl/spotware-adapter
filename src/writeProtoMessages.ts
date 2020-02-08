@@ -210,6 +210,36 @@ export default function writeProtoMessages(message: ProtoMessages): Uint8Array {
     case 2164:
       $.ProtoOAAccountDisconnectEventUtils.write(message.payload, pbf);
       break;
+    case 2165:
+      $.ProtoOASubscribeLiveTrendbarResUtils.write(message.payload, pbf);
+      break;
+    case 2166:
+      $.ProtoOAUnsubscribeLiveTrendbarResUtils.write(message.payload, pbf);
+      break;
+    case 2167:
+      $.ProtoOAMarginCallListReqUtils.write(message.payload, pbf);
+      break;
+    case 2168:
+      $.ProtoOAMarginCallListResUtils.write(message.payload, pbf);
+      break;
+    case 2169:
+      $.ProtoOAMarginCallUpdateReqUtils.write(message.payload, pbf);
+      break;
+    case 2170:
+      $.ProtoOAMarginCallUpdateResUtils.write(message.payload, pbf);
+      break;
+    case 2171:
+      $.ProtoOAMarginCallUpdateEventUtils.write(message.payload, pbf);
+      break;
+    case 2172:
+      $.ProtoOAMarginCallTriggerEventUtils.write(message.payload, pbf);
+      break;
+    case 2173:
+      $.ProtoOARefreshTokenReqUtils.write(message.payload, pbf);
+      break;
+    case 2174:
+      $.ProtoOARefreshTokenResUtils.write(message.payload, pbf);
+      break;
   }
   return pbf.finish();
 }

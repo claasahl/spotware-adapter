@@ -301,6 +301,56 @@ export default function readProtoMessage(
         new Pbf(message.payload)
       );
       break;
+    case 2165:
+      msg.payload = $.ProtoOASubscribeLiveTrendbarResUtils.read(
+        new Pbf(message.payload)
+      );
+      break;
+    case 2166:
+      msg.payload = $.ProtoOAUnsubscribeLiveTrendbarResUtils.read(
+        new Pbf(message.payload)
+      );
+      break;
+    case 2167:
+      msg.payload = $.ProtoOAMarginCallListReqUtils.read(
+        new Pbf(message.payload)
+      );
+      break;
+    case 2168:
+      msg.payload = $.ProtoOAMarginCallListResUtils.read(
+        new Pbf(message.payload)
+      );
+      break;
+    case 2169:
+      msg.payload = $.ProtoOAMarginCallUpdateReqUtils.read(
+        new Pbf(message.payload)
+      );
+      break;
+    case 2170:
+      msg.payload = $.ProtoOAMarginCallUpdateResUtils.read(
+        new Pbf(message.payload)
+      );
+      break;
+    case 2171:
+      msg.payload = $.ProtoOAMarginCallUpdateEventUtils.read(
+        new Pbf(message.payload)
+      );
+      break;
+    case 2172:
+      msg.payload = $.ProtoOAMarginCallTriggerEventUtils.read(
+        new Pbf(message.payload)
+      );
+      break;
+    case 2173:
+      msg.payload = $.ProtoOARefreshTokenReqUtils.read(
+        new Pbf(message.payload)
+      );
+      break;
+    case 2174:
+      msg.payload = $.ProtoOARefreshTokenResUtils.read(
+        new Pbf(message.payload)
+      );
+      break;
   }
   socket.emit("PROTO_MESSAGE.*", msg);
   socket.emit(`PROTO_MESSAGE.${message.payloadType}`, msg);
