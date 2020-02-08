@@ -1,6 +1,6 @@
 {
   "name": "@claasahl/spotware-adapter",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Protocol Buffers and Data Models for Spotware Open API 2.0",
   "main": "build/index.js",
   "private": false,
@@ -27,8 +27,8 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@types/pbf": "^3.0.1",
-    "create-typescript-project-dependencies": "^10.0.4",
+    "@types/pbf": "^3.0.2",
+    "create-typescript-project-dependencies": "^10.0.8",
     "dotenv": "^7.0.0"
   },
   "engines": {
@@ -36,6 +36,6 @@
     "npm": ">= 6.4.1"
   },
   "dependencies": {
-    "@claasahl/spotware-protobuf": "^1.1.0"
+    "@claasahl/spotware-protobuf": "^6.6.0"
   }
 }
