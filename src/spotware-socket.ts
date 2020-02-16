@@ -37,11 +37,53 @@ export function write(socket: tls.TLSSocket, message: ProtoMessages) {
   });
 }
 
+export declare interface SpotwareSocket extends tls.TLSSocket {
+  addListener(event: string, listener: (...args: any[]) => void): this;
+  addListener(event: "PROTO_MESSAGE", listener: (msg: $.ProtoMessage) => void): this;
+  addListener(event: "PROTO_MESSAGE.INPUT", listener: (msg: $.ProtoMessage) => void): this;
+  addListener(event: "PROTO_MESSAGE.OUTPUT", listener: (msg: $.ProtoMessage) => void): this;
+  addListener(event: "PROTO_MESSAGE.*", listener: (msg: ProtoMessages) => void): this;
+  addListener(event: "PROTO_MESSAGE.INPUT.*", listener: (msg: ProtoMessages) => void): this;
+  addListener(event: "PROTO_MESSAGE.OUTPUT.*", listener: (msg: ProtoMessages) => void): this;
+
+  on(event: string, listener: (...args: any[]) => void): this;
+  on(event: "PROTO_MESSAGE", listener: (msg: $.ProtoMessage) => void): this;
+  on(event: "PROTO_MESSAGE.INPUT", listener: (msg: $.ProtoMessage) => void): this;
+  on(event: "PROTO_MESSAGE.OUTPUT", listener: (msg: $.ProtoMessage) => void): this;
+  on(event: "PROTO_MESSAGE.*", listener: (msg: ProtoMessages) => void): this;
+  on(event: "PROTO_MESSAGE.INPUT.*", listener: (msg: ProtoMessages) => void): this;
+  on(event: "PROTO_MESSAGE.OUTPUT.*", listener: (msg: ProtoMessages) => void): this;
+
+  once(event: string, listener: (...args: any[]) => void): this;
+  once(event: "PROTO_MESSAGE", listener: (msg: $.ProtoMessage) => void): this;
+  once(event: "PROTO_MESSAGE.INPUT", listener: (msg: $.ProtoMessage) => void): this;
+  once(event: "PROTO_MESSAGE.OUTPUT", listener: (msg: $.ProtoMessage) => void): this;
+  once(event: "PROTO_MESSAGE.*", listener: (msg: ProtoMessages) => void): this;
+  once(event: "PROTO_MESSAGE.INPUT.*", listener: (msg: ProtoMessages) => void): this;
+  once(event: "PROTO_MESSAGE.OUTPUT.*", listener: (msg: ProtoMessages) => void): this;
+
+  prependListener(event: string, listener: (...args: any[]) => void): this;
+  prependListener(event: "PROTO_MESSAGE", listener: (msg: $.ProtoMessage) => void): this;
+  prependListener(event: "PROTO_MESSAGE.INPUT", listener: (msg: $.ProtoMessage) => void): this;
+  prependListener(event: "PROTO_MESSAGE.OUTPUT", listener: (msg: $.ProtoMessage) => void): this;
+  prependListener(event: "PROTO_MESSAGE.*", listener: (msg: ProtoMessages) => void): this;
+  prependListener(event: "PROTO_MESSAGE.INPUT.*", listener: (msg: ProtoMessages) => void): this;
+  prependListener(event: "PROTO_MESSAGE.OUTPUT.*", listener: (msg: ProtoMessages) => void): this;
+
+  prependOnceListener(event: string, listener: (...args: any[]) => void): this;
+  prependOnceListener(event: "PROTO_MESSAGE", listener: (msg: $.ProtoMessage) => void): this;
+  prependOnceListener(event: "PROTO_MESSAGE.INPUT", listener: (msg: $.ProtoMessage) => void): this;
+  prependOnceListener(event: "PROTO_MESSAGE.OUTPUT", listener: (msg: $.ProtoMessage) => void): this;
+  prependOnceListener(event: "PROTO_MESSAGE.*", listener: (msg: ProtoMessages) => void): this;
+  prependOnceListener(event: "PROTO_MESSAGE.INPUT.*", listener: (msg: ProtoMessages) => void): this;
+  prependOnceListener(event: "PROTO_MESSAGE.OUTPUT.*", listener: (msg: ProtoMessages) => void): this;
+}
+
 export function connect(
   port: number,
   host: string,
   options?: tls.TlsOptions
-): tls.TLSSocket {
+): SpotwareSocket {
   const socket = tls
     .connect(port, host, options)
     .setEncoding("binary")
