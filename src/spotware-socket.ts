@@ -19,7 +19,7 @@ function readProtoMessage(socket: tls.TLSSocket, data: string) {
 
 function writeProtoMessage(socket: tls.TLSSocket, message: $.ProtoMessage) {
   const buffer = util.serialize(message);
-  return socket.write(buffer, (err: Error) => {
+  return socket.write(buffer, err => {
     if (err) {
       socket.emit("error", err, message);
     } else {
@@ -82,7 +82,7 @@ export declare interface SpotwareSocket extends tls.TLSSocket {
 export function connect(
   port: number,
   host: string,
-  options?: tls.TlsOptions
+  options?: tls.ConnectionOptions
 ): SpotwareSocket {
   const socket = tls
     .connect(port, host, options)

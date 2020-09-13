@@ -28,7 +28,7 @@
   "license": "MIT",
   "devDependencies": {
     "@types/pbf": "^3.0.2",
-    "create-typescript-project-dependencies": "^10.0.8",
+    "create-typescript-project-dependencies": "^14.0.6",
     "dotenv": "^7.0.0"
   },
   "engines": {
