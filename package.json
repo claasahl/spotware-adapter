@@ -32,7 +32,7 @@
   "license": "MIT",
   "devDependencies": {
     "@types/pbf": "^3.0.2",
-    "create-typescript-project-dependencies": "^14.0.6",
+    "create-typescript-project-dependencies": "^13.0.3",
     "dotenv": "^7.0.0"
   },
   "engines": {
