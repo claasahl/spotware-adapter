@@ -7,8 +7,7 @@
   "scripts": {
     "prepare": "npm run build",
     "build": "tsc",
-    "playground": "ts-node -r dotenv/config src/playground.ts",
-    "precommit": "pretty-quick --staged"
+    "playground": "ts-node -r dotenv/config src/playground.ts"
   },
   "keywords": [
     "spotware",
@@ -24,6 +23,11 @@
   "repository": "github:claasahl/spotware-adapter",
   "bugs": {
     "url": "https://github.com/claasahl/spotware-adapter/issues"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
   },
   "license": "MIT",
   "devDependencies": {
