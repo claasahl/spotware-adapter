@@ -8,7 +8,6 @@ import { ProtoMessages } from "./spotware-messages";
 function toProtoMessage(data: Buffer): ProtoMessages {
   const { clientMsgId, payloadType, payload } = util.deserialize(data);
   const pbf = new Pbf(payload);
-  console.log("___________", payloadType);
   switch (payloadType) {
     case 5:
       return {
@@ -558,7 +557,6 @@ function toProtoMessage(data: Buffer): ProtoMessages {
 
 function fromProtoMessage(message: ProtoMessages): Buffer {
   const pbf = new Pbf();
-  console.log("_----", message);
   switch (message.payloadType) {
     case 5:
       $.ProtoMessageUtils.write(message.payload, pbf);
@@ -801,27 +799,35 @@ function fromProtoMessage(message: ProtoMessages): Buffer {
   });
 }
 
-export class FromSpotware extends Transform {
+export class BinaryToSpotware extends Transform {
   constructor() {
-    super({
-      allowHalfOpen: false,
-      objectMode: true,
-    });
+    super({ readableObjectMode: true, defaultEncoding: "binary" });
   }
   _transform(
     chunk: any,
     encoding: BufferEncoding,
     callback: TransformCallback
   ): void {
-    console.log("enc", encoding);
-    if ((encoding as any) === "utf8") {
-      const msg = toProtoMessage(chunk);
-      callback(null, msg);
+    if (!Buffer.isBuffer(chunk)) {
       return;
-    } else {
-      const msg = chunk as ProtoMessages;
-      const data = fromProtoMessage(msg);
-      callback(null, data);
     }
+    const msg = toProtoMessage(chunk);
+    console.log("BinaryToSpotware", encoding, msg);
+    callback(null, msg);
+  }
+}
+export class SpotwareToBinary extends Transform {
+  constructor() {
+    super({ writableObjectMode: true, defaultEncoding: "binary" });
+  }
+  _transform(
+    chunk: any,
+    encoding: BufferEncoding,
+    callback: TransformCallback
+  ): void {
+    const msg = chunk as ProtoMessages;
+    const data = fromProtoMessage(msg);
+    console.log("SpotwareToBinary", encoding, data);
+    callback(null, data);
   }
 }
