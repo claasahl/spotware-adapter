@@ -2,16 +2,73 @@ import tls from "tls";
 import { Transform, TransformCallback } from "stream";
 import { read } from "./readProtoMessages";
 import debug from "debug";
+import {
+  ProtoPayloadType,
+  ProtoOAPayloadType,
+} from "@claasahl/spotware-protobuf";
 
 import { ProtoMessages } from "./spotware-messages";
 import { write } from "./writeProtoMessages";
 
-export class BinaryToSpotware extends Transform {
-  log;
+const spotware = debug("spotware");
+const input = spotware.extend("input");
+const inputHuman = input.extend("human");
+const output = spotware.extend("output");
+const outputHuman = output.extend("human");
 
+function logInput(msg: ProtoMessages) {
+  spotware.extend(`${msg.payloadType}`)("%j", {
+    payload: msg.payload,
+    clientMsgId: msg.clientMsgId,
+  });
+  input("%j", {
+    payloadType: msg.payloadType,
+    payload: msg.payload,
+    clientMsgId: msg.clientMsgId,
+  });
+  const payloadTypeText =
+    ProtoPayloadType[msg.payloadType] || ProtoOAPayloadType[msg.payloadType];
+  if (payloadTypeText) {
+    spotware.extend(payloadTypeText)("%j", {
+      payload: msg.payload,
+      clientMsgId: msg.clientMsgId,
+    });
+    inputHuman("%j", {
+      payloadType: payloadTypeText,
+      payload: msg.payload,
+      clientMsgId: msg.clientMsgId,
+    });
+  }
+}
+
+function logOutput(msg: ProtoMessages) {
+  spotware.extend(`${msg.payloadType}`)("%j", {
+    payload: msg.payload,
+    clientMsgId: msg.clientMsgId,
+  });
+  output("%j", {
+    payloadType: msg.payloadType,
+    payload: msg.payload,
+    clientMsgId: msg.clientMsgId,
+  });
+  const payloadTypeText =
+    ProtoPayloadType[msg.payloadType] || ProtoOAPayloadType[msg.payloadType];
+  if (payloadTypeText) {
+    spotware.extend(payloadTypeText)("%j", {
+      payload: msg.payload,
+      clientMsgId: msg.clientMsgId,
+    });
+    outputHuman("%j", {
+      payloadType: payloadTypeText,
+      payload: msg.payload,
+      clientMsgId: msg.clientMsgId,
+    });
+  }
+}
+
+export class BinaryToSpotware extends Transform {
   constructor() {
     super({ readableObjectMode: true, defaultEncoding: "binary" });
-    this.log = debug("spotware").extend("input");
   }
 
   _transform(
@@ -23,20 +80,13 @@ export class BinaryToSpotware extends Transform {
       return;
     }
     const msg = read(chunk);
-    this.log("%j", {
-      payloadType: msg.payloadType,
-      payload: msg.payload,
-      clientMsgId: msg.clientMsgId,
-    });
+    logInput(msg);
     callback(null, msg);
   }
 }
 export class SpotwareToBinary extends Transform {
-  log;
-
   constructor() {
     super({ writableObjectMode: true, defaultEncoding: "binary" });
-    this.log = debug("spotware").extend("output");
   }
 
   _transform(
@@ -45,11 +95,7 @@ export class SpotwareToBinary extends Transform {
     callback: TransformCallback
   ): void {
     const msg = chunk as ProtoMessages;
-    this.log("%j", {
-      payloadType: msg.payloadType,
-      payload: msg.payload,
-      clientMsgId: msg.clientMsgId,
-    });
+    logOutput(msg);
     const data = write(msg);
     callback(null, data);
   }

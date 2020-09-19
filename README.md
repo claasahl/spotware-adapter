@@ -15,7 +15,11 @@ Currently, the most juicy bits and peaces of this package are:
 This package uses [`debug`](https://www.npmjs.com/package/debug) for logging.
 
 - `spotware.input` incoming message from server
+- `spotware.input.human` incoming message from server with humanreadable payloadType
 - `spotware.output` outgoing message to server
+- `spotware.output.human` outgoing message to server with humanreadable payloadType
+- `spotware.${payloadType}` any proto message (i.e. incoming or outgoing)
+- `spotware.${payloadTypeText}` any proto message (i.e. incoming or outgoing)
 
 ## Upcoming Changes
 
