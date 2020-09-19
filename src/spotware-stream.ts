@@ -66,7 +66,7 @@ function logOutput(msg: ProtoMessages) {
   }
 }
 
-export class BinaryToSpotware extends Transform {
+export class SpotwareReadableStream extends Transform {
   constructor() {
     super({ readableObjectMode: true, defaultEncoding: "binary" });
   }
@@ -84,7 +84,7 @@ export class BinaryToSpotware extends Transform {
     callback(null, msg);
   }
 }
-export class SpotwareToBinary extends Transform {
+export class SpotwareWritableStream extends Transform {
   constructor() {
     super({ writableObjectMode: true, defaultEncoding: "binary" });
   }
@@ -111,9 +111,9 @@ export function connect(
     .setEncoding("binary")
     .setDefaultEncoding("binary");
 
-  const read = socket.pipe(new BinaryToSpotware());
-  const write = new SpotwareToBinary();
-  write.pipe(socket);
+  const readable = socket.pipe(new SpotwareReadableStream());
+  const writable = new SpotwareWritableStream();
+  writable.pipe(socket);
 
-  return { read, write };
+  return { readable, writable };
 }

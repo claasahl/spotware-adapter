@@ -44,9 +44,9 @@ function oldApproach() {
 }
 
 function newApproach() {
-  const { write } = connect2(config.port, config.host);
+  const { writable } = connect2(config.port, config.host);
   setTimeout(() => {
-    write.write(
+    writable.write(
       {
         clientMsgId: "AAA",
         payloadType: $.ProtoOAPayloadType.PROTO_OA_VERSION_REQ,
