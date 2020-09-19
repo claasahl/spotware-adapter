@@ -805,14 +805,13 @@ export class BinaryToSpotware extends Transform {
   }
   _transform(
     chunk: any,
-    encoding: BufferEncoding,
+    _encoding: BufferEncoding,
     callback: TransformCallback
   ): void {
     if (!Buffer.isBuffer(chunk)) {
       return;
     }
     const msg = toProtoMessage(chunk);
-    console.log("BinaryToSpotware", encoding, msg);
     callback(null, msg);
   }
 }
@@ -822,12 +821,11 @@ export class SpotwareToBinary extends Transform {
   }
   _transform(
     chunk: any,
-    encoding: BufferEncoding,
+    _encoding: BufferEncoding,
     callback: TransformCallback
   ): void {
     const msg = chunk as ProtoMessages;
     const data = fromProtoMessage(msg);
-    console.log("SpotwareToBinary", encoding, data);
     callback(null, data);
   }
 }
