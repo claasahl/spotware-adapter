@@ -271,6 +271,228 @@ function request<REQ extends $.ProtoMessages, RES extends $.ProtoMessages>(
   };
 }
 
+function helpers(
+  writable: SpotwareWritableStream,
+  readable: SpotwareReadableStream
+) {
+  return {
+    applicationAuthReq: request<$.ProtoMessage2100, $.ProtoMessage2101>(
+      ProtoOAPayloadType.PROTO_OA_APPLICATION_AUTH_REQ,
+      ProtoOAPayloadType.PROTO_OA_APPLICATION_AUTH_RES,
+      writable,
+      readable
+    ),
+    accountAuthReq: request<$.ProtoMessage2102, $.ProtoMessage2103>(
+      ProtoOAPayloadType.PROTO_OA_ACCOUNT_AUTH_REQ,
+      ProtoOAPayloadType.PROTO_OA_ACCOUNT_AUTH_RES,
+      writable,
+      readable
+    ),
+    versionReq: request<$.ProtoMessage2104, $.ProtoMessage2105>(
+      ProtoOAPayloadType.PROTO_OA_VERSION_REQ,
+      ProtoOAPayloadType.PROTO_OA_VERSION_RES,
+      writable,
+      readable
+    ),
+    newOrderReq: request<$.ProtoMessage2106, $.ProtoMessage2126>(
+      ProtoOAPayloadType.PROTO_OA_NEW_ORDER_REQ,
+      ProtoOAPayloadType.PROTO_OA_EXECUTION_EVENT,
+      writable,
+      readable
+    ),
+    // PROTO_OA_TRAILING_SL_CHANGED_EVENT = 2107,
+    cancelOrderReq: request<$.ProtoMessage2108, $.ProtoMessage2126>(
+      ProtoOAPayloadType.PROTO_OA_CANCEL_ORDER_REQ,
+      ProtoOAPayloadType.PROTO_OA_EXECUTION_EVENT,
+      writable,
+      readable
+    ),
+    amendOrderReq: request<$.ProtoMessage2109, $.ProtoMessage2126>(
+      ProtoOAPayloadType.PROTO_OA_AMEND_ORDER_REQ,
+      ProtoOAPayloadType.PROTO_OA_EXECUTION_EVENT,
+      writable,
+      readable
+    ),
+    amendPositionSltpReq: request<$.ProtoMessage2110, $.ProtoMessage2126>(
+      ProtoOAPayloadType.PROTO_OA_AMEND_POSITION_SLTP_REQ,
+      ProtoOAPayloadType.PROTO_OA_EXECUTION_EVENT,
+      writable,
+      readable
+    ),
+    closePositionReq: request<$.ProtoMessage2111, $.ProtoMessage2126>(
+      ProtoOAPayloadType.PROTO_OA_CLOSE_POSITION_REQ,
+      ProtoOAPayloadType.PROTO_OA_EXECUTION_EVENT,
+      writable,
+      readable
+    ),
+    assetListReq: request<$.ProtoMessage2112, $.ProtoMessage2113>(
+      ProtoOAPayloadType.PROTO_OA_ASSET_LIST_REQ,
+      ProtoOAPayloadType.PROTO_OA_ASSET_LIST_RES,
+      writable,
+      readable
+    ),
+    symbolsListReq: request<$.ProtoMessage2114, $.ProtoMessage2115>(
+      ProtoOAPayloadType.PROTO_OA_SYMBOLS_LIST_REQ,
+      ProtoOAPayloadType.PROTO_OA_SYMBOLS_LIST_RES,
+      writable,
+      readable
+    ),
+    symbolByIdReq: request<$.ProtoMessage2116, $.ProtoMessage2117>(
+      ProtoOAPayloadType.PROTO_OA_SYMBOL_BY_ID_REQ,
+      ProtoOAPayloadType.PROTO_OA_SYMBOL_BY_ID_RES,
+      writable,
+      readable
+    ),
+    symbolsForConversionReq: request<$.ProtoMessage2118, $.ProtoMessage2119>(
+      ProtoOAPayloadType.PROTO_OA_SYMBOLS_FOR_CONVERSION_REQ,
+      ProtoOAPayloadType.PROTO_OA_SYMBOLS_FOR_CONVERSION_RES,
+      writable,
+      readable
+    ),
+    // PROTO_OA_SYMBOL_CHANGED_EVENT = 2120,
+    traderReq: request<$.ProtoMessage2121, $.ProtoMessage2122>(
+      ProtoOAPayloadType.PROTO_OA_TRADER_REQ,
+      ProtoOAPayloadType.PROTO_OA_TRADER_RES,
+      writable,
+      readable
+    ),
+    // PROTO_OA_TRADER_UPDATE_EVENT = 2123,
+    reconcileReq: request<$.ProtoMessage2124, $.ProtoMessage2125>(
+      ProtoOAPayloadType.PROTO_OA_RECONCILE_REQ,
+      ProtoOAPayloadType.PROTO_OA_RECONCILE_RES,
+      writable,
+      readable
+    ),
+    // PROTO_OA_EXECUTION_EVENT = 2126,
+    subscribeSpotsReq: request<$.ProtoMessage2127, $.ProtoMessage2128>(
+      ProtoOAPayloadType.PROTO_OA_SUBSCRIBE_SPOTS_REQ,
+      ProtoOAPayloadType.PROTO_OA_SUBSCRIBE_SPOTS_RES,
+      writable,
+      readable
+    ),
+    unsubscribeSpotReq: request<$.ProtoMessage2129, $.ProtoMessage2130>(
+      ProtoOAPayloadType.PROTO_OA_UNSUBSCRIBE_SPOTS_REQ,
+      ProtoOAPayloadType.PROTO_OA_UNSUBSCRIBE_SPOTS_RES,
+      writable,
+      readable
+    ),
+    // PROTO_OA_SPOT_EVENT = 2131,
+    // PROTO_OA_ORDER_ERROR_EVENT = 2132,
+    dealListReq: request<$.ProtoMessage2133, $.ProtoMessage2134>(
+      ProtoOAPayloadType.PROTO_OA_DEAL_LIST_REQ,
+      ProtoOAPayloadType.PROTO_OA_DEAL_LIST_RES,
+      writable,
+      readable
+    ),
+    subscribeLiveTrendbarReq: request<$.ProtoMessage2135, $.ProtoMessage2165>(
+      ProtoOAPayloadType.PROTO_OA_SUBSCRIBE_LIVE_TRENDBAR_REQ,
+      ProtoOAPayloadType.PROTO_OA_SUBSCRIBE_LIVE_TRENDBAR_RES,
+      writable,
+      readable
+    ),
+    unsubscribeLiveTrendbarReq: request<$.ProtoMessage2136, $.ProtoMessage2166>(
+      ProtoOAPayloadType.PROTO_OA_UNSUBSCRIBE_LIVE_TRENDBAR_REQ,
+      ProtoOAPayloadType.PROTO_OA_UNSUBSCRIBE_LIVE_TRENDBAR_RES,
+      writable,
+      readable
+    ),
+
+    getTrendbarsReq: request<$.ProtoMessage2137, $.ProtoMessage2138>(
+      ProtoOAPayloadType.PROTO_OA_GET_TRENDBARS_REQ,
+      ProtoOAPayloadType.PROTO_OA_GET_TRENDBARS_RES,
+      writable,
+      readable
+    ),
+    expectedMarginReq: request<$.ProtoMessage2139, $.ProtoMessage2140>(
+      ProtoOAPayloadType.PROTO_OA_EXPECTED_MARGIN_REQ,
+      ProtoOAPayloadType.PROTO_OA_EXPECTED_MARGIN_RES,
+      writable,
+      readable
+    ),
+    // PROTO_OA_MARGIN_CHANGED_EVENT = 2141,
+    // PROTO_OA_ERROR_RES = 2142,
+    cashFlowHistoryReq: request<$.ProtoMessage2143, $.ProtoMessage2144>(
+      ProtoOAPayloadType.PROTO_OA_CASH_FLOW_HISTORY_LIST_REQ,
+      ProtoOAPayloadType.PROTO_OA_CASH_FLOW_HISTORY_LIST_RES,
+      writable,
+      readable
+    ),
+    getTickdataReq: request<$.ProtoMessage2145, $.ProtoMessage2146>(
+      ProtoOAPayloadType.PROTO_OA_GET_TICKDATA_REQ,
+      ProtoOAPayloadType.PROTO_OA_GET_TICKDATA_RES,
+      writable,
+      readable
+    ),
+    // PROTO_OA_ACCOUNTS_TOKEN_INVALIDATED_EVENT = 2147,
+    // PROTO_OA_CLIENT_DISCONNECT_EVENT = 2148,
+    accountsByAccessTokenReq: request<$.ProtoMessage2149, $.ProtoMessage2150>(
+      ProtoOAPayloadType.PROTO_OA_GET_ACCOUNTS_BY_ACCESS_TOKEN_REQ,
+      ProtoOAPayloadType.PROTO_OA_GET_ACCOUNTS_BY_ACCESS_TOKEN_RES,
+      writable,
+      readable
+    ),
+    getCtidProfileByTokenReq: request<$.ProtoMessage2151, $.ProtoMessage2152>(
+      ProtoOAPayloadType.PROTO_OA_GET_CTID_PROFILE_BY_TOKEN_REQ,
+      ProtoOAPayloadType.PROTO_OA_GET_CTID_PROFILE_BY_TOKEN_RES,
+      writable,
+      readable
+    ),
+
+    assetClassListReq: request<$.ProtoMessage2153, $.ProtoMessage2154>(
+      ProtoOAPayloadType.PROTO_OA_ASSET_CLASS_LIST_REQ,
+      ProtoOAPayloadType.PROTO_OA_ASSET_CLASS_LIST_RES,
+      writable,
+      readable
+    ),
+    // PROTO_OA_DEPTH_EVENT = 2155,
+    subscribeDepthQuotesReq: request<$.ProtoMessage2156, $.ProtoMessage2157>(
+      ProtoOAPayloadType.PROTO_OA_SUBSCRIBE_DEPTH_QUOTES_REQ,
+      ProtoOAPayloadType.PROTO_OA_SUBSCRIBE_DEPTH_QUOTES_RES,
+      writable,
+      readable
+    ),
+    unsubscribeDepthQuotesReq: request<$.ProtoMessage2158, $.ProtoMessage2159>(
+      ProtoOAPayloadType.PROTO_OA_UNSUBSCRIBE_DEPTH_QUOTES_REQ,
+      ProtoOAPayloadType.PROTO_OA_UNSUBSCRIBE_DEPTH_QUOTES_RES,
+      writable,
+      readable
+    ),
+    symbolCategoryReq: request<$.ProtoMessage2160, $.ProtoMessage2161>(
+      ProtoOAPayloadType.PROTO_OA_SYMBOL_CATEGORY_REQ,
+      ProtoOAPayloadType.PROTO_OA_SYMBOL_CATEGORY_RES,
+      writable,
+      readable
+    ),
+    accountLogoutReq: request<$.ProtoMessage2162, $.ProtoMessage2163>(
+      ProtoOAPayloadType.PROTO_OA_ACCOUNT_LOGOUT_REQ,
+      ProtoOAPayloadType.PROTO_OA_ACCOUNT_LOGOUT_RES,
+      writable,
+      readable
+    ),
+    // PROTO_OA_ACCOUNT_DISCONNECT_EVENT = 2164,
+    marginCallListReq: request<$.ProtoMessage2167, $.ProtoMessage2168>(
+      ProtoOAPayloadType.PROTO_OA_MARGIN_CALL_LIST_REQ,
+      ProtoOAPayloadType.PROTO_OA_MARGIN_CALL_LIST_RES,
+      writable,
+      readable
+    ),
+    marginCallUpdateReq: request<$.ProtoMessage2169, $.ProtoMessage2170>(
+      ProtoOAPayloadType.PROTO_OA_MARGIN_CALL_UPDATE_REQ,
+      ProtoOAPayloadType.PROTO_OA_MARGIN_CALL_UPDATE_RES,
+      writable,
+      readable
+    ),
+    // PROTO_OA_MARGIN_CALL_UPDATE_EVENT = 2171,
+    // PROTO_OA_MARGIN_CALL_TRIGGER_EVENT = 2172,
+    refreshTokenReq: request<$.ProtoMessage2173, $.ProtoMessage2174>(
+      ProtoOAPayloadType.PROTO_OA_REFRESH_TOKEN_REQ,
+      ProtoOAPayloadType.PROTO_OA_REFRESH_TOKEN_RES,
+      writable,
+      readable
+    ),
+  };
+}
+
 export function connect(
   port: number,
   host: string,
@@ -285,12 +507,5 @@ export function connect(
   const writable = new SpotwareWritableStream();
   writable.pipe(socket);
 
-  const versionReq = request(
-    ProtoOAPayloadType.PROTO_OA_VERSION_REQ,
-    ProtoOAPayloadType.PROTO_OA_VERSION_RES,
-    writable,
-    readable
-  );
-
-  return { readable, writable, versionReq };
+  return { readable, writable, ...helpers(writable, readable) };
 }
