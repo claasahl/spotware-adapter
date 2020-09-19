@@ -227,32 +227,24 @@ function testResponse<T extends $.ProtoMessages>(
   };
 }
 
-type Callback = (err?: Error, res?: $.ProtoMessage2105["payload"]) => void;
-
-export function connect(
-  port: number,
-  host: string,
-  options?: tls.ConnectionOptions
+function request<REQ extends $.ProtoMessages, RES extends $.ProtoMessages>(
+  reqPayloadType: REQ["payloadType"],
+  resPayloadType: RES["payloadType"],
+  writable: SpotwareWritableStream,
+  readable: SpotwareReadableStream
 ) {
-  const socket = tls
-    .connect(port, host, options)
-    .setEncoding("binary")
-    .setDefaultEncoding("binary");
-
-  const readable = socket.pipe(new SpotwareReadableStream());
-  const writable = new SpotwareWritableStream();
-  writable.pipe(socket);
-
-  const versionReq = (req: $.ProtoMessage2104["payload"], cb: Callback) => {
+  return (
+    req: REQ["payload"],
+    cb: (err?: Error, res?: RES["payload"]) => void
+  ) => {
     const clientMsgId = undefined;
-    const msg: $.ProtoMessages = {
-      payloadType: ProtoOAPayloadType.PROTO_OA_VERSION_REQ,
+    const msg: any = {
+      // fixme
+      payloadType: reqPayloadType,
       payload: req,
       clientMsgId,
     };
-    const isResponse = testResponse<$.ProtoMessage2105>(
-      ProtoOAPayloadType.PROTO_OA_VERSION_RES
-    );
+    const isResponse = testResponse<RES>(resPayloadType);
     writable.write(msg);
     const listener = (msg: $.ProtoMessages) => {
       if (msg.clientMsgId !== clientMsgId) {
@@ -277,6 +269,28 @@ export function connect(
     };
     readable.on("data", listener);
   };
+}
+
+export function connect(
+  port: number,
+  host: string,
+  options?: tls.ConnectionOptions
+) {
+  const socket = tls
+    .connect(port, host, options)
+    .setEncoding("binary")
+    .setDefaultEncoding("binary");
+
+  const readable = socket.pipe(new SpotwareReadableStream());
+  const writable = new SpotwareWritableStream();
+  writable.pipe(socket);
+
+  const versionReq = request(
+    ProtoOAPayloadType.PROTO_OA_VERSION_REQ,
+    ProtoOAPayloadType.PROTO_OA_VERSION_RES,
+    writable,
+    readable
+  );
 
   return { readable, writable, versionReq };
 }
