@@ -15,19 +15,7 @@ Currently, the most juicy bits and peaces of this package are:
 This package uses [`debug`](https://www.npmjs.com/package/debug) for logging.
 
 - `spotware.input` incoming message from server
-- `spotware.input.error `when "error"-event on input stream is emitted
-- `spotware.input.close` when "close"-event on input stream is emitted
-- `spotware.input.end` when "end"-event on input stream is emitted
-- `spotware.input.pause` when "pause"-event on input stream is emitted
-- `spotware.input.readable` when "readable"-event on input stream is emitted
-- `spotware.input.resume` when "resume"-event on input stream is emitted
-- `spotware.output`
-- `spotware.output.error` when "error"-event on output stream is emitted
-- `spotware.output.close` when "close"-event on output stream is emitted
-- `spotware.output.drain` when "drain"-event on output stream is emitted
-- `spotware.output.finish` when "finish"-event on output stream is emitted
-- `spotware.output.pipe` when "pipe"-event on output stream is emitted
-- `spotware.output.unpipe` when "unpipe"-event on output stream is emitted
+- `spotware.output` outgoing message to server
 
 ## Upcoming Changes
 

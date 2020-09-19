@@ -9,9 +9,9 @@ import { write } from "./writeProtoMessages";
 export class BinaryToSpotware extends Transform {
   log;
 
-  constructor(log: debug.Debugger) {
+  constructor() {
     super({ readableObjectMode: true, defaultEncoding: "binary" });
-    this.log = log;
+    this.log = debug("spotware").extend("input");
   }
 
   _transform(
@@ -34,9 +34,9 @@ export class BinaryToSpotware extends Transform {
 export class SpotwareToBinary extends Transform {
   log;
 
-  constructor(log: debug.Debugger) {
+  constructor() {
     super({ writableObjectMode: true, defaultEncoding: "binary" });
-    this.log = log;
+    this.log = debug("spotware").extend("output");
   }
 
   _transform(
@@ -65,44 +65,9 @@ export function connect(
     .setEncoding("binary")
     .setDefaultEncoding("binary");
 
-  const input = debug("spotware").extend("input");
-  const read = socket.pipe(new BinaryToSpotware(input));
-  read.prependListener("error", (err) => input.extend("error")(err));
-  read.prependListener("close", () =>
-    input.extend("close")("no more events will be emitted.")
-  );
-  read.prependListener("end", () =>
-    input.extend("end")("there is no more data to be consumed.")
-  );
-  read.prependListener("pause", () =>
-    input.extend("pause")("entered paused mode.")
-  );
-  read.prependListener("readable", () =>
-    input.extend("readable")("new data available / end of stream")
-  );
-  read.prependListener("resume", () =>
-    input.extend("resume")("entered flowing mode.")
-  );
-
-  const output = debug("spotware").extend("output");
-  const write = new SpotwareToBinary(output);
+  const read = socket.pipe(new BinaryToSpotware());
+  const write = new SpotwareToBinary();
   write.pipe(socket);
-  write.prependListener("error", (err) => output.extend("error")(err));
-  write.prependListener("close", () =>
-    output.extend("close")("no more events will be emitted.")
-  );
-  write.prependListener("drain", () =>
-    output.extend("drain")("ok to resume writing data.")
-  );
-  write.prependListener("finish", () =>
-    output.extend("finish")("all data has been flushed.")
-  );
-  write.prependListener("pipe", () =>
-    output.extend("pipe")("something started writing to 'me'.")
-  );
-  write.prependListener("unpipe", () =>
-    output.extend("unpipe")("something stopped writing to 'me'.")
-  );
 
   return { read, write };
 }
