@@ -43,28 +43,14 @@ function oldApproach() {
 }
 
 function newApproach() {
-  const { readable, writable, versionReq } = connect2(config.port, config.host);
+  const conn = connect2(config.port, config.host);
   setTimeout(() => {
-    versionReq({}, (err, res) => console.log("___---", err, res));
-  }, 1000);
-  setTimeout(() => {
-    writable.write(
-      {
-        clientMsgId: "AAA",
-        payloadType: ProtoOAPayloadType.PROTO_OA_VERSION_REQ,
-        payload: {},
-      },
-      "bla",
-      (err) => {
-        console.log("NEW written", err);
-      }
+    conn.versionReq({}, (err, res) => console.log("___---", err, res));
+    conn.applicationAuthReq({ ...config }, (err, res) =>
+      console.log("___---", err, res)
     );
-  }, 4000);
-  readable.on("data", (msg) => {
-    if (msg.payloadType === ProtoOAPayloadType.PROTO_OA_VERSION_RES) {
-      console.log("---->", msg.payload);
-    }
-  });
+  }, 1000);
+  setInterval(() => conn.heartbeat(console.log), 10000);
 }
 
 oldApproach;
