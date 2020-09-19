@@ -276,6 +276,15 @@ function helpers(
   readable: SpotwareReadableStream
 ) {
   return {
+    heartbeat: (cb: (err?: Error | null) => void) => {
+      const clientMsgId = undefined;
+      const msg: $.ProtoMessage51 = {
+        payloadType: ProtoPayloadType.HEARTBEAT_EVENT,
+        payload: {},
+        clientMsgId,
+      };
+      writable.write(msg, (err) => cb(err));
+    },
     applicationAuthReq: request<$.ProtoMessage2100, $.ProtoMessage2101>(
       ProtoOAPayloadType.PROTO_OA_APPLICATION_AUTH_REQ,
       ProtoOAPayloadType.PROTO_OA_APPLICATION_AUTH_RES,
