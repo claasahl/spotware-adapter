@@ -7,7 +7,7 @@ import {
   ProtoOAPayloadType,
 } from "@claasahl/spotware-protobuf";
 
-import { ProtoMessages } from "./spotware-messages";
+import * as $ from "./spotware-messages";
 import { write } from "./writeProtoMessages";
 
 const spotware = debug("spotware");
@@ -16,7 +16,7 @@ const inputHuman = input.extend("human");
 const output = spotware.extend("output");
 const outputHuman = output.extend("human");
 
-function logInput(msg: ProtoMessages) {
+function logInput(msg: $.ProtoMessages) {
   spotware.extend(`${msg.payloadType}`)("%j", {
     payload: msg.payload,
     clientMsgId: msg.clientMsgId,
@@ -41,7 +41,7 @@ function logInput(msg: ProtoMessages) {
   }
 }
 
-function logOutput(msg: ProtoMessages) {
+function logOutput(msg: $.ProtoMessages) {
   spotware.extend(`${msg.payloadType}`)("%j", {
     payload: msg.payload,
     clientMsgId: msg.clientMsgId,
@@ -68,7 +68,10 @@ function logOutput(msg: ProtoMessages) {
 
 export declare interface SpotwareReadableStream extends Transform {
   addListener(event: "close", listener: () => void): this;
-  addListener(event: "data", listener: (message: ProtoMessages) => void): this;
+  addListener(
+    event: "data",
+    listener: (message: $.ProtoMessages) => void
+  ): this;
   addListener(event: "end", listener: () => void): this;
   addListener(event: "error", listener: (err: Error) => void): this;
   addListener(event: "pause", listener: () => void): this;
@@ -77,7 +80,7 @@ export declare interface SpotwareReadableStream extends Transform {
   addListener(event: string | symbol, listener: (...args: any[]) => void): this;
 
   emit(event: "close"): boolean;
-  emit(event: "data", message: ProtoMessages): boolean;
+  emit(event: "data", message: $.ProtoMessages): boolean;
   emit(event: "end"): boolean;
   emit(event: "error", err: Error): boolean;
   emit(event: "pause"): boolean;
@@ -86,7 +89,7 @@ export declare interface SpotwareReadableStream extends Transform {
   emit(event: string | symbol, ...args: any[]): boolean;
 
   on(event: "close", listener: () => void): this;
-  on(event: "data", listener: (message: ProtoMessages) => void): this;
+  on(event: "data", listener: (message: $.ProtoMessages) => void): this;
   on(event: "end", listener: () => void): this;
   on(event: "error", listener: (err: Error) => void): this;
   on(event: "pause", listener: () => void): this;
@@ -95,7 +98,7 @@ export declare interface SpotwareReadableStream extends Transform {
   on(event: string | symbol, listener: (...args: any[]) => void): this;
 
   once(event: "close", listener: () => void): this;
-  once(event: "data", listener: (message: ProtoMessages) => void): this;
+  once(event: "data", listener: (message: $.ProtoMessages) => void): this;
   once(event: "end", listener: () => void): this;
   once(event: "error", listener: (err: Error) => void): this;
   once(event: "pause", listener: () => void): this;
@@ -106,7 +109,7 @@ export declare interface SpotwareReadableStream extends Transform {
   prependListener(event: "close", listener: () => void): this;
   prependListener(
     event: "data",
-    listener: (message: ProtoMessages) => void
+    listener: (message: $.ProtoMessages) => void
   ): this;
   prependListener(event: "end", listener: () => void): this;
   prependListener(event: "error", listener: (err: Error) => void): this;
@@ -121,7 +124,7 @@ export declare interface SpotwareReadableStream extends Transform {
   prependOnceListener(event: "close", listener: () => void): this;
   prependOnceListener(
     event: "data",
-    listener: (message: ProtoMessages) => void
+    listener: (message: $.ProtoMessages) => void
   ): this;
   prependOnceListener(event: "end", listener: () => void): this;
   prependOnceListener(event: "error", listener: (err: Error) => void): this;
@@ -136,7 +139,7 @@ export declare interface SpotwareReadableStream extends Transform {
   removeListener(event: "close", listener: () => void): this;
   removeListener(
     event: "data",
-    listener: (message: ProtoMessages) => void
+    listener: (message: $.ProtoMessages) => void
   ): this;
   removeListener(event: "end", listener: () => void): this;
   removeListener(event: "error", listener: (err: Error) => void): this;
@@ -170,12 +173,12 @@ export class SpotwareReadableStream extends Transform {
 
 export declare interface SpotwareWritableStream extends Transform {
   write(
-    message: ProtoMessages,
+    message: $.ProtoMessages,
     encoding?: string,
     cb?: (error: Error | null | undefined) => void
   ): boolean;
   write(
-    message: ProtoMessages,
+    message: $.ProtoMessages,
     cb?: (error: Error | null | undefined) => void
   ): boolean;
 }
@@ -190,12 +193,41 @@ export class SpotwareWritableStream extends Transform {
     _encoding: BufferEncoding,
     callback: TransformCallback
   ): void {
-    const msg = chunk as ProtoMessages;
+    const msg = chunk as $.ProtoMessages;
     logOutput(msg);
     const data = write(msg);
     callback(null, data);
   }
 }
+
+function isError(msg: $.ProtoMessages): msg is $.ProtoMessage50 {
+  return msg.payloadType === ProtoPayloadType.ERROR_RES;
+}
+
+function isOAError(msg: $.ProtoMessages): msg is $.ProtoMessage2142 {
+  return msg.payloadType === ProtoOAPayloadType.PROTO_OA_ERROR_RES;
+}
+
+function isOrderError(msg: $.ProtoMessages): msg is $.ProtoMessage2132 {
+  return msg.payloadType === ProtoOAPayloadType.PROTO_OA_ORDER_ERROR_EVENT;
+}
+
+function toError(
+  msg: $.ProtoMessage50 | $.ProtoMessage2142 | $.ProtoMessage2132
+): Error {
+  const { errorCode, description } = msg.payload;
+  return new Error(`${errorCode}, ${description}`);
+}
+
+function testResponse<T extends $.ProtoMessages>(
+  payloadType: T["payloadType"]
+) {
+  return (msg: $.ProtoMessages): msg is T => {
+    return msg.payloadType === payloadType;
+  };
+}
+
+type Callback = (err?: Error, res?: $.ProtoMessage2105["payload"]) => void;
 
 export function connect(
   port: number,
@@ -211,5 +243,40 @@ export function connect(
   const writable = new SpotwareWritableStream();
   writable.pipe(socket);
 
-  return { readable, writable };
+  const versionReq = (req: $.ProtoMessage2104["payload"], cb: Callback) => {
+    const clientMsgId = undefined;
+    const msg: $.ProtoMessages = {
+      payloadType: ProtoOAPayloadType.PROTO_OA_VERSION_REQ,
+      payload: req,
+      clientMsgId,
+    };
+    const isResponse = testResponse<$.ProtoMessage2105>(
+      ProtoOAPayloadType.PROTO_OA_VERSION_RES
+    );
+    writable.write(msg);
+    const listener = (msg: $.ProtoMessages) => {
+      if (msg.clientMsgId !== clientMsgId) {
+        return;
+      }
+      if (isResponse(msg)) {
+        cb(undefined, msg.payload);
+        readable.off("data", listener);
+      } else if (isError(msg)) {
+        const err = toError(msg);
+        cb(err);
+        readable.off("data", listener);
+      } else if (isOAError(msg)) {
+        const err = toError(msg);
+        cb(err);
+        readable.off("data", listener);
+      } else if (isOrderError(msg)) {
+        const err = toError(msg);
+        cb(err);
+        readable.off("data", listener);
+      }
+    };
+    readable.on("data", listener);
+  };
+
+  return { readable, writable, versionReq };
 }

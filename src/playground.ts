@@ -43,7 +43,10 @@ function oldApproach() {
 }
 
 function newApproach() {
-  const { readable, writable } = connect2(config.port, config.host);
+  const { readable, writable, versionReq } = connect2(config.port, config.host);
+  setTimeout(() => {
+    versionReq({}, (err, res) => console.log("___---", err, res));
+  }, 1000);
   setTimeout(() => {
     writable.write(
       {
