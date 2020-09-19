@@ -1,4 +1,3 @@
-import * as $ from "@claasahl/spotware-protobuf";
 import { connect, write, ProtoPayloadType } from ".";
 import { ProtoOAPayloadType } from "@claasahl/spotware-protobuf";
 import { connect as connect2 } from "./spotware-stream";
@@ -44,12 +43,12 @@ function oldApproach() {
 }
 
 function newApproach() {
-  const { writable } = connect2(config.port, config.host);
+  const { readable, writable } = connect2(config.port, config.host);
   setTimeout(() => {
     writable.write(
       {
         clientMsgId: "AAA",
-        payloadType: $.ProtoOAPayloadType.PROTO_OA_VERSION_REQ,
+        payloadType: ProtoOAPayloadType.PROTO_OA_VERSION_REQ,
         payload: {},
       },
       "bla",
@@ -58,6 +57,11 @@ function newApproach() {
       }
     );
   }, 4000);
+  readable.on("data", (msg) => {
+    if (msg.payloadType === ProtoOAPayloadType.PROTO_OA_VERSION_RES) {
+      console.log("---->", msg.payload);
+    }
+  });
 }
 
 oldApproach;
