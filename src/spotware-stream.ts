@@ -24,9 +24,9 @@ export class BinaryToSpotware extends Transform {
     }
     const msg = read(chunk);
     this.log("%j", {
-      clientMsgId: msg.clientMsgId,
       payloadType: msg.payloadType,
       payload: msg.payload,
+      clientMsgId: msg.clientMsgId,
     });
     callback(null, msg);
   }
@@ -46,9 +46,9 @@ export class SpotwareToBinary extends Transform {
   ): void {
     const msg = chunk as ProtoMessages;
     this.log("%j", {
-      clientMsgId: msg.clientMsgId,
       payloadType: msg.payloadType,
       payload: msg.payload,
+      clientMsgId: msg.clientMsgId,
     });
     const data = write(msg);
     callback(null, data);
