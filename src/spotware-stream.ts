@@ -1,8 +1,8 @@
 import { Transform, TransformCallback } from "stream";
-import read from "./readProtoMessages";
+import { read } from "./readProtoMessages";
 
 import { ProtoMessages } from "./spotware-messages";
-import write from "./writeProtoMessages";
+import { write } from "./writeProtoMessages";
 
 export class BinaryToSpotware extends Transform {
   constructor() {
