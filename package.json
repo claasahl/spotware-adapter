@@ -1,14 +1,13 @@
 {
   "name": "@claasahl/spotware-adapter",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "Protocol Buffers and Data Models for Spotware Open API 2.0",
   "main": "build/index.js",
   "private": false,
   "scripts": {
     "prepare": "npm run build",
     "build": "tsc",
-    "playground": "ts-node -r dotenv/config src/playground.ts",
-    "precommit": "pretty-quick --staged"
+    "playground": "ts-node -r dotenv/config src/playground.ts"
   },
   "keywords": [
     "spotware",
@@ -25,10 +24,16 @@
   "bugs": {
     "url": "https://github.com/claasahl/spotware-adapter/issues"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  },
   "license": "MIT",
   "devDependencies": {
+    "@types/debug": "^4.1.5",
     "@types/pbf": "^3.0.2",
-    "create-typescript-project-dependencies": "^14.0.6",
+    "create-typescript-project-dependencies": "^13.0.3",
     "dotenv": "^7.0.0"
   },
   "engines": {
@@ -36,6 +41,7 @@
     "npm": ">= 6.4.1"
   },
   "dependencies": {
-    "@claasahl/spotware-protobuf": "^6.9.0"
+    "@claasahl/spotware-protobuf": "^6.9.0",
+    "debug": "^4.2.0"
   }
 }

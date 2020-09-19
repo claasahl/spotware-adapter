@@ -10,6 +10,17 @@ Currently, the most juicy bits and peaces of this package are:
 - generated data models for spotware messages
 - latest set of protocolbuf files
 
+## Logging Namespaces
+
+This package uses [`debug`](https://www.npmjs.com/package/debug) for logging.
+
+- `spotware.input` incoming message from server
+- `spotware.input.human` incoming message from server with humanreadable payloadType
+- `spotware.output` outgoing message to server
+- `spotware.output.human` outgoing message to server with humanreadable payloadType
+- `spotware.${payloadType}` any proto message (i.e. incoming or outgoing)
+- `spotware.${payloadTypeText}` any proto message (i.e. incoming or outgoing)
+
 ## Upcoming Changes
 
 - a typescript/javascript client for communicating with spotware open api v2 servers
@@ -35,14 +46,11 @@ import {
   connect,
   fromProtoMessage,
   toProtoMessage,
-  writeProtoMessage
+  writeProtoMessage,
 } from "@claasahl/spotware-adapter";
 
 // establish connection
-const client = connect(
-  5035,
-  "live.ctraderapi.com"
-);
+const client = connect(5035, "live.ctraderapi.com");
 
 // handle (incoming) proto messages
 client.on("PROTO_MESSAGE", (message, payloadType) => {
