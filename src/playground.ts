@@ -1,6 +1,6 @@
 import { connect, write, ProtoPayloadType } from ".";
 import { ProtoOAPayloadType } from "@claasahl/spotware-protobuf";
-import { connect as connect2 } from "./spotware-stream";
+import { SpotwareStream } from "./spotware-stream";
 
 const config = {
   host: process.env.SPOTWARE__HOST || "live.ctraderapi.com",
@@ -43,14 +43,24 @@ function oldApproach() {
 }
 
 function newApproach() {
-  const conn = connect2(config.port, config.host);
+  const s = new SpotwareStream(config.port, config.host);
   setTimeout(() => {
-    conn.versionReq({}, (err, res) => console.log("___---", err, res));
-    conn.applicationAuthReq({ ...config }, (err, res) =>
-      console.log("___---", err, res)
-    );
+    s.write({
+      payloadType: ProtoOAPayloadType.PROTO_OA_VERSION_REQ,
+      payload: {},
+    });
+    s.write({
+      payloadType: ProtoOAPayloadType.PROTO_OA_APPLICATION_AUTH_REQ,
+      payload: config,
+    });
   }, 1000);
-  setInterval(() => conn.heartbeat(console.log), 10000);
+  setInterval(
+    () =>
+      s.write({ payloadType: ProtoPayloadType.HEARTBEAT_EVENT, payload: {} }),
+    10000
+  );
+  s.resume();
+  // s.on("data", console.log);
 }
 
 oldApproach;
