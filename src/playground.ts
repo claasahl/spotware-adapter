@@ -3,9 +3,8 @@ import {
   ProtoPayloadType,
 } from "@claasahl/spotware-protobuf";
 import { SpotwareStream } from "./spotware-stream";
-import { Action, compose, applyMiddleware, createStore } from "redux";
+import { Action, applyMiddleware, createStore } from "redux";
 import { ProtoMessages } from "./spotware-messages";
-import { install, loop, Cmd } from "redux-loop";
 // FIXME: combineReducers
 interface HeartbeatsState {
   heartbeats: number;
@@ -29,22 +28,12 @@ interface AuthenticationState {
 function authenticate(
   state: AuthenticationState = { application: false, account: false },
   action: Action<ProtoMessages>
-) {
+): AuthenticationState {
   switch (action.type.payloadType) {
     case ProtoOAPayloadType.PROTO_OA_APPLICATION_AUTH_RES:
       return { ...state, application: true };
     case ProtoOAPayloadType.PROTO_OA_ACCOUNT_AUTH_RES:
       return { ...state, account: true };
-    case ProtoOAPayloadType.PROTO_OA_VERSION_RES:
-      return loop(
-        state,
-        Cmd.run(() =>
-          s.write({
-            payloadType: ProtoOAPayloadType.PROTO_OA_APPLICATION_AUTH_REQ,
-            payload: config,
-          })
-        )
-      );
     default:
       return state;
   }
@@ -65,17 +54,14 @@ function sampleApplication(
 }
 const store = createStore(
   sampleApplication,
-  compose(
-    install(),
-    applyMiddleware((store) => (next) => (action) => {
-      console.group(action.type);
-      console.info("dispatching", action);
-      let result = next(action);
-      console.log("next state", store.getState());
-      console.groupEnd();
-      return result;
-    })
-  )
+  applyMiddleware((store) => (next) => (action) => {
+    console.group(action.type);
+    console.info("dispatching", action);
+    let result = next(action);
+    console.log("next state", store.getState());
+    console.groupEnd();
+    return result;
+  })
 );
 // store.subscribe(() => console.log(store.getState()))
 
