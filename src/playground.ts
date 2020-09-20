@@ -45,20 +45,10 @@ function oldApproach() {
 function newApproach() {
   const s = new SpotwareStream(config.port, config.host);
   setTimeout(() => {
-    s.write({
-      payloadType: ProtoOAPayloadType.PROTO_OA_VERSION_REQ,
-      payload: {},
-    });
-    s.write({
-      payloadType: ProtoOAPayloadType.PROTO_OA_APPLICATION_AUTH_REQ,
-      payload: config,
-    });
+    s.versionReq({}, () => {});
+    s.applicationAuthReq(config, () => {});
   }, 1000);
-  setInterval(
-    () =>
-      s.write({ payloadType: ProtoPayloadType.HEARTBEAT_EVENT, payload: {} }),
-    10000
-  );
+  setInterval(() => s.heartbeat(() => {}), 10000);
   s.resume();
   // s.on("data", console.log);
 }

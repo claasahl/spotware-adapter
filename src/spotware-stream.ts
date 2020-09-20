@@ -230,8 +230,8 @@ function testResponse<T extends $.ProtoMessages>(
 function request<REQ extends $.ProtoMessages, RES extends $.ProtoMessages>(
   reqPayloadType: REQ["payloadType"],
   resPayloadType: RES["payloadType"],
-  writable: SpotwareWritableStream,
-  readable: SpotwareReadableStream
+  writable: SpotwareWritableStream | SpotwareStream,
+  readable: SpotwareReadableStream | SpotwareStream
 ) {
   return (
     req: REQ["payload"],
@@ -660,4 +660,226 @@ export class SpotwareStream extends Duplex {
     const data = write(msg);
     this.socket.write(data, callback);
   }
+
+  heartbeat = (cb: (err?: Error | null) => void) => {
+    const clientMsgId = undefined;
+    const msg: $.ProtoMessage51 = {
+      payloadType: ProtoPayloadType.HEARTBEAT_EVENT,
+      payload: {},
+      clientMsgId,
+    };
+    this.write(msg, (err) => cb(err));
+  };
+  applicationAuthReq = request<$.ProtoMessage2100, $.ProtoMessage2101>(
+    ProtoOAPayloadType.PROTO_OA_APPLICATION_AUTH_REQ,
+    ProtoOAPayloadType.PROTO_OA_APPLICATION_AUTH_RES,
+    this,
+    this
+  );
+  accountAuthReq = request<$.ProtoMessage2102, $.ProtoMessage2103>(
+    ProtoOAPayloadType.PROTO_OA_ACCOUNT_AUTH_REQ,
+    ProtoOAPayloadType.PROTO_OA_ACCOUNT_AUTH_RES,
+    this,
+    this
+  );
+  versionReq = request<$.ProtoMessage2104, $.ProtoMessage2105>(
+    ProtoOAPayloadType.PROTO_OA_VERSION_REQ,
+    ProtoOAPayloadType.PROTO_OA_VERSION_RES,
+    this,
+    this
+  );
+  newOrderReq = request<$.ProtoMessage2106, $.ProtoMessage2126>(
+    ProtoOAPayloadType.PROTO_OA_NEW_ORDER_REQ,
+    ProtoOAPayloadType.PROTO_OA_EXECUTION_EVENT,
+    this,
+    this
+  );
+  // PROTO_OA_TRAILING_SL_CHANGED_EVENT = 2107,
+  cancelOrderReq = request<$.ProtoMessage2108, $.ProtoMessage2126>(
+    ProtoOAPayloadType.PROTO_OA_CANCEL_ORDER_REQ,
+    ProtoOAPayloadType.PROTO_OA_EXECUTION_EVENT,
+    this,
+    this
+  );
+  amendOrderReq = request<$.ProtoMessage2109, $.ProtoMessage2126>(
+    ProtoOAPayloadType.PROTO_OA_AMEND_ORDER_REQ,
+    ProtoOAPayloadType.PROTO_OA_EXECUTION_EVENT,
+    this,
+    this
+  );
+  amendPositionSltpReq = request<$.ProtoMessage2110, $.ProtoMessage2126>(
+    ProtoOAPayloadType.PROTO_OA_AMEND_POSITION_SLTP_REQ,
+    ProtoOAPayloadType.PROTO_OA_EXECUTION_EVENT,
+    this,
+    this
+  );
+  closePositionReq = request<$.ProtoMessage2111, $.ProtoMessage2126>(
+    ProtoOAPayloadType.PROTO_OA_CLOSE_POSITION_REQ,
+    ProtoOAPayloadType.PROTO_OA_EXECUTION_EVENT,
+    this,
+    this
+  );
+  assetListReq = request<$.ProtoMessage2112, $.ProtoMessage2113>(
+    ProtoOAPayloadType.PROTO_OA_ASSET_LIST_REQ,
+    ProtoOAPayloadType.PROTO_OA_ASSET_LIST_RES,
+    this,
+    this
+  );
+  symbolsListReq = request<$.ProtoMessage2114, $.ProtoMessage2115>(
+    ProtoOAPayloadType.PROTO_OA_SYMBOLS_LIST_REQ,
+    ProtoOAPayloadType.PROTO_OA_SYMBOLS_LIST_RES,
+    this,
+    this
+  );
+  symbolByIdReq = request<$.ProtoMessage2116, $.ProtoMessage2117>(
+    ProtoOAPayloadType.PROTO_OA_SYMBOL_BY_ID_REQ,
+    ProtoOAPayloadType.PROTO_OA_SYMBOL_BY_ID_RES,
+    this,
+    this
+  );
+  symbolsForConversionReq = request<$.ProtoMessage2118, $.ProtoMessage2119>(
+    ProtoOAPayloadType.PROTO_OA_SYMBOLS_FOR_CONVERSION_REQ,
+    ProtoOAPayloadType.PROTO_OA_SYMBOLS_FOR_CONVERSION_RES,
+    this,
+    this
+  );
+  // PROTO_OA_SYMBOL_CHANGED_EVENT = 2120,
+  traderReq = request<$.ProtoMessage2121, $.ProtoMessage2122>(
+    ProtoOAPayloadType.PROTO_OA_TRADER_REQ,
+    ProtoOAPayloadType.PROTO_OA_TRADER_RES,
+    this,
+    this
+  );
+  // PROTO_OA_TRADER_UPDATE_EVENT = 2123,
+  reconcileReq = request<$.ProtoMessage2124, $.ProtoMessage2125>(
+    ProtoOAPayloadType.PROTO_OA_RECONCILE_REQ,
+    ProtoOAPayloadType.PROTO_OA_RECONCILE_RES,
+    this,
+    this
+  );
+  // PROTO_OA_EXECUTION_EVENT = 2126,
+  subscribeSpotsReq = request<$.ProtoMessage2127, $.ProtoMessage2128>(
+    ProtoOAPayloadType.PROTO_OA_SUBSCRIBE_SPOTS_REQ,
+    ProtoOAPayloadType.PROTO_OA_SUBSCRIBE_SPOTS_RES,
+    this,
+    this
+  );
+  unsubscribeSpotReq = request<$.ProtoMessage2129, $.ProtoMessage2130>(
+    ProtoOAPayloadType.PROTO_OA_UNSUBSCRIBE_SPOTS_REQ,
+    ProtoOAPayloadType.PROTO_OA_UNSUBSCRIBE_SPOTS_RES,
+    this,
+    this
+  );
+  // PROTO_OA_SPOT_EVENT = 2131,
+  // PROTO_OA_ORDER_ERROR_EVENT = 2132,
+  dealListReq = request<$.ProtoMessage2133, $.ProtoMessage2134>(
+    ProtoOAPayloadType.PROTO_OA_DEAL_LIST_REQ,
+    ProtoOAPayloadType.PROTO_OA_DEAL_LIST_RES,
+    this,
+    this
+  );
+  subscribeLiveTrendbarReq = request<$.ProtoMessage2135, $.ProtoMessage2165>(
+    ProtoOAPayloadType.PROTO_OA_SUBSCRIBE_LIVE_TRENDBAR_REQ,
+    ProtoOAPayloadType.PROTO_OA_SUBSCRIBE_LIVE_TRENDBAR_RES,
+    this,
+    this
+  );
+  unsubscribeLiveTrendbarReq = request<$.ProtoMessage2136, $.ProtoMessage2166>(
+    ProtoOAPayloadType.PROTO_OA_UNSUBSCRIBE_LIVE_TRENDBAR_REQ,
+    ProtoOAPayloadType.PROTO_OA_UNSUBSCRIBE_LIVE_TRENDBAR_RES,
+    this,
+    this
+  );
+  getTrendbarsReq = request<$.ProtoMessage2137, $.ProtoMessage2138>(
+    ProtoOAPayloadType.PROTO_OA_GET_TRENDBARS_REQ,
+    ProtoOAPayloadType.PROTO_OA_GET_TRENDBARS_RES,
+    this,
+    this
+  );
+  expectedMarginReq = request<$.ProtoMessage2139, $.ProtoMessage2140>(
+    ProtoOAPayloadType.PROTO_OA_EXPECTED_MARGIN_REQ,
+    ProtoOAPayloadType.PROTO_OA_EXPECTED_MARGIN_RES,
+    this,
+    this
+  );
+  // PROTO_OA_MARGIN_CHANGED_EVENT = 2141,
+  // PROTO_OA_ERROR_RES = 2142,
+  cashFlowHistoryReq = request<$.ProtoMessage2143, $.ProtoMessage2144>(
+    ProtoOAPayloadType.PROTO_OA_CASH_FLOW_HISTORY_LIST_REQ,
+    ProtoOAPayloadType.PROTO_OA_CASH_FLOW_HISTORY_LIST_RES,
+    this,
+    this
+  );
+  getTickdataReq = request<$.ProtoMessage2145, $.ProtoMessage2146>(
+    ProtoOAPayloadType.PROTO_OA_GET_TICKDATA_REQ,
+    ProtoOAPayloadType.PROTO_OA_GET_TICKDATA_RES,
+    this,
+    this
+  );
+  // PROTO_OA_ACCOUNTS_TOKEN_INVALIDATED_EVENT = 2147,
+  // PROTO_OA_CLIENT_DISCONNECT_EVENT = 2148,
+  accountsByAccessTokenReq = request<$.ProtoMessage2149, $.ProtoMessage2150>(
+    ProtoOAPayloadType.PROTO_OA_GET_ACCOUNTS_BY_ACCESS_TOKEN_REQ,
+    ProtoOAPayloadType.PROTO_OA_GET_ACCOUNTS_BY_ACCESS_TOKEN_RES,
+    this,
+    this
+  );
+  getCtidProfileByTokenReq = request<$.ProtoMessage2151, $.ProtoMessage2152>(
+    ProtoOAPayloadType.PROTO_OA_GET_CTID_PROFILE_BY_TOKEN_REQ,
+    ProtoOAPayloadType.PROTO_OA_GET_CTID_PROFILE_BY_TOKEN_RES,
+    this,
+    this
+  );
+  assetClassListReq = request<$.ProtoMessage2153, $.ProtoMessage2154>(
+    ProtoOAPayloadType.PROTO_OA_ASSET_CLASS_LIST_REQ,
+    ProtoOAPayloadType.PROTO_OA_ASSET_CLASS_LIST_RES,
+    this,
+    this
+  );
+  // PROTO_OA_DEPTH_EVENT = 2155,
+  subscribeDepthQuotesReq = request<$.ProtoMessage2156, $.ProtoMessage2157>(
+    ProtoOAPayloadType.PROTO_OA_SUBSCRIBE_DEPTH_QUOTES_REQ,
+    ProtoOAPayloadType.PROTO_OA_SUBSCRIBE_DEPTH_QUOTES_RES,
+    this,
+    this
+  );
+  unsubscribeDepthQuotesReq = request<$.ProtoMessage2158, $.ProtoMessage2159>(
+    ProtoOAPayloadType.PROTO_OA_UNSUBSCRIBE_DEPTH_QUOTES_REQ,
+    ProtoOAPayloadType.PROTO_OA_UNSUBSCRIBE_DEPTH_QUOTES_RES,
+    this,
+    this
+  );
+  symbolCategoryReq = request<$.ProtoMessage2160, $.ProtoMessage2161>(
+    ProtoOAPayloadType.PROTO_OA_SYMBOL_CATEGORY_REQ,
+    ProtoOAPayloadType.PROTO_OA_SYMBOL_CATEGORY_RES,
+    this,
+    this
+  );
+  accountLogoutReq = request<$.ProtoMessage2162, $.ProtoMessage2163>(
+    ProtoOAPayloadType.PROTO_OA_ACCOUNT_LOGOUT_REQ,
+    ProtoOAPayloadType.PROTO_OA_ACCOUNT_LOGOUT_RES,
+    this,
+    this
+  );
+  // PROTO_OA_ACCOUNT_DISCONNECT_EVENT = 2164,
+  marginCallListReq = request<$.ProtoMessage2167, $.ProtoMessage2168>(
+    ProtoOAPayloadType.PROTO_OA_MARGIN_CALL_LIST_REQ,
+    ProtoOAPayloadType.PROTO_OA_MARGIN_CALL_LIST_RES,
+    this,
+    this
+  );
+  marginCallUpdateReq = request<$.ProtoMessage2169, $.ProtoMessage2170>(
+    ProtoOAPayloadType.PROTO_OA_MARGIN_CALL_UPDATE_REQ,
+    ProtoOAPayloadType.PROTO_OA_MARGIN_CALL_UPDATE_RES,
+    this,
+    this
+  );
+  // PROTO_OA_MARGIN_CALL_UPDATE_EVENT = 2171,
+  // PROTO_OA_MARGIN_CALL_TRIGGER_EVENT = 2172,
+  refreshTokenReq = request<$.ProtoMessage2173, $.ProtoMessage2174>(
+    ProtoOAPayloadType.PROTO_OA_REFRESH_TOKEN_REQ,
+    ProtoOAPayloadType.PROTO_OA_REFRESH_TOKEN_RES,
+    this,
+    this
+  );
 }
