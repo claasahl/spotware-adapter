@@ -9,545 +9,552 @@ export function read(data: Buffer): ProtoMessages {
   const { clientMsgId, payloadType, payload } = util.deserialize(data);
   const pbf = new Pbf(payload);
   switch (payloadType) {
-    case 5:
+    case $.ProtoPayloadType.PROTO_MESSAGE:
       return {
-        payloadType: 5,
+        payloadType: $.ProtoPayloadType.PROTO_MESSAGE,
         payload: $.ProtoMessageUtils.read(pbf),
         clientMsgId,
       };
-    case 50:
+    case $.ProtoPayloadType.ERROR_RES:
       return {
-        payloadType: 50,
+        payloadType: $.ProtoPayloadType.ERROR_RES,
         payload: $.ProtoErrorResUtils.read(pbf),
         clientMsgId,
       };
-    case 51:
+    case $.ProtoPayloadType.HEARTBEAT_EVENT:
       return {
-        payloadType: 51,
+        payloadType: $.ProtoPayloadType.HEARTBEAT_EVENT,
         payload: $.ProtoHeartbeatEventUtils.read(pbf),
         clientMsgId,
       };
-    case 2100:
+    case $.ProtoOAPayloadType.PROTO_OA_APPLICATION_AUTH_REQ:
       return {
-        payloadType: 2100,
+        payloadType: $.ProtoOAPayloadType.PROTO_OA_APPLICATION_AUTH_REQ,
         payload: $.ProtoOAApplicationAuthReqUtils.read(pbf),
         clientMsgId,
       };
 
-    case 2101:
+    case $.ProtoOAPayloadType.PROTO_OA_APPLICATION_AUTH_RES:
       return {
-        payloadType: 2101,
+        payloadType: $.ProtoOAPayloadType.PROTO_OA_APPLICATION_AUTH_RES,
         payload: $.ProtoOAApplicationAuthResUtils.read(pbf),
         clientMsgId,
       };
 
-    case 2102:
+    case $.ProtoOAPayloadType.PROTO_OA_ACCOUNT_AUTH_REQ:
       return {
-        payloadType: 2102,
+        payloadType: $.ProtoOAPayloadType.PROTO_OA_ACCOUNT_AUTH_REQ,
         payload: $.ProtoOAAccountAuthReqUtils.read(pbf),
         clientMsgId,
       };
 
-    case 2103:
+    case $.ProtoOAPayloadType.PROTO_OA_ACCOUNT_AUTH_RES:
       return {
-        payloadType: 2103,
+        payloadType: $.ProtoOAPayloadType.PROTO_OA_ACCOUNT_AUTH_RES,
         payload: $.ProtoOAAccountAuthResUtils.read(pbf),
         clientMsgId,
       };
 
-    case 2104:
+    case $.ProtoOAPayloadType.PROTO_OA_VERSION_REQ:
       return {
-        payloadType: 2104,
+        payloadType: $.ProtoOAPayloadType.PROTO_OA_VERSION_REQ,
         payload: $.ProtoOAVersionReqUtils.read(pbf),
         clientMsgId,
       };
 
-    case 2105:
+    case $.ProtoOAPayloadType.PROTO_OA_VERSION_RES:
       return {
-        payloadType: 2105,
+        payloadType: $.ProtoOAPayloadType.PROTO_OA_VERSION_RES,
         payload: $.ProtoOAVersionResUtils.read(pbf),
         clientMsgId,
       };
 
-    case 2106:
+    case $.ProtoOAPayloadType.PROTO_OA_NEW_ORDER_REQ:
       return {
-        payloadType: 2106,
+        payloadType: $.ProtoOAPayloadType.PROTO_OA_NEW_ORDER_REQ,
         payload: $.ProtoOANewOrderReqUtils.read(pbf),
         clientMsgId,
       };
 
-    case 2107:
+    case $.ProtoOAPayloadType.PROTO_OA_TRAILING_SL_CHANGED_EVENT:
       return {
-        payloadType: 2107,
+        payloadType: $.ProtoOAPayloadType.PROTO_OA_TRAILING_SL_CHANGED_EVENT,
         payload: $.ProtoOATrailingSLChangedEventUtils.read(pbf),
         clientMsgId,
       };
 
-    case 2108:
+    case $.ProtoOAPayloadType.PROTO_OA_CANCEL_ORDER_REQ:
       return {
-        payloadType: 2108,
+        payloadType: $.ProtoOAPayloadType.PROTO_OA_CANCEL_ORDER_REQ,
         payload: $.ProtoOACancelOrderReqUtils.read(pbf),
         clientMsgId,
       };
 
-    case 2109:
+    case $.ProtoOAPayloadType.PROTO_OA_AMEND_ORDER_REQ:
       return {
-        payloadType: 2109,
+        payloadType: $.ProtoOAPayloadType.PROTO_OA_AMEND_ORDER_REQ,
         payload: $.ProtoOAAmendOrderReqUtils.read(pbf),
         clientMsgId,
       };
 
-    case 2110:
+    case $.ProtoOAPayloadType.PROTO_OA_AMEND_POSITION_SLTP_REQ:
       return {
-        payloadType: 2110,
+        payloadType: $.ProtoOAPayloadType.PROTO_OA_AMEND_POSITION_SLTP_REQ,
         payload: $.ProtoOAAmendPositionSLTPReqUtils.read(pbf),
         clientMsgId,
       };
 
-    case 2111:
+    case $.ProtoOAPayloadType.PROTO_OA_CLOSE_POSITION_REQ:
       return {
-        payloadType: 2111,
+        payloadType: $.ProtoOAPayloadType.PROTO_OA_CLOSE_POSITION_REQ,
         payload: $.ProtoOAClosePositionReqUtils.read(pbf),
         clientMsgId,
       };
 
-    case 2112:
+    case $.ProtoOAPayloadType.PROTO_OA_ASSET_LIST_REQ:
       return {
-        payloadType: 2112,
+        payloadType: $.ProtoOAPayloadType.PROTO_OA_ASSET_LIST_REQ,
         payload: $.ProtoOAAssetListReqUtils.read(pbf),
         clientMsgId,
       };
 
-    case 2113:
+    case $.ProtoOAPayloadType.PROTO_OA_ASSET_LIST_RES:
       return {
-        payloadType: 2113,
+        payloadType: $.ProtoOAPayloadType.PROTO_OA_ASSET_LIST_RES,
         payload: $.ProtoOAAssetListResUtils.read(pbf),
         clientMsgId,
       };
 
-    case 2114:
+    case $.ProtoOAPayloadType.PROTO_OA_SYMBOLS_LIST_REQ:
       return {
-        payloadType: 2114,
+        payloadType: $.ProtoOAPayloadType.PROTO_OA_SYMBOLS_LIST_REQ,
         payload: $.ProtoOASymbolsListReqUtils.read(pbf),
         clientMsgId,
       };
 
-    case 2115:
+    case $.ProtoOAPayloadType.PROTO_OA_SYMBOLS_LIST_RES:
       return {
-        payloadType: 2115,
+        payloadType: $.ProtoOAPayloadType.PROTO_OA_SYMBOLS_LIST_RES,
         payload: $.ProtoOASymbolsListResUtils.read(pbf),
         clientMsgId,
       };
 
-    case 2116:
+    case $.ProtoOAPayloadType.PROTO_OA_SYMBOL_BY_ID_REQ:
       return {
-        payloadType: 2116,
+        payloadType: $.ProtoOAPayloadType.PROTO_OA_SYMBOL_BY_ID_REQ,
         payload: $.ProtoOASymbolByIdReqUtils.read(pbf),
         clientMsgId,
       };
 
-    case 2117:
+    case $.ProtoOAPayloadType.PROTO_OA_SYMBOL_BY_ID_RES:
       return {
-        payloadType: 2117,
+        payloadType: $.ProtoOAPayloadType.PROTO_OA_SYMBOL_BY_ID_RES,
         payload: $.ProtoOASymbolByIdResUtils.read(pbf),
         clientMsgId,
       };
 
-    case 2118:
+    case $.ProtoOAPayloadType.PROTO_OA_SYMBOLS_FOR_CONVERSION_REQ:
       return {
-        payloadType: 2118,
+        payloadType: $.ProtoOAPayloadType.PROTO_OA_SYMBOLS_FOR_CONVERSION_REQ,
         payload: $.ProtoOASymbolsForConversionReqUtils.read(pbf),
         clientMsgId,
       };
 
-    case 2119:
+    case $.ProtoOAPayloadType.PROTO_OA_SYMBOLS_FOR_CONVERSION_RES:
       return {
-        payloadType: 2119,
+        payloadType: $.ProtoOAPayloadType.PROTO_OA_SYMBOLS_FOR_CONVERSION_RES,
         payload: $.ProtoOASymbolsForConversionResUtils.read(pbf),
         clientMsgId,
       };
 
-    case 2120:
+    case $.ProtoOAPayloadType.PROTO_OA_SYMBOL_CHANGED_EVENT:
       return {
-        payloadType: 2120,
+        payloadType: $.ProtoOAPayloadType.PROTO_OA_SYMBOL_CHANGED_EVENT,
         payload: $.ProtoOASymbolChangedEventUtils.read(pbf),
         clientMsgId,
       };
 
-    case 2121:
+    case $.ProtoOAPayloadType.PROTO_OA_TRADER_REQ:
       return {
-        payloadType: 2121,
+        payloadType: $.ProtoOAPayloadType.PROTO_OA_TRADER_REQ,
         payload: $.ProtoOATraderReqUtils.read(pbf),
         clientMsgId,
       };
 
-    case 2122:
+    case $.ProtoOAPayloadType.PROTO_OA_TRADER_RES:
       return {
-        payloadType: 2122,
+        payloadType: $.ProtoOAPayloadType.PROTO_OA_TRADER_RES,
         payload: $.ProtoOATraderResUtils.read(pbf),
         clientMsgId,
       };
 
-    case 2123:
+    case $.ProtoOAPayloadType.PROTO_OA_TRADER_UPDATE_EVENT:
       return {
-        payloadType: 2123,
+        payloadType: $.ProtoOAPayloadType.PROTO_OA_TRADER_UPDATE_EVENT,
         payload: $.ProtoOATraderUpdatedEventUtils.read(pbf),
         clientMsgId,
       };
 
-    case 2124:
+    case $.ProtoOAPayloadType.PROTO_OA_RECONCILE_REQ:
       return {
-        payloadType: 2124,
+        payloadType: $.ProtoOAPayloadType.PROTO_OA_RECONCILE_REQ,
         payload: $.ProtoOAReconcileReqUtils.read(pbf),
         clientMsgId,
       };
 
-    case 2125:
+    case $.ProtoOAPayloadType.PROTO_OA_RECONCILE_RES:
       return {
-        payloadType: 2125,
+        payloadType: $.ProtoOAPayloadType.PROTO_OA_RECONCILE_RES,
         payload: $.ProtoOAReconcileResUtils.read(pbf),
         clientMsgId,
       };
 
-    case 2126:
+    case $.ProtoOAPayloadType.PROTO_OA_EXECUTION_EVENT:
       return {
-        payloadType: 2126,
+        payloadType: $.ProtoOAPayloadType.PROTO_OA_EXECUTION_EVENT,
         payload: $.ProtoOAExecutionEventUtils.read(pbf),
         clientMsgId,
       };
 
-    case 2127:
+    case $.ProtoOAPayloadType.PROTO_OA_SUBSCRIBE_SPOTS_REQ:
       return {
-        payloadType: 2127,
+        payloadType: $.ProtoOAPayloadType.PROTO_OA_SUBSCRIBE_SPOTS_REQ,
         payload: $.ProtoOASubscribeSpotsReqUtils.read(pbf),
         clientMsgId,
       };
 
-    case 2128:
+    case $.ProtoOAPayloadType.PROTO_OA_SUBSCRIBE_SPOTS_RES:
       return {
-        payloadType: 2128,
+        payloadType: $.ProtoOAPayloadType.PROTO_OA_SUBSCRIBE_SPOTS_RES,
         payload: $.ProtoOASubscribeSpotsResUtils.read(pbf),
         clientMsgId,
       };
 
-    case 2129:
+    case $.ProtoOAPayloadType.PROTO_OA_UNSUBSCRIBE_SPOTS_REQ:
       return {
-        payloadType: 2129,
+        payloadType: $.ProtoOAPayloadType.PROTO_OA_UNSUBSCRIBE_SPOTS_REQ,
         payload: $.ProtoOAUnsubscribeSpotsReqUtils.read(pbf),
         clientMsgId,
       };
 
-    case 2130:
+    case $.ProtoOAPayloadType.PROTO_OA_UNSUBSCRIBE_SPOTS_RES:
       return {
-        payloadType: 2130,
+        payloadType: $.ProtoOAPayloadType.PROTO_OA_UNSUBSCRIBE_SPOTS_RES,
         payload: $.ProtoOAUnsubscribeSpotsResUtils.read(pbf),
         clientMsgId,
       };
 
-    case 2131:
+    case $.ProtoOAPayloadType.PROTO_OA_SPOT_EVENT:
       return {
-        payloadType: 2131,
+        payloadType: $.ProtoOAPayloadType.PROTO_OA_SPOT_EVENT,
         payload: $.ProtoOASpotEventUtils.read(pbf),
         clientMsgId,
       };
 
-    case 2132:
+    case $.ProtoOAPayloadType.PROTO_OA_ORDER_ERROR_EVENT:
       return {
-        payloadType: 2132,
+        payloadType: $.ProtoOAPayloadType.PROTO_OA_ORDER_ERROR_EVENT,
         payload: $.ProtoOAOrderErrorEventUtils.read(pbf),
         clientMsgId,
       };
 
-    case 2133:
+    case $.ProtoOAPayloadType.PROTO_OA_DEAL_LIST_REQ:
       return {
-        payloadType: 2133,
+        payloadType: $.ProtoOAPayloadType.PROTO_OA_DEAL_LIST_REQ,
         payload: $.ProtoOADealListReqUtils.read(pbf),
         clientMsgId,
       };
 
-    case 2134:
+    case $.ProtoOAPayloadType.PROTO_OA_DEAL_LIST_RES:
       return {
-        payloadType: 2134,
+        payloadType: $.ProtoOAPayloadType.PROTO_OA_DEAL_LIST_RES,
         payload: $.ProtoOADealListResUtils.read(pbf),
         clientMsgId,
       };
 
-    case 2135:
+    case $.ProtoOAPayloadType.PROTO_OA_SUBSCRIBE_LIVE_TRENDBAR_REQ:
       return {
-        payloadType: 2135,
+        payloadType: $.ProtoOAPayloadType.PROTO_OA_SUBSCRIBE_LIVE_TRENDBAR_REQ,
         payload: $.ProtoOASubscribeLiveTrendbarReqUtils.read(pbf),
         clientMsgId,
       };
 
-    case 2136:
+    case $.ProtoOAPayloadType.PROTO_OA_UNSUBSCRIBE_LIVE_TRENDBAR_REQ:
       return {
-        payloadType: 2136,
+        payloadType:
+          $.ProtoOAPayloadType.PROTO_OA_UNSUBSCRIBE_LIVE_TRENDBAR_REQ,
         payload: $.ProtoOAUnsubscribeLiveTrendbarReqUtils.read(pbf),
         clientMsgId,
       };
 
-    case 2137:
+    case $.ProtoOAPayloadType.PROTO_OA_GET_TRENDBARS_REQ:
       return {
-        payloadType: 2137,
+        payloadType: $.ProtoOAPayloadType.PROTO_OA_GET_TRENDBARS_REQ,
         payload: $.ProtoOAGetTrendbarsReqUtils.read(pbf),
         clientMsgId,
       };
 
-    case 2138:
+    case $.ProtoOAPayloadType.PROTO_OA_GET_TRENDBARS_RES:
       return {
-        payloadType: 2138,
+        payloadType: $.ProtoOAPayloadType.PROTO_OA_GET_TRENDBARS_RES,
         payload: $.ProtoOAGetTrendbarsResUtils.read(pbf),
         clientMsgId,
       };
 
-    case 2139:
+    case $.ProtoOAPayloadType.PROTO_OA_EXPECTED_MARGIN_REQ:
       return {
-        payloadType: 2139,
+        payloadType: $.ProtoOAPayloadType.PROTO_OA_EXPECTED_MARGIN_REQ,
         payload: $.ProtoOAExpectedMarginReqUtils.read(pbf),
         clientMsgId,
       };
 
-    case 2140:
+    case $.ProtoOAPayloadType.PROTO_OA_EXPECTED_MARGIN_RES:
       return {
-        payloadType: 2140,
+        payloadType: $.ProtoOAPayloadType.PROTO_OA_EXPECTED_MARGIN_RES,
         payload: $.ProtoOAExpectedMarginResUtils.read(pbf),
         clientMsgId,
       };
 
-    case 2141:
+    case $.ProtoOAPayloadType.PROTO_OA_MARGIN_CHANGED_EVENT:
       return {
-        payloadType: 2141,
+        payloadType: $.ProtoOAPayloadType.PROTO_OA_MARGIN_CHANGED_EVENT,
         payload: $.ProtoOAMarginChangedEventUtils.read(pbf),
         clientMsgId,
       };
 
-    case 2142:
+    case $.ProtoOAPayloadType.PROTO_OA_ERROR_RES:
       return {
-        payloadType: 2142,
+        payloadType: $.ProtoOAPayloadType.PROTO_OA_ERROR_RES,
         payload: $.ProtoOAErrorResUtils.read(pbf),
         clientMsgId,
       };
 
-    case 2143:
+    case $.ProtoOAPayloadType.PROTO_OA_CASH_FLOW_HISTORY_LIST_REQ:
       return {
-        payloadType: 2143,
+        payloadType: $.ProtoOAPayloadType.PROTO_OA_CASH_FLOW_HISTORY_LIST_REQ,
         payload: $.ProtoOACashFlowHistoryListReqUtils.read(pbf),
         clientMsgId,
       };
 
-    case 2144:
+    case $.ProtoOAPayloadType.PROTO_OA_CASH_FLOW_HISTORY_LIST_RES:
       return {
-        payloadType: 2144,
+        payloadType: $.ProtoOAPayloadType.PROTO_OA_CASH_FLOW_HISTORY_LIST_RES,
         payload: $.ProtoOACashFlowHistoryListResUtils.read(pbf),
         clientMsgId,
       };
 
-    case 2145:
+    case $.ProtoOAPayloadType.PROTO_OA_GET_TICKDATA_REQ:
       return {
-        payloadType: 2145,
+        payloadType: $.ProtoOAPayloadType.PROTO_OA_GET_TICKDATA_REQ,
         payload: $.ProtoOAGetTickDataReqUtils.read(pbf),
         clientMsgId,
       };
 
-    case 2146:
+    case $.ProtoOAPayloadType.PROTO_OA_GET_TICKDATA_RES:
       return {
-        payloadType: 2146,
+        payloadType: $.ProtoOAPayloadType.PROTO_OA_GET_TICKDATA_RES,
         payload: $.ProtoOAGetTickDataResUtils.read(pbf),
         clientMsgId,
       };
 
-    case 2147:
+    case $.ProtoOAPayloadType.PROTO_OA_ACCOUNTS_TOKEN_INVALIDATED_EVENT:
       return {
-        payloadType: 2147,
+        payloadType:
+          $.ProtoOAPayloadType.PROTO_OA_ACCOUNTS_TOKEN_INVALIDATED_EVENT,
         payload: $.ProtoOAAccountsTokenInvalidatedEventUtils.read(pbf),
         clientMsgId,
       };
 
-    case 2148:
+    case $.ProtoOAPayloadType.PROTO_OA_CLIENT_DISCONNECT_EVENT:
       return {
-        payloadType: 2148,
+        payloadType: $.ProtoOAPayloadType.PROTO_OA_CLIENT_DISCONNECT_EVENT,
         payload: $.ProtoOAClientDisconnectEventUtils.read(pbf),
         clientMsgId,
       };
 
-    case 2149:
+    case $.ProtoOAPayloadType.PROTO_OA_GET_ACCOUNTS_BY_ACCESS_TOKEN_REQ:
       return {
-        payloadType: 2149,
+        payloadType:
+          $.ProtoOAPayloadType.PROTO_OA_GET_ACCOUNTS_BY_ACCESS_TOKEN_REQ,
         payload: $.ProtoOAGetAccountListByAccessTokenReqUtils.read(pbf),
         clientMsgId,
       };
 
-    case 2150:
+    case $.ProtoOAPayloadType.PROTO_OA_GET_ACCOUNTS_BY_ACCESS_TOKEN_RES:
       return {
-        payloadType: 2150,
+        payloadType:
+          $.ProtoOAPayloadType.PROTO_OA_GET_ACCOUNTS_BY_ACCESS_TOKEN_RES,
         payload: $.ProtoOAGetAccountListByAccessTokenResUtils.read(pbf),
         clientMsgId,
       };
 
-    case 2151:
+    case $.ProtoOAPayloadType.PROTO_OA_GET_CTID_PROFILE_BY_TOKEN_REQ:
       return {
-        payloadType: 2151,
+        payloadType:
+          $.ProtoOAPayloadType.PROTO_OA_GET_CTID_PROFILE_BY_TOKEN_REQ,
         payload: $.ProtoOAGetCtidProfileByTokenReqUtils.read(pbf),
         clientMsgId,
       };
 
-    case 2152:
+    case $.ProtoOAPayloadType.PROTO_OA_GET_CTID_PROFILE_BY_TOKEN_RES:
       return {
-        payloadType: 2152,
+        payloadType:
+          $.ProtoOAPayloadType.PROTO_OA_GET_CTID_PROFILE_BY_TOKEN_RES,
         payload: $.ProtoOAGetCtidProfileByTokenResUtils.read(pbf),
         clientMsgId,
       };
 
-    case 2153:
+    case $.ProtoOAPayloadType.PROTO_OA_ASSET_CLASS_LIST_REQ:
       return {
-        payloadType: 2153,
+        payloadType: $.ProtoOAPayloadType.PROTO_OA_ASSET_CLASS_LIST_REQ,
         payload: $.ProtoOAAssetClassListReqUtils.read(pbf),
         clientMsgId,
       };
 
-    case 2154:
+    case $.ProtoOAPayloadType.PROTO_OA_ASSET_CLASS_LIST_RES:
       return {
-        payloadType: 2154,
+        payloadType: $.ProtoOAPayloadType.PROTO_OA_ASSET_CLASS_LIST_RES,
         payload: $.ProtoOAAssetClassListResUtils.read(pbf),
         clientMsgId,
       };
 
-    case 2155:
+    case $.ProtoOAPayloadType.PROTO_OA_DEPTH_EVENT:
       return {
-        payloadType: 2155,
+        payloadType: $.ProtoOAPayloadType.PROTO_OA_DEPTH_EVENT,
         payload: $.ProtoOADepthEventUtils.read(pbf),
         clientMsgId,
       };
 
-    case 2156:
+    case $.ProtoOAPayloadType.PROTO_OA_SUBSCRIBE_DEPTH_QUOTES_REQ:
       return {
-        payloadType: 2156,
+        payloadType: $.ProtoOAPayloadType.PROTO_OA_SUBSCRIBE_DEPTH_QUOTES_REQ,
         payload: $.ProtoOASubscribeDepthQuotesReqUtils.read(pbf),
         clientMsgId,
       };
 
-    case 2157:
+    case $.ProtoOAPayloadType.PROTO_OA_SUBSCRIBE_DEPTH_QUOTES_RES:
       return {
-        payloadType: 2157,
+        payloadType: $.ProtoOAPayloadType.PROTO_OA_SUBSCRIBE_DEPTH_QUOTES_RES,
         payload: $.ProtoOASubscribeDepthQuotesResUtils.read(pbf),
         clientMsgId,
       };
 
-    case 2158:
+    case $.ProtoOAPayloadType.PROTO_OA_UNSUBSCRIBE_DEPTH_QUOTES_REQ:
       return {
-        payloadType: 2158,
+        payloadType: $.ProtoOAPayloadType.PROTO_OA_UNSUBSCRIBE_DEPTH_QUOTES_REQ,
         payload: $.ProtoOAUnsubscribeDepthQuotesReqUtils.read(pbf),
         clientMsgId,
       };
 
-    case 2159:
+    case $.ProtoOAPayloadType.PROTO_OA_UNSUBSCRIBE_DEPTH_QUOTES_RES:
       return {
-        payloadType: 2159,
+        payloadType: $.ProtoOAPayloadType.PROTO_OA_UNSUBSCRIBE_DEPTH_QUOTES_RES,
         payload: $.ProtoOAUnsubscribeDepthQuotesResUtils.read(pbf),
         clientMsgId,
       };
 
-    case 2160:
+    case $.ProtoOAPayloadType.PROTO_OA_SYMBOL_CATEGORY_REQ:
       return {
-        payloadType: 2160,
+        payloadType: $.ProtoOAPayloadType.PROTO_OA_SYMBOL_CATEGORY_REQ,
         payload: $.ProtoOASymbolCategoryListReqUtils.read(pbf),
         clientMsgId,
       };
 
-    case 2161:
+    case $.ProtoOAPayloadType.PROTO_OA_SYMBOL_CATEGORY_RES:
       return {
-        payloadType: 2161,
+        payloadType: $.ProtoOAPayloadType.PROTO_OA_SYMBOL_CATEGORY_RES,
         payload: $.ProtoOASymbolCategoryListResUtils.read(pbf),
         clientMsgId,
       };
 
-    case 2162:
+    case $.ProtoOAPayloadType.PROTO_OA_ACCOUNT_LOGOUT_REQ:
       return {
-        payloadType: 2162,
+        payloadType: $.ProtoOAPayloadType.PROTO_OA_ACCOUNT_LOGOUT_REQ,
         payload: $.ProtoOAAccountLogoutReqUtils.read(pbf),
         clientMsgId,
       };
 
-    case 2163:
+    case $.ProtoOAPayloadType.PROTO_OA_ACCOUNT_LOGOUT_RES:
       return {
-        payloadType: 2163,
+        payloadType: $.ProtoOAPayloadType.PROTO_OA_ACCOUNT_LOGOUT_RES,
         payload: $.ProtoOAAccountLogoutResUtils.read(pbf),
         clientMsgId,
       };
 
-    case 2164:
+    case $.ProtoOAPayloadType.PROTO_OA_ACCOUNT_DISCONNECT_EVENT:
       return {
-        payloadType: 2164,
+        payloadType: $.ProtoOAPayloadType.PROTO_OA_ACCOUNT_DISCONNECT_EVENT,
         payload: $.ProtoOAAccountDisconnectEventUtils.read(pbf),
         clientMsgId,
       };
 
-    case 2165:
+    case $.ProtoOAPayloadType.PROTO_OA_SUBSCRIBE_LIVE_TRENDBAR_RES:
       return {
-        payloadType: 2165,
+        payloadType: $.ProtoOAPayloadType.PROTO_OA_SUBSCRIBE_LIVE_TRENDBAR_RES,
         payload: $.ProtoOASubscribeLiveTrendbarResUtils.read(pbf),
         clientMsgId,
       };
 
-    case 2166:
+    case $.ProtoOAPayloadType.PROTO_OA_UNSUBSCRIBE_LIVE_TRENDBAR_RES:
       return {
-        payloadType: 2166,
+        payloadType:
+          $.ProtoOAPayloadType.PROTO_OA_UNSUBSCRIBE_LIVE_TRENDBAR_RES,
         payload: $.ProtoOAUnsubscribeLiveTrendbarResUtils.read(pbf),
         clientMsgId,
       };
 
-    case 2167:
+    case $.ProtoOAPayloadType.PROTO_OA_MARGIN_CALL_LIST_REQ:
       return {
-        payloadType: 2167,
+        payloadType: $.ProtoOAPayloadType.PROTO_OA_MARGIN_CALL_LIST_REQ,
         payload: $.ProtoOAMarginCallListReqUtils.read(pbf),
         clientMsgId,
       };
 
-    case 2168:
+    case $.ProtoOAPayloadType.PROTO_OA_MARGIN_CALL_LIST_RES:
       return {
-        payloadType: 2168,
+        payloadType: $.ProtoOAPayloadType.PROTO_OA_MARGIN_CALL_LIST_RES,
         payload: $.ProtoOAMarginCallListResUtils.read(pbf),
         clientMsgId,
       };
 
-    case 2169:
+    case $.ProtoOAPayloadType.PROTO_OA_MARGIN_CALL_UPDATE_REQ:
       return {
-        payloadType: 2169,
+        payloadType: $.ProtoOAPayloadType.PROTO_OA_MARGIN_CALL_UPDATE_REQ,
         payload: $.ProtoOAMarginCallUpdateReqUtils.read(pbf),
         clientMsgId,
       };
 
-    case 2170:
+    case $.ProtoOAPayloadType.PROTO_OA_MARGIN_CALL_UPDATE_RES:
       return {
-        payloadType: 2170,
+        payloadType: $.ProtoOAPayloadType.PROTO_OA_MARGIN_CALL_UPDATE_RES,
         payload: $.ProtoOAMarginCallUpdateResUtils.read(pbf),
         clientMsgId,
       };
 
-    case 2171:
+    case $.ProtoOAPayloadType.PROTO_OA_MARGIN_CALL_UPDATE_EVENT:
       return {
-        payloadType: 2171,
+        payloadType: $.ProtoOAPayloadType.PROTO_OA_MARGIN_CALL_UPDATE_EVENT,
         payload: $.ProtoOAMarginCallUpdateEventUtils.read(pbf),
         clientMsgId,
       };
 
-    case 2172:
+    case $.ProtoOAPayloadType.PROTO_OA_MARGIN_CALL_TRIGGER_EVENT:
       return {
-        payloadType: 2172,
+        payloadType: $.ProtoOAPayloadType.PROTO_OA_MARGIN_CALL_TRIGGER_EVENT,
         payload: $.ProtoOAMarginCallTriggerEventUtils.read(pbf),
         clientMsgId,
       };
 
-    case 2173:
+    case $.ProtoOAPayloadType.PROTO_OA_REFRESH_TOKEN_REQ:
       return {
-        payloadType: 2173,
+        payloadType: $.ProtoOAPayloadType.PROTO_OA_REFRESH_TOKEN_REQ,
         payload: $.ProtoOARefreshTokenReqUtils.read(pbf),
         clientMsgId,
       };
 
-    case 2174:
+    case $.ProtoOAPayloadType.PROTO_OA_REFRESH_TOKEN_RES:
       return {
-        payloadType: 2174,
+        payloadType: $.ProtoOAPayloadType.PROTO_OA_REFRESH_TOKEN_RES,
         payload: $.ProtoOARefreshTokenResUtils.read(pbf),
         clientMsgId,
       };
@@ -570,336 +577,336 @@ export default function readProtoMessage(
     payload: message.payload,
   };
   switch (message.payloadType) {
-    case 5:
+    case $.ProtoPayloadType.PROTO_MESSAGE:
       msg.payload = $.ProtoMessageUtils.read(new Pbf(message.payload));
       break;
-    case 50:
+    case $.ProtoPayloadType.ERROR_RES:
       msg.payload = $.ProtoErrorResUtils.read(new Pbf(message.payload));
       break;
-    case 51:
+    case $.ProtoPayloadType.HEARTBEAT_EVENT:
       msg.payload = $.ProtoHeartbeatEventUtils.read(new Pbf(message.payload));
       break;
-    case 2100:
+    case $.ProtoOAPayloadType.PROTO_OA_APPLICATION_AUTH_REQ:
       msg.payload = $.ProtoOAApplicationAuthReqUtils.read(
         new Pbf(message.payload)
       );
       break;
-    case 2101:
+    case $.ProtoOAPayloadType.PROTO_OA_APPLICATION_AUTH_RES:
       msg.payload = $.ProtoOAApplicationAuthResUtils.read(
         new Pbf(message.payload)
       );
       break;
-    case 2102:
+    case $.ProtoOAPayloadType.PROTO_OA_ACCOUNT_AUTH_REQ:
       msg.payload = $.ProtoOAAccountAuthReqUtils.read(new Pbf(message.payload));
       break;
-    case 2103:
+    case $.ProtoOAPayloadType.PROTO_OA_ACCOUNT_AUTH_RES:
       msg.payload = $.ProtoOAAccountAuthResUtils.read(new Pbf(message.payload));
       break;
-    case 2104:
+    case $.ProtoOAPayloadType.PROTO_OA_VERSION_REQ:
       msg.payload = $.ProtoOAVersionReqUtils.read(new Pbf(message.payload));
       break;
-    case 2105:
+    case $.ProtoOAPayloadType.PROTO_OA_VERSION_RES:
       msg.payload = $.ProtoOAVersionResUtils.read(new Pbf(message.payload));
       break;
-    case 2106:
+    case $.ProtoOAPayloadType.PROTO_OA_NEW_ORDER_REQ:
       msg.payload = $.ProtoOANewOrderReqUtils.read(new Pbf(message.payload));
       break;
-    case 2107:
+    case $.ProtoOAPayloadType.PROTO_OA_TRAILING_SL_CHANGED_EVENT:
       msg.payload = $.ProtoOATrailingSLChangedEventUtils.read(
         new Pbf(message.payload)
       );
       break;
-    case 2108:
+    case $.ProtoOAPayloadType.PROTO_OA_CANCEL_ORDER_REQ:
       msg.payload = $.ProtoOACancelOrderReqUtils.read(new Pbf(message.payload));
       break;
-    case 2109:
+    case $.ProtoOAPayloadType.PROTO_OA_AMEND_ORDER_REQ:
       msg.payload = $.ProtoOAAmendOrderReqUtils.read(new Pbf(message.payload));
       break;
-    case 2110:
+    case $.ProtoOAPayloadType.PROTO_OA_AMEND_POSITION_SLTP_REQ:
       msg.payload = $.ProtoOAAmendPositionSLTPReqUtils.read(
         new Pbf(message.payload)
       );
       break;
-    case 2111:
+    case $.ProtoOAPayloadType.PROTO_OA_CLOSE_POSITION_REQ:
       msg.payload = $.ProtoOAClosePositionReqUtils.read(
         new Pbf(message.payload)
       );
       break;
-    case 2112:
+    case $.ProtoOAPayloadType.PROTO_OA_ASSET_LIST_REQ:
       msg.payload = $.ProtoOAAssetListReqUtils.read(new Pbf(message.payload));
       break;
-    case 2113:
+    case $.ProtoOAPayloadType.PROTO_OA_ASSET_LIST_RES:
       msg.payload = $.ProtoOAAssetListResUtils.read(new Pbf(message.payload));
       break;
-    case 2114:
+    case $.ProtoOAPayloadType.PROTO_OA_SYMBOLS_LIST_REQ:
       msg.payload = $.ProtoOASymbolsListReqUtils.read(new Pbf(message.payload));
       break;
-    case 2115:
+    case $.ProtoOAPayloadType.PROTO_OA_SYMBOLS_LIST_RES:
       msg.payload = $.ProtoOASymbolsListResUtils.read(new Pbf(message.payload));
       break;
-    case 2116:
+    case $.ProtoOAPayloadType.PROTO_OA_SYMBOL_BY_ID_REQ:
       msg.payload = $.ProtoOASymbolByIdReqUtils.read(new Pbf(message.payload));
       break;
-    case 2117:
+    case $.ProtoOAPayloadType.PROTO_OA_SYMBOL_BY_ID_RES:
       msg.payload = $.ProtoOASymbolByIdResUtils.read(new Pbf(message.payload));
       break;
-    case 2118:
+    case $.ProtoOAPayloadType.PROTO_OA_SYMBOLS_FOR_CONVERSION_REQ:
       msg.payload = $.ProtoOASymbolsForConversionReqUtils.read(
         new Pbf(message.payload)
       );
       break;
-    case 2119:
+    case $.ProtoOAPayloadType.PROTO_OA_SYMBOLS_FOR_CONVERSION_RES:
       msg.payload = $.ProtoOASymbolsForConversionResUtils.read(
         new Pbf(message.payload)
       );
       break;
-    case 2120:
+    case $.ProtoOAPayloadType.PROTO_OA_SYMBOL_CHANGED_EVENT:
       msg.payload = $.ProtoOASymbolChangedEventUtils.read(
         new Pbf(message.payload)
       );
       break;
-    case 2121:
+    case $.ProtoOAPayloadType.PROTO_OA_TRADER_REQ:
       msg.payload = $.ProtoOATraderReqUtils.read(new Pbf(message.payload));
       break;
-    case 2122:
+    case $.ProtoOAPayloadType.PROTO_OA_TRADER_RES:
       msg.payload = $.ProtoOATraderResUtils.read(new Pbf(message.payload));
       break;
-    case 2123:
+    case $.ProtoOAPayloadType.PROTO_OA_TRADER_UPDATE_EVENT:
       msg.payload = $.ProtoOATraderUpdatedEventUtils.read(
         new Pbf(message.payload)
       );
       break;
-    case 2124:
+    case $.ProtoOAPayloadType.PROTO_OA_RECONCILE_REQ:
       msg.payload = $.ProtoOAReconcileReqUtils.read(new Pbf(message.payload));
       break;
-    case 2125:
+    case $.ProtoOAPayloadType.PROTO_OA_RECONCILE_RES:
       msg.payload = $.ProtoOAReconcileResUtils.read(new Pbf(message.payload));
       break;
-    case 2126:
+    case $.ProtoOAPayloadType.PROTO_OA_EXECUTION_EVENT:
       msg.payload = $.ProtoOAExecutionEventUtils.read(new Pbf(message.payload));
       break;
-    case 2127:
+    case $.ProtoOAPayloadType.PROTO_OA_SUBSCRIBE_SPOTS_REQ:
       msg.payload = $.ProtoOASubscribeSpotsReqUtils.read(
         new Pbf(message.payload)
       );
       break;
-    case 2128:
+    case $.ProtoOAPayloadType.PROTO_OA_SUBSCRIBE_SPOTS_RES:
       msg.payload = $.ProtoOASubscribeSpotsResUtils.read(
         new Pbf(message.payload)
       );
       break;
-    case 2129:
+    case $.ProtoOAPayloadType.PROTO_OA_UNSUBSCRIBE_SPOTS_REQ:
       msg.payload = $.ProtoOAUnsubscribeSpotsReqUtils.read(
         new Pbf(message.payload)
       );
       break;
-    case 2130:
+    case $.ProtoOAPayloadType.PROTO_OA_UNSUBSCRIBE_SPOTS_RES:
       msg.payload = $.ProtoOAUnsubscribeSpotsResUtils.read(
         new Pbf(message.payload)
       );
       break;
-    case 2131:
+    case $.ProtoOAPayloadType.PROTO_OA_SPOT_EVENT:
       msg.payload = $.ProtoOASpotEventUtils.read(new Pbf(message.payload));
       break;
-    case 2132:
+    case $.ProtoOAPayloadType.PROTO_OA_ORDER_ERROR_EVENT:
       msg.payload = $.ProtoOAOrderErrorEventUtils.read(
         new Pbf(message.payload)
       );
       break;
-    case 2133:
+    case $.ProtoOAPayloadType.PROTO_OA_DEAL_LIST_REQ:
       msg.payload = $.ProtoOADealListReqUtils.read(new Pbf(message.payload));
       break;
-    case 2134:
+    case $.ProtoOAPayloadType.PROTO_OA_DEAL_LIST_RES:
       msg.payload = $.ProtoOADealListResUtils.read(new Pbf(message.payload));
       break;
-    case 2135:
+    case $.ProtoOAPayloadType.PROTO_OA_SUBSCRIBE_LIVE_TRENDBAR_REQ:
       msg.payload = $.ProtoOASubscribeLiveTrendbarReqUtils.read(
         new Pbf(message.payload)
       );
       break;
-    case 2136:
+    case $.ProtoOAPayloadType.PROTO_OA_UNSUBSCRIBE_LIVE_TRENDBAR_REQ:
       msg.payload = $.ProtoOAUnsubscribeLiveTrendbarReqUtils.read(
         new Pbf(message.payload)
       );
       break;
-    case 2137:
+    case $.ProtoOAPayloadType.PROTO_OA_GET_TRENDBARS_REQ:
       msg.payload = $.ProtoOAGetTrendbarsReqUtils.read(
         new Pbf(message.payload)
       );
       break;
-    case 2138:
+    case $.ProtoOAPayloadType.PROTO_OA_GET_TRENDBARS_RES:
       msg.payload = $.ProtoOAGetTrendbarsResUtils.read(
         new Pbf(message.payload)
       );
       break;
-    case 2139:
+    case $.ProtoOAPayloadType.PROTO_OA_EXPECTED_MARGIN_REQ:
       msg.payload = $.ProtoOAExpectedMarginReqUtils.read(
         new Pbf(message.payload)
       );
       break;
-    case 2140:
+    case $.ProtoOAPayloadType.PROTO_OA_EXPECTED_MARGIN_RES:
       msg.payload = $.ProtoOAExpectedMarginResUtils.read(
         new Pbf(message.payload)
       );
       break;
-    case 2141:
+    case $.ProtoOAPayloadType.PROTO_OA_MARGIN_CHANGED_EVENT:
       msg.payload = $.ProtoOAMarginChangedEventUtils.read(
         new Pbf(message.payload)
       );
       break;
-    case 2142:
+    case $.ProtoOAPayloadType.PROTO_OA_ERROR_RES:
       msg.payload = $.ProtoOAErrorResUtils.read(new Pbf(message.payload));
       break;
-    case 2143:
+    case $.ProtoOAPayloadType.PROTO_OA_CASH_FLOW_HISTORY_LIST_REQ:
       msg.payload = $.ProtoOACashFlowHistoryListReqUtils.read(
         new Pbf(message.payload)
       );
       break;
-    case 2144:
+    case $.ProtoOAPayloadType.PROTO_OA_CASH_FLOW_HISTORY_LIST_RES:
       msg.payload = $.ProtoOACashFlowHistoryListResUtils.read(
         new Pbf(message.payload)
       );
       break;
-    case 2145:
+    case $.ProtoOAPayloadType.PROTO_OA_GET_TICKDATA_REQ:
       msg.payload = $.ProtoOAGetTickDataReqUtils.read(new Pbf(message.payload));
       break;
-    case 2146:
+    case $.ProtoOAPayloadType.PROTO_OA_GET_TICKDATA_RES:
       msg.payload = $.ProtoOAGetTickDataResUtils.read(new Pbf(message.payload));
       break;
-    case 2147:
+    case $.ProtoOAPayloadType.PROTO_OA_ACCOUNTS_TOKEN_INVALIDATED_EVENT:
       msg.payload = $.ProtoOAAccountsTokenInvalidatedEventUtils.read(
         new Pbf(message.payload)
       );
       break;
-    case 2148:
+    case $.ProtoOAPayloadType.PROTO_OA_CLIENT_DISCONNECT_EVENT:
       msg.payload = $.ProtoOAClientDisconnectEventUtils.read(
         new Pbf(message.payload)
       );
       break;
-    case 2149:
+    case $.ProtoOAPayloadType.PROTO_OA_GET_ACCOUNTS_BY_ACCESS_TOKEN_REQ:
       msg.payload = $.ProtoOAGetAccountListByAccessTokenReqUtils.read(
         new Pbf(message.payload)
       );
       break;
-    case 2150:
+    case $.ProtoOAPayloadType.PROTO_OA_GET_ACCOUNTS_BY_ACCESS_TOKEN_RES:
       msg.payload = $.ProtoOAGetAccountListByAccessTokenResUtils.read(
         new Pbf(message.payload)
       );
       break;
-    case 2151:
+    case $.ProtoOAPayloadType.PROTO_OA_GET_CTID_PROFILE_BY_TOKEN_REQ:
       msg.payload = $.ProtoOAGetCtidProfileByTokenReqUtils.read(
         new Pbf(message.payload)
       );
       break;
-    case 2152:
+    case $.ProtoOAPayloadType.PROTO_OA_GET_CTID_PROFILE_BY_TOKEN_RES:
       msg.payload = $.ProtoOAGetCtidProfileByTokenResUtils.read(
         new Pbf(message.payload)
       );
       break;
-    case 2153:
+    case $.ProtoOAPayloadType.PROTO_OA_ASSET_CLASS_LIST_REQ:
       msg.payload = $.ProtoOAAssetClassListReqUtils.read(
         new Pbf(message.payload)
       );
       break;
-    case 2154:
+    case $.ProtoOAPayloadType.PROTO_OA_ASSET_CLASS_LIST_RES:
       msg.payload = $.ProtoOAAssetClassListResUtils.read(
         new Pbf(message.payload)
       );
       break;
-    case 2155:
+    case $.ProtoOAPayloadType.PROTO_OA_DEPTH_EVENT:
       msg.payload = $.ProtoOADepthEventUtils.read(new Pbf(message.payload));
       break;
-    case 2156:
+    case $.ProtoOAPayloadType.PROTO_OA_SUBSCRIBE_DEPTH_QUOTES_REQ:
       msg.payload = $.ProtoOASubscribeDepthQuotesReqUtils.read(
         new Pbf(message.payload)
       );
       break;
-    case 2157:
+    case $.ProtoOAPayloadType.PROTO_OA_SUBSCRIBE_DEPTH_QUOTES_RES:
       msg.payload = $.ProtoOASubscribeDepthQuotesResUtils.read(
         new Pbf(message.payload)
       );
       break;
-    case 2158:
+    case $.ProtoOAPayloadType.PROTO_OA_UNSUBSCRIBE_DEPTH_QUOTES_REQ:
       msg.payload = $.ProtoOAUnsubscribeDepthQuotesReqUtils.read(
         new Pbf(message.payload)
       );
       break;
-    case 2159:
+    case $.ProtoOAPayloadType.PROTO_OA_UNSUBSCRIBE_DEPTH_QUOTES_RES:
       msg.payload = $.ProtoOAUnsubscribeDepthQuotesResUtils.read(
         new Pbf(message.payload)
       );
       break;
-    case 2160:
+    case $.ProtoOAPayloadType.PROTO_OA_SYMBOL_CATEGORY_REQ:
       msg.payload = $.ProtoOASymbolCategoryListReqUtils.read(
         new Pbf(message.payload)
       );
       break;
-    case 2161:
+    case $.ProtoOAPayloadType.PROTO_OA_SYMBOL_CATEGORY_RES:
       msg.payload = $.ProtoOASymbolCategoryListResUtils.read(
         new Pbf(message.payload)
       );
       break;
-    case 2162:
+    case $.ProtoOAPayloadType.PROTO_OA_ACCOUNT_LOGOUT_REQ:
       msg.payload = $.ProtoOAAccountLogoutReqUtils.read(
         new Pbf(message.payload)
       );
       break;
-    case 2163:
+    case $.ProtoOAPayloadType.PROTO_OA_ACCOUNT_LOGOUT_RES:
       msg.payload = $.ProtoOAAccountLogoutResUtils.read(
         new Pbf(message.payload)
       );
       break;
-    case 2164:
+    case $.ProtoOAPayloadType.PROTO_OA_ACCOUNT_DISCONNECT_EVENT:
       msg.payload = $.ProtoOAAccountDisconnectEventUtils.read(
         new Pbf(message.payload)
       );
       break;
-    case 2165:
+    case $.ProtoOAPayloadType.PROTO_OA_SUBSCRIBE_LIVE_TRENDBAR_RES:
       msg.payload = $.ProtoOASubscribeLiveTrendbarResUtils.read(
         new Pbf(message.payload)
       );
       break;
-    case 2166:
+    case $.ProtoOAPayloadType.PROTO_OA_UNSUBSCRIBE_LIVE_TRENDBAR_RES:
       msg.payload = $.ProtoOAUnsubscribeLiveTrendbarResUtils.read(
         new Pbf(message.payload)
       );
       break;
-    case 2167:
+    case $.ProtoOAPayloadType.PROTO_OA_MARGIN_CALL_LIST_REQ:
       msg.payload = $.ProtoOAMarginCallListReqUtils.read(
         new Pbf(message.payload)
       );
       break;
-    case 2168:
+    case $.ProtoOAPayloadType.PROTO_OA_MARGIN_CALL_LIST_RES:
       msg.payload = $.ProtoOAMarginCallListResUtils.read(
         new Pbf(message.payload)
       );
       break;
-    case 2169:
+    case $.ProtoOAPayloadType.PROTO_OA_MARGIN_CALL_UPDATE_REQ:
       msg.payload = $.ProtoOAMarginCallUpdateReqUtils.read(
         new Pbf(message.payload)
       );
       break;
-    case 2170:
+    case $.ProtoOAPayloadType.PROTO_OA_MARGIN_CALL_UPDATE_RES:
       msg.payload = $.ProtoOAMarginCallUpdateResUtils.read(
         new Pbf(message.payload)
       );
       break;
-    case 2171:
+    case $.ProtoOAPayloadType.PROTO_OA_MARGIN_CALL_UPDATE_EVENT:
       msg.payload = $.ProtoOAMarginCallUpdateEventUtils.read(
         new Pbf(message.payload)
       );
       break;
-    case 2172:
+    case $.ProtoOAPayloadType.PROTO_OA_MARGIN_CALL_TRIGGER_EVENT:
       msg.payload = $.ProtoOAMarginCallTriggerEventUtils.read(
         new Pbf(message.payload)
       );
       break;
-    case 2173:
+    case $.ProtoOAPayloadType.PROTO_OA_REFRESH_TOKEN_REQ:
       msg.payload = $.ProtoOARefreshTokenReqUtils.read(
         new Pbf(message.payload)
       );
       break;
-    case 2174:
+    case $.ProtoOAPayloadType.PROTO_OA_REFRESH_TOKEN_RES:
       msg.payload = $.ProtoOARefreshTokenResUtils.read(
         new Pbf(message.payload)
       );

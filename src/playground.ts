@@ -49,8 +49,14 @@ function newApproach() {
     s.applicationAuthReq(config, () => {});
   }, 1000);
   setInterval(() => s.heartbeat(() => {}), 10000);
-  s.resume();
-  // s.on("data", console.log);
+  // s.resume();
+  s.on("data", (msg) => {
+    if (
+      msg.payloadType === ProtoOAPayloadType.PROTO_OA_ACCOUNT_DISCONNECT_EVENT
+    ) {
+      console.log("account disconnected", msg.payload.ctidTraderAccountId);
+    }
+  });
 }
 
 oldApproach;
