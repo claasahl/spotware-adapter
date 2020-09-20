@@ -43,6 +43,7 @@
   },
   "dependencies": {
     "@claasahl/spotware-protobuf": "^6.9.0",
-    "debug": "^4.2.0"
+    "debug": "^4.2.0",
+    "redux-saga": "^1.1.3"
   }
 }
