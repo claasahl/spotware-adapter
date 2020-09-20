@@ -624,9 +624,9 @@ export declare interface SpotwareStream extends Duplex {
 export class SpotwareStream extends Duplex {
   socket;
   listening = false;
-  constructor(port: number, host: string, options?: tls.ConnectionOptions) {
+  constructor(port: number, host: string) {
     super({ allowHalfOpen: false, objectMode: true });
-    this.socket = tls.connect(port, host, options);
+    this.socket = tls.connect(port, host);
     this.socket.on("error", (err) => this.destroy(err));
   }
 
