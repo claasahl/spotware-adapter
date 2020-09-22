@@ -3,17 +3,16 @@ import {
   ProtoPayloadType,
 } from "@claasahl/spotware-protobuf";
 import { SpotwareStream } from "./spotware-stream";
-import { Action, applyMiddleware, createStore } from "redux";
 import { ProtoMessages } from "./spotware-messages";
-// FIXME: combineReducers
+
 interface HeartbeatsState {
   heartbeats: number;
 }
 function heartbeats(
   state: HeartbeatsState = { heartbeats: 0 },
-  action: Action<ProtoMessages>
+  message: ProtoMessages
 ): HeartbeatsState {
-  switch (action.type.payloadType) {
+  switch (message.payloadType) {
     case ProtoPayloadType.HEARTBEAT_EVENT:
       return { ...state, heartbeats: state.heartbeats + 1 };
     default:
@@ -27,9 +26,9 @@ interface AuthenticationState {
 }
 function authenticate(
   state: AuthenticationState = { application: false, account: false },
-  action: Action<ProtoMessages>
+  message: ProtoMessages
 ): AuthenticationState {
-  switch (action.type.payloadType) {
+  switch (message.payloadType) {
     case ProtoOAPayloadType.PROTO_OA_APPLICATION_AUTH_RES:
       return { ...state, application: true };
     case ProtoOAPayloadType.PROTO_OA_ACCOUNT_AUTH_RES:
@@ -45,25 +44,23 @@ interface State {
 }
 function sampleApplication(
   state: State | undefined,
-  action: Action<ProtoMessages>
+  message: ProtoMessages
 ): State {
   return {
-    heartbeats: heartbeats(state?.heartbeats, action),
-    authentication: authenticate(state?.authentication, action),
+    heartbeats: heartbeats(state?.heartbeats, message),
+    authentication: authenticate(state?.authentication, message),
   };
 }
-const store = createStore(
-  sampleApplication,
-  applyMiddleware((store) => (next) => (action) => {
-    console.group(action.type);
-    console.info("dispatching", action);
-    let result = next(action);
-    console.log("next state", store.getState());
-    console.groupEnd();
-    return result;
-  })
-);
-// store.subscribe(() => console.log(store.getState()))
+
+const store = {
+  state: sampleApplication(undefined, {
+    payloadType: ProtoPayloadType.PROTO_MESSAGE,
+    payload: { payloadType: ProtoPayloadType.PROTO_MESSAGE },
+  }),
+  handle(message: ProtoMessages) {
+    this.state = sampleApplication(this.state, message);
+  },
+};
 
 const config = {
   host: process.env.SPOTWARE__HOST || "live.ctraderapi.com",
@@ -79,4 +76,4 @@ setTimeout(() => {
   s.applicationAuthReq(config, () => {});
 }, 1000);
 setInterval(() => s.heartbeat(() => {}), 10000);
-s.on("data", (msg) => store.dispatch({ type: msg }));
+s.on("data", (msg) => store.handle(msg));
