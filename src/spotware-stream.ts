@@ -1,6 +1,5 @@
 import tls from "tls";
 import { Duplex } from "stream";
-import { read } from "./readProtoMessages";
 import debug from "debug";
 import {
   ProtoPayloadType,
@@ -8,6 +7,7 @@ import {
 } from "@claasahl/spotware-protobuf";
 
 import * as $ from "./spotware-messages";
+import { read } from "./readProtoMessages";
 import { write } from "./writeProtoMessages";
 
 const spotware = debug("spotware");
