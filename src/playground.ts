@@ -3,64 +3,6 @@ import {
   ProtoPayloadType,
 } from "@claasahl/spotware-protobuf";
 import { SpotwareStream } from "./spotware-stream";
-import { ProtoMessages } from "./spotware-messages";
-
-interface HeartbeatsState {
-  heartbeats: number;
-}
-function heartbeats(
-  state: HeartbeatsState = { heartbeats: 0 },
-  message: ProtoMessages
-): HeartbeatsState {
-  switch (message.payloadType) {
-    case ProtoPayloadType.HEARTBEAT_EVENT:
-      return { ...state, heartbeats: state.heartbeats + 1 };
-    default:
-      return state;
-  }
-}
-
-interface AuthenticationState {
-  application: boolean;
-  account: boolean;
-}
-function authenticate(
-  state: AuthenticationState = { application: false, account: false },
-  message: ProtoMessages
-): AuthenticationState {
-  switch (message.payloadType) {
-    case ProtoOAPayloadType.PROTO_OA_APPLICATION_AUTH_RES:
-      return { ...state, application: true };
-    case ProtoOAPayloadType.PROTO_OA_ACCOUNT_AUTH_RES:
-      return { ...state, account: true };
-    default:
-      return state;
-  }
-}
-
-interface State {
-  heartbeats: HeartbeatsState;
-  authentication: AuthenticationState;
-}
-function sampleApplication(
-  state: State | undefined,
-  message: ProtoMessages
-): State {
-  return {
-    heartbeats: heartbeats(state?.heartbeats, message),
-    authentication: authenticate(state?.authentication, message),
-  };
-}
-
-const store = {
-  state: sampleApplication(undefined, {
-    payloadType: ProtoPayloadType.PROTO_MESSAGE,
-    payload: { payloadType: ProtoPayloadType.PROTO_MESSAGE },
-  }),
-  handle(message: ProtoMessages) {
-    this.state = sampleApplication(this.state, message);
-  },
-};
 
 const config = {
   host: process.env.SPOTWARE__HOST || "live.ctraderapi.com",
@@ -71,9 +13,42 @@ const config = {
 };
 
 const s = new SpotwareStream(config.port, config.host);
-setTimeout(() => {
-  s.versionReq({}, () => {});
-  s.applicationAuthReq(config, () => {});
-}, 1000);
-setInterval(() => s.heartbeat(() => {}), 10000);
-s.on("data", (msg) => store.handle(msg));
+setInterval(
+  () => s.write({ payloadType: ProtoPayloadType.HEARTBEAT_EVENT, payload: {} }),
+  10000
+);
+s.on("data", (msg) => {
+  switch (msg.payloadType) {
+    case ProtoOAPayloadType.PROTO_OA_VERSION_RES:
+      console.log("version: ", msg.payload.version);
+      s.write({
+        payloadType: ProtoOAPayloadType.PROTO_OA_APPLICATION_AUTH_REQ,
+        payload: {
+          clientId: config.clientId,
+          clientSecret: config.clientSecret,
+        },
+      });
+      break;
+    case ProtoOAPayloadType.PROTO_OA_APPLICATION_AUTH_RES:
+      s.write({
+        payloadType:
+          ProtoOAPayloadType.PROTO_OA_GET_ACCOUNTS_BY_ACCESS_TOKEN_REQ,
+        payload: { accessToken: config.accessToken },
+      });
+      break;
+    case ProtoOAPayloadType.PROTO_OA_GET_ACCOUNTS_BY_ACCESS_TOKEN_RES:
+      msg.payload.ctidTraderAccount.forEach((account) => {
+        s.write({
+          payloadType: ProtoOAPayloadType.PROTO_OA_ACCOUNT_AUTH_REQ,
+          payload: {
+            accessToken: config.accessToken,
+            ctidTraderAccountId: account.ctidTraderAccountId,
+          },
+        });
+      });
+      break;
+    case ProtoOAPayloadType.PROTO_OA_ACCOUNT_AUTH_RES:
+      // ...
+      break;
+  }
+});
