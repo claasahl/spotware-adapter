@@ -1,5 +1,4 @@
-import { ProtoOAPayloadType } from "@claasahl/spotware-protobuf";
-import { SpotwareClientStream } from "./spotware-stream";
+import { SpotwareClientStream, ProtoOAPayloadType } from ".";
 
 const config = {
   host: process.env.SPOTWARE__HOST || "live.ctraderapi.com",

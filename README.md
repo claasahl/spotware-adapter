@@ -42,7 +42,6 @@ The backbone of this client for the Spotware Open API V2 is a NodeJS `EventEmitt
 One can listen and react to Spotware messages (i.e. any request being sent, any received response and any received/emitted event) by registering a listener.
 
 ```typescript
-import { ProtoOAPayloadType } from "@claasahl/spotware-protobuf";
 import {
   SpotwareClientStream,
   ProtoOAPayloadType,
