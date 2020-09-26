@@ -38,3 +38,4 @@ s.on("data", (msg) => {
       break;
   }
 });
+s.OA_VERSION_REQ();

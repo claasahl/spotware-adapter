@@ -42,45 +42,50 @@ The backbone of this client for the Spotware Open API V2 is a NodeJS `EventEmitt
 One can listen and react to Spotware messages (i.e. any request being sent, any received response and any received/emitted event) by registering a listener.
 
 ```typescript
+import { ProtoOAPayloadType } from "@claasahl/spotware-protobuf";
 import {
-  connect,
-  fromProtoMessage,
-  toProtoMessage,
-  writeProtoMessage,
+  SpotwareClientStream,
+  ProtoOAPayloadType,
 } from "@claasahl/spotware-adapter";
 
-// establish connection
-const client = connect(5035, "live.ctraderapi.com");
+const config = {
+  host: process.env.SPOTWARE__HOST || "live.ctraderapi.com",
+  port: Number(process.env.SPOTWARE__PORT) || 5035,
+  clientId: process.env.SPOTWARE__CLIENT_ID || "",
+  clientSecret: process.env.SPOTWARE__CLIENT_SECRET || "",
+  accessToken: process.env.access_token || "",
+};
 
-// handle (incoming) proto messages
-client.on("PROTO_MESSAGE", (message, payloadType) => {
-  console.log(payloadType);
-  switch (payloadType) {
-    case "ERROR_RES": {
-      const msg = fromProtoMessage("ERROR_RES", message);
-      console.log(msg);
+const s = new SpotwareClientStream(config.port, config.host);
+setInterval(() => s.HEARTBEAT_EVENT(), 10000);
+s.on("data", (msg) => {
+  switch (msg.payloadType) {
+    case ProtoOAPayloadType.PROTO_OA_VERSION_RES:
+      console.log("version: ", msg.payload.version);
+      s.OA_APPLICATION_AUTH_REQ({
+        clientId: config.clientId,
+        clientSecret: config.clientSecret,
+      });
       break;
-    }
-    case "PROTO_OA_VERSION_REQ": {
-      const msg = fromProtoMessage("PROTO_OA_VERSION_REQ", message);
-      console.log(msg);
+    case ProtoOAPayloadType.PROTO_OA_APPLICATION_AUTH_RES:
+      s.OA_GET_ACCOUNTS_BY_ACCESS_TOKEN_REQ({
+        accessToken: config.accessToken,
+      });
       break;
-    }
-    case "PROTO_OA_VERSION_RES": {
-      const msg = fromProtoMessage("PROTO_OA_VERSION_RES", message);
-      console.log(msg);
+    case ProtoOAPayloadType.PROTO_OA_GET_ACCOUNTS_BY_ACCESS_TOKEN_RES:
+      msg.payload.ctidTraderAccount.forEach((account) => {
+        s.OA_ACCOUNT_AUTH_REQ({
+          accessToken: config.accessToken,
+          ctidTraderAccountId: account.ctidTraderAccountId,
+        });
+      });
       break;
-    }
+    case ProtoOAPayloadType.PROTO_OA_ACCOUNT_AUTH_RES:
+      // ...
+      break;
   }
 });
-
-// write (outgoing) proto messages
-setInterval(() => {
-  const message = toProtoMessage("HEARTBEAT_EVENT", {});
-  writeProtoMessage(client, message);
-}, 10000);
-
-writeProtoMessage(client, toProtoMessage("PROTO_OA_VERSION_REQ", {}));
+s.OA_VERSION_REQ();
 ```
 
 The `EventEmitter`-interface has been specialized to accept only Spotware messages.
