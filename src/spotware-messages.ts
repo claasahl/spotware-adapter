@@ -5,105 +5,318 @@ interface Message<P, T> {
   payload: P;
   clientMsgId?: string;
 }
-export type ProtoMessage5 = Message<$.ProtoMessage, 5>;
-export type ProtoMessage50 = Message<$.ProtoErrorRes, 50>;
-export type ProtoMessage51 = Message<$.ProtoHeartbeatEvent, 51>;
-export type ProtoMessage2100 = Message<$.ProtoOAApplicationAuthReq, 2100>;
-export type ProtoMessage2101 = Message<$.ProtoOAApplicationAuthRes, 2101>;
-export type ProtoMessage2102 = Message<$.ProtoOAAccountAuthReq, 2102>;
-export type ProtoMessage2103 = Message<$.ProtoOAAccountAuthRes, 2103>;
-export type ProtoMessage2104 = Message<$.ProtoOAVersionReq, 2104>;
-export type ProtoMessage2105 = Message<$.ProtoOAVersionRes, 2105>;
-export type ProtoMessage2106 = Message<$.ProtoOANewOrderReq, 2106>;
-export type ProtoMessage2107 = Message<$.ProtoOATrailingSLChangedEvent, 2107>;
-export type ProtoMessage2108 = Message<$.ProtoOACancelOrderReq, 2108>;
-export type ProtoMessage2109 = Message<$.ProtoOAAmendOrderReq, 2109>;
-export type ProtoMessage2110 = Message<$.ProtoOAAmendPositionSLTPReq, 2110>;
-export type ProtoMessage2111 = Message<$.ProtoOAClosePositionReq, 2111>;
-export type ProtoMessage2112 = Message<$.ProtoOAAssetListReq, 2112>;
-export type ProtoMessage2113 = Message<$.ProtoOAAssetListRes, 2113>;
-export type ProtoMessage2114 = Message<$.ProtoOASymbolsListReq, 2114>;
-export type ProtoMessage2115 = Message<$.ProtoOASymbolsListRes, 2115>;
-export type ProtoMessage2116 = Message<$.ProtoOASymbolByIdReq, 2116>;
-export type ProtoMessage2117 = Message<$.ProtoOASymbolByIdRes, 2117>;
-export type ProtoMessage2118 = Message<$.ProtoOASymbolsForConversionReq, 2118>;
-export type ProtoMessage2119 = Message<$.ProtoOASymbolsForConversionRes, 2119>;
-export type ProtoMessage2120 = Message<$.ProtoOASymbolChangedEvent, 2120>;
-export type ProtoMessage2121 = Message<$.ProtoOATraderReq, 2121>;
-export type ProtoMessage2122 = Message<$.ProtoOATraderRes, 2122>;
-export type ProtoMessage2123 = Message<$.ProtoOATraderUpdatedEvent, 2123>;
-export type ProtoMessage2124 = Message<$.ProtoOAReconcileReq, 2124>;
-export type ProtoMessage2125 = Message<$.ProtoOAReconcileRes, 2125>;
-export type ProtoMessage2126 = Message<$.ProtoOAExecutionEvent, 2126>;
-export type ProtoMessage2127 = Message<$.ProtoOASubscribeSpotsReq, 2127>;
-export type ProtoMessage2128 = Message<$.ProtoOASubscribeSpotsRes, 2128>;
-export type ProtoMessage2129 = Message<$.ProtoOAUnsubscribeSpotsReq, 2129>;
-export type ProtoMessage2130 = Message<$.ProtoOAUnsubscribeSpotsRes, 2130>;
-export type ProtoMessage2131 = Message<$.ProtoOASpotEvent, 2131>;
-export type ProtoMessage2132 = Message<$.ProtoOAOrderErrorEvent, 2132>;
-export type ProtoMessage2133 = Message<$.ProtoOADealListReq, 2133>;
-export type ProtoMessage2134 = Message<$.ProtoOADealListRes, 2134>;
-export type ProtoMessage2135 = Message<$.ProtoOASubscribeLiveTrendbarReq, 2135>;
+export type ProtoMessage5 = Message<
+  $.ProtoMessage,
+  $.ProtoPayloadType.PROTO_MESSAGE
+>;
+export type ProtoMessage50 = Message<
+  $.ProtoErrorRes,
+  $.ProtoPayloadType.ERROR_RES
+>;
+export type ProtoMessage51 = Message<
+  $.ProtoHeartbeatEvent,
+  $.ProtoPayloadType.HEARTBEAT_EVENT
+>;
+export type ProtoMessage2100 = Message<
+  $.ProtoOAApplicationAuthReq,
+  $.ProtoOAPayloadType.PROTO_OA_APPLICATION_AUTH_REQ
+>;
+export type ProtoMessage2101 = Message<
+  $.ProtoOAApplicationAuthRes,
+  $.ProtoOAPayloadType.PROTO_OA_APPLICATION_AUTH_RES
+>;
+export type ProtoMessage2102 = Message<
+  $.ProtoOAAccountAuthReq,
+  $.ProtoOAPayloadType.PROTO_OA_ACCOUNT_AUTH_REQ
+>;
+export type ProtoMessage2103 = Message<
+  $.ProtoOAAccountAuthRes,
+  $.ProtoOAPayloadType.PROTO_OA_ACCOUNT_AUTH_RES
+>;
+export type ProtoMessage2104 = Message<
+  $.ProtoOAVersionReq,
+  $.ProtoOAPayloadType.PROTO_OA_VERSION_REQ
+>;
+export type ProtoMessage2105 = Message<
+  $.ProtoOAVersionRes,
+  $.ProtoOAPayloadType.PROTO_OA_VERSION_RES
+>;
+export type ProtoMessage2106 = Message<
+  $.ProtoOANewOrderReq,
+  $.ProtoOAPayloadType.PROTO_OA_NEW_ORDER_REQ
+>;
+export type ProtoMessage2107 = Message<
+  $.ProtoOATrailingSLChangedEvent,
+  $.ProtoOAPayloadType.PROTO_OA_TRAILING_SL_CHANGED_EVENT
+>;
+export type ProtoMessage2108 = Message<
+  $.ProtoOACancelOrderReq,
+  $.ProtoOAPayloadType.PROTO_OA_CANCEL_ORDER_REQ
+>;
+export type ProtoMessage2109 = Message<
+  $.ProtoOAAmendOrderReq,
+  $.ProtoOAPayloadType.PROTO_OA_AMEND_ORDER_REQ
+>;
+export type ProtoMessage2110 = Message<
+  $.ProtoOAAmendPositionSLTPReq,
+  $.ProtoOAPayloadType.PROTO_OA_AMEND_POSITION_SLTP_REQ
+>;
+export type ProtoMessage2111 = Message<
+  $.ProtoOAClosePositionReq,
+  $.ProtoOAPayloadType.PROTO_OA_CLOSE_POSITION_REQ
+>;
+export type ProtoMessage2112 = Message<
+  $.ProtoOAAssetListReq,
+  $.ProtoOAPayloadType.PROTO_OA_ASSET_LIST_REQ
+>;
+export type ProtoMessage2113 = Message<
+  $.ProtoOAAssetListRes,
+  $.ProtoOAPayloadType.PROTO_OA_ASSET_LIST_RES
+>;
+export type ProtoMessage2114 = Message<
+  $.ProtoOASymbolsListReq,
+  $.ProtoOAPayloadType.PROTO_OA_SYMBOLS_LIST_REQ
+>;
+export type ProtoMessage2115 = Message<
+  $.ProtoOASymbolsListRes,
+  $.ProtoOAPayloadType.PROTO_OA_SYMBOLS_LIST_RES
+>;
+export type ProtoMessage2116 = Message<
+  $.ProtoOASymbolByIdReq,
+  $.ProtoOAPayloadType.PROTO_OA_SYMBOL_BY_ID_REQ
+>;
+export type ProtoMessage2117 = Message<
+  $.ProtoOASymbolByIdRes,
+  $.ProtoOAPayloadType.PROTO_OA_SYMBOL_BY_ID_RES
+>;
+export type ProtoMessage2118 = Message<
+  $.ProtoOASymbolsForConversionReq,
+  $.ProtoOAPayloadType.PROTO_OA_SYMBOLS_FOR_CONVERSION_REQ
+>;
+export type ProtoMessage2119 = Message<
+  $.ProtoOASymbolsForConversionRes,
+  $.ProtoOAPayloadType.PROTO_OA_SYMBOLS_FOR_CONVERSION_RES
+>;
+export type ProtoMessage2120 = Message<
+  $.ProtoOASymbolChangedEvent,
+  $.ProtoOAPayloadType.PROTO_OA_SYMBOL_CHANGED_EVENT
+>;
+export type ProtoMessage2121 = Message<
+  $.ProtoOATraderReq,
+  $.ProtoOAPayloadType.PROTO_OA_TRADER_REQ
+>;
+export type ProtoMessage2122 = Message<
+  $.ProtoOATraderRes,
+  $.ProtoOAPayloadType.PROTO_OA_TRADER_RES
+>;
+export type ProtoMessage2123 = Message<
+  $.ProtoOATraderUpdatedEvent,
+  $.ProtoOAPayloadType.PROTO_OA_TRADER_UPDATE_EVENT
+>;
+export type ProtoMessage2124 = Message<
+  $.ProtoOAReconcileReq,
+  $.ProtoOAPayloadType.PROTO_OA_RECONCILE_REQ
+>;
+export type ProtoMessage2125 = Message<
+  $.ProtoOAReconcileRes,
+  $.ProtoOAPayloadType.PROTO_OA_RECONCILE_RES
+>;
+export type ProtoMessage2126 = Message<
+  $.ProtoOAExecutionEvent,
+  $.ProtoOAPayloadType.PROTO_OA_EXECUTION_EVENT
+>;
+export type ProtoMessage2127 = Message<
+  $.ProtoOASubscribeSpotsReq,
+  $.ProtoOAPayloadType.PROTO_OA_SUBSCRIBE_SPOTS_REQ
+>;
+export type ProtoMessage2128 = Message<
+  $.ProtoOASubscribeSpotsRes,
+  $.ProtoOAPayloadType.PROTO_OA_SUBSCRIBE_SPOTS_RES
+>;
+export type ProtoMessage2129 = Message<
+  $.ProtoOAUnsubscribeSpotsReq,
+  $.ProtoOAPayloadType.PROTO_OA_UNSUBSCRIBE_SPOTS_REQ
+>;
+export type ProtoMessage2130 = Message<
+  $.ProtoOAUnsubscribeSpotsRes,
+  $.ProtoOAPayloadType.PROTO_OA_UNSUBSCRIBE_SPOTS_RES
+>;
+export type ProtoMessage2131 = Message<
+  $.ProtoOASpotEvent,
+  $.ProtoOAPayloadType.PROTO_OA_SPOT_EVENT
+>;
+export type ProtoMessage2132 = Message<
+  $.ProtoOAOrderErrorEvent,
+  $.ProtoOAPayloadType.PROTO_OA_ORDER_ERROR_EVENT
+>;
+export type ProtoMessage2133 = Message<
+  $.ProtoOADealListReq,
+  $.ProtoOAPayloadType.PROTO_OA_DEAL_LIST_REQ
+>;
+export type ProtoMessage2134 = Message<
+  $.ProtoOADealListRes,
+  $.ProtoOAPayloadType.PROTO_OA_DEAL_LIST_RES
+>;
+export type ProtoMessage2135 = Message<
+  $.ProtoOASubscribeLiveTrendbarReq,
+  $.ProtoOAPayloadType.PROTO_OA_SUBSCRIBE_LIVE_TRENDBAR_REQ
+>;
 export type ProtoMessage2136 = Message<
   $.ProtoOAUnsubscribeLiveTrendbarReq,
-  2136
+  $.ProtoOAPayloadType.PROTO_OA_UNSUBSCRIBE_LIVE_TRENDBAR_REQ
 >;
-export type ProtoMessage2137 = Message<$.ProtoOAGetTrendbarsReq, 2137>;
-export type ProtoMessage2138 = Message<$.ProtoOAGetTrendbarsRes, 2138>;
-export type ProtoMessage2139 = Message<$.ProtoOAExpectedMarginReq, 2139>;
-export type ProtoMessage2140 = Message<$.ProtoOAExpectedMarginRes, 2140>;
-export type ProtoMessage2141 = Message<$.ProtoOAMarginChangedEvent, 2141>;
-export type ProtoMessage2142 = Message<$.ProtoOAErrorRes, 2142>;
-export type ProtoMessage2143 = Message<$.ProtoOACashFlowHistoryListReq, 2143>;
-export type ProtoMessage2144 = Message<$.ProtoOACashFlowHistoryListRes, 2144>;
-export type ProtoMessage2145 = Message<$.ProtoOAGetTickDataReq, 2145>;
-export type ProtoMessage2146 = Message<$.ProtoOAGetTickDataRes, 2146>;
+export type ProtoMessage2137 = Message<
+  $.ProtoOAGetTrendbarsReq,
+  $.ProtoOAPayloadType.PROTO_OA_GET_TRENDBARS_REQ
+>;
+export type ProtoMessage2138 = Message<
+  $.ProtoOAGetTrendbarsRes,
+  $.ProtoOAPayloadType.PROTO_OA_GET_TRENDBARS_RES
+>;
+export type ProtoMessage2139 = Message<
+  $.ProtoOAExpectedMarginReq,
+  $.ProtoOAPayloadType.PROTO_OA_EXPECTED_MARGIN_REQ
+>;
+export type ProtoMessage2140 = Message<
+  $.ProtoOAExpectedMarginRes,
+  $.ProtoOAPayloadType.PROTO_OA_EXPECTED_MARGIN_RES
+>;
+export type ProtoMessage2141 = Message<
+  $.ProtoOAMarginChangedEvent,
+  $.ProtoOAPayloadType.PROTO_OA_MARGIN_CHANGED_EVENT
+>;
+export type ProtoMessage2142 = Message<
+  $.ProtoOAErrorRes,
+  $.ProtoOAPayloadType.PROTO_OA_ERROR_RES
+>;
+export type ProtoMessage2143 = Message<
+  $.ProtoOACashFlowHistoryListReq,
+  $.ProtoOAPayloadType.PROTO_OA_CASH_FLOW_HISTORY_LIST_REQ
+>;
+export type ProtoMessage2144 = Message<
+  $.ProtoOACashFlowHistoryListRes,
+  $.ProtoOAPayloadType.PROTO_OA_CASH_FLOW_HISTORY_LIST_RES
+>;
+export type ProtoMessage2145 = Message<
+  $.ProtoOAGetTickDataReq,
+  $.ProtoOAPayloadType.PROTO_OA_GET_TICKDATA_REQ
+>;
+export type ProtoMessage2146 = Message<
+  $.ProtoOAGetTickDataRes,
+  $.ProtoOAPayloadType.PROTO_OA_GET_TICKDATA_RES
+>;
 export type ProtoMessage2147 = Message<
   $.ProtoOAAccountsTokenInvalidatedEvent,
-  2147
+  $.ProtoOAPayloadType.PROTO_OA_ACCOUNTS_TOKEN_INVALIDATED_EVENT
 >;
-export type ProtoMessage2148 = Message<$.ProtoOAClientDisconnectEvent, 2148>;
+export type ProtoMessage2148 = Message<
+  $.ProtoOAClientDisconnectEvent,
+  $.ProtoOAPayloadType.PROTO_OA_CLIENT_DISCONNECT_EVENT
+>;
 export type ProtoMessage2149 = Message<
   $.ProtoOAGetAccountListByAccessTokenReq,
-  2149
+  $.ProtoOAPayloadType.PROTO_OA_GET_ACCOUNTS_BY_ACCESS_TOKEN_REQ
 >;
 export type ProtoMessage2150 = Message<
   $.ProtoOAGetAccountListByAccessTokenRes,
-  2150
+  $.ProtoOAPayloadType.PROTO_OA_GET_ACCOUNTS_BY_ACCESS_TOKEN_RES
 >;
-export type ProtoMessage2151 = Message<$.ProtoOAGetCtidProfileByTokenReq, 2151>;
-export type ProtoMessage2152 = Message<$.ProtoOAGetCtidProfileByTokenRes, 2152>;
-export type ProtoMessage2153 = Message<$.ProtoOAAssetClassListReq, 2153>;
-export type ProtoMessage2154 = Message<$.ProtoOAAssetClassListRes, 2154>;
-export type ProtoMessage2155 = Message<$.ProtoOADepthEvent, 2155>;
-export type ProtoMessage2156 = Message<$.ProtoOASubscribeDepthQuotesReq, 2156>;
-export type ProtoMessage2157 = Message<$.ProtoOASubscribeDepthQuotesRes, 2157>;
+export type ProtoMessage2151 = Message<
+  $.ProtoOAGetCtidProfileByTokenReq,
+  $.ProtoOAPayloadType.PROTO_OA_GET_CTID_PROFILE_BY_TOKEN_REQ
+>;
+export type ProtoMessage2152 = Message<
+  $.ProtoOAGetCtidProfileByTokenRes,
+  $.ProtoOAPayloadType.PROTO_OA_GET_CTID_PROFILE_BY_TOKEN_RES
+>;
+export type ProtoMessage2153 = Message<
+  $.ProtoOAAssetClassListReq,
+  $.ProtoOAPayloadType.PROTO_OA_ASSET_CLASS_LIST_REQ
+>;
+export type ProtoMessage2154 = Message<
+  $.ProtoOAAssetClassListRes,
+  $.ProtoOAPayloadType.PROTO_OA_ASSET_CLASS_LIST_RES
+>;
+export type ProtoMessage2155 = Message<
+  $.ProtoOADepthEvent,
+  $.ProtoOAPayloadType.PROTO_OA_DEPTH_EVENT
+>;
+export type ProtoMessage2156 = Message<
+  $.ProtoOASubscribeDepthQuotesReq,
+  $.ProtoOAPayloadType.PROTO_OA_SUBSCRIBE_DEPTH_QUOTES_REQ
+>;
+export type ProtoMessage2157 = Message<
+  $.ProtoOASubscribeDepthQuotesRes,
+  $.ProtoOAPayloadType.PROTO_OA_SUBSCRIBE_DEPTH_QUOTES_RES
+>;
 export type ProtoMessage2158 = Message<
   $.ProtoOAUnsubscribeDepthQuotesReq,
-  2158
+  $.ProtoOAPayloadType.PROTO_OA_UNSUBSCRIBE_DEPTH_QUOTES_REQ
 >;
 export type ProtoMessage2159 = Message<
   $.ProtoOAUnsubscribeDepthQuotesRes,
-  2159
+  $.ProtoOAPayloadType.PROTO_OA_UNSUBSCRIBE_DEPTH_QUOTES_RES
 >;
-export type ProtoMessage2160 = Message<$.ProtoOASymbolCategoryListReq, 2160>;
-export type ProtoMessage2161 = Message<$.ProtoOASymbolCategoryListRes, 2161>;
-export type ProtoMessage2162 = Message<$.ProtoOAAccountLogoutReq, 2162>;
-export type ProtoMessage2163 = Message<$.ProtoOAAccountLogoutRes, 2163>;
-export type ProtoMessage2164 = Message<$.ProtoOAAccountDisconnectEvent, 2164>;
-export type ProtoMessage2165 = Message<$.ProtoOASubscribeLiveTrendbarRes, 2165>;
+export type ProtoMessage2160 = Message<
+  $.ProtoOASymbolCategoryListReq,
+  $.ProtoOAPayloadType.PROTO_OA_SYMBOL_CATEGORY_REQ
+>;
+export type ProtoMessage2161 = Message<
+  $.ProtoOASymbolCategoryListRes,
+  $.ProtoOAPayloadType.PROTO_OA_SYMBOL_CATEGORY_RES
+>;
+export type ProtoMessage2162 = Message<
+  $.ProtoOAAccountLogoutReq,
+  $.ProtoOAPayloadType.PROTO_OA_ACCOUNT_LOGOUT_REQ
+>;
+export type ProtoMessage2163 = Message<
+  $.ProtoOAAccountLogoutRes,
+  $.ProtoOAPayloadType.PROTO_OA_ACCOUNT_LOGOUT_RES
+>;
+export type ProtoMessage2164 = Message<
+  $.ProtoOAAccountDisconnectEvent,
+  $.ProtoOAPayloadType.PROTO_OA_ACCOUNT_DISCONNECT_EVENT
+>;
+export type ProtoMessage2165 = Message<
+  $.ProtoOASubscribeLiveTrendbarRes,
+  $.ProtoOAPayloadType.PROTO_OA_SUBSCRIBE_LIVE_TRENDBAR_RES
+>;
 export type ProtoMessage2166 = Message<
   $.ProtoOAUnsubscribeLiveTrendbarRes,
-  2166
+  $.ProtoOAPayloadType.PROTO_OA_UNSUBSCRIBE_LIVE_TRENDBAR_RES
 >;
-export type ProtoMessage2167 = Message<$.ProtoOAMarginCallListReq, 2167>;
-export type ProtoMessage2168 = Message<$.ProtoOAMarginCallListRes, 2168>;
-export type ProtoMessage2169 = Message<$.ProtoOAMarginCallUpdateReq, 2169>;
-export type ProtoMessage2170 = Message<$.ProtoOAMarginCallUpdateRes, 2170>;
-export type ProtoMessage2171 = Message<$.ProtoOAMarginCallUpdateEvent, 2171>;
-export type ProtoMessage2172 = Message<$.ProtoOAMarginCallTriggerEvent, 2172>;
-export type ProtoMessage2173 = Message<$.ProtoOARefreshTokenReq, 2173>;
-export type ProtoMessage2174 = Message<$.ProtoOARefreshTokenRes, 2174>;
+export type ProtoMessage2167 = Message<
+  $.ProtoOAMarginCallListReq,
+  $.ProtoOAPayloadType.PROTO_OA_MARGIN_CALL_LIST_REQ
+>;
+export type ProtoMessage2168 = Message<
+  $.ProtoOAMarginCallListRes,
+  $.ProtoOAPayloadType.PROTO_OA_MARGIN_CALL_LIST_RES
+>;
+export type ProtoMessage2169 = Message<
+  $.ProtoOAMarginCallUpdateReq,
+  $.ProtoOAPayloadType.PROTO_OA_MARGIN_CALL_UPDATE_REQ
+>;
+export type ProtoMessage2170 = Message<
+  $.ProtoOAMarginCallUpdateRes,
+  $.ProtoOAPayloadType.PROTO_OA_MARGIN_CALL_UPDATE_RES
+>;
+export type ProtoMessage2171 = Message<
+  $.ProtoOAMarginCallUpdateEvent,
+  $.ProtoOAPayloadType.PROTO_OA_MARGIN_CALL_UPDATE_EVENT
+>;
+export type ProtoMessage2172 = Message<
+  $.ProtoOAMarginCallTriggerEvent,
+  $.ProtoOAPayloadType.PROTO_OA_MARGIN_CALL_TRIGGER_EVENT
+>;
+export type ProtoMessage2173 = Message<
+  $.ProtoOARefreshTokenReq,
+  $.ProtoOAPayloadType.PROTO_OA_REFRESH_TOKEN_REQ
+>;
+export type ProtoMessage2174 = Message<
+  $.ProtoOARefreshTokenRes,
+  $.ProtoOAPayloadType.PROTO_OA_REFRESH_TOKEN_RES
+>;
 
 export type ProtoMessages =
   | ProtoMessage5

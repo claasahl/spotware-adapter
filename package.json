@@ -1,6 +1,6 @@
 {
   "name": "@claasahl/spotware-adapter",
-  "version": "1.4.0",
+  "version": "2.0.0",
   "description": "Protocol Buffers and Data Models for Spotware Open API 2.0",
   "main": "build/index.js",
   "private": false,
@@ -41,7 +41,7 @@
     "npm": ">= 6.4.1"
   },
   "dependencies": {
-    "@claasahl/spotware-protobuf": "^6.9.0",
+    "@claasahl/spotware-protobuf": "^7.0.0",
     "debug": "^4.2.0"
   }
 }
