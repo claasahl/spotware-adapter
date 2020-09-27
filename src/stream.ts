@@ -64,6 +64,47 @@ function logOutput(msg: Messages) {
   }
 }
 
+const FIVE_PER_SECOND = 200;
+const FIFTY_PER_SECOND = 20;
+
+interface DataWithCallback {
+  data: Buffer;
+  callback: (error?: Error | null) => void;
+}
+type DataHandler = (buffer: Buffer, cb: (err?: Error | null) => void) => void;
+function throttledQueue(
+  interval: number,
+  dataHandler: DataHandler
+): DataHandler {
+  const queue: DataWithCallback[] = [];
+  const state: {
+    lastMessage: number;
+    timeout?: NodeJS.Timeout;
+  } = {
+    lastMessage: 0,
+  };
+  const handler: DataHandler = (data, callback) => {
+    const now = Date.now();
+    const { timeout, lastMessage } = state;
+    if (!timeout && now - lastMessage >= interval) {
+      state.lastMessage = now;
+      return dataHandler(data, callback);
+    }
+    if (!timeout) {
+      state.timeout = setInterval(() => {
+        const entry = queue.shift();
+        if (entry) {
+          dataHandler(entry.data, entry.callback);
+        } else if (timeout) {
+          clearInterval(timeout);
+        }
+      }, interval);
+    }
+    queue.push({ data, callback });
+  };
+  return handler;
+}
+
 export declare interface SpotwareClientStream extends Duplex {
   read(size?: number): Messages;
   unshift(message: Messages, encoding?: BufferEncoding): void;
@@ -160,10 +201,18 @@ export declare interface SpotwareClientStream extends Duplex {
 export class SpotwareClientStream extends Duplex {
   socket;
   listening = false;
+  fivePerSecond;
+  fiftyPerSecond;
   constructor(port: number, host: string) {
     super({ allowHalfOpen: false, objectMode: true });
     this.socket = tls.connect(port, host);
     this.socket.on("error", (err) => this.destroy(err));
+    this.fivePerSecond = throttledQueue(FIVE_PER_SECOND, (data, cb) =>
+      this.socket.write(data, cb)
+    );
+    this.fiftyPerSecond = throttledQueue(FIFTY_PER_SECOND, (data, cb) =>
+      this.socket.write(data, cb)
+    );
   }
 
   _read(_size: number): void {
@@ -197,7 +246,24 @@ export class SpotwareClientStream extends Duplex {
     logOutput(msg);
     const data = write(msg);
     if (data) {
-      this.socket.write(data, callback);
+      this.queue(msg, data, callback);
+    }
+  }
+
+  private queue(
+    message: Messages,
+    data: Buffer,
+    callback: (error?: Error | null) => void
+  ): void {
+    switch (message.payloadType) {
+      case ProtoOAPayloadType.PROTO_OA_GET_TRENDBARS_REQ:
+      case ProtoOAPayloadType.PROTO_OA_GET_TICKDATA_REQ:
+      case ProtoOAPayloadType.PROTO_OA_DEAL_LIST_REQ:
+        this.fivePerSecond(data, callback);
+        break;
+      default:
+        this.fiftyPerSecond(data, callback);
+        break;
     }
   }
 }
