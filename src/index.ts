@@ -1,3 +1,3 @@
 export * from "@claasahl/spotware-protobuf";
-export * from "./spotware-messages";
+export * from "./messages";
 export * from "./spotware-stream";
