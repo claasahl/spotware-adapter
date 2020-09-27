@@ -2,15 +2,15 @@ import Pbf from "pbf";
 import {
   ProtoMessage,
   ProtoOAPayloadType,
-  ProtoOATraderUpdateEventUtils,
-  ProtoOATraderUpdateEvent,
+  ProtoOATraderUpdatedEventUtils,
+  ProtoOATraderUpdatedEvent,
 } from "@claasahl/spotware-protobuf";
 
 import { serialize, deserialize } from "../spotware-utils";
 import { Message } from "./Message";
 
 export type Type = Message<
-  ProtoOATraderUpdateEvent,
+  ProtoOATraderUpdatedEvent,
   ProtoOAPayloadType.PROTO_OA_TRADER_UPDATE_EVENT
 >;
 
@@ -28,7 +28,7 @@ export function read(data: Buffer | ProtoMessage): Type | undefined {
     const pbf = new Pbf(message.payload);
     return {
       payloadType: ProtoOAPayloadType.PROTO_OA_TRADER_UPDATE_EVENT,
-      payload: ProtoOATraderUpdateEventUtils.read(pbf),
+      payload: ProtoOATraderUpdatedEventUtils.read(pbf),
       clientMsgId: message.clientMsgId,
     };
   }
@@ -38,7 +38,7 @@ export function read(data: Buffer | ProtoMessage): Type | undefined {
 export function write(message: Type): Buffer | undefined {
   if (message.payloadType === ProtoOAPayloadType.PROTO_OA_TRADER_UPDATE_EVENT) {
     const pbf = new Pbf();
-    ProtoOATraderUpdateEventUtils.write(message.payload, pbf);
+    ProtoOATraderUpdatedEventUtils.write(message.payload, pbf);
     return serialize({
       ...message,
       payload: pbf.finish(),

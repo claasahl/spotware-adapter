@@ -2,15 +2,15 @@ import Pbf from "pbf";
 import {
   ProtoMessage,
   ProtoOAPayloadType,
-  ProtoOAGetTickdataResUtils,
-  ProtoOAGetTickdataRes,
+  ProtoOAGetTickDataResUtils,
+  ProtoOAGetTickDataRes,
 } from "@claasahl/spotware-protobuf";
 
 import { serialize, deserialize } from "../spotware-utils";
 import { Message } from "./Message";
 
 export type Type = Message<
-  ProtoOAGetTickdataRes,
+  ProtoOAGetTickDataRes,
   ProtoOAPayloadType.PROTO_OA_GET_TICKDATA_RES
 >;
 
@@ -28,7 +28,7 @@ export function read(data: Buffer | ProtoMessage): Type | undefined {
     const pbf = new Pbf(message.payload);
     return {
       payloadType: ProtoOAPayloadType.PROTO_OA_GET_TICKDATA_RES,
-      payload: ProtoOAGetTickdataResUtils.read(pbf),
+      payload: ProtoOAGetTickDataResUtils.read(pbf),
       clientMsgId: message.clientMsgId,
     };
   }
@@ -38,7 +38,7 @@ export function read(data: Buffer | ProtoMessage): Type | undefined {
 export function write(message: Type): Buffer | undefined {
   if (message.payloadType === ProtoOAPayloadType.PROTO_OA_GET_TICKDATA_RES) {
     const pbf = new Pbf();
-    ProtoOAGetTickdataResUtils.write(message.payload, pbf);
+    ProtoOAGetTickDataResUtils.write(message.payload, pbf);
     return serialize({
       ...message,
       payload: pbf.finish(),

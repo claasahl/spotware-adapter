@@ -2,15 +2,15 @@ import Pbf from "pbf";
 import {
   ProtoMessage,
   ProtoOAPayloadType,
-  ProtoOAGetAccountsByAccessTokenResUtils,
-  ProtoOAGetAccountsByAccessTokenRes,
+  ProtoOAGetAccountListByAccessTokenResUtils,
+  ProtoOAGetAccountListByAccessTokenRes,
 } from "@claasahl/spotware-protobuf";
 
 import { serialize, deserialize } from "../spotware-utils";
 import { Message } from "./Message";
 
 export type Type = Message<
-  ProtoOAGetAccountsByAccessTokenRes,
+  ProtoOAGetAccountListByAccessTokenRes,
   ProtoOAPayloadType.PROTO_OA_GET_ACCOUNTS_BY_ACCESS_TOKEN_RES
 >;
 
@@ -31,7 +31,7 @@ export function read(data: Buffer | ProtoMessage): Type | undefined {
     const pbf = new Pbf(message.payload);
     return {
       payloadType: ProtoOAPayloadType.PROTO_OA_GET_ACCOUNTS_BY_ACCESS_TOKEN_RES,
-      payload: ProtoOAGetAccountsByAccessTokenResUtils.read(pbf),
+      payload: ProtoOAGetAccountListByAccessTokenResUtils.read(pbf),
       clientMsgId: message.clientMsgId,
     };
   }
@@ -44,7 +44,7 @@ export function write(message: Type): Buffer | undefined {
     ProtoOAPayloadType.PROTO_OA_GET_ACCOUNTS_BY_ACCESS_TOKEN_RES
   ) {
     const pbf = new Pbf();
-    ProtoOAGetAccountsByAccessTokenResUtils.write(message.payload, pbf);
+    ProtoOAGetAccountListByAccessTokenResUtils.write(message.payload, pbf);
     return serialize({
       ...message,
       payload: pbf.finish(),

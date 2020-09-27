@@ -2,15 +2,15 @@ import Pbf from "pbf";
 import {
   ProtoMessage,
   ProtoOAPayloadType,
-  ProtoOAAmendPositionSltpReqUtils,
-  ProtoOAAmendPositionSltpReq,
+  ProtoOAAmendPositionSLTPReqUtils,
+  ProtoOAAmendPositionSLTPReq,
 } from "@claasahl/spotware-protobuf";
 
 import { serialize, deserialize } from "../spotware-utils";
 import { Message } from "./Message";
 
 export type Type = Message<
-  ProtoOAAmendPositionSltpReq,
+  ProtoOAAmendPositionSLTPReq,
   ProtoOAPayloadType.PROTO_OA_AMEND_POSITION_SLTP_REQ
 >;
 
@@ -30,7 +30,7 @@ export function read(data: Buffer | ProtoMessage): Type | undefined {
     const pbf = new Pbf(message.payload);
     return {
       payloadType: ProtoOAPayloadType.PROTO_OA_AMEND_POSITION_SLTP_REQ,
-      payload: ProtoOAAmendPositionSltpReqUtils.read(pbf),
+      payload: ProtoOAAmendPositionSLTPReqUtils.read(pbf),
       clientMsgId: message.clientMsgId,
     };
   }
@@ -42,7 +42,7 @@ export function write(message: Type): Buffer | undefined {
     message.payloadType === ProtoOAPayloadType.PROTO_OA_AMEND_POSITION_SLTP_REQ
   ) {
     const pbf = new Pbf();
-    ProtoOAAmendPositionSltpReqUtils.write(message.payload, pbf);
+    ProtoOAAmendPositionSLTPReqUtils.write(message.payload, pbf);
     return serialize({
       ...message,
       payload: pbf.finish(),
