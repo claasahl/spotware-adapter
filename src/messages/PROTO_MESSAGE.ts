@@ -5,7 +5,7 @@ import {
   ProtoMessageUtils,
 } from "@claasahl/spotware-protobuf";
 
-import { serialize, deserialize } from "../spotware-utils";
+import { serialize, deserialize } from "./utils";
 import { Message } from "./Message";
 import { Messages } from "./";
 
