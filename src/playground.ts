@@ -42,4 +42,4 @@ s.on("data", (msg) => {
       break;
   }
 });
-s.write(FACTORY.PROTO_OA_VERSION_REQ());
+s.once("secureConnect", () => s.write(FACTORY.PROTO_OA_VERSION_REQ()));

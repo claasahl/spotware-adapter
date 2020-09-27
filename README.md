@@ -21,6 +21,44 @@ This package uses [`debug`](https://www.npmjs.com/package/debug) for logging.
 - `spotware.${payloadType}` any proto message (i.e. incoming or outgoing)
 - `spotware.${payloadTypeText}` any proto message (i.e. incoming or outgoing)
 
+## Events
+
+// writable
+
+- 'close': The 'close' event is emitted when the stream and any of its underlying resources (a file descriptor, for example) have been closed. The event indicates that no more events will be emitted, and no further computation will occur.
+- 'drain': If a call to stream.write(chunk) returns false, the 'drain' event will be emitted when it is appropriate to resume writing data to the stream.
+- 'error': The 'error' event is emitted if an error occurred while writing or piping data. The stream is closed when the 'error' event is emitted.
+- 'finish': The 'finish' event is emitted after the stream.end() method has been called, and all data has been flushed to the underlying system.
+
+// readable
+
+- 'close': The 'close' event is emitted when the stream and any of its underlying resources (a file descriptor, for example) have been closed. The event indicates that no more events will be - emitted, and no further computation will occur.
+- 'data': The 'data' event is emitted whenever the stream is relinquishing ownership of a chunk of data to a consumer. This may occur whenever the stream is switched in flowing mode by calling - readable.pipe(), readable.resume(), or by attaching a listener callback to the 'data' event. The 'data' event will also be emitted whenever the readable.read() method is called and a chunk of - data is available to be returned.
+- 'end': The 'end' event is emitted when there is no more data to be consumed from the stream.
+- 'error': The 'error' event may be emitted by a Readable implementation at any time. Typically, this may occur if the underlying stream is unable to generate data due to an underlying internal failure, or when a stream implementation attempts to push an invalid chunk of data.
+- 'pause': The 'pause' event is emitted when stream.pause() is called and readableFlowing is not false.
+- 'readable': The 'readable' event is emitted when there is data available to be read from the stream. In some cases, attaching a listener for the 'readable' event will cause some amount of data to be read into an internal buffer. The 'readable' event will also be emitted once the end of the stream data has been reached but before the 'end' event is emitted.
+- 'resume': The 'resume' event is emitted when stream.resume() is called and readableFlowing is not true.
+
+// Socket
+
+- 'close': Emitted once the socket is fully closed. The argument hadError is a boolean which says if the socket was closed due to a transmission error.
+- 'connect': Emitted when a socket connection is successfully established. See net.createConnection().
+- 'data': Emitted when data is received. The argument data will be a Buffer or String. Encoding of data is set by socket.setEncoding().
+- 'drain': Emitted when the write buffer becomes empty. Can be used to throttle uploads.
+- 'end': Emitted when the other end of the socket sends a FIN packet, thus ending the readable side of the socket.
+- 'error': Emitted when an error occurs. The 'close' event will be called directly following this event.
+- 'lookup': Emitted after resolving the host name but before connecting. Not applicable to Unix sockets.
+- 'ready': Emitted when a socket is ready to be used.
+- 'timeout': Emitted if the socket times out from inactivity. This is only to notify that the socket has been idle. The user must manually close the connection.
+
+// TlsSocket
+
+- 'keylog': The keylog event is emitted on a tls.TLSSocket when key material is generated or received by the socket. This keying material can be stored for debugging, as it allows captured TLS traffic to be decrypted. It may be emitted multiple times, before or after the handshake completes.
+- 'OCSPResponse': The 'OCSPResponse' event is emitted if the requestOCSP option was set when the tls.TLSSocket was created and an OCSP response has been received.
+- 'secureConnect': The 'secureConnect' event is emitted after the handshaking process for a new connection has successfully completed. The listener callback will be called regardless of whether or not the server's certificate has been authorized.
+- 'session': The 'session' event is emitted on a client tls.TLSSocket when a new session or TLS ticket is available. This may or may not be before the handshake is complete, depending on the TLS protocol version that was negotiated. The event is not emitted on the server, or if a new session was not created, for example, when the connection was resumed. For some TLS protocol versions the event may be emitted multiple times, in which case all the sessions can be used for resumption.
+
 ## Upcoming Changes
 
 - a typescript/javascript client for communicating with spotware open api v2 servers
