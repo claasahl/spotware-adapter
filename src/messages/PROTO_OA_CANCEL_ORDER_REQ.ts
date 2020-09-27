@@ -8,6 +8,7 @@ import {
 
 import { serialize, deserialize } from "../spotware-utils";
 import { Message } from "./Message";
+import { Messages } from "./";
 
 export type Type = Message<
   ProtoOACancelOrderReq,
@@ -35,7 +36,7 @@ export function read(data: Buffer | ProtoMessage): Type | undefined {
   return undefined;
 }
 
-export function write(message: Type): Buffer | undefined {
+export function write(message: Messages): Buffer | undefined {
   if (message.payloadType === ProtoOAPayloadType.PROTO_OA_CANCEL_ORDER_REQ) {
     const pbf = new Pbf();
     ProtoOACancelOrderReqUtils.write(message.payload, pbf);

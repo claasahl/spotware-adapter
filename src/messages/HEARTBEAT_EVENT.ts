@@ -8,6 +8,7 @@ import {
 
 import { serialize, deserialize } from "../spotware-utils";
 import { Message } from "./Message";
+import { Messages } from "./";
 
 export type Type = Message<
   ProtoHeartbeatEvent,
@@ -35,7 +36,7 @@ export function read(data: Buffer | ProtoMessage): Type | undefined {
   return undefined;
 }
 
-export function write(message: Type): Buffer | undefined {
+export function write(message: Messages): Buffer | undefined {
   if (message.payloadType === ProtoPayloadType.HEARTBEAT_EVENT) {
     const pbf = new Pbf();
     ProtoHeartbeatEventUtils.write(message.payload, pbf);

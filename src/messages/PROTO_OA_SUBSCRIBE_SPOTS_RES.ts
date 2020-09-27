@@ -8,6 +8,7 @@ import {
 
 import { serialize, deserialize } from "../spotware-utils";
 import { Message } from "./Message";
+import { Messages } from "./";
 
 export type Type = Message<
   ProtoOASubscribeSpotsRes,
@@ -35,7 +36,7 @@ export function read(data: Buffer | ProtoMessage): Type | undefined {
   return undefined;
 }
 
-export function write(message: Type): Buffer | undefined {
+export function write(message: Messages): Buffer | undefined {
   if (message.payloadType === ProtoOAPayloadType.PROTO_OA_SUBSCRIBE_SPOTS_RES) {
     const pbf = new Pbf();
     ProtoOASubscribeSpotsResUtils.write(message.payload, pbf);

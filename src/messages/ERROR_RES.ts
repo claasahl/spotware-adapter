@@ -8,6 +8,7 @@ import {
 
 import { serialize, deserialize } from "../spotware-utils";
 import { Message } from "./Message";
+import { Messages } from "./";
 
 export type Type = Message<ProtoErrorRes, ProtoPayloadType.ERROR_RES>;
 
@@ -32,7 +33,7 @@ export function read(data: Buffer | ProtoMessage): Type | undefined {
   return undefined;
 }
 
-export function write(message: Type): Buffer | undefined {
+export function write(message: Messages): Buffer | undefined {
   if (message.payloadType === ProtoPayloadType.ERROR_RES) {
     const pbf = new Pbf();
     ProtoErrorResUtils.write(message.payload, pbf);

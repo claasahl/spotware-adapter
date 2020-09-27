@@ -170,7 +170,6 @@ export function read(data: Buffer): Messages | undefined {
 
 export function write(message: Messages): Buffer | undefined {
   for (const handler of handlers) {
-    handler.write();
     const result = handler.write(message);
     if (result) {
       return result;

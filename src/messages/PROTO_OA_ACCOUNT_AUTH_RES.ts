@@ -8,6 +8,7 @@ import {
 
 import { serialize, deserialize } from "../spotware-utils";
 import { Message } from "./Message";
+import { Messages } from "./";
 
 export type Type = Message<
   ProtoOAAccountAuthRes,
@@ -35,7 +36,7 @@ export function read(data: Buffer | ProtoMessage): Type | undefined {
   return undefined;
 }
 
-export function write(message: Type): Buffer | undefined {
+export function write(message: Messages): Buffer | undefined {
   if (message.payloadType === ProtoOAPayloadType.PROTO_OA_ACCOUNT_AUTH_RES) {
     const pbf = new Pbf();
     ProtoOAAccountAuthResUtils.write(message.payload, pbf);
