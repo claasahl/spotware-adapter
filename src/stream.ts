@@ -203,16 +203,40 @@ export class SpotwareClientStream extends Duplex {
   listening = false;
   fivePerSecond;
   fiftyPerSecond;
+  heartbeats;
   constructor(port: number, host: string) {
     super({ allowHalfOpen: false, objectMode: true });
     this.socket = tls.connect(port, host);
     this.socket.on("error", (err) => this.destroy(err));
+    this.socket.on("end", () => this.end());
     this.fivePerSecond = throttledQueue(FIVE_PER_SECOND, (data, cb) =>
       this.socket.write(data, cb)
     );
     this.fiftyPerSecond = throttledQueue(FIFTY_PER_SECOND, (data, cb) =>
       this.socket.write(data, cb)
     );
+    this.heartbeats = setInterval(
+      () => {
+        const heartbeat = {
+          payloadType: ProtoPayloadType.HEARTBEAT_EVENT,
+          payload: {},
+        };
+        this._write(heartbeat, "", () => {});
+      },
+      10000 // https://connect.spotware.com/docs/frequently-asked-questions
+    );
+  }
+
+  _final(callback: (error?: Error | null) => void): void {
+    clearInterval(this.heartbeats);
+    this.socket.end();
+    callback();
+  }
+
+  _destroy(error: Error | null, callback: (error: Error | null) => void): void {
+    clearInterval(this.heartbeats);
+    this.socket.end();
+    callback(error);
   }
 
   _read(_size: number): void {
@@ -255,6 +279,7 @@ export class SpotwareClientStream extends Duplex {
     data: Buffer,
     callback: (error?: Error | null) => void
   ): void {
+    // https://connect.spotware.com/docs/frequently-asked-questions
     switch (message.payloadType) {
       case ProtoOAPayloadType.PROTO_OA_GET_TRENDBARS_REQ:
       case ProtoOAPayloadType.PROTO_OA_GET_TICKDATA_REQ:

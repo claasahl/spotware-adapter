@@ -9,7 +9,6 @@ const config = {
 };
 
 const s = new SpotwareClientStream(config.port, config.host);
-setInterval(() => s.write(FACTORY.HEARTBEAT_EVENT()), 10000);
 s.on("data", (msg) => {
   switch (msg.payloadType) {
     case ProtoOAPayloadType.PROTO_OA_VERSION_RES:
