@@ -15,7 +15,10 @@ export type Type = Message<
   ProtoOAPayloadType.PROTO_OA_VERSION_REQ
 >;
 
-export function create(payload: Type["payload"], clientMsgId?: string): Type {
+export function create(
+  payload: Type["payload"] = {},
+  clientMsgId?: string
+): Type {
   return {
     payloadType: ProtoOAPayloadType.PROTO_OA_VERSION_REQ,
     payload,
