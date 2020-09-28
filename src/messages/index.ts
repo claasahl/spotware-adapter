@@ -76,6 +76,7 @@ import * as PROTO_OA_MARGIN_CALL_UPDATE_EVENT from "./PROTO_OA_MARGIN_CALL_UPDAT
 import * as PROTO_OA_MARGIN_CALL_TRIGGER_EVENT from "./PROTO_OA_MARGIN_CALL_TRIGGER_EVENT";
 import * as PROTO_OA_REFRESH_TOKEN_REQ from "./PROTO_OA_REFRESH_TOKEN_REQ";
 import * as PROTO_OA_REFRESH_TOKEN_RES from "./PROTO_OA_REFRESH_TOKEN_RES";
+import { deserialize } from "./utils";
 
 const handlers = [
   PROTO_MESSAGE,
@@ -159,8 +160,9 @@ const handlers = [
 ];
 
 export function read(data: Buffer): Messages | undefined {
+  const protoMessage = deserialize(data);
   for (const handler of handlers) {
-    const result = handler.read(data);
+    const result = handler.read(protoMessage);
     if (result) {
       return result;
     }

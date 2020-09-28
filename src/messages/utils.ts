@@ -17,14 +17,12 @@ export function serialize(message: ProtoMessage): Buffer {
   return Buffer.concat([len, data], totalLength);
 }
 
-let buffer = Buffer.alloc(0);
 export function deserialize(data: Buffer, offset: number = 0): ProtoMessage {
-  buffer = Buffer.concat([buffer, data.slice(offset)]);
+  const buffer = data.slice(offset);
   const length = buffer.readInt32BE(offset);
   const remainingBytes = buffer.length - offset - INT_SIZE;
   if (remainingBytes >= length) {
     const payload = buffer.slice(offset + INT_SIZE, length + offset + INT_SIZE);
-    buffer = Buffer.alloc(0);
     const pbf = new Pbf(payload);
     return ProtoMessageUtils.read(pbf);
   } else {

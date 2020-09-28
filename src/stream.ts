@@ -399,19 +399,26 @@ export class SpotwareClientStream extends Duplex {
     callback(error);
   }
 
+  private buffer = Buffer.alloc(0);
   _read(_size: number): void {
     if (!this.listening) {
       const listener = (chunk: Buffer) => {
         if (chunk) {
-          const msg = read(chunk);
-          if (msg) {
-            logInput(msg);
-            const bla = this.push(msg);
-            if (!bla) {
-              console.log("stopping");
-              this.listening = false;
-              this.socket.off("data", listener);
+          const tmp = Buffer.concat([this.buffer, chunk]);
+          try {
+            const msg = read(tmp);
+            if (msg) {
+              logInput(msg);
+              const bla = this.push(msg);
+              if (!bla) {
+                console.log("stopping");
+                this.listening = false;
+                this.socket.off("data", listener);
+              }
             }
+            this.buffer = Buffer.alloc(0);
+          } catch {
+            this.buffer = tmp;
           }
         }
       };
