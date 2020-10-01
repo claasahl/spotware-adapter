@@ -7,7 +7,7 @@
   "scripts": {
     "prepare": "npm run build",
     "build": "tsc",
-    "playground": "ts-node -r dotenv/config src/playground.ts"
+    "start": "ts-node -r dotenv/config src/example/index.ts"
   },
   "keywords": [
     "spotware",
