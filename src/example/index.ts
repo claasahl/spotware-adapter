@@ -41,3 +41,7 @@ events.on("symbol", (symbol) => {
     spots.onInit();
   }
 });
+
+events.on("spot", (spot) => {
+  console.log(spot);
+});
