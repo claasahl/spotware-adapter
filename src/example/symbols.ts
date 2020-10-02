@@ -78,8 +78,8 @@ export default class Symbols {
         }
         symbols.forEach((s) => this.symbols.set(s.symbolId, s));
         symbols.forEach((s) => {
-          const { symbolId, symbolName, symbolCategoryId } = s;
-          if (symbolId && symbolName && symbolCategoryId) {
+          const { symbolId, symbolName, symbolCategoryId, enabled } = s;
+          if (symbolId && symbolName && symbolCategoryId && enabled) {
             const category = this.categories.get(symbolCategoryId);
             const assetClass = this.assetClasses.get(
               category?.assetClassId || -1
