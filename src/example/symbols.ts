@@ -70,33 +70,48 @@ export default class Symbols {
           );
         }
         break;
-      case ProtoOAPayloadType.PROTO_OA_SYMBOLS_LIST_RES: {
-        const { ctidTraderAccountId, symbol: symbols } = msg.payload;
-        if (ctidTraderAccountId !== this.ctidTraderAccountId) {
-          // skip other accounts
-          break;
-        }
-        symbols.forEach((s) => this.symbols.set(s.symbolId, s));
-        symbols.forEach((s) => {
-          const { symbolId, symbolName, symbolCategoryId, enabled } = s;
-          if (symbolId && symbolName && symbolCategoryId && enabled) {
-            const category = this.categories.get(symbolCategoryId);
-            const assetClass = this.assetClasses.get(
-              category?.assetClassId || -1
-            );
-            if (assetClass?.name) {
-              const symbol = {
-                ctidTraderAccountId,
-                symbolId,
-                symbolName,
-                assetClass: assetClass.name,
-              };
-              this.events.emit("symbol", symbol);
-            }
+      case ProtoOAPayloadType.PROTO_OA_SYMBOLS_LIST_RES:
+        {
+          const { ctidTraderAccountId, symbol: symbols } = msg.payload;
+          if (ctidTraderAccountId !== this.ctidTraderAccountId) {
+            // skip other accounts
+            break;
           }
-        });
+          symbols.forEach((s) => this.symbols.set(s.symbolId, s));
+          symbols.forEach((s) => {
+            const { symbolId, symbolName, symbolCategoryId, enabled } = s;
+            if (symbolId && symbolName && symbolCategoryId && enabled) {
+              const category = this.categories.get(symbolCategoryId);
+              const assetClass = this.assetClasses.get(
+                category?.assetClassId || -1
+              );
+              if (assetClass?.name) {
+                const symbol = {
+                  ctidTraderAccountId,
+                  symbolId,
+                  symbolName,
+                  assetClass: assetClass.name,
+                };
+                this.events.emit("symbol", symbol);
+              }
+            }
+          });
+        }
         break;
-      }
+      case ProtoOAPayloadType.PROTO_OA_SYMBOL_CHANGED_EVENT:
+        {
+          const { ctidTraderAccountId } = msg.payload;
+          if (ctidTraderAccountId !== this.ctidTraderAccountId) {
+            // skip other accounts
+            break;
+          }
+
+          // refetch all symbols
+          this.stream.write(
+            FACTORY.PROTO_OA_SYMBOLS_LIST_REQ({ ctidTraderAccountId })
+          );
+        }
+        break;
     }
   }
 }
