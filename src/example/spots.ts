@@ -4,7 +4,9 @@ import {
   ProtoOAPayloadType,
   FACTORY,
 } from "..";
-import { Events, Symbol } from "./events";
+import { Events, SpotEvent, Symbol } from "./events";
+
+const FACTOR = Math.pow(10, 5);
 
 export default class Spots {
   private stream;
@@ -41,13 +43,11 @@ export default class Spots {
             // skip other symbols
             break;
           }
-          const PRECISION = 5;
-          const fact0r = Math.pow(10, PRECISION);
           this.events.emit("spot", {
             date: new Date(),
             symbolId,
-            ask: ask ? ask / fact0r : undefined,
-            bid: bid ? bid / fact0r : undefined,
+            ask: ask ? ask / FACTOR : undefined,
+            bid: bid ? bid / FACTOR : undefined,
           });
         }
         break;
