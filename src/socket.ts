@@ -24,27 +24,17 @@ export class SpotwareSocket extends Duplex {
   private wrapSocket() {
     // tls.TLSSocket
     this.socket.on("keylog", (line: Buffer) => this.emit("keylog", line));
-    this.socket.on("OCSPResponse", (response: Buffer) =>
-      this.emit("OCSPResponse", response)
-    );
+    this.socket.on("OCSPResponse", (response: Buffer) => this.emit("OCSPResponse", response)); // prettier-ignore
     this.socket.on("secureConnect", () => this.emit("secureConnect"));
-    this.socket.on("session", (session: Buffer) =>
-      this.emit("session", session)
-    );
+    this.socket.on("session", (session: Buffer) => this.emit("session", session)); // prettier-ignore
 
     // net.Socket
-    this.socket.on("close", (hadError: boolean) =>
-      this.emit("close", hadError)
-    );
+    this.socket.on("close", (hadError: boolean) => this.emit("close", hadError)); // prettier-ignore
     this.socket.on("connect", () => this.emit("connect"));
     this.socket.on("drain", () => this.emit("drain"));
     this.socket.on("end", () => this.emit("end"));
     this.socket.on("error", (err: Error) => this.emit("error", err)); // this.destroy?
-    this.socket.on(
-      "lookup",
-      (err: Error, address: string, family: string | number, host: string) =>
-        this.emit("lookup", err, address, family, host)
-    );
+    this.socket.on("lookup", (err: Error, address: string, family: string | number, host: string) => this.emit("lookup", err, address, family, host)); // prettier-ignore
     this.socket.on("ready", () => this.emit("ready"));
     this.socket.on("timeout", () => this.emit("timeout"));
 
