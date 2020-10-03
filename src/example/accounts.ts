@@ -1,4 +1,9 @@
-import { SpotwareSocket, Messages, ProtoOAPayloadType, FACTORY } from "..";
+import {
+  SpotwareClientSocket,
+  Messages,
+  ProtoOAPayloadType,
+  FACTORY,
+} from "..";
 import { Events, Account } from "./events";
 
 interface Config {
@@ -13,7 +18,7 @@ export default class Accounts {
   private accounts;
   private events;
 
-  constructor(stream: SpotwareSocket, config: Config, events: Events) {
+  constructor(stream: SpotwareClientSocket, config: Config, events: Events) {
     this.stream = stream;
     this.config = config;
     this.accounts = new Map<number, Account>();

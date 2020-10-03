@@ -1,5 +1,5 @@
 import { connect } from "tls";
-import { SpotwareSocket, FACTORY } from "..";
+import { SpotwareClientSocket, FACTORY } from "..";
 import Accounts from "./accounts";
 import { Events } from "./events";
 import Spots from "./spots";
@@ -14,7 +14,7 @@ const config = {
 };
 
 const events = new Events();
-const s = new SpotwareSocket(connect(config.port, config.host));
+const s = new SpotwareClientSocket(connect(config.port, config.host));
 s.once("secureConnect", () => s.write(FACTORY.PROTO_OA_VERSION_REQ()));
 
 const accounts = new Accounts(s, config, events);
