@@ -1,4 +1,5 @@
-import { connect } from "tls";
+import { connect as tlsConnect } from "tls";
+import { connect as netConnect } from "net";
 import { SpotwareClientSocket, FACTORY } from "..";
 import Accounts from "./accounts";
 import { Events } from "./events";
@@ -14,12 +15,17 @@ const config = {
 };
 
 const events = new Events();
-const s = new SpotwareClientSocket(connect(config.port, config.host));
-s.once("secureConnect", () => s.write(FACTORY.PROTO_OA_VERSION_REQ()));
+const isLocalhost = config.host === "localhost";
+const socket = isLocalhost
+  ? netConnect(config.port, config.host)
+  : tlsConnect(config.port, config.host);
+const event = isLocalhost ? "connect" : "secureConnect";
+const s = new SpotwareClientSocket(socket);
+s.once(event, () => s.write(FACTORY.PROTO_OA_VERSION_REQ()));
 
 const accounts = new Accounts(s, config, events);
 s.on("data", (msg) => accounts.onMessage(msg));
-s.once("secureConnect", () => accounts.onInit());
+s.once(event, () => accounts.onInit());
 
 events.on("account", (account) => {
   if (!account.authenticated || !account.depositAssetId) {
