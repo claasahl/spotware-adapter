@@ -4,6 +4,7 @@ import { Duplex } from "stream";
 import Pbf from "pbf";
 import { ProtoMessageUtils } from "@claasahl/spotware-protobuf";
 
+import { logInput, logOutput } from "./logger";
 import { Messages, deserialize, serialize } from "./messages";
 
 export class SpotwareSocket extends Duplex {
@@ -71,6 +72,7 @@ export class SpotwareSocket extends Duplex {
 
       // add object to read buffer
       const pushOk = this.push(message);
+      logInput(message);
 
       // pause reading if consumer is slow
       if (!pushOk) this.readingPaused = true;
@@ -97,7 +99,10 @@ export class SpotwareSocket extends Duplex {
     length.writeUInt32BE(payloadBytes);
 
     const buffer = Buffer.concat([length, payload], 4 + payloadBytes);
-    this.socket.write(buffer, undefined, callback);
+    this.socket.write(buffer, undefined, (err) => {
+      logOutput(message);
+      callback(err);
+    });
   }
 
   _destroy(error: Error | null, callback: (error: Error | null) => void): void {
