@@ -76,7 +76,7 @@ import * as PROTO_OA_MARGIN_CALL_UPDATE_EVENT from "./PROTO_OA_MARGIN_CALL_UPDAT
 import * as PROTO_OA_MARGIN_CALL_TRIGGER_EVENT from "./PROTO_OA_MARGIN_CALL_TRIGGER_EVENT";
 import * as PROTO_OA_REFRESH_TOKEN_REQ from "./PROTO_OA_REFRESH_TOKEN_REQ";
 import * as PROTO_OA_REFRESH_TOKEN_RES from "./PROTO_OA_REFRESH_TOKEN_RES";
-import { deserialize } from "./utils";
+import { ProtoMessage } from "@claasahl/spotware-protobuf";
 
 const handlers = [
   PROTO_MESSAGE,
@@ -159,25 +159,28 @@ const handlers = [
   PROTO_OA_REFRESH_TOKEN_RES,
 ];
 
-export function read(data: Buffer): Messages | undefined {
-  const protoMessage = deserialize(data);
+export function deserialize(message: ProtoMessage): Messages {
   for (const handler of handlers) {
-    const result = handler.read(protoMessage);
+    const result = handler.deserialize(message);
     if (result) {
       return result;
     }
   }
-  return undefined;
+  throw new Error(
+    `could not deserialize proto message of type ${message.payloadType}`
+  );
 }
 
-export function write(message: Messages): Buffer | undefined {
+export function serialize(message: Messages): ProtoMessage {
   for (const handler of handlers) {
-    const result = handler.write(message);
+    const result = handler.serialize(message);
     if (result) {
       return result;
     }
   }
-  return undefined;
+  throw new Error(
+    `could not serialize proto message of type ${message.payloadType}`
+  );
 }
 
 export type Messages =

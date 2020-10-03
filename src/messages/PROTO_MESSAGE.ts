@@ -5,7 +5,6 @@ import {
   ProtoMessageUtils,
 } from "@claasahl/spotware-protobuf";
 
-import { serialize, deserialize } from "./utils";
 import { Message } from "./Message";
 import { Messages } from "./";
 
@@ -19,8 +18,7 @@ export function create(payload: Type["payload"], clientMsgId?: string): Type {
   };
 }
 
-export function read(data: Buffer | ProtoMessage): Type | undefined {
-  const message = Buffer.isBuffer(data) ? deserialize(data) : data;
+export function deserialize(message: ProtoMessage): Type | undefined {
   if (message.payloadType === ProtoPayloadType.PROTO_MESSAGE) {
     const pbf = new Pbf(message.payload);
     return {
@@ -32,14 +30,14 @@ export function read(data: Buffer | ProtoMessage): Type | undefined {
   return undefined;
 }
 
-export function write(message: Messages): Buffer | undefined {
+export function serialize(message: Messages): ProtoMessage | undefined {
   if (message.payloadType === ProtoPayloadType.PROTO_MESSAGE) {
     const pbf = new Pbf();
     ProtoMessageUtils.write(message.payload, pbf);
-    return serialize({
+    return {
       ...message,
       payload: pbf.finish(),
-    });
+    };
   }
   return undefined;
 }
