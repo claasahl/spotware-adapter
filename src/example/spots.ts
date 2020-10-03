@@ -1,5 +1,5 @@
 import {
-  SpotwareClientStream,
+  SpotwareSocket,
   Messages,
   ProtoOAPayloadType,
   FACTORY,
@@ -14,7 +14,7 @@ export default class Spots {
   readonly ctidTraderAccountId;
   readonly symbolId;
 
-  constructor(stream: SpotwareClientStream, symbol: Symbol, events: Events) {
+  constructor(stream: SpotwareSocket, symbol: Symbol, events: Events) {
     this.stream = stream;
     this.events = events;
     this.ctidTraderAccountId = symbol.ctidTraderAccountId;

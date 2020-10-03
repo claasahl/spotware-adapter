@@ -1,5 +1,5 @@
 import {
-  SpotwareClientStream,
+  SpotwareSocket,
   Messages,
   ProtoOAPayloadType,
   FACTORY,
@@ -18,7 +18,7 @@ export default class Symbols {
   readonly ctidTraderAccountId;
 
   constructor(
-    stream: SpotwareClientStream,
+    stream: SpotwareSocket,
     ctidTraderAccountId: number,
     events: Events
   ) {
