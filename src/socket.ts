@@ -1,7 +1,8 @@
 import { Socket } from "net";
 import { TLSSocket } from "tls";
-import { Duplex } from "stream";
+import { Duplex, PassThrough } from "stream";
 import Pbf from "pbf";
+import bytes from "bytes";
 import { ProtoMessageUtils } from "@claasahl/spotware-protobuf";
 
 import { logInput, logOutput } from "./logger";
@@ -9,6 +10,7 @@ import { Messages, deserialize, serialize } from "./messages";
 
 export class SpotwareSocket extends Duplex {
   private socket;
+  private pt;
   private readingPaused;
   constructor(socket: Socket | TLSSocket) {
     super({
@@ -18,6 +20,7 @@ export class SpotwareSocket extends Duplex {
       autoDestroy: true,
     });
     this.socket = socket;
+    this.pt = new PassThrough({ highWaterMark: bytes("1mb") });
     this.readingPaused = false;
     this.wrapSocket();
   }
@@ -45,17 +48,27 @@ export class SpotwareSocket extends Duplex {
 
   private onReadable() {
     while (!this.readingPaused) {
+      // read as much from socket as possible
+      const tmp = this.socket.read();
+      if (tmp) {
+        this.pt.write(tmp);
+      }
+
+      //
+      // read buffered data from PassThrough stream
+      //
+
       // read raw len
-      const lenBuf = this.socket.read(4);
+      const lenBuf = this.pt.read(4);
       if (!lenBuf) return;
 
       // convert raw len to integer
       const len = lenBuf.readUInt32BE();
 
       // read read json data
-      const payload = this.socket.read(len);
+      const payload = this.pt.read(len);
       if (!payload) {
-        this.socket.unshift(lenBuf);
+        this.pt.unshift(lenBuf);
         return;
       }
 
@@ -66,7 +79,7 @@ export class SpotwareSocket extends Duplex {
         const protoMessage = ProtoMessageUtils.read(pbf);
         message = deserialize(protoMessage);
       } catch (ex) {
-        this.socket.destroy(ex);
+        this.pt.destroy(ex);
         return;
       }
 
