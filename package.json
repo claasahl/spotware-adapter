@@ -7,7 +7,9 @@
   "scripts": {
     "prepare": "npm run build",
     "build": "tsc",
-    "start": "ts-node -r dotenv/config src/example/index.ts"
+    "start": "ts-node -r dotenv/config src/example/index.ts",
+    "server": "ts-node -r dotenv/config src/server.ts",
+    "client": "ts-node -r dotenv/config src/client.ts"
   },
   "keywords": [
     "spotware",
@@ -32,9 +34,11 @@
   "license": "MIT",
   "devDependencies": {
     "@types/debug": "^4.1.5",
+    "@types/ms": "^0.7.31",
     "@types/pbf": "^3.0.2",
     "create-typescript-project-dependencies": "^13.0.3",
-    "dotenv": "^7.0.0"
+    "dotenv": "^7.0.0",
+    "ms": "^2.1.2"
   },
   "engines": {
     "node": ">= 10.5.0",
