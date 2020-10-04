@@ -1,19 +1,12 @@
 import { Server, Socket } from "net";
 import { SpotwareSocket, ProtoOAPayloadType, FACTORY } from "./";
 
-// construct a server
-// const server = new Server((socket) => {
-//   const spSocket = new SpotwareSocket(socket);
-//   spSocket.on("error", console.error);
-//   spSocket.on("data", (data) => {
-//     console.log(data);
-//   });
-// });
-// server.listen(9000);
+const port = Number(process.env.SPOTWARE__PORT);
 const server = new Server(serve);
-server.listen(9000);
+server.listen(port, () => console.log(`listening on port ${port}`));
 
 function serve(socket: Socket): void {
+  console.log("new connection");
   const s = new SpotwareSocket(socket);
   s.on("data", (message) => {
     const { clientMsgId } = message;
