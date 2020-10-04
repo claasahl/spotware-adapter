@@ -1,8 +1,5 @@
-import { Socket } from "net";
-import { TLSSocket } from "tls";
-import { Duplex, PassThrough, Readable } from "stream";
+import { Duplex, Readable } from "stream";
 import Pbf from "pbf";
-import bytes from "bytes";
 import { ProtoMessageUtils } from "@claasahl/spotware-protobuf";
 
 import { logInput, logOutput } from "./logger";
@@ -113,65 +110,34 @@ export declare interface SpotwareSocket extends Duplex {
 
 export class SpotwareSocket extends Duplex {
   private socket;
-  private pt;
   private readingPaused;
-  constructor(socket: Socket | TLSSocket) {
-    super({
-      objectMode: true,
-      allowHalfOpen: false,
-      emitClose: true,
-      autoDestroy: true,
-    });
+  constructor(socket: Duplex) {
+    super({ objectMode: true });
     this.socket = socket;
-    this.pt = new PassThrough({ highWaterMark: bytes("1mb") });
     this.readingPaused = false;
     this.wrapSocket();
   }
 
   private wrapSocket() {
-    // tls.TLSSocket
-    this.socket.on("keylog", (line: Buffer) => this.emit("keylog", line));
-    this.socket.on("OCSPResponse", (response: Buffer) => this.emit("OCSPResponse", response)); // prettier-ignore
-    this.socket.on("secureConnect", () => this.emit("secureConnect"));
-    this.socket.on("session", (session: Buffer) => this.emit("session", session)); // prettier-ignore
-
-    // net.Socket
-    this.socket.on("close", (hadError: boolean) => this.emit("close", hadError)); // prettier-ignore
-    this.socket.on("connect", () => this.emit("connect"));
-    this.socket.on("drain", () => this.emit("drain"));
-    this.socket.on("end", () => this.emit("end"));
-    this.socket.on("error", (err: Error) => this.emit("error", err)); // this.destroy?
-    this.socket.on("lookup", (err: Error, address: string, family: string | number, host: string) => this.emit("lookup", err, address, family, host)); // prettier-ignore
-    this.socket.on("ready", () => this.emit("ready"));
-    this.socket.on("timeout", () => this.emit("timeout"));
-
-    // we customize data events!
+    this.socket.on("close", this.end.bind(this));
+    this.socket.on("end", this.end.bind(this));
+    this.socket.on("error", this.destroy.bind(this));
     this.socket.on("readable", this.onReadable.bind(this));
   }
 
   private onReadable() {
     while (!this.readingPaused) {
-      // read as much from socket as possible
-      const tmp = this.socket.read();
-      if (tmp) {
-        this.pt.write(tmp);
-      }
-
-      //
-      // read buffered data from PassThrough stream
-      //
-
       // read raw len
-      const lenBuf = this.pt.read(4);
+      const lenBuf = this.socket.read(4);
       if (!lenBuf) return;
 
       // convert raw len to integer
       const len = lenBuf.readUInt32BE();
 
       // read read json data
-      const payload = this.pt.read(len);
+      const payload = this.socket.read(len);
       if (!payload) {
-        this.pt.unshift(lenBuf);
+        this.socket.unshift(lenBuf);
         return;
       }
 
@@ -182,7 +148,7 @@ export class SpotwareSocket extends Duplex {
         const protoMessage = ProtoMessageUtils.read(pbf);
         message = deserialize(protoMessage);
       } catch (ex) {
-        this.pt.destroy(ex);
+        this.socket.destroy(ex);
         return;
       }
 

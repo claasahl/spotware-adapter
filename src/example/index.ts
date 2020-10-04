@@ -21,11 +21,11 @@ const socket = isLocalhost
   : tlsConnect(config.port, config.host);
 const event = isLocalhost ? "connect" : "secureConnect";
 const s = new SpotwareClientSocket(socket);
-s.once(event, () => s.write(FACTORY.PROTO_OA_VERSION_REQ()));
+socket.once(event, () => s.write(FACTORY.PROTO_OA_VERSION_REQ()));
 
 const accounts = new Accounts(s, config, events);
 s.on("data", (msg) => accounts.onMessage(msg));
-s.once(event, () => accounts.onInit());
+socket.once(event, () => accounts.onInit());
 
 events.on("account", (account) => {
   if (!account.authenticated || !account.depositAssetId) {
