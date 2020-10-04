@@ -53,23 +53,6 @@ function throttledQueue(
   return handler;
 }
 
-// async function main() {
-//     const socket = new SpotwareSocket(connect(9000, "localhost"));
-
-//  socket.on("close", () => {
-//      clearInterval(heartbeats);
-//  })
-
-//   let interval = setInterval(() => {
-//     socket.write(FACTORY.HEARTBEAT_EVENT());
-//   }, 1000);
-
-//   socket.on("close", () => clearInterval(interval));
-//   socket.on("error", console.error);
-//   socket.on("data", (d) => console.log(d));
-// }
-// main().catch(console.error);
-
 export class SpotwareClientSocket extends SpotwareSocket {
   fivePerSecond;
   fiftyPerSecond;
