@@ -1,5 +1,5 @@
 import { Server, Socket } from "net";
-import { SpotwareSocket, ProtoOAPayloadType, Messages, FACTORY } from "./";
+import { SpotwareSocket, ProtoOAPayloadType, FACTORY } from "./";
 
 // construct a server
 // const server = new Server((socket) => {
@@ -15,7 +15,7 @@ server.listen(9000);
 
 function serve(socket: Socket): void {
   const s = new SpotwareSocket(socket);
-  s.on("data", (message: Messages) => {
+  s.on("data", (message) => {
     const { clientMsgId } = message;
     switch (message.payloadType) {
       case ProtoOAPayloadType.PROTO_OA_VERSION_REQ:
