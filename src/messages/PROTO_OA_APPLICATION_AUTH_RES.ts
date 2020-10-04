@@ -14,7 +14,10 @@ export type Type = Message<
   ProtoOAPayloadType.PROTO_OA_APPLICATION_AUTH_RES
 >;
 
-export function create(payload: Type["payload"], clientMsgId?: string): Type {
+export function create(
+  payload: Type["payload"] = {},
+  clientMsgId?: string
+): Type {
   return {
     payloadType: ProtoOAPayloadType.PROTO_OA_APPLICATION_AUTH_RES,
     payload,
