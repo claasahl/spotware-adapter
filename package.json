@@ -8,8 +8,8 @@
     "prepare": "npm run build",
     "build": "tsc",
     "start": "ts-node -r dotenv/config src/example/index.ts",
-    "server": "ts-node -r dotenv/config src/server.ts",
-    "client": "ts-node -r dotenv/config src/client.ts"
+    "server": "ts-node src/examples/server.ts",
+    "client": "ts-node src/examples/client.ts"
   },
   "keywords": [
     "spotware",
