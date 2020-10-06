@@ -125,21 +125,25 @@ export class SpotwareSocket extends Duplex {
     this.socket.on("readable", this.onReadable.bind(this));
   }
 
+  private head = Buffer.alloc(0);
   private onReadable() {
     while (!this.readingPaused) {
-      // read raw len
-      const lenBuf = this.socket.read(4);
-      if (!lenBuf) return;
-
-      // convert raw len to integer
-      const len = lenBuf.readUInt32BE();
-
-      // read read json data
-      const payload = this.socket.read(len);
-      if (!payload) {
-        this.socket.unshift(lenBuf);
+      const tail = this.socket.read();
+      if (tail) {
+        this.head = Buffer.concat([this.head, tail]);
+      }
+      if (this.head.byteLength < 4) {
         return;
       }
+      const len = this.head.readUInt32BE();
+
+      // read read json data
+      if (this.head.byteLength < 4 + len) {
+        // this.socket.unshift(lenBuf);
+        return;
+      }
+      const payload = this.head.slice(4, 4 + len);
+      this.head = this.head.slice(4 + len);
 
       // convert protobuffer message to js object
       let message: Messages;
@@ -147,8 +151,8 @@ export class SpotwareSocket extends Duplex {
         const pbf = new Pbf(payload);
         const protoMessage = ProtoMessageUtils.read(pbf);
         message = deserialize(protoMessage);
-      } catch (ex) {
-        this.socket.destroy(ex);
+      } catch (err) {
+        this.destroy(err);
         return;
       }
 
