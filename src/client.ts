@@ -1,14 +1,12 @@
 import { Duplex } from "stream";
 import Pbf from "pbf";
-
 import {
-  SpotwareSocket,
-  FACTORY,
   ProtoOAPayloadType,
-  Messages,
-  serialize,
   ProtoMessageUtils,
-} from ".";
+} from "@claasahl/spotware-protobuf";
+
+import { SpotwareSocket } from "./socket";
+import { FACTORY, Messages, serialize } from "./messages";
 import { logOutput } from "./logger";
 
 const FIVE_PER_SECOND = 200;

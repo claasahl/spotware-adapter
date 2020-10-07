@@ -1,6 +1,10 @@
 import debug from "debug";
+import {
+  ProtoPayloadType,
+  ProtoOAPayloadType,
+} from "@claasahl/spotware-protobuf";
 
-import { Messages, ProtoPayloadType, ProtoOAPayloadType } from ".";
+import { Messages } from "./messages";
 
 const spotware = debug("spotware");
 const input = spotware.extend("input");
