@@ -39,6 +39,7 @@
     "@types/pbf": "^3.0.2",
     "create-typescript-project-dependencies": "^13.0.3",
     "dotenv": "^7.0.0",
+    "jest": "^26.5.2",
     "ms": "^2.1.2"
   },
   "engines": {
