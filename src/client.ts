@@ -1,6 +1,5 @@
-import { Socket } from "net";
+import { Duplex } from "stream";
 import Pbf from "pbf";
-import { TLSSocket } from "tls";
 
 import {
   SpotwareSocket,
@@ -57,7 +56,7 @@ export class SpotwareClientSocket extends SpotwareSocket {
   fivePerSecond;
   fiftyPerSecond;
   heartbeats;
-  constructor(socket: Socket | TLSSocket) {
+  constructor(socket: Duplex) {
     super(socket);
     this.fivePerSecond = throttledQueue(
       FIVE_PER_SECOND,
