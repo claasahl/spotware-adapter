@@ -1,5 +1,13 @@
-const sum = require("../build/socket");
+const { PassThrough } = require("stream");
+const { SpotwareSocket } = require("../build/socket");
 
-test("adds 1 + 2 to equal 3", () => {
-  expect(sum(1, 2)).toBe(3);
+describe("SpotwareSocket", () => {
+  describe(".end()", () => {
+    test("should emit 'finish' event", (done) => {
+      const pt = new PassThrough();
+      const s = new SpotwareSocket(pt);
+      s.once("finish", done);
+      s.end();
+    });
+  });
 });
