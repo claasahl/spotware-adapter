@@ -4,7 +4,7 @@ const { SpotwareSocket } = require("../build/socket");
 jest.setTimeout(100); // 0.1 second
 
 describe("SpotwareSocket", () => {
-  describe("emit events", () => {
+  describe("should emit events", () => {
     test("close", (done) => {
       const pt = new PassThrough();
       const s = new SpotwareSocket(pt);
@@ -27,7 +27,7 @@ describe("SpotwareSocket", () => {
     });
   });
 
-  describe("forward events", () => {
+  describe("should forward events", () => {
     test("finish", (done) => {
       const pt = new PassThrough();
       const s = new SpotwareSocket(pt);
