@@ -99,7 +99,7 @@ export declare interface SpotwareSocket extends Duplex {
 
   read(size?: number): Messages;
   unshift(message: Messages, encoding?: BufferEncoding): void;
-  push(message: Messages, encoding?: string): boolean;
+  push(message: Messages | null, encoding?: string): boolean;
 
   write(message: Messages, encoding?: string, cb?: (error: Error | null | undefined) => void): boolean; // prettier-ignore
   write(message: Messages, cb?: (error: Error | null | undefined) => void): boolean; // prettier-ignore
@@ -112,14 +112,14 @@ export class SpotwareSocket extends Duplex {
   private socket;
   private readingPaused;
   constructor(socket: Duplex) {
-    super({ objectMode: true });
+    super({ objectMode: true, autoDestroy: true, allowHalfOpen: false });
     this.socket = socket;
     this.readingPaused = false;
     this.wrapSocket();
   }
 
   private wrapSocket() {
-    this.socket.on("end", this.end.bind(this));
+    this.socket.on("end", () => this.push(null));
     this.socket.on("error", this.destroy.bind(this));
     this.socket.on("readable", this.onReadable.bind(this));
   }
