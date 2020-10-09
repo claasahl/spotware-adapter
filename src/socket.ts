@@ -111,6 +111,7 @@ export declare interface SpotwareSocket extends Duplex {
 export class SpotwareSocket extends Duplex {
   private socket;
   private readingPaused;
+  private mustCleanUpSocket = true;
   constructor(socket: Duplex) {
     super({ objectMode: true, autoDestroy: true, allowHalfOpen: false });
     this.socket = socket;
@@ -119,9 +120,20 @@ export class SpotwareSocket extends Duplex {
   }
 
   private wrapSocket() {
-    this.socket.on("end", () => this.push(null));
-    this.socket.on("error", this.destroy.bind(this));
+    this.socket.on("end", this.endWithoutCleaningUpSocket.bind(this));
+    this.socket.on("error", this.destroyWithoutCleaningUpSocket.bind(this));
+    this.socket.on("close", this.endWithoutCleaningUpSocket.bind(this));
     this.socket.on("readable", this.onReadable.bind(this));
+  }
+
+  private endWithoutCleaningUpSocket() {
+    this.mustCleanUpSocket = false;
+    this.push(null);
+  }
+
+  private destroyWithoutCleaningUpSocket(error?: Error) {
+    this.mustCleanUpSocket = false;
+    this.destroy(error);
   }
 
   private head = Buffer.alloc(0);
@@ -194,13 +206,15 @@ export class SpotwareSocket extends Duplex {
 
   _destroy(error: Error | null, callback: (error: Error | null) => void): void {
     console.log("SpotwareSocket _destroy", this.socket.destroyed);
-    this.socket.destroy(error || undefined);
+    if (this.mustCleanUpSocket) {
+      this.socket.destroy(error || undefined);
+    }
     callback(error);
   }
 
   _final(callback: (error?: Error | null) => void): void {
     console.log("SpotwareSocket _final", this.socket.destroyed);
-    if (!this.socket.destroyed) {
+    if (this.mustCleanUpSocket) {
       this.socket.end(callback);
     } else {
       callback();

@@ -32,6 +32,7 @@ describe("SpotwareSocket", () => {
       const pt = new PassThrough();
       const s = new SpotwareSocket(pt);
       const callMe = jest.fn();
+      s.resume();
 
       s.once("finish", () => {
         expect(callMe).toHaveBeenCalled();
@@ -45,6 +46,7 @@ describe("SpotwareSocket", () => {
       const pt = new PassThrough();
       const s = new SpotwareSocket(pt);
       const callMe = jest.fn();
+      s.resume();
 
       s.once("close", () => {
         expect(callMe).toHaveBeenCalled();
@@ -58,6 +60,7 @@ describe("SpotwareSocket", () => {
       const pt = new PassThrough();
       const s = new SpotwareSocket(pt);
       const callMe = jest.fn();
+      s.resume();
 
       s.once("end", () => {
         expect(callMe).toHaveBeenCalled();
@@ -71,6 +74,7 @@ describe("SpotwareSocket", () => {
       const pt = new PassThrough();
       const s = new SpotwareSocket(pt);
       const callMe = jest.fn();
+      s.resume();
 
       s.once("error", () => {
         expect(callMe).toHaveBeenCalled();
