@@ -121,6 +121,7 @@ export class SpotwareSocket extends Duplex {
 
   private wrapSocket() {
     this.socket.on("end", this.endWithoutCleaningUpSocket.bind(this));
+    this.socket.on("finish", this.endWithoutCleaningUpSocket.bind(this));
     this.socket.on("error", this.destroyWithoutCleaningUpSocket.bind(this));
     this.socket.on("close", this.endWithoutCleaningUpSocket.bind(this));
     this.socket.on("readable", this.onReadable.bind(this));
