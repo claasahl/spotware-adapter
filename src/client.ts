@@ -12,42 +12,55 @@ import { logOutput } from "./logger";
 const FIVE_PER_SECOND = 200;
 const FIFTY_PER_SECOND = 20;
 
-interface DataWithCallback {
-  data: Buffer;
-  callback: (error?: Error | null) => void;
-}
 type DataHandler = (buffer: Buffer, cb: (err?: Error | null) => void) => void;
-function throttledQueue(
-  interval: number,
-  dataHandler: DataHandler
-): DataHandler {
-  const queue: DataWithCallback[] = [];
-  const state: {
-    lastMessage: number;
-    timeout?: NodeJS.Timeout;
-  } = {
-    lastMessage: 0,
-  };
-  const handler: DataHandler = (data, callback) => {
+
+class ThrottledQueue {
+  private interval;
+  private dataHandler;
+  private queue: (() => void)[] = [];
+  private lastMessage: number = 0;
+  private timeout?: NodeJS.Timeout;
+
+  constructor(interval: number, dataHandler: DataHandler) {
+    this.interval = interval;
+    this.dataHandler = dataHandler;
+  }
+
+  push(data: Buffer, callback: (err?: Error | null) => void) {
     const now = Date.now();
-    const { timeout, lastMessage } = state;
+    const { interval, timeout, lastMessage } = this;
     if (!timeout && now - lastMessage >= interval) {
-      state.lastMessage = now;
-      return dataHandler(data, callback);
+      this.lastMessage = now;
+      return this.dataHandler(data, callback);
     }
     if (!timeout) {
-      state.timeout = setInterval(() => {
-        const entry = queue.shift();
+      this.timeout = setInterval(() => {
+        const entry = this.queue.shift();
         if (entry) {
-          dataHandler(entry.data, entry.callback);
+          entry();
         } else if (timeout) {
           clearInterval(timeout);
         }
       }, interval);
     }
-    queue.push({ data, callback });
-  };
-  return handler;
+    this.queue.push(() => this.dataHandler(data, callback));
+  }
+
+  destroy(callback: (error: Error | null) => void): void {
+    if (this.timeout) {
+      clearInterval(this.timeout);
+    }
+    callback(null);
+  }
+
+  end(callback: (error?: Error | null) => void): void {
+    const timeout = setInterval(() => {
+      if (this.queue.length === 0) {
+        clearInterval(timeout);
+        callback();
+      }
+    }, this.interval);
+  }
 }
 
 export class SpotwareClientSocket extends SpotwareSocket {
@@ -56,11 +69,11 @@ export class SpotwareClientSocket extends SpotwareSocket {
   heartbeats;
   constructor(socket: Duplex) {
     super(socket);
-    this.fivePerSecond = throttledQueue(
+    this.fivePerSecond = new ThrottledQueue(
       FIVE_PER_SECOND,
       socket.write.bind(socket)
     );
-    this.fiftyPerSecond = throttledQueue(
+    this.fiftyPerSecond = new ThrottledQueue(
       FIFTY_PER_SECOND,
       socket.write.bind(socket)
     );
@@ -101,11 +114,29 @@ export class SpotwareClientSocket extends SpotwareSocket {
       case ProtoOAPayloadType.PROTO_OA_GET_TRENDBARS_REQ:
       case ProtoOAPayloadType.PROTO_OA_GET_TICKDATA_REQ:
       case ProtoOAPayloadType.PROTO_OA_DEAL_LIST_REQ:
-        this.fivePerSecond(data, callback);
+        this.fivePerSecond.push(data, callback);
         break;
       default:
-        this.fiftyPerSecond(data, callback);
+        this.fiftyPerSecond.push(data, callback);
         break;
     }
+  }
+
+  _destroy(error: Error | null, callback: (error: Error | null) => void): void {
+    clearInterval(this.heartbeats);
+    this.fiftyPerSecond.destroy((err1) => {
+      this.fivePerSecond.destroy((err2) => {
+        callback(err1 || err2 || error);
+      });
+    });
+  }
+
+  _final(callback: (error?: Error | null) => void): void {
+    clearInterval(this.heartbeats);
+    this.fiftyPerSecond.end((err1) => {
+      this.fivePerSecond.end((err2) => {
+        callback(err1 || err2);
+      });
+    });
   }
 }
