@@ -75,7 +75,7 @@ server.listen(port, () => console.log(`listening on port ${port}`));
 
 ## Getting Started
 
-Should you wish to talk to a Spotware Open API server, such as `live.ctraderapi.com:5035` or `demo.ctraderapi.com:5035` (i.e. not the example server below), then you will need the following:
+For a meaningful interaction with a Spotware Open API server, such as `live.ctraderapi.com:5035` or `demo.ctraderapi.com:5035`, you will need:
 
 1. an account at [Spotware](https://connect.spotware.com) 🥁
 1. a set of OAUTH credentials (i.e. `clientId` and `clientSecret`)
