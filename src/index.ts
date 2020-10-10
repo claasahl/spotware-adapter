@@ -1,3 +1,4 @@
 export * from "@claasahl/spotware-protobuf";
-export * from "./spotware-messages";
-export * from "./spotware-stream";
+export * from "./messages";
+export * from "./socket";
+export * from "./client";
