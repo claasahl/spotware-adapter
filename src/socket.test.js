@@ -87,3 +87,34 @@ describe("SpotwareSocket", () => {
 
   // FIXME backpressure support
 });
+
+describe("PassThrough - Reference Tests", () => {
+  const SRC_HIGH = 2;
+  const DST_HIGH = 4;
+
+  test("should built up backpressure", () => {
+    const src = new PassThrough({ highWaterMark: SRC_HIGH, objectMode: true });
+    const dst = new PassThrough({ highWaterMark: DST_HIGH, objectMode: true });
+    src.pipe(dst);
+
+    const MULTIPLICATOR = 2; // both readable and writable highWaterMark
+    for (let a = 1; a < MULTIPLICATOR * (SRC_HIGH + DST_HIGH); a++) {
+      expect(src.write({ a })).toBe(true);
+    }
+    expect(src.write({ a: -1 })).toBe(false);
+  });
+
+  test("should release backpressure", (done) => {
+    const src = new PassThrough({ highWaterMark: SRC_HIGH, objectMode: true });
+    const dst = new PassThrough({ highWaterMark: DST_HIGH, objectMode: true });
+    src.pipe(dst);
+
+    const MULTIPLICATOR = 2; // both readable and writable highWaterMark
+    for (let a = 0; a < MULTIPLICATOR * (SRC_HIGH + DST_HIGH); a++) {
+      src.write({ a });
+    }
+
+    src.on("drain", done);
+    dst.resume();
+  });
+});
