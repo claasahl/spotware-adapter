@@ -5,7 +5,7 @@
 
 # ALPHA VERSION
 
-Use this package's `SpotwareClientSocket` to talk to [Spotware Open API](https://connect.spotware.com/docs/open_api_2) servers in NodeJS environments. It comes with TypeScript support for all Spotware ProtoBuffer meesages. And sticks to recommended `heartbeat`-intervals and recommended rate limits.
+Use this package's `SpotwareClientSocket` to communicate with [Spotware Open API](https://connect.spotware.com/docs/open_api_2) servers in NodeJS environments. It comes with **TypeScript** support for all Spotware ProtoBuffer meesages, it sticks to recommended `heartbeat`-intervals and recommended rate limits (see [here](https://connect.spotware.com/docs/frequently-asked-questions)).
 
 ## Example: Client
 
