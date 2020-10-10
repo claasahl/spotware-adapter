@@ -88,17 +88,31 @@ describe("SpotwareSocket", () => {
   describe("backpressure", () => {
     const HEARTBEAT = Buffer.from("000000080000000408331200", "hex");
 
-    test("should built up backpressure", () => {
+    test("should built up backpressure", (done) => {
       // ... currently, SpotwareSocket creates a buffer of inifite size! Use transforms
       const src = new PassThrough({ highWaterMark: 24 });
-      new SpotwareSocket(src);
+      const dst = new SpotwareSocket(src, { highWaterMark: 2 });
 
       // src has two buffers for up 24 bytes each (total 48 bytes)
       // every HEARTBEAT is 12 bytes long
-      expect(src.write(HEARTBEAT)).toBe(true); // 25% full
-      expect(src.write(HEARTBEAT)).toBe(true); // 50% full
-      expect(src.write(HEARTBEAT)).toBe(true); // 75% full
-      expect(src.write(HEARTBEAT)).toBe(false); // 100% full
+      expect(src.write(HEARTBEAT)).toBe(true); // 25%
+      expect(src.write(HEARTBEAT)).toBe(true); // 50%
+      expect(src.write(HEARTBEAT)).toBe(true); // 75%
+      expect(src.write(HEARTBEAT)).toBe(false); // 100%
+
+      dst.once("readable", () => {
+        // dst has one (readable) buffer for up 2 objects
+        // ... as well as an internal temp. buffer
+        expect(src.write(HEARTBEAT)).toBe(true); // 25%
+        expect(src.write(HEARTBEAT)).toBe(true); // 50%
+        expect(src.write(HEARTBEAT)).toBe(true); // 75%
+        expect(src.write(HEARTBEAT)).toBe(false); // 100%
+
+        expect(dst.read()).toMatchObject({ payloadType: 51 });
+        expect(dst.read()).toMatchObject({ payloadType: 51 });
+        expect(dst.read()).toBeNull();
+        done();
+      });
     });
 
     test("should release backpressure", (done) => {
@@ -107,10 +121,10 @@ describe("SpotwareSocket", () => {
 
       // src has two buffers for up 24 bytes each (total 48 bytes)
       // every HEARTBEAT is 12 bytes long
-      src.write(HEARTBEAT); // 25% full
-      src.write(HEARTBEAT); // 50% full
-      src.write(HEARTBEAT); // 75% full
-      src.write(HEARTBEAT); // 100% full
+      src.write(HEARTBEAT); // 25%
+      src.write(HEARTBEAT); // 50%
+      src.write(HEARTBEAT); // 75%
+      src.write(HEARTBEAT); // 100%
 
       src.on("drain", done);
       dst.resume();
@@ -137,6 +151,14 @@ describe("PassThrough - Reference Tests", () => {
     expect(src.write(BYTE)).toBe(true); // 50%
     expect(src.write(BYTE)).toBe(true); // 60%
     expect(src.write(BYTE)).toBe(true); // 70%
+    expect(src.write(BYTE)).toBe(true); // 80%
+    expect(src.write(BYTE)).toBe(true); // 90%
+    expect(src.write(BYTE)).toBe(false); // 100%
+
+    dst.read(); // 90%
+    dst.read(); // 80%
+    dst.read(); // 70%
+
     expect(src.write(BYTE)).toBe(true); // 80%
     expect(src.write(BYTE)).toBe(true); // 90%
     expect(src.write(BYTE)).toBe(false); // 100%
