@@ -89,29 +89,30 @@ describe("SpotwareSocket", () => {
 });
 
 describe("PassThrough - Reference Tests", () => {
-  const SRC_HIGH = 2;
-  const DST_HIGH = 4;
+  const SRC_HIGH = 2; // bytes
+  const DST_HIGH = 3; // objects
+  const BYTE = Buffer.alloc(1);
 
   test("should built up backpressure", () => {
-    const src = new PassThrough({ highWaterMark: SRC_HIGH, objectMode: true });
+    const src = new PassThrough({ highWaterMark: SRC_HIGH });
     const dst = new PassThrough({ highWaterMark: DST_HIGH, objectMode: true });
     src.pipe(dst);
 
     const MULTIPLICATOR = 2; // both readable and writable highWaterMark
     for (let a = 1; a < MULTIPLICATOR * (SRC_HIGH + DST_HIGH); a++) {
-      expect(src.write({ a })).toBe(true);
+      expect(src.write(BYTE)).toBe(true);
     }
-    expect(src.write({ a: -1 })).toBe(false);
+    expect(src.write(BYTE)).toBe(false);
   });
 
   test("should release backpressure", (done) => {
-    const src = new PassThrough({ highWaterMark: SRC_HIGH, objectMode: true });
+    const src = new PassThrough({ highWaterMark: SRC_HIGH });
     const dst = new PassThrough({ highWaterMark: DST_HIGH, objectMode: true });
     src.pipe(dst);
 
     const MULTIPLICATOR = 2; // both readable and writable highWaterMark
     for (let a = 0; a < MULTIPLICATOR * (SRC_HIGH + DST_HIGH); a++) {
-      src.write({ a });
+      src.write(BYTE);
     }
 
     src.on("drain", done);
