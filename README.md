@@ -39,15 +39,6 @@ s.on("data", (message) => {
 });
 ```
 
-Should you wish to talk to a Spotware Open API server, such as `live.ctraderapi.com:5035` or `demo.ctraderapi.com:5035` (i.e. not the example server below), then you will need the following:
-
-## Getting Started
-
-1. [log In](https://connect.spotware.com) with cTID
-1. select [application](https://connect.spotware.com/apps)
-1. view `development` application (see [screenshot](./assests/Screenshot_2019-02-20%20Applications%20Spotware%20Connect.png))
-1. take note of `credentials` for `development` application
-
 ## Example: Server
 
 Want to test your client without sending messages over the wire? Take a peek at this:
@@ -81,6 +72,19 @@ const server = new Server((socket) => {
 });
 server.listen(port, () => console.log(`listening on port ${port}`));
 ```
+
+## Getting Started
+
+Should you wish to talk to a Spotware Open API server, such as `live.ctraderapi.com:5035` or `demo.ctraderapi.com:5035` (i.e. not the example server below), then you will need the following:
+
+1. an account at [Spotware](https://connect.spotware.com) 🥁
+1. a set of OAUTH credentials (i.e. `clientId` and `clientSecret`)
+   - navigate to [applications](https://connect.spotware.com/apps)
+   - view credentials for one of your applications (or create a new application)
+1. a set of OAUTH tokens (i.e. `accessToken` and `refreshToken`)
+   - navigate to [applications](https://connect.spotware.com/apps)
+   - open `playground` for one of your applications
+   - fetch tokens for one or more of your accounts
 
 ## Debugging
 
