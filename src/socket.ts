@@ -189,7 +189,6 @@ export class SpotwareSocket extends Duplex {
   }
 
   _read() {
-    console.log("SpotwareSocket _read", this.socket.destroyed);
     this.readingPaused = false;
     setImmediate(this.onReadable.bind(this));
   }
@@ -199,7 +198,6 @@ export class SpotwareSocket extends Duplex {
     _encoding: string,
     callback: (error?: Error | null) => void
   ): void {
-    console.log("SpotwareSocket _write", this.socket.destroyed);
     const protoMessage = serialize(message);
     const pbf = new Pbf();
     ProtoMessageUtils.write(protoMessage, pbf);
@@ -217,7 +215,6 @@ export class SpotwareSocket extends Duplex {
   }
 
   _destroy(error: Error | null, callback: (error: Error | null) => void): void {
-    console.log("SpotwareSocket _destroy", this.socket.destroyed);
     if (this.mustCleanUpSocket) {
       this.socket.destroy(error || undefined);
     }
@@ -225,7 +222,6 @@ export class SpotwareSocket extends Duplex {
   }
 
   _final(callback: (error?: Error | null) => void): void {
-    console.log("SpotwareSocket _final", this.socket.destroyed);
     if (this.mustCleanUpSocket) {
       this.socket.end(callback);
     } else {
