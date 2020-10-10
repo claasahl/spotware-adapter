@@ -86,38 +86,31 @@ describe("SpotwareSocket", () => {
   });
 
   describe("backpressure", () => {
-    const SRC_HIGH = 24; // bytes
-    const DST_HIGH = 8; // objects
     const HEARTBEAT = Buffer.from("000000080000000408331200", "hex");
 
     test("should built up backpressure", () => {
       // ... currently, SpotwareSocket creates a buffer of inifite size! Use transforms
-      const src = new PassThrough({ highWaterMark: SRC_HIGH });
-      new SpotwareSocket(src, { highWaterMark: DST_HIGH });
+      const src = new PassThrough({ highWaterMark: 24 });
+      new SpotwareSocket(src);
 
-      const MULTIPLICATOR = 2; // both readable and writable highWaterMark
-      for (
-        let a = 1;
-        a < (MULTIPLICATOR * SRC_HIGH) / HEARTBEAT.byteLength;
-        a++
-      ) {
-        expect(src.write(HEARTBEAT)).toBe(true);
-      }
-      expect(src.write(HEARTBEAT)).toBe(false);
+      // src has two buffers for up 24 bytes each (total 48 bytes)
+      // every HEARTBEAT is 12 bytes long
+      expect(src.write(HEARTBEAT)).toBe(true); // 25% full
+      expect(src.write(HEARTBEAT)).toBe(true); // 50% full
+      expect(src.write(HEARTBEAT)).toBe(true); // 75% full
+      expect(src.write(HEARTBEAT)).toBe(false); // 100% full
     });
 
     test("should release backpressure", (done) => {
-      const src = new PassThrough({ highWaterMark: SRC_HIGH });
-      const dst = new SpotwareSocket(src, { highWaterMark: DST_HIGH });
+      const src = new PassThrough({ highWaterMark: 24 });
+      const dst = new SpotwareSocket(src);
 
-      const MULTIPLICATOR = 2; // both readable and writable highWaterMark
-      for (
-        let a = 0;
-        a < (MULTIPLICATOR * SRC_HIGH) / HEARTBEAT.byteLength;
-        a++
-      ) {
-        src.write(HEARTBEAT);
-      }
+      // src has two buffers for up 24 bytes each (total 48 bytes)
+      // every HEARTBEAT is 12 bytes long
+      src.write(HEARTBEAT); // 25% full
+      src.write(HEARTBEAT); // 50% full
+      src.write(HEARTBEAT); // 75% full
+      src.write(HEARTBEAT); // 100% full
 
       src.on("drain", done);
       dst.resume();
@@ -128,31 +121,44 @@ describe("SpotwareSocket", () => {
 });
 
 describe("PassThrough - Reference Tests", () => {
-  const SRC_HIGH = 2; // bytes
-  const DST_HIGH = 3; // objects
   const BYTE = Buffer.alloc(1);
 
   test("should built up backpressure", () => {
-    const src = new PassThrough({ highWaterMark: SRC_HIGH });
-    const dst = new PassThrough({ highWaterMark: DST_HIGH, objectMode: true });
+    const src = new PassThrough({ highWaterMark: 2 });
+    const dst = new PassThrough({ highWaterMark: 3, objectMode: true });
     src.pipe(dst);
 
-    const MULTIPLICATOR = 2; // both readable and writable highWaterMark
-    for (let a = 1; a < MULTIPLICATOR * (SRC_HIGH + DST_HIGH); a++) {
-      expect(src.write(BYTE)).toBe(true);
-    }
-    expect(src.write(BYTE)).toBe(false);
+    // src has two buffers for up to 2 bytes each (total 4 bytes)
+    // dst has two buffers for up to 3 objects each (total 6 objects)
+    expect(src.write(BYTE)).toBe(true); // 10%
+    expect(src.write(BYTE)).toBe(true); // 20%
+    expect(src.write(BYTE)).toBe(true); // 30%
+    expect(src.write(BYTE)).toBe(true); // 40%
+    expect(src.write(BYTE)).toBe(true); // 50%
+    expect(src.write(BYTE)).toBe(true); // 60%
+    expect(src.write(BYTE)).toBe(true); // 70%
+    expect(src.write(BYTE)).toBe(true); // 80%
+    expect(src.write(BYTE)).toBe(true); // 90%
+    expect(src.write(BYTE)).toBe(false); // 100%
   });
 
   test("should release backpressure", (done) => {
-    const src = new PassThrough({ highWaterMark: SRC_HIGH });
-    const dst = new PassThrough({ highWaterMark: DST_HIGH, objectMode: true });
+    const src = new PassThrough({ highWaterMark: 2 });
+    const dst = new PassThrough({ highWaterMark: 3, objectMode: true });
     src.pipe(dst);
 
-    const MULTIPLICATOR = 2; // both readable and writable highWaterMark
-    for (let a = 0; a < MULTIPLICATOR * (SRC_HIGH + DST_HIGH); a++) {
-      src.write(BYTE);
-    }
+    // src has two buffers for up to 2 bytes each (total 4 bytes)
+    // dst has two buffers for up to 3 objects each (total 6 objects)
+    src.write(BYTE); // 10%
+    src.write(BYTE); // 20%
+    src.write(BYTE); // 30%
+    src.write(BYTE); // 40%
+    src.write(BYTE); // 50%
+    src.write(BYTE); // 60%
+    src.write(BYTE); // 70%
+    src.write(BYTE); // 80%
+    src.write(BYTE); // 90%
+    src.write(BYTE); // 100%
 
     src.on("drain", done);
     dst.resume();
