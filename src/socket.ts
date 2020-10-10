@@ -1,4 +1,4 @@
-import { Duplex, Readable } from "stream";
+import { Duplex, Readable, DuplexOptions } from "stream";
 import Pbf from "pbf";
 import { ProtoMessageUtils } from "@claasahl/spotware-protobuf";
 
@@ -112,8 +112,19 @@ export class SpotwareSocket extends Duplex {
   private socket;
   private readingPaused;
   private mustCleanUpSocket = true;
-  constructor(socket: Duplex) {
-    super({ objectMode: true, autoDestroy: true, allowHalfOpen: false });
+  constructor(
+    socket: Duplex,
+    options: Omit<
+      DuplexOptions,
+      "objectMode" | "autoDestroy" | "allowHalfOpen"
+    > = {}
+  ) {
+    super({
+      ...options,
+      objectMode: true,
+      autoDestroy: true,
+      allowHalfOpen: false,
+    });
     this.socket = socket;
     this.readingPaused = false;
     this.wrapSocket();

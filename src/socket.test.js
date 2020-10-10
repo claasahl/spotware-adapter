@@ -85,7 +85,50 @@ describe("SpotwareSocket", () => {
     });
   });
 
-  // FIXME backpressure support
+  describe("backpressure", () => {
+    const SRC_HIGH = 16; // bytes
+    const DST_HIGH = 4; // objects
+    const HEARTBEAT = Buffer.from("0000000408331200", "hex");
+
+    test("should built up backpressure", () => {
+      // ... currently, SpotwareSocket creates a buffer of inifite size! Use transforms
+      const src = new PassThrough({
+        highWaterMark: SRC_HIGH,
+        objectMode: true,
+      });
+      const dst = new SpotwareSocket(src, { highWaterMark: DST_HIGH });
+
+      const MULTIPLICATOR = 2; // both readable and writable highWaterMark
+      for (
+        let a = 1;
+        a < MULTIPLICATOR * (SRC_HIGH + DST_HIGH);
+        a += HEARTBEAT.byteLength
+      ) {
+        console.log(a);
+        expect(src.write(HEARTBEAT)).toBe(true);
+      }
+      expect(src.write(HEARTBEAT)).toBe(false);
+    });
+
+    test.skip("should release backpressure", (done) => {
+      const src = new PassThrough({
+        highWaterMark: SRC_HIGH,
+        objectMode: true,
+      });
+      const dst = new SpotwareSocket(pt, { highWaterMark: DST_HIGH });
+      const callMe = jest.fn();
+
+      const MULTIPLICATOR = 2; // both readable and writable highWaterMark
+      for (let a = 0; a < MULTIPLICATOR * (SRC_HIGH + DST_HIGH); a++) {
+        src.write({ a });
+      }
+
+      src.on("drain", done);
+      dst.resume();
+    });
+  });
+
+  // FIXME SpotwareClient should error if incoming data is corrupt
 });
 
 describe("PassThrough - Reference Tests", () => {
