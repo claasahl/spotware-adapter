@@ -86,41 +86,37 @@ describe("SpotwareSocket", () => {
   });
 
   describe("backpressure", () => {
-    const SRC_HIGH = 16; // bytes
-    const DST_HIGH = 4; // objects
-    const HEARTBEAT = Buffer.from("0000000408331200", "hex");
+    const SRC_HIGH = 24; // bytes
+    const DST_HIGH = 8; // objects
+    const HEARTBEAT = Buffer.from("000000080000000408331200", "hex");
 
     test("should built up backpressure", () => {
       // ... currently, SpotwareSocket creates a buffer of inifite size! Use transforms
-      const src = new PassThrough({
-        highWaterMark: SRC_HIGH,
-        objectMode: true,
-      });
-      const dst = new SpotwareSocket(src, { highWaterMark: DST_HIGH });
+      const src = new PassThrough({ highWaterMark: SRC_HIGH });
+      new SpotwareSocket(src, { highWaterMark: DST_HIGH });
 
       const MULTIPLICATOR = 2; // both readable and writable highWaterMark
       for (
         let a = 1;
-        a < MULTIPLICATOR * (SRC_HIGH + DST_HIGH);
-        a += HEARTBEAT.byteLength
+        a < (MULTIPLICATOR * SRC_HIGH) / HEARTBEAT.byteLength;
+        a++
       ) {
-        console.log(a);
         expect(src.write(HEARTBEAT)).toBe(true);
       }
       expect(src.write(HEARTBEAT)).toBe(false);
     });
 
-    test.skip("should release backpressure", (done) => {
-      const src = new PassThrough({
-        highWaterMark: SRC_HIGH,
-        objectMode: true,
-      });
-      const dst = new SpotwareSocket(pt, { highWaterMark: DST_HIGH });
-      const callMe = jest.fn();
+    test("should release backpressure", (done) => {
+      const src = new PassThrough({ highWaterMark: SRC_HIGH });
+      const dst = new SpotwareSocket(src, { highWaterMark: DST_HIGH });
 
       const MULTIPLICATOR = 2; // both readable and writable highWaterMark
-      for (let a = 0; a < MULTIPLICATOR * (SRC_HIGH + DST_HIGH); a++) {
-        src.write({ a });
+      for (
+        let a = 0;
+        a < (MULTIPLICATOR * SRC_HIGH) / HEARTBEAT.byteLength;
+        a++
+      ) {
+        src.write(HEARTBEAT);
       }
 
       src.on("drain", done);
