@@ -18,32 +18,32 @@ Use this package's `SpotwareClientSocket` to communicate with [Spotware Open API
 Want to exchange messages with a Spotware Open API server? This is for you:
 
 ```typescript
-import net from "net";
 import tls from "tls";
-import {
-  SpotwareClientSocket,
-  ProtoOAPayloadType,
-  FACTORY,
-} from "@claasahl/spotware-adapter";
+import { SpotwareClientSocket, ProtoOAPayloadType, FACTORY } from "..";
 
-const useTLS = false;
-const host = "localhost";
+const host = "demo.ctraderapi.com";
 const port = 5035;
 
-const socket = useTLS ? tls.connect(port, host) : net.connect(port, host);
-const event = useTLS ? "secureConnect" : "connect";
-socket.once(event, () => s.write(FACTORY.PROTO_OA_VERSION_REQ()));
+const socket = tls.connect(port, host);
+socket.once("secureConnect", () => {
+  console.log(`requesting version number from ${host}:${port}`);
+  s.write(FACTORY.PROTO_OA_VERSION_REQ());
+});
 
 const s = new SpotwareClientSocket(socket);
 s.on("data", (message) => {
   switch (message.payloadType) {
     case ProtoOAPayloadType.PROTO_OA_VERSION_RES:
+      console.log(`got response from ${host}:${port}`);
       console.log(`server version: ${message.payload.version}`);
+      s.end();
       break;
     // ...
   }
 });
 ```
+
+Or take this **RunKit** for a spin: https://runkit.com/claasahl/spotware-example-client
 
 ## Example: Server
 
