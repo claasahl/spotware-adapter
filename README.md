@@ -19,7 +19,11 @@ Want to exchange messages with a Spotware Open API server? This is for you:
 
 ```typescript
 import tls from "tls";
-import { SpotwareClientSocket, ProtoOAPayloadType, FACTORY } from "..";
+import {
+  SpotwareClientSocket,
+  ProtoOAPayloadType,
+  FACTORY,
+} from "@claasahl/spotware-adapter";
 
 const host = "demo.ctraderapi.com";
 const port = 5035;
