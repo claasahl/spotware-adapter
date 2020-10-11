@@ -51,6 +51,7 @@
   "dependencies": {
     "@claasahl/spotware-protobuf": "^7.0.0",
     "bytes": "^3.1.0",
-    "debug": "^4.2.0"
+    "debug": "^4.2.0",
+    "pbf": "^3.2.1"
   }
 }
