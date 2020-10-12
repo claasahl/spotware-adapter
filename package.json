@@ -9,7 +9,6 @@
     "build": "tsc",
     "pretest": "npm run build",
     "test": "jest",
-    "start": "ts-node -r dotenv/config src/example/index.ts",
     "server": "ts-node src/examples/server.ts",
     "client": "ts-node src/examples/client.ts"
   },
