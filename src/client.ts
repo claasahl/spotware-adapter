@@ -9,8 +9,9 @@ import { SpotwareSocket } from "./socket";
 import { FACTORY, Messages, serialize } from "./messages";
 import { logOutput } from "./logger";
 
-const FIVE_PER_SECOND = 200;
-const FIFTY_PER_SECOND = 20;
+// stay just below rate limit
+const FIVE_PER_SECOND = 210;
+const FIFTY_PER_SECOND = 21;
 
 type DataHandler = (buffer: Buffer, cb: (err?: Error | null) => void) => void;
 
