@@ -12,8 +12,25 @@ const inputHuman = input.extend("human");
 const output = spotware.extend("output");
 const outputHuman = output.extend("human");
 
+interface Loggers {
+  [payloadType: number]: debug.Debugger | undefined;
+  [payloadTypeText: string]: debug.Debugger | undefined;
+}
+
+const loggers: Loggers = {};
+function getLogger(payloadTypeOrText: number | string): debug.Debugger {
+  const logger = loggers[payloadTypeOrText];
+  if (logger) {
+    return logger;
+  }
+
+  const newLogger = spotware.extend(`${payloadTypeOrText}`);
+  loggers[payloadTypeOrText] = newLogger;
+  return newLogger;
+}
+
 export function logInput(msg: Messages) {
-  spotware.extend(`${msg.payloadType}`)("%j", {
+  getLogger(msg.payloadType)("%j", {
     payload: msg.payload,
     clientMsgId: msg.clientMsgId,
   });
@@ -24,7 +41,7 @@ export function logInput(msg: Messages) {
   });
   const payloadTypeText = ProtoPayloadType[msg.payloadType] || ProtoOAPayloadType[msg.payloadType]; // prettier-ignore
   if (payloadTypeText) {
-    spotware.extend(payloadTypeText)("%j", {
+    getLogger(payloadTypeText)("%j", {
       payload: msg.payload,
       clientMsgId: msg.clientMsgId,
     });
