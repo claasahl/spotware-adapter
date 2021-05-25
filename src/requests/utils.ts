@@ -1,11 +1,11 @@
 import {
-  SpotwareClientSocket,
-  Messages,
+  ProtoOAPayloadType,
   ProtoPayloadType,
-  PROTO_OA_ERROR_RES,
-  ERROR_RES,
-} from "../messages";
+} from "@claasahl/spotware-protobuf";
 import { v4 as uuid } from "uuid";
+
+import { Messages, PROTO_OA_ERROR_RES, ERROR_RES } from "../messages";
+import { SpotwareClientSocket } from "../client";
 
 export function error(
   message: PROTO_OA_ERROR_RES["payload"] | ERROR_RES["payload"]
