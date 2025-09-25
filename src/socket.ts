@@ -103,9 +103,9 @@ export declare interface SpotwareSocket extends Duplex {
 
   write(message: Messages, encoding?: string, cb?: (error: Error | null | undefined) => void): boolean; // prettier-ignore
   write(message: Messages, cb?: (error: Error | null | undefined) => void): boolean; // prettier-ignore
-  end(cb?: () => void): void;
-  end(message: Messages, cb?: () => void): void;
-  end(message: Messages, encoding?: string, cb?: () => void): void;
+  end(cb?: () => void): this;
+  end(message: Messages, cb?: () => void): this;
+  end(message: Messages, encoding?: string, cb?: () => void): this;
 }
 
 export class SpotwareSocket extends Duplex {
@@ -175,7 +175,7 @@ export class SpotwareSocket extends Duplex {
         const protoMessage = ProtoMessageUtils.read(pbf);
         message = deserialize(protoMessage);
       } catch (err) {
-        this.destroy(err);
+        this.destroy(err instanceof Error ? err : new Error(String(err)));
         return;
       }
 
@@ -208,7 +208,7 @@ export class SpotwareSocket extends Duplex {
     length.writeUInt32BE(payloadBytes);
 
     const buffer = Buffer.concat([length, payload], 4 + payloadBytes);
-    this.socket.write(buffer, undefined, (err) => {
+    this.socket.write(buffer, (err) => {
       logOutput(message);
       callback(err);
     });
