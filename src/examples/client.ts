@@ -17,6 +17,7 @@ s.on("data", (message) => {
       console.log(`got response from ${host}:${port}`);
       console.log(`server version: ${message.payload.version}`);
       s.end();
+      socket.end();
       break;
     // ...
   }

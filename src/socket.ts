@@ -5,6 +5,8 @@ import { ProtoMessageUtils } from "@claasahl/spotware-protobuf";
 import { logInput, logOutput } from "./logger";
 import { Messages, deserialize, serialize } from "./messages";
 
+// https://nodejs.org/docs/latest/api/stream.html#implementing-a-transform-stream
+
 export declare interface SpotwareSocket extends Duplex {
   addListener(event: "close", listener: () => void): this;
   addListener(event: "data", listener: (message: Messages) => void): this;
