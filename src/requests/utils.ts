@@ -2,7 +2,7 @@ import {
   ProtoOAPayloadType,
   ProtoPayloadType,
 } from "@claasahl/spotware-protobuf";
-import { v4 as uuid } from "uuid";
+import { randomUUID } from "crypto";
 
 import { Messages, PROTO_OA_ERROR_RES, ERROR_RES } from "../messages";
 import { SpotwareClientSocket } from "../client";
@@ -38,7 +38,7 @@ export function behest<REQ extends Messages, RES extends Messages>(
 ): BEHEST<REQ, RES> {
   return async (socket, request) => {
     return await new Promise<RES["payload"]>((resolve, reject) => {
-      const clientMsgId = uuid();
+      const clientMsgId = randomUUID();
       socket.write(builder(request, clientMsgId));
       const listener = (message: Messages): void => {
         if (message.clientMsgId !== clientMsgId) {
