@@ -5,7 +5,7 @@ const port = 5035;
 
 const server = new Server((socket) => {
   const address = socket.address();
-  const source = typeof address === "string" ? address : address.address;
+  const source = "address" in address ? address.address : address;
   console.log(`${source} connected`);
 
   const s = new SpotwareSocket(socket);
