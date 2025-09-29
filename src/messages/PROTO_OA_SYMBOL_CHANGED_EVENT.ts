@@ -1,22 +1,22 @@
 import Pbf from "pbf";
 import {
   ProtoMessage,
-  ProtoOAPayloadType,
-  ProtoOASymbolChangedEventUtils,
-  ProtoOASymbolChangedEvent,
+  ProtoOaPayloadType,
+  ProtoOaSymbolChangedEventUtils,
+  ProtoOaSymbolChangedEvent,
 } from "@claasahl/spotware-protobuf";
 
 import { Message } from "./Message";
 import { Messages } from "./";
 
 export type Type = Message<
-  ProtoOASymbolChangedEvent,
-  ProtoOAPayloadType.PROTO_OA_SYMBOL_CHANGED_EVENT
+  ProtoOaSymbolChangedEvent,
+  ProtoOaPayloadType.PROTO_OA_SYMBOL_CHANGED_EVENT
 >;
 
 export function create(payload: Type["payload"], clientMsgId?: string): Type {
   return {
-    payloadType: ProtoOAPayloadType.PROTO_OA_SYMBOL_CHANGED_EVENT,
+    payloadType: ProtoOaPayloadType.PROTO_OA_SYMBOL_CHANGED_EVENT,
     payload,
     clientMsgId,
   };
@@ -24,12 +24,12 @@ export function create(payload: Type["payload"], clientMsgId?: string): Type {
 
 export function deserialize(message: ProtoMessage): Type | undefined {
   if (
-    message.payloadType === ProtoOAPayloadType.PROTO_OA_SYMBOL_CHANGED_EVENT
+    message.payloadType === ProtoOaPayloadType.PROTO_OA_SYMBOL_CHANGED_EVENT
   ) {
     const pbf = new Pbf(message.payload);
     return {
-      payloadType: ProtoOAPayloadType.PROTO_OA_SYMBOL_CHANGED_EVENT,
-      payload: ProtoOASymbolChangedEventUtils.read(pbf),
+      payloadType: ProtoOaPayloadType.PROTO_OA_SYMBOL_CHANGED_EVENT,
+      payload: ProtoOaSymbolChangedEventUtils.read(pbf),
       clientMsgId: message.clientMsgId,
     };
   }
@@ -38,10 +38,10 @@ export function deserialize(message: ProtoMessage): Type | undefined {
 
 export function serialize(message: Messages): ProtoMessage | undefined {
   if (
-    message.payloadType === ProtoOAPayloadType.PROTO_OA_SYMBOL_CHANGED_EVENT
+    message.payloadType === ProtoOaPayloadType.PROTO_OA_SYMBOL_CHANGED_EVENT
   ) {
     const pbf = new Pbf();
-    ProtoOASymbolChangedEventUtils.write(message.payload, pbf);
+    ProtoOaSymbolChangedEventUtils.write(message.payload, pbf);
     return {
       ...message,
       payload: pbf.finish(),

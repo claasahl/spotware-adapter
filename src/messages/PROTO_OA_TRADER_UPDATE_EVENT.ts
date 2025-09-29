@@ -1,33 +1,33 @@
 import Pbf from "pbf";
 import {
   ProtoMessage,
-  ProtoOAPayloadType,
-  ProtoOATraderUpdatedEventUtils,
-  ProtoOATraderUpdatedEvent,
+  ProtoOaPayloadType,
+  ProtoOaTraderUpdateEventUtils,
+  ProtoOaTraderUpdateEvent,
 } from "@claasahl/spotware-protobuf";
 
 import { Message } from "./Message";
 import { Messages } from "./";
 
 export type Type = Message<
-  ProtoOATraderUpdatedEvent,
-  ProtoOAPayloadType.PROTO_OA_TRADER_UPDATE_EVENT
+  ProtoOaTraderUpdateEvent,
+  ProtoOaPayloadType.PROTO_OA_TRADER_UPDATE_EVENT
 >;
 
 export function create(payload: Type["payload"], clientMsgId?: string): Type {
   return {
-    payloadType: ProtoOAPayloadType.PROTO_OA_TRADER_UPDATE_EVENT,
+    payloadType: ProtoOaPayloadType.PROTO_OA_TRADER_UPDATE_EVENT,
     payload,
     clientMsgId,
   };
 }
 
 export function deserialize(message: ProtoMessage): Type | undefined {
-  if (message.payloadType === ProtoOAPayloadType.PROTO_OA_TRADER_UPDATE_EVENT) {
+  if (message.payloadType === ProtoOaPayloadType.PROTO_OA_TRADER_UPDATE_EVENT) {
     const pbf = new Pbf(message.payload);
     return {
-      payloadType: ProtoOAPayloadType.PROTO_OA_TRADER_UPDATE_EVENT,
-      payload: ProtoOATraderUpdatedEventUtils.read(pbf),
+      payloadType: ProtoOaPayloadType.PROTO_OA_TRADER_UPDATE_EVENT,
+      payload: ProtoOaTraderUpdateEventUtils.read(pbf),
       clientMsgId: message.clientMsgId,
     };
   }
@@ -35,9 +35,9 @@ export function deserialize(message: ProtoMessage): Type | undefined {
 }
 
 export function serialize(message: Messages): ProtoMessage | undefined {
-  if (message.payloadType === ProtoOAPayloadType.PROTO_OA_TRADER_UPDATE_EVENT) {
+  if (message.payloadType === ProtoOaPayloadType.PROTO_OA_TRADER_UPDATE_EVENT) {
     const pbf = new Pbf();
-    ProtoOATraderUpdatedEventUtils.write(message.payload, pbf);
+    ProtoOaTraderUpdateEventUtils.write(message.payload, pbf);
     return {
       ...message,
       payload: pbf.finish(),

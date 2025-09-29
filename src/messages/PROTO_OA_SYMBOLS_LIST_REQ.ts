@@ -1,33 +1,33 @@
 import Pbf from "pbf";
 import {
   ProtoMessage,
-  ProtoOAPayloadType,
-  ProtoOASymbolsListReqUtils,
-  ProtoOASymbolsListReq,
+  ProtoOaPayloadType,
+  ProtoOaSymbolsListReqUtils,
+  ProtoOaSymbolsListReq,
 } from "@claasahl/spotware-protobuf";
 
 import { Message } from "./Message";
 import { Messages } from "./";
 
 export type Type = Message<
-  ProtoOASymbolsListReq,
-  ProtoOAPayloadType.PROTO_OA_SYMBOLS_LIST_REQ
+  ProtoOaSymbolsListReq,
+  ProtoOaPayloadType.PROTO_OA_SYMBOLS_LIST_REQ
 >;
 
 export function create(payload: Type["payload"], clientMsgId?: string): Type {
   return {
-    payloadType: ProtoOAPayloadType.PROTO_OA_SYMBOLS_LIST_REQ,
+    payloadType: ProtoOaPayloadType.PROTO_OA_SYMBOLS_LIST_REQ,
     payload,
     clientMsgId,
   };
 }
 
 export function deserialize(message: ProtoMessage): Type | undefined {
-  if (message.payloadType === ProtoOAPayloadType.PROTO_OA_SYMBOLS_LIST_REQ) {
+  if (message.payloadType === ProtoOaPayloadType.PROTO_OA_SYMBOLS_LIST_REQ) {
     const pbf = new Pbf(message.payload);
     return {
-      payloadType: ProtoOAPayloadType.PROTO_OA_SYMBOLS_LIST_REQ,
-      payload: ProtoOASymbolsListReqUtils.read(pbf),
+      payloadType: ProtoOaPayloadType.PROTO_OA_SYMBOLS_LIST_REQ,
+      payload: ProtoOaSymbolsListReqUtils.read(pbf),
       clientMsgId: message.clientMsgId,
     };
   }
@@ -35,9 +35,9 @@ export function deserialize(message: ProtoMessage): Type | undefined {
 }
 
 export function serialize(message: Messages): ProtoMessage | undefined {
-  if (message.payloadType === ProtoOAPayloadType.PROTO_OA_SYMBOLS_LIST_REQ) {
+  if (message.payloadType === ProtoOaPayloadType.PROTO_OA_SYMBOLS_LIST_REQ) {
     const pbf = new Pbf();
-    ProtoOASymbolsListReqUtils.write(message.payload, pbf);
+    ProtoOaSymbolsListReqUtils.write(message.payload, pbf);
     return {
       ...message,
       payload: pbf.finish(),

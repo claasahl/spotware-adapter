@@ -1,22 +1,22 @@
 import Pbf from "pbf";
 import {
   ProtoMessage,
-  ProtoOAPayloadType,
-  ProtoOAGetCtidProfileByTokenResUtils,
-  ProtoOAGetCtidProfileByTokenRes,
+  ProtoOaPayloadType,
+  ProtoOaGetCtidProfileByTokenResUtils,
+  ProtoOaGetCtidProfileByTokenRes,
 } from "@claasahl/spotware-protobuf";
 
 import { Message } from "./Message";
 import { Messages } from "./";
 
 export type Type = Message<
-  ProtoOAGetCtidProfileByTokenRes,
-  ProtoOAPayloadType.PROTO_OA_GET_CTID_PROFILE_BY_TOKEN_RES
+  ProtoOaGetCtidProfileByTokenRes,
+  ProtoOaPayloadType.PROTO_OA_GET_CTID_PROFILE_BY_TOKEN_RES
 >;
 
 export function create(payload: Type["payload"], clientMsgId?: string): Type {
   return {
-    payloadType: ProtoOAPayloadType.PROTO_OA_GET_CTID_PROFILE_BY_TOKEN_RES,
+    payloadType: ProtoOaPayloadType.PROTO_OA_GET_CTID_PROFILE_BY_TOKEN_RES,
     payload,
     clientMsgId,
   };
@@ -25,12 +25,12 @@ export function create(payload: Type["payload"], clientMsgId?: string): Type {
 export function deserialize(message: ProtoMessage): Type | undefined {
   if (
     message.payloadType ===
-    ProtoOAPayloadType.PROTO_OA_GET_CTID_PROFILE_BY_TOKEN_RES
+    ProtoOaPayloadType.PROTO_OA_GET_CTID_PROFILE_BY_TOKEN_RES
   ) {
     const pbf = new Pbf(message.payload);
     return {
-      payloadType: ProtoOAPayloadType.PROTO_OA_GET_CTID_PROFILE_BY_TOKEN_RES,
-      payload: ProtoOAGetCtidProfileByTokenResUtils.read(pbf),
+      payloadType: ProtoOaPayloadType.PROTO_OA_GET_CTID_PROFILE_BY_TOKEN_RES,
+      payload: ProtoOaGetCtidProfileByTokenResUtils.read(pbf),
       clientMsgId: message.clientMsgId,
     };
   }
@@ -40,10 +40,10 @@ export function deserialize(message: ProtoMessage): Type | undefined {
 export function serialize(message: Messages): ProtoMessage | undefined {
   if (
     message.payloadType ===
-    ProtoOAPayloadType.PROTO_OA_GET_CTID_PROFILE_BY_TOKEN_RES
+    ProtoOaPayloadType.PROTO_OA_GET_CTID_PROFILE_BY_TOKEN_RES
   ) {
     const pbf = new Pbf();
-    ProtoOAGetCtidProfileByTokenResUtils.write(message.payload, pbf);
+    ProtoOaGetCtidProfileByTokenResUtils.write(message.payload, pbf);
     return {
       ...message,
       payload: pbf.finish(),

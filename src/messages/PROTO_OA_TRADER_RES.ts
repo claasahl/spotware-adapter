@@ -1,33 +1,33 @@
 import Pbf from "pbf";
 import {
   ProtoMessage,
-  ProtoOAPayloadType,
-  ProtoOATraderResUtils,
-  ProtoOATraderRes,
+  ProtoOaPayloadType,
+  ProtoOaTraderResUtils,
+  ProtoOaTraderRes,
 } from "@claasahl/spotware-protobuf";
 
 import { Message } from "./Message";
 import { Messages } from "./";
 
 export type Type = Message<
-  ProtoOATraderRes,
-  ProtoOAPayloadType.PROTO_OA_TRADER_RES
+  ProtoOaTraderRes,
+  ProtoOaPayloadType.PROTO_OA_TRADER_RES
 >;
 
 export function create(payload: Type["payload"], clientMsgId?: string): Type {
   return {
-    payloadType: ProtoOAPayloadType.PROTO_OA_TRADER_RES,
+    payloadType: ProtoOaPayloadType.PROTO_OA_TRADER_RES,
     payload,
     clientMsgId,
   };
 }
 
 export function deserialize(message: ProtoMessage): Type | undefined {
-  if (message.payloadType === ProtoOAPayloadType.PROTO_OA_TRADER_RES) {
+  if (message.payloadType === ProtoOaPayloadType.PROTO_OA_TRADER_RES) {
     const pbf = new Pbf(message.payload);
     return {
-      payloadType: ProtoOAPayloadType.PROTO_OA_TRADER_RES,
-      payload: ProtoOATraderResUtils.read(pbf),
+      payloadType: ProtoOaPayloadType.PROTO_OA_TRADER_RES,
+      payload: ProtoOaTraderResUtils.read(pbf),
       clientMsgId: message.clientMsgId,
     };
   }
@@ -35,9 +35,9 @@ export function deserialize(message: ProtoMessage): Type | undefined {
 }
 
 export function serialize(message: Messages): ProtoMessage | undefined {
-  if (message.payloadType === ProtoOAPayloadType.PROTO_OA_TRADER_RES) {
+  if (message.payloadType === ProtoOaPayloadType.PROTO_OA_TRADER_RES) {
     const pbf = new Pbf();
-    ProtoOATraderResUtils.write(message.payload, pbf);
+    ProtoOaTraderResUtils.write(message.payload, pbf);
     return {
       ...message,
       payload: pbf.finish(),

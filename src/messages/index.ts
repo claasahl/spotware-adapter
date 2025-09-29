@@ -252,7 +252,7 @@ export function deserialize(message: ProtoMessage): Messages {
     }
   }
   throw new Error(
-    `could not deserialize proto message of type ${message.payloadType}`
+    `could not deserialize proto message of type ${message.payloadType}`,
   );
 }
 
@@ -264,7 +264,7 @@ export function serialize(message: Messages): ProtoMessage {
     }
   }
   throw new Error(
-    `could not serialize proto message of type ${message.payloadType}`
+    `could not serialize proto message of type ${message.payloadType}`,
   );
 }
 

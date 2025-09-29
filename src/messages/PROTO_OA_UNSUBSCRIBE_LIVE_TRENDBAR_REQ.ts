@@ -1,22 +1,22 @@
 import Pbf from "pbf";
 import {
   ProtoMessage,
-  ProtoOAPayloadType,
-  ProtoOAUnsubscribeLiveTrendbarReqUtils,
-  ProtoOAUnsubscribeLiveTrendbarReq,
+  ProtoOaPayloadType,
+  ProtoOaUnsubscribeLiveTrendbarReqUtils,
+  ProtoOaUnsubscribeLiveTrendbarReq,
 } from "@claasahl/spotware-protobuf";
 
 import { Message } from "./Message";
 import { Messages } from "./";
 
 export type Type = Message<
-  ProtoOAUnsubscribeLiveTrendbarReq,
-  ProtoOAPayloadType.PROTO_OA_UNSUBSCRIBE_LIVE_TRENDBAR_REQ
+  ProtoOaUnsubscribeLiveTrendbarReq,
+  ProtoOaPayloadType.PROTO_OA_UNSUBSCRIBE_LIVE_TRENDBAR_REQ
 >;
 
 export function create(payload: Type["payload"], clientMsgId?: string): Type {
   return {
-    payloadType: ProtoOAPayloadType.PROTO_OA_UNSUBSCRIBE_LIVE_TRENDBAR_REQ,
+    payloadType: ProtoOaPayloadType.PROTO_OA_UNSUBSCRIBE_LIVE_TRENDBAR_REQ,
     payload,
     clientMsgId,
   };
@@ -25,12 +25,12 @@ export function create(payload: Type["payload"], clientMsgId?: string): Type {
 export function deserialize(message: ProtoMessage): Type | undefined {
   if (
     message.payloadType ===
-    ProtoOAPayloadType.PROTO_OA_UNSUBSCRIBE_LIVE_TRENDBAR_REQ
+    ProtoOaPayloadType.PROTO_OA_UNSUBSCRIBE_LIVE_TRENDBAR_REQ
   ) {
     const pbf = new Pbf(message.payload);
     return {
-      payloadType: ProtoOAPayloadType.PROTO_OA_UNSUBSCRIBE_LIVE_TRENDBAR_REQ,
-      payload: ProtoOAUnsubscribeLiveTrendbarReqUtils.read(pbf),
+      payloadType: ProtoOaPayloadType.PROTO_OA_UNSUBSCRIBE_LIVE_TRENDBAR_REQ,
+      payload: ProtoOaUnsubscribeLiveTrendbarReqUtils.read(pbf),
       clientMsgId: message.clientMsgId,
     };
   }
@@ -40,10 +40,10 @@ export function deserialize(message: ProtoMessage): Type | undefined {
 export function serialize(message: Messages): ProtoMessage | undefined {
   if (
     message.payloadType ===
-    ProtoOAPayloadType.PROTO_OA_UNSUBSCRIBE_LIVE_TRENDBAR_REQ
+    ProtoOaPayloadType.PROTO_OA_UNSUBSCRIBE_LIVE_TRENDBAR_REQ
   ) {
     const pbf = new Pbf();
-    ProtoOAUnsubscribeLiveTrendbarReqUtils.write(message.payload, pbf);
+    ProtoOaUnsubscribeLiveTrendbarReqUtils.write(message.payload, pbf);
     return {
       ...message,
       payload: pbf.finish(),

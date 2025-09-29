@@ -1,33 +1,33 @@
 import Pbf from "pbf";
 import {
   ProtoMessage,
-  ProtoOAPayloadType,
-  ProtoOASymbolCategoryListReqUtils,
-  ProtoOASymbolCategoryListReq,
+  ProtoOaPayloadType,
+  ProtoOaSymbolCategoryReqUtils,
+  ProtoOaSymbolCategoryReq,
 } from "@claasahl/spotware-protobuf";
 
 import { Message } from "./Message";
 import { Messages } from "./";
 
 export type Type = Message<
-  ProtoOASymbolCategoryListReq,
-  ProtoOAPayloadType.PROTO_OA_SYMBOL_CATEGORY_REQ
+  ProtoOaSymbolCategoryReq,
+  ProtoOaPayloadType.PROTO_OA_SYMBOL_CATEGORY_REQ
 >;
 
 export function create(payload: Type["payload"], clientMsgId?: string): Type {
   return {
-    payloadType: ProtoOAPayloadType.PROTO_OA_SYMBOL_CATEGORY_REQ,
+    payloadType: ProtoOaPayloadType.PROTO_OA_SYMBOL_CATEGORY_REQ,
     payload,
     clientMsgId,
   };
 }
 
 export function deserialize(message: ProtoMessage): Type | undefined {
-  if (message.payloadType === ProtoOAPayloadType.PROTO_OA_SYMBOL_CATEGORY_REQ) {
+  if (message.payloadType === ProtoOaPayloadType.PROTO_OA_SYMBOL_CATEGORY_REQ) {
     const pbf = new Pbf(message.payload);
     return {
-      payloadType: ProtoOAPayloadType.PROTO_OA_SYMBOL_CATEGORY_REQ,
-      payload: ProtoOASymbolCategoryListReqUtils.read(pbf),
+      payloadType: ProtoOaPayloadType.PROTO_OA_SYMBOL_CATEGORY_REQ,
+      payload: ProtoOaSymbolCategoryReqUtils.read(pbf),
       clientMsgId: message.clientMsgId,
     };
   }
@@ -35,9 +35,9 @@ export function deserialize(message: ProtoMessage): Type | undefined {
 }
 
 export function serialize(message: Messages): ProtoMessage | undefined {
-  if (message.payloadType === ProtoOAPayloadType.PROTO_OA_SYMBOL_CATEGORY_REQ) {
+  if (message.payloadType === ProtoOaPayloadType.PROTO_OA_SYMBOL_CATEGORY_REQ) {
     const pbf = new Pbf();
-    ProtoOASymbolCategoryListReqUtils.write(message.payload, pbf);
+    ProtoOaSymbolCategoryReqUtils.write(message.payload, pbf);
     return {
       ...message,
       payload: pbf.finish(),

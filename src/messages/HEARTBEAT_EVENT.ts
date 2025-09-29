@@ -16,7 +16,7 @@ export type Type = Message<
 
 export function create(
   payload: Type["payload"] = {},
-  clientMsgId?: string
+  clientMsgId?: string,
 ): Type {
   return {
     payloadType: ProtoPayloadType.HEARTBEAT_EVENT,
