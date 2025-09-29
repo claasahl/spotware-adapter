@@ -5,6 +5,8 @@
   "main": "build/index.js",
   "private": false,
   "scripts": {
+    "compile": "ts-node src/compile.ts",
+    "postcompile": "prettier --write src/messages/*",
     "prepare": "npm run build",
     "build": "tsc",
     "pretest": "npm run build",
@@ -39,6 +41,7 @@
     "create-typescript-project-dependencies": "^13.0.3",
     "dotenv": "^17.2.2",
     "jest": "^26.6.3",
+    "prettier": "^3.6.2",
     "typescript": "^5.9.2"
   },
   "engines": {
