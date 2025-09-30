@@ -3,7 +3,7 @@ import {
   ProtoPayloadType,
 } from "@claasahl/spotware-protobuf";
 
-import { toPascalCase } from "../util";
+import { toPascalCase } from "./util";
 
 export function templateFile(
   payloadType: ProtoOaPayloadType | ProtoPayloadType,
