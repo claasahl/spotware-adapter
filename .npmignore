@@ -1,0 +1,6 @@
+build/generators/
+build/examples/
+src/generators/
+tsconfig.json
+.github/
+.vscode/
