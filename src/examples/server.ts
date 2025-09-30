@@ -1,5 +1,5 @@
 import { Server } from "net";
-import { SpotwareSocket, ProtoOAPayloadType, FACTORY } from "..";
+import { SpotwareSocket, ProtoOaPayloadType, FACTORY } from "..";
 
 const port = 5035;
 
@@ -13,7 +13,7 @@ const server = new Server((socket) => {
   s.on("data", (message) => {
     const { clientMsgId } = message;
     switch (message.payloadType) {
-      case ProtoOAPayloadType.PROTO_OA_VERSION_REQ:
+      case ProtoOaPayloadType.PROTO_OA_VERSION_REQ:
         s.write(FACTORY.PROTO_OA_VERSION_RES({ version: "00" }, clientMsgId));
         break;
       // ...

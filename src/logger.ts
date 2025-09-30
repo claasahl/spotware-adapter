@@ -1,7 +1,7 @@
 import debug from "debug";
 import {
   ProtoPayloadType,
-  ProtoOAPayloadType,
+  ProtoOaPayloadType,
 } from "@claasahl/spotware-protobuf";
 
 import { Messages } from "./messages";
@@ -39,7 +39,7 @@ export function logInput(msg: Messages) {
     payload: msg.payload,
     clientMsgId: msg.clientMsgId,
   });
-  const payloadTypeText = ProtoPayloadType[msg.payloadType] || ProtoOAPayloadType[msg.payloadType]; // prettier-ignore
+  const payloadTypeText = ProtoPayloadType[msg.payloadType] || ProtoOaPayloadType[msg.payloadType]; // prettier-ignore
   if (payloadTypeText) {
     getLogger(payloadTypeText)("%j", {
       payload: msg.payload,
@@ -63,7 +63,7 @@ export function logOutput(msg: Messages) {
     payload: msg.payload,
     clientMsgId: msg.clientMsgId,
   });
-  const payloadTypeText = ProtoPayloadType[msg.payloadType] || ProtoOAPayloadType[msg.payloadType]; // prettier-ignore
+  const payloadTypeText = ProtoPayloadType[msg.payloadType] || ProtoOaPayloadType[msg.payloadType]; // prettier-ignore
   if (payloadTypeText) {
     spotware.extend(payloadTypeText)("%j", {
       payload: msg.payload,

@@ -1,7 +1,7 @@
 import { Duplex } from "stream";
 import Pbf from "pbf";
 import {
-  ProtoOAPayloadType,
+  ProtoOaPayloadType,
   ProtoMessageUtils,
 } from "@claasahl/spotware-protobuf";
 
@@ -112,9 +112,9 @@ export class SpotwareClientSocket extends SpotwareSocket {
   ): void {
     // https://connect.spotware.com/docs/frequently-asked-questions
     switch (message.payloadType) {
-      case ProtoOAPayloadType.PROTO_OA_GET_TRENDBARS_REQ:
-      case ProtoOAPayloadType.PROTO_OA_GET_TICKDATA_REQ:
-      case ProtoOAPayloadType.PROTO_OA_DEAL_LIST_REQ:
+      case ProtoOaPayloadType.PROTO_OA_GET_TRENDBARS_REQ:
+      case ProtoOaPayloadType.PROTO_OA_GET_TICKDATA_REQ:
+      case ProtoOaPayloadType.PROTO_OA_DEAL_LIST_REQ:
         this.fivePerSecond.push(data, callback);
         break;
       default:

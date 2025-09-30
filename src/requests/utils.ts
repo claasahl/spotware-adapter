@@ -1,5 +1,5 @@
 import {
-  ProtoOAPayloadType,
+  ProtoOaPayloadType,
   ProtoPayloadType,
 } from "@claasahl/spotware-protobuf";
 import { randomUUID } from "crypto";
@@ -52,7 +52,7 @@ export function behest<REQ extends Messages, RES extends Messages>(
           case ProtoPayloadType.ERROR_RES:
             reject(error(message.payload));
             break;
-          case ProtoOAPayloadType.PROTO_OA_ERROR_RES:
+          case ProtoOaPayloadType.PROTO_OA_ERROR_RES:
             reject(error(message.payload));
             break;
           default:

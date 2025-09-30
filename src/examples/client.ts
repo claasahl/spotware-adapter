@@ -1,5 +1,5 @@
 import tls from "tls";
-import { SpotwareClientSocket, ProtoOAPayloadType, FACTORY } from "..";
+import { SpotwareClientSocket, ProtoOaPayloadType, FACTORY } from "..";
 
 const host = "demo.ctraderapi.com";
 const port = 5035;
@@ -13,7 +13,7 @@ socket.once("secureConnect", () => {
 const s = new SpotwareClientSocket(socket);
 s.on("data", (message) => {
   switch (message.payloadType) {
-    case ProtoOAPayloadType.PROTO_OA_VERSION_RES:
+    case ProtoOaPayloadType.PROTO_OA_VERSION_RES:
       console.log(`got response from ${host}:${port}`);
       console.log(`server version: ${message.payload.version}`);
       s.end();
