@@ -1,4 +1,4 @@
-import { ProtoOAPayloadType } from "@claasahl/spotware-protobuf";
+import { ProtoOaPayloadType } from "@claasahl/spotware-protobuf";
 import {
   FACTORY,
   PROTO_OA_MARGIN_CALL_UPDATE_REQ,
@@ -12,6 +12,6 @@ export const request = behest<
   PROTO_OA_MARGIN_CALL_UPDATE_RES
 >(
   FACTORY.PROTO_OA_MARGIN_CALL_UPDATE_REQ,
-  ProtoOAPayloadType.PROTO_OA_MARGIN_CALL_UPDATE_REQ,
-  ProtoOAPayloadType.PROTO_OA_MARGIN_CALL_UPDATE_RES,
+  ProtoOaPayloadType.PROTO_OA_MARGIN_CALL_UPDATE_REQ,
+  ProtoOaPayloadType.PROTO_OA_MARGIN_CALL_UPDATE_RES,
 );

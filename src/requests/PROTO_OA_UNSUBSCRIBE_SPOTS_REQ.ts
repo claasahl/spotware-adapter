@@ -1,4 +1,4 @@
-import { ProtoOAPayloadType } from "@claasahl/spotware-protobuf";
+import { ProtoOaPayloadType } from "@claasahl/spotware-protobuf";
 import {
   FACTORY,
   PROTO_OA_UNSUBSCRIBE_SPOTS_REQ,
@@ -12,6 +12,6 @@ export const request = behest<
   PROTO_OA_UNSUBSCRIBE_SPOTS_RES
 >(
   FACTORY.PROTO_OA_UNSUBSCRIBE_SPOTS_REQ,
-  ProtoOAPayloadType.PROTO_OA_UNSUBSCRIBE_SPOTS_REQ,
-  ProtoOAPayloadType.PROTO_OA_UNSUBSCRIBE_SPOTS_RES,
+  ProtoOaPayloadType.PROTO_OA_UNSUBSCRIBE_SPOTS_REQ,
+  ProtoOaPayloadType.PROTO_OA_UNSUBSCRIBE_SPOTS_RES,
 );

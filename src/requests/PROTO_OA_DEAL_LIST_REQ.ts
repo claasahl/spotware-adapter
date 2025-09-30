@@ -1,4 +1,4 @@
-import { ProtoOAPayloadType } from "@claasahl/spotware-protobuf";
+import { ProtoOaPayloadType } from "@claasahl/spotware-protobuf";
 import {
   FACTORY,
   PROTO_OA_DEAL_LIST_REQ,
@@ -9,6 +9,6 @@ import { behest } from "./utils";
 
 export const request = behest<PROTO_OA_DEAL_LIST_REQ, PROTO_OA_DEAL_LIST_RES>(
   FACTORY.PROTO_OA_DEAL_LIST_REQ,
-  ProtoOAPayloadType.PROTO_OA_DEAL_LIST_REQ,
-  ProtoOAPayloadType.PROTO_OA_DEAL_LIST_RES,
+  ProtoOaPayloadType.PROTO_OA_DEAL_LIST_REQ,
+  ProtoOaPayloadType.PROTO_OA_DEAL_LIST_RES,
 );
