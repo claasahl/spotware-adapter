@@ -13,5 +13,5 @@ export const request = behest<
 >(
   FACTORY.PROTO_OA_SYMBOLS_LIST_REQ,
   ProtoOAPayloadType.PROTO_OA_SYMBOLS_LIST_REQ,
-  ProtoOAPayloadType.PROTO_OA_SYMBOLS_LIST_RES
+  ProtoOAPayloadType.PROTO_OA_SYMBOLS_LIST_RES,
 );

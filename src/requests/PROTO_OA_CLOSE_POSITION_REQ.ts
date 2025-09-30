@@ -13,5 +13,5 @@ export const request = behest<
 >(
   FACTORY.PROTO_OA_CLOSE_POSITION_REQ,
   ProtoOAPayloadType.PROTO_OA_CLOSE_POSITION_REQ,
-  ProtoOAPayloadType.PROTO_OA_EXECUTION_EVENT
+  ProtoOAPayloadType.PROTO_OA_EXECUTION_EVENT,
 );

@@ -13,5 +13,5 @@ export const request = behest<
 >(
   FACTORY.PROTO_OA_AMEND_POSITION_SLTP_REQ,
   ProtoOAPayloadType.PROTO_OA_AMEND_POSITION_SLTP_REQ,
-  ProtoOAPayloadType.PROTO_OA_EXECUTION_EVENT
+  ProtoOAPayloadType.PROTO_OA_EXECUTION_EVENT,
 );

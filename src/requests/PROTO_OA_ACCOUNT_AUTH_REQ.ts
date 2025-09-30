@@ -13,5 +13,5 @@ export const request = behest<
 >(
   FACTORY.PROTO_OA_ACCOUNT_AUTH_REQ,
   ProtoOAPayloadType.PROTO_OA_ACCOUNT_AUTH_REQ,
-  ProtoOAPayloadType.PROTO_OA_ACCOUNT_AUTH_RES
+  ProtoOAPayloadType.PROTO_OA_ACCOUNT_AUTH_RES,
 );

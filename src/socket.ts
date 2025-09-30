@@ -119,7 +119,7 @@ export class SpotwareSocket extends Duplex {
     options: Omit<
       DuplexOptions,
       "objectMode" | "autoDestroy" | "allowHalfOpen"
-    > = {}
+    > = {},
   ) {
     super({
       ...options,
@@ -198,7 +198,7 @@ export class SpotwareSocket extends Duplex {
   _write(
     message: Messages,
     _encoding: string,
-    callback: (error?: Error | null) => void
+    callback: (error?: Error | null) => void,
   ): void {
     const protoMessage = serialize(message);
     const pbf = new Pbf();

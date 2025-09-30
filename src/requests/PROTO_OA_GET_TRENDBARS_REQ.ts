@@ -13,5 +13,5 @@ export const request = behest<
 >(
   FACTORY.PROTO_OA_GET_TRENDBARS_REQ,
   ProtoOAPayloadType.PROTO_OA_GET_TRENDBARS_REQ,
-  ProtoOAPayloadType.PROTO_OA_GET_TRENDBARS_RES
+  ProtoOAPayloadType.PROTO_OA_GET_TRENDBARS_RES,
 );

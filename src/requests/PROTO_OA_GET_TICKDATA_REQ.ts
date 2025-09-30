@@ -13,5 +13,5 @@ export const request = behest<
 >(
   FACTORY.PROTO_OA_GET_TICKDATA_REQ,
   ProtoOAPayloadType.PROTO_OA_GET_TICKDATA_REQ,
-  ProtoOAPayloadType.PROTO_OA_GET_TICKDATA_RES
+  ProtoOAPayloadType.PROTO_OA_GET_TICKDATA_RES,
 );

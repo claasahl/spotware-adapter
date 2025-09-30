@@ -13,5 +13,5 @@ export const request = behest<
 >(
   FACTORY.PROTO_OA_REFRESH_TOKEN_REQ,
   ProtoOAPayloadType.PROTO_OA_REFRESH_TOKEN_REQ,
-  ProtoOAPayloadType.PROTO_OA_REFRESH_TOKEN_RES
+  ProtoOAPayloadType.PROTO_OA_REFRESH_TOKEN_RES,
 );

@@ -72,22 +72,22 @@ export class SpotwareClientSocket extends SpotwareSocket {
     super(socket);
     this.fivePerSecond = new ThrottledQueue(
       FIVE_PER_SECOND,
-      socket.write.bind(socket)
+      socket.write.bind(socket),
     );
     this.fiftyPerSecond = new ThrottledQueue(
       FIFTY_PER_SECOND,
-      socket.write.bind(socket)
+      socket.write.bind(socket),
     );
     this.heartbeats = setInterval(
       () => this.write(FACTORY.HEARTBEAT_EVENT()),
-      10000
+      10000,
     ); // https://connect.spotware.com/docs/frequently-asked-questions
   }
 
   _write(
     message: Messages,
     _encoding: string,
-    callback: (error?: Error | null) => void
+    callback: (error?: Error | null) => void,
   ): void {
     const protoMessage = serialize(message);
     const pbf = new Pbf();
@@ -108,7 +108,7 @@ export class SpotwareClientSocket extends SpotwareSocket {
   private queue(
     message: Messages,
     data: Buffer,
-    callback: (error?: Error | null) => void
+    callback: (error?: Error | null) => void,
   ): void {
     // https://connect.spotware.com/docs/frequently-asked-questions
     switch (message.payloadType) {

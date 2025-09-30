@@ -8,7 +8,7 @@ import { Messages, PROTO_OA_ERROR_RES, ERROR_RES } from "../messages";
 import { SpotwareClientSocket } from "../client";
 
 export function error(
-  message: PROTO_OA_ERROR_RES["payload"] | ERROR_RES["payload"]
+  message: PROTO_OA_ERROR_RES["payload"] | ERROR_RES["payload"],
 ): Error {
   const parts: string[] = [];
   if (message.description) {
@@ -28,13 +28,13 @@ export function error(
 
 export type BEHEST<REQ extends Messages, RES extends Messages> = (
   socket: SpotwareClientSocket,
-  request: REQ["payload"]
+  request: REQ["payload"],
 ) => Promise<RES["payload"]>;
 
 export function behest<REQ extends Messages, RES extends Messages>(
   builder: (payload: REQ["payload"], clientMsgId?: string) => REQ,
   _requestType: REQ["payloadType"],
-  responseType: RES["payloadType"]
+  responseType: RES["payloadType"],
 ): BEHEST<REQ, RES> {
   return async (socket, request) => {
     return await new Promise<RES["payload"]>((resolve, reject) => {
