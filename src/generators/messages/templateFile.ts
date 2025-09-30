@@ -1,14 +1,21 @@
-import { ProtoOaPayloadType } from "@claasahl/spotware-protobuf";
+import {
+  ProtoOaPayloadType,
+  ProtoPayloadType,
+} from "@claasahl/spotware-protobuf";
 
 import { toPascalCase } from "../util";
 
-export function templateFile(payloadType: ProtoOaPayloadType): string {
+export function templateFile(
+  payloadType: ProtoOaPayloadType | ProtoPayloadType,
+  protoPayloadType: "ProtoOaPayloadType" | "ProtoPayloadType",
+): string {
   const pascalCasePayloadType = toPascalCase(payloadType);
-  const original = ProtoOaPayloadType[payloadType];
+  const original =
+    ProtoOaPayloadType[payloadType] || ProtoPayloadType[payloadType];
   return `import Pbf from "pbf";
 import {
     ProtoMessage,
-    ProtoOaPayloadType,
+    ${protoPayloadType},
     ${pascalCasePayloadType}Utils,
     ${pascalCasePayloadType},
 } from "@claasahl/spotware-protobuf";
@@ -18,22 +25,22 @@ import { Messages } from "./";
 
 export type Type = Message<
     ${pascalCasePayloadType},
-    ProtoOaPayloadType.${original}
+    ${protoPayloadType}.${original}
 >;
 
 export function create(payload: Type["payload"], clientMsgId?: string): Type {
     return {
-    payloadType: ProtoOaPayloadType.${original},
+    payloadType: ${protoPayloadType}.${original},
     payload,
     clientMsgId,
     };
 }
 
 export function deserialize(message: ProtoMessage): Type | undefined {
-    if (message.payloadType === ProtoOaPayloadType.${original}) {
+    if (message.payloadType === ${protoPayloadType}.${original}) {
     const pbf = new Pbf(message.payload);
     return {
-        payloadType: ProtoOaPayloadType.${original},
+        payloadType: ${protoPayloadType}.${original},
         payload: ${pascalCasePayloadType}Utils.read(pbf),
         clientMsgId: message.clientMsgId,
     };
@@ -42,7 +49,7 @@ export function deserialize(message: ProtoMessage): Type | undefined {
 }
 
 export function serialize(message: Messages): ProtoMessage | undefined {
-    if (message.payloadType === ProtoOaPayloadType.${original}) {
+    if (message.payloadType === ${protoPayloadType}.${original}) {
     const pbf = new Pbf();
     ${pascalCasePayloadType}Utils.write(message.payload, pbf);
     return {

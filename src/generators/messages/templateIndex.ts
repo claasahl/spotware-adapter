@@ -1,9 +1,17 @@
-import { ProtoOaPayloadType } from "@claasahl/spotware-protobuf";
+import {
+  ProtoOaPayloadType,
+  ProtoPayloadType,
+} from "@claasahl/spotware-protobuf";
 
 export function templateIndex(): string {
-  const payloadTypes = Object.values(ProtoOaPayloadType)
-    .filter((payloadType) => typeof payloadType === "number")
-    .map((payloadType) => ProtoOaPayloadType[payloadType]);
+  const payloadTypes = [
+    ...Object.values(ProtoPayloadType)
+      .filter((payloadType) => typeof payloadType === "number")
+      .map((payloadType) => ProtoPayloadType[payloadType]),
+    ...Object.values(ProtoOaPayloadType)
+      .filter((payloadType) => typeof payloadType === "number")
+      .map((payloadType) => ProtoOaPayloadType[payloadType]),
+  ];
 
   const exports = payloadTypes.map(
     (payloadType) =>
