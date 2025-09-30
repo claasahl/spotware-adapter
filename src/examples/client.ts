@@ -7,7 +7,7 @@ const port = 5035;
 const socket = tls.connect(port, host);
 socket.once("secureConnect", () => {
   console.log(`requesting version number from ${host}:${port}`);
-  s.write(FACTORY.PROTO_OA_VERSION_REQ());
+  s.write(FACTORY.PROTO_OA_VERSION_REQ({}));
 });
 
 const s = new SpotwareClientSocket(socket);

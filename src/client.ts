@@ -79,7 +79,7 @@ export class SpotwareClientSocket extends SpotwareSocket {
       socket.write.bind(socket),
     );
     this.heartbeats = setInterval(
-      () => this.write(FACTORY.HEARTBEAT_EVENT()),
+      () => this.write(FACTORY.HEARTBEAT_EVENT({})),
       10000,
     ); // https://connect.spotware.com/docs/frequently-asked-questions
   }
