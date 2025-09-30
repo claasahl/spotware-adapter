@@ -1,4 +1,4 @@
-import { ProtoOAPayloadType } from "@claasahl/spotware-protobuf";
+import { ProtoOaPayloadType } from "@claasahl/spotware-protobuf";
 import {
   FACTORY,
   PROTO_OA_CANCEL_ORDER_REQ,
@@ -12,6 +12,6 @@ export const request = behest<
   PROTO_OA_EXECUTION_EVENT
 >(
   FACTORY.PROTO_OA_CANCEL_ORDER_REQ,
-  ProtoOAPayloadType.PROTO_OA_CANCEL_ORDER_REQ,
-  ProtoOAPayloadType.PROTO_OA_EXECUTION_EVENT,
+  ProtoOaPayloadType.PROTO_OA_CANCEL_ORDER_REQ,
+  ProtoOaPayloadType.PROTO_OA_EXECUTION_EVENT,
 );
