@@ -1,16 +1,10 @@
 import { ProtoOaPayloadType } from "@claasahl/spotware-protobuf";
-import * as fs from "fs/promises";
 
-function toPascalCase(input: string): string {
-  return input
-    .toLowerCase()
-    .split("_")
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-    .join("");
-}
+import { toPascalCase } from "../util";
 
-function messageTemplate(payloadType: string): string {
+export function templateFile(payloadType: ProtoOaPayloadType): string {
   const pascalCasePayloadType = toPascalCase(payloadType);
+  const original = ProtoOaPayloadType[payloadType];
   return `import Pbf from "pbf";
 import {
     ProtoMessage,
@@ -24,22 +18,22 @@ import { Messages } from "./";
 
 export type Type = Message<
     ${pascalCasePayloadType},
-    ProtoOaPayloadType.${payloadType}
+    ProtoOaPayloadType.${original}
 >;
 
 export function create(payload: Type["payload"], clientMsgId?: string): Type {
     return {
-    payloadType: ProtoOaPayloadType.${payloadType},
+    payloadType: ProtoOaPayloadType.${original},
     payload,
     clientMsgId,
     };
 }
 
 export function deserialize(message: ProtoMessage): Type | undefined {
-    if (message.payloadType === ProtoOaPayloadType.${payloadType}) {
+    if (message.payloadType === ProtoOaPayloadType.${original}) {
     const pbf = new Pbf(message.payload);
     return {
-        payloadType: ProtoOaPayloadType.${payloadType},
+        payloadType: ProtoOaPayloadType.${original},
         payload: ${pascalCasePayloadType}Utils.read(pbf),
         clientMsgId: message.clientMsgId,
     };
@@ -48,7 +42,7 @@ export function deserialize(message: ProtoMessage): Type | undefined {
 }
 
 export function serialize(message: Messages): ProtoMessage | undefined {
-    if (message.payloadType === ProtoOaPayloadType.${payloadType}) {
+    if (message.payloadType === ProtoOaPayloadType.${original}) {
     const pbf = new Pbf();
     ${pascalCasePayloadType}Utils.write(message.payload, pbf);
     return {
@@ -60,11 +54,3 @@ export function serialize(message: Messages): ProtoMessage | undefined {
 }
 `;
 }
-
-async function main() {
-  for (const key of Object.keys(ProtoOaPayloadType)) {
-    if (key.match(/\d/)) continue; // Skip numeric keys
-    await fs.writeFile(`src/messages/${key}.ts`, messageTemplate(key));
-  }
-}
-main().catch(console.error);
