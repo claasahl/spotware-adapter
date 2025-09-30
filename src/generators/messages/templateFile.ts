@@ -17,7 +17,7 @@ import {
     ProtoMessage,
     ${protoPayloadType},
     ${pascalCasePayloadType}Utils,
-    ${pascalCasePayloadType},
+    ${pascalCasePayloadType !== "ProtoMessage" ? pascalCasePayloadType : ""}
 } from "@claasahl/spotware-protobuf";
 
 import { Message } from "./Message";

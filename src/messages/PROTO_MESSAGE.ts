@@ -3,7 +3,6 @@ import {
   ProtoMessage,
   ProtoPayloadType,
   ProtoMessageUtils,
-  ProtoMessage,
 } from "@claasahl/spotware-protobuf";
 
 import { Message } from "./Message";
