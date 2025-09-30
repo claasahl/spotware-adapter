@@ -2,14 +2,14 @@ import Pbf from "pbf";
 import {
   ProtoMessage,
   ProtoPayloadType,
-  ProtoErrorResUtils,
-  ProtoErrorRes,
+  ErrorResUtils,
+  ErrorRes,
 } from "@claasahl/spotware-protobuf";
 
 import { Message } from "./Message";
 import { Messages } from "./";
 
-export type Type = Message<ProtoErrorRes, ProtoPayloadType.ERROR_RES>;
+export type Type = Message<ErrorRes, ProtoPayloadType.ERROR_RES>;
 
 export function create(payload: Type["payload"], clientMsgId?: string): Type {
   return {
@@ -24,7 +24,7 @@ export function deserialize(message: ProtoMessage): Type | undefined {
     const pbf = new Pbf(message.payload);
     return {
       payloadType: ProtoPayloadType.ERROR_RES,
-      payload: ProtoErrorResUtils.read(pbf),
+      payload: ErrorResUtils.read(pbf),
       clientMsgId: message.clientMsgId,
     };
   }
@@ -34,7 +34,7 @@ export function deserialize(message: ProtoMessage): Type | undefined {
 export function serialize(message: Messages): ProtoMessage | undefined {
   if (message.payloadType === ProtoPayloadType.ERROR_RES) {
     const pbf = new Pbf();
-    ProtoErrorResUtils.write(message.payload, pbf);
+    ErrorResUtils.write(message.payload, pbf);
     return {
       ...message,
       payload: pbf.finish(),

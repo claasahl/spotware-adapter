@@ -2,22 +2,16 @@ import Pbf from "pbf";
 import {
   ProtoMessage,
   ProtoPayloadType,
-  ProtoHeartbeatEventUtils,
-  ProtoHeartbeatEvent,
+  HeartbeatEventUtils,
+  HeartbeatEvent,
 } from "@claasahl/spotware-protobuf";
 
 import { Message } from "./Message";
 import { Messages } from "./";
 
-export type Type = Message<
-  ProtoHeartbeatEvent,
-  ProtoPayloadType.HEARTBEAT_EVENT
->;
+export type Type = Message<HeartbeatEvent, ProtoPayloadType.HEARTBEAT_EVENT>;
 
-export function create(
-  payload: Type["payload"] = {},
-  clientMsgId?: string,
-): Type {
+export function create(payload: Type["payload"], clientMsgId?: string): Type {
   return {
     payloadType: ProtoPayloadType.HEARTBEAT_EVENT,
     payload,
@@ -30,7 +24,7 @@ export function deserialize(message: ProtoMessage): Type | undefined {
     const pbf = new Pbf(message.payload);
     return {
       payloadType: ProtoPayloadType.HEARTBEAT_EVENT,
-      payload: ProtoHeartbeatEventUtils.read(pbf),
+      payload: HeartbeatEventUtils.read(pbf),
       clientMsgId: message.clientMsgId,
     };
   }
@@ -40,7 +34,7 @@ export function deserialize(message: ProtoMessage): Type | undefined {
 export function serialize(message: Messages): ProtoMessage | undefined {
   if (message.payloadType === ProtoPayloadType.HEARTBEAT_EVENT) {
     const pbf = new Pbf();
-    ProtoHeartbeatEventUtils.write(message.payload, pbf);
+    HeartbeatEventUtils.write(message.payload, pbf);
     return {
       ...message,
       payload: pbf.finish(),
