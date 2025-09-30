@@ -5,8 +5,8 @@
   "main": "build/index.js",
   "private": false,
   "scripts": {
-    "compile": "ts-node src/compile.ts",
-    "postcompile": "prettier --write src/messages/*",
+    "generate": "ts-node src/generators/index.ts",
+    "postgenerate": "prettier --write src/",
     "prepare": "npm run build",
     "build": "tsc",
     "pretest": "npm run build",
