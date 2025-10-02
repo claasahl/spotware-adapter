@@ -54,8 +54,10 @@ export class Protocol {
   }
 
   /** Send a typed request */
-  send(msg: Messages) {
-    this.socket.write(encodeMessage(msg));
+  send(...messages: ReadonlyArray<Messages>) {
+    for (const message of messages) {
+      this.socket.write(encodeMessage(message));
+    }
   }
 
   /** Close connection */
