@@ -1,6 +1,8 @@
 import tls from "tls";
+
 import { ProtoOaPayloadType, FACTORY } from "..";
 import { Protocol } from "../protocol";
+import { Router } from "../router";
 
 const host = "demo.ctraderapi.com";
 const port = 5035;
@@ -12,6 +14,13 @@ socket.once("secureConnect", () => {
 });
 
 const protocol = new Protocol(socket);
+const router = new Router<undefined>();
+router.register(ProtoOaPayloadType.PROTO_OA_VERSION_RES, (message) => {
+  console.log(`got response from ${host}:${port}`);
+  console.log(`server version: ${message.payload.version}`);
+  protocol.close();
+  return [];
+});
 
 (async () => {
   // read typed messages
@@ -20,14 +29,7 @@ const protocol = new Protocol(socket);
       "Got:",
       ProtoOaPayloadType[message.payloadType] || message.payloadType,
     );
-
-    switch (message.payloadType) {
-      case ProtoOaPayloadType.PROTO_OA_VERSION_RES:
-        console.log(`got response from ${host}:${port}`);
-        console.log(`server version: ${message.payload.version}`);
-        protocol.close();
-        break;
-      // ...
-    }
+    const replies = await router.handle(message, undefined);
+    protocol.send(...replies);
   }
 })();

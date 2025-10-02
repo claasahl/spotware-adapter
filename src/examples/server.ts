@@ -1,6 +1,8 @@
 import { Server } from "net";
+
 import { ProtoOaPayloadType, FACTORY } from "..";
 import { Protocol } from "../protocol";
+import { Router } from "../router";
 
 const port = 5035;
 
@@ -10,6 +12,13 @@ const server = new Server((socket) => {
   console.log(`${source} connected`);
 
   const protocol = new Protocol(socket);
+  const router = new Router<undefined>();
+  router.register(ProtoOaPayloadType.PROTO_OA_VERSION_REQ, (message) => {
+    protocol.send(
+      FACTORY.PROTO_OA_VERSION_RES({ version: "00" }, message.clientMsgId),
+    );
+    return [];
+  });
   socket.on("error", (err) => console.log(source, err));
   socket.on("end", () => console.log(`${source} disconnected`));
   socket.on("close", () => console.log(`${source} closed`));
@@ -20,18 +29,8 @@ const server = new Server((socket) => {
         "Got:",
         ProtoOaPayloadType[message.payloadType] || message.payloadType,
       );
-
-      switch (message.payloadType) {
-        case ProtoOaPayloadType.PROTO_OA_VERSION_REQ:
-          protocol.send(
-            FACTORY.PROTO_OA_VERSION_RES(
-              { version: "00" },
-              message.clientMsgId,
-            ),
-          );
-          break;
-        // ...
-      }
+      const replies = await router.handle(message, undefined);
+      protocol.send(...replies);
     }
   })().catch((err) => {
     console.error("Protocol error:", err);
