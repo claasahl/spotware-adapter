@@ -12,7 +12,7 @@
     "pretest": "npm run build",
     "test": "jest",
     "server": "ts-node src/examples/server.ts",
-    "client": "ts-node src/examples/client.ts"
+    "client": "echo '-------------------' >> client.log && DEBUG=spotware:input:human,spotware:output:human ts-node src/examples/client.ts >> client.log 2>&1"
   },
   "keywords": [
     "spotware",

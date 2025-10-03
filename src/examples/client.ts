@@ -25,10 +25,6 @@ router.register(ProtoOaPayloadType.PROTO_OA_VERSION_RES, (message) => {
 (async () => {
   // read typed messages
   for await (const message of protocol.messages()) {
-    console.log(
-      "Got:",
-      ProtoOaPayloadType[message.payloadType] || message.payloadType,
-    );
     const replies = await router.handle(message, undefined);
     protocol.send(...replies);
   }

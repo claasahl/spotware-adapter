@@ -2,6 +2,7 @@ import { ProtoMessageUtils } from "@claasahl/spotware-protobuf";
 import net from "net";
 import Pbf from "pbf";
 import { Messages, deserialize, serialize } from "./messages";
+import { logInput, logOutput } from "./logger";
 
 // --------------------
 // Encoding / Decoding
@@ -47,6 +48,7 @@ export class Protocol {
       while (true) {
         const parsed = tryParseMessage(buffer);
         if (!parsed) break;
+        logInput(parsed.message);
         yield parsed.message;
         buffer = parsed.rest;
       }
@@ -56,6 +58,7 @@ export class Protocol {
   /** Send a typed request */
   send(...messages: ReadonlyArray<Messages>) {
     for (const message of messages) {
+      logOutput(message);
       this.socket.write(encodeMessage(message));
     }
   }
