@@ -55,7 +55,7 @@ export class Protocol {
     }
   }
 
-  /** Send a typed request */
+  /** Send typed requests */
   send(...messages: ReadonlyArray<Messages>) {
     for (const message of messages) {
       logOutput(message);

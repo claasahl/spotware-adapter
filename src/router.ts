@@ -4,9 +4,7 @@ import { Messages } from "./messages";
 export type MessageHandler<Context, Message extends Messages = Messages> = (
   message: Message,
   ctx: Context,
-) =>
-  | ReadonlyArray<Messages>
-  | Promise<ReadonlyArray<Messages>>;
+) => ReadonlyArray<Messages> | Promise<ReadonlyArray<Messages>>;
 
 // Extract specific message type by payloadType
 type MessageByPayloadType<T extends Messages["payloadType"]> = Extract<
@@ -15,7 +13,10 @@ type MessageByPayloadType<T extends Messages["payloadType"]> = Extract<
 >;
 
 export class Router<Context> {
-  private handlers = new Map<Messages["payloadType"], MessageHandler<Context>>();
+  private handlers = new Map<
+    Messages["payloadType"],
+    MessageHandler<Context>
+  >();
 
   register<T extends Messages["payloadType"]>(
     type: T,
